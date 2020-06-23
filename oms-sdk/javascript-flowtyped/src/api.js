@@ -1,7 +1,7 @@
 // @flow
 /* eslint-disable no-use-before-define */
 /**
- * OMS - REST API
+ * OMS - REST API .
  * OMS Project
  *
  * The version of the OpenAPI document: v1

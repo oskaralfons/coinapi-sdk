@@ -1,6 +1,6 @@
 =begin comment
 
-OMS - REST API
+OMS - REST API .
 
 OMS Project
 
@@ -54,7 +54,7 @@ has _cfg => ( is => 'ro',
 has version_info => ( is => 'ro',
                       isa => 'HashRef',
                       default => sub { {
-                          app_name => 'OMS - REST API',
+                          app_name => 'OMS - REST API .',
                           app_version => 'v1',
                           generator_class => 'org.openapitools.codegen.languages.PerlClientCodegen',
                       } },
@@ -111,9 +111,9 @@ sub _build_af {
 
 =head1 NAME
 
-WWW::OpenAPIClient::Role - a Moose role for the OMS - REST API
+WWW::OpenAPIClient::Role - a Moose role for the OMS - REST API .
 
-=head2 OMS - REST API version: v1
+=head2 OMS - REST API . version: v1
 
 =head1 VERSION
 

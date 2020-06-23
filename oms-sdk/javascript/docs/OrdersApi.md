@@ -22,7 +22,7 @@ Cancel all existing order.
 ### Example
 
 ```javascript
-import OmsRestApi from 'oms_rest_api';
+import OmsRestApi from 'oms_rest_api__';
 
 let apiInstance = new OmsRestApi.OrdersApi();
 let cancelAllOrder = new OmsRestApi.CancelAllOrder(); // CancelAllOrder | 
@@ -67,7 +67,7 @@ Cancel an existing order, can be used to cancel margin, exchange, and derivative
 ### Example
 
 ```javascript
-import OmsRestApi from 'oms_rest_api';
+import OmsRestApi from 'oms_rest_api__';
 
 let apiInstance = new OmsRestApi.OrdersApi();
 let cancelOrder = new OmsRestApi.CancelOrder(); // CancelOrder | 
@@ -112,7 +112,7 @@ List your current open orders.
 ### Example
 
 ```javascript
-import OmsRestApi from 'oms_rest_api';
+import OmsRestApi from 'oms_rest_api__';
 
 let apiInstance = new OmsRestApi.OrdersApi();
 let opts = {
@@ -159,7 +159,7 @@ You can place two types of orders: limit and market. Orders can only be placed i
 ### Example
 
 ```javascript
-import OmsRestApi from 'oms_rest_api';
+import OmsRestApi from 'oms_rest_api__';
 
 let apiInstance = new OmsRestApi.OrdersApi();
 let newOrder = new OmsRestApi.NewOrder(); // NewOrder | 

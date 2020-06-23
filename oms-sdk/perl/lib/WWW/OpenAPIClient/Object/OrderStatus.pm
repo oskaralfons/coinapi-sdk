@@ -1,6 +1,6 @@
 =begin comment
 
-OMS - REST API
+OMS - REST API .
 
 OMS Project
 
@@ -42,7 +42,7 @@ use base ("Class::Accessor", "Class::Data::Inheritable");
 
 =begin comment
 
-OMS - REST API
+OMS - REST API .
 
 OMS Project
 

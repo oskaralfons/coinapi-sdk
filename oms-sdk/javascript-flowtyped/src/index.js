@@ -1,6 +1,6 @@
 // @flow
 /**
- * OMS - REST API
+ * OMS - REST API .
  * OMS Project
  *
  * The version of the OpenAPI document: v1

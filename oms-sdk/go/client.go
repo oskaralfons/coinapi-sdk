@@ -1,5 +1,5 @@
 /*
- * OMS - REST API
+ * OMS - REST API .
  *
  * OMS Project
  *
@@ -40,7 +40,7 @@ var (
 	xmlCheck  = regexp.MustCompile(`(?i:(?:application|text)/xml)`)
 )
 
-// APIClient manages communication with the OMS - REST API API vv1
+// APIClient manages communication with the OMS - REST API . API vv1
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration

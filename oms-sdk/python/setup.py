@@ -1,7 +1,7 @@
 # coding: utf-8
 
 """
-    OMS - REST API
+    OMS - REST API .
 
     OMS Project  # noqa: E501
 
@@ -26,11 +26,11 @@ REQUIRES = ["urllib3 >= 1.15", "six >= 1.10", "certifi", "python-dateutil"]
 setup(
     name=NAME,
     version=VERSION,
-    description="OMS - REST API",
+    description="OMS - REST API .",
     author="MARMOT SOLUTIONS LTD",
     author_email="team@openapitools.org",
     url="",
-    keywords=["OpenAPI", "OpenAPI-Generator", "OMS - REST API"],
+    keywords=["OpenAPI", "OpenAPI-Generator", "OMS - REST API ."],
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,

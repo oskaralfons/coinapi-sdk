@@ -1,6 +1,6 @@
 # coding: utf-8
 """
-    OMS - REST API
+    OMS - REST API .
 
     OMS Project  # noqa: E501
 

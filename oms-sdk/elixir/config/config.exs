@@ -10,11 +10,11 @@ use Mix.Config
 
 # You can configure for your application as:
 #
-#     config :oms___rest_api, key: :value
+#     config :oms___rest_api_/, key: :value
 #
 # And access this configuration in your application as:
 #
-#     Application.get_env(:oms___rest_api, :key)
+#     Application.get_env(:oms___rest_api_/, :key)
 #
 # Or configure a 3rd-party app:
 #

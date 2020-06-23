@@ -1,4 +1,4 @@
-# Org.OpenAPITools - the PowerShell module for the OMS - REST API
+# Org.OpenAPITools - the PowerShell module for the OMS - REST API .
 
 OMS Project
 

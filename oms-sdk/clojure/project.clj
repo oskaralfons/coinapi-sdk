@@ -1,4 +1,4 @@
-(defproject oms-rest-api "v1"
+(defproject oms-rest-api-/ "v1"
   :description "OMS Project"
   :url "https://www.coinapi.io"
   :license {:name "Apache 2.0"

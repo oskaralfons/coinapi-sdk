@@ -1,5 +1,5 @@
 /*
- * OMS - REST API
+ * OMS - REST API .
  * OMS Project
  *
  * The version of the OpenAPI document: v1
@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * CreateOrder400
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-22T14:21:15.574Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-23T11:35:43.297Z[Etc/UTC]")
 public class CreateOrder400 {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)

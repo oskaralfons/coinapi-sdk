@@ -2,7 +2,7 @@
 
 # flake8: noqa
 """
-    OMS - REST API
+    OMS - REST API .
 
     OMS Project  # noqa: E501
 

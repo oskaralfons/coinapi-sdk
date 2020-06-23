@@ -21,7 +21,7 @@ else()
 	message (STATUS "OpenSSL Not found.")
 endif()
 
-set(pkgName "oms___rest_api")
+set(pkgName "oms___rest_api__")
 
 find_package(CURL 7.58.0 REQUIRED)
 if(CURL_FOUND)

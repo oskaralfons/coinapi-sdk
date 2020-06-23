@@ -1,6 +1,6 @@
 # openapi_client
 
-OpenapiClient - the Ruby gem for the OMS - REST API
+OpenapiClient - the Ruby gem for the OMS - REST API .
 
 OMS Project
 

@@ -2,7 +2,7 @@ PSTOPIC
     about_Org.OpenAPITools
 
 SHORT DESCRIPTION
-    Org.OpenAPITools - the PowerShell module for the OMS - REST API
+    Org.OpenAPITools - the PowerShell module for the OMS - REST API .
 
 LONG DESCRIPTION
     OMS Project

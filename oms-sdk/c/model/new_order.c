@@ -4,12 +4,12 @@
 #include "new_order.h"
 
 
-char* sidenew_order_ToString(oms___rest_api_new_order_SIDE_e side) {
+char* sidenew_order_ToString(oms___rest_api___new_order_SIDE_e side) {
     char* sideArray[] =  { "NULL", "BUY", "SELL" };
 	return sideArray[side];
 }
 
-oms___rest_api_new_order_SIDE_e sidenew_order_FromString(char* side){
+oms___rest_api___new_order_SIDE_e sidenew_order_FromString(char* side){
     int stringToReturn = 0;
     char *sideArray[] =  { "NULL", "BUY", "SELL" };
     size_t sizeofArray = sizeof(sideArray) / sizeof(sideArray[0]);
@@ -21,12 +21,12 @@ oms___rest_api_new_order_SIDE_e sidenew_order_FromString(char* side){
     }
     return 0;
 }
-char* order_typenew_order_ToString(oms___rest_api_new_order_ORDERTYPE_e order_type) {
+char* order_typenew_order_ToString(oms___rest_api___new_order_ORDERTYPE_e order_type) {
     char* order_typeArray[] =  { "NULL", "LIMIT" };
 	return order_typeArray[order_type];
 }
 
-oms___rest_api_new_order_ORDERTYPE_e order_typenew_order_FromString(char* order_type){
+oms___rest_api___new_order_ORDERTYPE_e order_typenew_order_FromString(char* order_type){
     int stringToReturn = 0;
     char *order_typeArray[] =  { "NULL", "LIMIT" };
     size_t sizeofArray = sizeof(order_typeArray) / sizeof(order_typeArray[0]);
@@ -38,12 +38,12 @@ oms___rest_api_new_order_ORDERTYPE_e order_typenew_order_FromString(char* order_
     }
     return 0;
 }
-char* time_in_forcenew_order_ToString(oms___rest_api_new_order__e time_in_force) {
+char* time_in_forcenew_order_ToString(oms___rest_api___new_order__e time_in_force) {
     char* time_in_forceArray[] =  { "NULL", "GOOD_TILL_CANCEL", "GOOD_TILL_TIME_EXCHANGE", "GOOD_TILL_TIME_OMS", "FILL_OR_KILL", "IMMEDIATE_OR_CANCEL", "AUCTION_ONLY", "INDICATION_OF_INTEREST" };
 	return time_in_forceArray[time_in_force];
 }
 
-oms___rest_api_new_order__e time_in_forcenew_order_FromString(char* time_in_force){
+oms___rest_api___new_order__e time_in_forcenew_order_FromString(char* time_in_force){
     int stringToReturn = 0;
     char *time_in_forceArray[] =  { "NULL", "GOOD_TILL_CANCEL", "GOOD_TILL_TIME_EXCHANGE", "GOOD_TILL_TIME_OMS", "FILL_OR_KILL", "IMMEDIATE_OR_CANCEL", "AUCTION_ONLY", "INDICATION_OF_INTEREST" };
     size_t sizeofArray = sizeof(time_in_forceArray) / sizeof(time_in_forceArray[0]);
@@ -55,12 +55,12 @@ oms___rest_api_new_order__e time_in_forcenew_order_FromString(char* time_in_forc
     }
     return 0;
 }
-char* exec_instnew_order_ToString(oms___rest_api_new_order_EXECINST_e exec_inst) {
+char* exec_instnew_order_ToString(oms___rest_api___new_order_EXECINST_e exec_inst) {
 	char *exec_instArray[] =  { "NULL", "MAKER_OR_CANCEL" };
 	return exec_instArray[exec_inst - 1];
 }
 
-oms___rest_api_new_order_EXECINST_e exec_instnew_order_FromString(char* exec_inst) {
+oms___rest_api___new_order_EXECINST_e exec_instnew_order_FromString(char* exec_inst) {
     int stringToReturn = 0;
     char *exec_instArray[] =  { "NULL", "MAKER_OR_CANCEL" };
     size_t sizeofArray = sizeof(exec_instArray) / sizeof(exec_instArray[0]);
@@ -80,8 +80,8 @@ new_order_t *new_order_create(
     char *symbol_coinapi,
     double amount_order,
     double price,
-    oms___rest_api_new_order_SIDE_e side,
-    oms___rest_api_new_order_ORDERTYPE_e order_type,
+    oms___rest_api___new_order_SIDE_e side,
+    oms___rest_api___new_order_ORDERTYPE_e order_type,
     list_t *exec_inst
     ) {
     new_order_t *new_order_local_var = malloc(sizeof(new_order_t));
@@ -283,7 +283,7 @@ new_order_t *new_order_parseFromJSON(cJSON *new_orderJSON){
 
     // new_order->side
     cJSON *side = cJSON_GetObjectItemCaseSensitive(new_orderJSON, "side");
-    oms___rest_api_new_order_SIDE_e sideVariable;
+    oms___rest_api___new_order_SIDE_e sideVariable;
     if (side) { 
     if(!cJSON_IsString(side))
     {
@@ -294,7 +294,7 @@ new_order_t *new_order_parseFromJSON(cJSON *new_orderJSON){
 
     // new_order->order_type
     cJSON *order_type = cJSON_GetObjectItemCaseSensitive(new_orderJSON, "order_type");
-    oms___rest_api_new_order_ORDERTYPE_e order_typeVariable;
+    oms___rest_api___new_order_ORDERTYPE_e order_typeVariable;
     if (order_type) { 
     if(!cJSON_IsString(order_type))
     {

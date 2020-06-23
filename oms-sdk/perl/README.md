@@ -1,6 +1,6 @@
 # NAME
 
-WWW::OpenAPIClient::Role - a Moose role for the OMS - REST API
+WWW::OpenAPIClient::Role - a Moose role for the OMS - REST API .
 
 OMS Project
 

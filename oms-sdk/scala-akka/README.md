@@ -1,6 +1,6 @@
 # openapi-client
 
-OMS - REST API
+OMS - REST API .
 - API version: v1
 
 OMS Project

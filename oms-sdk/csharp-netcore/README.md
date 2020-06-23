@@ -1,4 +1,4 @@
-# CoinAPI.OMS.API.SDK - the C# library for the OMS - REST API
+# CoinAPI.OMS.API.SDK - the C# library for the OMS - REST API .
 
 OMS Project
 

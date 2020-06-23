@@ -1,5 +1,5 @@
 /*
- * OMS - REST API
+ * OMS - REST API .
  * OMS Project
  *
  * The version of the OpenAPI document: v1
@@ -13,7 +13,7 @@
 
 package org.openapitools.client;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-22T14:21:15.574Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-23T11:35:43.297Z[Etc/UTC]")
 public class StringUtil {
   /**
    * Check if the given array contains the given value (with case-insensitive comparison).

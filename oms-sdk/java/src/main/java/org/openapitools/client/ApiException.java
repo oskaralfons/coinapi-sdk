@@ -1,5 +1,5 @@
 /*
- * OMS - REST API
+ * OMS - REST API .
  * OMS Project
  *
  * The version of the OpenAPI document: v1
@@ -16,7 +16,7 @@ package org.openapitools.client;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-22T14:21:15.574Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-06-23T11:35:43.297Z[Etc/UTC]")
 public class ApiException extends Exception {
     private int code = 0;
     private Map<String, List<String>> responseHeaders = null;

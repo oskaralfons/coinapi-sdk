@@ -1,4 +1,4 @@
---  OMS _ REST API
+--  OMS _ REST API .
 --  OMS Project
 --  ------------ EDIT NOTE ------------
 --  This file was generated with openapi-generator.  You can modify it to implement

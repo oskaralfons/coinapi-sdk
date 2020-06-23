@@ -4,12 +4,12 @@
 #include "order_data.h"
 
 
-char* statusorder_data_ToString(oms___rest_api_order_data__e status) {
+char* statusorder_data_ToString(oms___rest_api___order_data__e status) {
     char* statusArray[] =  { "NULL", "RECEIVED", "ROUTING", "ROUTED", "NEW", "PENDING_CANCEL", "PARTIALLY_FILLED", "FILLED", "CANCELED", "REJECTED" };
 	return statusArray[status];
 }
 
-oms___rest_api_order_data__e statusorder_data_FromString(char* status){
+oms___rest_api___order_data__e statusorder_data_FromString(char* status){
     int stringToReturn = 0;
     char *statusArray[] =  { "NULL", "RECEIVED", "ROUTING", "ROUTED", "NEW", "PENDING_CANCEL", "PARTIALLY_FILLED", "FILLED", "CANCELED", "REJECTED" };
     size_t sizeofArray = sizeof(statusArray) / sizeof(statusArray[0]);
@@ -21,12 +21,12 @@ oms___rest_api_order_data__e statusorder_data_FromString(char* status){
     }
     return 0;
 }
-char* sideorder_data_ToString(oms___rest_api_order_data_SIDE_e side) {
+char* sideorder_data_ToString(oms___rest_api___order_data_SIDE_e side) {
     char* sideArray[] =  { "NULL", "BUY", "SELL" };
 	return sideArray[side];
 }
 
-oms___rest_api_order_data_SIDE_e sideorder_data_FromString(char* side){
+oms___rest_api___order_data_SIDE_e sideorder_data_FromString(char* side){
     int stringToReturn = 0;
     char *sideArray[] =  { "NULL", "BUY", "SELL" };
     size_t sizeofArray = sizeof(sideArray) / sizeof(sideArray[0]);
@@ -38,12 +38,12 @@ oms___rest_api_order_data_SIDE_e sideorder_data_FromString(char* side){
     }
     return 0;
 }
-char* order_typeorder_data_ToString(oms___rest_api_order_data_ORDERTYPE_e order_type) {
+char* order_typeorder_data_ToString(oms___rest_api___order_data_ORDERTYPE_e order_type) {
     char* order_typeArray[] =  { "NULL", "LIMIT" };
 	return order_typeArray[order_type];
 }
 
-oms___rest_api_order_data_ORDERTYPE_e order_typeorder_data_FromString(char* order_type){
+oms___rest_api___order_data_ORDERTYPE_e order_typeorder_data_FromString(char* order_type){
     int stringToReturn = 0;
     char *order_typeArray[] =  { "NULL", "LIMIT" };
     size_t sizeofArray = sizeof(order_typeArray) / sizeof(order_typeArray[0]);
@@ -55,12 +55,12 @@ oms___rest_api_order_data_ORDERTYPE_e order_typeorder_data_FromString(char* orde
     }
     return 0;
 }
-char* time_in_forceorder_data_ToString(oms___rest_api_order_data__e time_in_force) {
+char* time_in_forceorder_data_ToString(oms___rest_api___order_data__e time_in_force) {
     char* time_in_forceArray[] =  { "NULL", "GOOD_TILL_CANCEL", "GOOD_TILL_TIME_EXCHANGE", "GOOD_TILL_TIME_OMS", "FILL_OR_KILL", "IMMEDIATE_OR_CANCEL", "AUCTION_ONLY", "INDICATION_OF_INTEREST" };
 	return time_in_forceArray[time_in_force];
 }
 
-oms___rest_api_order_data__e time_in_forceorder_data_FromString(char* time_in_force){
+oms___rest_api___order_data__e time_in_forceorder_data_FromString(char* time_in_force){
     int stringToReturn = 0;
     char *time_in_forceArray[] =  { "NULL", "GOOD_TILL_CANCEL", "GOOD_TILL_TIME_EXCHANGE", "GOOD_TILL_TIME_OMS", "FILL_OR_KILL", "IMMEDIATE_OR_CANCEL", "AUCTION_ONLY", "INDICATION_OF_INTEREST" };
     size_t sizeofArray = sizeof(time_in_forceArray) / sizeof(time_in_forceArray[0]);
@@ -72,12 +72,12 @@ oms___rest_api_order_data__e time_in_forceorder_data_FromString(char* time_in_fo
     }
     return 0;
 }
-char* exec_instorder_data_ToString(oms___rest_api_order_data_EXECINST_e exec_inst) {
+char* exec_instorder_data_ToString(oms___rest_api___order_data_EXECINST_e exec_inst) {
 	char *exec_instArray[] =  { "NULL", "MAKER_OR_CANCEL" };
 	return exec_instArray[exec_inst - 1];
 }
 
-oms___rest_api_order_data_EXECINST_e exec_instorder_data_FromString(char* exec_inst) {
+oms___rest_api___order_data_EXECINST_e exec_instorder_data_FromString(char* exec_inst) {
     int stringToReturn = 0;
     char *exec_instArray[] =  { "NULL", "MAKER_OR_CANCEL" };
     size_t sizeofArray = sizeof(exec_instArray) / sizeof(exec_instArray[0]);
@@ -104,8 +104,8 @@ order_data_t *order_data_create(
     char *symbol_coinapi,
     double amount_order,
     double price,
-    oms___rest_api_order_data_SIDE_e side,
-    oms___rest_api_order_data_ORDERTYPE_e order_type,
+    oms___rest_api___order_data_SIDE_e side,
+    oms___rest_api___order_data_ORDERTYPE_e order_type,
     list_t *exec_inst
     ) {
     order_data_t *order_data_local_var = malloc(sizeof(order_data_t));
@@ -462,7 +462,7 @@ order_data_t *order_data_parseFromJSON(cJSON *order_dataJSON){
 
     // order_data->side
     cJSON *side = cJSON_GetObjectItemCaseSensitive(order_dataJSON, "side");
-    oms___rest_api_order_data_SIDE_e sideVariable;
+    oms___rest_api___order_data_SIDE_e sideVariable;
     if (side) { 
     if(!cJSON_IsString(side))
     {
@@ -473,7 +473,7 @@ order_data_t *order_data_parseFromJSON(cJSON *order_dataJSON){
 
     // order_data->order_type
     cJSON *order_type = cJSON_GetObjectItemCaseSensitive(order_dataJSON, "order_type");
-    oms___rest_api_order_data_ORDERTYPE_e order_typeVariable;
+    oms___rest_api___order_data_ORDERTYPE_e order_typeVariable;
     if (order_type) { 
     if(!cJSON_IsString(order_type))
     {

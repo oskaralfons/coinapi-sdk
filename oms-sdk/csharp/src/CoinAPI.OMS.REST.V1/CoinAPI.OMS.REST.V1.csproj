@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-OMS - REST API
+OMS - REST API .
 
 OMS Project
 
@@ -12,7 +12,7 @@ The version of the OpenAPI document: v1
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B1C9C147-E83B-41F8-A781-E7EC3DA32A87}</ProjectGuid>
+    <ProjectGuid>{61A0F93C-ADA8-41A5-A19A-E0C1E5D4A05F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CoinAPI.OMS.REST.V1</RootNamespace>

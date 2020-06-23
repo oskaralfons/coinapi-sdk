@@ -55,10 +55,10 @@ $Manifest = @{
 
     Author = 'OpenAPI Generator Team'
     CompanyName = 'openapitools.org'
-    Description = 'Org.OpenAPITools - the PowerShell module for OMS - REST API'
+    Description = 'Org.OpenAPITools - the PowerShell module for OMS - REST API .'
 
     RootModule = 'Org.OpenAPITools.psm1'
-    Guid = '{435CB069-5B8B-44B1-80A0-38E3296EB975}' # Has to be static, otherwise each new build will be considered different module
+    Guid = '{4F296CB4-2FBC-4C35-BA17-972392EC3316}' # Has to be static, otherwise each new build will be considered different module
 
     PowerShellVersion = '3.0'
 

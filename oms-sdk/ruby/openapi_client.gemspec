@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 =begin
-#OMS - REST API
+#OMS - REST API .
 
 #OMS Project
 
@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.authors     = ["OpenAPI-Generator"]
   s.email       = [""]
   s.homepage    = "https://openapi-generator.tech"
-  s.summary     = "OMS - REST API Ruby Gem"
+  s.summary     = "OMS - REST API . Ruby Gem"
   s.description = "OMS Project"
   s.license     = "Unlicense"
   s.required_ruby_version = ">= 1.9"

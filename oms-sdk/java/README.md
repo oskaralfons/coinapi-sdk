@@ -1,8 +1,8 @@
 # openapi-java-client
 
-OMS - REST API
+OMS - REST API .
 - API version: v1
-  - Build date: 2020-06-22T14:21:15.574Z[Etc/UTC]
+  - Build date: 2020-06-23T11:35:43.297Z[Etc/UTC]
 
 OMS Project
 
