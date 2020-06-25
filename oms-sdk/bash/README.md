@@ -1,8 +1,8 @@
-# OMS - REST API Bash client
+# OMS - REST API . Bash client
 
 ## Overview
 
-This is a Bash client script for accessing OMS - REST API service.
+This is a Bash client script for accessing OMS - REST API . service.
 
 The script uses cURL underneath for making all REST calls.
 

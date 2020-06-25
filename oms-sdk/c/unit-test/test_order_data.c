@@ -28,7 +28,7 @@ order_data_t* instantiate_order_data(int include_optional) {
       "90832ASASAS89789-1112",
       0.22,
       0.0,
-      oms___rest_api_order_data__RECEIVED,
+      oms___rest_api___order_data__RECEIVED,
       list_create(),
       "{"result":"error","reason":"InsufficientFunds","message":"Failed to place buy order on symbol 'BTCUSD' for price $7,000.00 and quantity 0.22 BTC due to insufficient funds"}",
       "KPP-222389382-AQ",
@@ -36,9 +36,9 @@ order_data_t* instantiate_order_data(int include_optional) {
       "KRAKEN_SPOT_BTC_USD",
       0.045,
       0.0783,
-      oms___rest_api_order_data_SIDE_"BUY",
-      oms___rest_api_order_data_ORDERTYPE_"LIMIT",
-      oms___rest_api_order_data__GOOD_TILL_CANCEL,
+      oms___rest_api___order_data_SIDE_"BUY",
+      oms___rest_api___order_data_ORDERTYPE_"LIMIT",
+      oms___rest_api___order_data__GOOD_TILL_CANCEL,
       null,
       list_create()
     );
@@ -50,7 +50,7 @@ order_data_t* instantiate_order_data(int include_optional) {
       "90832ASASAS89789-1112",
       0.22,
       0.0,
-      oms___rest_api_order_data__RECEIVED,
+      oms___rest_api___order_data__RECEIVED,
       list_create(),
       "{"result":"error","reason":"InsufficientFunds","message":"Failed to place buy order on symbol 'BTCUSD' for price $7,000.00 and quantity 0.22 BTC due to insufficient funds"}",
       "KPP-222389382-AQ",
@@ -58,9 +58,9 @@ order_data_t* instantiate_order_data(int include_optional) {
       "KRAKEN_SPOT_BTC_USD",
       0.045,
       0.0783,
-      oms___rest_api_order_data_SIDE_"BUY",
-      oms___rest_api_order_data_ORDERTYPE_"LIMIT",
-      oms___rest_api_order_data__GOOD_TILL_CANCEL,
+      oms___rest_api___order_data_SIDE_"BUY",
+      oms___rest_api___order_data_ORDERTYPE_"LIMIT",
+      oms___rest_api___order_data__GOOD_TILL_CANCEL,
       null,
       list_create()
     );

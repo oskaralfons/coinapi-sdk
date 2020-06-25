@@ -19,7 +19,7 @@ Returns all of your positions.
 ### Example
 
 ```javascript
-import OmsRestApi from 'oms_rest_api';
+import OmsRestApi from 'oms_rest_api__';
 
 let apiInstance = new OmsRestApi.PositionsApi();
 let opts = {
