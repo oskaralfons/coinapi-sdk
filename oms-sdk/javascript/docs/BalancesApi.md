@@ -19,7 +19,7 @@ Returns all of your balances, including available balance.
 ### Example
 
 ```javascript
-import OmsRestApi from 'oms_rest_api__';
+import OmsRestApi from 'oms_rest_api';
 
 let apiInstance = new OmsRestApi.BalancesApi();
 let opts = {

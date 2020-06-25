@@ -12,8 +12,8 @@ import Test.Hspec.QuickCheck
 import PropMime
 import Instances ()
 
-import OMS-RESTAPI..Model
-import OMS-RESTAPI..MimeTypes
+import OMS-REST.Model
+import OMS-REST.MimeTypes
 
 main :: IO ()
 main =
