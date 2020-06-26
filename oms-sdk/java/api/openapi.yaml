@@ -14,7 +14,7 @@ info:
   license:
     name: Apache 2.0
     url: https://github.com/OAI/OpenAPI-Specification/blob/master/https://www.apache.org/licenses/LICENSE-2.0.html
-  title: OMS - REST API .
+  title: OMS - REST API
   version: v1
 servers:
 - url: http://localhost:3001

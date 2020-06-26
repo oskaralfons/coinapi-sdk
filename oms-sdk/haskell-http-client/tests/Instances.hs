@@ -2,8 +2,8 @@
 
 module Instances where
 
-import OMS-RESTAPI..Model
-import OMS-RESTAPI..Core
+import OMS-REST.Model
+import OMS-REST.Core
 
 import qualified Data.Aeson as A
 import qualified Data.ByteString.Lazy as BL
