@@ -2,7 +2,7 @@
 
 OMS - REST API
 - API version: v1
-  - Build date: 2020-06-26T18:24:54.675Z[Etc/UTC]
+  - Build date: 2020-06-30T12:37:39.164Z[Etc/UTC]
 
 Lorem2 Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 ###Lifecycle
@@ -90,7 +90,7 @@ import org.openapitools.client.api.BalancesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:3001");
+    defaultClient.setBasePath("http://localhost:8080/v1");
 
     BalancesApi apiInstance = new BalancesApi(defaultClient);
     String exchangeId = KRAKEN; // String | Exchange name
@@ -111,7 +111,7 @@ public class Example {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost:3001*
+All URIs are relative to *http://localhost:8080/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

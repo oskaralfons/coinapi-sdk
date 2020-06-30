@@ -32,9 +32,9 @@ class ApiClient {
         /**
          * The base URL against which to resolve every API call's (relative) path.
          * @type {String}
-         * @default http://localhost:3001
+         * @default http://localhost:8080/v1
          */
-        this.basePath = 'http://localhost:3001'.replace(/\/+$/, '');
+        this.basePath = 'http://localhost:8080/v1'.replace(/\/+$/, '');
 
         /**
          * The authentication methods to be included for all API calls.
@@ -553,8 +553,14 @@ class ApiClient {
     hostSettings() {
         return [
             {
-              'url': "http://localhost:3001",
+              'url': "{server}/v1",
               'description': "No description provided",
+              'variables': {
+                server: {
+                    'description': "No description provided",
+                    'default_value': "http://localhost:8080",
+                  }
+                }
             }
       ];
     }

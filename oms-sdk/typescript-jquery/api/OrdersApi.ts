@@ -20,7 +20,7 @@ import { Configuration } from '../configuration';
 
 
 export class OrdersApi {
-    protected basePath = 'http://localhost:3001';
+    protected basePath = 'http://localhost:8080/v1';
     public defaultHeaders: Array<string> = [];
     public defaultExtraJQueryAjaxSettings?: JQueryAjaxSettings = undefined;
     public configuration: Configuration = new Configuration();

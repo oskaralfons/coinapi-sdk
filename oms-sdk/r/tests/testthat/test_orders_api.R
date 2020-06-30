@@ -7,7 +7,7 @@ api.instance <- OrdersApi$new()
 
 test_that("V1OrdersCancelAllPost", {
   # tests for V1OrdersCancelAllPost
-  # base path: http://localhost:3001
+  # base path: http://localhost:8080/v1
   # Cancel all order
   # Cancel all existing order.
   # @param CancelAllOrder  cancel.all.order   
@@ -19,7 +19,7 @@ test_that("V1OrdersCancelAllPost", {
 
 test_that("V1OrdersCancelPost", {
   # tests for V1OrdersCancelPost
-  # base path: http://localhost:3001
+  # base path: http://localhost:8080/v1
   # Cancel order
   # Cancel an existing order, can be used to cancel margin, exchange, and derivative orders. You can cancel the order by the internal order ID or exchange order ID.
   # @param CancelOrder  cancel.order   
@@ -31,7 +31,7 @@ test_that("V1OrdersCancelPost", {
 
 test_that("V1OrdersGet", {
   # tests for V1OrdersGet
-  # base path: http://localhost:3001
+  # base path: http://localhost:8080/v1
   # Get orders
   # List your current open orders.
   # @param character  exchange.id  Exchange name  (optional)
@@ -43,7 +43,7 @@ test_that("V1OrdersGet", {
 
 test_that("V1OrdersPost", {
   # tests for V1OrdersPost
-  # base path: http://localhost:3001
+  # base path: http://localhost:8080/v1
   # Create new order
   # You can place two types of orders: limit and market. Orders can only be placed if your account has sufficient funds.
   # @param NewOrder  new.order   

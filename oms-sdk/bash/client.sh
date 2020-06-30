@@ -15,7 +15,7 @@
 # This is a Bash client for OMS - REST API.
 #
 # LICENSE:
-# https://github.com/OAI/OpenAPI-Specification/blob/master/https://www.apache.org/licenses/LICENSE-2.0.html
+# https://github.com/coinapi/coinapi-sdk/blob/master/LICENSE
 #
 # CONTACT:
 # 
@@ -534,7 +534,7 @@ print_about() {
     echo ""
     echo -e "${BOLD}${WHITE}OMS - REST API command line client (API version v1)${OFF}"
     echo ""
-    echo -e "License: Apache 2.0"
+    echo -e "License: MIT"
     echo -e "Contact: "
     echo ""
 read -r -d '' appdescription <<EOF
@@ -700,7 +700,7 @@ call_v1BalancesGet() {
     local query_parameter_names=(exchange_id)
     local path
 
-    if ! path=$(build_request_path "/v1/balances" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/v1/v1/balances" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -736,7 +736,7 @@ call_v1OrdersCancelAllPost() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/v1/orders/cancel/all" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/v1/v1/orders/cancel/all" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -814,7 +814,7 @@ call_v1OrdersCancelPost() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/v1/orders/cancel" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/v1/v1/orders/cancel" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -892,7 +892,7 @@ call_v1OrdersGet() {
     local query_parameter_names=(exchange_id)
     local path
 
-    if ! path=$(build_request_path "/v1/orders" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/v1/v1/orders" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -928,7 +928,7 @@ call_v1OrdersPost() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/v1/orders" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/v1/v1/orders" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -1006,7 +1006,7 @@ call_v1PositionsGet() {
     local query_parameter_names=(exchange_id)
     local path
 
-    if ! path=$(build_request_path "/v1/positions" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/v1/v1/positions" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi

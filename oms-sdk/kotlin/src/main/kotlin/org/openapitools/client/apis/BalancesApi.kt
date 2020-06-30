@@ -29,7 +29,7 @@ class BalancesApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePat
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty("org.openapitools.client.baseUrl", "http://localhost:3001")
+            System.getProperties().getProperty("org.openapitools.client.baseUrl", "http://localhost:8080/v1")
         }
     }
 

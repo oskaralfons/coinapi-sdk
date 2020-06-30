@@ -23,7 +23,7 @@ import Url.Builder as Url
 
 basePath : String
 basePath =
-    "http://localhost:3001"
+    "http://localhost:8080/v1"
 
 
 {-| Returns all of your balances, including available balance.

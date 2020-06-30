@@ -1,6 +1,6 @@
 # CoinAPI.OMS.API.SDK.Api.OrdersApi
 
-All URIs are relative to *http://localhost:3001*
+All URIs are relative to *http://localhost:8080/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -33,7 +33,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:3001";
+            config.BasePath = "http://localhost:8080/v1";
             var apiInstance = new OrdersApi(config);
             var cancelAllOrder = new CancelAllOrder(); // CancelAllOrder | 
 
@@ -103,7 +103,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:3001";
+            config.BasePath = "http://localhost:8080/v1";
             var apiInstance = new OrdersApi(config);
             var cancelOrder = new CancelOrder(); // CancelOrder | 
 
@@ -175,7 +175,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:3001";
+            config.BasePath = "http://localhost:8080/v1";
             var apiInstance = new OrdersApi(config);
             var exchangeId = KRAKEN;  // string | Exchange name (optional) 
 
@@ -245,7 +245,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:3001";
+            config.BasePath = "http://localhost:8080/v1";
             var apiInstance = new OrdersApi(config);
             var newOrder = new NewOrder(); // NewOrder | 
 

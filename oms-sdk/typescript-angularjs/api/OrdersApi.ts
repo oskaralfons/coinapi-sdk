@@ -15,7 +15,7 @@ import * as models from '../model/models';
 /* tslint:disable:no-unused-variable member-ordering */
 
 export class OrdersApi {
-    protected basePath = 'http://localhost:3001';
+    protected basePath = 'http://localhost:8080/v1';
     public defaultHeaders : any = {};
 
     static $inject: string[] = ['$http', '$httpParamSerializer', 'basePath'];

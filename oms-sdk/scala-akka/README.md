@@ -69,7 +69,7 @@ libraryDependencies += "org.openapitools" % "openapi-client" % "1.0.0"
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost:3001*
+All URIs are relative to *http://localhost:8080/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

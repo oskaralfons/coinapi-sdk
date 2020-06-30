@@ -25,7 +25,7 @@ class OAIPositionsApi : public QObject {
     Q_OBJECT
 
 public:
-    OAIPositionsApi(const QString &scheme = "http", const QString &host = "localhost", int port = 3001, const QString &basePath = "", const int timeOut = 0);
+    OAIPositionsApi(const QString &scheme = "http", const QString &host = "localhost", int port = 8080, const QString &basePath = "/v1", const int timeOut = 0);
     ~OAIPositionsApi();
 
     void setScheme(const QString &scheme);

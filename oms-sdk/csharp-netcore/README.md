@@ -80,7 +80,7 @@ namespace Example
         {
 
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:3001";
+            config.BasePath = "http://localhost:8080/v1";
             var apiInstance = new BalancesApi(config);
             var exchangeId = KRAKEN;  // string | Exchange name (optional) 
 
@@ -105,7 +105,7 @@ namespace Example
 <a name="documentation-for-api-endpoints"></a>
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost:3001*
+All URIs are relative to *http://localhost:8080/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

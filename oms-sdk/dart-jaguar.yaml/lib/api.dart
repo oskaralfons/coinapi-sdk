@@ -59,7 +59,7 @@ final _defaultInterceptors = [OAuthInterceptor(), BasicAuthInterceptor(), ApiKey
 
 class Openapi {
     List<Interceptor> interceptors;
-    String basePath = "http://localhost:3001";
+    String basePath = "http://localhost:8080/v1";
     Route _baseRoute;
     final Duration timeout;
 

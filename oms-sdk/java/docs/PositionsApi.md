@@ -1,6 +1,6 @@
 # PositionsApi
 
-All URIs are relative to *http://localhost:3001*
+All URIs are relative to *http://localhost:8080/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,7 +27,7 @@ import org.openapitools.client.api.PositionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:3001");
+    defaultClient.setBasePath("http://localhost:8080/v1");
 
     PositionsApi apiInstance = new PositionsApi(defaultClient);
     String exchangeId = KRAKEN; // String | Exchange name

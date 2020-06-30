@@ -91,7 +91,7 @@ instance P.Show OMS-RESTConfig where
 --
 -- configHost:
 --
--- @http://localhost:3001@
+-- @http://localhost:8080/v1@
 --
 -- configUserAgent:
 --
@@ -101,7 +101,7 @@ newConfig :: IO OMS-RESTConfig
 newConfig = do
     logCxt <- initLogContext
     return $ OMS-RESTConfig
-        { configHost = "http://localhost:3001"
+        { configHost = "http://localhost:8080/v1"
         , configUserAgent = "oms---rest/0.1.0.0"
         , configLogExecWithContext = runDefaultLogExecWithContext
         , configLogContext = logCxt

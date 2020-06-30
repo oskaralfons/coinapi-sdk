@@ -1,6 +1,6 @@
 # CoinAPI.OMS.REST.V1.Api.PositionsApi
 
-All URIs are relative to *http://localhost:3001*
+All URIs are relative to *http://localhost:8080/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -31,7 +31,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost:3001";
+            Configuration.Default.BasePath = "http://localhost:8080/v1";
             var apiInstance = new PositionsApi(Configuration.Default);
             var exchangeId = KRAKEN;  // string | Exchange name (optional) 
 

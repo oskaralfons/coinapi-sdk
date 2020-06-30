@@ -54,7 +54,7 @@ class Configuration(object):
 
     _default = None
 
-    def __init__(self, host="http://localhost:3001",
+    def __init__(self, host="http://localhost:8080/v1",
                  api_key=None, api_key_prefix=None,
                  username=None, password=None,
                  discard_unknown_keys=False,
@@ -335,8 +335,14 @@ class Configuration(object):
         """
         return [
             {
-                'url': "http://localhost:3001",
+                'url': "{server}/v1",
                 'description': "No description provided",
+                'variables': {
+                    'server': {
+                        'description': "No description provided",
+                        'default_value': "http://localhost:8080",
+                        }
+                    }
             }
         ]
 

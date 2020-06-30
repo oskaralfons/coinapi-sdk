@@ -1,6 +1,6 @@
 # BalancesApi
 
-All URIs are relative to *http://localhost:3001*
+All URIs are relative to *http://localhost:8080/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,7 +27,7 @@ import org.openapitools.client.api.BalancesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:3001");
+    defaultClient.setBasePath("http://localhost:8080/v1");
 
     BalancesApi apiInstance = new BalancesApi(defaultClient);
     String exchangeId = KRAKEN; // String | Exchange name

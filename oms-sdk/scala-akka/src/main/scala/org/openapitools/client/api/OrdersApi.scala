@@ -25,7 +25,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object OrdersApi {
 
-  def apply(baseUrl: String = "http://localhost:3001") = new OrdersApi(baseUrl)
+  def apply(baseUrl: String = "http://localhost:8080/v1") = new OrdersApi(baseUrl)
 }
 
 class OrdersApi(baseUrl: String) {

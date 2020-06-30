@@ -6,7 +6,7 @@ description:    .
                 .
                 host: localhost
                 .
-                base path: http://localhost:3001
+                base path: http://localhost:8080/v1
                 .
                 OMS - REST API API version: v1
                 .

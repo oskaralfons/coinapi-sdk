@@ -1,6 +1,6 @@
 # OrdersApi
 
-All URIs are relative to *http://localhost:3001*
+All URIs are relative to *http://localhost:8080/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -30,7 +30,7 @@ import org.openapitools.client.api.OrdersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:3001");
+    defaultClient.setBasePath("http://localhost:8080/v1");
 
     OrdersApi apiInstance = new OrdersApi(defaultClient);
     CancelAllOrder cancelAllOrder = new CancelAllOrder(); // CancelAllOrder | 
@@ -92,7 +92,7 @@ import org.openapitools.client.api.OrdersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:3001");
+    defaultClient.setBasePath("http://localhost:8080/v1");
 
     OrdersApi apiInstance = new OrdersApi(defaultClient);
     CancelOrder cancelOrder = new CancelOrder(); // CancelOrder | 
@@ -156,7 +156,7 @@ import org.openapitools.client.api.OrdersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:3001");
+    defaultClient.setBasePath("http://localhost:8080/v1");
 
     OrdersApi apiInstance = new OrdersApi(defaultClient);
     String exchangeId = KRAKEN; // String | Exchange name
@@ -218,7 +218,7 @@ import org.openapitools.client.api.OrdersApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:3001");
+    defaultClient.setBasePath("http://localhost:8080/v1");
 
     OrdersApi apiInstance = new OrdersApi(defaultClient);
     NewOrder newOrder = new NewOrder(); // NewOrder | 

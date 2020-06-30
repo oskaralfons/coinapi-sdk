@@ -4,7 +4,7 @@ import org.openapitools.api.ApiUtils
 import org.openapitools.model.Position
 
 class PositionsApi {
-    String basePath = "http://localhost:3001"
+    String basePath = "http://localhost:8080/v1"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 

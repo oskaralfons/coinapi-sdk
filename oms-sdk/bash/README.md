@@ -96,7 +96,7 @@ In Zsh, the generated `_` Zsh completion file must be copied to one of the folde
 
 ## Documentation for API Endpoints
 
-All URIs are relative to **
+All URIs are relative to */v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

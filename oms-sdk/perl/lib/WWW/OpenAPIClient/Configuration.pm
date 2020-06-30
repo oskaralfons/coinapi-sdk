@@ -84,7 +84,7 @@ String. The OAuth access token.
 
 String. The base URL of the API
 
-default: http://localhost:3001
+default: http://localhost:8080/v1
 
 =back
 
@@ -110,7 +110,7 @@ sub new {
     $p{access_token} //= '';
 
     # base_url
-    $p{base_url} //= 'http://localhost:3001';
+    $p{base_url} //= 'http://localhost:8080/v1';
 
     return bless \%p => $self;
 }

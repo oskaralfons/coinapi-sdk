@@ -1,6 +1,6 @@
 # BALANCES_API
 
-All URIs are relative to *http://localhost:3001*
+All URIs are relative to *http://localhost:8080/v1*
 
 Feature | HTTP request | Description
 ------------- | ------------- | -------------

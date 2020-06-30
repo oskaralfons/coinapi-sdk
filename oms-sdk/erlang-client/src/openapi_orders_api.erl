@@ -5,7 +5,7 @@
          v1_orders_get/1, v1_orders_get/2,
          v1_orders_post/2, v1_orders_post/3]).
 
--define(BASE_URL, "").
+-define(BASE_URL, "/v1").
 
 %% @doc Cancel all order
 %% Cancel all existing order.

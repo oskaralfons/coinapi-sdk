@@ -36,7 +36,7 @@ import { Configuration }                                     from '../configurat
 })
 export class OrdersService {
 
-    protected basePath = 'http://localhost:3001';
+    protected basePath = 'http://localhost:8080/v1';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
     public encoder: HttpParameterCodec;

@@ -34,7 +34,7 @@ local function new_balances_api(authority, basePath, schemes)
 	return setmetatable({
 		host = host;
 		port = port;
-		basePath = basePath or "http://localhost:3001";
+		basePath = basePath or "http://localhost:8080/v1";
 		schemes = schemes_map;
 		default_scheme = default_scheme;
 		http_username = nil;

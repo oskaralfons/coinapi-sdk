@@ -18,7 +18,7 @@ class ApiClient {
   final _regList = RegExp(r'^List<(.*)>$');
   final _regMap = RegExp(r'^Map<String,(.*)>$');
 
-  ApiClient({this.basePath = "http://localhost:3001"}) {
+  ApiClient({this.basePath = "http://localhost:8080/v1"}) {
   }
 
   void addDefaultHeader(String key, String value) {

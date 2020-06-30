@@ -34,7 +34,7 @@ feature {NONE} -- Initialization
 
 feature -- Access
 
-	default_base_path: STRING = "http://localhost:3001"
+	default_base_path: STRING = "http://localhost:8080/v1"
 			-- default base path.
 
 	base_path: STRING

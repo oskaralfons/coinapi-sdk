@@ -54,7 +54,7 @@ bool v1BalancesGetAsync(char * accessToken,
 
 	static std::string getBasePath()
 	{
-		return "http://localhost:3001";
+		return "http://localhost:8080/v1";
 	}
 };
 /** @}*/
