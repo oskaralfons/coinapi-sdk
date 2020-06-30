@@ -14,7 +14,7 @@ info:
   license:
     name: MIT
     url: https://github.com/coinapi/coinapi-sdk/blob/master/LICENSE
-  title: OMS - REST API
+  title: OEML - REST API
   version: v1
 servers:
 - url: '{server}/v1'

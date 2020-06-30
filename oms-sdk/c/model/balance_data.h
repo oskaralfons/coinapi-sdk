@@ -18,11 +18,11 @@ typedef struct balance_data_t balance_data_t;
 
 // Enum UPDATEORIGIN for balance_data
 
-typedef enum  { oms___rest_api_balance_data_UPDATEORIGIN_NULL = 0, oms___rest_api_balance_data_UPDATEORIGIN_INITIALIZATION, oms___rest_api_balance_data_UPDATEORIGIN_BALANCE_MANAGER, oms___rest_api_balance_data_UPDATEORIGIN_EXCHANGE } oms___rest_api_balance_data_UPDATEORIGIN_e;
+typedef enum  { oeml___rest_api_balance_data_UPDATEORIGIN_NULL = 0, oeml___rest_api_balance_data_UPDATEORIGIN_INITIALIZATION, oeml___rest_api_balance_data_UPDATEORIGIN_BALANCE_MANAGER, oeml___rest_api_balance_data_UPDATEORIGIN_EXCHANGE } oeml___rest_api_balance_data_UPDATEORIGIN_e;
 
-char* balance_data_update_origin_ToString(oms___rest_api_balance_data_UPDATEORIGIN_e update_origin);
+char* balance_data_update_origin_ToString(oeml___rest_api_balance_data_UPDATEORIGIN_e update_origin);
 
-oms___rest_api_balance_data_UPDATEORIGIN_e balance_data_update_origin_FromString(char* update_origin);
+oeml___rest_api_balance_data_UPDATEORIGIN_e balance_data_update_origin_FromString(char* update_origin);
 
 
 
@@ -33,7 +33,7 @@ typedef struct balance_data_t {
     float balance; //numeric
     float available; //numeric
     float locked; //numeric
-    oms___rest_api_balance_data_UPDATEORIGIN_e update_origin; //enum
+    oeml___rest_api_balance_data_UPDATEORIGIN_e update_origin; //enum
 
 } balance_data_t;
 
@@ -44,7 +44,7 @@ balance_data_t *balance_data_create(
     float balance,
     float available,
     float locked,
-    oms___rest_api_balance_data_UPDATEORIGIN_e update_origin
+    oeml___rest_api_balance_data_UPDATEORIGIN_e update_origin
 );
 
 void balance_data_free(balance_data_t *balance_data);

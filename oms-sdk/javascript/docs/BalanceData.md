@@ -1,4 +1,4 @@
-# OmsRestApi.BalanceData
+# OemlRestApi.BalanceData
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# OmsRestApi.OrderStatus
+# OemlRestApi.OrderStatus
 
 ## Enum
 

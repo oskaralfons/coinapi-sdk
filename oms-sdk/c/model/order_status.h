@@ -18,15 +18,15 @@ typedef struct order_status_t order_status_t;
 
 // Enum  for order_status
 
-typedef enum { oms___rest_api_order_status__NULL = 0, oms___rest_api_order_status__RECEIVED, oms___rest_api_order_status__ROUTING, oms___rest_api_order_status__ROUTED, oms___rest_api_order_status__NEW, oms___rest_api_order_status__PENDING_CANCEL, oms___rest_api_order_status__PARTIALLY_FILLED, oms___rest_api_order_status__FILLED, oms___rest_api_order_status__CANCELED, oms___rest_api_order_status__REJECTED } oms___rest_api_order_status__e;
+typedef enum { oeml___rest_api_order_status__NULL = 0, oeml___rest_api_order_status__RECEIVED, oeml___rest_api_order_status__ROUTING, oeml___rest_api_order_status__ROUTED, oeml___rest_api_order_status__NEW, oeml___rest_api_order_status__PENDING_CANCEL, oeml___rest_api_order_status__PARTIALLY_FILLED, oeml___rest_api_order_status__FILLED, oeml___rest_api_order_status__CANCELED, oeml___rest_api_order_status__REJECTED } oeml___rest_api_order_status__e;
 
-char* order_status_order_status_ToString(oms___rest_api_order_status__e order_status);
+char* order_status_order_status_ToString(oeml___rest_api_order_status__e order_status);
 
-oms___rest_api_order_status__e order_status_order_status_FromString(char* order_status);
+oeml___rest_api_order_status__e order_status_order_status_FromString(char* order_status);
 
-//cJSON *order_status_order_status_convertToJSON(oms___rest_api_order_status__e order_status);
+//cJSON *order_status_order_status_convertToJSON(oeml___rest_api_order_status__e order_status);
 
-//oms___rest_api_order_status__e order_status_order_status_parseFromJSON(cJSON *order_statusJSON);
+//oeml___rest_api_order_status__e order_status_order_status_parseFromJSON(cJSON *order_statusJSON);
 
 #endif /* _order_status_H_ */
 

@@ -1,4 +1,4 @@
-# OmsRestApi.CancelAllOrder
+# OemlRestApi.CancelAllOrder
 
 ## Properties
 

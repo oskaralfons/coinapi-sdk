@@ -28,9 +28,9 @@ new_order_t* instantiate_new_order(int include_optional) {
       "KRAKEN_SPOT_BTC_USD",
       0.045,
       0.0783,
-      oms___rest_api_new_order_SIDE_"BUY",
-      oms___rest_api_new_order_ORDERTYPE_"LIMIT",
-      oms___rest_api_new_order__GOOD_TILL_CANCEL,
+      oeml___rest_api_new_order_SIDE_"BUY",
+      oeml___rest_api_new_order_ORDERTYPE_"LIMIT",
+      oeml___rest_api_new_order__GOOD_TILL_CANCEL,
       null,
       list_create()
     );
@@ -42,9 +42,9 @@ new_order_t* instantiate_new_order(int include_optional) {
       "KRAKEN_SPOT_BTC_USD",
       0.045,
       0.0783,
-      oms___rest_api_new_order_SIDE_"BUY",
-      oms___rest_api_new_order_ORDERTYPE_"LIMIT",
-      oms___rest_api_new_order__GOOD_TILL_CANCEL,
+      oeml___rest_api_new_order_SIDE_"BUY",
+      oeml___rest_api_new_order_ORDERTYPE_"LIMIT",
+      oeml___rest_api_new_order__GOOD_TILL_CANCEL,
       null,
       list_create()
     );

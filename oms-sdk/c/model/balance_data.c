@@ -4,12 +4,12 @@
 #include "balance_data.h"
 
 
-char* update_originbalance_data_ToString(oms___rest_api_balance_data_UPDATEORIGIN_e update_origin) {
+char* update_originbalance_data_ToString(oeml___rest_api_balance_data_UPDATEORIGIN_e update_origin) {
     char* update_originArray[] =  { "NULL", "INITIALIZATION", "BALANCE_MANAGER", "EXCHANGE" };
 	return update_originArray[update_origin];
 }
 
-oms___rest_api_balance_data_UPDATEORIGIN_e update_originbalance_data_FromString(char* update_origin){
+oeml___rest_api_balance_data_UPDATEORIGIN_e update_originbalance_data_FromString(char* update_origin){
     int stringToReturn = 0;
     char *update_originArray[] =  { "NULL", "INITIALIZATION", "BALANCE_MANAGER", "EXCHANGE" };
     size_t sizeofArray = sizeof(update_originArray) / sizeof(update_originArray[0]);
@@ -29,7 +29,7 @@ balance_data_t *balance_data_create(
     float balance,
     float available,
     float locked,
-    oms___rest_api_balance_data_UPDATEORIGIN_e update_origin
+    oeml___rest_api_balance_data_UPDATEORIGIN_e update_origin
     ) {
     balance_data_t *balance_data_local_var = malloc(sizeof(balance_data_t));
     if (!balance_data_local_var) {
@@ -185,7 +185,7 @@ balance_data_t *balance_data_parseFromJSON(cJSON *balance_dataJSON){
 
     // balance_data->update_origin
     cJSON *update_origin = cJSON_GetObjectItemCaseSensitive(balance_dataJSON, "update_origin");
-    oms___rest_api_balance_data_UPDATEORIGIN_e update_originVariable;
+    oeml___rest_api_balance_data_UPDATEORIGIN_e update_originVariable;
     if (update_origin) { 
     if(!cJSON_IsString(update_origin))
     {

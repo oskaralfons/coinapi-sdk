@@ -1,4 +1,4 @@
-# OmsRestApi.MessagesInfo
+# OemlRestApi.MessagesInfo
 
 ## Properties
 

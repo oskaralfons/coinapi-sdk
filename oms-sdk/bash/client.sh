@@ -12,7 +12,7 @@
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 #
-# This is a Bash client for OMS - REST API.
+# This is a Bash client for OEML - REST API.
 #
 # LICENSE:
 # https://github.com/coinapi/coinapi-sdk/blob/master/LICENSE
@@ -456,7 +456,7 @@ build_request_path() {
 print_help() {
 cat <<EOF
 
-${BOLD}${WHITE}OMS - REST API command line client (API version v1)${OFF}
+${BOLD}${WHITE}OEML - REST API command line client (API version v1)${OFF}
 
 ${BOLD}${WHITE}Usage${OFF}
 
@@ -532,7 +532,7 @@ echo -e "              \\t\\t\\t\\t(e.g. 'https://localhost')"
 ##############################################################################
 print_about() {
     echo ""
-    echo -e "${BOLD}${WHITE}OMS - REST API command line client (API version v1)${OFF}"
+    echo -e "${BOLD}${WHITE}OEML - REST API command line client (API version v1)${OFF}"
     echo ""
     echo -e "License: MIT"
     echo -e "Contact: "
@@ -558,7 +558,7 @@ echo "$appdescription" | paste -sd' ' | fold -sw 80
 ##############################################################################
 print_version() {
     echo ""
-    echo -e "${BOLD}OMS - REST API command line client (API version v1)${OFF}"
+    echo -e "${BOLD}OEML - REST API command line client (API version v1)${OFF}"
     echo ""
 }
 

@@ -1,4 +1,4 @@
-# org.openapitools.client - Kotlin client library for OMS - REST API
+# org.openapitools.client - Kotlin client library for OEML - REST API
 
 ## Requires
 

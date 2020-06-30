@@ -1,4 +1,4 @@
-# OmsRestApi.PositionsApi
+# OemlRestApi.PositionsApi
 
 All URIs are relative to *http://localhost:8080/v1*
 
@@ -19,9 +19,9 @@ Returns all of your positions.
 ### Example
 
 ```javascript
-import OmsRestApi from 'oms_rest_api';
+import OemlRestApi from 'oeml_rest_api';
 
-let apiInstance = new OmsRestApi.PositionsApi();
+let apiInstance = new OemlRestApi.PositionsApi();
 let opts = {
   'exchangeId': KRAKEN // String | Exchange name
 };

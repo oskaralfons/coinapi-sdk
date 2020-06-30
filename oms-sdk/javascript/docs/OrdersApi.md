@@ -1,4 +1,4 @@
-# OmsRestApi.OrdersApi
+# OemlRestApi.OrdersApi
 
 All URIs are relative to *http://localhost:8080/v1*
 
@@ -22,10 +22,10 @@ Cancel all existing order.
 ### Example
 
 ```javascript
-import OmsRestApi from 'oms_rest_api';
+import OemlRestApi from 'oeml_rest_api';
 
-let apiInstance = new OmsRestApi.OrdersApi();
-let cancelAllOrder = new OmsRestApi.CancelAllOrder(); // CancelAllOrder | 
+let apiInstance = new OemlRestApi.OrdersApi();
+let cancelAllOrder = new OemlRestApi.CancelAllOrder(); // CancelAllOrder | 
 apiInstance.v1OrdersCancelAllPost(cancelAllOrder, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -67,10 +67,10 @@ Cancel an existing order, can be used to cancel margin, exchange, and derivative
 ### Example
 
 ```javascript
-import OmsRestApi from 'oms_rest_api';
+import OemlRestApi from 'oeml_rest_api';
 
-let apiInstance = new OmsRestApi.OrdersApi();
-let cancelOrder = new OmsRestApi.CancelOrder(); // CancelOrder | 
+let apiInstance = new OemlRestApi.OrdersApi();
+let cancelOrder = new OemlRestApi.CancelOrder(); // CancelOrder | 
 apiInstance.v1OrdersCancelPost(cancelOrder, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -112,9 +112,9 @@ List your current open orders.
 ### Example
 
 ```javascript
-import OmsRestApi from 'oms_rest_api';
+import OemlRestApi from 'oeml_rest_api';
 
-let apiInstance = new OmsRestApi.OrdersApi();
+let apiInstance = new OemlRestApi.OrdersApi();
 let opts = {
   'exchangeId': KRAKEN // String | Exchange name
 };
@@ -159,10 +159,10 @@ You can place two types of orders: limit and market. Orders can only be placed i
 ### Example
 
 ```javascript
-import OmsRestApi from 'oms_rest_api';
+import OemlRestApi from 'oeml_rest_api';
 
-let apiInstance = new OmsRestApi.OrdersApi();
-let newOrder = new OmsRestApi.NewOrder(); // NewOrder | 
+let apiInstance = new OemlRestApi.OrdersApi();
+let newOrder = new OemlRestApi.NewOrder(); // NewOrder | 
 apiInstance.v1OrdersPost(newOrder, (error, data, response) => {
   if (error) {
     console.error(error);

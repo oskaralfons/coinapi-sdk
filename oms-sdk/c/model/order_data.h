@@ -20,43 +20,43 @@ typedef struct order_data_t order_data_t;
 
 // Enum  for order_data
 
-typedef enum  { oms___rest_api_order_data__NULL = 0, oms___rest_api_order_data__RECEIVED, oms___rest_api_order_data__ROUTING, oms___rest_api_order_data__ROUTED, oms___rest_api_order_data__NEW, oms___rest_api_order_data__PENDING_CANCEL, oms___rest_api_order_data__PARTIALLY_FILLED, oms___rest_api_order_data__FILLED, oms___rest_api_order_data__CANCELED, oms___rest_api_order_data__REJECTED } oms___rest_api_order_data__e;
+typedef enum  { oeml___rest_api_order_data__NULL = 0, oeml___rest_api_order_data__RECEIVED, oeml___rest_api_order_data__ROUTING, oeml___rest_api_order_data__ROUTED, oeml___rest_api_order_data__NEW, oeml___rest_api_order_data__PENDING_CANCEL, oeml___rest_api_order_data__PARTIALLY_FILLED, oeml___rest_api_order_data__FILLED, oeml___rest_api_order_data__CANCELED, oeml___rest_api_order_data__REJECTED } oeml___rest_api_order_data__e;
 
-char* order_data_status_ToString(oms___rest_api_order_data__e status);
+char* order_data_status_ToString(oeml___rest_api_order_data__e status);
 
-oms___rest_api_order_data__e order_data_status_FromString(char* status);
+oeml___rest_api_order_data__e order_data_status_FromString(char* status);
 
 // Enum SIDE for order_data
 
-typedef enum  { oms___rest_api_order_data_SIDE_NULL = 0, oms___rest_api_order_data_SIDE_BUY, oms___rest_api_order_data_SIDE_SELL } oms___rest_api_order_data_SIDE_e;
+typedef enum  { oeml___rest_api_order_data_SIDE_NULL = 0, oeml___rest_api_order_data_SIDE_BUY, oeml___rest_api_order_data_SIDE_SELL } oeml___rest_api_order_data_SIDE_e;
 
-char* order_data_side_ToString(oms___rest_api_order_data_SIDE_e side);
+char* order_data_side_ToString(oeml___rest_api_order_data_SIDE_e side);
 
-oms___rest_api_order_data_SIDE_e order_data_side_FromString(char* side);
+oeml___rest_api_order_data_SIDE_e order_data_side_FromString(char* side);
 
 // Enum ORDERTYPE for order_data
 
-typedef enum  { oms___rest_api_order_data_ORDERTYPE_NULL = 0, oms___rest_api_order_data_ORDERTYPE_LIMIT } oms___rest_api_order_data_ORDERTYPE_e;
+typedef enum  { oeml___rest_api_order_data_ORDERTYPE_NULL = 0, oeml___rest_api_order_data_ORDERTYPE_LIMIT } oeml___rest_api_order_data_ORDERTYPE_e;
 
-char* order_data_order_type_ToString(oms___rest_api_order_data_ORDERTYPE_e order_type);
+char* order_data_order_type_ToString(oeml___rest_api_order_data_ORDERTYPE_e order_type);
 
-oms___rest_api_order_data_ORDERTYPE_e order_data_order_type_FromString(char* order_type);
+oeml___rest_api_order_data_ORDERTYPE_e order_data_order_type_FromString(char* order_type);
 
 // Enum  for order_data
 
-typedef enum  { oms___rest_api_order_data__NULL = 0, oms___rest_api_order_data__GOOD_TILL_CANCEL, oms___rest_api_order_data__GOOD_TILL_TIME_EXCHANGE, oms___rest_api_order_data__GOOD_TILL_TIME_OMS, oms___rest_api_order_data__FILL_OR_KILL, oms___rest_api_order_data__IMMEDIATE_OR_CANCEL, oms___rest_api_order_data__AUCTION_ONLY, oms___rest_api_order_data__INDICATION_OF_INTEREST } oms___rest_api_order_data__e;
+typedef enum  { oeml___rest_api_order_data__NULL = 0, oeml___rest_api_order_data__GOOD_TILL_CANCEL, oeml___rest_api_order_data__GOOD_TILL_TIME_EXCHANGE, oeml___rest_api_order_data__GOOD_TILL_TIME_OMS, oeml___rest_api_order_data__FILL_OR_KILL, oeml___rest_api_order_data__IMMEDIATE_OR_CANCEL, oeml___rest_api_order_data__AUCTION_ONLY, oeml___rest_api_order_data__INDICATION_OF_INTEREST } oeml___rest_api_order_data__e;
 
-char* order_data_time_in_force_ToString(oms___rest_api_order_data__e time_in_force);
+char* order_data_time_in_force_ToString(oeml___rest_api_order_data__e time_in_force);
 
-oms___rest_api_order_data__e order_data_time_in_force_FromString(char* time_in_force);
+oeml___rest_api_order_data__e order_data_time_in_force_FromString(char* time_in_force);
 
 // Enum EXECINST for order_data
 
-typedef enum  { oms___rest_api_order_data_EXECINST_NULL = 0, oms___rest_api_order_data_EXECINST_MAKER_OR_CANCEL } oms___rest_api_order_data_EXECINST_e;
+typedef enum  { oeml___rest_api_order_data_EXECINST_NULL = 0, oeml___rest_api_order_data_EXECINST_MAKER_OR_CANCEL } oeml___rest_api_order_data_EXECINST_e;
 
-char* order_data_exec_inst_ToString(oms___rest_api_order_data_EXECINST_e exec_inst);
+char* order_data_exec_inst_ToString(oeml___rest_api_order_data_EXECINST_e exec_inst);
 
-oms___rest_api_order_data_EXECINST_e order_data_exec_inst_FromString(char* exec_inst);
+oeml___rest_api_order_data_EXECINST_e order_data_exec_inst_FromString(char* exec_inst);
 
 
 
@@ -74,8 +74,8 @@ typedef struct order_data_t {
     char *symbol_coinapi; // string
     double amount_order; //numeric
     double price; //numeric
-    oms___rest_api_order_data_SIDE_e side; //enum
-    oms___rest_api_order_data_ORDERTYPE_e order_type; //enum
+    oeml___rest_api_order_data_SIDE_e side; //enum
+    oeml___rest_api_order_data_ORDERTYPE_e order_type; //enum
     list_t *exec_inst; //primitive container
 
 } order_data_t;
@@ -94,8 +94,8 @@ order_data_t *order_data_create(
     char *symbol_coinapi,
     double amount_order,
     double price,
-    oms___rest_api_order_data_SIDE_e side,
-    oms___rest_api_order_data_ORDERTYPE_e order_type,
+    oeml___rest_api_order_data_SIDE_e side,
+    oeml___rest_api_order_data_ORDERTYPE_e order_type,
     list_t *exec_inst
 );
 
