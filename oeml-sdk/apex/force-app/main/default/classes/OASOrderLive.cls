@@ -151,7 +151,7 @@ public class OASOrderLive implements OAS.MappedProperties {
     }
 
     /**
-     * TODO: description exec inst\n\n| Parameter | Description |\n|-----------|--------|\n| `MAKER_OR_CANCEL` | Rests on the continuous order book at a specified price. If any quantity can be filled immediately, the entire order is canceled. |\n##### Exec inst options\n\n| Exchange | MAKER_OR_CANCEL |\n| --- | --- |\n| BINANCE | X |\n| BITFINEX | X |\n| BITMEX | X |\n| BLOCKCHAINEXCHANGE | X |\n| BITSTAMP |  |\n| COINBASE | X |\n| GEMINI | X |\n| KRAKEN | X |\n| POLONIEX | X |\n| HITBTC |  |\n| KRAKENFTS | X |\n
+     * Order execution instructions are documented in the separate section: <a href="#oeml-order-params-exec">OEML / Starter Guide / Order parameters / Execution instructions</a>\n
      * @return execInst
      */
     public List<ExecInstEnum> execInst { get; set; }

@@ -12,7 +12,7 @@ The version of the OpenAPI document: v1
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7AE7C715-A42F-45A6-A164-AB41DAD030CD}</ProjectGuid>
+    <ProjectGuid>{2A338CDC-0763-424D-B716-B4498157BBC8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CoinAPI.OMS.REST.V1</RootNamespace>
