@@ -44,7 +44,7 @@ oeml___rest_api_order_live_ORDERTYPE_e order_live_order_type_FromString(char* or
 
 // Enum  for order_live
 
-typedef enum  { oeml___rest_api_order_live__NULL = 0, oeml___rest_api_order_live__GOOD_TILL_CANCEL, oeml___rest_api_order_live__GOOD_TILL_TIME_EXCHANGE, oeml___rest_api_order_live__GOOD_TILL_TIME_OMS, oeml___rest_api_order_live__FILL_OR_KILL, oeml___rest_api_order_live__IMMEDIATE_OR_CANCEL, oeml___rest_api_order_live__AUCTION_ONLY, oeml___rest_api_order_live__INDICATION_OF_INTEREST } oeml___rest_api_order_live__e;
+typedef enum  { oeml___rest_api_order_live__NULL = 0, oeml___rest_api_order_live__GOOD_TILL_CANCEL, oeml___rest_api_order_live__GOOD_TILL_TIME_EXCHANGE, oeml___rest_api_order_live__GOOD_TILL_TIME_OMS, oeml___rest_api_order_live__FILL_OR_KILL, oeml___rest_api_order_live__IMMEDIATE_OR_CANCEL } oeml___rest_api_order_live__e;
 
 char* order_live_time_in_force_ToString(oeml___rest_api_order_live__e time_in_force);
 
@@ -52,7 +52,7 @@ oeml___rest_api_order_live__e order_live_time_in_force_FromString(char* time_in_
 
 // Enum EXECINST for order_live
 
-typedef enum  { oeml___rest_api_order_live_EXECINST_NULL = 0, oeml___rest_api_order_live_EXECINST_MAKER_OR_CANCEL } oeml___rest_api_order_live_EXECINST_e;
+typedef enum  { oeml___rest_api_order_live_EXECINST_NULL = 0, oeml___rest_api_order_live_EXECINST_MAKER_OR_CANCEL, oeml___rest_api_order_live_EXECINST_AUCTION_ONLY, oeml___rest_api_order_live_EXECINST_INDICATION_OF_INTEREST } oeml___rest_api_order_live_EXECINST_e;
 
 char* order_live_exec_inst_ToString(oeml___rest_api_order_live_EXECINST_e exec_inst);
 

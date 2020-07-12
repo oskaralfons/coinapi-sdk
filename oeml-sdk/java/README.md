@@ -2,7 +2,7 @@
 
 OEML - REST API
 - API version: v1
-  - Build date: 2020-07-12T18:24:42.036Z[Etc/UTC]
+  - Build date: 2020-07-12T22:34:17.420Z[Etc/UTC]
 
 This section will provide necessary information about the `CoinAPI OEML REST API` protocol.
 

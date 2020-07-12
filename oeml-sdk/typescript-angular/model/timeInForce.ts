@@ -14,15 +14,13 @@
 /**
  * Order time in force options are documented in the separate section: <a href=\"#oeml-order-lifecycle\">OEML / Starter Guide / Order parameters / Time in force</a> 
  */
-export type TimeInForce = 'GOOD_TILL_CANCEL' | 'GOOD_TILL_TIME_EXCHANGE' | 'GOOD_TILL_TIME_OMS' | 'FILL_OR_KILL' | 'IMMEDIATE_OR_CANCEL' | 'AUCTION_ONLY' | 'INDICATION_OF_INTEREST';
+export type TimeInForce = 'GOOD_TILL_CANCEL' | 'GOOD_TILL_TIME_EXCHANGE' | 'GOOD_TILL_TIME_OMS' | 'FILL_OR_KILL' | 'IMMEDIATE_OR_CANCEL';
 
 export const TimeInForce = {
     GOODTILLCANCEL: 'GOOD_TILL_CANCEL' as TimeInForce,
     GOODTILLTIMEEXCHANGE: 'GOOD_TILL_TIME_EXCHANGE' as TimeInForce,
     GOODTILLTIMEOMS: 'GOOD_TILL_TIME_OMS' as TimeInForce,
     FILLORKILL: 'FILL_OR_KILL' as TimeInForce,
-    IMMEDIATEORCANCEL: 'IMMEDIATE_OR_CANCEL' as TimeInForce,
-    AUCTIONONLY: 'AUCTION_ONLY' as TimeInForce,
-    INDICATIONOFINTEREST: 'INDICATION_OF_INTEREST' as TimeInForce
+    IMMEDIATEORCANCEL: 'IMMEDIATE_OR_CANCEL' as TimeInForce
 };
 

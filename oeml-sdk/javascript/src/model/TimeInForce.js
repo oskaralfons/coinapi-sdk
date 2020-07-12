@@ -54,20 +54,6 @@ export default class TimeInForce {
         "IMMEDIATE_OR_CANCEL" = "IMMEDIATE_OR_CANCEL";
 
     
-        /**
-         * value: "AUCTION_ONLY"
-         * @const
-         */
-        "AUCTION_ONLY" = "AUCTION_ONLY";
-
-    
-        /**
-         * value: "INDICATION_OF_INTEREST"
-         * @const
-         */
-        "INDICATION_OF_INTEREST" = "INDICATION_OF_INTEREST";
-
-    
 
     /**
     * Returns a <code>TimeInForce</code> enum value from a Javascript object name.

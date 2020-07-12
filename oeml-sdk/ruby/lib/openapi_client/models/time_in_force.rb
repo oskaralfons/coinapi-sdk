@@ -19,8 +19,6 @@ module OpenapiClient
     GOOD_TILL_TIME_OMS = "GOOD_TILL_TIME_OMS".freeze
     FILL_OR_KILL = "FILL_OR_KILL".freeze
     IMMEDIATE_OR_CANCEL = "IMMEDIATE_OR_CANCEL".freeze
-    AUCTION_ONLY = "AUCTION_ONLY".freeze
-    INDICATION_OF_INTEREST = "INDICATION_OF_INTEREST".freeze
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string

@@ -151,7 +151,7 @@ describe 'OrderData' do
   describe 'test attribute "exec_inst"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('Array<String>', ["MAKER_OR_CANCEL"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('Array<String>', ["MAKER_OR_CANCEL", "AUCTION_ONLY", "INDICATION_OF_INTEREST"])
       # validator.allowable_values.each do |value|
       #   expect { @instance.exec_inst = value }.not_to raise_error
       # end

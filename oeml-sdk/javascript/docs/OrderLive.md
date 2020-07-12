@@ -52,6 +52,10 @@ Name | Type | Description | Notes
 
 * `MAKER_OR_CANCEL` (value: `"MAKER_OR_CANCEL"`)
 
+* `AUCTION_ONLY` (value: `"AUCTION_ONLY"`)
+
+* `INDICATION_OF_INTEREST` (value: `"INDICATION_OF_INTEREST"`)
+
 
 
 

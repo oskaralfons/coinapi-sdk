@@ -33,7 +33,7 @@ import org.threeten.bp.LocalDate;
 /**
  * OrderLive
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-12T18:24:42.036Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-12T22:34:17.420Z[Etc/UTC]")
 public class OrderLive {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -208,7 +208,11 @@ public class OrderLive {
    */
   @JsonAdapter(ExecInstEnum.Adapter.class)
   public enum ExecInstEnum {
-    MAKER_OR_CANCEL("MAKER_OR_CANCEL");
+    MAKER_OR_CANCEL("MAKER_OR_CANCEL"),
+    
+    AUCTION_ONLY("AUCTION_ONLY"),
+    
+    INDICATION_OF_INTEREST("INDICATION_OF_INTEREST");
 
     private String value;
 

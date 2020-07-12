@@ -43,8 +43,6 @@ web::json::value TimeInForce::toJson() const
     if (m_value == eTimeInForce::TimeInForce_GOOD_TILL_TIME_OMS) val = web::json::value::string(U("GOOD_TILL_TIME_OMS"));
     if (m_value == eTimeInForce::TimeInForce_FILL_OR_KILL) val = web::json::value::string(U("FILL_OR_KILL"));
     if (m_value == eTimeInForce::TimeInForce_IMMEDIATE_OR_CANCEL) val = web::json::value::string(U("IMMEDIATE_OR_CANCEL"));
-    if (m_value == eTimeInForce::TimeInForce_AUCTION_ONLY) val = web::json::value::string(U("AUCTION_ONLY"));
-    if (m_value == eTimeInForce::TimeInForce_INDICATION_OF_INTEREST) val = web::json::value::string(U("INDICATION_OF_INTEREST"));
 
     return val;
 }
@@ -59,8 +57,6 @@ bool TimeInForce::fromJson(const web::json::value& val)
     if (s == utility::conversions::to_string_t("GOOD_TILL_TIME_OMS")) m_value = eTimeInForce::TimeInForce_GOOD_TILL_TIME_OMS;
     if (s == utility::conversions::to_string_t("FILL_OR_KILL")) m_value = eTimeInForce::TimeInForce_FILL_OR_KILL;
     if (s == utility::conversions::to_string_t("IMMEDIATE_OR_CANCEL")) m_value = eTimeInForce::TimeInForce_IMMEDIATE_OR_CANCEL;
-    if (s == utility::conversions::to_string_t("AUCTION_ONLY")) m_value = eTimeInForce::TimeInForce_AUCTION_ONLY;
-    if (s == utility::conversions::to_string_t("INDICATION_OF_INTEREST")) m_value = eTimeInForce::TimeInForce_INDICATION_OF_INTEREST;
     return true;
 }
 
@@ -80,8 +76,6 @@ void TimeInForce::toMultipart(std::shared_ptr<MultipartFormData> multipart, cons
     if (m_value == eTimeInForce::TimeInForce_GOOD_TILL_TIME_OMS) s = utility::conversions::to_string_t("GOOD_TILL_TIME_OMS");
     if (m_value == eTimeInForce::TimeInForce_FILL_OR_KILL) s = utility::conversions::to_string_t("FILL_OR_KILL");
     if (m_value == eTimeInForce::TimeInForce_IMMEDIATE_OR_CANCEL) s = utility::conversions::to_string_t("IMMEDIATE_OR_CANCEL");
-    if (m_value == eTimeInForce::TimeInForce_AUCTION_ONLY) s = utility::conversions::to_string_t("AUCTION_ONLY");
-    if (m_value == eTimeInForce::TimeInForce_INDICATION_OF_INTEREST) s = utility::conversions::to_string_t("INDICATION_OF_INTEREST");
 
     multipart->add(ModelBase::toHttpContent(namePrefix, s));
 }
@@ -105,8 +99,6 @@ bool TimeInForce::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, co
         if (s == utility::conversions::to_string_t("GOOD_TILL_TIME_OMS")) v = eTimeInForce::TimeInForce_GOOD_TILL_TIME_OMS;
         if (s == utility::conversions::to_string_t("FILL_OR_KILL")) v = eTimeInForce::TimeInForce_FILL_OR_KILL;
         if (s == utility::conversions::to_string_t("IMMEDIATE_OR_CANCEL")) v = eTimeInForce::TimeInForce_IMMEDIATE_OR_CANCEL;
-        if (s == utility::conversions::to_string_t("AUCTION_ONLY")) v = eTimeInForce::TimeInForce_AUCTION_ONLY;
-        if (s == utility::conversions::to_string_t("INDICATION_OF_INTEREST")) v = eTimeInForce::TimeInForce_INDICATION_OF_INTEREST;
 
         setValue(v);
     }

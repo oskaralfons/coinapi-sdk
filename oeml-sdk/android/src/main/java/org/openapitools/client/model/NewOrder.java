@@ -49,7 +49,7 @@ public class NewOrder {
   @SerializedName("expire_time")
   private Date expireTime = null;
   public enum List&lt;ExecInstEnum&gt; {
-     MAKER_OR_CANCEL, 
+     MAKER_OR_CANCEL,  AUCTION_ONLY,  INDICATION_OF_INTEREST, 
   };
   @SerializedName("exec_inst")
   private List<ExecInstEnum> execInst = null;

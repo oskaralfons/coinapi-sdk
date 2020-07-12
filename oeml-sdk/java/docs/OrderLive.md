@@ -51,6 +51,8 @@ LIMIT | &quot;LIMIT&quot;
 Name | Value
 ---- | -----
 MAKER_OR_CANCEL | &quot;MAKER_OR_CANCEL&quot;
+AUCTION_ONLY | &quot;AUCTION_ONLY&quot;
+INDICATION_OF_INTEREST | &quot;INDICATION_OF_INTEREST&quot;
 
 
 

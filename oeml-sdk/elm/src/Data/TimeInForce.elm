@@ -26,8 +26,6 @@ type TimeInForce
     | GOODTILLTIMEOMS
     | FILLORKILL
     | IMMEDIATEORCANCEL
-    | AUCTIONONLY
-    | INDICATIONOFINTEREST
 
 
 
@@ -51,12 +49,6 @@ decoder =
 
                     "IMMEDIATE_OR_CANCEL" ->
                         Decode.succeed IMMEDIATEORCANCEL
-
-                    "AUCTION_ONLY" ->
-                        Decode.succeed AUCTIONONLY
-
-                    "INDICATION_OF_INTEREST" ->
-                        Decode.succeed INDICATIONOFINTEREST
 
                     other ->
                         Decode.fail <| "Unknown type: " ++ other
@@ -82,12 +74,6 @@ encode model =
         IMMEDIATEORCANCEL ->
             Encode.string "IMMEDIATE_OR_CANCEL"
 
-        AUCTIONONLY ->
-            Encode.string "AUCTION_ONLY"
-
-        INDICATIONOFINTEREST ->
-            Encode.string "INDICATION_OF_INTEREST"
-
 
 
 
@@ -108,12 +94,6 @@ toString model =
 
         IMMEDIATEORCANCEL ->
             "IMMEDIATE_OR_CANCEL"
-
-        AUCTIONONLY ->
-            "AUCTION_ONLY"
-
-        INDICATIONOFINTEREST ->
-            "INDICATION_OF_INTEREST"
 
 
 

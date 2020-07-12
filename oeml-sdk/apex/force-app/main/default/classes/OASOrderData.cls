@@ -141,7 +141,9 @@ public class OASOrderData implements OAS.MappedProperties {
      * Gets or Sets execInst
      */
     public enum ExecInstEnum {
-        MAKER_OR_CANCEL
+        MAKER_OR_CANCEL,
+        AUCTION_ONLY,
+        INDICATION_OF_INTEREST
     }
 
     /**

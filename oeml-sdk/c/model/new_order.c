@@ -39,13 +39,13 @@ oeml___rest_api_new_order_ORDERTYPE_e order_typenew_order_FromString(char* order
     return 0;
 }
 char* time_in_forcenew_order_ToString(oeml___rest_api_new_order__e time_in_force) {
-    char* time_in_forceArray[] =  { "NULL", "GOOD_TILL_CANCEL", "GOOD_TILL_TIME_EXCHANGE", "GOOD_TILL_TIME_OMS", "FILL_OR_KILL", "IMMEDIATE_OR_CANCEL", "AUCTION_ONLY", "INDICATION_OF_INTEREST" };
+    char* time_in_forceArray[] =  { "NULL", "GOOD_TILL_CANCEL", "GOOD_TILL_TIME_EXCHANGE", "GOOD_TILL_TIME_OMS", "FILL_OR_KILL", "IMMEDIATE_OR_CANCEL" };
 	return time_in_forceArray[time_in_force];
 }
 
 oeml___rest_api_new_order__e time_in_forcenew_order_FromString(char* time_in_force){
     int stringToReturn = 0;
-    char *time_in_forceArray[] =  { "NULL", "GOOD_TILL_CANCEL", "GOOD_TILL_TIME_EXCHANGE", "GOOD_TILL_TIME_OMS", "FILL_OR_KILL", "IMMEDIATE_OR_CANCEL", "AUCTION_ONLY", "INDICATION_OF_INTEREST" };
+    char *time_in_forceArray[] =  { "NULL", "GOOD_TILL_CANCEL", "GOOD_TILL_TIME_EXCHANGE", "GOOD_TILL_TIME_OMS", "FILL_OR_KILL", "IMMEDIATE_OR_CANCEL" };
     size_t sizeofArray = sizeof(time_in_forceArray) / sizeof(time_in_forceArray[0]);
     while(stringToReturn < sizeofArray) {
         if(strcmp(time_in_force, time_in_forceArray[stringToReturn]) == 0) {
@@ -56,13 +56,13 @@ oeml___rest_api_new_order__e time_in_forcenew_order_FromString(char* time_in_for
     return 0;
 }
 char* exec_instnew_order_ToString(oeml___rest_api_new_order_EXECINST_e exec_inst) {
-	char *exec_instArray[] =  { "NULL", "MAKER_OR_CANCEL" };
+	char *exec_instArray[] =  { "NULL", "MAKER_OR_CANCEL", "AUCTION_ONLY", "INDICATION_OF_INTEREST" };
 	return exec_instArray[exec_inst - 1];
 }
 
 oeml___rest_api_new_order_EXECINST_e exec_instnew_order_FromString(char* exec_inst) {
     int stringToReturn = 0;
-    char *exec_instArray[] =  { "NULL", "MAKER_OR_CANCEL" };
+    char *exec_instArray[] =  { "NULL", "MAKER_OR_CANCEL", "AUCTION_ONLY", "INDICATION_OF_INTEREST" };
     size_t sizeofArray = sizeof(exec_instArray) / sizeof(exec_instArray[0]);
     while(stringToReturn < sizeofArray) {
         if(strcmp(exec_inst, exec_instArray[stringToReturn]) == 0) {

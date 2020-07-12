@@ -308,7 +308,7 @@ export type MessagesOk = {
 
             export type NewOrderOrderTypeEnum = 'LIMIT';
 
-            export type NewOrderExecInstEnum = 'MAKER_OR_CANCEL';
+            export type NewOrderExecInstEnum = 'MAKER_OR_CANCEL' | 'AUCTION_ONLY' | 'INDICATION_OF_INTEREST';
 /**
  * 
  * @export
@@ -414,7 +414,7 @@ export type Order = {
 
             export type OrderDataOrderTypeEnum = 'LIMIT';
 
-            export type OrderDataExecInstEnum = 'MAKER_OR_CANCEL';
+            export type OrderDataExecInstEnum = 'MAKER_OR_CANCEL' | 'AUCTION_ONLY' | 'INDICATION_OF_INTEREST';
 /**
  * 
  * @export
@@ -542,7 +542,7 @@ export type OrderData = {
 
             export type OrderLiveOrderTypeEnum = 'LIMIT';
 
-            export type OrderLiveExecInstEnum = 'MAKER_OR_CANCEL';
+            export type OrderLiveExecInstEnum = 'MAKER_OR_CANCEL' | 'AUCTION_ONLY' | 'INDICATION_OF_INTEREST';
 /**
  * 
  * @export
@@ -783,7 +783,7 @@ export type PositionData = {
  * @export
  * @enum {string}
  */
-export type TimeInForce = 'GOOD_TILL_CANCEL' | 'GOOD_TILL_TIME_EXCHANGE' | 'GOOD_TILL_TIME_OMS' | 'FILL_OR_KILL' | 'IMMEDIATE_OR_CANCEL' | 'AUCTION_ONLY' | 'INDICATION_OF_INTEREST';
+export type TimeInForce = 'GOOD_TILL_CANCEL' | 'GOOD_TILL_TIME_EXCHANGE' | 'GOOD_TILL_TIME_OMS' | 'FILL_OR_KILL' | 'IMMEDIATE_OR_CANCEL';
 
 
 

@@ -16,10 +16,6 @@ class TimeInForce {
   static const TimeInForce fILLORKILL_ = const TimeInForce._internal("FILL_OR_KILL");
   /// Order time in force options are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-lifecycle\&quot;&gt;OEML / Starter Guide / Order parameters / Time in force&lt;/a&gt; 
   static const TimeInForce iMMEDIATEORCANCEL_ = const TimeInForce._internal("IMMEDIATE_OR_CANCEL");
-  /// Order time in force options are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-lifecycle\&quot;&gt;OEML / Starter Guide / Order parameters / Time in force&lt;/a&gt; 
-  static const TimeInForce aUCTIONONLY_ = const TimeInForce._internal("AUCTION_ONLY");
-  /// Order time in force options are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-lifecycle\&quot;&gt;OEML / Starter Guide / Order parameters / Time in force&lt;/a&gt; 
-  static const TimeInForce iNDICATIONOFINTEREST_ = const TimeInForce._internal("INDICATION_OF_INTEREST");
 
   static TimeInForce fromJson(String value) {
     return new TimeInForceTypeTransformer().decode(value);
@@ -43,8 +39,6 @@ class TimeInForceTypeTransformer {
       case "GOOD_TILL_TIME_OMS": return TimeInForce.gOODTILLTIMEOMS_;
       case "FILL_OR_KILL": return TimeInForce.fILLORKILL_;
       case "IMMEDIATE_OR_CANCEL": return TimeInForce.iMMEDIATEORCANCEL_;
-      case "AUCTION_ONLY": return TimeInForce.aUCTIONONLY_;
-      case "INDICATION_OF_INTEREST": return TimeInForce.iNDICATIONOFINTEREST_;
       default: throw('Unknown enum value to decode: $data');
     }
   }

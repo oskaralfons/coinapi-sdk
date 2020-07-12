@@ -60,14 +60,6 @@ void OAITimeInForce::fromJson(QString jsonString) {
         m_value = eOAITimeInForce::IMMEDIATE_OR_CANCEL;
         m_value_isSet = m_value_isValid = true;
     }
-    else if ( jsonString.compare("AUCTION_ONLY", Qt::CaseInsensitive) == 0) {
-        m_value = eOAITimeInForce::AUCTION_ONLY;
-        m_value_isSet = m_value_isValid = true;
-    }
-    else if ( jsonString.compare("INDICATION_OF_INTEREST", Qt::CaseInsensitive) == 0) {
-        m_value = eOAITimeInForce::INDICATION_OF_INTEREST;
-        m_value_isSet = m_value_isValid = true;
-    }
 }
 
 void OAITimeInForce::fromJsonValue(QJsonValue json) {
@@ -92,12 +84,6 @@ QString OAITimeInForce::asJson() const {
             break;
         case eOAITimeInForce::IMMEDIATE_OR_CANCEL:
             val = "IMMEDIATE_OR_CANCEL";
-            break;
-        case eOAITimeInForce::AUCTION_ONLY:
-            val = "AUCTION_ONLY";
-            break;
-        case eOAITimeInForce::INDICATION_OF_INTEREST:
-            val = "INDICATION_OF_INTEREST";
             break;
         default:
             break;

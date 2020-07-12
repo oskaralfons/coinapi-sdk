@@ -83,7 +83,7 @@ abstract class OrderLive implements Built<OrderLive, OrderLiveBuilder> {
         @nullable
     @BuiltValueField(wireName: r'time_in_force')
     TimeInForce get timeInForce;
-        //enum timeInForceEnum {  GOOD_TILL_CANCEL,  GOOD_TILL_TIME_EXCHANGE,  GOOD_TILL_TIME_OMS,  FILL_OR_KILL,  IMMEDIATE_OR_CANCEL,  AUCTION_ONLY,  INDICATION_OF_INTEREST,  };
+        //enum timeInForceEnum {  GOOD_TILL_CANCEL,  GOOD_TILL_TIME_EXCHANGE,  GOOD_TILL_TIME_OMS,  FILL_OR_KILL,  IMMEDIATE_OR_CANCEL,  };
     /* Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS */
         @nullable
     @BuiltValueField(wireName: r'expire_time')
@@ -92,7 +92,7 @@ abstract class OrderLive implements Built<OrderLive, OrderLiveBuilder> {
         @nullable
     @BuiltValueField(wireName: r'exec_inst')
     BuiltList<String> get execInst;
-        //enum execInstEnum {  MAKER_OR_CANCEL,  };
+        //enum execInstEnum {  MAKER_OR_CANCEL,  AUCTION_ONLY,  INDICATION_OF_INTEREST,  };
 
     // Boilerplate code needed to wire-up generated code
     OrderLive._();

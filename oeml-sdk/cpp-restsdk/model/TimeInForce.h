@@ -52,8 +52,6 @@ public:
         TimeInForce_GOOD_TILL_TIME_OMS,
         TimeInForce_FILL_OR_KILL,
         TimeInForce_IMMEDIATE_OR_CANCEL,
-        TimeInForce_AUCTION_ONLY,
-        TimeInForce_INDICATION_OF_INTEREST,
     };
 
     eTimeInForce getValue() const;

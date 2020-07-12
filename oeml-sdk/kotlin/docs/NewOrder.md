@@ -35,7 +35,7 @@ orderType | LIMIT
 ## Enum: exec_inst
 Name | Value
 ---- | -----
-execInst | MAKER_OR_CANCEL
+execInst | MAKER_OR_CANCEL, AUCTION_ONLY, INDICATION_OF_INTEREST
 
 
 

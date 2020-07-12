@@ -43,9 +43,7 @@ public:
         GOOD_TILL_TIME_EXCHANGE, 
         GOOD_TILL_TIME_OMS, 
         FILL_OR_KILL, 
-        IMMEDIATE_OR_CANCEL, 
-        AUCTION_ONLY, 
-        INDICATION_OF_INTEREST
+        IMMEDIATE_OR_CANCEL
     };
     OAITimeInForce::eOAITimeInForce getValue() const;
     void setValue(const OAITimeInForce::eOAITimeInForce& value);

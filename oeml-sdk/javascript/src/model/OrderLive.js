@@ -285,7 +285,19 @@ OrderLive['ExecInstEnum'] = {
      * value: "MAKER_OR_CANCEL"
      * @const
      */
-    "MAKER_OR_CANCEL": "MAKER_OR_CANCEL"
+    "MAKER_OR_CANCEL": "MAKER_OR_CANCEL",
+
+    /**
+     * value: "AUCTION_ONLY"
+     * @const
+     */
+    "AUCTION_ONLY": "AUCTION_ONLY",
+
+    /**
+     * value: "INDICATION_OF_INTEREST"
+     * @const
+     */
+    "INDICATION_OF_INTEREST": "INDICATION_OF_INTEREST"
 };
 
 

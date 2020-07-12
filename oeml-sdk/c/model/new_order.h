@@ -35,7 +35,7 @@ oeml___rest_api_new_order_ORDERTYPE_e new_order_order_type_FromString(char* orde
 
 // Enum  for new_order
 
-typedef enum  { oeml___rest_api_new_order__NULL = 0, oeml___rest_api_new_order__GOOD_TILL_CANCEL, oeml___rest_api_new_order__GOOD_TILL_TIME_EXCHANGE, oeml___rest_api_new_order__GOOD_TILL_TIME_OMS, oeml___rest_api_new_order__FILL_OR_KILL, oeml___rest_api_new_order__IMMEDIATE_OR_CANCEL, oeml___rest_api_new_order__AUCTION_ONLY, oeml___rest_api_new_order__INDICATION_OF_INTEREST } oeml___rest_api_new_order__e;
+typedef enum  { oeml___rest_api_new_order__NULL = 0, oeml___rest_api_new_order__GOOD_TILL_CANCEL, oeml___rest_api_new_order__GOOD_TILL_TIME_EXCHANGE, oeml___rest_api_new_order__GOOD_TILL_TIME_OMS, oeml___rest_api_new_order__FILL_OR_KILL, oeml___rest_api_new_order__IMMEDIATE_OR_CANCEL } oeml___rest_api_new_order__e;
 
 char* new_order_time_in_force_ToString(oeml___rest_api_new_order__e time_in_force);
 
@@ -43,7 +43,7 @@ oeml___rest_api_new_order__e new_order_time_in_force_FromString(char* time_in_fo
 
 // Enum EXECINST for new_order
 
-typedef enum  { oeml___rest_api_new_order_EXECINST_NULL = 0, oeml___rest_api_new_order_EXECINST_MAKER_OR_CANCEL } oeml___rest_api_new_order_EXECINST_e;
+typedef enum  { oeml___rest_api_new_order_EXECINST_NULL = 0, oeml___rest_api_new_order_EXECINST_MAKER_OR_CANCEL, oeml___rest_api_new_order_EXECINST_AUCTION_ONLY, oeml___rest_api_new_order_EXECINST_INDICATION_OF_INTEREST } oeml___rest_api_new_order_EXECINST_e;
 
 char* new_order_exec_inst_ToString(oeml___rest_api_new_order_EXECINST_e exec_inst);
 

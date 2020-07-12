@@ -212,6 +212,8 @@ class NewOrder implements ModelInterface, ArrayAccess
     const SIDE_SELL = 'SELL';
     const ORDER_TYPE_LIMIT = 'LIMIT';
     const EXEC_INST_MAKER_OR_CANCEL = 'MAKER_OR_CANCEL';
+    const EXEC_INST_AUCTION_ONLY = 'AUCTION_ONLY';
+    const EXEC_INST_INDICATION_OF_INTEREST = 'INDICATION_OF_INTEREST';
     
 
     
@@ -249,6 +251,8 @@ class NewOrder implements ModelInterface, ArrayAccess
     {
         return [
             self::EXEC_INST_MAKER_OR_CANCEL,
+            self::EXEC_INST_AUCTION_ONLY,
+            self::EXEC_INST_INDICATION_OF_INTEREST,
         ];
     }
     

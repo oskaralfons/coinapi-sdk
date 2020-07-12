@@ -16,7 +16,7 @@ import com.squareup.moshi.Json
 
 /**
 * Order time in force options are documented in the separate section: <a href=\"#oeml-order-lifecycle\">OEML / Starter Guide / Order parameters / Time in force</a> 
-* Values: gOODTILLCANCEL,gOODTILLTIMEEXCHANGE,gOODTILLTIMEOMS,fILLORKILL,iMMEDIATEORCANCEL,aUCTIONONLY,iNDICATIONOFINTEREST
+* Values: gOODTILLCANCEL,gOODTILLTIMEEXCHANGE,gOODTILLTIMEOMS,fILLORKILL,iMMEDIATEORCANCEL
 */
 
 enum class TimeInForce(val value: kotlin.String){
@@ -39,15 +39,7 @@ enum class TimeInForce(val value: kotlin.String){
 
 
     @Json(name = "IMMEDIATE_OR_CANCEL")
-    iMMEDIATEORCANCEL("IMMEDIATE_OR_CANCEL"),
-
-
-    @Json(name = "AUCTION_ONLY")
-    aUCTIONONLY("AUCTION_ONLY"),
-
-
-    @Json(name = "INDICATION_OF_INTEREST")
-    iNDICATIONOFINTEREST("INDICATION_OF_INTEREST");
+    iMMEDIATEORCANCEL("IMMEDIATE_OR_CANCEL");
 
 
 

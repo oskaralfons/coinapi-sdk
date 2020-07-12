@@ -99,9 +99,11 @@ export namespace OrderLive {
     export const OrderTypeEnum = {
         LIMIT: 'LIMIT' as OrderTypeEnum
     };
-    export type ExecInstEnum = 'MAKER_OR_CANCEL';
+    export type ExecInstEnum = 'MAKER_OR_CANCEL' | 'AUCTION_ONLY' | 'INDICATION_OF_INTEREST';
     export const ExecInstEnum = {
-        MAKERORCANCEL: 'MAKER_OR_CANCEL' as ExecInstEnum
+        MAKERORCANCEL: 'MAKER_OR_CANCEL' as ExecInstEnum,
+        AUCTIONONLY: 'AUCTION_ONLY' as ExecInstEnum,
+        INDICATIONOFINTEREST: 'INDICATION_OF_INTEREST' as ExecInstEnum
     };
 }
 

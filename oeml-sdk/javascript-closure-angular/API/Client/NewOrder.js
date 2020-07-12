@@ -93,4 +93,6 @@ API.Client.NewOrder.OrderTypeEnum = {
 /** @enum {string} */
 API.Client.NewOrder.Array&lt;!ExecInstEnum&gt; = { 
   MAKER_OR_CANCEL: 'MAKER_OR_CANCEL',
+  AUCTION_ONLY: 'AUCTION_ONLY',
+  INDICATION_OF_INTEREST: 'INDICATION_OF_INTEREST',
 }

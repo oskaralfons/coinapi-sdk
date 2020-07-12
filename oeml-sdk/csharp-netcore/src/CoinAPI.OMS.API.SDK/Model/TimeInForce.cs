@@ -62,19 +62,7 @@ namespace CoinAPI.OMS.API.SDK.Model
         /// Enum IMMEDIATEORCANCEL for value: IMMEDIATE_OR_CANCEL
         /// </summary>
         [EnumMember(Value = "IMMEDIATE_OR_CANCEL")]
-        IMMEDIATEORCANCEL = 5,
-
-        /// <summary>
-        /// Enum AUCTIONONLY for value: AUCTION_ONLY
-        /// </summary>
-        [EnumMember(Value = "AUCTION_ONLY")]
-        AUCTIONONLY = 6,
-
-        /// <summary>
-        /// Enum INDICATIONOFINTEREST for value: INDICATION_OF_INTEREST
-        /// </summary>
-        [EnumMember(Value = "INDICATION_OF_INTEREST")]
-        INDICATIONOFINTEREST = 7
+        IMMEDIATEORCANCEL = 5
 
     }
 

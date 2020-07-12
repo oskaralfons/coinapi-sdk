@@ -21,12 +21,6 @@ class TimeInForce extends EnumClass {
   /// Order time in force options are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-lifecycle\&quot;&gt;OEML / Starter Guide / Order parameters / Time in force&lt;/a&gt; 
   @BuiltValueEnumConst(wireName: "IMMEDIATE_OR_CANCEL")
   static const TimeInForce iMMEDIATEORCANCEL = _$iMMEDIATEORCANCEL;
-  /// Order time in force options are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-lifecycle\&quot;&gt;OEML / Starter Guide / Order parameters / Time in force&lt;/a&gt; 
-  @BuiltValueEnumConst(wireName: "AUCTION_ONLY")
-  static const TimeInForce aUCTIONONLY = _$aUCTIONONLY;
-  /// Order time in force options are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-lifecycle\&quot;&gt;OEML / Starter Guide / Order parameters / Time in force&lt;/a&gt; 
-  @BuiltValueEnumConst(wireName: "INDICATION_OF_INTEREST")
-  static const TimeInForce iNDICATIONOFINTEREST = _$iNDICATIONOFINTEREST;
 
   static Serializer<TimeInForce> get serializer => _$timeInForceSerializer;
 

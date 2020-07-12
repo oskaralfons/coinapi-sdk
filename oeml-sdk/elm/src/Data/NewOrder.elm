@@ -48,6 +48,8 @@ type OrderType
 
 type ExecInst
     = MAKERORCANCEL
+    | AUCTIONONLY
+    | INDICATIONOFINTEREST
 
 
 
@@ -165,6 +167,12 @@ execInstDecoder =
                     "MAKER_OR_CANCEL" ->
                         Decode.succeed MAKERORCANCEL
 
+                    "AUCTION_ONLY" ->
+                        Decode.succeed AUCTIONONLY
+
+                    "INDICATION_OF_INTEREST" ->
+                        Decode.succeed INDICATIONOFINTEREST
+
                     other ->
                         Decode.fail <| "Unknown type: " ++ other
             )
@@ -176,6 +184,12 @@ encodeExecInst model =
     case model of
         MAKERORCANCEL ->
             Encode.string "MAKER_OR_CANCEL"
+
+        AUCTIONONLY ->
+            Encode.string "AUCTION_ONLY"
+
+        INDICATIONOFINTEREST ->
+            Encode.string "INDICATION_OF_INTEREST"
 
 
 

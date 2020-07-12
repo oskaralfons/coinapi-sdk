@@ -55,18 +55,6 @@ feature -- Enum
       Result.set_value ("IMMEDIATE_OR_CANCEL")
     end
 
- val_auction_only: TIME_IN_FORCE
-    once
-      create Result
-      Result.set_value ("AUCTION_ONLY")
-    end
-
- val_indication_of_interest: TIME_IN_FORCE
-    once
-      create Result
-      Result.set_value ("INDICATION_OF_INTEREST")
-    end
-
 
 feature -- Element Change
 

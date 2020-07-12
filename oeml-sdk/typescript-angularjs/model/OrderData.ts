@@ -94,6 +94,8 @@ export namespace OrderData {
         LIMIT = <any> 'LIMIT'
     }
     export enum ExecInstEnum {
-        MAKERORCANCEL = <any> 'MAKER_OR_CANCEL'
+        MAKERORCANCEL = <any> 'MAKER_OR_CANCEL',
+        AUCTIONONLY = <any> 'AUCTION_ONLY',
+        INDICATIONOFINTEREST = <any> 'INDICATION_OF_INTEREST'
     }
 }

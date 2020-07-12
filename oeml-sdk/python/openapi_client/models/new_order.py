@@ -362,7 +362,7 @@ class NewOrder(object):
         :param exec_inst: The exec_inst of this NewOrder.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["MAKER_OR_CANCEL"]  # noqa: E501
+        allowed_values = ["MAKER_OR_CANCEL", "AUCTION_ONLY", "INDICATION_OF_INTEREST"]  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 not set(exec_inst).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(

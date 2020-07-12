@@ -301,6 +301,8 @@ components:
           items:
             enum:
             - MAKER_OR_CANCEL
+            - AUCTION_ONLY
+            - INDICATION_OF_INTEREST
             type: string
           type: array
       type: object
@@ -422,6 +424,8 @@ components:
           items:
             enum:
             - MAKER_OR_CANCEL
+            - AUCTION_ONLY
+            - INDICATION_OF_INTEREST
             type: string
           type: array
       type: object
@@ -538,8 +542,6 @@ components:
       - GOOD_TILL_TIME_OMS
       - FILL_OR_KILL
       - IMMEDIATE_OR_CANCEL
-      - AUCTION_ONLY
-      - INDICATION_OF_INTEREST
       type: string
     execInst:
       description: |
@@ -547,6 +549,8 @@ components:
       items:
         enum:
         - MAKER_OR_CANCEL
+        - AUCTION_ONLY
+        - INDICATION_OF_INTEREST
         type: string
       type: array
     createOrder400:
@@ -746,6 +750,8 @@ components:
           items:
             enum:
             - MAKER_OR_CANCEL
+            - AUCTION_ONLY
+            - INDICATION_OF_INTEREST
             type: string
           type: array
     balance_data:

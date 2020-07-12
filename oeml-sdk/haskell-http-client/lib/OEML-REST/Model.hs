@@ -805,6 +805,8 @@ mkPositionData =
 -- | Enum of 'Text'
 data E'ExecInst
   = E'ExecInst'MAKER_OR_CANCEL -- ^ @"MAKER_OR_CANCEL"@
+  | E'ExecInst'AUCTION_ONLY -- ^ @"AUCTION_ONLY"@
+  | E'ExecInst'INDICATION_OF_INTEREST -- ^ @"INDICATION_OF_INTEREST"@
   deriving (P.Show, P.Eq, P.Typeable, P.Ord, P.Bounded, P.Enum)
 
 instance A.ToJSON E'ExecInst where toJSON = A.toJSON . fromE'ExecInst
@@ -817,11 +819,15 @@ instance MimeRender MimeMultipartFormData E'ExecInst where mimeRender _ = mimeRe
 fromE'ExecInst :: E'ExecInst -> Text
 fromE'ExecInst = \case
   E'ExecInst'MAKER_OR_CANCEL -> "MAKER_OR_CANCEL"
+  E'ExecInst'AUCTION_ONLY -> "AUCTION_ONLY"
+  E'ExecInst'INDICATION_OF_INTEREST -> "INDICATION_OF_INTEREST"
 
 -- | parse 'E'ExecInst' enum
 toE'ExecInst :: Text -> P.Either String E'ExecInst
 toE'ExecInst = \case
   "MAKER_OR_CANCEL" -> P.Right E'ExecInst'MAKER_OR_CANCEL
+  "AUCTION_ONLY" -> P.Right E'ExecInst'AUCTION_ONLY
+  "INDICATION_OF_INTEREST" -> P.Right E'ExecInst'INDICATION_OF_INTEREST
   s -> P.Left $ "toE'ExecInst: enum parse failure: " P.++ P.show s
 
 
@@ -972,8 +978,6 @@ data TimeInForce
   | TimeInForce'GOOD_TILL_TIME_OMS -- ^ @"GOOD_TILL_TIME_OMS"@
   | TimeInForce'FILL_OR_KILL -- ^ @"FILL_OR_KILL"@
   | TimeInForce'IMMEDIATE_OR_CANCEL -- ^ @"IMMEDIATE_OR_CANCEL"@
-  | TimeInForce'AUCTION_ONLY -- ^ @"AUCTION_ONLY"@
-  | TimeInForce'INDICATION_OF_INTEREST -- ^ @"INDICATION_OF_INTEREST"@
   deriving (P.Show, P.Eq, P.Typeable, P.Ord, P.Bounded, P.Enum)
 
 instance A.ToJSON TimeInForce where toJSON = A.toJSON . fromTimeInForce
@@ -990,8 +994,6 @@ fromTimeInForce = \case
   TimeInForce'GOOD_TILL_TIME_OMS -> "GOOD_TILL_TIME_OMS"
   TimeInForce'FILL_OR_KILL -> "FILL_OR_KILL"
   TimeInForce'IMMEDIATE_OR_CANCEL -> "IMMEDIATE_OR_CANCEL"
-  TimeInForce'AUCTION_ONLY -> "AUCTION_ONLY"
-  TimeInForce'INDICATION_OF_INTEREST -> "INDICATION_OF_INTEREST"
 
 -- | parse 'TimeInForce' enum
 toTimeInForce :: Text -> P.Either String TimeInForce
@@ -1001,8 +1003,6 @@ toTimeInForce = \case
   "GOOD_TILL_TIME_OMS" -> P.Right TimeInForce'GOOD_TILL_TIME_OMS
   "FILL_OR_KILL" -> P.Right TimeInForce'FILL_OR_KILL
   "IMMEDIATE_OR_CANCEL" -> P.Right TimeInForce'IMMEDIATE_OR_CANCEL
-  "AUCTION_ONLY" -> P.Right TimeInForce'AUCTION_ONLY
-  "INDICATION_OF_INTEREST" -> P.Right TimeInForce'INDICATION_OF_INTEREST
   s -> P.Left $ "toTimeInForce: enum parse failure: " P.++ P.show s
 
 

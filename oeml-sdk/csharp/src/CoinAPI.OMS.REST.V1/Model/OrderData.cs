@@ -88,7 +88,19 @@ namespace CoinAPI.OMS.REST.V1.Model
             /// Enum MAKERORCANCEL for value: MAKER_OR_CANCEL
             /// </summary>
             [EnumMember(Value = "MAKER_OR_CANCEL")]
-            MAKERORCANCEL = 1
+            MAKERORCANCEL = 1,
+
+            /// <summary>
+            /// Enum AUCTIONONLY for value: AUCTION_ONLY
+            /// </summary>
+            [EnumMember(Value = "AUCTION_ONLY")]
+            AUCTIONONLY = 2,
+
+            /// <summary>
+            /// Enum INDICATIONOFINTEREST for value: INDICATION_OF_INTEREST
+            /// </summary>
+            [EnumMember(Value = "INDICATION_OF_INTEREST")]
+            INDICATIONOFINTEREST = 3
 
         }
 

@@ -49,8 +49,6 @@ class TimeInForce
     const GOOD_TILL_TIME_OMS = 'GOOD_TILL_TIME_OMS';
     const FILL_OR_KILL = 'FILL_OR_KILL';
     const IMMEDIATE_OR_CANCEL = 'IMMEDIATE_OR_CANCEL';
-    const AUCTION_ONLY = 'AUCTION_ONLY';
-    const INDICATION_OF_INTEREST = 'INDICATION_OF_INTEREST';
     
     /**
      * Gets allowable values of the enum
@@ -64,8 +62,6 @@ class TimeInForce
             self::GOOD_TILL_TIME_OMS,
             self::FILL_OR_KILL,
             self::IMMEDIATE_OR_CANCEL,
-            self::AUCTION_ONLY,
-            self::INDICATION_OF_INTEREST,
         ];
     }
 }

@@ -83,11 +83,13 @@ data class NewOrder (
     }
     /**
     * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> 
-    * Values: mAKERORCANCEL
+    * Values: mAKERORCANCEL,aUCTIONONLY,iNDICATIONOFINTEREST
     */
     
     enum class ExecInst(val value: kotlin.String){
-        @Json(name = "MAKER_OR_CANCEL") mAKERORCANCEL("MAKER_OR_CANCEL");
+        @Json(name = "MAKER_OR_CANCEL") mAKERORCANCEL("MAKER_OR_CANCEL"),
+        @Json(name = "AUCTION_ONLY") aUCTIONONLY("AUCTION_ONLY"),
+        @Json(name = "INDICATION_OF_INTEREST") iNDICATIONOFINTEREST("INDICATION_OF_INTEREST");
     }
 }
 
