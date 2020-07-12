@@ -77,7 +77,7 @@ Class | Description
  *NewOrder* | 
  *Order* | 
  *OrderLive* | 
- *OrderStatus* | Order statuses and the lifecycle are documented in the separate section: https://docs.coinapi.io/#oeml-order-lifecycle 
+ *OrderStatus* | Order statuses and the lifecycle are documented in the separate section: <a href=\"#oeml-order-lifecycle\">OEML Order Lifecycle</a> 
  *Order_data* | 
  *Position* | 
  *Position_data* | 

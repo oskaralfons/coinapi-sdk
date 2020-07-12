@@ -1,7 +1,7 @@
 /*
  * order_status.h
  *
- * Order statuses and the lifecycle are documented in the separate section: https://docs.coinapi.io/#oeml-order-lifecycle 
+ * Order statuses and the lifecycle are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-lifecycle\&quot;&gt;OEML Order Lifecycle&lt;/a&gt; 
  */
 
 #ifndef _order_status_H_
