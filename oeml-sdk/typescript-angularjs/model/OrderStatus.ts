@@ -13,7 +13,7 @@
 import * as models from './models';
 
 /**
- * Order statuses and the lifecycle are documented in the separate section: <a href=\"#oeml-order-lifecycle\">OEML Order Lifecycle</a> 
+ * Order statuses and the lifecycle are documented in the separate section: <a href=\"#oeml-order-lifecycle\">OEML / Starter Guide / Order Lifecycle</a> 
  */
 export interface OrderStatus {
 }

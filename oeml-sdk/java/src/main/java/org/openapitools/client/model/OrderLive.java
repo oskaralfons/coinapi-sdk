@@ -33,7 +33,7 @@ import org.threeten.bp.LocalDate;
 /**
  * OrderLive
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-12T15:41:17.557Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-12T15:48:32.154Z[Etc/UTC]")
 public class OrderLive {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)

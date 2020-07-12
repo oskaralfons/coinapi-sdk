@@ -17,7 +17,7 @@ servers:
       default: http://localhost:8080
 tags:
 - description: |
-    Order statuses and the lifecycle are documented in the separate section: <a href="#oeml-order-lifecycle">OEML Order Lifecycle</a>
+    Order statuses and the lifecycle are documented in the separate section: <a href="#oeml-order-lifecycle">OEML / Starter Guide / Order Lifecycle</a>
   name: Orders
 - name: Balances
 - name: Positions
@@ -713,7 +713,7 @@ components:
       type: object
     orderStatus:
       description: |
-        Order statuses and the lifecycle are documented in the separate section: <a href="#oeml-order-lifecycle">OEML Order Lifecycle</a>
+        Order statuses and the lifecycle are documented in the separate section: <a href="#oeml-order-lifecycle">OEML / Starter Guide / Order Lifecycle</a>
       enum:
       - RECEIVED
       - ROUTING

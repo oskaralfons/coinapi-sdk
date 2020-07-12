@@ -11,7 +11,7 @@
  */
 
 /**
- * Order statuses and the lifecycle are documented in the separate section: <a href="#oeml-order-lifecycle">OEML Order Lifecycle</a>\n
+ * Order statuses and the lifecycle are documented in the separate section: <a href="#oeml-order-lifecycle">OEML / Starter Guide / Order Lifecycle</a>\n
  */
 public enum OASOrderStatus {
     RECEIVED,

@@ -915,7 +915,7 @@ toE'UpdateOrigin = \case
 -- ** OrderStatus
 
 -- | Enum of 'Text' . 
--- Order statuses and the lifecycle are documented in the separate section: <a href=\"#oeml-order-lifecycle\">OEML Order Lifecycle</a> 
+-- Order statuses and the lifecycle are documented in the separate section: <a href=\"#oeml-order-lifecycle\">OEML / Starter Guide / Order Lifecycle</a> 
 data OrderStatus
   = OrderStatus'RECEIVED -- ^ @"RECEIVED"@
   | OrderStatus'ROUTING -- ^ @"ROUTING"@

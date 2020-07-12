@@ -81,7 +81,7 @@ The version of the OpenAPI document: v1
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
       <ProjectReference Include="..\CoinAPI.OMS.REST.V1\CoinAPI.OMS.REST.V1.csproj">
-          <Project>{00AC4F51-2106-47AB-923C-7109DC5A56D0}</Project>
+          <Project>{7AE7C715-A42F-45A6-A164-AB41DAD030CD}</Project>
           <Name>CoinAPI.OMS.REST.V1</Name>
       </ProjectReference>
   </ItemGroup>

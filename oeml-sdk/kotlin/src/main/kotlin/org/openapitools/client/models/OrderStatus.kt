@@ -15,7 +15,7 @@ package org.openapitools.client.models
 import com.squareup.moshi.Json
 
 /**
-* Order statuses and the lifecycle are documented in the separate section: <a href=\"#oeml-order-lifecycle\">OEML Order Lifecycle</a> 
+* Order statuses and the lifecycle are documented in the separate section: <a href=\"#oeml-order-lifecycle\">OEML / Starter Guide / Order Lifecycle</a> 
 * Values: rECEIVED,rOUTING,rOUTED,nEW,pENDINGCANCEL,pARTIALLYFILLED,fILLED,cANCELED,rEJECTED
 */
 

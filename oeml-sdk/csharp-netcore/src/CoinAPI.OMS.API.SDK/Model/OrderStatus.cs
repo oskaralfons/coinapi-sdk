@@ -26,9 +26,9 @@ using OpenAPIDateConverter = CoinAPI.OMS.API.SDK.Client.OpenAPIDateConverter;
 namespace CoinAPI.OMS.API.SDK.Model
 {
     /// <summary>
-    /// Order statuses and the lifecycle are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-lifecycle\&quot;&gt;OEML Order Lifecycle&lt;/a&gt; 
+    /// Order statuses and the lifecycle are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-lifecycle\&quot;&gt;OEML / Starter Guide / Order Lifecycle&lt;/a&gt; 
     /// </summary>
-    /// <value>Order statuses and the lifecycle are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-lifecycle\&quot;&gt;OEML Order Lifecycle&lt;/a&gt; </value>
+    /// <value>Order statuses and the lifecycle are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-lifecycle\&quot;&gt;OEML / Starter Guide / Order Lifecycle&lt;/a&gt; </value>
     
     [JsonConverter(typeof(StringEnumConverter))]
     
