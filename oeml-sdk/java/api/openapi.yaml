@@ -422,7 +422,7 @@ components:
           quantity: 7
           cross_margin: true
           unrealized_pnl: 0.0
-          raw_data: Other position related information provided by the exchange.
+          raw_data: Other information provided by the exchange on this position.
           symbol_exchange: XBTUSD
           avg_entry_price: 0.00134444
         - liquidation_price: 0.072323
@@ -432,7 +432,7 @@ components:
           quantity: 7
           cross_margin: true
           unrealized_pnl: 0.0
-          raw_data: Other position related information provided by the exchange.
+          raw_data: Other information provided by the exchange on this position.
           symbol_exchange: XBTUSD
           avg_entry_price: 0.00134444
       properties:
@@ -639,7 +639,7 @@ components:
         quantity: 7
         cross_margin: true
         unrealized_pnl: 0.0
-        raw_data: Other position related information provided by the exchange.
+        raw_data: Other information provided by the exchange on this position.
         symbol_exchange: XBTUSD
         avg_entry_price: 0.00134444
       properties:
@@ -679,6 +679,6 @@ components:
           example: 0.072323
           type: number
         raw_data:
-          example: Other position related information provided by the exchange.
+          example: Other information provided by the exchange on this position.
           type: object
 

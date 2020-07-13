@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * BalanceData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T13:44:59.252Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T13:46:21.483Z[Etc/UTC]")
 public class BalanceData {
   public static final String SERIALIZED_NAME_SYMBOL_EXCHANGE = "symbol_exchange";
   @SerializedName(SERIALIZED_NAME_SYMBOL_EXCHANGE)

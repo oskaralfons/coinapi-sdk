@@ -31,7 +31,7 @@ position_data_t* instantiate_position_data(int include_optional) {
       0.0,
       true,
       0.072323,
-      Other position related information provided by the exchange.
+      Other information provided by the exchange on this position.
     );
   } else {
     position_data = position_data_create(
@@ -44,7 +44,7 @@ position_data_t* instantiate_position_data(int include_optional) {
       0.0,
       true,
       0.072323,
-      Other position related information provided by the exchange.
+      Other information provided by the exchange on this position.
     );
   }
 

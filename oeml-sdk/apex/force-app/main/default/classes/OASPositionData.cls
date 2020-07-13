@@ -99,7 +99,7 @@ public class OASPositionData implements OAS.MappedProperties {
           positionData.leverage = 0.0;
           positionData.crossMargin = true;
           positionData.liquidationPrice = 0.072323;
-          positionData.rawData = Other position related information provided by the exchange.;
+          positionData.rawData = Other information provided by the exchange on this position.;
         return positionData;
     }
 

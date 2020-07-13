@@ -49,7 +49,7 @@ class TestPosition(unittest.TestCase):
                         leverage = 0.0, 
                         cross_margin = True, 
                         liquidation_price = 0.072323, 
-                        raw_data = Other position related information provided by the exchange., )
+                        raw_data = Other information provided by the exchange on this position., )
                     ]
             )
         else :
