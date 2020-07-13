@@ -37,7 +37,8 @@ defmodule OEML-RESTAPI.Api.Positions do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, [%OEML-RESTAPI.Model.Position{}]}
+      { 200, [%OEML-RESTAPI.Model.Position{}]},
+      { 490, %OEML-RESTAPI.Model.Message{}}
     ])
   end
 end

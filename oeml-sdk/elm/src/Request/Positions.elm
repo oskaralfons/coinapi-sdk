@@ -12,6 +12,7 @@
 
 module Request.Positions exposing (v1PositionsGet)
 
+import Data.Message as Message exposing (Message)
 import Data.Position as Position exposing (Position)
 import Dict
 import Http

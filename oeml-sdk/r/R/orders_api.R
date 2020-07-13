@@ -29,6 +29,13 @@
 #'
 #' \tabular{ll}{
 #' }
+#' \item status code : 490 | Exchange is unreachable.
+#'
+#' \item return type : Message 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
 #' }
 #'
 #' \strong{ V1OrdersCancelPost } \emph{ Cancel order }
@@ -53,7 +60,7 @@
 #'
 #' \tabular{ll}{
 #' }
-#' \item status code : 490 | Exchange not registered
+#' \item status code : 490 | Exchange is unreachable.
 #'
 #' \item return type : Message 
 #' \item response headers :
@@ -73,6 +80,13 @@
 #' \item status code : 200 | Collection of requested open orders.
 #'
 #' \item return type : array[OrderExecutionReport] 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' \item status code : 490 | Filtered exchange is unreachable.
+#'
+#' \item return type : Message 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -101,7 +115,7 @@
 #'
 #' \tabular{ll}{
 #' }
-#' \item status code : 490 | Exchange not registered
+#' \item status code : 490 | Exchange is unreachable.
 #'
 #' \item return type : Message 
 #' \item response headers :

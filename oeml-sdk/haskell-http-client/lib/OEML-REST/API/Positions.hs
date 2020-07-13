@@ -66,8 +66,9 @@ import qualified Prelude as P
 -- Returns all of your positions.
 -- 
 v1PositionsGet 
-  :: OEML-RESTRequest V1PositionsGet MimeNoContent [Position] MimeJSON
-v1PositionsGet =
+  :: Accept accept -- ^ request accept ('MimeType')
+  -> OEML-RESTRequest V1PositionsGet MimeNoContent [Position] accept
+v1PositionsGet  _ =
   _mkRequest "GET" ["/v1/positions"]
 
 data V1PositionsGet  
@@ -78,4 +79,6 @@ instance HasOptionalParam V1PositionsGet ExchangeId where
     req `setQuery` toQuery ("exchange_id", Just xs)
 -- | @application/json@
 instance Produces V1PositionsGet MimeJSON
+-- | @appliction/json@
+instance Produces V1PositionsGet MimeApplictionJson
 

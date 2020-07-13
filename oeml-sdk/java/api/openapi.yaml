@@ -39,6 +39,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/OrderExecutionReports'
           description: Collection of requested open orders.
+        "490":
+          content:
+            appliction/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+          description: Filtered exchange is unreachable.
       summary: Get all orders
       tags:
       - Orders
@@ -69,7 +75,7 @@ paths:
             appliction/json:
               schema:
                 $ref: '#/components/schemas/Message'
-          description: Exchange not registered
+          description: Exchange is unreachable.
       summary: Create new order
       tags:
       - Orders
@@ -134,7 +140,7 @@ paths:
             appliction/json:
               schema:
                 $ref: '#/components/schemas/Message'
-          description: Exchange not registered
+          description: Exchange is unreachable.
       summary: Cancel order
       tags:
       - Orders
@@ -157,6 +163,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/Message'
           description: Result
+        "490":
+          content:
+            appliction/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+          description: Exchange is unreachable.
       summary: Cancel all orders
       tags:
       - Orders
@@ -182,6 +194,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/Balances'
           description: Result
+        "490":
+          content:
+            appliction/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+          description: Exchange is unreachable.
       summary: Get balances
       tags:
       - Balances
@@ -206,6 +224,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/Positions'
           description: Result
+        "490":
+          content:
+            appliction/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+          description: Exchange is unreachable.
       summary: Get positions
       tags:
       - Positions

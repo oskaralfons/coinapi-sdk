@@ -11,6 +11,7 @@
  */
 package org.openapitools.client.api
 
+import org.openapitools.client.model.Message
 import org.openapitools.client.model.Position
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
@@ -28,6 +29,7 @@ class PositionsApi(baseUrl: String) {
    * 
    * Expected answers:
    *   code 200 : Seq[Position] (Result)
+   *   code 490 : Message (Exchange is unreachable.)
    * 
    * @param exchangeId Exchange name
    */
@@ -35,6 +37,7 @@ class PositionsApi(baseUrl: String) {
     ApiRequest[Seq[Position]](ApiMethods.GET, baseUrl, "/v1/positions", "application/json")
       .withQueryParam("exchange_id", exchangeId)
       .withSuccessResponse[Seq[Position]](200)
+      .withErrorResponse[Message](490)
       
 
 

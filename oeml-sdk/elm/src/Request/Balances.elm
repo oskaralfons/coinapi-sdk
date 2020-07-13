@@ -12,6 +12,7 @@
 
 module Request.Balances exposing (v1BalancesGet)
 
+import Data.Message as Message exposing (Message)
 import Data.Balance as Balance exposing (Balance)
 import Dict
 import Http

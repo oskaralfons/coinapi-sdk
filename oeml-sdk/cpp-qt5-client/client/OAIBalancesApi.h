@@ -15,6 +15,7 @@
 #include "OAIHttpRequest.h"
 
 #include "OAIBalance.h"
+#include "OAIMessage.h"
 #include <QString>
 
 #include <QObject>

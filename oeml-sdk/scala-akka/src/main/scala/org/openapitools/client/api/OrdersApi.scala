@@ -33,6 +33,7 @@ class OrdersApi(baseUrl: String) {
    * 
    * Expected answers:
    *   code 200 : Message (Result)
+   *   code 490 : Message (Exchange is unreachable.)
    * 
    * @param cancelOrderAllRequest 
    */
@@ -40,6 +41,7 @@ class OrdersApi(baseUrl: String) {
     ApiRequest[Message](ApiMethods.POST, baseUrl, "/v1/orders/cancel/all", "application/json")
       .withBody(cancelOrderAllRequest)
       .withSuccessResponse[Message](200)
+      .withErrorResponse[Message](490)
       
 
   /**
@@ -48,7 +50,7 @@ class OrdersApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OrderExecutionReport (Canceled order)
    *   code 400 : ValidationError (Validation errors)
-   *   code 490 : Message (Exchange not registered)
+   *   code 490 : Message (Exchange is unreachable.)
    * 
    * @param cancelOrderSingleRequest 
    */
@@ -65,6 +67,7 @@ class OrdersApi(baseUrl: String) {
    * 
    * Expected answers:
    *   code 200 : Seq[OrderExecutionReport] (Collection of requested open orders.)
+   *   code 490 : Message (Filtered exchange is unreachable.)
    * 
    * @param exchangeId Filter the output to the orders from the specific exchange.
    */
@@ -72,6 +75,7 @@ class OrdersApi(baseUrl: String) {
     ApiRequest[Seq[OrderExecutionReport]](ApiMethods.GET, baseUrl, "/v1/orders", "application/json")
       .withQueryParam("exchange_id", exchangeId)
       .withSuccessResponse[Seq[OrderExecutionReport]](200)
+      .withErrorResponse[Message](490)
       
 
   /**
@@ -80,7 +84,7 @@ class OrdersApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OrderExecutionReport (Created)
    *   code 400 : ValidationError (Validation errors)
-   *   code 490 : Message (Exchange not registered)
+   *   code 490 : Message (Exchange is unreachable.)
    * 
    * @param newOrderSingle 
    */

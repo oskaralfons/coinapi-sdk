@@ -65,7 +65,7 @@ function orders_api:v1_orders_cancel_all_post(cancel_order_all_request)
 	req.headers:upsert("accept", "application/json")
 
 	-- TODO: create a function to select proper content-type
-	--local var_accept = { "application/json" }
+	--local var_accept = { "application/json", "appliction/json" }
 	req.headers:upsert("content-type", "application/json")
 
 	req:set_body(dkjson.encode(cancel_order_all_request))
@@ -165,7 +165,7 @@ function orders_api:v1_orders_get(exchange_id)
 	-- set HTTP verb
 	req.headers:upsert(":method", "GET")
 	-- TODO: create a function to select proper content-type
-	--local var_accept = { "application/json" }
+	--local var_accept = { "application/json", "appliction/json" }
 	req.headers:upsert("content-type", "application/json")
 
 

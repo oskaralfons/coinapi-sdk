@@ -225,7 +225,8 @@ namespace CoinAPI.OMS.API.SDK.Api
 
             // to determine the Accept header
             String[] _accepts = new String[] {
-                "application/json"
+                "application/json",
+                "appliction/json"
             };
 
             var localVarContentType = CoinAPI.OMS.API.SDK.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
@@ -281,7 +282,8 @@ namespace CoinAPI.OMS.API.SDK.Api
 
             // to determine the Accept header
             String[] _accepts = new String[] {
-                "application/json"
+                "application/json",
+                "appliction/json"
             };
             
             foreach (var _contentType in _contentTypes)

@@ -27,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import org.openapitools.client.model.Message;
 import org.openapitools.client.model.Position;
 
 import java.lang.reflect.Type;
@@ -64,6 +65,7 @@ public class PositionsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Result </td><td>  -  </td></tr>
+        <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call v1PositionsGetCall(String exchangeId, final ApiCallback _callback) throws ApiException {
@@ -82,7 +84,7 @@ public class PositionsApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "appliction/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -118,6 +120,7 @@ public class PositionsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Result </td><td>  -  </td></tr>
+        <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
     public List<Position> v1PositionsGet(String exchangeId) throws ApiException {
@@ -135,6 +138,7 @@ public class PositionsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Result </td><td>  -  </td></tr>
+        <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<Position>> v1PositionsGetWithHttpInfo(String exchangeId) throws ApiException {
@@ -154,6 +158,7 @@ public class PositionsApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Result </td><td>  -  </td></tr>
+        <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call v1PositionsGetAsync(String exchangeId, final ApiCallback<List<Position>> _callback) throws ApiException {

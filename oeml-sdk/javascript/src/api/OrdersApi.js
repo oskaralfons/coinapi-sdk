@@ -72,7 +72,7 @@ export default class OrdersApi {
 
       let authNames = [];
       let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
+      let accepts = ['application/json', 'appliction/json'];
       let returnType = Message;
       return this.apiClient.callApi(
         '/v1/orders/cancel/all', 'POST',
@@ -155,7 +155,7 @@ export default class OrdersApi {
 
       let authNames = [];
       let contentTypes = [];
-      let accepts = ['application/json'];
+      let accepts = ['application/json', 'appliction/json'];
       let returnType = [OrderExecutionReport];
       return this.apiClient.callApi(
         '/v1/orders', 'GET',

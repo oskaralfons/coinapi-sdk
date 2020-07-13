@@ -124,7 +124,7 @@ class BalancesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Balance[]
+     * @return \OpenAPI\Client\Model\Balance[]|\OpenAPI\Client\Model\Message
      */
     public function v1BalancesGet($exchange_id = null)
     {
@@ -141,7 +141,7 @@ class BalancesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Balance[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\Balance[]|\OpenAPI\Client\Model\Message, HTTP status code, HTTP response headers (array of strings)
      */
     public function v1BalancesGetWithHttpInfo($exchange_id = null)
     {
@@ -189,6 +189,18 @@ class BalancesApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 490:
+                    if ('\OpenAPI\Client\Model\Message' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Message', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\OpenAPI\Client\Model\Balance[]';
@@ -211,6 +223,14 @@ class BalancesApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\OpenAPI\Client\Model\Balance[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 490:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\Message',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -326,11 +346,11 @@ class BalancesApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                ['application/json', 'appliction/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                ['application/json', 'appliction/json'],
                 []
             );
         }

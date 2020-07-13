@@ -69,6 +69,7 @@ public class OrdersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Result </td><td>  -  </td></tr>
+        <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call v1OrdersCancelAllPostCall(CancelOrderAllRequest cancelOrderAllRequest, final ApiCallback _callback) throws ApiException {
@@ -83,7 +84,7 @@ public class OrdersApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "appliction/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -124,6 +125,7 @@ public class OrdersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Result </td><td>  -  </td></tr>
+        <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
     public Message v1OrdersCancelAllPost(CancelOrderAllRequest cancelOrderAllRequest) throws ApiException {
@@ -141,6 +143,7 @@ public class OrdersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Result </td><td>  -  </td></tr>
+        <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Message> v1OrdersCancelAllPostWithHttpInfo(CancelOrderAllRequest cancelOrderAllRequest) throws ApiException {
@@ -160,6 +163,7 @@ public class OrdersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Result </td><td>  -  </td></tr>
+        <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call v1OrdersCancelAllPostAsync(CancelOrderAllRequest cancelOrderAllRequest, final ApiCallback<Message> _callback) throws ApiException {
@@ -180,7 +184,7 @@ public class OrdersApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Canceled order </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Validation errors </td><td>  -  </td></tr>
-        <tr><td> 490 </td><td> Exchange not registered </td><td>  -  </td></tr>
+        <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call v1OrdersCancelPostCall(CancelOrderSingleRequest cancelOrderSingleRequest, final ApiCallback _callback) throws ApiException {
@@ -237,7 +241,7 @@ public class OrdersApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Canceled order </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Validation errors </td><td>  -  </td></tr>
-        <tr><td> 490 </td><td> Exchange not registered </td><td>  -  </td></tr>
+        <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
     public OrderExecutionReport v1OrdersCancelPost(CancelOrderSingleRequest cancelOrderSingleRequest) throws ApiException {
@@ -256,7 +260,7 @@ public class OrdersApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Canceled order </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Validation errors </td><td>  -  </td></tr>
-        <tr><td> 490 </td><td> Exchange not registered </td><td>  -  </td></tr>
+        <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<OrderExecutionReport> v1OrdersCancelPostWithHttpInfo(CancelOrderSingleRequest cancelOrderSingleRequest) throws ApiException {
@@ -277,7 +281,7 @@ public class OrdersApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Canceled order </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Validation errors </td><td>  -  </td></tr>
-        <tr><td> 490 </td><td> Exchange not registered </td><td>  -  </td></tr>
+        <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call v1OrdersCancelPostAsync(CancelOrderSingleRequest cancelOrderSingleRequest, final ApiCallback<OrderExecutionReport> _callback) throws ApiException {
@@ -297,6 +301,7 @@ public class OrdersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Collection of requested open orders. </td><td>  -  </td></tr>
+        <tr><td> 490 </td><td> Filtered exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call v1OrdersGetCall(String exchangeId, final ApiCallback _callback) throws ApiException {
@@ -315,7 +320,7 @@ public class OrdersApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json"
+            "application/json", "appliction/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -351,6 +356,7 @@ public class OrdersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Collection of requested open orders. </td><td>  -  </td></tr>
+        <tr><td> 490 </td><td> Filtered exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
     public List<OrderExecutionReport> v1OrdersGet(String exchangeId) throws ApiException {
@@ -368,6 +374,7 @@ public class OrdersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Collection of requested open orders. </td><td>  -  </td></tr>
+        <tr><td> 490 </td><td> Filtered exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<OrderExecutionReport>> v1OrdersGetWithHttpInfo(String exchangeId) throws ApiException {
@@ -387,6 +394,7 @@ public class OrdersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Collection of requested open orders. </td><td>  -  </td></tr>
+        <tr><td> 490 </td><td> Filtered exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call v1OrdersGetAsync(String exchangeId, final ApiCallback<List<OrderExecutionReport>> _callback) throws ApiException {
@@ -407,7 +415,7 @@ public class OrdersApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Validation errors </td><td>  -  </td></tr>
-        <tr><td> 490 </td><td> Exchange not registered </td><td>  -  </td></tr>
+        <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call v1OrdersPostCall(NewOrderSingle newOrderSingle, final ApiCallback _callback) throws ApiException {
@@ -464,7 +472,7 @@ public class OrdersApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Validation errors </td><td>  -  </td></tr>
-        <tr><td> 490 </td><td> Exchange not registered </td><td>  -  </td></tr>
+        <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
     public OrderExecutionReport v1OrdersPost(NewOrderSingle newOrderSingle) throws ApiException {
@@ -483,7 +491,7 @@ public class OrdersApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Validation errors </td><td>  -  </td></tr>
-        <tr><td> 490 </td><td> Exchange not registered </td><td>  -  </td></tr>
+        <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<OrderExecutionReport> v1OrdersPostWithHttpInfo(NewOrderSingle newOrderSingle) throws ApiException {
@@ -504,7 +512,7 @@ public class OrdersApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Created </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Validation errors </td><td>  -  </td></tr>
-        <tr><td> 490 </td><td> Exchange not registered </td><td>  -  </td></tr>
+        <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call v1OrdersPostAsync(NewOrderSingle newOrderSingle, final ApiCallback<OrderExecutionReport> _callback) throws ApiException {

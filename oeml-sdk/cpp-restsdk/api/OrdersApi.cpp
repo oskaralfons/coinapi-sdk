@@ -55,6 +55,7 @@ pplx::task<std::shared_ptr<Message>> OrdersApi::v1OrdersCancelAllPost(std::share
 
     std::unordered_set<utility::string_t> localVarResponseHttpContentTypes;
     localVarResponseHttpContentTypes.insert( utility::conversions::to_string_t("application/json") );
+    localVarResponseHttpContentTypes.insert( utility::conversions::to_string_t("appliction/json") );
 
     utility::string_t localVarResponseHttpContentType;
 
@@ -332,6 +333,7 @@ pplx::task<std::vector<std::shared_ptr<OrderExecutionReport>>> OrdersApi::v1Orde
 
     std::unordered_set<utility::string_t> localVarResponseHttpContentTypes;
     localVarResponseHttpContentTypes.insert( utility::conversions::to_string_t("application/json") );
+    localVarResponseHttpContentTypes.insert( utility::conversions::to_string_t("appliction/json") );
 
     utility::string_t localVarResponseHttpContentType;
 

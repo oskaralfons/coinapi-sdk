@@ -17,6 +17,7 @@ local basexx = require "basexx"
 
 -- model import
 local openapiclient_balance = require "openapiclient.model.balance"
+local openapiclient_message = require "openapiclient.model.message"
 
 local balances_api = {}
 local balances_api_mt = {
@@ -56,7 +57,7 @@ function balances_api:v1_balances_get(exchange_id)
 	-- set HTTP verb
 	req.headers:upsert(":method", "GET")
 	-- TODO: create a function to select proper content-type
-	--local var_accept = { "application/json" }
+	--local var_accept = { "application/json", "appliction/json" }
 	req.headers:upsert("content-type", "application/json")
 
 

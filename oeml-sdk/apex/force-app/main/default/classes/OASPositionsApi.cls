@@ -45,7 +45,7 @@ public class OASPositionsApi {
             query, form,
             new Map<String, Object>(),
             new Map<String, Object>(),
-            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json', 'appliction/json' },
             new List<String>(),
             new List<String>(),
             List<OASPosition>.class

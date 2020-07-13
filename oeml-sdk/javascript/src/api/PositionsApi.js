@@ -13,6 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
+import Message from '../model/Message';
 import Position from '../model/Position';
 
 /**
@@ -66,7 +67,7 @@ export default class PositionsApi {
 
       let authNames = [];
       let contentTypes = [];
-      let accepts = ['application/json'];
+      let accepts = ['application/json', 'appliction/json'];
       let returnType = [Position];
       return this.apiClient.callApi(
         '/v1/positions', 'GET',

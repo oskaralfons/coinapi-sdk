@@ -578,6 +578,8 @@ print_v1BalancesGet_help() {
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
     echo -e "${result_color_table[${code:0:1}]}  200;Result${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=490
+    echo -e "${result_color_table[${code:0:1}]}  490;Exchange is unreachable.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
@@ -597,6 +599,8 @@ print_v1OrdersCancelAllPost_help() {
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
     echo -e "${result_color_table[${code:0:1}]}  200;Result${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=490
+    echo -e "${result_color_table[${code:0:1}]}  490;Exchange is unreachable.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
@@ -619,7 +623,7 @@ print_v1OrdersCancelPost_help() {
     code=400
     echo -e "${result_color_table[${code:0:1}]}  400;Validation errors${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=490
-    echo -e "${result_color_table[${code:0:1}]}  490;Exchange not registered${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  490;Exchange is unreachable.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
@@ -639,6 +643,8 @@ print_v1OrdersGet_help() {
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
     echo -e "${result_color_table[${code:0:1}]}  200;Collection of requested open orders.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=490
+    echo -e "${result_color_table[${code:0:1}]}  490;Filtered exchange is unreachable.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
@@ -661,7 +667,7 @@ print_v1OrdersPost_help() {
     code=400
     echo -e "${result_color_table[${code:0:1}]}  400;Validation errors${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=490
-    echo -e "${result_color_table[${code:0:1}]}  490;Exchange not registered${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  490;Exchange is unreachable.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
@@ -701,6 +707,8 @@ print_v1PositionsGet_help() {
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
     echo -e "${result_color_table[${code:0:1}]}  200;Result${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=490
+    echo -e "${result_color_table[${code:0:1}]}  490;Exchange is unreachable.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 
 

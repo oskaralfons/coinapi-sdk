@@ -67,9 +67,10 @@ import qualified Prelude as P
 -- 
 v1OrdersCancelAllPost 
   :: (Consumes V1OrdersCancelAllPost MimeJSON, MimeRender MimeJSON CancelOrderAllRequest)
-  => CancelOrderAllRequest -- ^ "cancelOrderAllRequest"
-  -> OEML-RESTRequest V1OrdersCancelAllPost MimeJSON Message MimeJSON
-v1OrdersCancelAllPost cancelOrderAllRequest =
+  => Accept accept -- ^ request accept ('MimeType')
+  -> CancelOrderAllRequest -- ^ "cancelOrderAllRequest"
+  -> OEML-RESTRequest V1OrdersCancelAllPost MimeJSON Message accept
+v1OrdersCancelAllPost  _ cancelOrderAllRequest =
   _mkRequest "POST" ["/v1/orders/cancel/all"]
     `setBodyParam` cancelOrderAllRequest
 
@@ -81,6 +82,8 @@ instance Consumes V1OrdersCancelAllPost MimeJSON
 
 -- | @application/json@
 instance Produces V1OrdersCancelAllPost MimeJSON
+-- | @appliction/json@
+instance Produces V1OrdersCancelAllPost MimeApplictionJson
 
 
 -- *** v1OrdersCancelPost
@@ -121,8 +124,9 @@ instance Produces V1OrdersCancelPost MimeApplictionJson
 -- Get all current open orders across all or single specified exchange.
 -- 
 v1OrdersGet 
-  :: OEML-RESTRequest V1OrdersGet MimeNoContent [OrderExecutionReport] MimeJSON
-v1OrdersGet =
+  :: Accept accept -- ^ request accept ('MimeType')
+  -> OEML-RESTRequest V1OrdersGet MimeNoContent [OrderExecutionReport] accept
+v1OrdersGet  _ =
   _mkRequest "GET" ["/v1/orders"]
 
 data V1OrdersGet  
@@ -133,6 +137,8 @@ instance HasOptionalParam V1OrdersGet ExchangeId where
     req `setQuery` toQuery ("exchange_id", Just xs)
 -- | @application/json@
 instance Produces V1OrdersGet MimeJSON
+-- | @appliction/json@
+instance Produces V1OrdersGet MimeApplictionJson
 
 
 -- *** v1OrdersPost

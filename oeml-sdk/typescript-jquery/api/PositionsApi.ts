@@ -70,7 +70,8 @@ export class PositionsApi {
 
         // to determine the Accept header
         let produces: string[] = [
-            'application/json'
+            'application/json', 
+            'appliction/json'
         ];
 
 

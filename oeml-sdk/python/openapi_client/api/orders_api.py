@@ -129,7 +129,7 @@ class OrdersApi(object):
             body_params = local_var_params['cancel_order_all_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['application/json', 'appliction/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -361,7 +361,7 @@ class OrdersApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
+            ['application/json', 'appliction/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = []  # noqa: E501

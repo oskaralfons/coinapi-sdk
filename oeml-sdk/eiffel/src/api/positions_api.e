@@ -45,7 +45,7 @@ feature -- API Access
 			l_request.fill_query_params(api_client.parameter_to_tuple("", "exchange_id", exchange_id));
 
 
-			if attached {STRING} api_client.select_header_accept (<<"application/json">>)  as l_accept then
+			if attached {STRING} api_client.select_header_accept (<<"application/json", "appliction/json">>)  as l_accept then
 				l_request.add_header(l_accept,"Accept");
 			end
 			l_request.add_header(api_client.select_header_content_type (<<>>),"Content-Type")

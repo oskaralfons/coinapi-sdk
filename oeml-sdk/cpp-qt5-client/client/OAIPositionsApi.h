@@ -14,6 +14,7 @@
 
 #include "OAIHttpRequest.h"
 
+#include "OAIMessage.h"
 #include "OAIPosition.h"
 #include <QString>
 

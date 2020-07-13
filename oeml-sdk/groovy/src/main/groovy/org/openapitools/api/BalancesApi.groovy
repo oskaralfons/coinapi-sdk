@@ -2,6 +2,7 @@ package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
 import org.openapitools.model.Balance
+import org.openapitools.model.Message
 
 class BalancesApi {
     String basePath = "http://localhost:8080"

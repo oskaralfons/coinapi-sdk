@@ -6,6 +6,7 @@ import 'package:built_collection/built_collection.dart';
 import 'package:built_value/serializer.dart';
 
 import 'package:openapi/model/position.dart';
+import 'package:openapi/model/message.dart';
 
 class PositionsApi {
     final Dio _dio;

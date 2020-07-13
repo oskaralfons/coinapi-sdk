@@ -56,7 +56,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
+- **Accept**: application/json, appliction/json
 
 
 ## v1_orders_cancel_post
@@ -152,7 +152,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: application/json, appliction/json
 
 
 ## v1_orders_post

@@ -66,8 +66,9 @@ import qualified Prelude as P
 -- Returns all of your balances, including available balance.
 -- 
 v1BalancesGet 
-  :: OEML-RESTRequest V1BalancesGet MimeNoContent [Balance] MimeJSON
-v1BalancesGet =
+  :: Accept accept -- ^ request accept ('MimeType')
+  -> OEML-RESTRequest V1BalancesGet MimeNoContent [Balance] accept
+v1BalancesGet  _ =
   _mkRequest "GET" ["/v1/balances"]
 
 data V1BalancesGet  
@@ -78,4 +79,6 @@ instance HasOptionalParam V1BalancesGet ExchangeId where
     req `setQuery` toQuery ("exchange_id", Just xs)
 -- | @application/json@
 instance Produces V1BalancesGet MimeJSON
+-- | @appliction/json@
+instance Produces V1BalancesGet MimeApplictionJson
 

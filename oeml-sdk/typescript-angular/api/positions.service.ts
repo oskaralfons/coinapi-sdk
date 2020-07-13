@@ -17,6 +17,7 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
+import { Message } from '../model/models';
 import { Position } from '../model/models';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -92,10 +93,10 @@ export class PositionsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public v1PositionsGet(exchangeId?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Array<Position>>;
-    public v1PositionsGet(exchangeId?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Array<Position>>>;
-    public v1PositionsGet(exchangeId?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Array<Position>>>;
-    public v1PositionsGet(exchangeId?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public v1PositionsGet(exchangeId?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json' | 'appliction/json'}): Observable<Array<Position>>;
+    public v1PositionsGet(exchangeId?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json' | 'appliction/json'}): Observable<HttpResponse<Array<Position>>>;
+    public v1PositionsGet(exchangeId?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json' | 'appliction/json'}): Observable<HttpEvent<Array<Position>>>;
+    public v1PositionsGet(exchangeId?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json' | 'appliction/json'}): Observable<any> {
 
         let queryParameters = new HttpParams({encoder: this.encoder});
         if (exchangeId !== undefined && exchangeId !== null) {
@@ -109,7 +110,8 @@ export class PositionsService {
         if (httpHeaderAcceptSelected === undefined) {
             // to determine the Accept header
             const httpHeaderAccepts: string[] = [
-                'application/json'
+                'application/json',
+                'appliction/json'
             ];
             httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         }

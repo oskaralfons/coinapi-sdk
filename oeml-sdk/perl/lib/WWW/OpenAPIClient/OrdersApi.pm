@@ -87,7 +87,7 @@ sub v1_orders_cancel_all_post {
     my $form_params = {};
 
     # 'Accept' and 'Content-Type' header
-    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json', 'appliction/json');
     if ($_header_accept) {
         $header_params->{'Accept'} = $_header_accept;
     }
@@ -212,7 +212,7 @@ sub v1_orders_get {
     my $form_params = {};
 
     # 'Accept' and 'Content-Type' header
-    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json', 'appliction/json');
     if ($_header_accept) {
         $header_params->{'Accept'} = $_header_accept;
     }

@@ -14,6 +14,7 @@
 
 import ApiClient from "../ApiClient";
 import Balance from '../model/Balance';
+import Message from '../model/Message';
 
 /**
 * Balances service.
@@ -66,7 +67,7 @@ export default class BalancesApi {
 
       let authNames = [];
       let contentTypes = [];
-      let accepts = ['application/json'];
+      let accepts = ['application/json', 'appliction/json'];
       let returnType = [Balance];
       return this.apiClient.callApi(
         '/v1/balances', 'GET',

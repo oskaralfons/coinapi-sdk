@@ -35,7 +35,7 @@
              :form-params   {}
              :body-param    cancel-order-all-request
              :content-types ["application/json"]
-             :accepts       ["application/json"]
+             :accepts       ["application/json" "appliction/json"]
              :auth-names    []}))
 
 (defn-spec v1-orders-cancel-all-post message-spec
@@ -84,7 +84,7 @@
               :query-params  {"exchange_id" exchange_id }
               :form-params   {}
               :content-types []
-              :accepts       ["application/json"]
+              :accepts       ["application/json" "appliction/json"]
               :auth-names    []})))
 
 (defn-spec v1-orders-get (s/coll-of order-execution-report-spec)

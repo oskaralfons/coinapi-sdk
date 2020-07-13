@@ -5,6 +5,7 @@ import 'package:jaguar_mimetype/jaguar_mimetype.dart';
 import 'dart:async';
 
 import 'package:openapi/model/position.dart';
+import 'package:openapi/model/message.dart';
 
 part 'positions_api.jretro.dart';
 

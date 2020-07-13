@@ -43,7 +43,7 @@ public class OASOrdersApi {
             query, form,
             new Map<String, Object>(),
             new Map<String, Object>(),
-            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json', 'appliction/json' },
             new List<String>{ 'application/json' },
             new List<String>(),
             OASMessage.class
@@ -93,7 +93,7 @@ public class OASOrdersApi {
             query, form,
             new Map<String, Object>(),
             new Map<String, Object>(),
-            new List<String>{ 'application/json' },
+            new List<String>{ 'application/json', 'appliction/json' },
             new List<String>(),
             new List<String>(),
             List<OASOrderExecutionReport>.class

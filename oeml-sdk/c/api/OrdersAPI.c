@@ -43,6 +43,7 @@ OrdersAPI_v1OrdersCancelAllPost(apiClient_t *apiClient, cancel_order_all_request
         localVarBodyParameters = cJSON_Print(localVarSingleItemJSON_cancel_order_all_request);
     }
     list_addElement(localVarHeaderType,"application/json"); //produces
+    list_addElement(localVarHeaderType,"appliction/json"); //produces
     list_addElement(localVarContentType,"application/json"); //consumes
     apiClient_invoke(apiClient,
                     localVarPath,
@@ -56,6 +57,9 @@ OrdersAPI_v1OrdersCancelAllPost(apiClient_t *apiClient, cancel_order_all_request
 
     if (apiClient->response_code == 200) {
         printf("%s\n","Result");
+    }
+    if (apiClient->response_code == 490) {
+        printf("%s\n","Exchange is unreachable.");
     }
     //nonprimitive not container
     cJSON *OrdersAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
@@ -135,7 +139,7 @@ OrdersAPI_v1OrdersCancelPost(apiClient_t *apiClient, cancel_order_single_request
         printf("%s\n","Validation errors");
     }
     if (apiClient->response_code == 490) {
-        printf("%s\n","Exchange not registered");
+        printf("%s\n","Exchange is unreachable.");
     }
     //nonprimitive not container
     cJSON *OrdersAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
@@ -199,6 +203,7 @@ OrdersAPI_v1OrdersGet(apiClient_t *apiClient, char * exchange_id )
         list_addElement(localVarQueryParameters,keyPairQuery_exchange_id);
     }
     list_addElement(localVarHeaderType,"application/json"); //produces
+    list_addElement(localVarHeaderType,"appliction/json"); //produces
     apiClient_invoke(apiClient,
                     localVarPath,
                     localVarQueryParameters,
@@ -211,6 +216,9 @@ OrdersAPI_v1OrdersGet(apiClient_t *apiClient, char * exchange_id )
 
     if (apiClient->response_code == 200) {
         printf("%s\n","Collection of requested open orders.");
+    }
+    if (apiClient->response_code == 490) {
+        printf("%s\n","Filtered exchange is unreachable.");
     }
     cJSON *OrdersAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
     if(!cJSON_IsArray(OrdersAPIlocalVarJSON)) {
@@ -310,7 +318,7 @@ OrdersAPI_v1OrdersPost(apiClient_t *apiClient, new_order_single_t * new_order_si
         printf("%s\n","Validation errors");
     }
     if (apiClient->response_code == 490) {
-        printf("%s\n","Exchange not registered");
+        printf("%s\n","Exchange is unreachable.");
     }
     //nonprimitive not container
     cJSON *OrdersAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);

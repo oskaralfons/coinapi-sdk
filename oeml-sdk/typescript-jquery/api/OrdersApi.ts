@@ -73,7 +73,8 @@ export class OrdersApi {
 
         // to determine the Accept header
         let produces: string[] = [
-            'application/json'
+            'application/json', 
+            'appliction/json'
         ];
 
 
@@ -203,7 +204,8 @@ export class OrdersApi {
 
         // to determine the Accept header
         let produces: string[] = [
-            'application/json'
+            'application/json', 
+            'appliction/json'
         ];
 
 

@@ -47,12 +47,13 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, appliction/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Result |  -  |
+| **490** | Exchange is unreachable. |  -  |
 
 # **V1OrdersCancelPost**
 > OrderExecutionReport V1OrdersCancelPost(cancel.order.single.request)
@@ -97,7 +98,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | Canceled order |  -  |
 | **400** | Validation errors |  -  |
-| **490** | Exchange not registered |  -  |
+| **490** | Exchange is unreachable. |  -  |
 
 # **V1OrdersGet**
 > array[OrderExecutionReport] V1OrdersGet(exchange.id=var.exchange.id)
@@ -135,12 +136,13 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, appliction/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Collection of requested open orders. |  -  |
+| **490** | Filtered exchange is unreachable. |  -  |
 
 # **V1OrdersPost**
 > OrderExecutionReport V1OrdersPost(new.order.single)
@@ -185,7 +187,7 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | Created |  -  |
 | **400** | Validation errors |  -  |
-| **490** | Exchange not registered |  -  |
+| **490** | Exchange is unreachable. |  -  |
 
 # **V1OrdersStatusClientOrderIdGet**
 > OrderExecutionReport V1OrdersStatusClientOrderIdGet(client.order.id)

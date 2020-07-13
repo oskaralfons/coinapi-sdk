@@ -124,7 +124,7 @@ class PositionsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Position[]
+     * @return \OpenAPI\Client\Model\Position[]|\OpenAPI\Client\Model\Message
      */
     public function v1PositionsGet($exchange_id = null)
     {
@@ -141,7 +141,7 @@ class PositionsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Position[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\Position[]|\OpenAPI\Client\Model\Message, HTTP status code, HTTP response headers (array of strings)
      */
     public function v1PositionsGetWithHttpInfo($exchange_id = null)
     {
@@ -189,6 +189,18 @@ class PositionsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 490:
+                    if ('\OpenAPI\Client\Model\Message' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Message', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\OpenAPI\Client\Model\Position[]';
@@ -211,6 +223,14 @@ class PositionsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\OpenAPI\Client\Model\Position[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 490:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\Message',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -326,11 +346,11 @@ class PositionsApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                ['application/json', 'appliction/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                ['application/json', 'appliction/json'],
                 []
             );
         }

@@ -34,7 +34,8 @@ defmodule OEML-RESTAPI.Api.Orders do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %OEML-RESTAPI.Model.Message{}}
+      { 200, %OEML-RESTAPI.Model.Message{}},
+      { 490, %OEML-RESTAPI.Model.Message{}}
     ])
   end
 
@@ -93,7 +94,8 @@ defmodule OEML-RESTAPI.Api.Orders do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, [%OEML-RESTAPI.Model.OrderExecutionReport{}]}
+      { 200, [%OEML-RESTAPI.Model.OrderExecutionReport{}]},
+      { 490, %OEML-RESTAPI.Model.Message{}}
     ])
   end
 

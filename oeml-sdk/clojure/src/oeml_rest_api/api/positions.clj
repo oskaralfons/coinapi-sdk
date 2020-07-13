@@ -34,7 +34,7 @@
               :query-params  {"exchange_id" exchange_id }
               :form-params   {}
               :content-types []
-              :accepts       ["application/json"]
+              :accepts       ["application/json" "appliction/json"]
               :auth-names    []})))
 
 (defn-spec v1-positions-get (s/coll-of position-spec)

@@ -66,12 +66,13 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/json, appliction/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Result |  -  |
+**490** | Exchange is unreachable. |  -  |
 
 <a name="v1OrdersCancelPost"></a>
 # **v1OrdersCancelPost**
@@ -135,7 +136,7 @@ No authorization required
 |-------------|-------------|------------------|
 **200** | Canceled order |  -  |
 **400** | Validation errors |  -  |
-**490** | Exchange not registered |  -  |
+**490** | Exchange is unreachable. |  -  |
 
 <a name="v1OrdersGet"></a>
 # **v1OrdersGet**
@@ -192,12 +193,13 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, appliction/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Collection of requested open orders. |  -  |
+**490** | Filtered exchange is unreachable. |  -  |
 
 <a name="v1OrdersPost"></a>
 # **v1OrdersPost**
@@ -261,7 +263,7 @@ No authorization required
 |-------------|-------------|------------------|
 **200** | Created |  -  |
 **400** | Validation errors |  -  |
-**490** | Exchange not registered |  -  |
+**490** | Exchange is unreachable. |  -  |
 
 <a name="v1OrdersStatusClientOrderIdGet"></a>
 # **v1OrdersStatusClientOrderIdGet**

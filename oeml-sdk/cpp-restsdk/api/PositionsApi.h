@@ -21,6 +21,7 @@
 
 #include "../ApiClient.h"
 
+#include "Message.h"
 #include "Position.h"
 #include <cpprest/details/basic_types.h>
 

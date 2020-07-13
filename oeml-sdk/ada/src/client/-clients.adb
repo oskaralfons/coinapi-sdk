@@ -20,7 +20,8 @@ package body .Clients is
       URI   : Swagger.Clients.URI_Type;
       Reply : Swagger.Value_Type;
    begin
-      Client.Set_Accept ((1 => Swagger.Clients.APPLICATION_JSON));
+      Client.Set_Accept ((Swagger.Clients.APPLICATION_JSON,
+                          Swagger.Clients.APPLICTION_JSON));
 
       URI.Add_Param ("exchange_id", Exchange_Id);
       URI.Set_Path ("/v1/balances");
@@ -38,7 +39,8 @@ package body .Clients is
       Req   : Swagger.Clients.Request_Type;
       Reply : Swagger.Value_Type;
    begin
-      Client.Set_Accept ((1 => Swagger.Clients.APPLICATION_JSON));
+      Client.Set_Accept ((Swagger.Clients.APPLICATION_JSON,
+                          Swagger.Clients.APPLICTION_JSON));
       Client.Initialize (Req, (1 => Swagger.Clients.APPLICATION_JSON));
       .Models.Serialize (Req.Stream, "", Cancel_Order_All_Request_Type);
 
@@ -76,7 +78,8 @@ package body .Clients is
       URI   : Swagger.Clients.URI_Type;
       Reply : Swagger.Value_Type;
    begin
-      Client.Set_Accept ((1 => Swagger.Clients.APPLICATION_JSON));
+      Client.Set_Accept ((Swagger.Clients.APPLICATION_JSON,
+                          Swagger.Clients.APPLICTION_JSON));
 
       URI.Add_Param ("exchange_id", Exchange_Id);
       URI.Set_Path ("/v1/orders");
@@ -130,7 +133,8 @@ package body .Clients is
       URI   : Swagger.Clients.URI_Type;
       Reply : Swagger.Value_Type;
    begin
-      Client.Set_Accept ((1 => Swagger.Clients.APPLICATION_JSON));
+      Client.Set_Accept ((Swagger.Clients.APPLICATION_JSON,
+                          Swagger.Clients.APPLICTION_JSON));
 
       URI.Add_Param ("exchange_id", Exchange_Id);
       URI.Set_Path ("/v1/positions");

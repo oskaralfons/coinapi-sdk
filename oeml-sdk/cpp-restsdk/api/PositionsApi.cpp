@@ -49,6 +49,7 @@ pplx::task<std::vector<std::shared_ptr<Position>>> PositionsApi::v1PositionsGet(
 
     std::unordered_set<utility::string_t> localVarResponseHttpContentTypes;
     localVarResponseHttpContentTypes.insert( utility::conversions::to_string_t("application/json") );
+    localVarResponseHttpContentTypes.insert( utility::conversions::to_string_t("appliction/json") );
 
     utility::string_t localVarResponseHttpContentType;
 

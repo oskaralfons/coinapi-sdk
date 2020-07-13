@@ -124,7 +124,7 @@ class OrdersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Message
+     * @return \OpenAPI\Client\Model\Message|\OpenAPI\Client\Model\Message
      */
     public function v1OrdersCancelAllPost($cancel_order_all_request)
     {
@@ -141,7 +141,7 @@ class OrdersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Message, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\Message|\OpenAPI\Client\Model\Message, HTTP status code, HTTP response headers (array of strings)
      */
     public function v1OrdersCancelAllPostWithHttpInfo($cancel_order_all_request)
     {
@@ -189,6 +189,18 @@ class OrdersApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 490:
+                    if ('\OpenAPI\Client\Model\Message' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Message', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\OpenAPI\Client\Model\Message';
@@ -208,6 +220,14 @@ class OrdersApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\Message',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 490:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\OpenAPI\Client\Model\Message',
@@ -324,11 +344,11 @@ class OrdersApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                ['application/json', 'appliction/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                ['application/json', 'appliction/json'],
                 ['application/json']
             );
         }
@@ -700,7 +720,7 @@ class OrdersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\OrderExecutionReport[]
+     * @return \OpenAPI\Client\Model\OrderExecutionReport[]|\OpenAPI\Client\Model\Message
      */
     public function v1OrdersGet($exchange_id = null)
     {
@@ -717,7 +737,7 @@ class OrdersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\OrderExecutionReport[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\OrderExecutionReport[]|\OpenAPI\Client\Model\Message, HTTP status code, HTTP response headers (array of strings)
      */
     public function v1OrdersGetWithHttpInfo($exchange_id = null)
     {
@@ -765,6 +785,18 @@ class OrdersApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 490:
+                    if ('\OpenAPI\Client\Model\Message' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Message', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\OpenAPI\Client\Model\OrderExecutionReport[]';
@@ -787,6 +819,14 @@ class OrdersApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\OpenAPI\Client\Model\OrderExecutionReport[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 490:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\Message',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -902,11 +942,11 @@ class OrdersApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                ['application/json', 'appliction/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
+                ['application/json', 'appliction/json'],
                 []
             );
         }

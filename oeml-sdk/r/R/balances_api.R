@@ -29,6 +29,13 @@
 #'
 #' \tabular{ll}{
 #' }
+#' \item status code : 490 | Exchange is unreachable.
+#'
+#' \item return type : Message 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
 #' }
 #'
 #' }

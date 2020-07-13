@@ -12,6 +12,7 @@
 package org.openapitools.client.api
 
 import org.openapitools.client.model.Balance
+import org.openapitools.client.model.Message
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
 import org.openapitools.client.core.ApiKeyLocations._
@@ -28,6 +29,7 @@ class BalancesApi(baseUrl: String) {
    * 
    * Expected answers:
    *   code 200 : Seq[Balance] (Result)
+   *   code 490 : Message (Exchange is unreachable.)
    * 
    * @param exchangeId Exchange name
    */
@@ -35,6 +37,7 @@ class BalancesApi(baseUrl: String) {
     ApiRequest[Seq[Balance]](ApiMethods.GET, baseUrl, "/v1/balances", "application/json")
       .withQueryParam("exchange_id", exchangeId)
       .withSuccessResponse[Seq[Balance]](200)
+      .withErrorResponse[Message](490)
       
 
 

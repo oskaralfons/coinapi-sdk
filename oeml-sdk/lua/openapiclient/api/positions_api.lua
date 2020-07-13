@@ -16,6 +16,7 @@ local dkjson = require "dkjson"
 local basexx = require "basexx"
 
 -- model import
+local openapiclient_message = require "openapiclient.model.message"
 local openapiclient_position = require "openapiclient.model.position"
 
 local positions_api = {}
@@ -56,7 +57,7 @@ function positions_api:v1_positions_get(exchange_id)
 	-- set HTTP verb
 	req.headers:upsert(":method", "GET")
 	-- TODO: create a function to select proper content-type
-	--local var_accept = { "application/json" }
+	--local var_accept = { "application/json", "appliction/json" }
 	req.headers:upsert("content-type", "application/json")
 
 

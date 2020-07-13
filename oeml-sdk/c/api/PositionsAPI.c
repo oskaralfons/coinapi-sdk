@@ -46,6 +46,7 @@ PositionsAPI_v1PositionsGet(apiClient_t *apiClient, char * exchange_id )
         list_addElement(localVarQueryParameters,keyPairQuery_exchange_id);
     }
     list_addElement(localVarHeaderType,"application/json"); //produces
+    list_addElement(localVarHeaderType,"appliction/json"); //produces
     apiClient_invoke(apiClient,
                     localVarPath,
                     localVarQueryParameters,
@@ -58,6 +59,9 @@ PositionsAPI_v1PositionsGet(apiClient_t *apiClient, char * exchange_id )
 
     if (apiClient->response_code == 200) {
         printf("%s\n","Result");
+    }
+    if (apiClient->response_code == 490) {
+        printf("%s\n","Exchange is unreachable.");
     }
     cJSON *PositionsAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
     if(!cJSON_IsArray(PositionsAPIlocalVarJSON)) {

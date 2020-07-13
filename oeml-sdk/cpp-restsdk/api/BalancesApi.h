@@ -22,6 +22,7 @@
 #include "../ApiClient.h"
 
 #include "Balance.h"
+#include "Message.h"
 #include <cpprest/details/basic_types.h>
 
 

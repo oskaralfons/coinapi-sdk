@@ -97,10 +97,10 @@ export class OrdersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public v1OrdersCancelAllPost(cancelOrderAllRequest: CancelOrderAllRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Message>;
-    public v1OrdersCancelAllPost(cancelOrderAllRequest: CancelOrderAllRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Message>>;
-    public v1OrdersCancelAllPost(cancelOrderAllRequest: CancelOrderAllRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Message>>;
-    public v1OrdersCancelAllPost(cancelOrderAllRequest: CancelOrderAllRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public v1OrdersCancelAllPost(cancelOrderAllRequest: CancelOrderAllRequest, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json' | 'appliction/json'}): Observable<Message>;
+    public v1OrdersCancelAllPost(cancelOrderAllRequest: CancelOrderAllRequest, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json' | 'appliction/json'}): Observable<HttpResponse<Message>>;
+    public v1OrdersCancelAllPost(cancelOrderAllRequest: CancelOrderAllRequest, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json' | 'appliction/json'}): Observable<HttpEvent<Message>>;
+    public v1OrdersCancelAllPost(cancelOrderAllRequest: CancelOrderAllRequest, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json' | 'appliction/json'}): Observable<any> {
         if (cancelOrderAllRequest === null || cancelOrderAllRequest === undefined) {
             throw new Error('Required parameter cancelOrderAllRequest was null or undefined when calling v1OrdersCancelAllPost.');
         }
@@ -111,7 +111,8 @@ export class OrdersService {
         if (httpHeaderAcceptSelected === undefined) {
             // to determine the Accept header
             const httpHeaderAccepts: string[] = [
-                'application/json'
+                'application/json',
+                'appliction/json'
             ];
             httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         }
@@ -210,10 +211,10 @@ export class OrdersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public v1OrdersGet(exchangeId?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Array<OrderExecutionReport>>;
-    public v1OrdersGet(exchangeId?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Array<OrderExecutionReport>>>;
-    public v1OrdersGet(exchangeId?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Array<OrderExecutionReport>>>;
-    public v1OrdersGet(exchangeId?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public v1OrdersGet(exchangeId?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json' | 'appliction/json'}): Observable<Array<OrderExecutionReport>>;
+    public v1OrdersGet(exchangeId?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json' | 'appliction/json'}): Observable<HttpResponse<Array<OrderExecutionReport>>>;
+    public v1OrdersGet(exchangeId?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json' | 'appliction/json'}): Observable<HttpEvent<Array<OrderExecutionReport>>>;
+    public v1OrdersGet(exchangeId?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json' | 'appliction/json'}): Observable<any> {
 
         let queryParameters = new HttpParams({encoder: this.encoder});
         if (exchangeId !== undefined && exchangeId !== null) {
@@ -227,7 +228,8 @@ export class OrdersService {
         if (httpHeaderAcceptSelected === undefined) {
             // to determine the Accept header
             const httpHeaderAccepts: string[] = [
-                'application/json'
+                'application/json',
+                'appliction/json'
             ];
             httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         }
