@@ -122,7 +122,7 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
 
     /**
     * Get all orders
-    * Get all current open orders across all or single specified exchange.
+    * Get last execution reports for all open orders across all or single exchange.
     * @param exchangeId Filter the output to the orders from the specific exchange. (optional)
     * @return kotlin.Array<OrderExecutionReport>
     * @throws UnsupportedOperationException If the API returns an informational or redirection response

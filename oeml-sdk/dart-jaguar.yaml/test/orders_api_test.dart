@@ -27,7 +27,7 @@ void main() {
 
     // Get all orders
     //
-    // Get all current open orders across all or single specified exchange.
+    // Get last execution reports for all open orders across all or single exchange.
     //
     //Future<List<OrderExecutionReport>> v1OrdersGet({ String exchangeId }) async 
     test('test v1OrdersGet', () async {

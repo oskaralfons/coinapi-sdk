@@ -769,7 +769,7 @@ export const OrdersApiFetchParamCreator = function (configuration?: Configuratio
             };
         },
         /**
-         * Get all current open orders across all or single specified exchange.
+         * Get last execution reports for all open orders across all or single exchange.
          * @summary Get all orders
          * @throws {RequiredError}
          */
@@ -904,7 +904,7 @@ export const OrdersApi = function(configuration?: Configuration, fetch: FetchAPI
             });
         },
         /**
-         * Get all current open orders across all or single specified exchange.
+         * Get last execution reports for all open orders across all or single exchange.
          * @summary Get all orders
          * @throws {RequiredError}
          */

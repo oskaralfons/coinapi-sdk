@@ -63,10 +63,10 @@ class OrdersApi(baseUrl: String) {
       
 
   /**
-   * Get all current open orders across all or single specified exchange.
+   * Get last execution reports for all open orders across all or single exchange.
    * 
    * Expected answers:
-   *   code 200 : Seq[OrderExecutionReport] (Collection of requested open orders.)
+   *   code 200 : Seq[OrderExecutionReport] (Collection of order execution reports.)
    *   code 490 : Message (Filtered exchange is unreachable.)
    * 
    * @param exchangeId Filter the output to the orders from the specific exchange.
@@ -100,8 +100,8 @@ class OrdersApi(baseUrl: String) {
    * Get the last order execution report for the specified order. The requested order does not need to be active/opened.
    * 
    * Expected answers:
-   *   code 200 : OrderExecutionReport (The order was found.)
-   *   code 400 : Message (The order was not found.)
+   *   code 200 : OrderExecutionReport (The last xecution report of the requested order.)
+   *   code 404 : Message (The requested order was not found.)
    * 
    * @param clientOrderId The unique identifier of the order assigned by the client.
    */
@@ -109,7 +109,7 @@ class OrdersApi(baseUrl: String) {
     ApiRequest[OrderExecutionReport](ApiMethods.GET, baseUrl, "/v1/orders/status/{client_order_id}", "application/json")
       .withPathParam("client_order_id", clientOrderId)
       .withSuccessResponse[OrderExecutionReport](200)
-      .withErrorResponse[Message](400)
+      .withErrorResponse[Message](404)
       
 
 

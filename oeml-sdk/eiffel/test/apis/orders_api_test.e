@@ -46,7 +46,7 @@ feature -- Test routines
     test_v1_orders_get
             -- Get all orders
             -- 
-            -- Get all current open orders across all or single specified exchange. 
+            -- Get last execution reports for all open orders across all or single exchange. 
         local
             l_response: LIST [ORDER_EXECUTION_REPORT]
             l_exchange_id: STRING_32

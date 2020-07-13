@@ -206,7 +206,7 @@ export class OrdersService {
 
     /**
      * Get all orders
-     * Get all current open orders across all or single specified exchange.
+     * Get last execution reports for all open orders across all or single exchange.
      * @param exchangeId Filter the output to the orders from the specific exchange.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.

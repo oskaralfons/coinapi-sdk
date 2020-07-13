@@ -133,7 +133,7 @@ export default class OrdersApi {
 
     /**
      * Get all orders
-     * Get all current open orders across all or single specified exchange.
+     * Get last execution reports for all open orders across all or single exchange.
      * @param {Object} opts Optional parameters
      * @param {String} opts.exchangeId Filter the output to the orders from the specific exchange.
      * @param {module:api/OrdersApi~v1OrdersGetCallback} callback The callback function, accepting three arguments: error, data, response

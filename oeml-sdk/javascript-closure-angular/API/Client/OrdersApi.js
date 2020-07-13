@@ -124,7 +124,7 @@ API.Client.OrdersApi.prototype.v1OrdersCancelPost = function(cancelOrderSingleRe
 
 /**
  * Get all orders
- * Get all current open orders across all or single specified exchange.
+ * Get last execution reports for all open orders across all or single exchange.
  * @param {!string=} opt_exchangeId Filter the output to the orders from the specific exchange.
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
  * @return {!angular.$q.Promise<!Array<!API.Client.OrderExecutionReport>>}

@@ -21,7 +21,8 @@ tags:
 paths:
   /v1/orders:
     get:
-      description: Get all current open orders across all or single specified exchange.
+      description: Get last execution reports for all open orders across all or single
+        exchange.
       parameters:
       - description: Filter the output to the orders from the specific exchange.
         explode: true
@@ -38,7 +39,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OrderExecutionReports'
-          description: Collection of requested open orders.
+          description: Collection of order execution reports.
         "490":
           content:
             appliction/json:
@@ -101,13 +102,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OrderExecutionReport'
-          description: The order was found.
-        "400":
+          description: The last xecution report of the requested order.
+        "404":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Message'
-          description: The order was not found.
+          description: The requested order was not found.
       summary: Get order status
       tags:
       - Orders

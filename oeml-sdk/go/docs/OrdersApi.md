@@ -86,7 +86,7 @@ No authorization required
 
 Get all orders
 
-Get all current open orders across all or single specified exchange.
+Get last execution reports for all open orders across all or single exchange.
 
 ### Required Parameters
 

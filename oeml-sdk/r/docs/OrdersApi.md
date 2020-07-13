@@ -105,7 +105,7 @@ No authorization required
 
 Get all orders
 
-Get all current open orders across all or single specified exchange.
+Get last execution reports for all open orders across all or single exchange.
 
 ### Example
 ```R
@@ -141,7 +141,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Collection of requested open orders. |  -  |
+| **200** | Collection of order execution reports. |  -  |
 | **490** | Filtered exchange is unreachable. |  -  |
 
 # **V1OrdersPost**
@@ -230,6 +230,6 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The order was found. |  -  |
-| **400** | The order was not found. |  -  |
+| **200** | The last xecution report of the requested order. |  -  |
+| **404** | The requested order was not found. |  -  |
 

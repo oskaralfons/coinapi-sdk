@@ -217,7 +217,7 @@ type V1OrdersGetOpts struct {
 
 /*
 V1OrdersGet Get all orders
-Get all current open orders across all or single specified exchange.
+Get last execution reports for all open orders across all or single exchange.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *V1OrdersGetOpts - Optional Parameters:
  * @param "ExchangeId" (optional.String) -  Filter the output to the orders from the specific exchange.
@@ -464,7 +464,7 @@ func (a *OrdersApiService) V1OrdersStatusClientOrderIdGet(ctx _context.Context, 
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 400 {
+		if localVarHTTPResponse.StatusCode == 404 {
 			var v Message
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

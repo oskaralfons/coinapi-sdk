@@ -85,7 +85,7 @@ bool v1OrdersCancelPostAsync(char * accessToken,
 
 /*! \brief Get all orders. *Synchronous*
  *
- * Get all current open orders across all or single specified exchange.
+ * Get last execution reports for all open orders across all or single exchange.
  * \param exchangeId Filter the output to the orders from the specific exchange.
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
@@ -98,7 +98,7 @@ bool v1OrdersGetSync(char * accessToken,
 
 /*! \brief Get all orders. *Asynchronous*
  *
- * Get all current open orders across all or single specified exchange.
+ * Get last execution reports for all open orders across all or single exchange.
  * \param exchangeId Filter the output to the orders from the specific exchange.
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*

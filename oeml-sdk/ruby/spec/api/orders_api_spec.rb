@@ -58,7 +58,7 @@ describe 'OrdersApi' do
 
   # unit tests for v1_orders_get
   # Get all orders
-  # Get all current open orders across all or single specified exchange.
+  # Get last execution reports for all open orders across all or single exchange.
   # @param [Hash] opts the optional parameters
   # @option opts [String] :exchange_id Filter the output to the orders from the specific exchange.
   # @return [Array<OrderExecutionReport>]

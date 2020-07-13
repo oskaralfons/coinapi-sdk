@@ -70,7 +70,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// Get all orders
         /// </summary>
         /// <remarks>
-        /// Get all current open orders across all or single specified exchange.
+        /// Get last execution reports for all open orders across all or single exchange.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional)</param>
@@ -81,7 +81,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// Get all orders
         /// </summary>
         /// <remarks>
-        /// Get all current open orders across all or single specified exchange.
+        /// Get last execution reports for all open orders across all or single exchange.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional)</param>
@@ -177,7 +177,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// Get all orders
         /// </summary>
         /// <remarks>
-        /// Get all current open orders across all or single specified exchange.
+        /// Get last execution reports for all open orders across all or single exchange.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional)</param>
@@ -188,7 +188,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// Get all orders
         /// </summary>
         /// <remarks>
-        /// Get all current open orders across all or single specified exchange.
+        /// Get last execution reports for all open orders across all or single exchange.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional)</param>
@@ -650,7 +650,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         }
 
         /// <summary>
-        /// Get all orders Get all current open orders across all or single specified exchange.
+        /// Get all orders Get last execution reports for all open orders across all or single exchange.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional)</param>
@@ -662,7 +662,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         }
 
         /// <summary>
-        /// Get all orders Get all current open orders across all or single specified exchange.
+        /// Get all orders Get last execution reports for all open orders across all or single exchange.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional)</param>
@@ -714,7 +714,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         }
 
         /// <summary>
-        /// Get all orders Get all current open orders across all or single specified exchange.
+        /// Get all orders Get last execution reports for all open orders across all or single exchange.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional)</param>
@@ -727,7 +727,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         }
 
         /// <summary>
-        /// Get all orders Get all current open orders across all or single specified exchange.
+        /// Get all orders Get last execution reports for all open orders across all or single exchange.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional)</param>

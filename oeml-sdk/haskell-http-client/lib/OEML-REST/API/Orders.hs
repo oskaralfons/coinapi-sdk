@@ -121,7 +121,7 @@ instance Produces V1OrdersCancelPost MimeApplictionJson
 -- 
 -- Get all orders
 -- 
--- Get all current open orders across all or single specified exchange.
+-- Get last execution reports for all open orders across all or single exchange.
 -- 
 v1OrdersGet 
   :: Accept accept -- ^ request accept ('MimeType')

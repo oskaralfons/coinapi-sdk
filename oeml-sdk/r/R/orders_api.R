@@ -70,14 +70,14 @@
 #' }
 #'
 #' \strong{ V1OrdersGet } \emph{ Get all orders }
-#' Get all current open orders across all or single specified exchange.
+#' Get last execution reports for all open orders across all or single exchange.
 #'
 #' \itemize{
 #' \item \emph{ @param } exchange.id character
 #' \item \emph{ @returnType } list( \link{OrderExecutionReport} ) \cr
 #'
 #'
-#' \item status code : 200 | Collection of requested open orders.
+#' \item status code : 200 | Collection of order execution reports.
 #'
 #' \item return type : array[OrderExecutionReport] 
 #' \item response headers :
@@ -132,14 +132,14 @@
 #' \item \emph{ @returnType } \link{OrderExecutionReport} \cr
 #'
 #'
-#' \item status code : 200 | The order was found.
+#' \item status code : 200 | The last xecution report of the requested order.
 #'
 #' \item return type : OrderExecutionReport 
 #' \item response headers :
 #'
 #' \tabular{ll}{
 #' }
-#' \item status code : 400 | The order was not found.
+#' \item status code : 404 | The requested order was not found.
 #'
 #' \item return type : Message 
 #' \item response headers :

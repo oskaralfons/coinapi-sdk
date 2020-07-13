@@ -171,7 +171,7 @@ end:
 
 // Get all orders
 //
-// Get all current open orders across all or single specified exchange.
+// Get last execution reports for all open orders across all or single exchange.
 //
 list_t*
 OrdersAPI_v1OrdersGet(apiClient_t *apiClient, char * exchange_id )
@@ -215,7 +215,7 @@ OrdersAPI_v1OrdersGet(apiClient_t *apiClient, char * exchange_id )
                     "GET");
 
     if (apiClient->response_code == 200) {
-        printf("%s\n","Collection of requested open orders.");
+        printf("%s\n","Collection of order execution reports.");
     }
     if (apiClient->response_code == 490) {
         printf("%s\n","Filtered exchange is unreachable.");
@@ -391,10 +391,10 @@ OrdersAPI_v1OrdersStatusClientOrderIdGet(apiClient_t *apiClient, char * client_o
                     "GET");
 
     if (apiClient->response_code == 200) {
-        printf("%s\n","The order was found.");
+        printf("%s\n","The last xecution report of the requested order.");
     }
-    if (apiClient->response_code == 400) {
-        printf("%s\n","The order was not found.");
+    if (apiClient->response_code == 404) {
+        printf("%s\n","The requested order was not found.");
     }
     //nonprimitive not container
     cJSON *OrdersAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);

@@ -36,7 +36,7 @@ package .Clients is
        Result : out .Models.OrderExecutionReport_Type);
 
    --  Get all orders
-   --  Get all current open orders across all or single specified exchange.
+   --  Get last execution reports for all open orders across all or single exchange.
    procedure V1_Orders_Get
       (Client : in out Client_Type;
        Exchange_Id : in Swagger.Nullable_UString;

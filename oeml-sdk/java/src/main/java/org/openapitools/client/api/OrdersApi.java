@@ -300,7 +300,7 @@ public class OrdersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Collection of requested open orders. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Collection of order execution reports. </td><td>  -  </td></tr>
         <tr><td> 490 </td><td> Filtered exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
@@ -348,14 +348,14 @@ public class OrdersApi {
 
     /**
      * Get all orders
-     * Get all current open orders across all or single specified exchange.
+     * Get last execution reports for all open orders across all or single exchange.
      * @param exchangeId Filter the output to the orders from the specific exchange. (optional)
      * @return List&lt;OrderExecutionReport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Collection of requested open orders. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Collection of order execution reports. </td><td>  -  </td></tr>
         <tr><td> 490 </td><td> Filtered exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
@@ -366,14 +366,14 @@ public class OrdersApi {
 
     /**
      * Get all orders
-     * Get all current open orders across all or single specified exchange.
+     * Get last execution reports for all open orders across all or single exchange.
      * @param exchangeId Filter the output to the orders from the specific exchange. (optional)
      * @return ApiResponse&lt;List&lt;OrderExecutionReport&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Collection of requested open orders. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Collection of order execution reports. </td><td>  -  </td></tr>
         <tr><td> 490 </td><td> Filtered exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
@@ -385,7 +385,7 @@ public class OrdersApi {
 
     /**
      * Get all orders (asynchronously)
-     * Get all current open orders across all or single specified exchange.
+     * Get last execution reports for all open orders across all or single exchange.
      * @param exchangeId Filter the output to the orders from the specific exchange. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -393,7 +393,7 @@ public class OrdersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Collection of requested open orders. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Collection of order execution reports. </td><td>  -  </td></tr>
         <tr><td> 490 </td><td> Filtered exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
@@ -531,8 +531,8 @@ public class OrdersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The order was found. </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> The order was not found. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The last xecution report of the requested order. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested order was not found. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call v1OrdersStatusClientOrderIdGetCall(String clientOrderId, final ApiCallback _callback) throws ApiException {
@@ -588,8 +588,8 @@ public class OrdersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The order was found. </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> The order was not found. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The last xecution report of the requested order. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested order was not found. </td><td>  -  </td></tr>
      </table>
      */
     public OrderExecutionReport v1OrdersStatusClientOrderIdGet(String clientOrderId) throws ApiException {
@@ -606,8 +606,8 @@ public class OrdersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The order was found. </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> The order was not found. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The last xecution report of the requested order. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested order was not found. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<OrderExecutionReport> v1OrdersStatusClientOrderIdGetWithHttpInfo(String clientOrderId) throws ApiException {
@@ -626,8 +626,8 @@ public class OrdersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The order was found. </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> The order was not found. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The last xecution report of the requested order. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> The requested order was not found. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call v1OrdersStatusClientOrderIdGetAsync(String clientOrderId, final ApiCallback<OrderExecutionReport> _callback) throws ApiException {

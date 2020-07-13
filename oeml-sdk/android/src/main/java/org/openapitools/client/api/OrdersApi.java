@@ -318,7 +318,7 @@ public class OrdersApi {
   }
   /**
   * Get all orders
-  * Get all current open orders across all or single specified exchange.
+  * Get last execution reports for all open orders across all or single exchange.
    * @param exchangeId Filter the output to the orders from the specific exchange.
    * @return List<OrderExecutionReport>
   */
@@ -376,7 +376,7 @@ public class OrdersApi {
 
       /**
    * Get all orders
-   * Get all current open orders across all or single specified exchange.
+   * Get last execution reports for all open orders across all or single exchange.
    * @param exchangeId Filter the output to the orders from the specific exchange.
   */
   public void v1OrdersGet (String exchangeId, final Response.Listener<List<OrderExecutionReport>> responseListener, final Response.ErrorListener errorListener) {

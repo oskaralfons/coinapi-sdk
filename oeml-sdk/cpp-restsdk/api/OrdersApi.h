@@ -73,7 +73,7 @@ public:
     /// Get all orders
     /// </summary>
     /// <remarks>
-    /// Get all current open orders across all or single specified exchange.
+    /// Get last execution reports for all open orders across all or single exchange.
     /// </remarks>
     /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::vector<std::shared_ptr<OrderExecutionReport>>> v1OrdersGet(

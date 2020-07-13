@@ -75,7 +75,7 @@
 
 (defn-spec v1-orders-get-with-http-info any?
   "Get all orders
-  Get all current open orders across all or single specified exchange."
+  Get last execution reports for all open orders across all or single exchange."
   ([] (v1-orders-get-with-http-info nil))
   ([{:keys [exchange_id]} (s/map-of keyword? any?)]
    (call-api "/v1/orders" :get
@@ -89,7 +89,7 @@
 
 (defn-spec v1-orders-get (s/coll-of order-execution-report-spec)
   "Get all orders
-  Get all current open orders across all or single specified exchange."
+  Get last execution reports for all open orders across all or single exchange."
   ([] (v1-orders-get nil))
   ([optional-params any?]
    (let [res (:data (v1-orders-get-with-http-info optional-params))]

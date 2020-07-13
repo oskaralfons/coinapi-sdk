@@ -31,7 +31,7 @@ OrdersAPI_v1OrdersCancelPost(apiClient_t *apiClient, cancel_order_single_request
 
 // Get all orders
 //
-// Get all current open orders across all or single specified exchange.
+// Get last execution reports for all open orders across all or single exchange.
 //
 list_t*
 OrdersAPI_v1OrdersGet(apiClient_t *apiClient, char * exchange_id );

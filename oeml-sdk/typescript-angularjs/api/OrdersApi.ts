@@ -85,7 +85,7 @@ export class OrdersApi {
         return this.$http(httpRequestParams);
     }
     /**
-     * Get all current open orders across all or single specified exchange.
+     * Get last execution reports for all open orders across all or single exchange.
      * @summary Get all orders
      * @param exchangeId Filter the output to the orders from the specific exchange.
      */

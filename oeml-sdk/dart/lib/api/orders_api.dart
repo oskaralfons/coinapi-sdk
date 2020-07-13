@@ -125,7 +125,7 @@ class OrdersApi {
 
   /// Get all orders with HTTP info returned
   ///
-  /// Get all current open orders across all or single specified exchange.
+  /// Get last execution reports for all open orders across all or single exchange.
   Future<Response> v1OrdersGetWithHttpInfo({ String exchangeId }) async {
     Object postBody;
 
@@ -169,7 +169,7 @@ class OrdersApi {
 
   /// Get all orders
   ///
-  /// Get all current open orders across all or single specified exchange.
+  /// Get last execution reports for all open orders across all or single exchange.
   Future<List<OrderExecutionReport>> v1OrdersGet({ String exchangeId }) async {
     Response response = await v1OrdersGetWithHttpInfo( exchangeId: exchangeId );
     if(response.statusCode >= 400) {

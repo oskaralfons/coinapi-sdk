@@ -70,7 +70,7 @@ defmodule OEML-RESTAPI.Api.Orders do
 
   @doc """
   Get all orders
-  Get all current open orders across all or single specified exchange.
+  Get last execution reports for all open orders across all or single exchange.
 
   ## Parameters
 
@@ -151,7 +151,7 @@ defmodule OEML-RESTAPI.Api.Orders do
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
       { 200, %OEML-RESTAPI.Model.OrderExecutionReport{}},
-      { 400, %OEML-RESTAPI.Model.Message{}}
+      { 404, %OEML-RESTAPI.Model.Message{}}
     ])
   end
 end

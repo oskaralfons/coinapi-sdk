@@ -75,7 +75,7 @@ public class OASOrdersApi {
     }
     /**
      * Get all orders
-     * Get all current open orders across all or single specified exchange.
+     * Get last execution reports for all open orders across all or single exchange.
      * @param exchangeId Filter the output to the orders from the specific exchange. (optional)
      * @return List<OASOrderExecutionReport>
      * @throws OAS.ApiException if fails to make API call

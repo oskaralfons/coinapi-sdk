@@ -1383,7 +1383,7 @@ class OrdersApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 400:
+                case 404:
                     if ('\OpenAPI\Client\Model\Message' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
@@ -1421,7 +1421,7 @@ class OrdersApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 400:
+                case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\OpenAPI\Client\Model\Message',

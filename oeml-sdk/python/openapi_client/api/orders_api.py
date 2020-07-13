@@ -275,7 +275,7 @@ class OrdersApi(object):
     def v1_orders_get(self, **kwargs):  # noqa: E501
         """Get all orders  # noqa: E501
 
-        Get all current open orders across all or single specified exchange.  # noqa: E501
+        Get last execution reports for all open orders across all or single exchange.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.v1_orders_get(async_req=True)
@@ -300,7 +300,7 @@ class OrdersApi(object):
     def v1_orders_get_with_http_info(self, **kwargs):  # noqa: E501
         """Get all orders  # noqa: E501
 
-        Get all current open orders across all or single specified exchange.  # noqa: E501
+        Get last execution reports for all open orders across all or single exchange.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.v1_orders_get_with_http_info(async_req=True)

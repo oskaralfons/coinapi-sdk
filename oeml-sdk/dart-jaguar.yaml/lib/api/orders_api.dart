@@ -53,7 +53,7 @@ class OrdersApi extends ApiClient with _$OrdersApiClient {
 
     /// Get all orders
     ///
-    /// Get all current open orders across all or single specified exchange.
+    /// Get last execution reports for all open orders across all or single exchange.
     @GetReq(path: "/v1/orders")
     Future<List<OrderExecutionReport>> v1OrdersGet(
         
