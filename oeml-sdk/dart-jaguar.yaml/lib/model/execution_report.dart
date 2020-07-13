@@ -107,13 +107,13 @@ class ExecutionReport {
      this.orderType = null,  
      this.timeInForce = null,   this.expireTime = null,  
      this.execInst = const [],  
-     this.clientOrderIdFormatExchange = null,  
-     this.exchangeOrderId = null,  
+    
+     this.clientOrderIdFormatExchange = null,   this.exchangeOrderId = null,  
+    
      this.amountOpen = null,  
      this.amountFilled = null,  
      this.status = null,  
-     this.timeOrder = const [],  
-     this.errorMessage = null 
+     this.timeOrder = const [],   this.errorMessage = null 
     
     }
   );

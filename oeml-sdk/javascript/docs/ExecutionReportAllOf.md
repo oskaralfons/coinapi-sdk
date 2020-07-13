@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**clientOrderIdFormatExchange** | **String** | Hash client id | [optional] 
+**clientOrderIdFormatExchange** | **String** | Hash client id | 
 **exchangeOrderId** | **String** | Exchange order id | [optional] 
-**amountOpen** | **Number** | Amount open | [optional] 
-**amountFilled** | **Number** | Amount filled | [optional] 
-**status** | [**OrdStatus**](OrdStatus.md) |  | [optional] 
-**timeOrder** | **[[String]]** | History of order status changes | [optional] 
+**amountOpen** | **Number** | Amount open | 
+**amountFilled** | **Number** | Amount filled | 
+**status** | [**OrdStatus**](OrdStatus.md) |  | 
+**timeOrder** | **[[String]]** | History of order status changes | 
 **errorMessage** | **String** | Error message | [optional] 
 
 

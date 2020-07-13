@@ -16,12 +16,12 @@
        'time_in_force' := openapi_time_in_force:openapi_time_in_force(),
        'expire_time' => calendar:date(),
        'exec_inst' => list(),
-       'client_order_id_format_exchange' => binary(),
+       'client_order_id_format_exchange' := binary(),
        'exchange_order_id' => binary(),
-       'amount_open' => integer(),
-       'amount_filled' => integer(),
-       'status' => openapi_ord_status:openapi_ord_status(),
-       'time_order' => list(),
+       'amount_open' := integer(),
+       'amount_filled' := integer(),
+       'status' := openapi_ord_status:openapi_ord_status(),
+       'time_order' := list(),
        'error_message' => binary()
      }.
 

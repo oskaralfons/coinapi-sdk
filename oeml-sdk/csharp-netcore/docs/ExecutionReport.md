@@ -14,12 +14,12 @@ Name | Type | Description | Notes
 **TimeInForce** | **TimeInForce** |  | 
 **ExpireTime** | **DateTime** | Expiration time. Conditionaly required for orders with time_in_force &#x3D; &#x60;GOOD_TILL_TIME_EXCHANGE&#x60; or &#x60;GOOD_TILL_TIME_OEML&#x60;. | [optional] 
 **ExecInst** | **List&lt;string&gt;** | Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; | [optional] 
-**ClientOrderIdFormatExchange** | **string** | Hash client id | [optional] 
+**ClientOrderIdFormatExchange** | **string** | Hash client id | 
 **ExchangeOrderId** | **string** | Exchange order id | [optional] 
-**AmountOpen** | **decimal** | Amount open | [optional] 
-**AmountFilled** | **decimal** | Amount filled | [optional] 
-**Status** | **OrdStatus** |  | [optional] 
-**TimeOrder** | **List&lt;List&lt;string&gt;&gt;** | History of order status changes | [optional] 
+**AmountOpen** | **decimal** | Amount open | 
+**AmountFilled** | **decimal** | Amount filled | 
+**Status** | **OrdStatus** |  | 
+**TimeOrder** | **List&lt;List&lt;string&gt;&gt;** | History of order status changes | 
 **ErrorMessage** | **string** | Error message | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

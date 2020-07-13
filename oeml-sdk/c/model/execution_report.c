@@ -249,11 +249,13 @@ cJSON *execution_report_convertToJSON(execution_report_t *execution_report) {
 
 
     // execution_report->client_order_id_format_exchange
-    if(execution_report->client_order_id_format_exchange) { 
+    if (!execution_report->client_order_id_format_exchange) {
+        goto fail;
+    }
+    
     if(cJSON_AddStringToObject(item, "client_order_id_format_exchange", execution_report->client_order_id_format_exchange) == NULL) {
     goto fail; //String
     }
-     } 
 
 
     // execution_report->exchange_order_id
@@ -265,28 +267,34 @@ cJSON *execution_report_convertToJSON(execution_report_t *execution_report) {
 
 
     // execution_report->amount_open
-    if(execution_report->amount_open) { 
+    if (!execution_report->amount_open) {
+        goto fail;
+    }
+    
     if(cJSON_AddNumberToObject(item, "amount_open", execution_report->amount_open) == NULL) {
     goto fail; //Numeric
     }
-     } 
 
 
     // execution_report->amount_filled
-    if(execution_report->amount_filled) { 
+    if (!execution_report->amount_filled) {
+        goto fail;
+    }
+    
     if(cJSON_AddNumberToObject(item, "amount_filled", execution_report->amount_filled) == NULL) {
     goto fail; //Numeric
     }
-     } 
 
 
     // execution_report->status
     
-    
 
 
     // execution_report->time_order
-    if(execution_report->time_order) { 
+    if (!execution_report->time_order) {
+        goto fail;
+    }
+    
     cJSON *time_order = cJSON_AddArrayToObject(item, "time_order");
     if(time_order == NULL) {
         goto fail; //primitive container
@@ -295,7 +303,6 @@ cJSON *execution_report_convertToJSON(execution_report_t *execution_report) {
     listEntry_t *time_orderListEntry;
     list_ForEach(time_orderListEntry, execution_report->time_order) {
     }
-     } 
 
 
     // execution_report->error_message
@@ -430,11 +437,14 @@ execution_report_t *execution_report_parseFromJSON(cJSON *execution_reportJSON){
 
     // execution_report->client_order_id_format_exchange
     cJSON *client_order_id_format_exchange = cJSON_GetObjectItemCaseSensitive(execution_reportJSON, "client_order_id_format_exchange");
-    if (client_order_id_format_exchange) { 
+    if (!client_order_id_format_exchange) {
+        goto end;
+    }
+
+    
     if(!cJSON_IsString(client_order_id_format_exchange))
     {
     goto end; //String
-    }
     }
 
     // execution_report->exchange_order_id
@@ -448,30 +458,43 @@ execution_report_t *execution_report_parseFromJSON(cJSON *execution_reportJSON){
 
     // execution_report->amount_open
     cJSON *amount_open = cJSON_GetObjectItemCaseSensitive(execution_reportJSON, "amount_open");
-    if (amount_open) { 
+    if (!amount_open) {
+        goto end;
+    }
+
+    
     if(!cJSON_IsNumber(amount_open))
     {
     goto end; //Numeric
     }
-    }
 
     // execution_report->amount_filled
     cJSON *amount_filled = cJSON_GetObjectItemCaseSensitive(execution_reportJSON, "amount_filled");
-    if (amount_filled) { 
+    if (!amount_filled) {
+        goto end;
+    }
+
+    
     if(!cJSON_IsNumber(amount_filled))
     {
     goto end; //Numeric
     }
-    }
 
     // execution_report->status
     cJSON *status = cJSON_GetObjectItemCaseSensitive(execution_reportJSON, "status");
+    if (!status) {
+        goto end;
     }
+
 
     // execution_report->time_order
     cJSON *time_order = cJSON_GetObjectItemCaseSensitive(execution_reportJSON, "time_order");
+    if (!time_order) {
+        goto end;
+    }
+
     list_t *time_orderList;
-    if (time_order) { 
+    
     cJSON *time_order_local;
     if(!cJSON_IsArray(time_order)) {
         goto end;//primitive container
@@ -480,7 +503,6 @@ execution_report_t *execution_report_parseFromJSON(cJSON *execution_reportJSON){
 
     cJSON_ArrayForEach(time_order_local, time_order)
     {
-    }
     }
 
     // execution_report->error_message
@@ -501,11 +523,11 @@ execution_report_t *execution_report_parseFromJSON(cJSON *execution_reportJSON){
         amount_order->valuedouble,
         price->valuedouble,
         exec_inst ? exec_instList : NULL,
-        client_order_id_format_exchange ? strdup(client_order_id_format_exchange->valuestring) : NULL,
+        strdup(client_order_id_format_exchange->valuestring),
         exchange_order_id ? strdup(exchange_order_id->valuestring) : NULL,
-        amount_open ? amount_open->valuedouble : 0,
-        amount_filled ? amount_filled->valuedouble : 0,
-        time_order ? time_orderList : NULL,
+        amount_open->valuedouble,
+        amount_filled->valuedouble,
+        time_orderList,
         error_message ? strdup(error_message->valuestring) : NULL
         );
 

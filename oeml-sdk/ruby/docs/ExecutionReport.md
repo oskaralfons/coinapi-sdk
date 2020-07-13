@@ -15,12 +15,12 @@ Name | Type | Description | Notes
 **time_in_force** | [**TimeInForce**](TimeInForce.md) |  | 
 **expire_time** | **Date** | Expiration time. Conditionaly required for orders with time_in_force &#x3D; &#x60;GOOD_TILL_TIME_EXCHANGE&#x60; or &#x60;GOOD_TILL_TIME_OEML&#x60;. | [optional] 
 **exec_inst** | **Array&lt;String&gt;** | Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; | [optional] 
-**client_order_id_format_exchange** | **String** | Hash client id | [optional] 
+**client_order_id_format_exchange** | **String** | Hash client id | 
 **exchange_order_id** | **String** | Exchange order id | [optional] 
-**amount_open** | **Float** | Amount open | [optional] 
-**amount_filled** | **Float** | Amount filled | [optional] 
-**status** | [**OrdStatus**](OrdStatus.md) |  | [optional] 
-**time_order** | **Array&lt;Array&lt;String&gt;&gt;** | History of order status changes | [optional] 
+**amount_open** | **Float** | Amount open | 
+**amount_filled** | **Float** | Amount filled | 
+**status** | [**OrdStatus**](OrdStatus.md) |  | 
+**time_order** | **Array&lt;Array&lt;String&gt;&gt;** | History of order status changes | 
 **error_message** | **String** | Error message | [optional] 
 
 ## Code Sample

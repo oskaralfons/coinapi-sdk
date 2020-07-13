@@ -50,6 +50,15 @@ class TestExecutionReportAllOf(unittest.TestCase):
             )
         else :
             return ExecutionReportAllOf(
+                client_order_id_format_exchange = 'f81211e2-27c4-b86a-8143-01088ba9222c',
+                amount_open = 0.22,
+                amount_filled = 0.0,
+                status = 'RECEIVED',
+                time_order = [
+                    [
+                        '["RECEIVED","2020-05-27T11:16:20.1677709Z"]'
+                        ]
+                    ],
         )
 
     def testExecutionReportAllOf(self):

@@ -15,16 +15,16 @@ import org.openapitools.client.core.ApiModel
 
 case class ExecutionReportAllOf (
   /* Hash client id */
-  clientOrderIdFormatExchange: Option[String] = None,
+  clientOrderIdFormatExchange: String,
   /* Exchange order id */
   exchangeOrderId: Option[String] = None,
   /* Amount open */
-  amountOpen: Option[Double] = None,
+  amountOpen: Double,
   /* Amount filled */
-  amountFilled: Option[Double] = None,
-  status: Option[OrdStatus] = None,
+  amountFilled: Double,
+  status: OrdStatus,
   /* History of order status changes */
-  timeOrder: Option[Seq[Seq[String]]] = None,
+  timeOrder: Seq[Seq[String]],
   /* Error message */
   errorMessage: Option[String] = None
 ) extends ApiModel

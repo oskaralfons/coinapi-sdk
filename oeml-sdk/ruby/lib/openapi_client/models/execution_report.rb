@@ -272,6 +272,26 @@ module OpenapiClient
         invalid_properties.push('invalid value for "time_in_force", time_in_force cannot be nil.')
       end
 
+      if @client_order_id_format_exchange.nil?
+        invalid_properties.push('invalid value for "client_order_id_format_exchange", client_order_id_format_exchange cannot be nil.')
+      end
+
+      if @amount_open.nil?
+        invalid_properties.push('invalid value for "amount_open", amount_open cannot be nil.')
+      end
+
+      if @amount_filled.nil?
+        invalid_properties.push('invalid value for "amount_filled", amount_filled cannot be nil.')
+      end
+
+      if @status.nil?
+        invalid_properties.push('invalid value for "status", status cannot be nil.')
+      end
+
+      if @time_order.nil?
+        invalid_properties.push('invalid value for "time_order", time_order cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -285,6 +305,11 @@ module OpenapiClient
       return false if @side.nil?
       return false if @order_type.nil?
       return false if @time_in_force.nil?
+      return false if @client_order_id_format_exchange.nil?
+      return false if @amount_open.nil?
+      return false if @amount_filled.nil?
+      return false if @status.nil?
+      return false if @time_order.nil?
       true
     end
 

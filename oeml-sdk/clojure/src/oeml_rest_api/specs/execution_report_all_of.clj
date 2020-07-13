@@ -8,12 +8,12 @@
 
 (def execution-report-all-of-data
   {
-   (ds/opt :client_order_id_format_exchange) string?
+   (ds/req :client_order_id_format_exchange) string?
    (ds/opt :exchange_order_id) string?
-   (ds/opt :amount_open) float?
-   (ds/opt :amount_filled) float?
-   (ds/opt :status) ord-status-spec
-   (ds/opt :time_order) (s/coll-of (s/coll-of string?))
+   (ds/req :amount_open) float?
+   (ds/req :amount_filled) float?
+   (ds/req :status) ord-status-spec
+   (ds/req :time_order) (s/coll-of (s/coll-of string?))
    (ds/opt :error_message) string?
    })
 

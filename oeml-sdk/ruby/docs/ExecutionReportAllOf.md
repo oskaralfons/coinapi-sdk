@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**client_order_id_format_exchange** | **String** | Hash client id | [optional] 
+**client_order_id_format_exchange** | **String** | Hash client id | 
 **exchange_order_id** | **String** | Exchange order id | [optional] 
-**amount_open** | **Float** | Amount open | [optional] 
-**amount_filled** | **Float** | Amount filled | [optional] 
-**status** | [**OrdStatus**](OrdStatus.md) |  | [optional] 
-**time_order** | **Array&lt;Array&lt;String&gt;&gt;** | History of order status changes | [optional] 
+**amount_open** | **Float** | Amount open | 
+**amount_filled** | **Float** | Amount filled | 
+**status** | [**OrdStatus**](OrdStatus.md) |  | 
+**time_order** | **Array&lt;Array&lt;String&gt;&gt;** | History of order status changes | 
 **error_message** | **String** | Error message | [optional] 
 
 ## Code Sample

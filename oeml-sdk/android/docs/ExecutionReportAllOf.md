@@ -6,12 +6,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**clientOrderIdFormatExchange** | **String** | Hash client id |  [optional]
+**clientOrderIdFormatExchange** | **String** | Hash client id | 
 **exchangeOrderId** | **String** | Exchange order id |  [optional]
-**amountOpen** | [**BigDecimal**](BigDecimal.md) | Amount open |  [optional]
-**amountFilled** | [**BigDecimal**](BigDecimal.md) | Amount filled |  [optional]
-**status** | [**OrdStatus**](OrdStatus.md) |  |  [optional]
-**timeOrder** | [**List&lt;List&lt;String&gt;&gt;**](List.md) | History of order status changes |  [optional]
+**amountOpen** | [**BigDecimal**](BigDecimal.md) | Amount open | 
+**amountFilled** | [**BigDecimal**](BigDecimal.md) | Amount filled | 
+**status** | [**OrdStatus**](OrdStatus.md) |  | 
+**timeOrder** | [**List&lt;List&lt;String&gt;&gt;**](List.md) | History of order status changes | 
 **errorMessage** | **String** | Error message |  [optional]
 
 

@@ -14,12 +14,12 @@ Name | Type | Description | Notes
 **timeUnderscoreinUnderscoreforce** | [**TimeInForce**](TimeInForce.md) |  | [default to null]
 **expireUnderscoretime** | **string** |  | [optional] [default to null]
 **execUnderscoreinst** | **array[string]** |  | [optional] [default to null]
-**clientUnderscoreorderUnderscoreidUnderscoreformatUnderscoreexchange** | **string** |  | [optional] [default to null]
+**clientUnderscoreorderUnderscoreidUnderscoreformatUnderscoreexchange** | **string** |  | [default to null]
 **exchangeUnderscoreorderUnderscoreid** | **string** |  | [optional] [default to null]
-**amountUnderscoreopen** | **integer** |  | [optional] [default to null]
-**amountUnderscorefilled** | **integer** |  | [optional] [default to null]
-**status** | [**OrdStatus**](OrdStatus.md) |  | [optional] [default to null]
-**timeUnderscoreorder** | **array[array[string]]** |  | [optional] [default to null]
+**amountUnderscoreopen** | **integer** |  | [default to null]
+**amountUnderscorefilled** | **integer** |  | [default to null]
+**status** | [**OrdStatus**](OrdStatus.md) |  | [default to null]
+**timeUnderscoreorder** | **array[array[string]]** |  | [default to null]
 **errorUnderscoremessage** | **string** |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

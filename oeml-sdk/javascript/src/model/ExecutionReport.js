@@ -37,10 +37,15 @@ class ExecutionReport {
      * @param side {module:model/OrdSide} 
      * @param orderType {module:model/OrdType} 
      * @param timeInForce {module:model/TimeInForce} 
+     * @param clientOrderIdFormatExchange {String} Hash client id
+     * @param amountOpen {Number} Amount open
+     * @param amountFilled {Number} Amount filled
+     * @param status {module:model/OrdStatus} 
+     * @param timeOrder {Array.<Array.<String>>} History of order status changes
      */
-    constructor(exchangeId, clientOrderId, amountOrder, price, side, orderType, timeInForce) { 
-        NewOrderSingle.initialize(this, exchangeId, clientOrderId, amountOrder, price, side, orderType, timeInForce);ExecutionReportAllOf.initialize(this);
-        ExecutionReport.initialize(this, exchangeId, clientOrderId, amountOrder, price, side, orderType, timeInForce);
+    constructor(exchangeId, clientOrderId, amountOrder, price, side, orderType, timeInForce, clientOrderIdFormatExchange, amountOpen, amountFilled, status, timeOrder) { 
+        NewOrderSingle.initialize(this, exchangeId, clientOrderId, amountOrder, price, side, orderType, timeInForce);ExecutionReportAllOf.initialize(this, clientOrderIdFormatExchange, amountOpen, amountFilled, status, timeOrder);
+        ExecutionReport.initialize(this, exchangeId, clientOrderId, amountOrder, price, side, orderType, timeInForce, clientOrderIdFormatExchange, amountOpen, amountFilled, status, timeOrder);
     }
 
     /**
@@ -48,7 +53,7 @@ class ExecutionReport {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, exchangeId, clientOrderId, amountOrder, price, side, orderType, timeInForce) { 
+    static initialize(obj, exchangeId, clientOrderId, amountOrder, price, side, orderType, timeInForce, clientOrderIdFormatExchange, amountOpen, amountFilled, status, timeOrder) { 
         obj['exchange_id'] = exchangeId;
         obj['client_order_id'] = clientOrderId;
         obj['amount_order'] = amountOrder;
@@ -56,6 +61,11 @@ class ExecutionReport {
         obj['side'] = side;
         obj['order_type'] = orderType;
         obj['time_in_force'] = timeInForce;
+        obj['client_order_id_format_exchange'] = clientOrderIdFormatExchange;
+        obj['amount_open'] = amountOpen;
+        obj['amount_filled'] = amountFilled;
+        obj['status'] = status;
+        obj['time_order'] = timeOrder;
     }
 
     /**

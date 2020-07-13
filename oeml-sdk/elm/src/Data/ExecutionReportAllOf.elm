@@ -22,12 +22,12 @@ import Json.Encode as Encode
 {-| The order execution report message.
 -}
 type alias ExecutionReportAllOf =
-    { clientOrderIdFormatExchange : Maybe (String)
+    { clientOrderIdFormatExchange : String
     , exchangeOrderId : Maybe (String)
-    , amountOpen : Maybe (Float)
-    , amountFilled : Maybe (Float)
-    , status : Maybe (OrdStatus)
-    , timeOrder : Maybe ((List (List String)))
+    , amountOpen : Float
+    , amountFilled : Float
+    , status : OrdStatus
+    , timeOrder : (List (List String))
     , errorMessage : Maybe (String)
     }
 
@@ -35,12 +35,12 @@ type alias ExecutionReportAllOf =
 decoder : Decoder ExecutionReportAllOf
 decoder =
     Decode.succeed ExecutionReportAllOf
-        |> optional "client_order_id_format_exchange" (Decode.nullable Decode.string) Nothing
+        |> required "client_order_id_format_exchange" Decode.string
         |> optional "exchange_order_id" (Decode.nullable Decode.string) Nothing
-        |> optional "amount_open" (Decode.nullable Decode.float) Nothing
-        |> optional "amount_filled" (Decode.nullable Decode.float) Nothing
-        |> optional "status" (Decode.nullable OrdStatus.decoder) Nothing
-        |> optional "time_order" (Decode.nullable (Decode.list (Decode.list Decode.string))) Nothing
+        |> required "amount_open" Decode.float
+        |> required "amount_filled" Decode.float
+        |> required "status" OrdStatus.decoder
+        |> required "time_order" (Decode.list (Decode.list Decode.string))
         |> optional "error_message" (Decode.nullable Decode.string) Nothing
 
 
@@ -57,12 +57,12 @@ encodeWithTag (tagField, tag) model =
 
 encodePairs : ExecutionReportAllOf -> List (String, Encode.Value)
 encodePairs model =
-    [ ( "client_order_id_format_exchange", Maybe.withDefault Encode.null (Maybe.map Encode.string model.clientOrderIdFormatExchange) )
+    [ ( "client_order_id_format_exchange", Encode.string model.clientOrderIdFormatExchange )
     , ( "exchange_order_id", Maybe.withDefault Encode.null (Maybe.map Encode.string model.exchangeOrderId) )
-    , ( "amount_open", Maybe.withDefault Encode.null (Maybe.map Encode.float model.amountOpen) )
-    , ( "amount_filled", Maybe.withDefault Encode.null (Maybe.map Encode.float model.amountFilled) )
-    , ( "status", Maybe.withDefault Encode.null (Maybe.map OrdStatus.encode model.status) )
-    , ( "time_order", Maybe.withDefault Encode.null (Maybe.map (Encode.list (Encode.list Encode.string)) model.timeOrder) )
+    , ( "amount_open", Encode.float model.amountOpen )
+    , ( "amount_filled", Encode.float model.amountFilled )
+    , ( "status", OrdStatus.encode model.status )
+    , ( "time_order", (Encode.list (Encode.list Encode.string)) model.timeOrder )
     , ( "error_message", Maybe.withDefault Encode.null (Maybe.map Encode.string model.errorMessage) )
     ]
 

@@ -539,6 +539,12 @@ components:
             to place buy order on symbol ''BTCUSD'' for price $7,000.00 and quantity
             0.22 BTC due to insufficient funds"}'
           type: string
+      required:
+      - amount_filled
+      - amount_open
+      - client_order_id_format_exchange
+      - status
+      - time_order
     Balance_data:
       example:
         symbol_coinapi: BTC

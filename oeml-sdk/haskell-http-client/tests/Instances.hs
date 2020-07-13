@@ -157,12 +157,12 @@ genExecutionReport n =
     <*> arbitraryReduced n -- executionReportTimeInForce :: TimeInForce
     <*> arbitraryReducedMaybe n -- executionReportExpireTime :: Maybe Date
     <*> arbitraryReducedMaybe n -- executionReportExecInst :: Maybe [E'ExecInst]
-    <*> arbitraryReducedMaybe n -- executionReportClientOrderIdFormatExchange :: Maybe Text
+    <*> arbitrary -- executionReportClientOrderIdFormatExchange :: Text
     <*> arbitraryReducedMaybe n -- executionReportExchangeOrderId :: Maybe Text
-    <*> arbitraryReducedMaybe n -- executionReportAmountOpen :: Maybe Double
-    <*> arbitraryReducedMaybe n -- executionReportAmountFilled :: Maybe Double
-    <*> arbitraryReducedMaybe n -- executionReportStatus :: Maybe OrdStatus
-    <*> arbitraryReducedMaybe n -- executionReportTimeOrder :: Maybe [[Text]]
+    <*> arbitrary -- executionReportAmountOpen :: Double
+    <*> arbitrary -- executionReportAmountFilled :: Double
+    <*> arbitraryReduced n -- executionReportStatus :: OrdStatus
+    <*> arbitraryReduced n -- executionReportTimeOrder :: [[Text]]
     <*> arbitraryReducedMaybe n -- executionReportErrorMessage :: Maybe Text
   
 instance Arbitrary ExecutionReportAllOf where
@@ -171,12 +171,12 @@ instance Arbitrary ExecutionReportAllOf where
 genExecutionReportAllOf :: Int -> Gen ExecutionReportAllOf
 genExecutionReportAllOf n =
   ExecutionReportAllOf
-    <$> arbitraryReducedMaybe n -- executionReportAllOfClientOrderIdFormatExchange :: Maybe Text
+    <$> arbitrary -- executionReportAllOfClientOrderIdFormatExchange :: Text
     <*> arbitraryReducedMaybe n -- executionReportAllOfExchangeOrderId :: Maybe Text
-    <*> arbitraryReducedMaybe n -- executionReportAllOfAmountOpen :: Maybe Double
-    <*> arbitraryReducedMaybe n -- executionReportAllOfAmountFilled :: Maybe Double
-    <*> arbitraryReducedMaybe n -- executionReportAllOfStatus :: Maybe OrdStatus
-    <*> arbitraryReducedMaybe n -- executionReportAllOfTimeOrder :: Maybe [[Text]]
+    <*> arbitrary -- executionReportAllOfAmountOpen :: Double
+    <*> arbitrary -- executionReportAllOfAmountFilled :: Double
+    <*> arbitraryReduced n -- executionReportAllOfStatus :: OrdStatus
+    <*> arbitraryReduced n -- executionReportAllOfTimeOrder :: [[Text]]
     <*> arbitraryReducedMaybe n -- executionReportAllOfErrorMessage :: Maybe Text
   
 instance Arbitrary Message where

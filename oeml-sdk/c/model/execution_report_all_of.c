@@ -65,11 +65,13 @@ cJSON *execution_report_all_of_convertToJSON(execution_report_all_of_t *executio
     cJSON *item = cJSON_CreateObject();
 
     // execution_report_all_of->client_order_id_format_exchange
-    if(execution_report_all_of->client_order_id_format_exchange) { 
+    if (!execution_report_all_of->client_order_id_format_exchange) {
+        goto fail;
+    }
+    
     if(cJSON_AddStringToObject(item, "client_order_id_format_exchange", execution_report_all_of->client_order_id_format_exchange) == NULL) {
     goto fail; //String
     }
-     } 
 
 
     // execution_report_all_of->exchange_order_id
@@ -81,28 +83,34 @@ cJSON *execution_report_all_of_convertToJSON(execution_report_all_of_t *executio
 
 
     // execution_report_all_of->amount_open
-    if(execution_report_all_of->amount_open) { 
+    if (!execution_report_all_of->amount_open) {
+        goto fail;
+    }
+    
     if(cJSON_AddNumberToObject(item, "amount_open", execution_report_all_of->amount_open) == NULL) {
     goto fail; //Numeric
     }
-     } 
 
 
     // execution_report_all_of->amount_filled
-    if(execution_report_all_of->amount_filled) { 
+    if (!execution_report_all_of->amount_filled) {
+        goto fail;
+    }
+    
     if(cJSON_AddNumberToObject(item, "amount_filled", execution_report_all_of->amount_filled) == NULL) {
     goto fail; //Numeric
     }
-     } 
 
 
     // execution_report_all_of->status
     
-    
 
 
     // execution_report_all_of->time_order
-    if(execution_report_all_of->time_order) { 
+    if (!execution_report_all_of->time_order) {
+        goto fail;
+    }
+    
     cJSON *time_order = cJSON_AddArrayToObject(item, "time_order");
     if(time_order == NULL) {
         goto fail; //primitive container
@@ -111,7 +119,6 @@ cJSON *execution_report_all_of_convertToJSON(execution_report_all_of_t *executio
     listEntry_t *time_orderListEntry;
     list_ForEach(time_orderListEntry, execution_report_all_of->time_order) {
     }
-     } 
 
 
     // execution_report_all_of->error_message
@@ -135,11 +142,14 @@ execution_report_all_of_t *execution_report_all_of_parseFromJSON(cJSON *executio
 
     // execution_report_all_of->client_order_id_format_exchange
     cJSON *client_order_id_format_exchange = cJSON_GetObjectItemCaseSensitive(execution_report_all_ofJSON, "client_order_id_format_exchange");
-    if (client_order_id_format_exchange) { 
+    if (!client_order_id_format_exchange) {
+        goto end;
+    }
+
+    
     if(!cJSON_IsString(client_order_id_format_exchange))
     {
     goto end; //String
-    }
     }
 
     // execution_report_all_of->exchange_order_id
@@ -153,30 +163,43 @@ execution_report_all_of_t *execution_report_all_of_parseFromJSON(cJSON *executio
 
     // execution_report_all_of->amount_open
     cJSON *amount_open = cJSON_GetObjectItemCaseSensitive(execution_report_all_ofJSON, "amount_open");
-    if (amount_open) { 
+    if (!amount_open) {
+        goto end;
+    }
+
+    
     if(!cJSON_IsNumber(amount_open))
     {
     goto end; //Numeric
     }
-    }
 
     // execution_report_all_of->amount_filled
     cJSON *amount_filled = cJSON_GetObjectItemCaseSensitive(execution_report_all_ofJSON, "amount_filled");
-    if (amount_filled) { 
+    if (!amount_filled) {
+        goto end;
+    }
+
+    
     if(!cJSON_IsNumber(amount_filled))
     {
     goto end; //Numeric
     }
-    }
 
     // execution_report_all_of->status
     cJSON *status = cJSON_GetObjectItemCaseSensitive(execution_report_all_ofJSON, "status");
+    if (!status) {
+        goto end;
     }
+
 
     // execution_report_all_of->time_order
     cJSON *time_order = cJSON_GetObjectItemCaseSensitive(execution_report_all_ofJSON, "time_order");
+    if (!time_order) {
+        goto end;
+    }
+
     list_t *time_orderList;
-    if (time_order) { 
+    
     cJSON *time_order_local;
     if(!cJSON_IsArray(time_order)) {
         goto end;//primitive container
@@ -185,7 +208,6 @@ execution_report_all_of_t *execution_report_all_of_parseFromJSON(cJSON *executio
 
     cJSON_ArrayForEach(time_order_local, time_order)
     {
-    }
     }
 
     // execution_report_all_of->error_message
@@ -199,11 +221,11 @@ execution_report_all_of_t *execution_report_all_of_parseFromJSON(cJSON *executio
 
 
     execution_report_all_of_local_var = execution_report_all_of_create (
-        client_order_id_format_exchange ? strdup(client_order_id_format_exchange->valuestring) : NULL,
+        strdup(client_order_id_format_exchange->valuestring),
         exchange_order_id ? strdup(exchange_order_id->valuestring) : NULL,
-        amount_open ? amount_open->valuedouble : 0,
-        amount_filled ? amount_filled->valuedouble : 0,
-        time_order ? time_orderList : NULL,
+        amount_open->valuedouble,
+        amount_filled->valuedouble,
+        time_orderList,
         error_message ? strdup(error_message->valuestring) : NULL
         );
 

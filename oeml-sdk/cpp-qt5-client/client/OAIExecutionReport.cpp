@@ -615,7 +615,7 @@ bool OAIExecutionReport::isSet() const {
 
 bool OAIExecutionReport::isValid() const {
     // only required properties are required for the object to be considered valid
-    return m_exchange_id_isValid && m_client_order_id_isValid && m_amount_order_isValid && m_price_isValid && m_side_isValid && m_order_type_isValid && m_time_in_force_isValid && true;
+    return m_exchange_id_isValid && m_client_order_id_isValid && m_amount_order_isValid && m_price_isValid && m_side_isValid && m_order_type_isValid && m_time_in_force_isValid && m_client_order_id_format_exchange_isValid && m_amount_open_isValid && m_amount_filled_isValid && m_status_isValid && m_time_order_isValid && true;
 }
 
 } // namespace OpenAPI

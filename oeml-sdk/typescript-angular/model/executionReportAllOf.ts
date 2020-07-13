@@ -19,7 +19,7 @@ export interface ExecutionReportAllOf {
     /**
      * Hash client id
      */
-    client_order_id_format_exchange?: string;
+    client_order_id_format_exchange: string;
     /**
      * Exchange order id
      */
@@ -27,16 +27,16 @@ export interface ExecutionReportAllOf {
     /**
      * Amount open
      */
-    amount_open?: number;
+    amount_open: number;
     /**
      * Amount filled
      */
-    amount_filled?: number;
-    status?: OrdStatus;
+    amount_filled: number;
+    status: OrdStatus;
     /**
      * History of order status changes
      */
-    time_order?: Array<Array<string>>;
+    time_order: Array<Array<string>>;
     /**
      * Error message
      */

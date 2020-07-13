@@ -42,7 +42,7 @@ public class ExecutionReportAllOf {
   /**
    * Hash client id
    **/
-  @ApiModelProperty(value = "Hash client id")
+  @ApiModelProperty(required = true, value = "Hash client id")
   public String getClientOrderIdFormatExchange() {
     return clientOrderIdFormatExchange;
   }
@@ -64,7 +64,7 @@ public class ExecutionReportAllOf {
   /**
    * Amount open
    **/
-  @ApiModelProperty(value = "Amount open")
+  @ApiModelProperty(required = true, value = "Amount open")
   public BigDecimal getAmountOpen() {
     return amountOpen;
   }
@@ -75,7 +75,7 @@ public class ExecutionReportAllOf {
   /**
    * Amount filled
    **/
-  @ApiModelProperty(value = "Amount filled")
+  @ApiModelProperty(required = true, value = "Amount filled")
   public BigDecimal getAmountFilled() {
     return amountFilled;
   }
@@ -85,7 +85,7 @@ public class ExecutionReportAllOf {
 
   /**
    **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   public OrdStatus getStatus() {
     return status;
   }
@@ -96,7 +96,7 @@ public class ExecutionReportAllOf {
   /**
    * History of order status changes
    **/
-  @ApiModelProperty(value = "History of order status changes")
+  @ApiModelProperty(required = true, value = "History of order status changes")
   public List<List<String>> getTimeOrder() {
     return timeOrder;
   }

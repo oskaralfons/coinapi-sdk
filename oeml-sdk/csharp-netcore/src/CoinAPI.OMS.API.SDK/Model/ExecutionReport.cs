@@ -83,7 +83,7 @@ namespace CoinAPI.OMS.API.SDK.Model
         /// Gets or Sets Status
         /// </summary>
         [DataMember(Name="status", EmitDefaultValue=false)]
-        public OrdStatus? Status { get; set; }
+        public OrdStatus Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ExecutionReport" /> class.
         /// </summary>
@@ -103,14 +103,14 @@ namespace CoinAPI.OMS.API.SDK.Model
         /// <param name="timeInForce">timeInForce (required).</param>
         /// <param name="expireTime">Expiration time. Conditionaly required for orders with time_in_force &#x3D; &#x60;GOOD_TILL_TIME_EXCHANGE&#x60; or &#x60;GOOD_TILL_TIME_OEML&#x60;..</param>
         /// <param name="execInst">Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt;.</param>
-        /// <param name="clientOrderIdFormatExchange">Hash client id.</param>
+        /// <param name="clientOrderIdFormatExchange">Hash client id (required).</param>
         /// <param name="exchangeOrderId">Exchange order id.</param>
-        /// <param name="amountOpen">Amount open.</param>
-        /// <param name="amountFilled">Amount filled.</param>
-        /// <param name="status">status.</param>
-        /// <param name="timeOrder">History of order status changes.</param>
+        /// <param name="amountOpen">Amount open (required).</param>
+        /// <param name="amountFilled">Amount filled (required).</param>
+        /// <param name="status">status (required).</param>
+        /// <param name="timeOrder">History of order status changes (required).</param>
         /// <param name="errorMessage">Error message.</param>
-        public ExecutionReport(string exchangeId = default(string), string clientOrderId = default(string), string symbolExchange = default(string), string symbolCoinapi = default(string), decimal amountOrder = default(decimal), decimal price = default(decimal), OrdSide side = default(OrdSide), OrdType orderType = default(OrdType), TimeInForce timeInForce = default(TimeInForce), DateTime expireTime = default(DateTime), List<ExecInstEnum> execInst = default(List<ExecInstEnum>), string clientOrderIdFormatExchange = default(string), string exchangeOrderId = default(string), decimal amountOpen = default(decimal), decimal amountFilled = default(decimal), OrdStatus? status = default(OrdStatus?), List<List<string>> timeOrder = default(List<List<string>>), string errorMessage = default(string))
+        public ExecutionReport(string exchangeId = default(string), string clientOrderId = default(string), string symbolExchange = default(string), string symbolCoinapi = default(string), decimal amountOrder = default(decimal), decimal price = default(decimal), OrdSide side = default(OrdSide), OrdType orderType = default(OrdType), TimeInForce timeInForce = default(TimeInForce), DateTime expireTime = default(DateTime), List<ExecInstEnum> execInst = default(List<ExecInstEnum>), string clientOrderIdFormatExchange = default(string), string exchangeOrderId = default(string), decimal amountOpen = default(decimal), decimal amountFilled = default(decimal), OrdStatus status = default(OrdStatus), List<List<string>> timeOrder = default(List<List<string>>), string errorMessage = default(string))
         {
             // to ensure "exchangeId" is required (not null)
             this.ExchangeId = exchangeId ?? throw new ArgumentNullException("exchangeId is a required property for ExecutionReport and cannot be null");
@@ -121,16 +121,18 @@ namespace CoinAPI.OMS.API.SDK.Model
             this.Side = side;
             this.OrderType = orderType;
             this.TimeInForce = timeInForce;
+            // to ensure "clientOrderIdFormatExchange" is required (not null)
+            this.ClientOrderIdFormatExchange = clientOrderIdFormatExchange ?? throw new ArgumentNullException("clientOrderIdFormatExchange is a required property for ExecutionReport and cannot be null");
+            this.AmountOpen = amountOpen;
+            this.AmountFilled = amountFilled;
+            this.Status = status;
+            // to ensure "timeOrder" is required (not null)
+            this.TimeOrder = timeOrder ?? throw new ArgumentNullException("timeOrder is a required property for ExecutionReport and cannot be null");
             this.SymbolExchange = symbolExchange;
             this.SymbolCoinapi = symbolCoinapi;
             this.ExpireTime = expireTime;
             this.ExecInst = execInst;
-            this.ClientOrderIdFormatExchange = clientOrderIdFormatExchange;
             this.ExchangeOrderId = exchangeOrderId;
-            this.AmountOpen = amountOpen;
-            this.AmountFilled = amountFilled;
-            this.Status = status;
-            this.TimeOrder = timeOrder;
             this.ErrorMessage = errorMessage;
         }
         

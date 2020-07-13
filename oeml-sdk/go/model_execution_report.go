@@ -30,16 +30,16 @@ type ExecutionReport struct {
 	// Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>
 	ExecInst []string `json:"exec_inst,omitempty"`
 	// Hash client id
-	ClientOrderIdFormatExchange string `json:"client_order_id_format_exchange,omitempty"`
+	ClientOrderIdFormatExchange string `json:"client_order_id_format_exchange"`
 	// Exchange order id
 	ExchangeOrderId string `json:"exchange_order_id,omitempty"`
 	// Amount open
-	AmountOpen float32 `json:"amount_open,omitempty"`
+	AmountOpen float32 `json:"amount_open"`
 	// Amount filled
-	AmountFilled float32 `json:"amount_filled,omitempty"`
-	Status OrdStatus `json:"status,omitempty"`
+	AmountFilled float32 `json:"amount_filled"`
+	Status OrdStatus `json:"status"`
 	// History of order status changes
-	TimeOrder [][]string `json:"time_order,omitempty"`
+	TimeOrder [][]string `json:"time_order"`
 	// Error message
 	ErrorMessage string `json:"error_message,omitempty"`
 }

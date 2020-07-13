@@ -285,7 +285,7 @@ bool OAIExecutionReport_allOf::isSet() const {
 
 bool OAIExecutionReport_allOf::isValid() const {
     // only required properties are required for the object to be considered valid
-    return true;
+    return m_client_order_id_format_exchange_isValid && m_amount_open_isValid && m_amount_filled_isValid && m_status_isValid && m_time_order_isValid && true;
 }
 
 } // namespace OpenAPI

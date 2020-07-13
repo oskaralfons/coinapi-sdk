@@ -37,7 +37,7 @@ import org.threeten.bp.LocalDate;
 /**
  * ExecutionReport
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T11:25:52.494Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T11:27:23.651Z[Etc/UTC]")
 public class ExecutionReport {
   public static final String SERIALIZED_NAME_EXCHANGE_ID = "exchange_id";
   @SerializedName(SERIALIZED_NAME_EXCHANGE_ID)
@@ -154,7 +154,7 @@ public class ExecutionReport {
 
   public static final String SERIALIZED_NAME_TIME_ORDER = "time_order";
   @SerializedName(SERIALIZED_NAME_TIME_ORDER)
-  private List<List<String>> timeOrder = null;
+  private List<List<String>> timeOrder = new ArrayList<List<String>>();
 
   public static final String SERIALIZED_NAME_ERROR_MESSAGE = "error_message";
   @SerializedName(SERIALIZED_NAME_ERROR_MESSAGE)
@@ -425,8 +425,7 @@ public class ExecutionReport {
    * Hash client id
    * @return clientOrderIdFormatExchange
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "f81211e2-27c4-b86a-8143-01088ba9222c", value = "Hash client id")
+  @ApiModelProperty(example = "f81211e2-27c4-b86a-8143-01088ba9222c", required = true, value = "Hash client id")
 
   public String getClientOrderIdFormatExchange() {
     return clientOrderIdFormatExchange;
@@ -471,8 +470,7 @@ public class ExecutionReport {
    * Amount open
    * @return amountOpen
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "0.22", value = "Amount open")
+  @ApiModelProperty(example = "0.22", required = true, value = "Amount open")
 
   public BigDecimal getAmountOpen() {
     return amountOpen;
@@ -494,8 +492,7 @@ public class ExecutionReport {
    * Amount filled
    * @return amountFilled
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "0.0", value = "Amount filled")
+  @ApiModelProperty(example = "0.0", required = true, value = "Amount filled")
 
   public BigDecimal getAmountFilled() {
     return amountFilled;
@@ -517,8 +514,7 @@ public class ExecutionReport {
    * Get status
    * @return status
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
 
   public OrdStatus getStatus() {
     return status;
@@ -537,9 +533,6 @@ public class ExecutionReport {
   }
 
   public ExecutionReport addTimeOrderItem(List<String> timeOrderItem) {
-    if (this.timeOrder == null) {
-      this.timeOrder = new ArrayList<List<String>>();
-    }
     this.timeOrder.add(timeOrderItem);
     return this;
   }
@@ -548,8 +541,7 @@ public class ExecutionReport {
    * History of order status changes
    * @return timeOrder
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "History of order status changes")
+  @ApiModelProperty(required = true, value = "History of order status changes")
 
   public List<List<String>> getTimeOrder() {
     return timeOrder;

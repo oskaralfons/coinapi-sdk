@@ -35,25 +35,32 @@ namespace CoinAPI.OMS.API.SDK.Model
         /// Gets or Sets Status
         /// </summary>
         [DataMember(Name="status", EmitDefaultValue=false)]
-        public OrdStatus? Status { get; set; }
+        public OrdStatus Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ExecutionReportAllOf" /> class.
         /// </summary>
-        /// <param name="clientOrderIdFormatExchange">Hash client id.</param>
+        [JsonConstructorAttribute]
+        protected ExecutionReportAllOf() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ExecutionReportAllOf" /> class.
+        /// </summary>
+        /// <param name="clientOrderIdFormatExchange">Hash client id (required).</param>
         /// <param name="exchangeOrderId">Exchange order id.</param>
-        /// <param name="amountOpen">Amount open.</param>
-        /// <param name="amountFilled">Amount filled.</param>
-        /// <param name="status">status.</param>
-        /// <param name="timeOrder">History of order status changes.</param>
+        /// <param name="amountOpen">Amount open (required).</param>
+        /// <param name="amountFilled">Amount filled (required).</param>
+        /// <param name="status">status (required).</param>
+        /// <param name="timeOrder">History of order status changes (required).</param>
         /// <param name="errorMessage">Error message.</param>
-        public ExecutionReportAllOf(string clientOrderIdFormatExchange = default(string), string exchangeOrderId = default(string), decimal amountOpen = default(decimal), decimal amountFilled = default(decimal), OrdStatus? status = default(OrdStatus?), List<List<string>> timeOrder = default(List<List<string>>), string errorMessage = default(string))
+        public ExecutionReportAllOf(string clientOrderIdFormatExchange = default(string), string exchangeOrderId = default(string), decimal amountOpen = default(decimal), decimal amountFilled = default(decimal), OrdStatus status = default(OrdStatus), List<List<string>> timeOrder = default(List<List<string>>), string errorMessage = default(string))
         {
-            this.ClientOrderIdFormatExchange = clientOrderIdFormatExchange;
-            this.ExchangeOrderId = exchangeOrderId;
+            // to ensure "clientOrderIdFormatExchange" is required (not null)
+            this.ClientOrderIdFormatExchange = clientOrderIdFormatExchange ?? throw new ArgumentNullException("clientOrderIdFormatExchange is a required property for ExecutionReportAllOf and cannot be null");
             this.AmountOpen = amountOpen;
             this.AmountFilled = amountFilled;
             this.Status = status;
-            this.TimeOrder = timeOrder;
+            // to ensure "timeOrder" is required (not null)
+            this.TimeOrder = timeOrder ?? throw new ArgumentNullException("timeOrder is a required property for ExecutionReportAllOf and cannot be null");
+            this.ExchangeOrderId = exchangeOrderId;
             this.ErrorMessage = errorMessage;
         }
         

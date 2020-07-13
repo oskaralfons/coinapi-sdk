@@ -355,7 +355,7 @@ package .Models is
        Time_In_Force : .Models.TimeInForce_Type;
        Expire_Time : Swagger.Nullable_Date;
        Exec_Inst : Swagger.UString_Vectors.Vector;
-       Client_Order_Id_Format_Exchange : Swagger.Nullable_UString;
+       Client_Order_Id_Format_Exchange : Swagger.UString;
        Exchange_Order_Id : Swagger.Nullable_UString;
        Amount_Open : Swagger.Number;
        Amount_Filled : Swagger.Number;
@@ -453,7 +453,7 @@ package .Models is
 
    type ExecutionReportAllOf_Type is
      record
-       Client_Order_Id_Format_Exchange : Swagger.Nullable_UString;
+       Client_Order_Id_Format_Exchange : Swagger.UString;
        Exchange_Order_Id : Swagger.Nullable_UString;
        Amount_Open : Swagger.Number;
        Amount_Filled : Swagger.Number;

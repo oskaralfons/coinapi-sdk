@@ -1,22 +1,22 @@
 function New-ExecutionReportAllOf {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [String]
         ${clientUnderscoreorderUnderscoreidUnderscoreformatUnderscoreexchange},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${exchangeUnderscoreorderUnderscoreid},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Decimal]]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Decimal]
         ${amountUnderscoreopen},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Decimal]]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Decimal]
         ${amountUnderscorefilled},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [Org.OpenAPITools.Model.OrdStatus]
         ${status},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [String[][]]
         ${timeUnderscoreorder},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]

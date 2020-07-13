@@ -226,6 +226,21 @@ class ExecutionReportAllOf implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['client_order_id_format_exchange'] === null) {
+            $invalidProperties[] = "'client_order_id_format_exchange' can't be null";
+        }
+        if ($this->container['amount_open'] === null) {
+            $invalidProperties[] = "'amount_open' can't be null";
+        }
+        if ($this->container['amount_filled'] === null) {
+            $invalidProperties[] = "'amount_filled' can't be null";
+        }
+        if ($this->container['status'] === null) {
+            $invalidProperties[] = "'status' can't be null";
+        }
+        if ($this->container['time_order'] === null) {
+            $invalidProperties[] = "'time_order' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -244,7 +259,7 @@ class ExecutionReportAllOf implements ModelInterface, ArrayAccess
     /**
      * Gets client_order_id_format_exchange
      *
-     * @return string|null
+     * @return string
      */
     public function getClientOrderIdFormatExchange()
     {
@@ -254,7 +269,7 @@ class ExecutionReportAllOf implements ModelInterface, ArrayAccess
     /**
      * Sets client_order_id_format_exchange
      *
-     * @param string|null $client_order_id_format_exchange Hash client id
+     * @param string $client_order_id_format_exchange Hash client id
      *
      * @return $this
      */
@@ -292,7 +307,7 @@ class ExecutionReportAllOf implements ModelInterface, ArrayAccess
     /**
      * Gets amount_open
      *
-     * @return float|null
+     * @return float
      */
     public function getAmountOpen()
     {
@@ -302,7 +317,7 @@ class ExecutionReportAllOf implements ModelInterface, ArrayAccess
     /**
      * Sets amount_open
      *
-     * @param float|null $amount_open Amount open
+     * @param float $amount_open Amount open
      *
      * @return $this
      */
@@ -316,7 +331,7 @@ class ExecutionReportAllOf implements ModelInterface, ArrayAccess
     /**
      * Gets amount_filled
      *
-     * @return float|null
+     * @return float
      */
     public function getAmountFilled()
     {
@@ -326,7 +341,7 @@ class ExecutionReportAllOf implements ModelInterface, ArrayAccess
     /**
      * Sets amount_filled
      *
-     * @param float|null $amount_filled Amount filled
+     * @param float $amount_filled Amount filled
      *
      * @return $this
      */
@@ -340,7 +355,7 @@ class ExecutionReportAllOf implements ModelInterface, ArrayAccess
     /**
      * Gets status
      *
-     * @return \OpenAPI\Client\Model\OrdStatus|null
+     * @return \OpenAPI\Client\Model\OrdStatus
      */
     public function getStatus()
     {
@@ -350,7 +365,7 @@ class ExecutionReportAllOf implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param \OpenAPI\Client\Model\OrdStatus|null $status status
+     * @param \OpenAPI\Client\Model\OrdStatus $status status
      *
      * @return $this
      */
@@ -364,7 +379,7 @@ class ExecutionReportAllOf implements ModelInterface, ArrayAccess
     /**
      * Gets time_order
      *
-     * @return string[][]|null
+     * @return string[][]
      */
     public function getTimeOrder()
     {
@@ -374,7 +389,7 @@ class ExecutionReportAllOf implements ModelInterface, ArrayAccess
     /**
      * Sets time_order
      *
-     * @param string[][]|null $time_order History of order status changes
+     * @param string[][] $time_order History of order status changes
      *
      * @return $this
      */

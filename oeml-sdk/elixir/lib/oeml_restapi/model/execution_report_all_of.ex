@@ -19,12 +19,12 @@ defmodule OEML-RESTAPI.Model.ExecutionReportAllOf do
   ]
 
   @type t :: %__MODULE__{
-    :"client_order_id_format_exchange" => String.t | nil,
+    :"client_order_id_format_exchange" => String.t,
     :"exchange_order_id" => String.t | nil,
-    :"amount_open" => float() | nil,
-    :"amount_filled" => float() | nil,
-    :"status" => OrdStatus | nil,
-    :"time_order" => [[String.t]] | nil,
+    :"amount_open" => float(),
+    :"amount_filled" => float(),
+    :"status" => OrdStatus,
+    :"time_order" => [[String.t]],
     :"error_message" => String.t | nil
   }
 end

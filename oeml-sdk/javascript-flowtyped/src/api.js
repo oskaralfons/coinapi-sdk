@@ -263,7 +263,7 @@ export type ExecutionReport = {
      * @type {string}
      * @memberof ExecutionReport
      */
-    client_order_id_format_exchange?: string;
+    client_order_id_format_exchange: string;
     /**
      * Exchange order id
      * @type {string}
@@ -275,25 +275,25 @@ export type ExecutionReport = {
      * @type {number}
      * @memberof ExecutionReport
      */
-    amount_open?: number;
+    amount_open: number;
     /**
      * Amount filled
      * @type {number}
      * @memberof ExecutionReport
      */
-    amount_filled?: number;
+    amount_filled: number;
     /**
      * 
      * @type {OrdStatus}
      * @memberof ExecutionReport
      */
-    status?: OrdStatus;
+    status: OrdStatus;
     /**
      * History of order status changes
      * @type {Array<Array<string>>}
      * @memberof ExecutionReport
      */
-    time_order?: Array<Array<string>>;
+    time_order: Array<Array<string>>;
     /**
      * Error message
      * @type {string}
@@ -313,7 +313,7 @@ export type ExecutionReportAllOf = {
      * @type {string}
      * @memberof ExecutionReportAllOf
      */
-    client_order_id_format_exchange?: string;
+    client_order_id_format_exchange: string;
     /**
      * Exchange order id
      * @type {string}
@@ -325,25 +325,25 @@ export type ExecutionReportAllOf = {
      * @type {number}
      * @memberof ExecutionReportAllOf
      */
-    amount_open?: number;
+    amount_open: number;
     /**
      * Amount filled
      * @type {number}
      * @memberof ExecutionReportAllOf
      */
-    amount_filled?: number;
+    amount_filled: number;
     /**
      * 
      * @type {OrdStatus}
      * @memberof ExecutionReportAllOf
      */
-    status?: OrdStatus;
+    status: OrdStatus;
     /**
      * History of order status changes
      * @type {Array<Array<string>>}
      * @memberof ExecutionReportAllOf
      */
-    time_order?: Array<Array<string>>;
+    time_order: Array<Array<string>>;
     /**
      * Error message
      * @type {string}

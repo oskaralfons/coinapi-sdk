@@ -35,16 +35,16 @@ case class ExecutionReport (
   /* Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> */
   execInst: Option[ExecutionReportEnums.Seq[ExecInst]] = None,
   /* Hash client id */
-  clientOrderIdFormatExchange: Option[String] = None,
+  clientOrderIdFormatExchange: String,
   /* Exchange order id */
   exchangeOrderId: Option[String] = None,
   /* Amount open */
-  amountOpen: Option[Double] = None,
+  amountOpen: Double,
   /* Amount filled */
-  amountFilled: Option[Double] = None,
-  status: Option[OrdStatus] = None,
+  amountFilled: Double,
+  status: OrdStatus,
   /* History of order status changes */
-  timeOrder: Option[Seq[Seq[String]]] = None,
+  timeOrder: Seq[Seq[String]],
   /* Error message */
   errorMessage: Option[String] = None
 ) extends ApiModel

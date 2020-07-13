@@ -20,7 +20,7 @@ export class ExecutionReportAllOf {
     /**
     * Hash client id
     */
-    'clientOrderIdFormatExchange'?: string;
+    'clientOrderIdFormatExchange': string;
     /**
     * Exchange order id
     */
@@ -28,16 +28,16 @@ export class ExecutionReportAllOf {
     /**
     * Amount open
     */
-    'amountOpen'?: number;
+    'amountOpen': number;
     /**
     * Amount filled
     */
-    'amountFilled'?: number;
-    'status'?: OrdStatus;
+    'amountFilled': number;
+    'status': OrdStatus;
     /**
     * History of order status changes
     */
-    'timeOrder'?: Array<Array<string>>;
+    'timeOrder': Array<Array<string>>;
     /**
     * Error message
     */

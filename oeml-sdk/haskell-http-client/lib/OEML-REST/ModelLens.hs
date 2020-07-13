@@ -181,7 +181,7 @@ executionReportExecInstL f ExecutionReport{..} = (\executionReportExecInst -> Ex
 {-# INLINE executionReportExecInstL #-}
 
 -- | 'executionReportClientOrderIdFormatExchange' Lens
-executionReportClientOrderIdFormatExchangeL :: Lens_' ExecutionReport (Maybe Text)
+executionReportClientOrderIdFormatExchangeL :: Lens_' ExecutionReport (Text)
 executionReportClientOrderIdFormatExchangeL f ExecutionReport{..} = (\executionReportClientOrderIdFormatExchange -> ExecutionReport { executionReportClientOrderIdFormatExchange, ..} ) <$> f executionReportClientOrderIdFormatExchange
 {-# INLINE executionReportClientOrderIdFormatExchangeL #-}
 
@@ -191,22 +191,22 @@ executionReportExchangeOrderIdL f ExecutionReport{..} = (\executionReportExchang
 {-# INLINE executionReportExchangeOrderIdL #-}
 
 -- | 'executionReportAmountOpen' Lens
-executionReportAmountOpenL :: Lens_' ExecutionReport (Maybe Double)
+executionReportAmountOpenL :: Lens_' ExecutionReport (Double)
 executionReportAmountOpenL f ExecutionReport{..} = (\executionReportAmountOpen -> ExecutionReport { executionReportAmountOpen, ..} ) <$> f executionReportAmountOpen
 {-# INLINE executionReportAmountOpenL #-}
 
 -- | 'executionReportAmountFilled' Lens
-executionReportAmountFilledL :: Lens_' ExecutionReport (Maybe Double)
+executionReportAmountFilledL :: Lens_' ExecutionReport (Double)
 executionReportAmountFilledL f ExecutionReport{..} = (\executionReportAmountFilled -> ExecutionReport { executionReportAmountFilled, ..} ) <$> f executionReportAmountFilled
 {-# INLINE executionReportAmountFilledL #-}
 
 -- | 'executionReportStatus' Lens
-executionReportStatusL :: Lens_' ExecutionReport (Maybe OrdStatus)
+executionReportStatusL :: Lens_' ExecutionReport (OrdStatus)
 executionReportStatusL f ExecutionReport{..} = (\executionReportStatus -> ExecutionReport { executionReportStatus, ..} ) <$> f executionReportStatus
 {-# INLINE executionReportStatusL #-}
 
 -- | 'executionReportTimeOrder' Lens
-executionReportTimeOrderL :: Lens_' ExecutionReport (Maybe [[Text]])
+executionReportTimeOrderL :: Lens_' ExecutionReport ([[Text]])
 executionReportTimeOrderL f ExecutionReport{..} = (\executionReportTimeOrder -> ExecutionReport { executionReportTimeOrder, ..} ) <$> f executionReportTimeOrder
 {-# INLINE executionReportTimeOrderL #-}
 
@@ -220,7 +220,7 @@ executionReportErrorMessageL f ExecutionReport{..} = (\executionReportErrorMessa
 -- * ExecutionReportAllOf
 
 -- | 'executionReportAllOfClientOrderIdFormatExchange' Lens
-executionReportAllOfClientOrderIdFormatExchangeL :: Lens_' ExecutionReportAllOf (Maybe Text)
+executionReportAllOfClientOrderIdFormatExchangeL :: Lens_' ExecutionReportAllOf (Text)
 executionReportAllOfClientOrderIdFormatExchangeL f ExecutionReportAllOf{..} = (\executionReportAllOfClientOrderIdFormatExchange -> ExecutionReportAllOf { executionReportAllOfClientOrderIdFormatExchange, ..} ) <$> f executionReportAllOfClientOrderIdFormatExchange
 {-# INLINE executionReportAllOfClientOrderIdFormatExchangeL #-}
 
@@ -230,22 +230,22 @@ executionReportAllOfExchangeOrderIdL f ExecutionReportAllOf{..} = (\executionRep
 {-# INLINE executionReportAllOfExchangeOrderIdL #-}
 
 -- | 'executionReportAllOfAmountOpen' Lens
-executionReportAllOfAmountOpenL :: Lens_' ExecutionReportAllOf (Maybe Double)
+executionReportAllOfAmountOpenL :: Lens_' ExecutionReportAllOf (Double)
 executionReportAllOfAmountOpenL f ExecutionReportAllOf{..} = (\executionReportAllOfAmountOpen -> ExecutionReportAllOf { executionReportAllOfAmountOpen, ..} ) <$> f executionReportAllOfAmountOpen
 {-# INLINE executionReportAllOfAmountOpenL #-}
 
 -- | 'executionReportAllOfAmountFilled' Lens
-executionReportAllOfAmountFilledL :: Lens_' ExecutionReportAllOf (Maybe Double)
+executionReportAllOfAmountFilledL :: Lens_' ExecutionReportAllOf (Double)
 executionReportAllOfAmountFilledL f ExecutionReportAllOf{..} = (\executionReportAllOfAmountFilled -> ExecutionReportAllOf { executionReportAllOfAmountFilled, ..} ) <$> f executionReportAllOfAmountFilled
 {-# INLINE executionReportAllOfAmountFilledL #-}
 
 -- | 'executionReportAllOfStatus' Lens
-executionReportAllOfStatusL :: Lens_' ExecutionReportAllOf (Maybe OrdStatus)
+executionReportAllOfStatusL :: Lens_' ExecutionReportAllOf (OrdStatus)
 executionReportAllOfStatusL f ExecutionReportAllOf{..} = (\executionReportAllOfStatus -> ExecutionReportAllOf { executionReportAllOfStatus, ..} ) <$> f executionReportAllOfStatus
 {-# INLINE executionReportAllOfStatusL #-}
 
 -- | 'executionReportAllOfTimeOrder' Lens
-executionReportAllOfTimeOrderL :: Lens_' ExecutionReportAllOf (Maybe [[Text]])
+executionReportAllOfTimeOrderL :: Lens_' ExecutionReportAllOf ([[Text]])
 executionReportAllOfTimeOrderL f ExecutionReportAllOf{..} = (\executionReportAllOfTimeOrder -> ExecutionReportAllOf { executionReportAllOfTimeOrder, ..} ) <$> f executionReportAllOfTimeOrder
 {-# INLINE executionReportAllOfTimeOrderL #-}
 

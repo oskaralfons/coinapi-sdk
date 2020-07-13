@@ -17,32 +17,32 @@ import com.squareup.moshi.Json
 /**
  * The order execution report message.
  * @param clientOrderIdFormatExchange Hash client id
- * @param exchangeOrderId Exchange order id
  * @param amountOpen Amount open
  * @param amountFilled Amount filled
  * @param status 
  * @param timeOrder History of order status changes
+ * @param exchangeOrderId Exchange order id
  * @param errorMessage Error message
  */
 
 data class ExecutionReportAllOf (
     /* Hash client id */
     @Json(name = "client_order_id_format_exchange")
-    val clientOrderIdFormatExchange: kotlin.String? = null,
+    val clientOrderIdFormatExchange: kotlin.String,
+    /* Amount open */
+    @Json(name = "amount_open")
+    val amountOpen: java.math.BigDecimal,
+    /* Amount filled */
+    @Json(name = "amount_filled")
+    val amountFilled: java.math.BigDecimal,
+    @Json(name = "status")
+    val status: OrdStatus,
+    /* History of order status changes */
+    @Json(name = "time_order")
+    val timeOrder: kotlin.Array<kotlin.Array<kotlin.String>>,
     /* Exchange order id */
     @Json(name = "exchange_order_id")
     val exchangeOrderId: kotlin.String? = null,
-    /* Amount open */
-    @Json(name = "amount_open")
-    val amountOpen: java.math.BigDecimal? = null,
-    /* Amount filled */
-    @Json(name = "amount_filled")
-    val amountFilled: java.math.BigDecimal? = null,
-    @Json(name = "status")
-    val status: OrdStatus? = null,
-    /* History of order status changes */
-    @Json(name = "time_order")
-    val timeOrder: kotlin.Array<kotlin.Array<kotlin.String>>? = null,
     /* Error message */
     @Json(name = "error_message")
     val errorMessage: kotlin.String? = null

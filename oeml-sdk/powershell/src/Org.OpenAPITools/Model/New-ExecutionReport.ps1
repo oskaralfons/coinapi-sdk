@@ -34,22 +34,22 @@ function New-ExecutionReport {
         [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [String[]]
         ${execUnderscoreinst},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [String]
         ${clientUnderscoreorderUnderscoreidUnderscoreformatUnderscoreexchange},
         [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${exchangeUnderscoreorderUnderscoreid},
-        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Decimal]]
+        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Decimal]
         ${amountUnderscoreopen},
-        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Decimal]]
+        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Decimal]
         ${amountUnderscorefilled},
-        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [Org.OpenAPITools.Model.OrdStatus]
         ${status},
-        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [String[][]]
         ${timeUnderscoreorder},
         [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]

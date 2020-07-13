@@ -24,10 +24,15 @@ class ExecutionReportAllOf {
      * Constructs a new <code>ExecutionReportAllOf</code>.
      * The order execution report message.
      * @alias module:model/ExecutionReportAllOf
+     * @param clientOrderIdFormatExchange {String} Hash client id
+     * @param amountOpen {Number} Amount open
+     * @param amountFilled {Number} Amount filled
+     * @param status {module:model/OrdStatus} 
+     * @param timeOrder {Array.<Array.<String>>} History of order status changes
      */
-    constructor() { 
+    constructor(clientOrderIdFormatExchange, amountOpen, amountFilled, status, timeOrder) { 
         
-        ExecutionReportAllOf.initialize(this);
+        ExecutionReportAllOf.initialize(this, clientOrderIdFormatExchange, amountOpen, amountFilled, status, timeOrder);
     }
 
     /**
@@ -35,7 +40,12 @@ class ExecutionReportAllOf {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, clientOrderIdFormatExchange, amountOpen, amountFilled, status, timeOrder) { 
+        obj['client_order_id_format_exchange'] = clientOrderIdFormatExchange;
+        obj['amount_open'] = amountOpen;
+        obj['amount_filled'] = amountFilled;
+        obj['status'] = status;
+        obj['time_order'] = timeOrder;
     }
 
     /**

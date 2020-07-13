@@ -33,26 +33,76 @@ namespace CoinAPI.OMS.REST.V1.Model
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public OrdStatus? Status { get; set; }
+        [DataMember(Name="status", EmitDefaultValue=true)]
+        public OrdStatus Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ExecutionReportAllOf" /> class.
         /// </summary>
-        /// <param name="clientOrderIdFormatExchange">Hash client id.</param>
+        [JsonConstructorAttribute]
+        protected ExecutionReportAllOf() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ExecutionReportAllOf" /> class.
+        /// </summary>
+        /// <param name="clientOrderIdFormatExchange">Hash client id (required).</param>
         /// <param name="exchangeOrderId">Exchange order id.</param>
-        /// <param name="amountOpen">Amount open.</param>
-        /// <param name="amountFilled">Amount filled.</param>
-        /// <param name="status">status.</param>
-        /// <param name="timeOrder">History of order status changes.</param>
+        /// <param name="amountOpen">Amount open (required).</param>
+        /// <param name="amountFilled">Amount filled (required).</param>
+        /// <param name="status">status (required).</param>
+        /// <param name="timeOrder">History of order status changes (required).</param>
         /// <param name="errorMessage">Error message.</param>
-        public ExecutionReportAllOf(string clientOrderIdFormatExchange = default(string), string exchangeOrderId = default(string), decimal amountOpen = default(decimal), decimal amountFilled = default(decimal), OrdStatus? status = default(OrdStatus?), List<List<string>> timeOrder = default(List<List<string>>), string errorMessage = default(string))
+        public ExecutionReportAllOf(string clientOrderIdFormatExchange = default(string), string exchangeOrderId = default(string), decimal amountOpen = default(decimal), decimal amountFilled = default(decimal), OrdStatus status = default(OrdStatus), List<List<string>> timeOrder = default(List<List<string>>), string errorMessage = default(string))
         {
-            this.ClientOrderIdFormatExchange = clientOrderIdFormatExchange;
+            // to ensure "clientOrderIdFormatExchange" is required (not null)
+            if (clientOrderIdFormatExchange == null)
+            {
+                throw new InvalidDataException("clientOrderIdFormatExchange is a required property for ExecutionReportAllOf and cannot be null");
+            }
+            else
+            {
+                this.ClientOrderIdFormatExchange = clientOrderIdFormatExchange;
+            }
+            
+            // to ensure "amountOpen" is required (not null)
+            if (amountOpen == null)
+            {
+                throw new InvalidDataException("amountOpen is a required property for ExecutionReportAllOf and cannot be null");
+            }
+            else
+            {
+                this.AmountOpen = amountOpen;
+            }
+            
+            // to ensure "amountFilled" is required (not null)
+            if (amountFilled == null)
+            {
+                throw new InvalidDataException("amountFilled is a required property for ExecutionReportAllOf and cannot be null");
+            }
+            else
+            {
+                this.AmountFilled = amountFilled;
+            }
+            
+            // to ensure "status" is required (not null)
+            if (status == null)
+            {
+                throw new InvalidDataException("status is a required property for ExecutionReportAllOf and cannot be null");
+            }
+            else
+            {
+                this.Status = status;
+            }
+            
+            // to ensure "timeOrder" is required (not null)
+            if (timeOrder == null)
+            {
+                throw new InvalidDataException("timeOrder is a required property for ExecutionReportAllOf and cannot be null");
+            }
+            else
+            {
+                this.TimeOrder = timeOrder;
+            }
+            
             this.ExchangeOrderId = exchangeOrderId;
-            this.AmountOpen = amountOpen;
-            this.AmountFilled = amountFilled;
-            this.Status = status;
-            this.TimeOrder = timeOrder;
             this.ErrorMessage = errorMessage;
         }
         
@@ -60,7 +110,7 @@ namespace CoinAPI.OMS.REST.V1.Model
         /// Hash client id
         /// </summary>
         /// <value>Hash client id</value>
-        [DataMember(Name="client_order_id_format_exchange", EmitDefaultValue=false)]
+        [DataMember(Name="client_order_id_format_exchange", EmitDefaultValue=true)]
         public string ClientOrderIdFormatExchange { get; set; }
 
         /// <summary>
@@ -74,14 +124,14 @@ namespace CoinAPI.OMS.REST.V1.Model
         /// Amount open
         /// </summary>
         /// <value>Amount open</value>
-        [DataMember(Name="amount_open", EmitDefaultValue=false)]
+        [DataMember(Name="amount_open", EmitDefaultValue=true)]
         public decimal AmountOpen { get; set; }
 
         /// <summary>
         /// Amount filled
         /// </summary>
         /// <value>Amount filled</value>
-        [DataMember(Name="amount_filled", EmitDefaultValue=false)]
+        [DataMember(Name="amount_filled", EmitDefaultValue=true)]
         public decimal AmountFilled { get; set; }
 
 
@@ -89,7 +139,7 @@ namespace CoinAPI.OMS.REST.V1.Model
         /// History of order status changes
         /// </summary>
         /// <value>History of order status changes</value>
-        [DataMember(Name="time_order", EmitDefaultValue=false)]
+        [DataMember(Name="time_order", EmitDefaultValue=true)]
         public List<List<string>> TimeOrder { get; set; }
 
         /// <summary>

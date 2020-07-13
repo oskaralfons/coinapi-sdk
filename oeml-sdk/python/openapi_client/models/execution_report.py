@@ -115,18 +115,13 @@ class ExecutionReport(object):
             self.expire_time = expire_time
         if exec_inst is not None:
             self.exec_inst = exec_inst
-        if client_order_id_format_exchange is not None:
-            self.client_order_id_format_exchange = client_order_id_format_exchange
+        self.client_order_id_format_exchange = client_order_id_format_exchange
         if exchange_order_id is not None:
             self.exchange_order_id = exchange_order_id
-        if amount_open is not None:
-            self.amount_open = amount_open
-        if amount_filled is not None:
-            self.amount_filled = amount_filled
-        if status is not None:
-            self.status = status
-        if time_order is not None:
-            self.time_order = time_order
+        self.amount_open = amount_open
+        self.amount_filled = amount_filled
+        self.status = status
+        self.time_order = time_order
         if error_message is not None:
             self.error_message = error_message
 
@@ -419,6 +414,8 @@ class ExecutionReport(object):
         :param client_order_id_format_exchange: The client_order_id_format_exchange of this ExecutionReport.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and client_order_id_format_exchange is None:  # noqa: E501
+            raise ValueError("Invalid value for `client_order_id_format_exchange`, must not be `None`")  # noqa: E501
 
         self._client_order_id_format_exchange = client_order_id_format_exchange
 
@@ -465,6 +462,8 @@ class ExecutionReport(object):
         :param amount_open: The amount_open of this ExecutionReport.  # noqa: E501
         :type: float
         """
+        if self.local_vars_configuration.client_side_validation and amount_open is None:  # noqa: E501
+            raise ValueError("Invalid value for `amount_open`, must not be `None`")  # noqa: E501
 
         self._amount_open = amount_open
 
@@ -488,6 +487,8 @@ class ExecutionReport(object):
         :param amount_filled: The amount_filled of this ExecutionReport.  # noqa: E501
         :type: float
         """
+        if self.local_vars_configuration.client_side_validation and amount_filled is None:  # noqa: E501
+            raise ValueError("Invalid value for `amount_filled`, must not be `None`")  # noqa: E501
 
         self._amount_filled = amount_filled
 
@@ -509,6 +510,8 @@ class ExecutionReport(object):
         :param status: The status of this ExecutionReport.  # noqa: E501
         :type: OrdStatus
         """
+        if self.local_vars_configuration.client_side_validation and status is None:  # noqa: E501
+            raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
 
         self._status = status
 
@@ -532,6 +535,8 @@ class ExecutionReport(object):
         :param time_order: The time_order of this ExecutionReport.  # noqa: E501
         :type: list[list[str]]
         """
+        if self.local_vars_configuration.client_side_validation and time_order is None:  # noqa: E501
+            raise ValueError("Invalid value for `time_order`, must not be `None`")  # noqa: E501
 
         self._time_order = time_order
 
