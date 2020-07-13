@@ -500,7 +500,7 @@ export type Position = {
 
 
 /**
- * 
+ * The Position object.
  * @export
  */
 export type PositionData = {

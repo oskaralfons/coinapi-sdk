@@ -4,7 +4,7 @@
 
 defmodule OEML-RESTAPI.Model.PositionData do
   @moduledoc """
-  
+  The Position object.
   """
 
   @derive [Poison.Encoder]

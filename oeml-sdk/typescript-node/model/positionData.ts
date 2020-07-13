@@ -13,6 +13,9 @@
 import { RequestFile } from '../api';
 import { OrdSide } from './ordSide';
 
+/**
+* The Position object.
+*/
 export class PositionData {
     /**
     * Exchange symbol.

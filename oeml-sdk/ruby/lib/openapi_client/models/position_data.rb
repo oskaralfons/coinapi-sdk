@@ -13,6 +13,7 @@ OpenAPI Generator version: 4.3.1
 require 'date'
 
 module OpenapiClient
+  # The Position object.
   class PositionData
     # Exchange symbol.
     attr_accessor :symbol_id_exchange

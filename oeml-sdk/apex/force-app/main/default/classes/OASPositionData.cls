@@ -11,7 +11,7 @@
  */
 
 /**
- * OASPositionData
+ * The Position object.
  */
 public class OASPositionData implements OAS.MappedProperties {
     /**

@@ -633,6 +633,7 @@ components:
           format: float
           type: number
     Position_data:
+      description: The Position object.
       example:
         symbol_id_coinapi: BITMEX_PERP_BTC_USD
         liquidation_price: 0.072323

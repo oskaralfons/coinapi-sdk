@@ -12,6 +12,9 @@
 import { OrdSide } from './ordSide';
 
 
+/**
+ * The Position object.
+ */
 export interface PositionData { 
     /**
      * Exchange symbol.

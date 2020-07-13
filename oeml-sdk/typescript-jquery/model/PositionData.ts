@@ -12,6 +12,9 @@
 
 import * as models from './models';
 
+/**
+ * The Position object.
+ */
 export interface PositionData {
     /**
      * Exchange symbol.

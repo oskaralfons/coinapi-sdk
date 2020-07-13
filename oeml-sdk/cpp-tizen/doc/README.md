@@ -80,7 +80,7 @@ Class | Description
  *OrderExecutionReport_allOf* | The order execution report message.
  *OrderNewSingleRequest* | The new order message.
  *Position* | 
- *Position_data* | 
+ *Position_data* | The Position object.
  *Severity* | Severity of the message.
  *TimeInForce* | Order time in force options are documented in the separate section: <a href=\"#oeml-order-params-tif\">OEML / Starter Guide / Order parameters / Time in force</a> 
  *ValidationError* | 

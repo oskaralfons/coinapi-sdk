@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * PositionDataTest Class Doc Comment
  *
  * @category    Class
- * @description PositionData
+ * @description The Position object.
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

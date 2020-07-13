@@ -547,6 +547,7 @@ mkPosition =
 
 -- ** PositionData
 -- | PositionData
+-- The Position object.
 data PositionData = PositionData
   { positionDataSymbolIdExchange :: !(Maybe Text) -- ^ "symbol_id_exchange" - Exchange symbol.
   , positionDataSymbolIdCoinapi :: !(Maybe Text) -- ^ "symbol_id_coinapi" - CoinAPI symbol.

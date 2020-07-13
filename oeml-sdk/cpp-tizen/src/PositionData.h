@@ -1,7 +1,7 @@
 /*
  * Position_data.h
  *
- * 
+ * The Position object.
  */
 
 #ifndef _Position_data_H_
@@ -21,7 +21,7 @@ namespace Tizen {
 namespace ArtikCloud {
 
 
-/*! \brief 
+/*! \brief The Position object.
  *
  *  \ingroup Models
  *

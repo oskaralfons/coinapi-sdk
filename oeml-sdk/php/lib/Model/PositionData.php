@@ -36,6 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * PositionData Class Doc Comment
  *
  * @category Class
+ * @description The Position object.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

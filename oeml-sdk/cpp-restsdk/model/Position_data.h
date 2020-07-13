@@ -13,7 +13,7 @@
 /*
  * Position_data.h
  *
- * 
+ * The Position object.
  */
 
 #ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_Position_data_H_
@@ -33,7 +33,7 @@ namespace model {
 
 
 /// <summary>
-/// 
+/// The Position object.
 /// </summary>
 class  Position_data
     : public ModelBase

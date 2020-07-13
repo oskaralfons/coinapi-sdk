@@ -17,7 +17,10 @@ import org.openapitools.client.model.OrdSide;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
 
-@ApiModel(description = "")
+/**
+ * The Position object.
+ **/
+@ApiModel(description = "The Position object.")
 public class PositionData {
   
   @SerializedName("symbol_id_exchange")

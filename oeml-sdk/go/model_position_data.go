@@ -9,7 +9,7 @@
  */
 
 package openapi
-// PositionData struct for PositionData
+// PositionData The Position object.
 type PositionData struct {
 	// Exchange symbol.
 	SymbolIdExchange string `json:"symbol_id_exchange,omitempty"`

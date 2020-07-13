@@ -26,7 +26,7 @@ using OpenAPIDateConverter = CoinAPI.OMS.API.SDK.Client.OpenAPIDateConverter;
 namespace CoinAPI.OMS.API.SDK.Model
 {
     /// <summary>
-    /// PositionData
+    /// The Position object.
     /// </summary>
     [DataContract]
     public partial class PositionData :  IEquatable<PositionData>, IValidatableObject

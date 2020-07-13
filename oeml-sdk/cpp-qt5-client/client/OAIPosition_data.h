@@ -13,7 +13,7 @@
 /*
  * OAIPosition_data.h
  *
- * 
+ * The Position object.
  */
 
 #ifndef OAIPosition_data_H

@@ -1,6 +1,7 @@
 goog.provide('API.Client.Position_data');
 
 /**
+ * The Position object.
  * @record
  */
 API.Client.PositionData = function() {}

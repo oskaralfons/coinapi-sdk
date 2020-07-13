@@ -22,6 +22,7 @@ import OrdSide from './OrdSide';
 class PositionData {
     /**
      * Constructs a new <code>PositionData</code>.
+     * The Position object.
      * @alias module:model/PositionData
      */
     constructor() { 

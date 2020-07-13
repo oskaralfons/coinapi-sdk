@@ -1,5 +1,6 @@
 # PositionData
 
+The Position object.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

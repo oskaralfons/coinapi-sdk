@@ -1,7 +1,7 @@
 /*
  * position_data.h
  *
- * 
+ * The Position object.
  */
 
 #ifndef _position_data_H_

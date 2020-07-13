@@ -20,6 +20,8 @@ import Json.Decode.Pipeline exposing (optional, required)
 import Json.Encode as Encode
 
 
+{-| The Position object.
+-}
 type alias PositionData =
     { symbolIdExchange : Maybe (String)
     , symbolIdCoinapi : Maybe (String)

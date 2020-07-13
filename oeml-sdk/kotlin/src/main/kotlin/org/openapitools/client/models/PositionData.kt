@@ -15,7 +15,7 @@ import org.openapitools.client.models.OrdSide
 
 import com.squareup.moshi.Json
 /**
- * 
+ * The Position object.
  * @param symbolIdExchange Exchange symbol.
  * @param symbolIdCoinapi CoinAPI symbol.
  * @param avgEntryPrice Calculated average price of all fills on this position.
