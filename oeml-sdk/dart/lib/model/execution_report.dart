@@ -1,8 +1,6 @@
 part of openapi.api;
 
 class ExecutionReport {
-  /* Result type name */
-  String type = null;
   /* Exchange name */
   String exchangeId = null;
   /* Client unique identifier for the trade. */
@@ -50,12 +48,11 @@ class ExecutionReport {
 
   @override
   String toString() {
-    return 'ExecutionReport[type=$type, exchangeId=$exchangeId, id=$id, clientOrderIdFormatExchange=$clientOrderIdFormatExchange, exchangeOrderId=$exchangeOrderId, amountOpen=$amountOpen, amountFilled=$amountFilled, status=$status, timeOrder=$timeOrder, errorMessage=$errorMessage, clientOrderId=$clientOrderId, symbolExchange=$symbolExchange, symbolCoinapi=$symbolCoinapi, amountOrder=$amountOrder, price=$price, side=$side, orderType=$orderType, timeInForce=$timeInForce, expireTime=$expireTime, execInst=$execInst, ]';
+    return 'ExecutionReport[exchangeId=$exchangeId, id=$id, clientOrderIdFormatExchange=$clientOrderIdFormatExchange, exchangeOrderId=$exchangeOrderId, amountOpen=$amountOpen, amountFilled=$amountFilled, status=$status, timeOrder=$timeOrder, errorMessage=$errorMessage, clientOrderId=$clientOrderId, symbolExchange=$symbolExchange, symbolCoinapi=$symbolCoinapi, amountOrder=$amountOrder, price=$price, side=$side, orderType=$orderType, timeInForce=$timeInForce, expireTime=$expireTime, execInst=$execInst, ]';
   }
 
   ExecutionReport.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    type = json['type'];
     exchangeId = json['exchange_id'];
     id = json['id'];
     clientOrderIdFormatExchange = json['client_order_id_format_exchange'];
@@ -89,8 +86,6 @@ class ExecutionReport {
 
   Map<String, dynamic> toJson() {
     Map <String, dynamic> json = {};
-    if (type != null)
-      json['type'] = type;
     if (exchangeId != null)
       json['exchange_id'] = exchangeId;
     if (id != null)

@@ -42,11 +42,6 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    QString getType() const;
-    void setType(const QString &type);
-    bool is_type_Set() const;
-    bool is_type_Valid() const;
-
     QString getExchangeId() const;
     void setExchangeId(const QString &exchange_id);
     bool is_exchange_id_Set() const;
@@ -147,10 +142,6 @@ public:
 
 private:
     void initializeModel();
-
-    QString type;
-    bool m_type_isSet;
-    bool m_type_isValid;
 
     QString exchange_id;
     bool m_exchange_id_isSet;

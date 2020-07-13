@@ -9,7 +9,6 @@
 
 (def execution-report-data
   {
-   (ds/opt :type) string?
    (ds/opt :exchange_id) string?
    (ds/opt :id) string?
    (ds/opt :client_order_id_format_exchange) string?

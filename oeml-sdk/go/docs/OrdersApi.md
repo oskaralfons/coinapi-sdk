@@ -82,7 +82,7 @@ No authorization required
 
 ## V1OrdersGet
 
-> Orders V1OrdersGet(ctx, optional)
+> []NewOrder V1OrdersGet(ctx, optional)
 
 Get all orders
 
@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Orders**](Orders.md)
+[**[]NewOrder**](NewOrder.md)
 
 ### Authorization
 

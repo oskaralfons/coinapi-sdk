@@ -23,7 +23,6 @@ ExecutionReport::~ExecutionReport()
 void
 ExecutionReport::__init()
 {
-	//type = std::string();
 	//exchange_id = std::string();
 	//id = std::string();
 	//client_order_id_format_exchange = std::string();
@@ -48,11 +47,6 @@ ExecutionReport::__init()
 void
 ExecutionReport::__cleanup()
 {
-	//if(type != NULL) {
-	//
-	//delete type;
-	//type = NULL;
-	//}
 	//if(exchange_id != NULL) {
 	//
 	//delete exchange_id;
@@ -156,17 +150,6 @@ ExecutionReport::fromJson(char* jsonStr)
 {
 	JsonObject *pJsonObject = json_node_get_object(json_from_string(jsonStr,NULL));
 	JsonNode *node;
-	const gchar *typeKey = "type";
-	node = json_object_get_member(pJsonObject, typeKey);
-	if (node !=NULL) {
-	
-
-		if (isprimitive("std::string")) {
-			jsonToValue(&type, node, "std::string", "");
-		} else {
-			
-		}
-	}
 	const gchar *exchange_idKey = "exchange_id";
 	node = json_object_get_member(pJsonObject, exchange_idKey);
 	if (node !=NULL) {
@@ -434,15 +417,6 @@ ExecutionReport::toJson()
 	JsonObject *pJsonObject = json_object_new();
 	JsonNode *node;
 	if (isprimitive("std::string")) {
-		std::string obj = getType();
-		node = converttoJson(&obj, "std::string", "");
-	}
-	else {
-		
-	}
-	const gchar *typeKey = "type";
-	json_object_set_member(pJsonObject, typeKey, node);
-	if (isprimitive("std::string")) {
 		std::string obj = getExchangeId();
 		node = converttoJson(&obj, "std::string", "");
 	}
@@ -676,18 +650,6 @@ ExecutionReport::toJson()
 	char * ret = json_to_string(node, false);
 	json_node_free(node);
 	return ret;
-}
-
-std::string
-ExecutionReport::getType()
-{
-	return type;
-}
-
-void
-ExecutionReport::setType(std::string  type)
-{
-	this->type = type;
 }
 
 std::string

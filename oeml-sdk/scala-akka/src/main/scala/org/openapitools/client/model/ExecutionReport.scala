@@ -15,8 +15,6 @@ import java.time.LocalDate
 import org.openapitools.client.core.ApiModel
 
 case class ExecutionReport (
-  /* Result type name */
-  `type`: Option[String] = None,
   /* Exchange name */
   exchangeId: Option[String] = None,
   /* Client unique identifier for the trade. */

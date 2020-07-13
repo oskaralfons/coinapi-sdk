@@ -195,10 +195,10 @@ sub v1_orders_cancel_post {
     __PACKAGE__->method_documentation->{ 'v1_orders_get' } = { 
         summary => 'Get all orders',
         params => $params,
-        returns => 'Orders',
+        returns => 'ARRAY[NewOrder]',
         };
 }
-# @return Orders
+# @return ARRAY[NewOrder]
 #
 sub v1_orders_get {
     my ($self, %args) = @_;
@@ -234,7 +234,7 @@ sub v1_orders_get {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('Orders', $response);
+    my $_response_object = $self->{api_client}->deserialize('ARRAY[NewOrder]', $response);
     return $_response_object;
 }
 

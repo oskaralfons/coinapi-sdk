@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **String** | Result type name | [optional] 
 **exchange_id** | **String** | Exchange name | [optional] 
 **id** | **String** | Client unique identifier for the trade. | [optional] 
 **client_order_id_format_exchange** | **String** | Hash client id | [optional] 
@@ -30,8 +29,7 @@ Name | Type | Description | Notes
 ```ruby
 require 'OpenapiClient'
 
-instance = OpenapiClient::ExecutionReport.new(type: updateOrder,
-                                 exchange_id: KRAKEN,
+instance = OpenapiClient::ExecutionReport.new(exchange_id: KRAKEN,
                                  id: KPP-222389382-AQ,
                                  client_order_id_format_exchange: f81211e2-27c4-b86a-8143-01088ba9222c,
                                  exchange_order_id: 90832ASASAS89789-1112,

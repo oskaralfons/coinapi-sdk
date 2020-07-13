@@ -163,13 +163,6 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'type' => {
-        datatype => 'string',
-        base_name => 'type',
-        description => 'Result type name',
-        format => '',
-        read_only => '',
-            },
     'exchange_id' => {
         datatype => 'string',
         base_name => 'exchange_id',
@@ -306,7 +299,6 @@ __PACKAGE__->method_documentation({
 });
 
 __PACKAGE__->openapi_types( {
-    'type' => 'string',
     'exchange_id' => 'string',
     'id' => 'string',
     'client_order_id_format_exchange' => 'string',
@@ -329,7 +321,6 @@ __PACKAGE__->openapi_types( {
 } );
 
 __PACKAGE__->attribute_map( {
-    'type' => 'type',
     'exchange_id' => 'exchange_id',
     'id' => 'id',
     'client_order_id_format_exchange' => 'client_order_id_format_exchange',

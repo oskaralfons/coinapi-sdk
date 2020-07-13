@@ -19,7 +19,6 @@ local basexx = require "basexx"
 local openapiclient_create_order_validation_error = require "openapiclient.model.create_order_validation_error"
 local openapiclient_execution_report = require "openapiclient.model.execution_report"
 local openapiclient_message = require "openapiclient.model.message"
-local openapiclient_orders = require "openapiclient.model.orders"
 local openapiclient_new_order = require "openapiclient.model.new_order"
 local openapiclient_order_cancel_all_request = require "openapiclient.model.order_cancel_all_request"
 local openapiclient_order_cancel_single_request = require "openapiclient.model.order_cancel_single_request"
@@ -188,7 +187,10 @@ function orders_api:v1_orders_get(exchange_id)
 		if result == nil then
 			return nil, err3
 		end
-		return openapiclient_orders.cast(result), headers
+		for _, ob in ipairs(result) do
+			openapiclient_new_order.cast(ob)
+		end
+		return result, headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then

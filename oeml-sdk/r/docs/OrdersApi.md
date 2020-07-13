@@ -100,7 +100,7 @@ No authorization required
 | **490** | Exchange not registered |  -  |
 
 # **V1OrdersGet**
-> Orders V1OrdersGet(exchange.id=var.exchange.id)
+> array[NewOrder] V1OrdersGet(exchange.id=var.exchange.id)
 
 Get all orders
 
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Orders**](Orders.md)
+[**array[NewOrder]**](NewOrder.md)
 
 ### Authorization
 

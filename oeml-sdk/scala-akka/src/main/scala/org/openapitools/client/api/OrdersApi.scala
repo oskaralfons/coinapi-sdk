@@ -17,7 +17,6 @@ import org.openapitools.client.model.Message
 import org.openapitools.client.model.NewOrder
 import org.openapitools.client.model.OrderCancelAllRequest
 import org.openapitools.client.model.OrderCancelSingleRequest
-import org.openapitools.client.model.Orders
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
 import org.openapitools.client.core.ApiKeyLocations._
@@ -65,14 +64,14 @@ class OrdersApi(baseUrl: String) {
    * Get all current open orders across all or single specified exchange.
    * 
    * Expected answers:
-   *   code 200 : Orders (Collection of requested open orders.)
+   *   code 200 : Seq[NewOrder] (Collection of requested open orders.)
    * 
    * @param exchangeId Filter the output to the orders from the specific exchange.
    */
-  def v1OrdersGet(exchangeId: Option[String] = None): ApiRequest[Orders] =
-    ApiRequest[Orders](ApiMethods.GET, baseUrl, "/v1/orders", "application/json")
+  def v1OrdersGet(exchangeId: Option[String] = None): ApiRequest[Seq[NewOrder]] =
+    ApiRequest[Seq[NewOrder]](ApiMethods.GET, baseUrl, "/v1/orders", "application/json")
       .withQueryParam("exchange_id", exchangeId)
-      .withSuccessResponse[Orders](200)
+      .withSuccessResponse[Seq[NewOrder]](200)
       
 
   /**

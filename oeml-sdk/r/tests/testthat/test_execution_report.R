@@ -5,14 +5,6 @@ context("Test ExecutionReport")
 
 model.instance <- ExecutionReport$new()
 
-test_that("type", {
-  # tests for the property `type` (character)
-  # Result type name
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`type`, "EXPECTED_RESULT")
-})
-
 test_that("exchange_id", {
   # tests for the property `exchange_id` (character)
   # Exchange name

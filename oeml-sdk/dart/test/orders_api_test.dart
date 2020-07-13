@@ -29,7 +29,7 @@ void main() {
     //
     // Get all current open orders across all or single specified exchange.
     //
-    //Future<Orders> v1OrdersGet({ String exchangeId }) async 
+    //Future<List<NewOrder>> v1OrdersGet({ String exchangeId }) async 
     test('test v1OrdersGet', () async {
       // TODO
     });

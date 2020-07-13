@@ -17,7 +17,6 @@ import org.openapitools.client.models.TimeInForce
 import com.squareup.moshi.Json
 /**
  * 
- * @param type Result type name
  * @param exchangeId Exchange name
  * @param id Client unique identifier for the trade.
  * @param clientOrderIdFormatExchange Hash client id
@@ -40,9 +39,6 @@ import com.squareup.moshi.Json
  */
 
 data class ExecutionReport (
-    /* Result type name */
-    @Json(name = "type")
-    val type: kotlin.String? = null,
     /* Exchange name */
     @Json(name = "exchange_id")
     val exchangeId: kotlin.String? = null,

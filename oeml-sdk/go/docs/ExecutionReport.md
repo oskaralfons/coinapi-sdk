@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **string** | Result type name | [optional] 
 **ExchangeId** | **string** | Exchange name | [optional] 
 **Id** | **string** | Client unique identifier for the trade. | [optional] 
 **ClientOrderIdFormatExchange** | **string** | Hash client id | [optional] 

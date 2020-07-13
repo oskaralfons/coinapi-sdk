@@ -33,7 +33,6 @@ class ExecutionReport(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'type': 'str',
         'exchange_id': 'str',
         'id': 'str',
         'client_order_id_format_exchange': 'str',
@@ -56,7 +55,6 @@ class ExecutionReport(object):
     }
 
     attribute_map = {
-        'type': 'type',
         'exchange_id': 'exchange_id',
         'id': 'id',
         'client_order_id_format_exchange': 'client_order_id_format_exchange',
@@ -78,13 +76,12 @@ class ExecutionReport(object):
         'exec_inst': 'exec_inst'
     }
 
-    def __init__(self, type=None, exchange_id=None, id=None, client_order_id_format_exchange=None, exchange_order_id=None, amount_open=None, amount_filled=None, status=None, time_order=None, error_message=None, client_order_id=None, symbol_exchange=None, symbol_coinapi=None, amount_order=None, price=None, side=None, order_type=None, time_in_force=None, expire_time=None, exec_inst=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, exchange_id=None, id=None, client_order_id_format_exchange=None, exchange_order_id=None, amount_open=None, amount_filled=None, status=None, time_order=None, error_message=None, client_order_id=None, symbol_exchange=None, symbol_coinapi=None, amount_order=None, price=None, side=None, order_type=None, time_in_force=None, expire_time=None, exec_inst=None, local_vars_configuration=None):  # noqa: E501
         """ExecutionReport - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._type = None
         self._exchange_id = None
         self._id = None
         self._client_order_id_format_exchange = None
@@ -106,8 +103,6 @@ class ExecutionReport(object):
         self._exec_inst = None
         self.discriminator = None
 
-        if type is not None:
-            self.type = type
         if exchange_id is not None:
             self.exchange_id = exchange_id
         if id is not None:
@@ -146,29 +141,6 @@ class ExecutionReport(object):
             self.expire_time = expire_time
         if exec_inst is not None:
             self.exec_inst = exec_inst
-
-    @property
-    def type(self):
-        """Gets the type of this ExecutionReport.  # noqa: E501
-
-        Result type name  # noqa: E501
-
-        :return: The type of this ExecutionReport.  # noqa: E501
-        :rtype: str
-        """
-        return self._type
-
-    @type.setter
-    def type(self, type):
-        """Sets the type of this ExecutionReport.
-
-        Result type name  # noqa: E501
-
-        :param type: The type of this ExecutionReport.  # noqa: E501
-        :type: str
-        """
-
-        self._type = type
 
     @property
     def exchange_id(self):

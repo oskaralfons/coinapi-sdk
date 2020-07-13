@@ -24,8 +24,6 @@ import OrdStatus from './model/OrdStatus';
 import OrdType from './model/OrdType';
 import OrderCancelAllRequest from './model/OrderCancelAllRequest';
 import OrderCancelSingleRequest from './model/OrderCancelSingleRequest';
-import Orders from './model/Orders';
-import OrdersData from './model/OrdersData';
 import Position from './model/Position';
 import PositionData from './model/PositionData';
 import Severity from './model/Severity';
@@ -138,18 +136,6 @@ export {
      * @property {module:model/OrderCancelSingleRequest}
      */
     OrderCancelSingleRequest,
-
-    /**
-     * The Orders model constructor.
-     * @property {module:model/Orders}
-     */
-    Orders,
-
-    /**
-     * The OrdersData model constructor.
-     * @property {module:model/OrdersData}
-     */
-    OrdersData,
 
     /**
      * The Position model constructor.

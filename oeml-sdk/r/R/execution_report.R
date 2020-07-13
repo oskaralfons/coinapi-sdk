@@ -10,8 +10,6 @@
 #' @title ExecutionReport
 #' @description ExecutionReport Class
 #' @format An \code{R6Class} generator object
-#' @field type  character [optional]
-#'
 #' @field exchange_id  character [optional]
 #'
 #' @field id  character [optional]
@@ -57,7 +55,6 @@
 ExecutionReport <- R6::R6Class(
   'ExecutionReport',
   public = list(
-    `type` = NULL,
     `exchange_id` = NULL,
     `id` = NULL,
     `client_order_id_format_exchange` = NULL,
@@ -77,12 +74,8 @@ ExecutionReport <- R6::R6Class(
     `time_in_force` = NULL,
     `expire_time` = NULL,
     `exec_inst` = NULL,
-    initialize = function(`type`=NULL, `exchange_id`=NULL, `id`=NULL, `client_order_id_format_exchange`=NULL, `exchange_order_id`=NULL, `amount_open`=NULL, `amount_filled`=NULL, `status`=NULL, `time_order`=NULL, `error_message`=NULL, `client_order_id`=NULL, `symbol_exchange`=NULL, `symbol_coinapi`=NULL, `amount_order`=NULL, `price`=NULL, `side`=NULL, `order_type`=NULL, `time_in_force`=NULL, `expire_time`=NULL, `exec_inst`=NULL, ...){
+    initialize = function(`exchange_id`=NULL, `id`=NULL, `client_order_id_format_exchange`=NULL, `exchange_order_id`=NULL, `amount_open`=NULL, `amount_filled`=NULL, `status`=NULL, `time_order`=NULL, `error_message`=NULL, `client_order_id`=NULL, `symbol_exchange`=NULL, `symbol_coinapi`=NULL, `amount_order`=NULL, `price`=NULL, `side`=NULL, `order_type`=NULL, `time_in_force`=NULL, `expire_time`=NULL, `exec_inst`=NULL, ...){
       local.optional.var <- list(...)
-      if (!is.null(`type`)) {
-        stopifnot(is.character(`type`), length(`type`) == 1)
-        self$`type` <- `type`
-      }
       if (!is.null(`exchange_id`)) {
         stopifnot(is.character(`exchange_id`), length(`exchange_id`) == 1)
         self$`exchange_id` <- `exchange_id`
@@ -159,10 +152,6 @@ ExecutionReport <- R6::R6Class(
     },
     toJSON = function() {
       ExecutionReportObject <- list()
-      if (!is.null(self$`type`)) {
-        ExecutionReportObject[['type']] <-
-          self$`type`
-      }
       if (!is.null(self$`exchange_id`)) {
         ExecutionReportObject[['exchange_id']] <-
           self$`exchange_id`
@@ -244,9 +233,6 @@ ExecutionReport <- R6::R6Class(
     },
     fromJSON = function(ExecutionReportJson) {
       ExecutionReportObject <- jsonlite::fromJSON(ExecutionReportJson)
-      if (!is.null(ExecutionReportObject$`type`)) {
-        self$`type` <- ExecutionReportObject$`type`
-      }
       if (!is.null(ExecutionReportObject$`exchange_id`)) {
         self$`exchange_id` <- ExecutionReportObject$`exchange_id`
       }
@@ -311,13 +297,6 @@ ExecutionReport <- R6::R6Class(
     },
     toJSONString = function() {
       jsoncontent <- c(
-        if (!is.null(self$`type`)) {
-        sprintf(
-        '"type":
-          "%s"
-                ',
-        self$`type`
-        )},
         if (!is.null(self$`exchange_id`)) {
         sprintf(
         '"exchange_id":
@@ -457,7 +436,6 @@ ExecutionReport <- R6::R6Class(
     },
     fromJSONString = function(ExecutionReportJson) {
       ExecutionReportObject <- jsonlite::fromJSON(ExecutionReportJson)
-      self$`type` <- ExecutionReportObject$`type`
       self$`exchange_id` <- ExecutionReportObject$`exchange_id`
       self$`id` <- ExecutionReportObject$`id`
       self$`client_order_id_format_exchange` <- ExecutionReportObject$`client_order_id_format_exchange`

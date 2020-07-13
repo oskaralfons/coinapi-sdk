@@ -23,8 +23,6 @@ import com.google.gson.annotations.SerializedName;
 @ApiModel(description = "")
 public class ExecutionReport {
   
-  @SerializedName("type")
-  private String type = null;
   @SerializedName("exchange_id")
   private String exchangeId = null;
   @SerializedName("id")
@@ -72,17 +70,6 @@ public class ExecutionReport {
   };
   @SerializedName("exec_inst")
   private List<ExecInstEnum> execInst = null;
-
-  /**
-   * Result type name
-   **/
-  @ApiModelProperty(value = "Result type name")
-  public String getType() {
-    return type;
-  }
-  public void setType(String type) {
-    this.type = type;
-  }
 
   /**
    * Exchange name
@@ -301,8 +288,7 @@ public class ExecutionReport {
       return false;
     }
     ExecutionReport executionReport = (ExecutionReport) o;
-    return (this.type == null ? executionReport.type == null : this.type.equals(executionReport.type)) &&
-        (this.exchangeId == null ? executionReport.exchangeId == null : this.exchangeId.equals(executionReport.exchangeId)) &&
+    return (this.exchangeId == null ? executionReport.exchangeId == null : this.exchangeId.equals(executionReport.exchangeId)) &&
         (this.id == null ? executionReport.id == null : this.id.equals(executionReport.id)) &&
         (this.clientOrderIdFormatExchange == null ? executionReport.clientOrderIdFormatExchange == null : this.clientOrderIdFormatExchange.equals(executionReport.clientOrderIdFormatExchange)) &&
         (this.exchangeOrderId == null ? executionReport.exchangeOrderId == null : this.exchangeOrderId.equals(executionReport.exchangeOrderId)) &&
@@ -326,7 +312,6 @@ public class ExecutionReport {
   @Override
   public int hashCode() {
     int result = 17;
-    result = 31 * result + (this.type == null ? 0: this.type.hashCode());
     result = 31 * result + (this.exchangeId == null ? 0: this.exchangeId.hashCode());
     result = 31 * result + (this.id == null ? 0: this.id.hashCode());
     result = 31 * result + (this.clientOrderIdFormatExchange == null ? 0: this.clientOrderIdFormatExchange.hashCode());
@@ -354,7 +339,6 @@ public class ExecutionReport {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExecutionReport {\n");
     
-    sb.append("  type: ").append(type).append("\n");
     sb.append("  exchangeId: ").append(exchangeId).append("\n");
     sb.append("  id: ").append(id).append("\n");
     sb.append("  clientOrderIdFormatExchange: ").append(clientOrderIdFormatExchange).append("\n");

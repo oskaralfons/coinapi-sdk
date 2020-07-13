@@ -35,7 +35,7 @@ test_that("V1OrdersGet", {
   # Get all orders
   # Get all current open orders across all or single specified exchange.
   # @param character  exchange.id  Filter the output to the orders from the specific exchange.  (optional)
-  # @return [Orders]
+  # @return [array[NewOrder]]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")

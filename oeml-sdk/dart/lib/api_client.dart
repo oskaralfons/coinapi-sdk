@@ -58,10 +58,6 @@ class ApiClient {
           return OrderCancelAllRequest.fromJson(value);
         case 'OrderCancelSingleRequest':
           return OrderCancelSingleRequest.fromJson(value);
-        case 'Orders':
-          return Orders.fromJson(value);
-        case 'OrdersData':
-          return OrdersData.fromJson(value);
         case 'Position':
           return Position.fromJson(value);
         case 'PositionData':

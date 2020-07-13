@@ -126,8 +126,6 @@ Class | Method | HTTP request | Description
  - [Model.OrdType](docs/OrdType.md)
  - [Model.OrderCancelAllRequest](docs/OrderCancelAllRequest.md)
  - [Model.OrderCancelSingleRequest](docs/OrderCancelSingleRequest.md)
- - [Model.Orders](docs/Orders.md)
- - [Model.OrdersData](docs/OrdersData.md)
  - [Model.Position](docs/Position.md)
  - [Model.PositionData](docs/PositionData.md)
  - [Model.Severity](docs/Severity.md)

@@ -5,9 +5,6 @@ import org.openapitools.client.model.TimeInForce;
 
     [XmlRootNode(name="ExecutionReport")]
     public class ExecutionReport {
-        /* Result type name */
-        [XmlElement(name="type")]
-        public var type: String = null;
         /* Exchange name */
         [XmlElement(name="exchange_id")]
         public var exchangeId: String = null;
@@ -72,7 +69,6 @@ import org.openapitools.client.model.TimeInForce;
 
     public function toString(): String {
         var str: String = "ExecutionReport: ";
-        str += " (type: " + type + ")";
         str += " (exchangeId: " + exchangeId + ")";
         str += " (id: " + id + ")";
         str += " (clientOrderIdFormatExchange: " + clientOrderIdFormatExchange + ")";

@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Orders**](Orders.md)
+[**array[NewOrder]**](NewOrder.md)
 
 ### Authorization
 

@@ -79,13 +79,6 @@ class ExecutionReportTest extends TestCase
     }
 
     /**
-     * Test attribute "type"
-     */
-    public function testPropertyType()
-    {
-    }
-
-    /**
      * Test attribute "exchange_id"
      */
     public function testPropertyExchangeId()

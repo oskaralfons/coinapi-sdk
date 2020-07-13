@@ -13,8 +13,6 @@ HEADERS += \
     $${PWD}/OAIOrdType.h \
     $${PWD}/OAIOrderCancelAllRequest.h \
     $${PWD}/OAIOrderCancelSingleRequest.h \
-    $${PWD}/OAIOrders.h \
-    $${PWD}/OAIOrders_data.h \
     $${PWD}/OAIPosition.h \
     $${PWD}/OAIPosition_data.h \
     $${PWD}/OAISeverity.h \
@@ -43,8 +41,6 @@ SOURCES += \
     $${PWD}/OAIOrdType.cpp \
     $${PWD}/OAIOrderCancelAllRequest.cpp \
     $${PWD}/OAIOrderCancelSingleRequest.cpp \
-    $${PWD}/OAIOrders.cpp \
-    $${PWD}/OAIOrders_data.cpp \
     $${PWD}/OAIPosition.cpp \
     $${PWD}/OAIPosition_data.cpp \
     $${PWD}/OAISeverity.cpp \

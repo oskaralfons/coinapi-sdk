@@ -101,8 +101,6 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::OrdType](docs/OrdType.md)
  - [OpenapiClient::OrderCancelAllRequest](docs/OrderCancelAllRequest.md)
  - [OpenapiClient::OrderCancelSingleRequest](docs/OrderCancelSingleRequest.md)
- - [OpenapiClient::Orders](docs/Orders.md)
- - [OpenapiClient::OrdersData](docs/OrdersData.md)
  - [OpenapiClient::Position](docs/Position.md)
  - [OpenapiClient::PositionData](docs/PositionData.md)
  - [OpenapiClient::Severity](docs/Severity.md)

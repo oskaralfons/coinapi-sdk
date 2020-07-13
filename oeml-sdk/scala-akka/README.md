@@ -89,8 +89,6 @@ Class | Method | HTTP request | Description
  - [OrdType](OrdType.md)
  - [OrderCancelAllRequest](OrderCancelAllRequest.md)
  - [OrderCancelSingleRequest](OrderCancelSingleRequest.md)
- - [Orders](Orders.md)
- - [OrdersData](OrdersData.md)
  - [Position](Position.md)
  - [PositionData](PositionData.md)
  - [Severity](Severity.md)

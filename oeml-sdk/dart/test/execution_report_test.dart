@@ -6,12 +6,6 @@ void main() {
     var instance = new ExecutionReport();
 
   group('test ExecutionReport', () {
-    // Result type name
-    // String type (default value: null)
-    test('to test the property `type`', () async {
-      // TODO
-    });
-
     // Exchange name
     // String exchangeId (default value: null)
     test('to test the property `exchangeId`', () async {

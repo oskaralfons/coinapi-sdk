@@ -3,7 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **character** | Result type name | [optional] 
 **exchange_id** | **character** | Exchange name | [optional] 
 **id** | **character** | Client unique identifier for the trade. | [optional] 
 **client_order_id_format_exchange** | **character** | Hash client id | [optional] 

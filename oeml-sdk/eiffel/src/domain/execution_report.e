@@ -24,8 +24,6 @@ inherit
 
 feature --Access
 
-    type: detachable STRING_32 
-      -- Result type name
     exchange_id: detachable STRING_32 
       -- Exchange name
     id: detachable STRING_32 
@@ -67,14 +65,6 @@ feature --Access
 
 feature -- Change Element  
  
-    set_type (a_name: like type)
-        -- Set 'type' with 'a_name'.
-      do
-        type := a_name
-      ensure
-        type_set: type = a_name		
-      end
-
     set_exchange_id (a_name: like exchange_id)
         -- Set 'exchange_id' with 'a_name'.
       do
@@ -235,11 +225,6 @@ feature -- Change Element
       do
         create Result.make_empty
         Result.append("%Nclass EXECUTION_REPORT%N")
-        if attached type as l_type then
-          Result.append ("%Ntype:")
-          Result.append (l_type.out)
-          Result.append ("%N")    
-        end  
         if attached exchange_id as l_exchange_id then
           Result.append ("%Nexchange_id:")
           Result.append (l_exchange_id.out)

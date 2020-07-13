@@ -185,7 +185,7 @@ export class OrdersApi {
      * @param exchangeId Filter the output to the orders from the specific exchange.
      */
     public v1OrdersGet(exchangeId?: string, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
-    { response: JQueryXHR; body: models.Orders;  },
+    { response: JQueryXHR; body: Array<models.NewOrder>;  },
     { response: JQueryXHR; errorThrown: string }
     > {
         let localVarPath = this.basePath + '/v1/orders';
@@ -227,11 +227,11 @@ export class OrdersApi {
         }
 
         let dfd = $.Deferred<
-            { response: JQueryXHR; body: models.Orders;  },
+            { response: JQueryXHR; body: Array<models.NewOrder>;  },
             { response: JQueryXHR; errorThrown: string }
         >();
         $.ajax(requestOptions).then(
-            (data: models.Orders, textStatus: string, jqXHR: JQueryXHR) =>
+            (data: Array<models.NewOrder>, textStatus: string, jqXHR: JQueryXHR) =>
                 dfd.resolve({response: jqXHR, body: data}),
             (xhr: JQueryXHR, textStatus: string, errorThrown: string) =>
                 dfd.reject({response: xhr, errorThrown: errorThrown})

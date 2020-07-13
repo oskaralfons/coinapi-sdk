@@ -14,9 +14,6 @@ require 'date'
 
 module OpenapiClient
   class ExecutionReport
-    # Result type name
-    attr_accessor :type
-
     # Exchange name
     attr_accessor :exchange_id
 
@@ -97,7 +94,6 @@ module OpenapiClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'type' => :'type',
         :'exchange_id' => :'exchange_id',
         :'id' => :'id',
         :'client_order_id_format_exchange' => :'client_order_id_format_exchange',
@@ -123,7 +119,6 @@ module OpenapiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'type' => :'String',
         :'exchange_id' => :'String',
         :'id' => :'String',
         :'client_order_id_format_exchange' => :'String',
@@ -166,10 +161,6 @@ module OpenapiClient
         end
         h[k.to_sym] = v
       }
-
-      if attributes.key?(:'type')
-        self.type = attributes[:'type']
-      end
 
       if attributes.key?(:'exchange_id')
         self.exchange_id = attributes[:'exchange_id']
@@ -294,7 +285,6 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          type == o.type &&
           exchange_id == o.exchange_id &&
           id == o.id &&
           client_order_id_format_exchange == o.client_order_id_format_exchange &&
@@ -325,7 +315,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [type, exchange_id, id, client_order_id_format_exchange, exchange_order_id, amount_open, amount_filled, status, time_order, error_message, client_order_id, symbol_exchange, symbol_coinapi, amount_order, price, side, order_type, time_in_force, expire_time, exec_inst].hash
+      [exchange_id, id, client_order_id_format_exchange, exchange_order_id, amount_open, amount_filled, status, time_order, error_message, client_order_id, symbol_exchange, symbol_coinapi, amount_order, price, side, order_type, time_in_force, expire_time, exec_inst].hash
     end
 
     # Builds the object from hash

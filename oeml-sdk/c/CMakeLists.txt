@@ -49,8 +49,6 @@ set(SRCS
     model/ord_type.c
     model/order_cancel_all_request.c
     model/order_cancel_single_request.c
-    model/orders.c
-    model/orders_data.c
     model/position.c
     model/position_data.c
     model/severity.c
@@ -79,8 +77,6 @@ set(HDRS
     model/ord_type.h
     model/order_cancel_all_request.h
     model/order_cancel_single_request.h
-    model/orders.h
-    model/orders_data.h
     model/position.h
     model/position_data.h
     model/severity.h

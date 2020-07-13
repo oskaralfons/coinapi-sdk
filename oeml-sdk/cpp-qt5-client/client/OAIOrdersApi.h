@@ -20,7 +20,6 @@
 #include "OAINewOrder.h"
 #include "OAIOrderCancelAllRequest.h"
 #include "OAIOrderCancelSingleRequest.h"
-#include "OAIOrders.h"
 #include <QString>
 
 #include <QObject>
@@ -71,19 +70,19 @@ signals:
 
     void v1OrdersCancelAllPostSignal(OAIMessage summary);
     void v1OrdersCancelPostSignal(OAIExecutionReport summary);
-    void v1OrdersGetSignal(OAIOrders summary);
+    void v1OrdersGetSignal(QList<OAINewOrder> summary);
     void v1OrdersPostSignal(OAIExecutionReport summary);
     void v1OrdersStatusClientOrderIdGetSignal(OAIExecutionReport summary);
 
     void v1OrdersCancelAllPostSignalFull(OAIHttpRequestWorker *worker, OAIMessage summary);
     void v1OrdersCancelPostSignalFull(OAIHttpRequestWorker *worker, OAIExecutionReport summary);
-    void v1OrdersGetSignalFull(OAIHttpRequestWorker *worker, OAIOrders summary);
+    void v1OrdersGetSignalFull(OAIHttpRequestWorker *worker, QList<OAINewOrder> summary);
     void v1OrdersPostSignalFull(OAIHttpRequestWorker *worker, OAIExecutionReport summary);
     void v1OrdersStatusClientOrderIdGetSignalFull(OAIHttpRequestWorker *worker, OAIExecutionReport summary);
 
     void v1OrdersCancelAllPostSignalE(OAIMessage summary, QNetworkReply::NetworkError error_type, QString error_str);
     void v1OrdersCancelPostSignalE(OAIExecutionReport summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void v1OrdersGetSignalE(OAIOrders summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void v1OrdersGetSignalE(QList<OAINewOrder> summary, QNetworkReply::NetworkError error_type, QString error_str);
     void v1OrdersPostSignalE(OAIExecutionReport summary, QNetworkReply::NetworkError error_type, QString error_str);
     void v1OrdersStatusClientOrderIdGetSignalE(OAIExecutionReport summary, QNetworkReply::NetworkError error_type, QString error_str);
 

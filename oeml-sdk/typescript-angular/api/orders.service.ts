@@ -23,7 +23,6 @@ import { Message } from '../model/models';
 import { NewOrder } from '../model/models';
 import { OrderCancelAllRequest } from '../model/models';
 import { OrderCancelSingleRequest } from '../model/models';
-import { Orders } from '../model/models';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -211,9 +210,9 @@ export class OrdersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public v1OrdersGet(exchangeId?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Orders>;
-    public v1OrdersGet(exchangeId?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Orders>>;
-    public v1OrdersGet(exchangeId?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Orders>>;
+    public v1OrdersGet(exchangeId?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Array<NewOrder>>;
+    public v1OrdersGet(exchangeId?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Array<NewOrder>>>;
+    public v1OrdersGet(exchangeId?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Array<NewOrder>>>;
     public v1OrdersGet(exchangeId?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
 
         let queryParameters = new HttpParams({encoder: this.encoder});
@@ -242,7 +241,7 @@ export class OrdersService {
             responseType = 'text';
         }
 
-        return this.httpClient.get<Orders>(`${this.configuration.basePath}/v1/orders`,
+        return this.httpClient.get<Array<NewOrder>>(`${this.configuration.basePath}/v1/orders`,
             {
                 params: queryParameters,
                 responseType: <any>responseType,

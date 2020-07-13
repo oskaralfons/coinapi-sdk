@@ -9,7 +9,6 @@ import 'package:openapi/model/create_order_validation_error.dart';
 import 'package:openapi/model/order_cancel_all_request.dart';
 import 'package:openapi/model/execution_report.dart';
 import 'package:openapi/model/order_cancel_single_request.dart';
-import 'package:openapi/model/orders.dart';
 import 'package:openapi/model/message.dart';
 import 'package:openapi/model/new_order.dart';
 
@@ -122,7 +121,7 @@ class OrdersApi {
         /// Get all orders
         ///
         /// Get all current open orders across all or single specified exchange.
-        Future<Response<Orders>>v1OrdersGet({ String exchangeId,CancelToken cancelToken, Map<String, String> headers,}) async {
+        Future<Response<List<NewOrder>>>v1OrdersGet({ String exchangeId,CancelToken cancelToken, Map<String, String> headers,}) async {
 
         String _path = "/v1/orders";
 
@@ -153,10 +152,11 @@ class OrdersApi {
             cancelToken: cancelToken,
             ).then((response) {
 
-        var serializer = _serializers.serializerForType(Orders);
-        var data = _serializers.deserializeWith<Orders>(serializer, response.data is String ? jsonDecode(response.data) : response.data);
+                final FullType type = const FullType(BuiltList, const [const FullType(NewOrder)]);
+                BuiltList<NewOrder> dataList = _serializers.deserialize(response.data is String ? jsonDecode(response.data) : response.data, specifiedType: type);
+                var data = dataList.toList();
 
-            return Response<Orders>(
+            return Response<List<NewOrder>>(
                 data: data,
                 headers: response.headers,
                 request: response.request,

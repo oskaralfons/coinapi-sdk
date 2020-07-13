@@ -28,8 +28,6 @@ part 'model/ord_status.dart';
 part 'model/ord_type.dart';
 part 'model/order_cancel_all_request.dart';
 part 'model/order_cancel_single_request.dart';
-part 'model/orders.dart';
-part 'model/orders_data.dart';
 part 'model/position.dart';
 part 'model/position_data.dart';
 part 'model/severity.dart';

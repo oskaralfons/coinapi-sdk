@@ -31,8 +31,6 @@ main =
       propMimeEq MimeJSON (Proxy :: Proxy OrdType)
       propMimeEq MimeJSON (Proxy :: Proxy OrderCancelAllRequest)
       propMimeEq MimeJSON (Proxy :: Proxy OrderCancelSingleRequest)
-      propMimeEq MimeJSON (Proxy :: Proxy Orders)
-      propMimeEq MimeJSON (Proxy :: Proxy OrdersData)
       propMimeEq MimeJSON (Proxy :: Proxy Position)
       propMimeEq MimeJSON (Proxy :: Proxy PositionData)
       propMimeEq MimeJSON (Proxy :: Proxy Severity)

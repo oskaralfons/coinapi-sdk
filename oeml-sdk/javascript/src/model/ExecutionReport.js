@@ -49,9 +49,6 @@ class ExecutionReport {
         if (data) {
             obj = obj || new ExecutionReport();
 
-            if (data.hasOwnProperty('type')) {
-                obj['type'] = ApiClient.convertToType(data['type'], 'String');
-            }
             if (data.hasOwnProperty('exchange_id')) {
                 obj['exchange_id'] = ApiClient.convertToType(data['exchange_id'], 'String');
             }
@@ -115,12 +112,6 @@ class ExecutionReport {
 
 
 }
-
-/**
- * Result type name
- * @member {String} type
- */
-ExecutionReport.prototype['type'] = undefined;
 
 /**
  * Exchange name

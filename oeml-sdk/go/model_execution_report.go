@@ -10,8 +10,6 @@
 package openapi
 // ExecutionReport struct for ExecutionReport
 type ExecutionReport struct {
-	// Result type name
-	Type string `json:"type,omitempty"`
 	// Exchange name
 	ExchangeId string `json:"exchange_id,omitempty"`
 	// Client unique identifier for the trade.

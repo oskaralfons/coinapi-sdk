@@ -12,7 +12,6 @@ import org.openapitools.client.model.Message;
 import org.openapitools.client.model.NewOrder;
 import org.openapitools.client.model.OrderCancelAllRequest;
 import org.openapitools.client.model.OrderCancelSingleRequest;
-import org.openapitools.client.model.Orders;
 
 import mx.rpc.AsyncToken;
 import mx.utils.UIDUtil;
@@ -97,7 +96,7 @@ public class OrdersApi extends OpenApi {
     }
 
     /*
-     * Returns Orders 
+     * Returns Array 
      */
     public function v1_orders_get (exchangeId: String): String {
         // create path and map variables
@@ -123,7 +122,7 @@ public class OrdersApi extends OpenApi {
         token.requestId = requestId;
         token.completionEventType = "v1_orders_get";
 
-        token.returnType = Orders;
+        token.returnType = Array;
         return requestId;
 
     }

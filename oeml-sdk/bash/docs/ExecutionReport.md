@@ -3,7 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **string** |  | [optional] [default to null]
 **exchangeUnderscoreid** | **string** |  | [optional] [default to null]
 **id** | **string** |  | [optional] [default to null]
 **clientUnderscoreorderUnderscoreidUnderscoreformatUnderscoreexchange** | **string** |  | [optional] [default to null]

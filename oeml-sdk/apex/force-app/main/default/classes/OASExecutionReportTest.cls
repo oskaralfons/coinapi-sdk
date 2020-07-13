@@ -73,7 +73,6 @@ private class OASExecutionReportTest {
     private static void maintainRenamedProperties() {
         OASExecutionReport executionReport = new OASExecutionReport();
         Map<String, String> propertyMappings = executionReport.getPropertyMappings();
-        System.assertEquals('r_type', propertyMappings.get('type'));
         System.assertEquals('exchangeId', propertyMappings.get('exchange_id'));
         System.assertEquals('clientOrderIdFormatExchange', propertyMappings.get('client_order_id_format_exchange'));
         System.assertEquals('exchangeOrderId', propertyMappings.get('exchange_order_id'));
@@ -96,7 +95,6 @@ private class OASExecutionReportTest {
         OASExecutionReport executionReport = new OASExecutionReport();
         System.assertEquals(new List<List<String>>(), executionReport.timeOrder);
         System.assertEquals(new List<ExecInstEnum>(), executionReport.execInst);
-        System.assertEquals(null, executionReport.r_type);
         System.assertEquals(null, executionReport.exchangeId);
         System.assertEquals(null, executionReport.id);
         System.assertEquals(null, executionReport.clientOrderIdFormatExchange);

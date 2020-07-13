@@ -82,17 +82,17 @@ private class OASOrdersApiTest {
 
         OASClient client;
         OASOrdersApi api;
-        OASOrders response;
-        OASOrders expectedResponse;
+        List<OASNewOrder> response;
+        List<OASNewOrder> expectedResponse;
         String js = '';
 
         api = new OASOrdersApi(new OASClient());
 
-        js = JSON.serialize(OASOrders.getExample());
+        js = JSON.serialize(List.getExample());
         res.setHeader('Content-Type', 'application/json');
         res.setBody(js);
-        expectedResponse = OASOrders.getExample();
-        response = (OASOrders) api.v1OrdersGet(params);
+        expectedResponse = List.getExample();
+        response = (List<OASNewOrder>) api.v1OrdersGet(params);
         System.assertEquals(expectedResponse, response);
     }
 

@@ -67,12 +67,12 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } exchange.id character
-#' \item \emph{ @returnType } \link{Orders} \cr
+#' \item \emph{ @returnType } list( \link{NewOrder} ) \cr
 #'
 #'
 #' \item status code : 200 | Collection of requested open orders.
 #'
-#' \item return type : Orders 
+#' \item return type : array[NewOrder] 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -350,7 +350,7 @@ OrdersApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "Orders", loadNamespace("openapi")),
+          self$apiClient$deserialize(resp, "array[NewOrder]", loadNamespace("openapi")),
           error = function(e){
              stop("Failed to deserialize response")
           }

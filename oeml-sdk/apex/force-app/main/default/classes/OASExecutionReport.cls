@@ -15,12 +15,6 @@
  */
 public class OASExecutionReport implements OAS.MappedProperties {
     /**
-     * Result type name
-     * @return r_type
-     */
-    public String r_type { get; set; }
-
-    /**
      * Exchange name
      * @return exchangeId
      */
@@ -159,7 +153,6 @@ public class OASExecutionReport implements OAS.MappedProperties {
     public List<ExecInstEnum> execInst { get; set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
-        'type' => 'r_type',
         'exchange_id' => 'exchangeId',
         'client_order_id_format_exchange' => 'clientOrderIdFormatExchange',
         'exchange_order_id' => 'exchangeOrderId',
@@ -188,7 +181,6 @@ public class OASExecutionReport implements OAS.MappedProperties {
 
     public static OASExecutionReport getExample() {
         OASExecutionReport executionReport = new OASExecutionReport();
-          executionReport.r_type = 'updateOrder';
           executionReport.exchangeId = 'KRAKEN';
           executionReport.id = 'KPP-222389382-AQ';
           executionReport.clientOrderIdFormatExchange = 'f81211e2-27c4-b86a-8143-01088ba9222c';
@@ -214,8 +206,7 @@ public class OASExecutionReport implements OAS.MappedProperties {
     public Boolean equals(Object obj) {
         if (obj instanceof OASExecutionReport) {           
             OASExecutionReport executionReport = (OASExecutionReport) obj;
-            return this.r_type == executionReport.r_type
-                && this.exchangeId == executionReport.exchangeId
+            return this.exchangeId == executionReport.exchangeId
                 && this.id == executionReport.id
                 && this.clientOrderIdFormatExchange == executionReport.clientOrderIdFormatExchange
                 && this.exchangeOrderId == executionReport.exchangeOrderId
@@ -240,7 +231,6 @@ public class OASExecutionReport implements OAS.MappedProperties {
 
     public Integer hashCode() {
         Integer hashCode = 43;
-        hashCode = (17 * hashCode) + (r_type == null ? 0 : System.hashCode(r_type));
         hashCode = (17 * hashCode) + (exchangeId == null ? 0 : System.hashCode(exchangeId));
         hashCode = (17 * hashCode) + (id == null ? 0 : System.hashCode(id));
         hashCode = (17 * hashCode) + (clientOrderIdFormatExchange == null ? 0 : System.hashCode(clientOrderIdFormatExchange));

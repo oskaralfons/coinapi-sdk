@@ -8,10 +8,6 @@ part 'execution_report.g.dart';
 
 abstract class ExecutionReport implements Built<ExecutionReport, ExecutionReportBuilder> {
 
-    /* Result type name */
-        @nullable
-    @BuiltValueField(wireName: r'type')
-    String get type;
     /* Exchange name */
         @nullable
     @BuiltValueField(wireName: r'exchange_id')

@@ -58,14 +58,6 @@ namespace CoinAPI.OMS.API.SDK.Test
 
 
         /// <summary>
-        /// Test the property 'Type'
-        /// </summary>
-        [Fact]
-        public void TypeTest()
-        {
-            // TODO unit test for the property 'Type'
-        }
-        /// <summary>
         /// Test the property 'ExchangeId'
         /// </summary>
         [Fact]

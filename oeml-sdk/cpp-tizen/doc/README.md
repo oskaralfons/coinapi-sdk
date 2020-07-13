@@ -79,8 +79,6 @@ Class | Description
  *OrdType* | Order types are documented in the separate section: <a href=\"#oeml-order-params-type\">OEML / Starter Guide / Order parameters / Order type</a> 
  *OrderCancelAllRequest* | 
  *OrderCancelSingleRequest* | 
- *Orders* | 
- *Orders_data* | 
  *Position* | 
  *Position_data* | 
  *Severity* | 

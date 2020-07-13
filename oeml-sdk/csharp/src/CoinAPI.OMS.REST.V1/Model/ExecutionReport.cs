@@ -124,7 +124,6 @@ namespace CoinAPI.OMS.REST.V1.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ExecutionReport" /> class.
         /// </summary>
-        /// <param name="type">Result type name.</param>
         /// <param name="exchangeId">Exchange name.</param>
         /// <param name="id">Client unique identifier for the trade..</param>
         /// <param name="clientOrderIdFormatExchange">Hash client id.</param>
@@ -144,9 +143,8 @@ namespace CoinAPI.OMS.REST.V1.Model
         /// <param name="timeInForce">timeInForce.</param>
         /// <param name="expireTime">Required for orders with time_in_force &#x3D; GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS.</param>
         /// <param name="execInst">Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt;.</param>
-        public ExecutionReport(string type = default(string), string exchangeId = default(string), string id = default(string), string clientOrderIdFormatExchange = default(string), string exchangeOrderId = default(string), decimal amountOpen = default(decimal), decimal amountFilled = default(decimal), OrdStatus? status = default(OrdStatus?), List<List<string>> timeOrder = default(List<List<string>>), string errorMessage = default(string), string clientOrderId = default(string), string symbolExchange = default(string), string symbolCoinapi = default(string), decimal amountOrder = default(decimal), decimal price = default(decimal), SideEnum? side = default(SideEnum?), OrderTypeEnum? orderType = default(OrderTypeEnum?), TimeInForce? timeInForce = default(TimeInForce?), DateTime expireTime = default(DateTime), List<ExecInstEnum> execInst = default(List<ExecInstEnum>))
+        public ExecutionReport(string exchangeId = default(string), string id = default(string), string clientOrderIdFormatExchange = default(string), string exchangeOrderId = default(string), decimal amountOpen = default(decimal), decimal amountFilled = default(decimal), OrdStatus? status = default(OrdStatus?), List<List<string>> timeOrder = default(List<List<string>>), string errorMessage = default(string), string clientOrderId = default(string), string symbolExchange = default(string), string symbolCoinapi = default(string), decimal amountOrder = default(decimal), decimal price = default(decimal), SideEnum? side = default(SideEnum?), OrderTypeEnum? orderType = default(OrderTypeEnum?), TimeInForce? timeInForce = default(TimeInForce?), DateTime expireTime = default(DateTime), List<ExecInstEnum> execInst = default(List<ExecInstEnum>))
         {
-            this.Type = type;
             this.ExchangeId = exchangeId;
             this.Id = id;
             this.ClientOrderIdFormatExchange = clientOrderIdFormatExchange;
@@ -168,13 +166,6 @@ namespace CoinAPI.OMS.REST.V1.Model
             this.ExecInst = execInst;
         }
         
-        /// <summary>
-        /// Result type name
-        /// </summary>
-        /// <value>Result type name</value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public string Type { get; set; }
-
         /// <summary>
         /// Exchange name
         /// </summary>
@@ -286,7 +277,6 @@ namespace CoinAPI.OMS.REST.V1.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ExecutionReport {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  ExchangeId: ").Append(ExchangeId).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  ClientOrderIdFormatExchange: ").Append(ClientOrderIdFormatExchange).Append("\n");
@@ -340,11 +330,6 @@ namespace CoinAPI.OMS.REST.V1.Model
                 return false;
 
             return 
-                (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
-                ) && 
                 (
                     this.ExchangeId == input.ExchangeId ||
                     (this.ExchangeId != null &&
@@ -453,8 +438,6 @@ namespace CoinAPI.OMS.REST.V1.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.ExchangeId != null)
                     hashCode = hashCode * 59 + this.ExchangeId.GetHashCode();
                 if (this.Id != null)

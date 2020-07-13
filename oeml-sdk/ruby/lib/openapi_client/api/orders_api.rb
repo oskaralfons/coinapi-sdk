@@ -151,7 +151,7 @@ module OpenapiClient
     # Get all current open orders across all or single specified exchange.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :exchange_id Filter the output to the orders from the specific exchange.
-    # @return [Orders]
+    # @return [Array<NewOrder>]
     def v1_orders_get(opts = {})
       data, _status_code, _headers = v1_orders_get_with_http_info(opts)
       data
@@ -161,7 +161,7 @@ module OpenapiClient
     # Get all current open orders across all or single specified exchange.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :exchange_id Filter the output to the orders from the specific exchange.
-    # @return [Array<(Orders, Integer, Hash)>] Orders data, response status code and response headers
+    # @return [Array<(Array<NewOrder>, Integer, Hash)>] Array<NewOrder> data, response status code and response headers
     def v1_orders_get_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrdersApi.v1_orders_get ...'
@@ -185,7 +185,7 @@ module OpenapiClient
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] || 'Orders' 
+      return_type = opts[:return_type] || 'Array<NewOrder>' 
 
       # auth_names
       auth_names = opts[:auth_names] || []

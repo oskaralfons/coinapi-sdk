@@ -8,7 +8,6 @@ use WWW::OpenAPIClient::Object::ExecutionReport;
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **string** | Result type name | [optional] 
 **exchange_id** | **string** | Exchange name | [optional] 
 **id** | **string** | Client unique identifier for the trade. | [optional] 
 **client_order_id_format_exchange** | **string** | Hash client id | [optional] 

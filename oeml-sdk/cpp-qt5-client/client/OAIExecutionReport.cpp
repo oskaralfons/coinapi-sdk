@@ -33,9 +33,6 @@ OAIExecutionReport::~OAIExecutionReport() {}
 
 void OAIExecutionReport::initializeModel() {
 
-    m_type_isSet = false;
-    m_type_isValid = false;
-
     m_exchange_id_isSet = false;
     m_exchange_id_isValid = false;
 
@@ -102,9 +99,6 @@ void OAIExecutionReport::fromJson(QString jsonString) {
 }
 
 void OAIExecutionReport::fromJsonObject(QJsonObject json) {
-
-    m_type_isValid = ::OpenAPI::fromJsonValue(type, json[QString("type")]);
-    m_type_isSet = !json[QString("type")].isNull() && m_type_isValid;
 
     m_exchange_id_isValid = ::OpenAPI::fromJsonValue(exchange_id, json[QString("exchange_id")]);
     m_exchange_id_isSet = !json[QString("exchange_id")].isNull() && m_exchange_id_isValid;
@@ -183,9 +177,6 @@ QString OAIExecutionReport::asJson() const {
 
 QJsonObject OAIExecutionReport::asJsonObject() const {
     QJsonObject obj;
-    if (m_type_isSet) {
-        obj.insert(QString("type"), ::OpenAPI::toJsonValue(type));
-    }
     if (m_exchange_id_isSet) {
         obj.insert(QString("exchange_id"), ::OpenAPI::toJsonValue(exchange_id));
     }
@@ -245,22 +236,6 @@ QJsonObject OAIExecutionReport::asJsonObject() const {
         obj.insert(QString("exec_inst"), ::OpenAPI::toJsonValue(exec_inst));
     }
     return obj;
-}
-
-QString OAIExecutionReport::getType() const {
-    return type;
-}
-void OAIExecutionReport::setType(const QString &type) {
-    this->type = type;
-    this->m_type_isSet = true;
-}
-
-bool OAIExecutionReport::is_type_Set() const{
-    return m_type_isSet;
-}
-
-bool OAIExecutionReport::is_type_Valid() const{
-    return m_type_isValid;
 }
 
 QString OAIExecutionReport::getExchangeId() const {
@@ -570,11 +545,6 @@ bool OAIExecutionReport::is_exec_inst_Valid() const{
 bool OAIExecutionReport::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (m_type_isSet) {
-            isObjectUpdated = true;
-            break;
-        }
-
         if (m_exchange_id_isSet) {
             isObjectUpdated = true;
             break;

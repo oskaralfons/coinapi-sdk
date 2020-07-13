@@ -20,7 +20,6 @@ goog.require('API.Client.Message');
 goog.require('API.Client.NewOrder');
 goog.require('API.Client.OrderCancelAllRequest');
 goog.require('API.Client.OrderCancelSingleRequest');
-goog.require('API.Client.Orders');
 
 /**
  * @constructor
@@ -128,7 +127,7 @@ API.Client.OrdersApi.prototype.v1OrdersCancelPost = function(orderCancelSingleRe
  * Get all current open orders across all or single specified exchange.
  * @param {!string=} opt_exchangeId Filter the output to the orders from the specific exchange.
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
- * @return {!angular.$q.Promise<!API.Client.Orders>}
+ * @return {!angular.$q.Promise<!Array<!API.Client.NewOrder>>}
  */
 API.Client.OrdersApi.prototype.v1OrdersGet = function(opt_exchangeId, opt_extraHttpRequestParams) {
   /** @const {string} */

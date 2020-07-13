@@ -17,8 +17,6 @@ import 'package:openapi/model/ord_status.dart';
 import 'package:openapi/model/ord_type.dart';
 import 'package:openapi/model/order_cancel_all_request.dart';
 import 'package:openapi/model/order_cancel_single_request.dart';
-import 'package:openapi/model/orders.dart';
-import 'package:openapi/model/orders_data.dart';
 import 'package:openapi/model/position.dart';
 import 'package:openapi/model/position_data.dart';
 import 'package:openapi/model/severity.dart';
@@ -39,8 +37,6 @@ OrdStatus,
 OrdType,
 OrderCancelAllRequest,
 OrderCancelSingleRequest,
-Orders,
-OrdersData,
 Position,
 PositionData,
 Severity,
@@ -83,12 +79,6 @@ const FullType(BuiltList, const [const FullType(OrderCancelAllRequest)]),
 ..addBuilderFactory(
 const FullType(BuiltList, const [const FullType(OrderCancelSingleRequest)]),
 () => new ListBuilder<OrderCancelSingleRequest>())
-..addBuilderFactory(
-const FullType(BuiltList, const [const FullType(Orders)]),
-() => new ListBuilder<Orders>())
-..addBuilderFactory(
-const FullType(BuiltList, const [const FullType(OrdersData)]),
-() => new ListBuilder<OrdersData>())
 ..addBuilderFactory(
 const FullType(BuiltList, const [const FullType(Position)]),
 () => new ListBuilder<Position>())

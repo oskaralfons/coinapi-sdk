@@ -61,7 +61,6 @@ oeml___rest_api_execution_report_EXECINST_e execution_report_exec_inst_FromStrin
 
 
 typedef struct execution_report_t {
-    char *type; // string
     char *exchange_id; // string
     char *id; // string
     char *client_order_id_format_exchange; // string
@@ -82,7 +81,6 @@ typedef struct execution_report_t {
 } execution_report_t;
 
 execution_report_t *execution_report_create(
-    char *type,
     char *exchange_id,
     char *id,
     char *client_order_id_format_exchange,

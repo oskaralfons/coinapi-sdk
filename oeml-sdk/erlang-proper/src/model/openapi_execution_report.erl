@@ -9,8 +9,7 @@
 -export_type([openapi_execution_report/0]).
 
 -type openapi_execution_report() ::
-  [ {'type', binary() }
-  | {'exchange_id', binary() }
+  [ {'exchange_id', binary() }
   | {'id', binary() }
   | {'client_order_id_format_exchange', binary() }
   | {'exchange_order_id', binary() }
@@ -36,8 +35,7 @@ openapi_execution_report() ->
     openapi_execution_report([]).
 
 openapi_execution_report(Fields) ->
-  Default = [ {'type', binary() }
-            , {'exchange_id', binary() }
+  Default = [ {'exchange_id', binary() }
             , {'id', binary() }
             , {'client_order_id_format_exchange', binary() }
             , {'exchange_order_id', binary() }

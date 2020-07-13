@@ -20,7 +20,6 @@ import org.openapitools.client.model.Message;
 import org.openapitools.client.model.NewOrder;
 import org.openapitools.client.model.OrderCancelAllRequest;
 import org.openapitools.client.model.OrderCancelSingleRequest;
-import org.openapitools.client.model.Orders;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -81,7 +80,7 @@ public class OrdersApiTest {
     @Test
     public void v1OrdersGetTest() throws ApiException {
         String exchangeId = null;
-        Orders response = api.v1OrdersGet(exchangeId);
+        List<NewOrder> response = api.v1OrdersGet(exchangeId);
 
         // TODO: test validations
     }

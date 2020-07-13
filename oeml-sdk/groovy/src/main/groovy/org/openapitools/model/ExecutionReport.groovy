@@ -11,8 +11,6 @@ import org.openapitools.model.TimeInForce;
 
 @Canonical
 class ExecutionReport {
-    /* Result type name */
-    String type
     /* Exchange name */
     String exchangeId
     /* Client unique identifier for the trade. */

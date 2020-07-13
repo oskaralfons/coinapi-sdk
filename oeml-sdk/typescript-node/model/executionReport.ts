@@ -16,10 +16,6 @@ import { TimeInForce } from './timeInForce';
 
 export class ExecutionReport {
     /**
-    * Result type name
-    */
-    'type'?: string;
-    /**
     * Exchange name
     */
     'exchangeId'?: string;
@@ -93,11 +89,6 @@ export class ExecutionReport {
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            "name": "type",
-            "baseName": "type",
-            "type": "string"
-        },
         {
             "name": "exchangeId",
             "baseName": "exchange_id",

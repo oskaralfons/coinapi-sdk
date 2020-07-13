@@ -57,15 +57,6 @@ public:
     /// ExecutionReport members
 
     /// <summary>
-    /// Result type name
-    /// </summary>
-    utility::string_t getType() const;
-    bool typeIsSet() const;
-    void unsetType();
-
-    void setType(const utility::string_t& value);
-
-    /// <summary>
     /// Exchange name
     /// </summary>
     utility::string_t getExchangeId() const;
@@ -238,8 +229,6 @@ public:
 
 
 protected:
-    utility::string_t m_Type;
-    bool m_TypeIsSet;
     utility::string_t m_Exchange_id;
     bool m_Exchange_idIsSet;
     utility::string_t m_Id;

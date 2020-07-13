@@ -212,8 +212,7 @@ mkCreateOrderValidationError =
 -- ** ExecutionReport
 -- | ExecutionReport
 data ExecutionReport = ExecutionReport
-  { executionReportType :: !(Maybe Text) -- ^ "type" - Result type name
-  , executionReportExchangeId :: !(Maybe Text) -- ^ "exchange_id" - Exchange name
+  { executionReportExchangeId :: !(Maybe Text) -- ^ "exchange_id" - Exchange name
   , executionReportId :: !(Maybe Text) -- ^ "id" - Client unique identifier for the trade.
   , executionReportClientOrderIdFormatExchange :: !(Maybe Text) -- ^ "client_order_id_format_exchange" - Hash client id
   , executionReportExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - Exchange order id
@@ -238,8 +237,7 @@ data ExecutionReport = ExecutionReport
 instance A.FromJSON ExecutionReport where
   parseJSON = A.withObject "ExecutionReport" $ \o ->
     ExecutionReport
-      <$> (o .:? "type")
-      <*> (o .:? "exchange_id")
+      <$> (o .:? "exchange_id")
       <*> (o .:? "id")
       <*> (o .:? "client_order_id_format_exchange")
       <*> (o .:? "exchange_order_id")
@@ -263,8 +261,7 @@ instance A.FromJSON ExecutionReport where
 instance A.ToJSON ExecutionReport where
   toJSON ExecutionReport {..} =
    _omitNulls
-      [ "type" .= executionReportType
-      , "exchange_id" .= executionReportExchangeId
+      [ "exchange_id" .= executionReportExchangeId
       , "id" .= executionReportId
       , "client_order_id_format_exchange" .= executionReportClientOrderIdFormatExchange
       , "exchange_order_id" .= executionReportExchangeOrderId
@@ -291,8 +288,7 @@ mkExecutionReport
   :: ExecutionReport
 mkExecutionReport =
   ExecutionReport
-  { executionReportType = Nothing
-  , executionReportExchangeId = Nothing
+  { executionReportExchangeId = Nothing
   , executionReportId = Nothing
   , executionReportClientOrderIdFormatExchange = Nothing
   , executionReportExchangeOrderId = Nothing
@@ -493,142 +489,6 @@ mkOrderCancelSingleRequest =
   { orderCancelSingleRequestExchangeId = Nothing
   , orderCancelSingleRequestExchangeOrderId = Nothing
   , orderCancelSingleRequestClientOrderId = Nothing
-  }
-
--- ** Orders
--- | Orders
-data Orders = Orders
-  { ordersType :: !(Maybe Text) -- ^ "type" - Constant value &#x60;snapshotOrders&#x60;.
-  , ordersExchangeId :: !(Maybe Text) -- ^ "exchange_id" - Exchange identifier.
-  , ordersData :: !(Maybe [OrdersData]) -- ^ "data" - Orders array
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON Orders
-instance A.FromJSON Orders where
-  parseJSON = A.withObject "Orders" $ \o ->
-    Orders
-      <$> (o .:? "type")
-      <*> (o .:? "exchange_id")
-      <*> (o .:? "data")
-
--- | ToJSON Orders
-instance A.ToJSON Orders where
-  toJSON Orders {..} =
-   _omitNulls
-      [ "type" .= ordersType
-      , "exchange_id" .= ordersExchangeId
-      , "data" .= ordersData
-      ]
-
-
--- | Construct a value of type 'Orders' (by applying it's required fields, if any)
-mkOrders
-  :: Orders
-mkOrders =
-  Orders
-  { ordersType = Nothing
-  , ordersExchangeId = Nothing
-  , ordersData = Nothing
-  }
-
--- ** OrdersData
--- | OrdersData
-data OrdersData = OrdersData
-  { ordersDataExchangeId :: !(Maybe Text) -- ^ "exchange_id" - Exchange name
-  , ordersDataId :: !(Maybe Text) -- ^ "id" - Client unique identifier for the trade.
-  , ordersDataClientOrderIdFormatExchange :: !(Maybe Text) -- ^ "client_order_id_format_exchange" - Hash client id
-  , ordersDataExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - Exchange order id
-  , ordersDataAmountOpen :: !(Maybe Double) -- ^ "amount_open" - Amount open
-  , ordersDataAmountFilled :: !(Maybe Double) -- ^ "amount_filled" - Amount filled
-  , ordersDataStatus :: !(Maybe OrdStatus) -- ^ "status"
-  , ordersDataTimeOrder :: !(Maybe [[Text]]) -- ^ "time_order" - History of order status changes
-  , ordersDataErrorMessage :: !(Maybe Text) -- ^ "error_message" - Error message
-  , ordersDataClientOrderId :: !(Maybe Text) -- ^ "client_order_id" - Client unique identifier for the trade.
-  , ordersDataSymbolExchange :: !(Maybe Text) -- ^ "symbol_exchange" - The symbol of the order.
-  , ordersDataSymbolCoinapi :: !(Maybe Text) -- ^ "symbol_coinapi" - The CoinAPI symbol of the order.
-  , ordersDataAmountOrder :: !(Maybe Double) -- ^ "amount_order" - Quoted decimal amount to purchase.
-  , ordersDataPrice :: !(Maybe Double) -- ^ "price" - Quoted decimal amount to spend per unit.
-  , ordersDataSide :: !(Maybe E'Side) -- ^ "side" - Buy or Sell
-  , ordersDataOrderType :: !(Maybe E'OrderType) -- ^ "order_type" - The order type.
-  , ordersDataTimeInForce :: !(Maybe TimeInForce) -- ^ "time_in_force"
-  , ordersDataExpireTime :: !(Maybe Date) -- ^ "expire_time" - Required for orders with time_in_force &#x3D; GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
-  , ordersDataExecInst :: !(Maybe [E'ExecInst]) -- ^ "exec_inst" - Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt;
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON OrdersData
-instance A.FromJSON OrdersData where
-  parseJSON = A.withObject "OrdersData" $ \o ->
-    OrdersData
-      <$> (o .:? "exchange_id")
-      <*> (o .:? "id")
-      <*> (o .:? "client_order_id_format_exchange")
-      <*> (o .:? "exchange_order_id")
-      <*> (o .:? "amount_open")
-      <*> (o .:? "amount_filled")
-      <*> (o .:? "status")
-      <*> (o .:? "time_order")
-      <*> (o .:? "error_message")
-      <*> (o .:? "client_order_id")
-      <*> (o .:? "symbol_exchange")
-      <*> (o .:? "symbol_coinapi")
-      <*> (o .:? "amount_order")
-      <*> (o .:? "price")
-      <*> (o .:? "side")
-      <*> (o .:? "order_type")
-      <*> (o .:? "time_in_force")
-      <*> (o .:? "expire_time")
-      <*> (o .:? "exec_inst")
-
--- | ToJSON OrdersData
-instance A.ToJSON OrdersData where
-  toJSON OrdersData {..} =
-   _omitNulls
-      [ "exchange_id" .= ordersDataExchangeId
-      , "id" .= ordersDataId
-      , "client_order_id_format_exchange" .= ordersDataClientOrderIdFormatExchange
-      , "exchange_order_id" .= ordersDataExchangeOrderId
-      , "amount_open" .= ordersDataAmountOpen
-      , "amount_filled" .= ordersDataAmountFilled
-      , "status" .= ordersDataStatus
-      , "time_order" .= ordersDataTimeOrder
-      , "error_message" .= ordersDataErrorMessage
-      , "client_order_id" .= ordersDataClientOrderId
-      , "symbol_exchange" .= ordersDataSymbolExchange
-      , "symbol_coinapi" .= ordersDataSymbolCoinapi
-      , "amount_order" .= ordersDataAmountOrder
-      , "price" .= ordersDataPrice
-      , "side" .= ordersDataSide
-      , "order_type" .= ordersDataOrderType
-      , "time_in_force" .= ordersDataTimeInForce
-      , "expire_time" .= ordersDataExpireTime
-      , "exec_inst" .= ordersDataExecInst
-      ]
-
-
--- | Construct a value of type 'OrdersData' (by applying it's required fields, if any)
-mkOrdersData
-  :: OrdersData
-mkOrdersData =
-  OrdersData
-  { ordersDataExchangeId = Nothing
-  , ordersDataId = Nothing
-  , ordersDataClientOrderIdFormatExchange = Nothing
-  , ordersDataExchangeOrderId = Nothing
-  , ordersDataAmountOpen = Nothing
-  , ordersDataAmountFilled = Nothing
-  , ordersDataStatus = Nothing
-  , ordersDataTimeOrder = Nothing
-  , ordersDataErrorMessage = Nothing
-  , ordersDataClientOrderId = Nothing
-  , ordersDataSymbolExchange = Nothing
-  , ordersDataSymbolCoinapi = Nothing
-  , ordersDataAmountOrder = Nothing
-  , ordersDataPrice = Nothing
-  , ordersDataSide = Nothing
-  , ordersDataOrderType = Nothing
-  , ordersDataTimeInForce = Nothing
-  , ordersDataExpireTime = Nothing
-  , ordersDataExecInst = Nothing
   }
 
 -- ** Position

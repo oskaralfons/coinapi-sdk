@@ -166,7 +166,7 @@ No authorization required
 
 ## V1OrdersGet
 
-> Orders V1OrdersGet (string exchangeId = null)
+> List&lt;NewOrder&gt; V1OrdersGet (string exchangeId = null)
 
 Get all orders
 
@@ -194,7 +194,7 @@ namespace Example
             try
             {
                 // Get all orders
-                Orders result = apiInstance.V1OrdersGet(exchangeId);
+                List<NewOrder> result = apiInstance.V1OrdersGet(exchangeId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Orders**](Orders.md)
+[**List&lt;NewOrder&gt;**](NewOrder.md)
 
 ### Authorization
 

@@ -16,13 +16,6 @@ Please update as you see appropriate
 describe("execution_report", function()
   local openapiclient_execution_report = require "openapiclient.model.execution_report"
 
-  -- unit tests for the property 'type'
-  describe("property type test", function()
-    it("should work", function()
-      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
-    end)
-  end)
-
   -- unit tests for the property 'exchange_id'
   describe("property exchange_id test", function()
     it("should work", function()

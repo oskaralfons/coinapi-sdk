@@ -85,8 +85,6 @@ Class | Method | HTTP request | Description
  - [OASOrdType](OASOrdType.md)
  - [OASOrderCancelAllRequest](OASOrderCancelAllRequest.md)
  - [OASOrderCancelSingleRequest](OASOrderCancelSingleRequest.md)
- - [OASOrders](OASOrders.md)
- - [OASOrdersData](OASOrdersData.md)
  - [OASPosition](OASPosition.md)
  - [OASPositionData](OASPositionData.md)
  - [OASSeverity](OASSeverity.md)

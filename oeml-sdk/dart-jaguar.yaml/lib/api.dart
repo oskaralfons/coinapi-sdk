@@ -23,8 +23,6 @@ import 'package:openapi/model/ord_status.dart';
 import 'package:openapi/model/ord_type.dart';
 import 'package:openapi/model/order_cancel_all_request.dart';
 import 'package:openapi/model/order_cancel_single_request.dart';
-import 'package:openapi/model/orders.dart';
-import 'package:openapi/model/orders_data.dart';
 import 'package:openapi/model/position.dart';
 import 'package:openapi/model/position_data.dart';
 import 'package:openapi/model/severity.dart';
@@ -44,8 +42,6 @@ final _jsonJaguarRepo = JsonRepo()
 
 ..add(OrderCancelAllRequestSerializer())
 ..add(OrderCancelSingleRequestSerializer())
-..add(OrdersSerializer())
-..add(OrdersDataSerializer())
 ..add(PositionSerializer())
 ..add(PositionDataSerializer())
 

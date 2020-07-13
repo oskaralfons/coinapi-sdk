@@ -107,7 +107,7 @@ No authorization required
 
 <a name="v1OrdersGet"></a>
 # **v1OrdersGet**
-> Orders v1OrdersGet(exchangeId)
+> kotlin.Array&lt;NewOrder&gt; v1OrdersGet(exchangeId)
 
 Get all orders
 
@@ -122,7 +122,7 @@ Get all current open orders across all or single specified exchange.
 val apiInstance = OrdersApi()
 val exchangeId : kotlin.String = KRAKEN // kotlin.String | Filter the output to the orders from the specific exchange.
 try {
-    val result : Orders = apiInstance.v1OrdersGet(exchangeId)
+    val result : kotlin.Array<NewOrder> = apiInstance.v1OrdersGet(exchangeId)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling OrdersApi#v1OrdersGet")
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Orders**](Orders.md)
+[**kotlin.Array&lt;NewOrder&gt;**](NewOrder.md)
 
 ### Authorization
 

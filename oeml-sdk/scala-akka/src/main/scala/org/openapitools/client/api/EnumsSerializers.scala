@@ -22,10 +22,7 @@ object EnumsSerializers {
     new EnumNameSerializer(ExecutionReportEnums.Side) :+
     new EnumNameSerializer(ExecutionReportEnums.OrderType) :+
     new EnumNameSerializer(ExecutionReportEnums.Seq[ExecInst]) :+
-    new EnumNameSerializer(NewOrderEnums.Seq[ExecInst]) :+
-    new EnumNameSerializer(OrdersDataEnums.Side) :+
-    new EnumNameSerializer(OrdersDataEnums.OrderType) :+
-    new EnumNameSerializer(OrdersDataEnums.Seq[ExecInst])
+    new EnumNameSerializer(NewOrderEnums.Seq[ExecInst])
 
   private class EnumNameSerializer[E <: Enumeration: ClassTag](enum: E)
     extends Serializer[E#Value] {

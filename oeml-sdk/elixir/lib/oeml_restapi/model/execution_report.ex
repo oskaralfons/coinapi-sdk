@@ -9,7 +9,6 @@ defmodule OEML-RESTAPI.Model.ExecutionReport do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"type",
     :"exchange_id",
     :"id",
     :"client_order_id_format_exchange",
@@ -32,7 +31,6 @@ defmodule OEML-RESTAPI.Model.ExecutionReport do
   ]
 
   @type t :: %__MODULE__{
-    :"type" => String.t | nil,
     :"exchange_id" => String.t | nil,
     :"id" => String.t | nil,
     :"client_order_id_format_exchange" => String.t | nil,

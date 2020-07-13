@@ -104,7 +104,7 @@ No authorization required
 
 ## v1OrdersGet
 
-> Orders v1OrdersGet(opts)
+> [NewOrder] v1OrdersGet(opts)
 
 Get all orders
 
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Orders**](Orders.md)
+[**[NewOrder]**](NewOrder.md)
 
 ### Authorization
 

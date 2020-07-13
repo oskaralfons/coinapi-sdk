@@ -146,8 +146,7 @@ instance Arbitrary ExecutionReport where
 genExecutionReport :: Int -> Gen ExecutionReport
 genExecutionReport n =
   ExecutionReport
-    <$> arbitraryReducedMaybe n -- executionReportType :: Maybe Text
-    <*> arbitraryReducedMaybe n -- executionReportExchangeId :: Maybe Text
+    <$> arbitraryReducedMaybe n -- executionReportExchangeId :: Maybe Text
     <*> arbitraryReducedMaybe n -- executionReportId :: Maybe Text
     <*> arbitraryReducedMaybe n -- executionReportClientOrderIdFormatExchange :: Maybe Text
     <*> arbitraryReducedMaybe n -- executionReportExchangeOrderId :: Maybe Text
@@ -213,42 +212,6 @@ genOrderCancelSingleRequest n =
     <$> arbitraryReducedMaybe n -- orderCancelSingleRequestExchangeId :: Maybe Text
     <*> arbitraryReducedMaybe n -- orderCancelSingleRequestExchangeOrderId :: Maybe Text
     <*> arbitraryReducedMaybe n -- orderCancelSingleRequestClientOrderId :: Maybe Text
-  
-instance Arbitrary Orders where
-  arbitrary = sized genOrders
-
-genOrders :: Int -> Gen Orders
-genOrders n =
-  Orders
-    <$> arbitraryReducedMaybe n -- ordersType :: Maybe Text
-    <*> arbitraryReducedMaybe n -- ordersExchangeId :: Maybe Text
-    <*> arbitraryReducedMaybe n -- ordersData :: Maybe [OrdersData]
-  
-instance Arbitrary OrdersData where
-  arbitrary = sized genOrdersData
-
-genOrdersData :: Int -> Gen OrdersData
-genOrdersData n =
-  OrdersData
-    <$> arbitraryReducedMaybe n -- ordersDataExchangeId :: Maybe Text
-    <*> arbitraryReducedMaybe n -- ordersDataId :: Maybe Text
-    <*> arbitraryReducedMaybe n -- ordersDataClientOrderIdFormatExchange :: Maybe Text
-    <*> arbitraryReducedMaybe n -- ordersDataExchangeOrderId :: Maybe Text
-    <*> arbitraryReducedMaybe n -- ordersDataAmountOpen :: Maybe Double
-    <*> arbitraryReducedMaybe n -- ordersDataAmountFilled :: Maybe Double
-    <*> arbitraryReducedMaybe n -- ordersDataStatus :: Maybe OrdStatus
-    <*> arbitraryReducedMaybe n -- ordersDataTimeOrder :: Maybe [[Text]]
-    <*> arbitraryReducedMaybe n -- ordersDataErrorMessage :: Maybe Text
-    <*> arbitraryReducedMaybe n -- ordersDataClientOrderId :: Maybe Text
-    <*> arbitraryReducedMaybe n -- ordersDataSymbolExchange :: Maybe Text
-    <*> arbitraryReducedMaybe n -- ordersDataSymbolCoinapi :: Maybe Text
-    <*> arbitraryReducedMaybe n -- ordersDataAmountOrder :: Maybe Double
-    <*> arbitraryReducedMaybe n -- ordersDataPrice :: Maybe Double
-    <*> arbitraryReducedMaybe n -- ordersDataSide :: Maybe E'Side
-    <*> arbitraryReducedMaybe n -- ordersDataOrderType :: Maybe E'OrderType
-    <*> arbitraryReducedMaybe n -- ordersDataTimeInForce :: Maybe TimeInForce
-    <*> arbitraryReducedMaybe n -- ordersDataExpireTime :: Maybe Date
-    <*> arbitraryReducedMaybe n -- ordersDataExecInst :: Maybe [E'ExecInst]
   
 instance Arbitrary Position where
   arbitrary = sized genPosition

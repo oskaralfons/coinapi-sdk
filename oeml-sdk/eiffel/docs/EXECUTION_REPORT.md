@@ -3,7 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | [**STRING_32**](STRING_32.md) | Result type name | [optional] [default to null]
 **exchange_id** | [**STRING_32**](STRING_32.md) | Exchange name | [optional] [default to null]
 **id** | [**STRING_32**](STRING_32.md) | Client unique identifier for the trade. | [optional] [default to null]
 **client_order_id_format_exchange** | [**STRING_32**](STRING_32.md) | Hash client id | [optional] [default to null]

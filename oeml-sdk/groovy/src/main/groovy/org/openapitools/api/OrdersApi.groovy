@@ -7,7 +7,6 @@ import org.openapitools.model.Message
 import org.openapitools.model.NewOrder
 import org.openapitools.model.OrderCancelAllRequest
 import org.openapitools.model.OrderCancelSingleRequest
-import org.openapitools.model.Orders
 
 class OrdersApi {
     String basePath = "http://localhost:8080"
@@ -84,8 +83,8 @@ class OrdersApi {
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
-                    "GET", "",
-                    Orders.class )
+                    "GET", "array",
+                    NewOrder.class )
 
     }
 

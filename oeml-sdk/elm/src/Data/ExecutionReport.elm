@@ -22,8 +22,7 @@ import Json.Encode as Encode
 
 
 type alias ExecutionReport =
-    { type_ : Maybe (String)
-    , exchangeId : Maybe (String)
+    { exchangeId : Maybe (String)
     , id : Maybe (String)
     , clientOrderIdFormatExchange : Maybe (String)
     , exchangeOrderId : Maybe (String)
@@ -66,7 +65,6 @@ type ExecInst
 decoder : Decoder ExecutionReport
 decoder =
     Decode.succeed ExecutionReport
-        |> optional "type" (Decode.nullable Decode.string) Nothing
         |> optional "exchange_id" (Decode.nullable Decode.string) Nothing
         |> optional "id" (Decode.nullable Decode.string) Nothing
         |> optional "client_order_id_format_exchange" (Decode.nullable Decode.string) Nothing
@@ -101,8 +99,7 @@ encodeWithTag (tagField, tag) model =
 
 encodePairs : ExecutionReport -> List (String, Encode.Value)
 encodePairs model =
-    [ ( "type", Maybe.withDefault Encode.null (Maybe.map Encode.string model.type_) )
-    , ( "exchange_id", Maybe.withDefault Encode.null (Maybe.map Encode.string model.exchangeId) )
+    [ ( "exchange_id", Maybe.withDefault Encode.null (Maybe.map Encode.string model.exchangeId) )
     , ( "id", Maybe.withDefault Encode.null (Maybe.map Encode.string model.id) )
     , ( "client_order_id_format_exchange", Maybe.withDefault Encode.null (Maybe.map Encode.string model.clientOrderIdFormatExchange) )
     , ( "exchange_order_id", Maybe.withDefault Encode.null (Maybe.map Encode.string model.exchangeOrderId) )

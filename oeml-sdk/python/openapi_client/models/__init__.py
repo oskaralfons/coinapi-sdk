@@ -25,8 +25,6 @@ from openapi_client.models.ord_status import OrdStatus
 from openapi_client.models.ord_type import OrdType
 from openapi_client.models.order_cancel_all_request import OrderCancelAllRequest
 from openapi_client.models.order_cancel_single_request import OrderCancelSingleRequest
-from openapi_client.models.orders import Orders
-from openapi_client.models.orders_data import OrdersData
 from openapi_client.models.position import Position
 from openapi_client.models.position_data import PositionData
 from openapi_client.models.severity import Severity

@@ -4,7 +4,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **kotlin.String** | Result type name |  [optional]
 **exchangeId** | **kotlin.String** | Exchange name |  [optional]
 **id** | **kotlin.String** | Client unique identifier for the trade. |  [optional]
 **clientOrderIdFormatExchange** | **kotlin.String** | Hash client id |  [optional]

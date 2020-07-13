@@ -22,7 +22,6 @@ execution_report_t* instantiate_execution_report(int include_optional) {
   execution_report_t* execution_report = NULL;
   if (include_optional) {
     execution_report = execution_report_create(
-      "updateOrder",
       "KRAKEN",
       "KPP-222389382-AQ",
       "f81211e2-27c4-b86a-8143-01088ba9222c",
@@ -45,7 +44,6 @@ execution_report_t* instantiate_execution_report(int include_optional) {
     );
   } else {
     execution_report = execution_report_create(
-      "updateOrder",
       "KRAKEN",
       "KPP-222389382-AQ",
       "f81211e2-27c4-b86a-8143-01088ba9222c",

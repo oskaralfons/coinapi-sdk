@@ -9,8 +9,6 @@ export * from './ordStatus';
 export * from './ordType';
 export * from './orderCancelAllRequest';
 export * from './orderCancelSingleRequest';
-export * from './orders';
-export * from './ordersData';
 export * from './position';
 export * from './positionData';
 export * from './severity';
@@ -29,8 +27,6 @@ import { OrdStatus } from './ordStatus';
 import { OrdType } from './ordType';
 import { OrderCancelAllRequest } from './orderCancelAllRequest';
 import { OrderCancelSingleRequest } from './orderCancelSingleRequest';
-import { Orders } from './orders';
-import { OrdersData } from './ordersData';
 import { Position } from './position';
 import { PositionData } from './positionData';
 import { Severity } from './severity';
@@ -57,9 +53,6 @@ let enumsMap: {[index: string]: any} = {
         "OrdSide": OrdSide,
         "OrdStatus": OrdStatus,
         "OrdType": OrdType,
-        "OrdersData.SideEnum": OrdersData.SideEnum,
-        "OrdersData.OrderTypeEnum": OrdersData.OrderTypeEnum,
-        "OrdersData.ExecInstEnum": OrdersData.ExecInstEnum,
         "Severity": Severity,
         "TimeInForce": TimeInForce,
 }
@@ -73,8 +66,6 @@ let typeMap: {[index: string]: any} = {
     "NewOrder": NewOrder,
     "OrderCancelAllRequest": OrderCancelAllRequest,
     "OrderCancelSingleRequest": OrderCancelSingleRequest,
-    "Orders": Orders,
-    "OrdersData": OrdersData,
     "Position": Position,
     "PositionData": PositionData,
 }

@@ -6,13 +6,6 @@ goog.provide('API.Client.ExecutionReport');
 API.Client.ExecutionReport = function() {}
 
 /**
- * Result type name
- * @type {!string}
- * @export
- */
-API.Client.ExecutionReport.prototype.type;
-
-/**
  * Exchange name
  * @type {!string}
  * @export

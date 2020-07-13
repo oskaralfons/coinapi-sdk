@@ -23,8 +23,6 @@ namespace model {
 
 ExecutionReport::ExecutionReport()
 {
-    m_Type = utility::conversions::to_string_t("");
-    m_TypeIsSet = false;
     m_Exchange_id = utility::conversions::to_string_t("");
     m_Exchange_idIsSet = false;
     m_Id = utility::conversions::to_string_t("");
@@ -74,10 +72,6 @@ web::json::value ExecutionReport::toJson() const
 
     web::json::value val = web::json::value::object();
     
-    if(m_TypeIsSet)
-    {
-        val[utility::conversions::to_string_t("type")] = ModelBase::toJson(m_Type);
-    }
     if(m_Exchange_idIsSet)
     {
         val[utility::conversions::to_string_t("exchange_id")] = ModelBase::toJson(m_Exchange_id);
@@ -162,16 +156,6 @@ bool ExecutionReport::fromJson(const web::json::value& val)
 {
     bool ok = true;
     
-    if(val.has_field(utility::conversions::to_string_t("type")))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("type"));
-        if(!fieldValue.is_null())
-        {
-            utility::string_t refVal_type;
-            ok &= ModelBase::fromJson(fieldValue, refVal_type);
-            setType(refVal_type);
-        }
-    }
     if(val.has_field(utility::conversions::to_string_t("exchange_id")))
     {
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("exchange_id"));
@@ -372,10 +356,6 @@ void ExecutionReport::toMultipart(std::shared_ptr<MultipartFormData> multipart, 
     {
         namePrefix += utility::conversions::to_string_t(".");
     }
-    if(m_TypeIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("type"), m_Type));
-    }
     if(m_Exchange_idIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("exchange_id"), m_Exchange_id));
@@ -463,12 +443,6 @@ bool ExecutionReport::fromMultiPart(std::shared_ptr<MultipartFormData> multipart
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    if(multipart->hasContent(utility::conversions::to_string_t("type")))
-    {
-        utility::string_t refVal_type;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("type")), refVal_type );
-        setType(refVal_type);
-    }
     if(multipart->hasContent(utility::conversions::to_string_t("exchange_id")))
     {
         utility::string_t refVal_exchange_id;
@@ -586,26 +560,6 @@ bool ExecutionReport::fromMultiPart(std::shared_ptr<MultipartFormData> multipart
     return ok;
 }
 
-utility::string_t ExecutionReport::getType() const
-{
-    return m_Type;
-}
-
-void ExecutionReport::setType(const utility::string_t& value)
-{
-    m_Type = value;
-    m_TypeIsSet = true;
-}
-
-bool ExecutionReport::typeIsSet() const
-{
-    return m_TypeIsSet;
-}
-
-void ExecutionReport::unsetType()
-{
-    m_TypeIsSet = false;
-}
 utility::string_t ExecutionReport::getExchangeId() const
 {
     return m_Exchange_id;

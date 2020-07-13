@@ -212,16 +212,16 @@ Get all current open orders across all or single specified exchange.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *V1OrdersGetOpts - Optional Parameters:
  * @param "ExchangeId" (optional.String) -  Filter the output to the orders from the specific exchange.
-@return Orders
+@return []NewOrder
 */
-func (a *OrdersApiService) V1OrdersGet(ctx _context.Context, localVarOptionals *V1OrdersGetOpts) (Orders, *_nethttp.Response, error) {
+func (a *OrdersApiService) V1OrdersGet(ctx _context.Context, localVarOptionals *V1OrdersGetOpts) ([]NewOrder, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  Orders
+		localVarReturnValue  []NewOrder
 	)
 
 	// create path and map variables

@@ -91,7 +91,6 @@ oeml___rest_api_execution_report_EXECINST_e exec_instexecution_report_FromString
 }
 
 execution_report_t *execution_report_create(
-    char *type,
     char *exchange_id,
     char *id,
     char *client_order_id_format_exchange,
@@ -113,7 +112,6 @@ execution_report_t *execution_report_create(
     if (!execution_report_local_var) {
         return NULL;
     }
-    execution_report_local_var->type = type;
     execution_report_local_var->exchange_id = exchange_id;
     execution_report_local_var->id = id;
     execution_report_local_var->client_order_id_format_exchange = client_order_id_format_exchange;
@@ -143,7 +141,6 @@ void execution_report_free(execution_report_t *execution_report) {
         return ;
     }
     listEntry_t *listEntry;
-    free(execution_report->type);
     free(execution_report->exchange_id);
     free(execution_report->id);
     free(execution_report->client_order_id_format_exchange);
@@ -165,14 +162,6 @@ void execution_report_free(execution_report_t *execution_report) {
 
 cJSON *execution_report_convertToJSON(execution_report_t *execution_report) {
     cJSON *item = cJSON_CreateObject();
-
-    // execution_report->type
-    if(execution_report->type) { 
-    if(cJSON_AddStringToObject(item, "type", execution_report->type) == NULL) {
-    goto fail; //String
-    }
-     } 
-
 
     // execution_report->exchange_id
     if(execution_report->exchange_id) { 
@@ -343,15 +332,6 @@ fail:
 execution_report_t *execution_report_parseFromJSON(cJSON *execution_reportJSON){
 
     execution_report_t *execution_report_local_var = NULL;
-
-    // execution_report->type
-    cJSON *type = cJSON_GetObjectItemCaseSensitive(execution_reportJSON, "type");
-    if (type) { 
-    if(!cJSON_IsString(type))
-    {
-    goto end; //String
-    }
-    }
 
     // execution_report->exchange_id
     cJSON *exchange_id = cJSON_GetObjectItemCaseSensitive(execution_reportJSON, "exchange_id");
@@ -532,7 +512,6 @@ execution_report_t *execution_report_parseFromJSON(cJSON *execution_reportJSON){
 
 
     execution_report_local_var = execution_report_create (
-        type ? strdup(type->valuestring) : NULL,
         exchange_id ? strdup(exchange_id->valuestring) : NULL,
         id ? strdup(id->valuestring) : NULL,
         client_order_id_format_exchange ? strdup(client_order_id_format_exchange->valuestring) : NULL,

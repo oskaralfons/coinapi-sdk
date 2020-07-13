@@ -54,12 +54,6 @@
       //expect(instance).to.be.a(OemlRestApi.ExecutionReport);
     });
 
-    it('should have the property type (base name: "type")', function() {
-      // uncomment below and update the code to test the property type
-      //var instane = new OemlRestApi.ExecutionReport();
-      //expect(instance).to.be();
-    });
-
     it('should have the property exchangeId (base name: "exchange_id")', function() {
       // uncomment below and update the code to test the property exchangeId
       //var instane = new OemlRestApi.ExecutionReport();

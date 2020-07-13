@@ -8,7 +8,6 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **String** | Result type name | [optional] [default to null]
 **exchangeId** | **String** | Exchange name | [optional] [default to null]
 **id** | **String** | Client unique identifier for the trade. | [optional] [default to null]
 **clientOrderIdFormatExchange** | **String** | Hash client id | [optional] [default to null]

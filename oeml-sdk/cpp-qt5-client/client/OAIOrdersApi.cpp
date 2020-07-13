@@ -198,7 +198,16 @@ void OAIOrdersApi::v1OrdersGetCallback(OAIHttpRequestWorker *worker) {
         msg = "Error: " + worker->error_str;
         error_str = QString("%1, %2").arg(worker->error_str).arg(QString(worker->response));
     }
-    OAIOrders output(QString(worker->response));
+    QList<OAINewOrder> output;
+    QString json(worker->response);
+    QByteArray array(json.toStdString().c_str());
+    QJsonDocument doc = QJsonDocument::fromJson(array);
+    QJsonArray jsonArray = doc.array();
+    foreach (QJsonValue obj, jsonArray) {
+        OAINewOrder val;
+        ::OpenAPI::fromJsonValue(val, obj);
+        output.append(val);
+    }
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {

@@ -58,8 +58,6 @@ Class | Method | HTTP request | Description
  - [org.openapitools.client.models.OrdType](docs/OrdType.md)
  - [org.openapitools.client.models.OrderCancelAllRequest](docs/OrderCancelAllRequest.md)
  - [org.openapitools.client.models.OrderCancelSingleRequest](docs/OrderCancelSingleRequest.md)
- - [org.openapitools.client.models.Orders](docs/Orders.md)
- - [org.openapitools.client.models.OrdersData](docs/OrdersData.md)
  - [org.openapitools.client.models.Position](docs/Position.md)
  - [org.openapitools.client.models.PositionData](docs/PositionData.md)
  - [org.openapitools.client.models.Severity](docs/Severity.md)

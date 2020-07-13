@@ -5,8 +5,7 @@
 -export_type([openapi_execution_report/0]).
 
 -type openapi_execution_report() ::
-    #{ 'type' => binary(),
-       'exchange_id' => binary(),
+    #{ 'exchange_id' => binary(),
        'id' => binary(),
        'client_order_id_format_exchange' => binary(),
        'exchange_order_id' => binary(),
@@ -27,8 +26,7 @@
        'exec_inst' => list()
      }.
 
-encode(#{ 'type' := Type,
-          'exchange_id' := ExchangeId,
+encode(#{ 'exchange_id' := ExchangeId,
           'id' := Id,
           'client_order_id_format_exchange' := ClientOrderIdFormatExchange,
           'exchange_order_id' := ExchangeOrderId,
@@ -48,8 +46,7 @@ encode(#{ 'type' := Type,
           'expire_time' := ExpireTime,
           'exec_inst' := ExecInst
         }) ->
-    #{ 'type' => Type,
-       'exchange_id' => ExchangeId,
+    #{ 'exchange_id' => ExchangeId,
        'id' => Id,
        'client_order_id_format_exchange' => ClientOrderIdFormatExchange,
        'exchange_order_id' => ExchangeOrderId,

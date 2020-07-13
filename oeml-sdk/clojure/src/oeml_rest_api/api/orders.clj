@@ -8,13 +8,11 @@
             [oeml-rest-api.specs.balance-data :refer :all]
             [oeml-rest-api.specs.position-data :refer :all]
             [oeml-rest-api.specs.message :refer :all]
-            [oeml-rest-api.specs.orders-data :refer :all]
             [oeml-rest-api.specs.order-cancel-single-request :refer :all]
             [oeml-rest-api.specs.create-order-validation-error :refer :all]
             [oeml-rest-api.specs.ord-status :refer :all]
             [oeml-rest-api.specs.balance :refer :all]
             [oeml-rest-api.specs.ord-type :refer :all]
-            [oeml-rest-api.specs.orders :refer :all]
             [oeml-rest-api.specs.order-cancel-all-request :refer :all]
             [oeml-rest-api.specs.position :refer :all]
             [oeml-rest-api.specs.execution-report :refer :all]
@@ -88,14 +86,14 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn-spec v1-orders-get orders-spec
+(defn-spec v1-orders-get (s/coll-of new-order-spec)
   "Get all orders
   Get all current open orders across all or single specified exchange."
   ([] (v1-orders-get nil))
   ([optional-params any?]
    (let [res (:data (v1-orders-get-with-http-info optional-params))]
      (if (:decode-models *api-context*)
-        (st/decode orders-spec res st/string-transformer)
+        (st/decode (s/coll-of new-order-spec) res st/string-transformer)
         res))))
 
 

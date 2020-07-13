@@ -11,7 +11,6 @@
 #include "../model/new_order.h"
 #include "../model/order_cancel_all_request.h"
 #include "../model/order_cancel_single_request.h"
-#include "../model/orders.h"
 
 
 // Cancel all orders
@@ -34,7 +33,7 @@ OrdersAPI_v1OrdersCancelPost(apiClient_t *apiClient, order_cancel_single_request
 //
 // Get all current open orders across all or single specified exchange.
 //
-orders_t*
+list_t*
 OrdersAPI_v1OrdersGet(apiClient_t *apiClient, char * exchange_id );
 
 

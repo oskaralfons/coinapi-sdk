@@ -49,13 +49,6 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get Result type name
-	 */
-	std::string getType();
-
-	/*! \brief Set Result type name
-	 */
-	void setType(std::string  type);
 	/*! \brief Get Exchange name
 	 */
 	std::string getExchangeId();
@@ -191,7 +184,6 @@ public:
 	void setExecInst(std::list <std::string> exec_inst);
 
 private:
-	std::string type;
 	std::string exchange_id;
 	std::string id;
 	std::string client_order_id_format_exchange;

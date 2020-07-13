@@ -36,7 +36,6 @@ class TestExecutionReport(unittest.TestCase):
         # model = openapi_client.models.execution_report.ExecutionReport()  # noqa: E501
         if include_optional :
             return ExecutionReport(
-                type = 'updateOrder', 
                 exchange_id = 'KRAKEN', 
                 id = 'KPP-222389382-AQ', 
                 client_order_id_format_exchange = 'f81211e2-27c4-b86a-8143-01088ba9222c', 

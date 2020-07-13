@@ -33,12 +33,8 @@ import org.threeten.bp.LocalDate;
 /**
  * ExecutionReport
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T10:59:10.382Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T11:09:29.967Z[Etc/UTC]")
 public class ExecutionReport {
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
-
   public static final String SERIALIZED_NAME_EXCHANGE_ID = "exchange_id";
   @SerializedName(SERIALIZED_NAME_EXCHANGE_ID)
   private String exchangeId;
@@ -255,29 +251,6 @@ public class ExecutionReport {
   public static final String SERIALIZED_NAME_EXEC_INST = "exec_inst";
   @SerializedName(SERIALIZED_NAME_EXEC_INST)
   private List<ExecInstEnum> execInst = null;
-
-
-  public ExecutionReport type(String type) {
-    
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Result type name
-   * @return type
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "updateOrder", value = "Result type name")
-
-  public String getType() {
-    return type;
-  }
-
-
-  public void setType(String type) {
-    this.type = type;
-  }
 
 
   public ExecutionReport exchangeId(String exchangeId) {
@@ -742,8 +715,7 @@ public class ExecutionReport {
       return false;
     }
     ExecutionReport executionReport = (ExecutionReport) o;
-    return Objects.equals(this.type, executionReport.type) &&
-        Objects.equals(this.exchangeId, executionReport.exchangeId) &&
+    return Objects.equals(this.exchangeId, executionReport.exchangeId) &&
         Objects.equals(this.id, executionReport.id) &&
         Objects.equals(this.clientOrderIdFormatExchange, executionReport.clientOrderIdFormatExchange) &&
         Objects.equals(this.exchangeOrderId, executionReport.exchangeOrderId) &&
@@ -766,7 +738,7 @@ public class ExecutionReport {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, exchangeId, id, clientOrderIdFormatExchange, exchangeOrderId, amountOpen, amountFilled, status, timeOrder, errorMessage, clientOrderId, symbolExchange, symbolCoinapi, amountOrder, price, side, orderType, timeInForce, expireTime, execInst);
+    return Objects.hash(exchangeId, id, clientOrderIdFormatExchange, exchangeOrderId, amountOpen, amountFilled, status, timeOrder, errorMessage, clientOrderId, symbolExchange, symbolCoinapi, amountOrder, price, side, orderType, timeInForce, expireTime, execInst);
   }
 
 
@@ -774,7 +746,6 @@ public class ExecutionReport {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExecutionReport {\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    exchangeId: ").append(toIndentedString(exchangeId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    clientOrderIdFormatExchange: ").append(toIndentedString(clientOrderIdFormatExchange)).append("\n");

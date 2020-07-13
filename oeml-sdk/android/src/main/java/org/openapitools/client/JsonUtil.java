@@ -101,14 +101,6 @@ public class JsonUtil {
       return new TypeToken<List<OrderCancelSingleRequest>>(){}.getType();
     }
     
-    if ("Orders".equalsIgnoreCase(className)) {
-      return new TypeToken<List<Orders>>(){}.getType();
-    }
-    
-    if ("OrdersData".equalsIgnoreCase(className)) {
-      return new TypeToken<List<OrdersData>>(){}.getType();
-    }
-    
     if ("Position".equalsIgnoreCase(className)) {
       return new TypeToken<List<Position>>(){}.getType();
     }
@@ -173,14 +165,6 @@ public class JsonUtil {
     
     if ("OrderCancelSingleRequest".equalsIgnoreCase(className)) {
       return new TypeToken<OrderCancelSingleRequest>(){}.getType();
-    }
-    
-    if ("Orders".equalsIgnoreCase(className)) {
-      return new TypeToken<Orders>(){}.getType();
-    }
-    
-    if ("OrdersData".equalsIgnoreCase(className)) {
-      return new TypeToken<OrdersData>(){}.getType();
     }
     
     if ("Position".equalsIgnoreCase(className)) {

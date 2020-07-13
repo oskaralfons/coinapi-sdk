@@ -146,8 +146,6 @@ Class | Method | HTTP request | Description
  - [OemlRestApi.OrdType](docs/OrdType.md)
  - [OemlRestApi.OrderCancelAllRequest](docs/OrderCancelAllRequest.md)
  - [OemlRestApi.OrderCancelSingleRequest](docs/OrderCancelSingleRequest.md)
- - [OemlRestApi.Orders](docs/Orders.md)
- - [OemlRestApi.OrdersData](docs/OrdersData.md)
  - [OemlRestApi.Position](docs/Position.md)
  - [OemlRestApi.PositionData](docs/PositionData.md)
  - [OemlRestApi.Severity](docs/Severity.md)

@@ -242,8 +242,6 @@ use WWW::OpenAPIClient::Object::OrdStatus;
 use WWW::OpenAPIClient::Object::OrdType;
 use WWW::OpenAPIClient::Object::OrderCancelAllRequest;
 use WWW::OpenAPIClient::Object::OrderCancelSingleRequest;
-use WWW::OpenAPIClient::Object::Orders;
-use WWW::OpenAPIClient::Object::OrdersData;
 use WWW::OpenAPIClient::Object::Position;
 use WWW::OpenAPIClient::Object::PositionData;
 use WWW::OpenAPIClient::Object::Severity;
@@ -275,8 +273,6 @@ use WWW::OpenAPIClient::Object::OrdStatus;
 use WWW::OpenAPIClient::Object::OrdType;
 use WWW::OpenAPIClient::Object::OrderCancelAllRequest;
 use WWW::OpenAPIClient::Object::OrderCancelSingleRequest;
-use WWW::OpenAPIClient::Object::Orders;
-use WWW::OpenAPIClient::Object::OrdersData;
 use WWW::OpenAPIClient::Object::Position;
 use WWW::OpenAPIClient::Object::PositionData;
 use WWW::OpenAPIClient::Object::Severity;
@@ -328,8 +324,6 @@ Class | Method | HTTP request | Description
  - [WWW::OpenAPIClient::Object::OrdType](docs/OrdType.md)
  - [WWW::OpenAPIClient::Object::OrderCancelAllRequest](docs/OrderCancelAllRequest.md)
  - [WWW::OpenAPIClient::Object::OrderCancelSingleRequest](docs/OrderCancelSingleRequest.md)
- - [WWW::OpenAPIClient::Object::Orders](docs/Orders.md)
- - [WWW::OpenAPIClient::Object::OrdersData](docs/OrdersData.md)
  - [WWW::OpenAPIClient::Object::Position](docs/Position.md)
  - [WWW::OpenAPIClient::Object::PositionData](docs/PositionData.md)
  - [WWW::OpenAPIClient::Object::Severity](docs/Severity.md)

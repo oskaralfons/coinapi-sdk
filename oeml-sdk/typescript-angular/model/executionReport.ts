@@ -15,10 +15,6 @@ import { TimeInForce } from './timeInForce';
 
 export interface ExecutionReport { 
     /**
-     * Result type name
-     */
-    type?: string;
-    /**
      * Exchange name
      */
     exchange_id?: string;

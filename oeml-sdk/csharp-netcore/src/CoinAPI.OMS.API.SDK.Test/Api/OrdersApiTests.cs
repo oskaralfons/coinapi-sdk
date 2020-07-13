@@ -88,7 +88,7 @@ namespace CoinAPI.OMS.API.SDK.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string exchangeId = null;
             //var response = instance.V1OrdersGet(exchangeId);
-            //Assert.IsType<Orders> (response, "response is Orders");
+            //Assert.IsType<List<NewOrder>> (response, "response is List<NewOrder>");
         }
         
         /// <summary>

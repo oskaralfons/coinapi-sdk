@@ -57,7 +57,6 @@ class ExecutionReport implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'type' => 'string',
         'exchange_id' => 'string',
         'id' => 'string',
         'client_order_id_format_exchange' => 'string',
@@ -85,7 +84,6 @@ class ExecutionReport implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'type' => null,
         'exchange_id' => null,
         'id' => null,
         'client_order_id_format_exchange' => null,
@@ -134,7 +132,6 @@ class ExecutionReport implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
         'exchange_id' => 'exchange_id',
         'id' => 'id',
         'client_order_id_format_exchange' => 'client_order_id_format_exchange',
@@ -162,7 +159,6 @@ class ExecutionReport implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
         'exchange_id' => 'setExchangeId',
         'id' => 'setId',
         'client_order_id_format_exchange' => 'setClientOrderIdFormatExchange',
@@ -190,7 +186,6 @@ class ExecutionReport implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
         'exchange_id' => 'getExchangeId',
         'id' => 'getId',
         'client_order_id_format_exchange' => 'getClientOrderIdFormatExchange',
@@ -317,7 +312,6 @@ class ExecutionReport implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['exchange_id'] = isset($data['exchange_id']) ? $data['exchange_id'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['client_order_id_format_exchange'] = isset($data['client_order_id_format_exchange']) ? $data['client_order_id_format_exchange'] : null;
@@ -378,30 +372,6 @@ class ExecutionReport implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets type
-     *
-     * @return string|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string|null $type Result type name
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
 
     /**
      * Gets exchange_id

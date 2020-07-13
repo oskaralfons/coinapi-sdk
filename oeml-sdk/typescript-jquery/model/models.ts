@@ -9,8 +9,6 @@ export * from './OrdStatus';
 export * from './OrdType';
 export * from './OrderCancelAllRequest';
 export * from './OrderCancelSingleRequest';
-export * from './Orders';
-export * from './OrdersData';
 export * from './Position';
 export * from './PositionData';
 export * from './Severity';

@@ -8,9 +8,6 @@ import 'package:openapi/model/ord_status.dart';
 part 'execution_report.jser.dart';
 
 class ExecutionReport {
-   /* Result type name */
-  @Alias('type', isNullable: false,  )
-  final String type;
    /* Exchange name */
   @Alias('exchange_id', isNullable: false,  )
   final String exchangeId;
@@ -90,7 +87,6 @@ class ExecutionReport {
       
 
 {
-     this.type = null,  
      this.exchangeId = null,  
      this.id = null,  
      this.clientOrderIdFormatExchange = null,  
@@ -116,7 +112,7 @@ class ExecutionReport {
 
   @override
   String toString() {
-    return 'ExecutionReport[type=$type, exchangeId=$exchangeId, id=$id, clientOrderIdFormatExchange=$clientOrderIdFormatExchange, exchangeOrderId=$exchangeOrderId, amountOpen=$amountOpen, amountFilled=$amountFilled, status=$status, timeOrder=$timeOrder, errorMessage=$errorMessage, clientOrderId=$clientOrderId, symbolExchange=$symbolExchange, symbolCoinapi=$symbolCoinapi, amountOrder=$amountOrder, price=$price, side=$side, orderType=$orderType, timeInForce=$timeInForce, expireTime=$expireTime, execInst=$execInst, ]';
+    return 'ExecutionReport[exchangeId=$exchangeId, id=$id, clientOrderIdFormatExchange=$clientOrderIdFormatExchange, exchangeOrderId=$exchangeOrderId, amountOpen=$amountOpen, amountFilled=$amountFilled, status=$status, timeOrder=$timeOrder, errorMessage=$errorMessage, clientOrderId=$clientOrderId, symbolExchange=$symbolExchange, symbolCoinapi=$symbolCoinapi, amountOrder=$amountOrder, price=$price, side=$side, orderType=$orderType, timeInForce=$timeInForce, expireTime=$expireTime, execInst=$execInst, ]';
   }
 }
 

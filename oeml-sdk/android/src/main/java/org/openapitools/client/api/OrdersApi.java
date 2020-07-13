@@ -29,7 +29,6 @@ import org.openapitools.client.model.Message;
 import org.openapitools.client.model.NewOrder;
 import org.openapitools.client.model.OrderCancelAllRequest;
 import org.openapitools.client.model.OrderCancelSingleRequest;
-import org.openapitools.client.model.Orders;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
@@ -321,9 +320,9 @@ public class OrdersApi {
   * Get all orders
   * Get all current open orders across all or single specified exchange.
    * @param exchangeId Filter the output to the orders from the specific exchange.
-   * @return Orders
+   * @return List<NewOrder>
   */
-  public Orders v1OrdersGet (String exchangeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<NewOrder> v1OrdersGet (String exchangeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -354,7 +353,7 @@ public class OrdersApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (Orders) ApiInvoker.deserialize(localVarResponse, "", Orders.class);
+         return (List<NewOrder>) ApiInvoker.deserialize(localVarResponse, "array", NewOrder.class);
       } else {
          return null;
       }
@@ -380,7 +379,7 @@ public class OrdersApi {
    * Get all current open orders across all or single specified exchange.
    * @param exchangeId Filter the output to the orders from the specific exchange.
   */
-  public void v1OrdersGet (String exchangeId, final Response.Listener<Orders> responseListener, final Response.ErrorListener errorListener) {
+  public void v1OrdersGet (String exchangeId, final Response.Listener<List<NewOrder>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -421,7 +420,7 @@ public class OrdersApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((Orders) ApiInvoker.deserialize(localVarResponse,  "", Orders.class));
+              responseListener.onResponse((List<NewOrder>) ApiInvoker.deserialize(localVarResponse,  "array", NewOrder.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
