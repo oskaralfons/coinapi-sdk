@@ -205,7 +205,7 @@ No authorization required
 
 Get order status
 
-Get the current order status for the specified order. The requested order can no longer be active.
+Get the last order execution report for the specified order. The requested order does not need to be active/opened.
 
 ### Example
 ```kotlin

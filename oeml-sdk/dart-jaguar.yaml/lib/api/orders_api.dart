@@ -83,7 +83,7 @@ class OrdersApi extends ApiClient with _$OrdersApiClient {
 
     /// Get order status
     ///
-    /// Get the current order status for the specified order. The requested order can no longer be active.
+    /// Get the last order execution report for the specified order. The requested order does not need to be active/opened.
     @GetReq(path: "/v1/orders/status/:client_order_id")
     Future<OrderExecutionReport> v1OrdersStatusClientOrderIdGet(
             @PathParam("client_order_id") String clientOrderId

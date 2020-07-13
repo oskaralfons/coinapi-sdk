@@ -241,7 +241,7 @@ class OrdersApi {
 
   /// Get order status with HTTP info returned
   ///
-  /// Get the current order status for the specified order. The requested order can no longer be active.
+  /// Get the last order execution report for the specified order. The requested order does not need to be active/opened.
   Future<Response> v1OrdersStatusClientOrderIdGetWithHttpInfo(String clientOrderId) async {
     Object postBody;
 
@@ -285,7 +285,7 @@ class OrdersApi {
 
   /// Get order status
   ///
-  /// Get the current order status for the specified order. The requested order can no longer be active.
+  /// Get the last order execution report for the specified order. The requested order does not need to be active/opened.
   Future<OrderExecutionReport> v1OrdersStatusClientOrderIdGet(String clientOrderId) async {
     Response response = await v1OrdersStatusClientOrderIdGetWithHttpInfo(clientOrderId);
     if(response.statusCode >= 400) {

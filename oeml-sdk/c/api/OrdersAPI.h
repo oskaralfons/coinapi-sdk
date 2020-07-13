@@ -47,7 +47,7 @@ OrdersAPI_v1OrdersPost(apiClient_t *apiClient, new_order_single_t * new_order_si
 
 // Get order status
 //
-// Get the current order status for the specified order. The requested order can no longer be active.
+// Get the last order execution report for the specified order. The requested order does not need to be active/opened.
 //
 order_execution_report_t*
 OrdersAPI_v1OrdersStatusClientOrderIdGet(apiClient_t *apiClient, char * client_order_id );

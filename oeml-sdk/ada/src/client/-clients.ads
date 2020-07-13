@@ -50,7 +50,7 @@ package .Clients is
        Result : out .Models.OrderExecutionReport_Type);
 
    --  Get order status
-   --  Get the current order status for the specified order. The requested order can no longer be active.
+   --  Get the last order execution report for the specified order. The requested order does not need to be active/opened.
    procedure V1_Orders_Status_Client_Order_Id_Get
       (Client : in out Client_Type;
        Client_Order_Id : in Swagger.UString;

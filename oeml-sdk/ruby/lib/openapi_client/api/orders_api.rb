@@ -271,7 +271,7 @@ module OpenapiClient
     end
 
     # Get order status
-    # Get the current order status for the specified order. The requested order can no longer be active.
+    # Get the last order execution report for the specified order. The requested order does not need to be active/opened.
     # @param client_order_id [String] The unique identifier of the order assigned by the client.
     # @param [Hash] opts the optional parameters
     # @return [OrderExecutionReport]
@@ -281,7 +281,7 @@ module OpenapiClient
     end
 
     # Get order status
-    # Get the current order status for the specified order. The requested order can no longer be active.
+    # Get the last order execution report for the specified order. The requested order does not need to be active/opened.
     # @param client_order_id [String] The unique identifier of the order assigned by the client.
     # @param [Hash] opts the optional parameters
     # @return [Array<(OrderExecutionReport, Integer, Hash)>] OrderExecutionReport data, response status code and response headers

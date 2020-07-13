@@ -93,7 +93,7 @@ v1_orders_post(Ctx, OpenapiNewOrderSingle, Optional) ->
     openapi_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Get order status
-%% Get the current order status for the specified order. The requested order can no longer be active.
+%% Get the last order execution report for the specified order. The requested order does not need to be active/opened.
 -spec v1_orders_status_client_order_id_get(ctx:ctx(), binary()) -> {ok, openapi_order_execution_report:openapi_order_execution_report(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
 v1_orders_status_client_order_id_get(Ctx, ClientOrderId) ->
     v1_orders_status_client_order_id_get(Ctx, ClientOrderId, #{}).

@@ -573,7 +573,7 @@ public class OrdersApi {
 
     /**
      * Get order status
-     * Get the current order status for the specified order. The requested order can no longer be active.
+     * Get the last order execution report for the specified order. The requested order does not need to be active/opened.
      * @param clientOrderId The unique identifier of the order assigned by the client. (required)
      * @return OrderExecutionReport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -591,7 +591,7 @@ public class OrdersApi {
 
     /**
      * Get order status
-     * Get the current order status for the specified order. The requested order can no longer be active.
+     * Get the last order execution report for the specified order. The requested order does not need to be active/opened.
      * @param clientOrderId The unique identifier of the order assigned by the client. (required)
      * @return ApiResponse&lt;OrderExecutionReport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -610,7 +610,7 @@ public class OrdersApi {
 
     /**
      * Get order status (asynchronously)
-     * Get the current order status for the specified order. The requested order can no longer be active.
+     * Get the last order execution report for the specified order. The requested order does not need to be active/opened.
      * @param clientOrderId The unique identifier of the order assigned by the client. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

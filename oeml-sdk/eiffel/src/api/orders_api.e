@@ -167,7 +167,7 @@ feature -- API Access
 
 	v1_orders_status_client_order_id_get (client_order_id: STRING_32): detachable ORDER_EXECUTION_REPORT
 			-- Get order status
-			-- Get the current order status for the specified order. The requested order can no longer be active.
+			-- Get the last order execution report for the specified order. The requested order does not need to be active/opened.
 			-- 
 			-- argument: client_order_id The unique identifier of the order assigned by the client. (required)
 			-- 

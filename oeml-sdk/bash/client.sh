@@ -672,7 +672,7 @@ print_v1OrdersStatusClientOrderIdGet_help() {
     echo ""
     echo -e "${BOLD}${WHITE}v1OrdersStatusClientOrderIdGet - Get order status${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
-    echo -e "Get the current order status for the specified order. The requested order can no longer be active." | paste -sd' ' | fold -sw 80
+    echo -e "Get the last order execution report for the specified order. The requested order does not need to be active/opened." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}client_order_id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - The unique identifier of the order assigned by the client. ${YELLOW}Specify as: client_order_id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'

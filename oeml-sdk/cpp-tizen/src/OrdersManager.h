@@ -139,7 +139,7 @@ bool v1OrdersPostAsync(char * accessToken,
 
 /*! \brief Get order status. *Synchronous*
  *
- * Get the current order status for the specified order. The requested order can no longer be active.
+ * Get the last order execution report for the specified order. The requested order does not need to be active/opened.
  * \param clientOrderId The unique identifier of the order assigned by the client. *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
@@ -152,7 +152,7 @@ bool v1OrdersStatusClientOrderIdGetSync(char * accessToken,
 
 /*! \brief Get order status. *Asynchronous*
  *
- * Get the current order status for the specified order. The requested order can no longer be active.
+ * Get the last order execution report for the specified order. The requested order does not need to be active/opened.
  * \param clientOrderId The unique identifier of the order assigned by the client. *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*

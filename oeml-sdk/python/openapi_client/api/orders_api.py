@@ -503,7 +503,7 @@ class OrdersApi(object):
     def v1_orders_status_client_order_id_get(self, client_order_id, **kwargs):  # noqa: E501
         """Get order status  # noqa: E501
 
-        Get the current order status for the specified order. The requested order can no longer be active.  # noqa: E501
+        Get the last order execution report for the specified order. The requested order does not need to be active/opened.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.v1_orders_status_client_order_id_get(client_order_id, async_req=True)
@@ -528,7 +528,7 @@ class OrdersApi(object):
     def v1_orders_status_client_order_id_get_with_http_info(self, client_order_id, **kwargs):  # noqa: E501
         """Get order status  # noqa: E501
 
-        Get the current order status for the specified order. The requested order can no longer be active.  # noqa: E501
+        Get the last order execution report for the specified order. The requested order does not need to be active/opened.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.v1_orders_status_client_order_id_get_with_http_info(client_order_id, async_req=True)
