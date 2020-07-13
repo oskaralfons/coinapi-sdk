@@ -379,35 +379,43 @@ bool OrdersManager::v1OrdersCancelPostSync(char * accessToken,
 static bool v1OrdersGetProcessor(MemoryStruct_s p_chunk, long code, char* errormsg, void* userData,
 	void(* voidHandler)())
 {
-	void(* handler)(std::list<Order>, Error, void* )
-	= reinterpret_cast<void(*)(std::list<Order>, Error, void* )> (voidHandler);
+	void(* handler)(Orders, Error, void* )
+	= reinterpret_cast<void(*)(Orders, Error, void* )> (voidHandler);
 	
 	JsonNode* pJson;
 	char * data = p_chunk.memory;
 
-	std::list<Order> out;
 	
+	Orders out;
 
 	if (code >= 200 && code < 300) {
 		Error error(code, string("No Error"));
 
 
 
-		pJson = json_from_string(data, NULL);
-		JsonArray * jsonarray = json_node_get_array (pJson);
-		guint length = json_array_get_length (jsonarray);
-		for(guint i = 0; i < length; i++){
-			JsonNode* myJson = json_array_get_element (jsonarray, i);
-			char * singlenodestr = json_to_string(myJson, false);
-			Order singlemodel;
-			singlemodel.fromJson(singlenodestr);
-			out.push_front(singlemodel);
-			g_free(static_cast<gpointer>(singlenodestr));
-			json_node_free(myJson);
-		}
-		json_array_unref (jsonarray);
-		json_node_free(pJson);
 
+		if (isprimitive("Orders")) {
+			pJson = json_from_string(data, NULL);
+			jsonToValue(&out, pJson, "Orders", "Orders");
+			json_node_free(pJson);
+
+			if ("Orders" == "std::string") {
+				string* val = (std::string*)(&out);
+				if (val->empty() && p_chunk.size>4) {
+					*val = string(p_chunk.memory, p_chunk.size);
+				}
+			}
+		} else {
+			
+			out.fromJson(data);
+			char *jsonStr =  out.toJson();
+			printf("\n%s\n", jsonStr);
+			g_free(static_cast<gpointer>(jsonStr));
+			
+		}
+		handler(out, error, userData);
+		return true;
+		//TODO: handle case where json parsing has an error
 
 	} else {
 		Error error;
@@ -425,7 +433,7 @@ static bool v1OrdersGetProcessor(MemoryStruct_s p_chunk, long code, char* errorm
 
 static bool v1OrdersGetHelper(char * accessToken,
 	std::string exchangeId, 
-	void(* handler)(std::list<Order>, Error, void* )
+	void(* handler)(Orders, Error, void* )
 	, void* userData, bool isAsync)
 {
 
@@ -503,7 +511,7 @@ static bool v1OrdersGetHelper(char * accessToken,
 
 bool OrdersManager::v1OrdersGetAsync(char * accessToken,
 	std::string exchangeId, 
-	void(* handler)(std::list<Order>, Error, void* )
+	void(* handler)(Orders, Error, void* )
 	, void* userData)
 {
 	return v1OrdersGetHelper(accessToken,
@@ -513,7 +521,7 @@ bool OrdersManager::v1OrdersGetAsync(char * accessToken,
 
 bool OrdersManager::v1OrdersGetSync(char * accessToken,
 	std::string exchangeId, 
-	void(* handler)(std::list<Order>, Error, void* )
+	void(* handler)(Orders, Error, void* )
 	, void* userData)
 {
 	return v1OrdersGetHelper(accessToken,

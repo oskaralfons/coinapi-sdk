@@ -35,9 +35,7 @@ NewOrder::NewOrder()
     m_Amount_orderIsSet = false;
     m_Price = 0.0;
     m_PriceIsSet = false;
-    m_Side = utility::conversions::to_string_t("");
     m_SideIsSet = false;
-    m_Order_type = utility::conversions::to_string_t("");
     m_Order_typeIsSet = false;
     m_Time_in_forceIsSet = false;
     m_Expire_timeIsSet = false;
@@ -175,7 +173,7 @@ bool NewOrder::fromJson(const web::json::value& val)
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("side"));
         if(!fieldValue.is_null())
         {
-            utility::string_t refVal_side;
+            std::shared_ptr<OrdSide> refVal_side;
             ok &= ModelBase::fromJson(fieldValue, refVal_side);
             setSide(refVal_side);
         }
@@ -185,7 +183,7 @@ bool NewOrder::fromJson(const web::json::value& val)
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("order_type"));
         if(!fieldValue.is_null())
         {
-            utility::string_t refVal_order_type;
+            std::shared_ptr<OrdType> refVal_order_type;
             ok &= ModelBase::fromJson(fieldValue, refVal_order_type);
             setOrderType(refVal_order_type);
         }
@@ -323,13 +321,13 @@ bool NewOrder::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const
     }
     if(multipart->hasContent(utility::conversions::to_string_t("side")))
     {
-        utility::string_t refVal_side;
+        std::shared_ptr<OrdSide> refVal_side;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("side")), refVal_side );
         setSide(refVal_side);
     }
     if(multipart->hasContent(utility::conversions::to_string_t("order_type")))
     {
-        utility::string_t refVal_order_type;
+        std::shared_ptr<OrdType> refVal_order_type;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("order_type")), refVal_order_type );
         setOrderType(refVal_order_type);
     }
@@ -474,12 +472,12 @@ void NewOrder::unsetPrice()
 {
     m_PriceIsSet = false;
 }
-utility::string_t NewOrder::getSide() const
+std::shared_ptr<OrdSide> NewOrder::getSide() const
 {
     return m_Side;
 }
 
-void NewOrder::setSide(const utility::string_t& value)
+void NewOrder::setSide(const std::shared_ptr<OrdSide>& value)
 {
     m_Side = value;
     m_SideIsSet = true;
@@ -494,12 +492,12 @@ void NewOrder::unsetSide()
 {
     m_SideIsSet = false;
 }
-utility::string_t NewOrder::getOrderType() const
+std::shared_ptr<OrdType> NewOrder::getOrderType() const
 {
     return m_Order_type;
 }
 
-void NewOrder::setOrderType(const utility::string_t& value)
+void NewOrder::setOrderType(const std::shared_ptr<OrdType>& value)
 {
     m_Order_type = value;
     m_Order_typeIsSet = true;

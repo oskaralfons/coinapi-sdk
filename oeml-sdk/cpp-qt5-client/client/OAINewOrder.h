@@ -20,6 +20,8 @@
 
 #include <QJsonObject>
 
+#include "OAIOrdSide.h"
+#include "OAIOrdType.h"
 #include "OAITimeInForce.h"
 #include <QDate>
 #include <QList>
@@ -71,13 +73,13 @@ public:
     bool is_price_Set() const;
     bool is_price_Valid() const;
 
-    QString getSide() const;
-    void setSide(const QString &side);
+    OAIOrdSide getSide() const;
+    void setSide(const OAIOrdSide &side);
     bool is_side_Set() const;
     bool is_side_Valid() const;
 
-    QString getOrderType() const;
-    void setOrderType(const QString &order_type);
+    OAIOrdType getOrderType() const;
+    void setOrderType(const OAIOrdType &order_type);
     bool is_order_type_Set() const;
     bool is_order_type_Valid() const;
 
@@ -126,11 +128,11 @@ private:
     bool m_price_isSet;
     bool m_price_isValid;
 
-    QString side;
+    OAIOrdSide side;
     bool m_side_isSet;
     bool m_side_isValid;
 
-    QString order_type;
+    OAIOrdType order_type;
     bool m_order_type_isSet;
     bool m_order_type_isValid;
 

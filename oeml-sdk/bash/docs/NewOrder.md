@@ -3,15 +3,15 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**exchangeUnderscoreid** | **string** |  | [optional] [default to null]
-**clientUnderscoreorderUnderscoreid** | **string** |  | [optional] [default to null]
+**exchangeUnderscoreid** | **string** |  | [default to null]
+**clientUnderscoreorderUnderscoreid** | **string** |  | [default to null]
 **symbolUnderscoreexchange** | **string** |  | [optional] [default to null]
 **symbolUnderscorecoinapi** | **string** |  | [optional] [default to null]
-**amountUnderscoreorder** | **integer** |  | [optional] [default to null]
-**price** | **integer** |  | [optional] [default to null]
-**side** | **string** |  | [optional] [default to null]
-**orderUnderscoretype** | **string** |  | [optional] [default to null]
-**timeUnderscoreinUnderscoreforce** | [**TimeInForce**](TimeInForce.md) |  | [optional] [default to null]
+**amountUnderscoreorder** | **integer** |  | [default to null]
+**price** | **integer** |  | [default to null]
+**side** | [**OrdSide**](OrdSide.md) |  | [default to null]
+**orderUnderscoretype** | [**OrdType**](OrdType.md) |  | [default to null]
+**timeUnderscoreinUnderscoreforce** | [**TimeInForce**](TimeInForce.md) |  | [default to null]
 **expireUnderscoretime** | **string** |  | [optional] [default to null]
 **execUnderscoreinst** | **array[string]** |  | [optional] [default to null]
 

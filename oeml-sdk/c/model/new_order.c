@@ -4,12 +4,12 @@
 #include "new_order.h"
 
 
-char* sidenew_order_ToString(oeml___rest_api_new_order_SIDE_e side) {
+char* sidenew_order_ToString(oeml___rest_api_new_order__e side) {
     char* sideArray[] =  { "NULL", "BUY", "SELL" };
 	return sideArray[side];
 }
 
-oeml___rest_api_new_order_SIDE_e sidenew_order_FromString(char* side){
+oeml___rest_api_new_order__e sidenew_order_FromString(char* side){
     int stringToReturn = 0;
     char *sideArray[] =  { "NULL", "BUY", "SELL" };
     size_t sizeofArray = sizeof(sideArray) / sizeof(sideArray[0]);
@@ -21,12 +21,12 @@ oeml___rest_api_new_order_SIDE_e sidenew_order_FromString(char* side){
     }
     return 0;
 }
-char* order_typenew_order_ToString(oeml___rest_api_new_order_ORDERTYPE_e order_type) {
+char* order_typenew_order_ToString(oeml___rest_api_new_order__e order_type) {
     char* order_typeArray[] =  { "NULL", "LIMIT" };
 	return order_typeArray[order_type];
 }
 
-oeml___rest_api_new_order_ORDERTYPE_e order_typenew_order_FromString(char* order_type){
+oeml___rest_api_new_order__e order_typenew_order_FromString(char* order_type){
     int stringToReturn = 0;
     char *order_typeArray[] =  { "NULL", "LIMIT" };
     size_t sizeofArray = sizeof(order_typeArray) / sizeof(order_typeArray[0]);
@@ -80,8 +80,6 @@ new_order_t *new_order_create(
     char *symbol_coinapi,
     double amount_order,
     double price,
-    oeml___rest_api_new_order_SIDE_e side,
-    oeml___rest_api_new_order_ORDERTYPE_e order_type,
     list_t *exec_inst
     ) {
     new_order_t *new_order_local_var = malloc(sizeof(new_order_t));
@@ -124,19 +122,23 @@ cJSON *new_order_convertToJSON(new_order_t *new_order) {
     cJSON *item = cJSON_CreateObject();
 
     // new_order->exchange_id
-    if(new_order->exchange_id) { 
+    if (!new_order->exchange_id) {
+        goto fail;
+    }
+    
     if(cJSON_AddStringToObject(item, "exchange_id", new_order->exchange_id) == NULL) {
     goto fail; //String
     }
-     } 
 
 
     // new_order->client_order_id
-    if(new_order->client_order_id) { 
+    if (!new_order->client_order_id) {
+        goto fail;
+    }
+    
     if(cJSON_AddStringToObject(item, "client_order_id", new_order->client_order_id) == NULL) {
     goto fail; //String
     }
-     } 
 
 
     // new_order->symbol_exchange
@@ -156,41 +158,34 @@ cJSON *new_order_convertToJSON(new_order_t *new_order) {
 
 
     // new_order->amount_order
-    if(new_order->amount_order) { 
+    if (!new_order->amount_order) {
+        goto fail;
+    }
+    
     if(cJSON_AddNumberToObject(item, "amount_order", new_order->amount_order) == NULL) {
     goto fail; //Numeric
     }
-     } 
 
 
     // new_order->price
-    if(new_order->price) { 
+    if (!new_order->price) {
+        goto fail;
+    }
+    
     if(cJSON_AddNumberToObject(item, "price", new_order->price) == NULL) {
     goto fail; //Numeric
     }
-     } 
 
 
     // new_order->side
-    
-    if(cJSON_AddStringToObject(item, "side", sidenew_order_ToString(new_order->side)) == NULL)
-    {
-    goto fail; //Enum
-    }
     
 
 
     // new_order->order_type
     
-    if(cJSON_AddStringToObject(item, "order_type", order_typenew_order_ToString(new_order->order_type)) == NULL)
-    {
-    goto fail; //Enum
-    }
-    
 
 
     // new_order->time_in_force
-    
     
 
 
@@ -229,20 +224,26 @@ new_order_t *new_order_parseFromJSON(cJSON *new_orderJSON){
 
     // new_order->exchange_id
     cJSON *exchange_id = cJSON_GetObjectItemCaseSensitive(new_orderJSON, "exchange_id");
-    if (exchange_id) { 
+    if (!exchange_id) {
+        goto end;
+    }
+
+    
     if(!cJSON_IsString(exchange_id))
     {
     goto end; //String
     }
-    }
 
     // new_order->client_order_id
     cJSON *client_order_id = cJSON_GetObjectItemCaseSensitive(new_orderJSON, "client_order_id");
-    if (client_order_id) { 
+    if (!client_order_id) {
+        goto end;
+    }
+
+    
     if(!cJSON_IsString(client_order_id))
     {
     goto end; //String
-    }
     }
 
     // new_order->symbol_exchange
@@ -265,47 +266,48 @@ new_order_t *new_order_parseFromJSON(cJSON *new_orderJSON){
 
     // new_order->amount_order
     cJSON *amount_order = cJSON_GetObjectItemCaseSensitive(new_orderJSON, "amount_order");
-    if (amount_order) { 
+    if (!amount_order) {
+        goto end;
+    }
+
+    
     if(!cJSON_IsNumber(amount_order))
     {
     goto end; //Numeric
     }
-    }
 
     // new_order->price
     cJSON *price = cJSON_GetObjectItemCaseSensitive(new_orderJSON, "price");
-    if (price) { 
+    if (!price) {
+        goto end;
+    }
+
+    
     if(!cJSON_IsNumber(price))
     {
     goto end; //Numeric
     }
-    }
 
     // new_order->side
     cJSON *side = cJSON_GetObjectItemCaseSensitive(new_orderJSON, "side");
-    oeml___rest_api_new_order_SIDE_e sideVariable;
-    if (side) { 
-    if(!cJSON_IsString(side))
-    {
-    goto end; //Enum
+    if (!side) {
+        goto end;
     }
-    sideVariable = sidenew_order_FromString(side->valuestring);
-    }
+
 
     // new_order->order_type
     cJSON *order_type = cJSON_GetObjectItemCaseSensitive(new_orderJSON, "order_type");
-    oeml___rest_api_new_order_ORDERTYPE_e order_typeVariable;
-    if (order_type) { 
-    if(!cJSON_IsString(order_type))
-    {
-    goto end; //Enum
+    if (!order_type) {
+        goto end;
     }
-    order_typeVariable = order_typenew_order_FromString(order_type->valuestring);
-    }
+
 
     // new_order->time_in_force
     cJSON *time_in_force = cJSON_GetObjectItemCaseSensitive(new_orderJSON, "time_in_force");
+    if (!time_in_force) {
+        goto end;
     }
+
 
     // new_order->expire_time
     cJSON *expire_time = cJSON_GetObjectItemCaseSensitive(new_orderJSON, "expire_time");
@@ -333,14 +335,12 @@ new_order_t *new_order_parseFromJSON(cJSON *new_orderJSON){
 
 
     new_order_local_var = new_order_create (
-        exchange_id ? strdup(exchange_id->valuestring) : NULL,
-        client_order_id ? strdup(client_order_id->valuestring) : NULL,
+        strdup(exchange_id->valuestring),
+        strdup(client_order_id->valuestring),
         symbol_exchange ? strdup(symbol_exchange->valuestring) : NULL,
         symbol_coinapi ? strdup(symbol_coinapi->valuestring) : NULL,
-        amount_order ? amount_order->valuedouble : 0,
-        price ? price->valuedouble : 0,
-        side ? sideVariable : -1,
-        order_type ? order_typeVariable : -1,
+        amount_order->valuedouble,
+        price->valuedouble,
         exec_inst ? exec_instList : NULL
         );
 

@@ -12,10 +12,10 @@
 
 module Request.Orders exposing (v1OrdersCancelAllPost, v1OrdersCancelPost, v1OrdersGet, v1OrdersPost, v1OrdersStatusClientOrderIdGet)
 
+import Data.Orders as Orders exposing (Orders)
 import Data.ExecutionReport as ExecutionReport exposing (ExecutionReport)
 import Data.Message as Message exposing (Message)
 import Data.CreateOrderValidationError as CreateOrderValidationError exposing (CreateOrderValidationError)
-import Data.Order_ as Order_ exposing (Order_)
 import Data.OrderCancelSingleRequest as OrderCancelSingleRequest exposing (OrderCancelSingleRequest)
 import Data.OrderCancelAllRequest as OrderCancelAllRequest exposing (OrderCancelAllRequest)
 import Data.NewOrder as NewOrder exposing (NewOrder)
@@ -85,7 +85,7 @@ v1OrdersCancelPost params =
 {-| Get all current open orders across all or single specified exchange.
 -}
 v1OrdersGet :
-    { onSend : Result Http.Error (List Order_) -> msg
+    { onSend : Result Http.Error Orders -> msg
 
 
 
@@ -101,7 +101,7 @@ v1OrdersGet params =
             ["v1", "orders"]
             (List.filterMap identity [Maybe.map (Url.string "exchange_id" << identity) params.exchangeId])
         , body = Http.emptyBody
-        , expect = Http.expectJson params.onSend (Decode.list Order_.decoder)
+        , expect = Http.expectJson params.onSend Orders.decoder
         , timeout = Just 30000
         , tracker = Nothing
         }

@@ -7,7 +7,7 @@ model.instance <- NewOrder$new()
 
 test_that("exchange_id", {
   # tests for the property `exchange_id` (character)
-  # Exchange name
+  # Exchange identifier.
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`exchange_id`, "EXPECTED_RESULT")
@@ -15,7 +15,7 @@ test_that("exchange_id", {
 
 test_that("client_order_id", {
   # tests for the property `client_order_id` (character)
-  # Client unique identifier for the trade.
+  # Unique identifier for the order assigned by the &#x60;OEML API&#x60; client.
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`client_order_id`, "EXPECTED_RESULT")
@@ -23,7 +23,7 @@ test_that("client_order_id", {
 
 test_that("symbol_exchange", {
   # tests for the property `symbol_exchange` (character)
-  # The symbol of the order.
+  # Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`symbol_exchange`, "EXPECTED_RESULT")
@@ -31,7 +31,7 @@ test_that("symbol_exchange", {
 
 test_that("symbol_coinapi", {
   # tests for the property `symbol_coinapi` (character)
-  # The CoinAPI symbol of the order.
+  # CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`symbol_coinapi`, "EXPECTED_RESULT")
@@ -39,7 +39,7 @@ test_that("symbol_coinapi", {
 
 test_that("amount_order", {
   # tests for the property `amount_order` (numeric)
-  # Quoted decimal amount to purchase.
+  # Order quantity.
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`amount_order`, "EXPECTED_RESULT")
@@ -47,23 +47,21 @@ test_that("amount_order", {
 
 test_that("price", {
   # tests for the property `price` (numeric)
-  # Quoted decimal amount to spend per unit.
+  # Order price.
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`price`, "EXPECTED_RESULT")
 })
 
 test_that("side", {
-  # tests for the property `side` (character)
-  # Buy or Sell
+  # tests for the property `side` (OrdSide)
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`side`, "EXPECTED_RESULT")
 })
 
 test_that("order_type", {
-  # tests for the property `order_type` (character)
-  # The order type.
+  # tests for the property `order_type` (OrdType)
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`order_type`, "EXPECTED_RESULT")
@@ -78,7 +76,7 @@ test_that("time_in_force", {
 
 test_that("expire_time", {
   # tests for the property `expire_time` (character)
-  # Required for orders with time_in_force &#x3D; GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
+  # Expiration time. Conditionaly required for orders with time_in_force &#x3D; &#x60;GOOD_TILL_TIME_EXCHANGE&#x60; or &#x60;GOOD_TILL_TIME_OEML&#x60;.
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`expire_time`, "EXPECTED_RESULT")
@@ -86,7 +84,7 @@ test_that("expire_time", {
 
 test_that("exec_inst", {
   # tests for the property `exec_inst` (array[character])
-  # Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; 
+  # Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt;
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`exec_inst`, "EXPECTED_RESULT")

@@ -17,9 +17,9 @@ import CreateOrderValidationError from '../model/CreateOrderValidationError';
 import ExecutionReport from '../model/ExecutionReport';
 import Message from '../model/Message';
 import NewOrder from '../model/NewOrder';
-import Order from '../model/Order';
 import OrderCancelAllRequest from '../model/OrderCancelAllRequest';
 import OrderCancelSingleRequest from '../model/OrderCancelSingleRequest';
+import Orders from '../model/Orders';
 
 /**
 * Orders service.
@@ -128,7 +128,7 @@ export default class OrdersApi {
      * Callback function to receive the result of the v1OrdersGet operation.
      * @callback module:api/OrdersApi~v1OrdersGetCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/Order>} data The data returned by the service call.
+     * @param {module:model/Orders} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -138,7 +138,7 @@ export default class OrdersApi {
      * @param {Object} opts Optional parameters
      * @param {String} opts.exchangeId Filter the output to the orders from the specific exchange.
      * @param {module:api/OrdersApi~v1OrdersGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/Order>}
+     * data is of type: {@link module:model/Orders}
      */
     v1OrdersGet(opts, callback) {
       opts = opts || {};
@@ -157,7 +157,7 @@ export default class OrdersApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = [Order];
+      let returnType = Orders;
       return this.apiClient.callApi(
         '/v1/orders', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,

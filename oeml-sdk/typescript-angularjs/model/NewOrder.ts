@@ -14,56 +14,43 @@ import * as models from './models';
 
 export interface NewOrder {
     /**
-     * Exchange name
+     * Exchange identifier.
      */
-    "exchange_id"?: string;
+    "exchange_id": string;
     /**
-     * Client unique identifier for the trade.
+     * Unique identifier for the order assigned by the `OEML API` client.
      */
-    "client_order_id"?: string;
+    "client_order_id": string;
     /**
-     * The symbol of the order.
+     * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
      */
     "symbol_exchange"?: string;
     /**
-     * The CoinAPI symbol of the order.
+     * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
      */
     "symbol_coinapi"?: string;
     /**
-     * Quoted decimal amount to purchase.
+     * Order quantity.
      */
-    "amount_order"?: number;
+    "amount_order": number;
     /**
-     * Quoted decimal amount to spend per unit.
+     * Order price.
      */
-    "price"?: number;
+    "price": number;
+    "side": models.OrdSide;
+    "order_type": models.OrdType;
+    "time_in_force": models.TimeInForce;
     /**
-     * Buy or Sell
-     */
-    "side"?: NewOrder.SideEnum;
-    /**
-     * The order type.
-     */
-    "order_type"?: NewOrder.OrderTypeEnum;
-    "time_in_force"?: models.TimeInForce;
-    /**
-     * Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
+     * Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
      */
     "expire_time"?: string;
     /**
-     * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> 
+     * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>
      */
     "exec_inst"?: Array<NewOrder.ExecInstEnum>;
 }
 
 export namespace NewOrder {
-    export enum SideEnum {
-        BUY = <any> 'BUY',
-        SELL = <any> 'SELL'
-    }
-    export enum OrderTypeEnum {
-        LIMIT = <any> 'LIMIT'
-    }
     export enum ExecInstEnum {
         MAKERORCANCEL = <any> 'MAKER_OR_CANCEL',
         AUCTIONONLY = <any> 'AUCTION_ONLY',

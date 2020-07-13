@@ -15,9 +15,9 @@ import org.openapitools.client.models.CreateOrderValidationError
 import org.openapitools.client.models.ExecutionReport
 import org.openapitools.client.models.Message
 import org.openapitools.client.models.NewOrder
-import org.openapitools.client.models.Order
 import org.openapitools.client.models.OrderCancelAllRequest
 import org.openapitools.client.models.OrderCancelSingleRequest
+import org.openapitools.client.models.Orders
 
 import org.openapitools.client.infrastructure.ApiClient
 import org.openapitools.client.infrastructure.ClientException
@@ -125,14 +125,14 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
     * Get all orders
     * Get all current open orders across all or single specified exchange.
     * @param exchangeId Filter the output to the orders from the specific exchange. (optional)
-    * @return kotlin.Array<Order>
+    * @return Orders
     * @throws UnsupportedOperationException If the API returns an informational or redirection response
     * @throws ClientException If the API returns a client error response
     * @throws ServerException If the API returns a server error response
     */
     @Suppress("UNCHECKED_CAST")
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun v1OrdersGet(exchangeId: kotlin.String?) : kotlin.Array<Order> {
+    fun v1OrdersGet(exchangeId: kotlin.String?) : Orders {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, List<kotlin.String>>()
             .apply {
@@ -147,13 +147,13 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
             query = localVariableQuery,
             headers = localVariableHeaders
         )
-        val localVarResponse = request<kotlin.Array<Order>>(
+        val localVarResponse = request<Orders>(
             localVariableConfig,
             localVariableBody
         )
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Array<Order>
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Orders
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {

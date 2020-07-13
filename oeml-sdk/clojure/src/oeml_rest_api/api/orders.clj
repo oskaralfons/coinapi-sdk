@@ -5,19 +5,21 @@
             [orchestra.core :refer [defn-spec]]
             [oeml-rest-api.specs.severity :refer :all]
             [oeml-rest-api.specs.time-in-force :refer :all]
-            [oeml-rest-api.specs.order-data :refer :all]
             [oeml-rest-api.specs.balance-data :refer :all]
             [oeml-rest-api.specs.position-data :refer :all]
             [oeml-rest-api.specs.message :refer :all]
+            [oeml-rest-api.specs.orders-data :refer :all]
             [oeml-rest-api.specs.order-cancel-single-request :refer :all]
             [oeml-rest-api.specs.create-order-validation-error :refer :all]
             [oeml-rest-api.specs.ord-status :refer :all]
             [oeml-rest-api.specs.balance :refer :all]
+            [oeml-rest-api.specs.ord-type :refer :all]
+            [oeml-rest-api.specs.orders :refer :all]
             [oeml-rest-api.specs.order-cancel-all-request :refer :all]
             [oeml-rest-api.specs.position :refer :all]
             [oeml-rest-api.specs.execution-report :refer :all]
             [oeml-rest-api.specs.new-order :refer :all]
-            [oeml-rest-api.specs.order :refer :all]
+            [oeml-rest-api.specs.ord-side :refer :all]
             )
   (:import (java.io File)))
 
@@ -86,14 +88,14 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn-spec v1-orders-get (s/coll-of order-spec)
+(defn-spec v1-orders-get orders-spec
   "Get all orders
   Get all current open orders across all or single specified exchange."
   ([] (v1-orders-get nil))
   ([optional-params any?]
    (let [res (:data (v1-orders-get-with-http-info optional-params))]
      (if (:decode-models *api-context*)
-        (st/decode (s/coll-of order-spec) res st/string-transformer)
+        (st/decode orders-spec res st/string-transformer)
         res))))
 
 

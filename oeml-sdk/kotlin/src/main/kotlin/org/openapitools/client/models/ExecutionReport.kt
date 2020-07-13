@@ -36,7 +36,7 @@ import com.squareup.moshi.Json
  * @param orderType The order type.
  * @param timeInForce 
  * @param expireTime Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
- * @param execInst Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> 
+ * @param execInst Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>
  */
 
 data class ExecutionReport (
@@ -95,7 +95,7 @@ data class ExecutionReport (
     /* Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS */
     @Json(name = "expire_time")
     val expireTime: java.time.LocalDate? = null,
-    /* Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>  */
+    /* Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> */
     @Json(name = "exec_inst")
     val execInst: kotlin.Array<ExecutionReport.ExecInst>? = null
 ) {
@@ -118,7 +118,7 @@ data class ExecutionReport (
         @Json(name = "LIMIT") lIMIT("LIMIT");
     }
     /**
-    * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> 
+    * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>
     * Values: mAKERORCANCEL,aUCTIONONLY,iNDICATIONOFINTEREST
     */
     

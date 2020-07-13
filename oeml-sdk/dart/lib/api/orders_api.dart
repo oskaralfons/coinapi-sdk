@@ -170,12 +170,12 @@ class OrdersApi {
   /// Get all orders
   ///
   /// Get all current open orders across all or single specified exchange.
-  Future<List<Order>> v1OrdersGet({ String exchangeId }) async {
+  Future<Orders> v1OrdersGet({ String exchangeId }) async {
     Response response = await v1OrdersGetWithHttpInfo( exchangeId: exchangeId );
     if(response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<Order>') as List).map((item) => item as Order).toList();
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Orders') as Orders;
     } else {
       return null;
     }

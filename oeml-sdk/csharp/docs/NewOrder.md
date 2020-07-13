@@ -5,17 +5,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ExchangeId** | **string** | Exchange name | [optional] 
-**ClientOrderId** | **string** | Client unique identifier for the trade. | [optional] 
-**SymbolExchange** | **string** | The symbol of the order. | [optional] 
-**SymbolCoinapi** | **string** | The CoinAPI symbol of the order. | [optional] 
-**AmountOrder** | **decimal** | Quoted decimal amount to purchase. | [optional] 
-**Price** | **decimal** | Quoted decimal amount to spend per unit. | [optional] 
-**Side** | **string** | Buy or Sell | [optional] 
-**OrderType** | **string** | The order type. | [optional] 
-**TimeInForce** | **TimeInForce** |  | [optional] 
-**ExpireTime** | **DateTime** | Required for orders with time_in_force &#x3D; GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS | [optional] 
-**ExecInst** | **List&lt;string&gt;** | Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt;  | [optional] 
+**ExchangeId** | **string** | Exchange identifier. | 
+**ClientOrderId** | **string** | Unique identifier for the order assigned by the &#x60;OEML API&#x60; client. | 
+**SymbolExchange** | **string** | Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order. | [optional] 
+**SymbolCoinapi** | **string** | CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order. | [optional] 
+**AmountOrder** | **decimal** | Order quantity. | 
+**Price** | **decimal** | Order price. | 
+**Side** | **OrdSide** |  | 
+**OrderType** | **OrdType** |  | 
+**TimeInForce** | **TimeInForce** |  | 
+**ExpireTime** | **DateTime** | Expiration time. Conditionaly required for orders with time_in_force &#x3D; &#x60;GOOD_TILL_TIME_EXCHANGE&#x60; or &#x60;GOOD_TILL_TIME_OEML&#x60;. | [optional] 
+**ExecInst** | **List&lt;string&gt;** | Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

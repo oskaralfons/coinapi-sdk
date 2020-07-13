@@ -29,8 +29,8 @@ NewOrder::__init()
 	//symbol_coinapi = std::string();
 	//amount_order = double(0);
 	//price = double(0);
-	//side = std::string();
-	//order_type = std::string();
+	//side = new OrdSide();
+	//order_type = new OrdType();
 	//time_in_force = new TimeInForce();
 	//expire_time = null;
 	//new std::list()std::list> exec_inst;
@@ -179,9 +179,12 @@ NewOrder::fromJson(char* jsonStr)
 	if (node !=NULL) {
 	
 
-		if (isprimitive("std::string")) {
-			jsonToValue(&side, node, "std::string", "");
+		if (isprimitive("OrdSide")) {
+			jsonToValue(&side, node, "OrdSide", "OrdSide");
 		} else {
+			
+			OrdSide* obj = static_cast<OrdSide*> (&side);
+			obj->fromJson(json_to_string(node, false));
 			
 		}
 	}
@@ -190,9 +193,12 @@ NewOrder::fromJson(char* jsonStr)
 	if (node !=NULL) {
 	
 
-		if (isprimitive("std::string")) {
-			jsonToValue(&order_type, node, "std::string", "");
+		if (isprimitive("OrdType")) {
+			jsonToValue(&order_type, node, "OrdType", "OrdType");
 		} else {
+			
+			OrdType* obj = static_cast<OrdType*> (&order_type);
+			obj->fromJson(json_to_string(node, false));
 			
 		}
 	}
@@ -322,20 +328,30 @@ NewOrder::toJson()
 	}
 	const gchar *priceKey = "price";
 	json_object_set_member(pJsonObject, priceKey, node);
-	if (isprimitive("std::string")) {
-		std::string obj = getSide();
-		node = converttoJson(&obj, "std::string", "");
+	if (isprimitive("OrdSide")) {
+		OrdSide obj = getSide();
+		node = converttoJson(&obj, "OrdSide", "");
 	}
 	else {
+		
+		OrdSide obj = static_cast<OrdSide> (getSide());
+		GError *mygerror;
+		mygerror = NULL;
+		node = json_from_string(obj.toJson(), &mygerror);
 		
 	}
 	const gchar *sideKey = "side";
 	json_object_set_member(pJsonObject, sideKey, node);
-	if (isprimitive("std::string")) {
-		std::string obj = getOrderType();
-		node = converttoJson(&obj, "std::string", "");
+	if (isprimitive("OrdType")) {
+		OrdType obj = getOrderType();
+		node = converttoJson(&obj, "OrdType", "");
 	}
 	else {
+		
+		OrdType obj = static_cast<OrdType> (getOrderType());
+		GError *mygerror;
+		mygerror = NULL;
+		node = json_from_string(obj.toJson(), &mygerror);
 		
 	}
 	const gchar *order_typeKey = "order_type";
@@ -463,26 +479,26 @@ NewOrder::setPrice(long long  price)
 	this->price = price;
 }
 
-std::string
+OrdSide
 NewOrder::getSide()
 {
 	return side;
 }
 
 void
-NewOrder::setSide(std::string  side)
+NewOrder::setSide(OrdSide  side)
 {
 	this->side = side;
 }
 
-std::string
+OrdType
 NewOrder::getOrderType()
 {
 	return order_type;
 }
 
 void
-NewOrder::setOrderType(std::string  order_type)
+NewOrder::setOrderType(OrdType  order_type)
 {
 	this->order_type = order_type;
 }

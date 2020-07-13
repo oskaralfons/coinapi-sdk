@@ -18,7 +18,7 @@ import Json.Decode.Pipeline exposing (optional, required)
 import Json.Encode as Encode
 
 
-{-| Order time in force options are documented in the separate section: <a href=\"#oeml-order-lifecycle\">OEML / Starter Guide / Order parameters / Time in force</a> 
+{-| Order time in force options are documented in the separate section: <a href=\"#oeml-order-params-tif\">OEML / Starter Guide / Order parameters / Time in force</a> 
 -}
 type TimeInForce
     = GOODTILLCANCEL

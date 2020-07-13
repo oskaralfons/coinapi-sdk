@@ -31,9 +31,9 @@ import org.openapitools.client.model.CreateOrderValidationError;
 import org.openapitools.client.model.ExecutionReport;
 import org.openapitools.client.model.Message;
 import org.openapitools.client.model.NewOrder;
-import org.openapitools.client.model.Order;
 import org.openapitools.client.model.OrderCancelAllRequest;
 import org.openapitools.client.model.OrderCancelSingleRequest;
+import org.openapitools.client.model.Orders;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -346,7 +346,7 @@ public class OrdersApi {
      * Get all orders
      * Get all current open orders across all or single specified exchange.
      * @param exchangeId Filter the output to the orders from the specific exchange. (optional)
-     * @return List&lt;Order&gt;
+     * @return Orders
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -354,8 +354,8 @@ public class OrdersApi {
         <tr><td> 200 </td><td> Collection of requested open orders. </td><td>  -  </td></tr>
      </table>
      */
-    public List<Order> v1OrdersGet(String exchangeId) throws ApiException {
-        ApiResponse<List<Order>> localVarResp = v1OrdersGetWithHttpInfo(exchangeId);
+    public Orders v1OrdersGet(String exchangeId) throws ApiException {
+        ApiResponse<Orders> localVarResp = v1OrdersGetWithHttpInfo(exchangeId);
         return localVarResp.getData();
     }
 
@@ -363,7 +363,7 @@ public class OrdersApi {
      * Get all orders
      * Get all current open orders across all or single specified exchange.
      * @param exchangeId Filter the output to the orders from the specific exchange. (optional)
-     * @return ApiResponse&lt;List&lt;Order&gt;&gt;
+     * @return ApiResponse&lt;Orders&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -371,9 +371,9 @@ public class OrdersApi {
         <tr><td> 200 </td><td> Collection of requested open orders. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Order>> v1OrdersGetWithHttpInfo(String exchangeId) throws ApiException {
+    public ApiResponse<Orders> v1OrdersGetWithHttpInfo(String exchangeId) throws ApiException {
         okhttp3.Call localVarCall = v1OrdersGetValidateBeforeCall(exchangeId, null);
-        Type localVarReturnType = new TypeToken<List<Order>>(){}.getType();
+        Type localVarReturnType = new TypeToken<Orders>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -390,10 +390,10 @@ public class OrdersApi {
         <tr><td> 200 </td><td> Collection of requested open orders. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v1OrdersGetAsync(String exchangeId, final ApiCallback<List<Order>> _callback) throws ApiException {
+    public okhttp3.Call v1OrdersGetAsync(String exchangeId, final ApiCallback<Orders> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = v1OrdersGetValidateBeforeCall(exchangeId, _callback);
-        Type localVarReturnType = new TypeToken<List<Order>>(){}.getType();
+        Type localVarReturnType = new TypeToken<Orders>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

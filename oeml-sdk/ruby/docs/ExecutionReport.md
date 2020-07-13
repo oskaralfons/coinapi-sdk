@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **order_type** | **String** | The order type. | [optional] 
 **time_in_force** | [**TimeInForce**](TimeInForce.md) |  | [optional] 
 **expire_time** | **Date** | Required for orders with time_in_force &#x3D; GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS | [optional] 
-**exec_inst** | **Array&lt;String&gt;** | Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt;  | [optional] 
+**exec_inst** | **Array&lt;String&gt;** | Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; | [optional] 
 
 ## Code Sample
 
@@ -49,7 +49,7 @@ instance = OpenapiClient::ExecutionReport.new(type: updateOrder,
                                  order_type: LIMIT,
                                  time_in_force: null,
                                  expire_time: null,
-                                 exec_inst: null)
+                                 exec_inst: MAKER_OR_CANCEL)
 ```
 
 

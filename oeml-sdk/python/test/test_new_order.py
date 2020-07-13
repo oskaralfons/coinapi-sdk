@@ -46,12 +46,17 @@ class TestNewOrder(unittest.TestCase):
                 order_type = 'LIMIT', 
                 time_in_force = 'GOOD_TILL_CANCEL', 
                 expire_time = null, 
-                exec_inst = [
-                    'MAKER_OR_CANCEL'
-                    ]
+                exec_inst = MAKER_OR_CANCEL
             )
         else :
             return NewOrder(
+                exchange_id = 'KRAKEN',
+                client_order_id = 'KPP-222389382-AQ',
+                amount_order = 0.045,
+                price = 0.0783,
+                side = 'BUY',
+                order_type = 'LIMIT',
+                time_in_force = 'GOOD_TILL_CANCEL',
         )
 
     def testNewOrder(self):

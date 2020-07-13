@@ -52,11 +52,11 @@ v1_orders_cancel_post(Ctx, OpenapiOrderCancelSingleRequest, Optional) ->
 
 %% @doc Get all orders
 %% Get all current open orders across all or single specified exchange.
--spec v1_orders_get(ctx:ctx()) -> {ok, [openapi_order:openapi_order()], openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+-spec v1_orders_get(ctx:ctx()) -> {ok, openapi_orders:openapi_orders(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
 v1_orders_get(Ctx) ->
     v1_orders_get(Ctx, #{}).
 
--spec v1_orders_get(ctx:ctx(), maps:map()) -> {ok, [openapi_order:openapi_order()], openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+-spec v1_orders_get(ctx:ctx(), maps:map()) -> {ok, openapi_orders:openapi_orders(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
 v1_orders_get(Ctx, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),

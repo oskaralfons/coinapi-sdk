@@ -1,6 +1,8 @@
 package org.openapitools.client.model {
 
 import org.openapitools.common.ListWrapper;
+import org.openapitools.client.model.OrdSide;
+import org.openapitools.client.model.OrdType;
 import org.openapitools.client.model.TimeInForce;
 
     public class NewOrderList implements ListWrapper {

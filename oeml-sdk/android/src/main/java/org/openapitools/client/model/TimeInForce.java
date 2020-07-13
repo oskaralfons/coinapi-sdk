@@ -16,9 +16,9 @@ import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Order time in force options are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-lifecycle\&quot;&gt;OEML / Starter Guide / Order parameters / Time in force&lt;/a&gt; 
+ * Order time in force options are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-tif\&quot;&gt;OEML / Starter Guide / Order parameters / Time in force&lt;/a&gt; 
  **/
-@ApiModel(description = "Order time in force options are documented in the separate section: <a href=\"#oeml-order-lifecycle\">OEML / Starter Guide / Order parameters / Time in force</a> ")
+@ApiModel(description = "Order time in force options are documented in the separate section: <a href=\"#oeml-order-params-tif\">OEML / Starter Guide / Order parameters / Time in force</a> ")
 public class TimeInForce {
   
 

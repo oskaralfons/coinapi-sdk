@@ -18,9 +18,9 @@ import org.openapitools.client.model.CreateOrderValidationError;
 import org.openapitools.client.model.ExecutionReport;
 import org.openapitools.client.model.Message;
 import org.openapitools.client.model.NewOrder;
-import org.openapitools.client.model.Order;
 import org.openapitools.client.model.OrderCancelAllRequest;
 import org.openapitools.client.model.OrderCancelSingleRequest;
+import org.openapitools.client.model.Orders;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -81,7 +81,7 @@ public class OrdersApiTest {
     @Test
     public void v1OrdersGetTest() throws ApiException {
         String exchangeId = null;
-        List<Order> response = api.v1OrdersGet(exchangeId);
+        Orders response = api.v1OrdersGet(exchangeId);
 
         // TODO: test validations
     }

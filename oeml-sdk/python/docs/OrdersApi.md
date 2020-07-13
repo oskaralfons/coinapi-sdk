@@ -138,7 +138,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_orders_get**
-> list[Order] v1_orders_get(exchange_id=exchange_id)
+> Orders v1_orders_get(exchange_id=exchange_id)
 
 Get all orders
 
@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[Order]**](Order.md)
+[**Orders**](Orders.md)
 
 ### Authorization
 

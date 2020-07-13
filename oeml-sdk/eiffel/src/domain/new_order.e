@@ -25,27 +25,27 @@ inherit
 feature --Access
 
     exchange_id: detachable STRING_32 
-      -- Exchange name
+      -- Exchange identifier.
     client_order_id: detachable STRING_32 
-      -- Client unique identifier for the trade.
+      -- Unique identifier for the order assigned by the `OEML API` client.
     symbol_exchange: detachable STRING_32 
-      -- The symbol of the order.
+      -- Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
     symbol_coinapi: detachable STRING_32 
-      -- The CoinAPI symbol of the order.
+      -- CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
     amount_order: REAL_32 
-      -- Quoted decimal amount to purchase.
+      -- Order quantity.
     price: REAL_32 
-      -- Quoted decimal amount to spend per unit.
-    side: detachable STRING_32 
-      -- Buy or Sell
-    order_type: detachable STRING_32 
-      -- The order type.
+      -- Order price.
+    side: detachable ORD_SIDE 
+      
+    order_type: detachable ORD_TYPE 
+      
     time_in_force: detachable TIME_IN_FORCE 
       
     expire_time: detachable DATE 
-      -- Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
+      -- Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
     exec_inst: detachable LIST [STRING_32] 
-      -- Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> 
+      -- Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>
 
 feature -- Change Element  
  

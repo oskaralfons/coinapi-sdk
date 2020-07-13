@@ -231,7 +231,7 @@ data ExecutionReport = ExecutionReport
   , executionReportOrderType :: !(Maybe E'OrderType) -- ^ "order_type" - The order type.
   , executionReportTimeInForce :: !(Maybe TimeInForce) -- ^ "time_in_force"
   , executionReportExpireTime :: !(Maybe Date) -- ^ "expire_time" - Required for orders with time_in_force &#x3D; GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
-  , executionReportExecInst :: !(Maybe [E'ExecInst]) -- ^ "exec_inst" - Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; 
+  , executionReportExecInst :: !(Maybe [E'ExecInst]) -- ^ "exec_inst" - Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt;
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON ExecutionReport
@@ -358,32 +358,32 @@ mkMessage =
 -- ** NewOrder
 -- | NewOrder
 data NewOrder = NewOrder
-  { newOrderExchangeId :: !(Maybe Text) -- ^ "exchange_id" - Exchange name
-  , newOrderClientOrderId :: !(Maybe Text) -- ^ "client_order_id" - Client unique identifier for the trade.
-  , newOrderSymbolExchange :: !(Maybe Text) -- ^ "symbol_exchange" - The symbol of the order.
-  , newOrderSymbolCoinapi :: !(Maybe Text) -- ^ "symbol_coinapi" - The CoinAPI symbol of the order.
-  , newOrderAmountOrder :: !(Maybe Double) -- ^ "amount_order" - Quoted decimal amount to purchase.
-  , newOrderPrice :: !(Maybe Double) -- ^ "price" - Quoted decimal amount to spend per unit.
-  , newOrderSide :: !(Maybe E'Side) -- ^ "side" - Buy or Sell
-  , newOrderOrderType :: !(Maybe E'OrderType) -- ^ "order_type" - The order type.
-  , newOrderTimeInForce :: !(Maybe TimeInForce) -- ^ "time_in_force"
-  , newOrderExpireTime :: !(Maybe Date) -- ^ "expire_time" - Required for orders with time_in_force &#x3D; GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
-  , newOrderExecInst :: !(Maybe [E'ExecInst]) -- ^ "exec_inst" - Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; 
+  { newOrderExchangeId :: !(Text) -- ^ /Required/ "exchange_id" - Exchange identifier.
+  , newOrderClientOrderId :: !(Text) -- ^ /Required/ "client_order_id" - Unique identifier for the order assigned by the &#x60;OEML API&#x60; client.
+  , newOrderSymbolExchange :: !(Maybe Text) -- ^ "symbol_exchange" - Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.
+  , newOrderSymbolCoinapi :: !(Maybe Text) -- ^ "symbol_coinapi" - CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.
+  , newOrderAmountOrder :: !(Double) -- ^ /Required/ "amount_order" - Order quantity.
+  , newOrderPrice :: !(Double) -- ^ /Required/ "price" - Order price.
+  , newOrderSide :: !(OrdSide) -- ^ /Required/ "side"
+  , newOrderOrderType :: !(OrdType) -- ^ /Required/ "order_type"
+  , newOrderTimeInForce :: !(TimeInForce) -- ^ /Required/ "time_in_force"
+  , newOrderExpireTime :: !(Maybe Date) -- ^ "expire_time" - Expiration time. Conditionaly required for orders with time_in_force &#x3D; &#x60;GOOD_TILL_TIME_EXCHANGE&#x60; or &#x60;GOOD_TILL_TIME_OEML&#x60;.
+  , newOrderExecInst :: !(Maybe [E'ExecInst]) -- ^ "exec_inst" - Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt;
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON NewOrder
 instance A.FromJSON NewOrder where
   parseJSON = A.withObject "NewOrder" $ \o ->
     NewOrder
-      <$> (o .:? "exchange_id")
-      <*> (o .:? "client_order_id")
+      <$> (o .:  "exchange_id")
+      <*> (o .:  "client_order_id")
       <*> (o .:? "symbol_exchange")
       <*> (o .:? "symbol_coinapi")
-      <*> (o .:? "amount_order")
-      <*> (o .:? "price")
-      <*> (o .:? "side")
-      <*> (o .:? "order_type")
-      <*> (o .:? "time_in_force")
+      <*> (o .:  "amount_order")
+      <*> (o .:  "price")
+      <*> (o .:  "side")
+      <*> (o .:  "order_type")
+      <*> (o .:  "time_in_force")
       <*> (o .:? "expire_time")
       <*> (o .:? "exec_inst")
 
@@ -407,56 +407,27 @@ instance A.ToJSON NewOrder where
 
 -- | Construct a value of type 'NewOrder' (by applying it's required fields, if any)
 mkNewOrder
-  :: NewOrder
-mkNewOrder =
+  :: Text -- ^ 'newOrderExchangeId': Exchange identifier.
+  -> Text -- ^ 'newOrderClientOrderId': Unique identifier for the order assigned by the `OEML API` client.
+  -> Double -- ^ 'newOrderAmountOrder': Order quantity.
+  -> Double -- ^ 'newOrderPrice': Order price.
+  -> OrdSide -- ^ 'newOrderSide' 
+  -> OrdType -- ^ 'newOrderOrderType' 
+  -> TimeInForce -- ^ 'newOrderTimeInForce' 
+  -> NewOrder
+mkNewOrder newOrderExchangeId newOrderClientOrderId newOrderAmountOrder newOrderPrice newOrderSide newOrderOrderType newOrderTimeInForce =
   NewOrder
-  { newOrderExchangeId = Nothing
-  , newOrderClientOrderId = Nothing
+  { newOrderExchangeId
+  , newOrderClientOrderId
   , newOrderSymbolExchange = Nothing
   , newOrderSymbolCoinapi = Nothing
-  , newOrderAmountOrder = Nothing
-  , newOrderPrice = Nothing
-  , newOrderSide = Nothing
-  , newOrderOrderType = Nothing
-  , newOrderTimeInForce = Nothing
+  , newOrderAmountOrder
+  , newOrderPrice
+  , newOrderSide
+  , newOrderOrderType
+  , newOrderTimeInForce
   , newOrderExpireTime = Nothing
   , newOrderExecInst = Nothing
-  }
-
--- ** Order
--- | Order
-data Order = Order
-  { orderType :: !(Maybe Text) -- ^ "type" - null
-  , orderExchangeName :: !(Maybe Text) -- ^ "exchange_name" - Exchange name
-  , orderData :: !(Maybe [OrderData]) -- ^ "data" - Orders array
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON Order
-instance A.FromJSON Order where
-  parseJSON = A.withObject "Order" $ \o ->
-    Order
-      <$> (o .:? "type")
-      <*> (o .:? "exchange_name")
-      <*> (o .:? "data")
-
--- | ToJSON Order
-instance A.ToJSON Order where
-  toJSON Order {..} =
-   _omitNulls
-      [ "type" .= orderType
-      , "exchange_name" .= orderExchangeName
-      , "data" .= orderData
-      ]
-
-
--- | Construct a value of type 'Order' (by applying it's required fields, if any)
-mkOrder
-  :: Order
-mkOrder =
-  Order
-  { orderType = Nothing
-  , orderExchangeName = Nothing
-  , orderData = Nothing
   }
 
 -- ** OrderCancelAllRequest
@@ -524,34 +495,70 @@ mkOrderCancelSingleRequest =
   , orderCancelSingleRequestClientOrderId = Nothing
   }
 
--- ** OrderData
--- | OrderData
-data OrderData = OrderData
-  { orderDataExchangeId :: !(Maybe Text) -- ^ "exchange_id" - Exchange name
-  , orderDataId :: !(Maybe Text) -- ^ "id" - Client unique identifier for the trade.
-  , orderDataClientOrderIdFormatExchange :: !(Maybe Text) -- ^ "client_order_id_format_exchange" - Hash client id
-  , orderDataExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - Exchange order id
-  , orderDataAmountOpen :: !(Maybe Double) -- ^ "amount_open" - Amount open
-  , orderDataAmountFilled :: !(Maybe Double) -- ^ "amount_filled" - Amount filled
-  , orderDataStatus :: !(Maybe OrdStatus) -- ^ "status"
-  , orderDataTimeOrder :: !(Maybe [[Text]]) -- ^ "time_order" - History of order status changes
-  , orderDataErrorMessage :: !(Maybe Text) -- ^ "error_message" - Error message
-  , orderDataClientOrderId :: !(Maybe Text) -- ^ "client_order_id" - Client unique identifier for the trade.
-  , orderDataSymbolExchange :: !(Maybe Text) -- ^ "symbol_exchange" - The symbol of the order.
-  , orderDataSymbolCoinapi :: !(Maybe Text) -- ^ "symbol_coinapi" - The CoinAPI symbol of the order.
-  , orderDataAmountOrder :: !(Maybe Double) -- ^ "amount_order" - Quoted decimal amount to purchase.
-  , orderDataPrice :: !(Maybe Double) -- ^ "price" - Quoted decimal amount to spend per unit.
-  , orderDataSide :: !(Maybe E'Side) -- ^ "side" - Buy or Sell
-  , orderDataOrderType :: !(Maybe E'OrderType) -- ^ "order_type" - The order type.
-  , orderDataTimeInForce :: !(Maybe TimeInForce) -- ^ "time_in_force"
-  , orderDataExpireTime :: !(Maybe Date) -- ^ "expire_time" - Required for orders with time_in_force &#x3D; GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
-  , orderDataExecInst :: !(Maybe [E'ExecInst]) -- ^ "exec_inst" - Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; 
+-- ** Orders
+-- | Orders
+data Orders = Orders
+  { ordersType :: !(Maybe Text) -- ^ "type" - Constant value &#x60;snapshotOrders&#x60;.
+  , ordersExchangeId :: !(Maybe Text) -- ^ "exchange_id" - Exchange identifier.
+  , ordersData :: !(Maybe [OrdersData]) -- ^ "data" - Orders array
   } deriving (P.Show, P.Eq, P.Typeable)
 
--- | FromJSON OrderData
-instance A.FromJSON OrderData where
-  parseJSON = A.withObject "OrderData" $ \o ->
-    OrderData
+-- | FromJSON Orders
+instance A.FromJSON Orders where
+  parseJSON = A.withObject "Orders" $ \o ->
+    Orders
+      <$> (o .:? "type")
+      <*> (o .:? "exchange_id")
+      <*> (o .:? "data")
+
+-- | ToJSON Orders
+instance A.ToJSON Orders where
+  toJSON Orders {..} =
+   _omitNulls
+      [ "type" .= ordersType
+      , "exchange_id" .= ordersExchangeId
+      , "data" .= ordersData
+      ]
+
+
+-- | Construct a value of type 'Orders' (by applying it's required fields, if any)
+mkOrders
+  :: Orders
+mkOrders =
+  Orders
+  { ordersType = Nothing
+  , ordersExchangeId = Nothing
+  , ordersData = Nothing
+  }
+
+-- ** OrdersData
+-- | OrdersData
+data OrdersData = OrdersData
+  { ordersDataExchangeId :: !(Maybe Text) -- ^ "exchange_id" - Exchange name
+  , ordersDataId :: !(Maybe Text) -- ^ "id" - Client unique identifier for the trade.
+  , ordersDataClientOrderIdFormatExchange :: !(Maybe Text) -- ^ "client_order_id_format_exchange" - Hash client id
+  , ordersDataExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - Exchange order id
+  , ordersDataAmountOpen :: !(Maybe Double) -- ^ "amount_open" - Amount open
+  , ordersDataAmountFilled :: !(Maybe Double) -- ^ "amount_filled" - Amount filled
+  , ordersDataStatus :: !(Maybe OrdStatus) -- ^ "status"
+  , ordersDataTimeOrder :: !(Maybe [[Text]]) -- ^ "time_order" - History of order status changes
+  , ordersDataErrorMessage :: !(Maybe Text) -- ^ "error_message" - Error message
+  , ordersDataClientOrderId :: !(Maybe Text) -- ^ "client_order_id" - Client unique identifier for the trade.
+  , ordersDataSymbolExchange :: !(Maybe Text) -- ^ "symbol_exchange" - The symbol of the order.
+  , ordersDataSymbolCoinapi :: !(Maybe Text) -- ^ "symbol_coinapi" - The CoinAPI symbol of the order.
+  , ordersDataAmountOrder :: !(Maybe Double) -- ^ "amount_order" - Quoted decimal amount to purchase.
+  , ordersDataPrice :: !(Maybe Double) -- ^ "price" - Quoted decimal amount to spend per unit.
+  , ordersDataSide :: !(Maybe E'Side) -- ^ "side" - Buy or Sell
+  , ordersDataOrderType :: !(Maybe E'OrderType) -- ^ "order_type" - The order type.
+  , ordersDataTimeInForce :: !(Maybe TimeInForce) -- ^ "time_in_force"
+  , ordersDataExpireTime :: !(Maybe Date) -- ^ "expire_time" - Required for orders with time_in_force &#x3D; GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
+  , ordersDataExecInst :: !(Maybe [E'ExecInst]) -- ^ "exec_inst" - Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt;
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON OrdersData
+instance A.FromJSON OrdersData where
+  parseJSON = A.withObject "OrdersData" $ \o ->
+    OrdersData
       <$> (o .:? "exchange_id")
       <*> (o .:? "id")
       <*> (o .:? "client_order_id_format_exchange")
@@ -572,56 +579,56 @@ instance A.FromJSON OrderData where
       <*> (o .:? "expire_time")
       <*> (o .:? "exec_inst")
 
--- | ToJSON OrderData
-instance A.ToJSON OrderData where
-  toJSON OrderData {..} =
+-- | ToJSON OrdersData
+instance A.ToJSON OrdersData where
+  toJSON OrdersData {..} =
    _omitNulls
-      [ "exchange_id" .= orderDataExchangeId
-      , "id" .= orderDataId
-      , "client_order_id_format_exchange" .= orderDataClientOrderIdFormatExchange
-      , "exchange_order_id" .= orderDataExchangeOrderId
-      , "amount_open" .= orderDataAmountOpen
-      , "amount_filled" .= orderDataAmountFilled
-      , "status" .= orderDataStatus
-      , "time_order" .= orderDataTimeOrder
-      , "error_message" .= orderDataErrorMessage
-      , "client_order_id" .= orderDataClientOrderId
-      , "symbol_exchange" .= orderDataSymbolExchange
-      , "symbol_coinapi" .= orderDataSymbolCoinapi
-      , "amount_order" .= orderDataAmountOrder
-      , "price" .= orderDataPrice
-      , "side" .= orderDataSide
-      , "order_type" .= orderDataOrderType
-      , "time_in_force" .= orderDataTimeInForce
-      , "expire_time" .= orderDataExpireTime
-      , "exec_inst" .= orderDataExecInst
+      [ "exchange_id" .= ordersDataExchangeId
+      , "id" .= ordersDataId
+      , "client_order_id_format_exchange" .= ordersDataClientOrderIdFormatExchange
+      , "exchange_order_id" .= ordersDataExchangeOrderId
+      , "amount_open" .= ordersDataAmountOpen
+      , "amount_filled" .= ordersDataAmountFilled
+      , "status" .= ordersDataStatus
+      , "time_order" .= ordersDataTimeOrder
+      , "error_message" .= ordersDataErrorMessage
+      , "client_order_id" .= ordersDataClientOrderId
+      , "symbol_exchange" .= ordersDataSymbolExchange
+      , "symbol_coinapi" .= ordersDataSymbolCoinapi
+      , "amount_order" .= ordersDataAmountOrder
+      , "price" .= ordersDataPrice
+      , "side" .= ordersDataSide
+      , "order_type" .= ordersDataOrderType
+      , "time_in_force" .= ordersDataTimeInForce
+      , "expire_time" .= ordersDataExpireTime
+      , "exec_inst" .= ordersDataExecInst
       ]
 
 
--- | Construct a value of type 'OrderData' (by applying it's required fields, if any)
-mkOrderData
-  :: OrderData
-mkOrderData =
-  OrderData
-  { orderDataExchangeId = Nothing
-  , orderDataId = Nothing
-  , orderDataClientOrderIdFormatExchange = Nothing
-  , orderDataExchangeOrderId = Nothing
-  , orderDataAmountOpen = Nothing
-  , orderDataAmountFilled = Nothing
-  , orderDataStatus = Nothing
-  , orderDataTimeOrder = Nothing
-  , orderDataErrorMessage = Nothing
-  , orderDataClientOrderId = Nothing
-  , orderDataSymbolExchange = Nothing
-  , orderDataSymbolCoinapi = Nothing
-  , orderDataAmountOrder = Nothing
-  , orderDataPrice = Nothing
-  , orderDataSide = Nothing
-  , orderDataOrderType = Nothing
-  , orderDataTimeInForce = Nothing
-  , orderDataExpireTime = Nothing
-  , orderDataExecInst = Nothing
+-- | Construct a value of type 'OrdersData' (by applying it's required fields, if any)
+mkOrdersData
+  :: OrdersData
+mkOrdersData =
+  OrdersData
+  { ordersDataExchangeId = Nothing
+  , ordersDataId = Nothing
+  , ordersDataClientOrderIdFormatExchange = Nothing
+  , ordersDataExchangeOrderId = Nothing
+  , ordersDataAmountOpen = Nothing
+  , ordersDataAmountFilled = Nothing
+  , ordersDataStatus = Nothing
+  , ordersDataTimeOrder = Nothing
+  , ordersDataErrorMessage = Nothing
+  , ordersDataClientOrderId = Nothing
+  , ordersDataSymbolExchange = Nothing
+  , ordersDataSymbolCoinapi = Nothing
+  , ordersDataAmountOrder = Nothing
+  , ordersDataPrice = Nothing
+  , ordersDataSide = Nothing
+  , ordersDataOrderType = Nothing
+  , ordersDataTimeInForce = Nothing
+  , ordersDataExpireTime = Nothing
+  , ordersDataExecInst = Nothing
   }
 
 -- ** Position
@@ -850,6 +857,35 @@ toE'UpdateOrigin = \case
   s -> P.Left $ "toE'UpdateOrigin: enum parse failure: " P.++ P.show s
 
 
+-- ** OrdSide
+
+-- | Enum of 'Text' . 
+-- Side of order. 
+data OrdSide
+  = OrdSide'BUY -- ^ @"BUY"@
+  | OrdSide'SELL -- ^ @"SELL"@
+  deriving (P.Show, P.Eq, P.Typeable, P.Ord, P.Bounded, P.Enum)
+
+instance A.ToJSON OrdSide where toJSON = A.toJSON . fromOrdSide
+instance A.FromJSON OrdSide where parseJSON o = P.either P.fail (pure . P.id) . toOrdSide =<< A.parseJSON o
+instance WH.ToHttpApiData OrdSide where toQueryParam = WH.toQueryParam . fromOrdSide
+instance WH.FromHttpApiData OrdSide where parseQueryParam o = WH.parseQueryParam o >>= P.left T.pack . toOrdSide
+instance MimeRender MimeMultipartFormData OrdSide where mimeRender _ = mimeRenderDefaultMultipartFormData
+
+-- | unwrap 'OrdSide' enum
+fromOrdSide :: OrdSide -> Text
+fromOrdSide = \case
+  OrdSide'BUY -> "BUY"
+  OrdSide'SELL -> "SELL"
+
+-- | parse 'OrdSide' enum
+toOrdSide :: Text -> P.Either String OrdSide
+toOrdSide = \case
+  "BUY" -> P.Right OrdSide'BUY
+  "SELL" -> P.Right OrdSide'SELL
+  s -> P.Left $ "toOrdSide: enum parse failure: " P.++ P.show s
+
+
 -- ** OrdStatus
 
 -- | Enum of 'Text' . 
@@ -900,6 +936,32 @@ toOrdStatus = \case
   s -> P.Left $ "toOrdStatus: enum parse failure: " P.++ P.show s
 
 
+-- ** OrdType
+
+-- | Enum of 'Text' . 
+-- Order types are documented in the separate section: <a href=\"#oeml-order-params-type\">OEML / Starter Guide / Order parameters / Order type</a> 
+data OrdType
+  = OrdType'LIMIT -- ^ @"LIMIT"@
+  deriving (P.Show, P.Eq, P.Typeable, P.Ord, P.Bounded, P.Enum)
+
+instance A.ToJSON OrdType where toJSON = A.toJSON . fromOrdType
+instance A.FromJSON OrdType where parseJSON o = P.either P.fail (pure . P.id) . toOrdType =<< A.parseJSON o
+instance WH.ToHttpApiData OrdType where toQueryParam = WH.toQueryParam . fromOrdType
+instance WH.FromHttpApiData OrdType where parseQueryParam o = WH.parseQueryParam o >>= P.left T.pack . toOrdType
+instance MimeRender MimeMultipartFormData OrdType where mimeRender _ = mimeRenderDefaultMultipartFormData
+
+-- | unwrap 'OrdType' enum
+fromOrdType :: OrdType -> Text
+fromOrdType = \case
+  OrdType'LIMIT -> "LIMIT"
+
+-- | parse 'OrdType' enum
+toOrdType :: Text -> P.Either String OrdType
+toOrdType = \case
+  "LIMIT" -> P.Right OrdType'LIMIT
+  s -> P.Left $ "toOrdType: enum parse failure: " P.++ P.show s
+
+
 -- ** Severity
 
 -- | Enum of 'Text'
@@ -934,7 +996,7 @@ toSeverity = \case
 -- ** TimeInForce
 
 -- | Enum of 'Text' . 
--- Order time in force options are documented in the separate section: <a href=\"#oeml-order-lifecycle\">OEML / Starter Guide / Order parameters / Time in force</a> 
+-- Order time in force options are documented in the separate section: <a href=\"#oeml-order-params-tif\">OEML / Starter Guide / Order parameters / Time in force</a> 
 data TimeInForce
   = TimeInForce'GOOD_TILL_CANCEL -- ^ @"GOOD_TILL_CANCEL"@
   | TimeInForce'GOOD_TILL_TIME_EXCHANGE -- ^ @"GOOD_TILL_TIME_EXCHANGE"@

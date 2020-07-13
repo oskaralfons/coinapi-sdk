@@ -38,8 +38,12 @@ String parameterToString(dynamic value) {
     return '';
   } else if (value is DateTime) {
     return value.toUtc().toIso8601String();
+  } else if (value is OrdSide) {
+    return OrdSideTypeTransformer().encode(value).toString();
   } else if (value is OrdStatus) {
     return OrdStatusTypeTransformer().encode(value).toString();
+  } else if (value is OrdType) {
+    return OrdTypeTypeTransformer().encode(value).toString();
   } else if (value is Severity) {
     return SeverityTypeTransformer().encode(value).toString();
   } else if (value is TimeInForce) {

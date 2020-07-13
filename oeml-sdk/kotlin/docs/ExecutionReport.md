@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **orderType** | [**inline**](#OrderTypeEnum) | The order type. |  [optional]
 **timeInForce** | [**TimeInForce**](TimeInForce.md) |  |  [optional]
 **expireTime** | [**java.time.LocalDate**](java.time.LocalDate.md) | Required for orders with time_in_force &#x3D; GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS |  [optional]
-**execInst** | [**inline**](#kotlin.Array&lt;ExecInstEnum&gt;) | Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt;  |  [optional]
+**execInst** | [**inline**](#kotlin.Array&lt;ExecInstEnum&gt;) | Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; |  [optional]
 
 
 <a name="SideEnum"></a>

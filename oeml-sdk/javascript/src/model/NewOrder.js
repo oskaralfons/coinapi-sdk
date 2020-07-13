@@ -12,6 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
+import OrdSide from './OrdSide';
+import OrdType from './OrdType';
 import TimeInForce from './TimeInForce';
 
 /**
@@ -23,10 +25,17 @@ class NewOrder {
     /**
      * Constructs a new <code>NewOrder</code>.
      * @alias module:model/NewOrder
+     * @param exchangeId {String} Exchange identifier.
+     * @param clientOrderId {String} Unique identifier for the order assigned by the `OEML API` client.
+     * @param amountOrder {Number} Order quantity.
+     * @param price {Number} Order price.
+     * @param side {module:model/OrdSide} 
+     * @param orderType {module:model/OrdType} 
+     * @param timeInForce {module:model/TimeInForce} 
      */
-    constructor() { 
+    constructor(exchangeId, clientOrderId, amountOrder, price, side, orderType, timeInForce) { 
         
-        NewOrder.initialize(this);
+        NewOrder.initialize(this, exchangeId, clientOrderId, amountOrder, price, side, orderType, timeInForce);
     }
 
     /**
@@ -34,7 +43,14 @@ class NewOrder {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, exchangeId, clientOrderId, amountOrder, price, side, orderType, timeInForce) { 
+        obj['exchange_id'] = exchangeId;
+        obj['client_order_id'] = clientOrderId;
+        obj['amount_order'] = amountOrder;
+        obj['price'] = price;
+        obj['side'] = side;
+        obj['order_type'] = orderType;
+        obj['time_in_force'] = timeInForce;
     }
 
     /**
@@ -67,10 +83,10 @@ class NewOrder {
                 obj['price'] = ApiClient.convertToType(data['price'], 'Number');
             }
             if (data.hasOwnProperty('side')) {
-                obj['side'] = ApiClient.convertToType(data['side'], 'String');
+                obj['side'] = OrdSide.constructFromObject(data['side']);
             }
             if (data.hasOwnProperty('order_type')) {
-                obj['order_type'] = ApiClient.convertToType(data['order_type'], 'String');
+                obj['order_type'] = OrdType.constructFromObject(data['order_type']);
             }
             if (data.hasOwnProperty('time_in_force')) {
                 obj['time_in_force'] = TimeInForce.constructFromObject(data['time_in_force']);
@@ -89,50 +105,48 @@ class NewOrder {
 }
 
 /**
- * Exchange name
+ * Exchange identifier.
  * @member {String} exchange_id
  */
 NewOrder.prototype['exchange_id'] = undefined;
 
 /**
- * Client unique identifier for the trade.
+ * Unique identifier for the order assigned by the `OEML API` client.
  * @member {String} client_order_id
  */
 NewOrder.prototype['client_order_id'] = undefined;
 
 /**
- * The symbol of the order.
+ * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
  * @member {String} symbol_exchange
  */
 NewOrder.prototype['symbol_exchange'] = undefined;
 
 /**
- * The CoinAPI symbol of the order.
+ * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
  * @member {String} symbol_coinapi
  */
 NewOrder.prototype['symbol_coinapi'] = undefined;
 
 /**
- * Quoted decimal amount to purchase.
+ * Order quantity.
  * @member {Number} amount_order
  */
 NewOrder.prototype['amount_order'] = undefined;
 
 /**
- * Quoted decimal amount to spend per unit.
+ * Order price.
  * @member {Number} price
  */
 NewOrder.prototype['price'] = undefined;
 
 /**
- * Buy or Sell
- * @member {module:model/NewOrder.SideEnum} side
+ * @member {module:model/OrdSide} side
  */
 NewOrder.prototype['side'] = undefined;
 
 /**
- * The order type.
- * @member {module:model/NewOrder.OrderTypeEnum} order_type
+ * @member {module:model/OrdType} order_type
  */
 NewOrder.prototype['order_type'] = undefined;
 
@@ -142,55 +156,19 @@ NewOrder.prototype['order_type'] = undefined;
 NewOrder.prototype['time_in_force'] = undefined;
 
 /**
- * Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
+ * Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
  * @member {Date} expire_time
  */
 NewOrder.prototype['expire_time'] = undefined;
 
 /**
- * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> 
+ * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>
  * @member {Array.<module:model/NewOrder.ExecInstEnum>} exec_inst
  */
 NewOrder.prototype['exec_inst'] = undefined;
 
 
 
-
-
-/**
- * Allowed values for the <code>side</code> property.
- * @enum {String}
- * @readonly
- */
-NewOrder['SideEnum'] = {
-
-    /**
-     * value: "BUY"
-     * @const
-     */
-    "BUY": "BUY",
-
-    /**
-     * value: "SELL"
-     * @const
-     */
-    "SELL": "SELL"
-};
-
-
-/**
- * Allowed values for the <code>order_type</code> property.
- * @enum {String}
- * @readonly
- */
-NewOrder['OrderTypeEnum'] = {
-
-    /**
-     * value: "LIMIT"
-     * @const
-     */
-    "LIMIT": "LIMIT"
-};
 
 
 /**

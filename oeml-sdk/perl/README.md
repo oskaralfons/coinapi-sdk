@@ -237,11 +237,13 @@ use WWW::OpenAPIClient::Object::CreateOrderValidationError;
 use WWW::OpenAPIClient::Object::ExecutionReport;
 use WWW::OpenAPIClient::Object::Message;
 use WWW::OpenAPIClient::Object::NewOrder;
+use WWW::OpenAPIClient::Object::OrdSide;
 use WWW::OpenAPIClient::Object::OrdStatus;
-use WWW::OpenAPIClient::Object::Order;
+use WWW::OpenAPIClient::Object::OrdType;
 use WWW::OpenAPIClient::Object::OrderCancelAllRequest;
 use WWW::OpenAPIClient::Object::OrderCancelSingleRequest;
-use WWW::OpenAPIClient::Object::OrderData;
+use WWW::OpenAPIClient::Object::Orders;
+use WWW::OpenAPIClient::Object::OrdersData;
 use WWW::OpenAPIClient::Object::Position;
 use WWW::OpenAPIClient::Object::PositionData;
 use WWW::OpenAPIClient::Object::Severity;
@@ -268,11 +270,13 @@ use WWW::OpenAPIClient::Object::CreateOrderValidationError;
 use WWW::OpenAPIClient::Object::ExecutionReport;
 use WWW::OpenAPIClient::Object::Message;
 use WWW::OpenAPIClient::Object::NewOrder;
+use WWW::OpenAPIClient::Object::OrdSide;
 use WWW::OpenAPIClient::Object::OrdStatus;
-use WWW::OpenAPIClient::Object::Order;
+use WWW::OpenAPIClient::Object::OrdType;
 use WWW::OpenAPIClient::Object::OrderCancelAllRequest;
 use WWW::OpenAPIClient::Object::OrderCancelSingleRequest;
-use WWW::OpenAPIClient::Object::OrderData;
+use WWW::OpenAPIClient::Object::Orders;
+use WWW::OpenAPIClient::Object::OrdersData;
 use WWW::OpenAPIClient::Object::Position;
 use WWW::OpenAPIClient::Object::PositionData;
 use WWW::OpenAPIClient::Object::Severity;
@@ -319,11 +323,13 @@ Class | Method | HTTP request | Description
  - [WWW::OpenAPIClient::Object::ExecutionReport](docs/ExecutionReport.md)
  - [WWW::OpenAPIClient::Object::Message](docs/Message.md)
  - [WWW::OpenAPIClient::Object::NewOrder](docs/NewOrder.md)
+ - [WWW::OpenAPIClient::Object::OrdSide](docs/OrdSide.md)
  - [WWW::OpenAPIClient::Object::OrdStatus](docs/OrdStatus.md)
- - [WWW::OpenAPIClient::Object::Order](docs/Order.md)
+ - [WWW::OpenAPIClient::Object::OrdType](docs/OrdType.md)
  - [WWW::OpenAPIClient::Object::OrderCancelAllRequest](docs/OrderCancelAllRequest.md)
  - [WWW::OpenAPIClient::Object::OrderCancelSingleRequest](docs/OrderCancelSingleRequest.md)
- - [WWW::OpenAPIClient::Object::OrderData](docs/OrderData.md)
+ - [WWW::OpenAPIClient::Object::Orders](docs/Orders.md)
+ - [WWW::OpenAPIClient::Object::OrdersData](docs/OrdersData.md)
  - [WWW::OpenAPIClient::Object::Position](docs/Position.md)
  - [WWW::OpenAPIClient::Object::PositionData](docs/PositionData.md)
  - [WWW::OpenAPIClient::Object::Severity](docs/Severity.md)

@@ -15,67 +15,52 @@
  */
 public class OASNewOrder implements OAS.MappedProperties {
     /**
-     * Exchange name
+     * Exchange identifier.
      * @return exchangeId
      */
     public String exchangeId { get; set; }
 
     /**
-     * Client unique identifier for the trade.
+     * Unique identifier for the order assigned by the `OEML API` client.
      * @return clientOrderId
      */
     public String clientOrderId { get; set; }
 
     /**
-     * The symbol of the order.
+     * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
      * @return symbolExchange
      */
     public String symbolExchange { get; set; }
 
     /**
-     * The CoinAPI symbol of the order.
+     * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
      * @return symbolCoinapi
      */
     public String symbolCoinapi { get; set; }
 
     /**
-     * Quoted decimal amount to purchase.
+     * Order quantity.
      * @return amountOrder
      */
     public Double amountOrder { get; set; }
 
     /**
-     * Quoted decimal amount to spend per unit.
+     * Order price.
      * @return price
      */
     public Double price { get; set; }
 
     /**
-     * Buy or Sell
-     */
-    public enum SideEnum {
-        BUY,
-        SELL
-    }
-
-    /**
-     * Buy or Sell
+     * Get side
      * @return side
      */
-    public SideEnum side { get; set; }
+    public OASOrdSide side { get; set; }
 
     /**
-     * The order type.
-     */
-    public enum OrderTypeEnum {
-        LIMIT
-    }
-
-    /**
-     * The order type.
+     * Get orderType
      * @return orderType
      */
-    public OrderTypeEnum orderType { get; set; }
+    public OASOrdType orderType { get; set; }
 
     /**
      * Get timeInForce
@@ -84,7 +69,7 @@ public class OASNewOrder implements OAS.MappedProperties {
     public OASTimeInForce timeInForce { get; set; }
 
     /**
-     * Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
+     * Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
      * @return expireTime
      */
     public Date expireTime { get; set; }
@@ -99,7 +84,7 @@ public class OASNewOrder implements OAS.MappedProperties {
     }
 
     /**
-     * Order execution instructions are documented in the separate section: <a href="#oeml-order-params-exec">OEML / Starter Guide / Order parameters / Execution instructions</a>\n
+     * Order execution instructions are documented in the separate section: <a href="#oeml-order-params-exec">OEML / Starter Guide / Order parameters / Execution instructions</a>
      * @return execInst
      */
     public List<ExecInstEnum> execInst { get; set; }
@@ -132,8 +117,8 @@ public class OASNewOrder implements OAS.MappedProperties {
           newOrder.symbolCoinapi = 'KRAKEN_SPOT_BTC_USD';
           newOrder.amountOrder = 0.045;
           newOrder.price = 0.0783;
-          newOrder.side = SideEnum.BUY;
-          newOrder.orderType = OrderTypeEnum.LIMIT;
+          newOrder.side = OASOrdSide.getExample();
+          newOrder.orderType = OASOrdType.getExample();
           newOrder.timeInForce = OASTimeInForce.getExample();
           newOrder.expireTime = Date.getExample();
           newOrder.execInst = List<ExecInstEnum>.LIST_EXECINSTENUM_NEW_LIST_STRING_MAKER_OR_CANCEL_;

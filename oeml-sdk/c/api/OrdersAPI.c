@@ -169,7 +169,7 @@ end:
 //
 // Get all current open orders across all or single specified exchange.
 //
-list_t*
+orders_t*
 OrdersAPI_v1OrdersGet(apiClient_t *apiClient, char * exchange_id )
 {
     list_t    *localVarQueryParameters = list_create();
@@ -212,24 +212,14 @@ OrdersAPI_v1OrdersGet(apiClient_t *apiClient, char * exchange_id )
     if (apiClient->response_code == 200) {
         printf("%s\n","Collection of requested open orders.");
     }
+    //nonprimitive not container
     cJSON *OrdersAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
-    if(!cJSON_IsArray(OrdersAPIlocalVarJSON)) {
-        return 0;//nonprimitive container
-    }
-    list_t *elementToReturn = list_create();
-    cJSON *VarJSON;
-    cJSON_ArrayForEach(VarJSON, OrdersAPIlocalVarJSON)
-    {
-        if(!cJSON_IsObject(VarJSON))
-        {
-           // return 0;
-        }
-        char *localVarJSONToChar = cJSON_Print(VarJSON);
-        list_addElement(elementToReturn , localVarJSONToChar);
+    orders_t *elementToReturn = orders_parseFromJSON(OrdersAPIlocalVarJSON);
+    cJSON_Delete(OrdersAPIlocalVarJSON);
+    if(elementToReturn == NULL) {
+        // return 0;
     }
 
-    cJSON_Delete( OrdersAPIlocalVarJSON);
-    cJSON_Delete( VarJSON);
     //return type
     if (apiClient->dataReceived) {
         free(apiClient->dataReceived);

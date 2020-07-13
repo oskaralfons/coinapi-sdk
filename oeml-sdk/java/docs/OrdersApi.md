@@ -139,7 +139,7 @@ No authorization required
 
 <a name="v1OrdersGet"></a>
 # **v1OrdersGet**
-> List&lt;Order&gt; v1OrdersGet(exchangeId)
+> Orders v1OrdersGet(exchangeId)
 
 Get all orders
 
@@ -162,7 +162,7 @@ public class Example {
     OrdersApi apiInstance = new OrdersApi(defaultClient);
     String exchangeId = KRAKEN; // String | Filter the output to the orders from the specific exchange.
     try {
-      List<Order> result = apiInstance.v1OrdersGet(exchangeId);
+      Orders result = apiInstance.v1OrdersGet(exchangeId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OrdersApi#v1OrdersGet");
@@ -183,7 +183,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;Order&gt;**](Order.md)
+[**Orders**](Orders.md)
 
 ### Authorization
 

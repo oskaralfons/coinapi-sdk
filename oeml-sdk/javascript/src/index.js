@@ -19,11 +19,13 @@ import CreateOrderValidationError from './model/CreateOrderValidationError';
 import ExecutionReport from './model/ExecutionReport';
 import Message from './model/Message';
 import NewOrder from './model/NewOrder';
+import OrdSide from './model/OrdSide';
 import OrdStatus from './model/OrdStatus';
-import Order from './model/Order';
+import OrdType from './model/OrdType';
 import OrderCancelAllRequest from './model/OrderCancelAllRequest';
 import OrderCancelSingleRequest from './model/OrderCancelSingleRequest';
-import OrderData from './model/OrderData';
+import Orders from './model/Orders';
+import OrdersData from './model/OrdersData';
 import Position from './model/Position';
 import PositionData from './model/PositionData';
 import Severity from './model/Severity';
@@ -108,16 +110,22 @@ export {
     NewOrder,
 
     /**
+     * The OrdSide model constructor.
+     * @property {module:model/OrdSide}
+     */
+    OrdSide,
+
+    /**
      * The OrdStatus model constructor.
      * @property {module:model/OrdStatus}
      */
     OrdStatus,
 
     /**
-     * The Order model constructor.
-     * @property {module:model/Order}
+     * The OrdType model constructor.
+     * @property {module:model/OrdType}
      */
-    Order,
+    OrdType,
 
     /**
      * The OrderCancelAllRequest model constructor.
@@ -132,10 +140,16 @@ export {
     OrderCancelSingleRequest,
 
     /**
-     * The OrderData model constructor.
-     * @property {module:model/OrderData}
+     * The Orders model constructor.
+     * @property {module:model/Orders}
      */
-    OrderData,
+    Orders,
+
+    /**
+     * The OrdersData model constructor.
+     * @property {module:model/OrdersData}
+     */
+    OrdersData,
 
     /**
      * The Position model constructor.

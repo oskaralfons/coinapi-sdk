@@ -184,27 +184,17 @@ instance Arbitrary NewOrder where
 genNewOrder :: Int -> Gen NewOrder
 genNewOrder n =
   NewOrder
-    <$> arbitraryReducedMaybe n -- newOrderExchangeId :: Maybe Text
-    <*> arbitraryReducedMaybe n -- newOrderClientOrderId :: Maybe Text
+    <$> arbitrary -- newOrderExchangeId :: Text
+    <*> arbitrary -- newOrderClientOrderId :: Text
     <*> arbitraryReducedMaybe n -- newOrderSymbolExchange :: Maybe Text
     <*> arbitraryReducedMaybe n -- newOrderSymbolCoinapi :: Maybe Text
-    <*> arbitraryReducedMaybe n -- newOrderAmountOrder :: Maybe Double
-    <*> arbitraryReducedMaybe n -- newOrderPrice :: Maybe Double
-    <*> arbitraryReducedMaybe n -- newOrderSide :: Maybe E'Side
-    <*> arbitraryReducedMaybe n -- newOrderOrderType :: Maybe E'OrderType
-    <*> arbitraryReducedMaybe n -- newOrderTimeInForce :: Maybe TimeInForce
+    <*> arbitrary -- newOrderAmountOrder :: Double
+    <*> arbitrary -- newOrderPrice :: Double
+    <*> arbitraryReduced n -- newOrderSide :: OrdSide
+    <*> arbitraryReduced n -- newOrderOrderType :: OrdType
+    <*> arbitraryReduced n -- newOrderTimeInForce :: TimeInForce
     <*> arbitraryReducedMaybe n -- newOrderExpireTime :: Maybe Date
     <*> arbitraryReducedMaybe n -- newOrderExecInst :: Maybe [E'ExecInst]
-  
-instance Arbitrary Order where
-  arbitrary = sized genOrder
-
-genOrder :: Int -> Gen Order
-genOrder n =
-  Order
-    <$> arbitraryReducedMaybe n -- orderType :: Maybe Text
-    <*> arbitraryReducedMaybe n -- orderExchangeName :: Maybe Text
-    <*> arbitraryReducedMaybe n -- orderData :: Maybe [OrderData]
   
 instance Arbitrary OrderCancelAllRequest where
   arbitrary = sized genOrderCancelAllRequest
@@ -224,31 +214,41 @@ genOrderCancelSingleRequest n =
     <*> arbitraryReducedMaybe n -- orderCancelSingleRequestExchangeOrderId :: Maybe Text
     <*> arbitraryReducedMaybe n -- orderCancelSingleRequestClientOrderId :: Maybe Text
   
-instance Arbitrary OrderData where
-  arbitrary = sized genOrderData
+instance Arbitrary Orders where
+  arbitrary = sized genOrders
 
-genOrderData :: Int -> Gen OrderData
-genOrderData n =
-  OrderData
-    <$> arbitraryReducedMaybe n -- orderDataExchangeId :: Maybe Text
-    <*> arbitraryReducedMaybe n -- orderDataId :: Maybe Text
-    <*> arbitraryReducedMaybe n -- orderDataClientOrderIdFormatExchange :: Maybe Text
-    <*> arbitraryReducedMaybe n -- orderDataExchangeOrderId :: Maybe Text
-    <*> arbitraryReducedMaybe n -- orderDataAmountOpen :: Maybe Double
-    <*> arbitraryReducedMaybe n -- orderDataAmountFilled :: Maybe Double
-    <*> arbitraryReducedMaybe n -- orderDataStatus :: Maybe OrdStatus
-    <*> arbitraryReducedMaybe n -- orderDataTimeOrder :: Maybe [[Text]]
-    <*> arbitraryReducedMaybe n -- orderDataErrorMessage :: Maybe Text
-    <*> arbitraryReducedMaybe n -- orderDataClientOrderId :: Maybe Text
-    <*> arbitraryReducedMaybe n -- orderDataSymbolExchange :: Maybe Text
-    <*> arbitraryReducedMaybe n -- orderDataSymbolCoinapi :: Maybe Text
-    <*> arbitraryReducedMaybe n -- orderDataAmountOrder :: Maybe Double
-    <*> arbitraryReducedMaybe n -- orderDataPrice :: Maybe Double
-    <*> arbitraryReducedMaybe n -- orderDataSide :: Maybe E'Side
-    <*> arbitraryReducedMaybe n -- orderDataOrderType :: Maybe E'OrderType
-    <*> arbitraryReducedMaybe n -- orderDataTimeInForce :: Maybe TimeInForce
-    <*> arbitraryReducedMaybe n -- orderDataExpireTime :: Maybe Date
-    <*> arbitraryReducedMaybe n -- orderDataExecInst :: Maybe [E'ExecInst]
+genOrders :: Int -> Gen Orders
+genOrders n =
+  Orders
+    <$> arbitraryReducedMaybe n -- ordersType :: Maybe Text
+    <*> arbitraryReducedMaybe n -- ordersExchangeId :: Maybe Text
+    <*> arbitraryReducedMaybe n -- ordersData :: Maybe [OrdersData]
+  
+instance Arbitrary OrdersData where
+  arbitrary = sized genOrdersData
+
+genOrdersData :: Int -> Gen OrdersData
+genOrdersData n =
+  OrdersData
+    <$> arbitraryReducedMaybe n -- ordersDataExchangeId :: Maybe Text
+    <*> arbitraryReducedMaybe n -- ordersDataId :: Maybe Text
+    <*> arbitraryReducedMaybe n -- ordersDataClientOrderIdFormatExchange :: Maybe Text
+    <*> arbitraryReducedMaybe n -- ordersDataExchangeOrderId :: Maybe Text
+    <*> arbitraryReducedMaybe n -- ordersDataAmountOpen :: Maybe Double
+    <*> arbitraryReducedMaybe n -- ordersDataAmountFilled :: Maybe Double
+    <*> arbitraryReducedMaybe n -- ordersDataStatus :: Maybe OrdStatus
+    <*> arbitraryReducedMaybe n -- ordersDataTimeOrder :: Maybe [[Text]]
+    <*> arbitraryReducedMaybe n -- ordersDataErrorMessage :: Maybe Text
+    <*> arbitraryReducedMaybe n -- ordersDataClientOrderId :: Maybe Text
+    <*> arbitraryReducedMaybe n -- ordersDataSymbolExchange :: Maybe Text
+    <*> arbitraryReducedMaybe n -- ordersDataSymbolCoinapi :: Maybe Text
+    <*> arbitraryReducedMaybe n -- ordersDataAmountOrder :: Maybe Double
+    <*> arbitraryReducedMaybe n -- ordersDataPrice :: Maybe Double
+    <*> arbitraryReducedMaybe n -- ordersDataSide :: Maybe E'Side
+    <*> arbitraryReducedMaybe n -- ordersDataOrderType :: Maybe E'OrderType
+    <*> arbitraryReducedMaybe n -- ordersDataTimeInForce :: Maybe TimeInForce
+    <*> arbitraryReducedMaybe n -- ordersDataExpireTime :: Maybe Date
+    <*> arbitraryReducedMaybe n -- ordersDataExecInst :: Maybe [E'ExecInst]
   
 instance Arbitrary Position where
   arbitrary = sized genPosition
@@ -293,7 +293,13 @@ instance Arbitrary E'Side where
 instance Arbitrary E'UpdateOrigin where
   arbitrary = arbitraryBoundedEnum
 
+instance Arbitrary OrdSide where
+  arbitrary = arbitraryBoundedEnum
+
 instance Arbitrary OrdStatus where
+  arbitrary = arbitraryBoundedEnum
+
+instance Arbitrary OrdType where
   arbitrary = arbitraryBoundedEnum
 
 instance Arbitrary Severity where

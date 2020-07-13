@@ -61,7 +61,7 @@ describe 'OrdersApi' do
   # Get all current open orders across all or single specified exchange.
   # @param [Hash] opts the optional parameters
   # @option opts [String] :exchange_id Filter the output to the orders from the specific exchange.
-  # @return [Array<Order>]
+  # @return [Orders]
   describe 'v1_orders_get test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

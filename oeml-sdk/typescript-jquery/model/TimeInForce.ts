@@ -13,10 +13,10 @@
 import * as models from './models';
 
 /**
- * Order time in force options are documented in the separate section: <a href=\"#oeml-order-lifecycle\">OEML / Starter Guide / Order parameters / Time in force</a> 
+ * Order time in force options are documented in the separate section: <a href=\"#oeml-order-params-tif\">OEML / Starter Guide / Order parameters / Time in force</a> 
  */
     /**
-    * Order time in force options are documented in the separate section: <a href=\"#oeml-order-lifecycle\">OEML / Starter Guide / Order parameters / Time in force</a> 
+    * Order time in force options are documented in the separate section: <a href=\"#oeml-order-params-tif\">OEML / Starter Guide / Order parameters / Time in force</a> 
     */
 export enum TimeInForce {
     GOODTILLCANCEL = <any> 'GOOD_TILL_CANCEL',

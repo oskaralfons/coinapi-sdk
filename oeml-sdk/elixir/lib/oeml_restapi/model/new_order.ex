@@ -23,15 +23,15 @@ defmodule OEML-RESTAPI.Model.NewOrder do
   ]
 
   @type t :: %__MODULE__{
-    :"exchange_id" => String.t | nil,
-    :"client_order_id" => String.t | nil,
+    :"exchange_id" => String.t,
+    :"client_order_id" => String.t,
     :"symbol_exchange" => String.t | nil,
     :"symbol_coinapi" => String.t | nil,
-    :"amount_order" => float() | nil,
-    :"price" => float() | nil,
-    :"side" => String.t | nil,
-    :"order_type" => String.t | nil,
-    :"time_in_force" => TimeInForce | nil,
+    :"amount_order" => float(),
+    :"price" => float(),
+    :"side" => OrdSide,
+    :"order_type" => OrdType,
+    :"time_in_force" => TimeInForce,
     :"expire_time" => DateTime | nil,
     :"exec_inst" => [String.t] | nil
   }
@@ -41,6 +41,8 @@ defimpl Poison.Decoder, for: OEML-RESTAPI.Model.NewOrder do
   import OEML-RESTAPI.Deserializer
   def decode(value, options) do
     value
+    |> deserialize(:"side", :struct, OEML-RESTAPI.Model.OrdSide, options)
+    |> deserialize(:"order_type", :struct, OEML-RESTAPI.Model.OrdType, options)
     |> deserialize(:"time_in_force", :struct, OEML-RESTAPI.Model.TimeInForce, options)
     |> deserialize(:"expire_time", :struct, OEML-RESTAPI.Model.DateTime, options)
   end

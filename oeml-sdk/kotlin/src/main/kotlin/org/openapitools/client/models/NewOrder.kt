@@ -11,78 +11,61 @@
 */
 package org.openapitools.client.models
 
+import org.openapitools.client.models.OrdSide
+import org.openapitools.client.models.OrdType
 import org.openapitools.client.models.TimeInForce
 
 import com.squareup.moshi.Json
 /**
  * 
- * @param exchangeId Exchange name
- * @param clientOrderId Client unique identifier for the trade.
- * @param symbolExchange The symbol of the order.
- * @param symbolCoinapi The CoinAPI symbol of the order.
- * @param amountOrder Quoted decimal amount to purchase.
- * @param price Quoted decimal amount to spend per unit.
- * @param side Buy or Sell
- * @param orderType The order type.
+ * @param exchangeId Exchange identifier.
+ * @param clientOrderId Unique identifier for the order assigned by the `OEML API` client.
+ * @param amountOrder Order quantity.
+ * @param price Order price.
+ * @param side 
+ * @param orderType 
  * @param timeInForce 
- * @param expireTime Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
- * @param execInst Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> 
+ * @param symbolExchange Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+ * @param symbolCoinapi CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+ * @param expireTime Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
+ * @param execInst Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>
  */
 
 data class NewOrder (
-    /* Exchange name */
+    /* Exchange identifier. */
     @Json(name = "exchange_id")
-    val exchangeId: kotlin.String? = null,
-    /* Client unique identifier for the trade. */
+    val exchangeId: kotlin.String,
+    /* Unique identifier for the order assigned by the `OEML API` client. */
     @Json(name = "client_order_id")
-    val clientOrderId: kotlin.String? = null,
-    /* The symbol of the order. */
+    val clientOrderId: kotlin.String,
+    /* Order quantity. */
+    @Json(name = "amount_order")
+    val amountOrder: java.math.BigDecimal,
+    /* Order price. */
+    @Json(name = "price")
+    val price: java.math.BigDecimal,
+    @Json(name = "side")
+    val side: OrdSide,
+    @Json(name = "order_type")
+    val orderType: OrdType,
+    @Json(name = "time_in_force")
+    val timeInForce: TimeInForce,
+    /* Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order. */
     @Json(name = "symbol_exchange")
     val symbolExchange: kotlin.String? = null,
-    /* The CoinAPI symbol of the order. */
+    /* CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order. */
     @Json(name = "symbol_coinapi")
     val symbolCoinapi: kotlin.String? = null,
-    /* Quoted decimal amount to purchase. */
-    @Json(name = "amount_order")
-    val amountOrder: java.math.BigDecimal? = null,
-    /* Quoted decimal amount to spend per unit. */
-    @Json(name = "price")
-    val price: java.math.BigDecimal? = null,
-    /* Buy or Sell */
-    @Json(name = "side")
-    val side: NewOrder.Side? = null,
-    /* The order type. */
-    @Json(name = "order_type")
-    val orderType: NewOrder.OrderType? = null,
-    @Json(name = "time_in_force")
-    val timeInForce: TimeInForce? = null,
-    /* Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS */
+    /* Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`. */
     @Json(name = "expire_time")
     val expireTime: java.time.LocalDate? = null,
-    /* Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>  */
+    /* Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> */
     @Json(name = "exec_inst")
     val execInst: kotlin.Array<NewOrder.ExecInst>? = null
 ) {
 
     /**
-    * Buy or Sell
-    * Values: bUY,sELL
-    */
-    
-    enum class Side(val value: kotlin.String){
-        @Json(name = "BUY") bUY("BUY"),
-        @Json(name = "SELL") sELL("SELL");
-    }
-    /**
-    * The order type.
-    * Values: lIMIT
-    */
-    
-    enum class OrderType(val value: kotlin.String){
-        @Json(name = "LIMIT") lIMIT("LIMIT");
-    }
-    /**
-    * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> 
+    * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>
     * Values: mAKERORCANCEL,aUCTIONONLY,iNDICATIONOFINTEREST
     */
     

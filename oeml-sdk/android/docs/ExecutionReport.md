@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **orderType** | [**OrderTypeEnum**](#OrderTypeEnum) | The order type. |  [optional]
 **timeInForce** | [**TimeInForce**](TimeInForce.md) |  |  [optional]
 **expireTime** | [**Date**](Date.md) | Required for orders with time_in_force &#x3D; GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS |  [optional]
-**execInst** | [**List&lt;ExecInstEnum&gt;**](#List&lt;ExecInstEnum&gt;) | Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt;  |  [optional]
+**execInst** | [**List&lt;ExecInstEnum&gt;**](#List&lt;ExecInstEnum&gt;) | Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; |  [optional]
 
 
 ## Enum: SideEnum

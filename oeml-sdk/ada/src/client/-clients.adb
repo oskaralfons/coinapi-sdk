@@ -72,7 +72,7 @@ package body .Clients is
    procedure V1_Orders_Get
       (Client : in out Client_Type;
        Exchange_Id : in Swagger.Nullable_UString;
-       Result : out .Models.Order_Type_Vectors.Vector) is
+       Result : out .Models.Orders_Type) is
       URI   : Swagger.Clients.URI_Type;
       Reply : Swagger.Value_Type;
    begin

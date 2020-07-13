@@ -9,9 +9,9 @@
 #include "ExecutionReport.h"
 #include "Message.h"
 #include "NewOrder.h"
-#include "Order.h"
 #include "OrderCancelAllRequest.h"
 #include "OrderCancelSingleRequest.h"
+#include "Orders.h"
 #include "Error.h"
 
 /** \defgroup Operations API Endpoints
@@ -94,7 +94,7 @@ bool v1OrdersCancelPostAsync(char * accessToken,
  */
 bool v1OrdersGetSync(char * accessToken,
 	std::string exchangeId, 
-	void(* handler)(std::list<Order>, Error, void* )
+	void(* handler)(Orders, Error, void* )
 	, void* userData);
 
 /*! \brief Get all orders. *Asynchronous*
@@ -107,7 +107,7 @@ bool v1OrdersGetSync(char * accessToken,
  */
 bool v1OrdersGetAsync(char * accessToken,
 	std::string exchangeId, 
-	void(* handler)(std::list<Order>, Error, void* )
+	void(* handler)(Orders, Error, void* )
 	, void* userData);
 
 

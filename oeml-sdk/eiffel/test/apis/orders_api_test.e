@@ -48,7 +48,7 @@ feature -- Test routines
             -- 
             -- Get all current open orders across all or single specified exchange. 
         local
-            l_response: LIST [ORDER]
+            l_response: ORDERS
             l_exchange_id: STRING_32
         do
             -- TODO: Initialize required params.

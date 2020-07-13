@@ -36,11 +36,13 @@ from openapi_client.models.create_order_validation_error import CreateOrderValid
 from openapi_client.models.execution_report import ExecutionReport
 from openapi_client.models.message import Message
 from openapi_client.models.new_order import NewOrder
+from openapi_client.models.ord_side import OrdSide
 from openapi_client.models.ord_status import OrdStatus
-from openapi_client.models.order import Order
+from openapi_client.models.ord_type import OrdType
 from openapi_client.models.order_cancel_all_request import OrderCancelAllRequest
 from openapi_client.models.order_cancel_single_request import OrderCancelSingleRequest
-from openapi_client.models.order_data import OrderData
+from openapi_client.models.orders import Orders
+from openapi_client.models.orders_data import OrdersData
 from openapi_client.models.position import Position
 from openapi_client.models.position_data import PositionData
 from openapi_client.models.severity import Severity

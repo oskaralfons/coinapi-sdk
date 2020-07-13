@@ -24,6 +24,8 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import org.openapitools.client.model.OrdSide;
+import org.openapitools.client.model.OrdType;
 import org.openapitools.client.model.TimeInForce;
 import org.threeten.bp.LocalDate;
 import org.junit.Assert;

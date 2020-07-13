@@ -39,8 +39,8 @@ class NewOrder(object):
         'symbol_coinapi': 'str',
         'amount_order': 'float',
         'price': 'float',
-        'side': 'str',
-        'order_type': 'str',
+        'side': 'OrdSide',
+        'order_type': 'OrdType',
         'time_in_force': 'TimeInForce',
         'expire_time': 'date',
         'exec_inst': 'list[str]'
@@ -79,24 +79,17 @@ class NewOrder(object):
         self._exec_inst = None
         self.discriminator = None
 
-        if exchange_id is not None:
-            self.exchange_id = exchange_id
-        if client_order_id is not None:
-            self.client_order_id = client_order_id
+        self.exchange_id = exchange_id
+        self.client_order_id = client_order_id
         if symbol_exchange is not None:
             self.symbol_exchange = symbol_exchange
         if symbol_coinapi is not None:
             self.symbol_coinapi = symbol_coinapi
-        if amount_order is not None:
-            self.amount_order = amount_order
-        if price is not None:
-            self.price = price
-        if side is not None:
-            self.side = side
-        if order_type is not None:
-            self.order_type = order_type
-        if time_in_force is not None:
-            self.time_in_force = time_in_force
+        self.amount_order = amount_order
+        self.price = price
+        self.side = side
+        self.order_type = order_type
+        self.time_in_force = time_in_force
         if expire_time is not None:
             self.expire_time = expire_time
         if exec_inst is not None:
@@ -106,7 +99,7 @@ class NewOrder(object):
     def exchange_id(self):
         """Gets the exchange_id of this NewOrder.  # noqa: E501
 
-        Exchange name  # noqa: E501
+        Exchange identifier.  # noqa: E501
 
         :return: The exchange_id of this NewOrder.  # noqa: E501
         :rtype: str
@@ -117,11 +110,13 @@ class NewOrder(object):
     def exchange_id(self, exchange_id):
         """Sets the exchange_id of this NewOrder.
 
-        Exchange name  # noqa: E501
+        Exchange identifier.  # noqa: E501
 
         :param exchange_id: The exchange_id of this NewOrder.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and exchange_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `exchange_id`, must not be `None`")  # noqa: E501
 
         self._exchange_id = exchange_id
 
@@ -129,7 +124,7 @@ class NewOrder(object):
     def client_order_id(self):
         """Gets the client_order_id of this NewOrder.  # noqa: E501
 
-        Client unique identifier for the trade.  # noqa: E501
+        Unique identifier for the order assigned by the `OEML API` client.  # noqa: E501
 
         :return: The client_order_id of this NewOrder.  # noqa: E501
         :rtype: str
@@ -140,11 +135,13 @@ class NewOrder(object):
     def client_order_id(self, client_order_id):
         """Sets the client_order_id of this NewOrder.
 
-        Client unique identifier for the trade.  # noqa: E501
+        Unique identifier for the order assigned by the `OEML API` client.  # noqa: E501
 
         :param client_order_id: The client_order_id of this NewOrder.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and client_order_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `client_order_id`, must not be `None`")  # noqa: E501
 
         self._client_order_id = client_order_id
 
@@ -152,7 +149,7 @@ class NewOrder(object):
     def symbol_exchange(self):
         """Gets the symbol_exchange of this NewOrder.  # noqa: E501
 
-        The symbol of the order.  # noqa: E501
+        Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.  # noqa: E501
 
         :return: The symbol_exchange of this NewOrder.  # noqa: E501
         :rtype: str
@@ -163,7 +160,7 @@ class NewOrder(object):
     def symbol_exchange(self, symbol_exchange):
         """Sets the symbol_exchange of this NewOrder.
 
-        The symbol of the order.  # noqa: E501
+        Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.  # noqa: E501
 
         :param symbol_exchange: The symbol_exchange of this NewOrder.  # noqa: E501
         :type: str
@@ -175,7 +172,7 @@ class NewOrder(object):
     def symbol_coinapi(self):
         """Gets the symbol_coinapi of this NewOrder.  # noqa: E501
 
-        The CoinAPI symbol of the order.  # noqa: E501
+        CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.  # noqa: E501
 
         :return: The symbol_coinapi of this NewOrder.  # noqa: E501
         :rtype: str
@@ -186,7 +183,7 @@ class NewOrder(object):
     def symbol_coinapi(self, symbol_coinapi):
         """Sets the symbol_coinapi of this NewOrder.
 
-        The CoinAPI symbol of the order.  # noqa: E501
+        CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.  # noqa: E501
 
         :param symbol_coinapi: The symbol_coinapi of this NewOrder.  # noqa: E501
         :type: str
@@ -198,7 +195,7 @@ class NewOrder(object):
     def amount_order(self):
         """Gets the amount_order of this NewOrder.  # noqa: E501
 
-        Quoted decimal amount to purchase.  # noqa: E501
+        Order quantity.  # noqa: E501
 
         :return: The amount_order of this NewOrder.  # noqa: E501
         :rtype: float
@@ -209,11 +206,13 @@ class NewOrder(object):
     def amount_order(self, amount_order):
         """Sets the amount_order of this NewOrder.
 
-        Quoted decimal amount to purchase.  # noqa: E501
+        Order quantity.  # noqa: E501
 
         :param amount_order: The amount_order of this NewOrder.  # noqa: E501
         :type: float
         """
+        if self.local_vars_configuration.client_side_validation and amount_order is None:  # noqa: E501
+            raise ValueError("Invalid value for `amount_order`, must not be `None`")  # noqa: E501
 
         self._amount_order = amount_order
 
@@ -221,7 +220,7 @@ class NewOrder(object):
     def price(self):
         """Gets the price of this NewOrder.  # noqa: E501
 
-        Quoted decimal amount to spend per unit.  # noqa: E501
+        Order price.  # noqa: E501
 
         :return: The price of this NewOrder.  # noqa: E501
         :rtype: float
@@ -232,11 +231,13 @@ class NewOrder(object):
     def price(self, price):
         """Sets the price of this NewOrder.
 
-        Quoted decimal amount to spend per unit.  # noqa: E501
+        Order price.  # noqa: E501
 
         :param price: The price of this NewOrder.  # noqa: E501
         :type: float
         """
+        if self.local_vars_configuration.client_side_validation and price is None:  # noqa: E501
+            raise ValueError("Invalid value for `price`, must not be `None`")  # noqa: E501
 
         self._price = price
 
@@ -244,10 +245,9 @@ class NewOrder(object):
     def side(self):
         """Gets the side of this NewOrder.  # noqa: E501
 
-        Buy or Sell  # noqa: E501
 
         :return: The side of this NewOrder.  # noqa: E501
-        :rtype: str
+        :rtype: OrdSide
         """
         return self._side
 
@@ -255,17 +255,12 @@ class NewOrder(object):
     def side(self, side):
         """Sets the side of this NewOrder.
 
-        Buy or Sell  # noqa: E501
 
         :param side: The side of this NewOrder.  # noqa: E501
-        :type: str
+        :type: OrdSide
         """
-        allowed_values = ["BUY", "SELL"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and side not in allowed_values:  # noqa: E501
-            raise ValueError(
-                "Invalid value for `side` ({0}), must be one of {1}"  # noqa: E501
-                .format(side, allowed_values)
-            )
+        if self.local_vars_configuration.client_side_validation and side is None:  # noqa: E501
+            raise ValueError("Invalid value for `side`, must not be `None`")  # noqa: E501
 
         self._side = side
 
@@ -273,10 +268,9 @@ class NewOrder(object):
     def order_type(self):
         """Gets the order_type of this NewOrder.  # noqa: E501
 
-        The order type.  # noqa: E501
 
         :return: The order_type of this NewOrder.  # noqa: E501
-        :rtype: str
+        :rtype: OrdType
         """
         return self._order_type
 
@@ -284,17 +278,12 @@ class NewOrder(object):
     def order_type(self, order_type):
         """Sets the order_type of this NewOrder.
 
-        The order type.  # noqa: E501
 
         :param order_type: The order_type of this NewOrder.  # noqa: E501
-        :type: str
+        :type: OrdType
         """
-        allowed_values = ["LIMIT"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and order_type not in allowed_values:  # noqa: E501
-            raise ValueError(
-                "Invalid value for `order_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(order_type, allowed_values)
-            )
+        if self.local_vars_configuration.client_side_validation and order_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `order_type`, must not be `None`")  # noqa: E501
 
         self._order_type = order_type
 
@@ -316,6 +305,8 @@ class NewOrder(object):
         :param time_in_force: The time_in_force of this NewOrder.  # noqa: E501
         :type: TimeInForce
         """
+        if self.local_vars_configuration.client_side_validation and time_in_force is None:  # noqa: E501
+            raise ValueError("Invalid value for `time_in_force`, must not be `None`")  # noqa: E501
 
         self._time_in_force = time_in_force
 
@@ -323,7 +314,7 @@ class NewOrder(object):
     def expire_time(self):
         """Gets the expire_time of this NewOrder.  # noqa: E501
 
-        Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS  # noqa: E501
+        Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.  # noqa: E501
 
         :return: The expire_time of this NewOrder.  # noqa: E501
         :rtype: date
@@ -334,7 +325,7 @@ class NewOrder(object):
     def expire_time(self, expire_time):
         """Sets the expire_time of this NewOrder.
 
-        Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS  # noqa: E501
+        Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.  # noqa: E501
 
         :param expire_time: The expire_time of this NewOrder.  # noqa: E501
         :type: date
@@ -346,7 +337,7 @@ class NewOrder(object):
     def exec_inst(self):
         """Gets the exec_inst of this NewOrder.  # noqa: E501
 
-        Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>   # noqa: E501
+        Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>  # noqa: E501
 
         :return: The exec_inst of this NewOrder.  # noqa: E501
         :rtype: list[str]
@@ -357,7 +348,7 @@ class NewOrder(object):
     def exec_inst(self, exec_inst):
         """Sets the exec_inst of this NewOrder.
 
-        Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>   # noqa: E501
+        Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>  # noqa: E501
 
         :param exec_inst: The exec_inst of this NewOrder.  # noqa: E501
         :type: list[str]

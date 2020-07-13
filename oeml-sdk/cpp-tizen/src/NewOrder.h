@@ -10,6 +10,8 @@
 
 #include <string>
 #include "Date.h"
+#include "OrdSide.h"
+#include "OrdType.h"
 #include "TimeInForce.h"
 #include <list>
 #include "Object.h"
@@ -48,62 +50,62 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get Exchange name
+	/*! \brief Get Exchange identifier.
 	 */
 	std::string getExchangeId();
 
-	/*! \brief Set Exchange name
+	/*! \brief Set Exchange identifier.
 	 */
 	void setExchangeId(std::string  exchange_id);
-	/*! \brief Get Client unique identifier for the trade.
+	/*! \brief Get Unique identifier for the order assigned by the `OEML API` client.
 	 */
 	std::string getClientOrderId();
 
-	/*! \brief Set Client unique identifier for the trade.
+	/*! \brief Set Unique identifier for the order assigned by the `OEML API` client.
 	 */
 	void setClientOrderId(std::string  client_order_id);
-	/*! \brief Get The symbol of the order.
+	/*! \brief Get Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
 	 */
 	std::string getSymbolExchange();
 
-	/*! \brief Set The symbol of the order.
+	/*! \brief Set Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
 	 */
 	void setSymbolExchange(std::string  symbol_exchange);
-	/*! \brief Get The CoinAPI symbol of the order.
+	/*! \brief Get CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
 	 */
 	std::string getSymbolCoinapi();
 
-	/*! \brief Set The CoinAPI symbol of the order.
+	/*! \brief Set CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
 	 */
 	void setSymbolCoinapi(std::string  symbol_coinapi);
-	/*! \brief Get Quoted decimal amount to purchase.
+	/*! \brief Get Order quantity.
 	 */
 	long long getAmountOrder();
 
-	/*! \brief Set Quoted decimal amount to purchase.
+	/*! \brief Set Order quantity.
 	 */
 	void setAmountOrder(long long  amount_order);
-	/*! \brief Get Quoted decimal amount to spend per unit.
+	/*! \brief Get Order price.
 	 */
 	long long getPrice();
 
-	/*! \brief Set Quoted decimal amount to spend per unit.
+	/*! \brief Set Order price.
 	 */
 	void setPrice(long long  price);
-	/*! \brief Get Buy or Sell
+	/*! \brief Get 
 	 */
-	std::string getSide();
+	OrdSide getSide();
 
-	/*! \brief Set Buy or Sell
+	/*! \brief Set 
 	 */
-	void setSide(std::string  side);
-	/*! \brief Get The order type.
+	void setSide(OrdSide  side);
+	/*! \brief Get 
 	 */
-	std::string getOrderType();
+	OrdType getOrderType();
 
-	/*! \brief Set The order type.
+	/*! \brief Set 
 	 */
-	void setOrderType(std::string  order_type);
+	void setOrderType(OrdType  order_type);
 	/*! \brief Get 
 	 */
 	TimeInForce getTimeInForce();
@@ -111,18 +113,18 @@ public:
 	/*! \brief Set 
 	 */
 	void setTimeInForce(TimeInForce  time_in_force);
-	/*! \brief Get Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
+	/*! \brief Get Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
 	 */
 	Date getExpireTime();
 
-	/*! \brief Set Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
+	/*! \brief Set Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
 	 */
 	void setExpireTime(Date  expire_time);
-	/*! \brief Get Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> 
+	/*! \brief Get Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>
 	 */
 	std::list<std::string> getExecInst();
 
-	/*! \brief Set Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> 
+	/*! \brief Set Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>
 	 */
 	void setExecInst(std::list <std::string> exec_inst);
 
@@ -133,8 +135,8 @@ private:
 	std::string symbol_coinapi;
 	long long amount_order;
 	long long price;
-	std::string side;
-	std::string order_type;
+	OrdSide side;
+	OrdType order_type;
 	TimeInForce time_in_force;
 	Date expire_time;
 	std::list <std::string>exec_inst;

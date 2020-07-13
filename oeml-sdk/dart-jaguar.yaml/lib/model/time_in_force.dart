@@ -8,15 +8,15 @@ class TimeInForce {
 
   const TimeInForce._internal(this.value);
 
-  /// Order time in force options are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-lifecycle\&quot;&gt;OEML / Starter Guide / Order parameters / Time in force&lt;/a&gt; 
+  /// Order time in force options are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-tif\&quot;&gt;OEML / Starter Guide / Order parameters / Time in force&lt;/a&gt; 
   static const TimeInForce gOODTILLCANCEL_ = const TimeInForce._internal("GOOD_TILL_CANCEL");
-  /// Order time in force options are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-lifecycle\&quot;&gt;OEML / Starter Guide / Order parameters / Time in force&lt;/a&gt; 
+  /// Order time in force options are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-tif\&quot;&gt;OEML / Starter Guide / Order parameters / Time in force&lt;/a&gt; 
   static const TimeInForce gOODTILLTIMEEXCHANGE_ = const TimeInForce._internal("GOOD_TILL_TIME_EXCHANGE");
-  /// Order time in force options are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-lifecycle\&quot;&gt;OEML / Starter Guide / Order parameters / Time in force&lt;/a&gt; 
+  /// Order time in force options are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-tif\&quot;&gt;OEML / Starter Guide / Order parameters / Time in force&lt;/a&gt; 
   static const TimeInForce gOODTILLTIMEOMS_ = const TimeInForce._internal("GOOD_TILL_TIME_OMS");
-  /// Order time in force options are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-lifecycle\&quot;&gt;OEML / Starter Guide / Order parameters / Time in force&lt;/a&gt; 
+  /// Order time in force options are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-tif\&quot;&gt;OEML / Starter Guide / Order parameters / Time in force&lt;/a&gt; 
   static const TimeInForce fILLORKILL_ = const TimeInForce._internal("FILL_OR_KILL");
-  /// Order time in force options are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-lifecycle\&quot;&gt;OEML / Starter Guide / Order parameters / Time in force&lt;/a&gt; 
+  /// Order time in force options are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-tif\&quot;&gt;OEML / Starter Guide / Order parameters / Time in force&lt;/a&gt; 
   static const TimeInForce iMMEDIATEORCANCEL_ = const TimeInForce._internal("IMMEDIATE_OR_CANCEL");
 }
 

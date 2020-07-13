@@ -700,7 +700,7 @@ class OrdersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Order[]
+     * @return \OpenAPI\Client\Model\Orders
      */
     public function v1OrdersGet($exchange_id = null)
     {
@@ -717,7 +717,7 @@ class OrdersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Order[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\Orders, HTTP status code, HTTP response headers (array of strings)
      */
     public function v1OrdersGetWithHttpInfo($exchange_id = null)
     {
@@ -754,20 +754,20 @@ class OrdersApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Order[]' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\Orders' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Order[]', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Orders', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\Order[]';
+            $returnType = '\OpenAPI\Client\Model\Orders';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -786,7 +786,7 @@ class OrdersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Order[]',
+                        '\OpenAPI\Client\Model\Orders',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -828,7 +828,7 @@ class OrdersApi
      */
     public function v1OrdersGetAsyncWithHttpInfo($exchange_id = null)
     {
-        $returnType = '\OpenAPI\Client\Model\Order[]';
+        $returnType = '\OpenAPI\Client\Model\Orders';
         $request = $this->v1OrdersGetRequest($exchange_id);
 
         return $this->client

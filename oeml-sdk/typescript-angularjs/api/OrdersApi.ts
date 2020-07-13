@@ -89,7 +89,7 @@ export class OrdersApi {
      * @summary Get all orders
      * @param exchangeId Filter the output to the orders from the specific exchange.
      */
-    public v1OrdersGet (exchangeId?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Order>> {
+    public v1OrdersGet (exchangeId?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Orders> {
         const localVarPath = this.basePath + '/v1/orders';
 
         let queryParameters: any = {};

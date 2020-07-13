@@ -34,7 +34,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * TimeInForce Class Doc Comment
  *
  * @category Class
- * @description Order time in force options are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-lifecycle\&quot;&gt;OEML / Starter Guide / Order parameters / Time in force&lt;/a&gt;
+ * @description Order time in force options are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-tif\&quot;&gt;OEML / Starter Guide / Order parameters / Time in force&lt;/a&gt;
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

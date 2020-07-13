@@ -228,7 +228,7 @@ public:
     void setExpireTime(const std::shared_ptr<utility::datetime>& value);
 
     /// <summary>
-    /// Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; 
+    /// Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt;
     /// </summary>
     std::vector<utility::string_t>& getExecInst();
     bool execInstIsSet() const;

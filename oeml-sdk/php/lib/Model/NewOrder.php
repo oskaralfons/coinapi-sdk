@@ -63,8 +63,8 @@ class NewOrder implements ModelInterface, ArrayAccess
         'symbol_coinapi' => 'string',
         'amount_order' => 'float',
         'price' => 'float',
-        'side' => 'string',
-        'order_type' => 'string',
+        'side' => '\OpenAPI\Client\Model\OrdSide',
+        'order_type' => '\OpenAPI\Client\Model\OrdType',
         'time_in_force' => '\OpenAPI\Client\Model\TimeInForce',
         'expire_time' => '\DateTime',
         'exec_inst' => 'string[]'
@@ -208,39 +208,11 @@ class NewOrder implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const SIDE_BUY = 'BUY';
-    const SIDE_SELL = 'SELL';
-    const ORDER_TYPE_LIMIT = 'LIMIT';
     const EXEC_INST_MAKER_OR_CANCEL = 'MAKER_OR_CANCEL';
     const EXEC_INST_AUCTION_ONLY = 'AUCTION_ONLY';
     const EXEC_INST_INDICATION_OF_INTEREST = 'INDICATION_OF_INTEREST';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getSideAllowableValues()
-    {
-        return [
-            self::SIDE_BUY,
-            self::SIDE_SELL,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getOrderTypeAllowableValues()
-    {
-        return [
-            self::ORDER_TYPE_LIMIT,
-        ];
-    }
     
     /**
      * Gets allowable values of the enum
@@ -294,22 +266,27 @@ class NewOrder implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getSideAllowableValues();
-        if (!is_null($this->container['side']) && !in_array($this->container['side'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'side', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
+        if ($this->container['exchange_id'] === null) {
+            $invalidProperties[] = "'exchange_id' can't be null";
         }
-
-        $allowedValues = $this->getOrderTypeAllowableValues();
-        if (!is_null($this->container['order_type']) && !in_array($this->container['order_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'order_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
+        if ($this->container['client_order_id'] === null) {
+            $invalidProperties[] = "'client_order_id' can't be null";
         }
-
+        if ($this->container['amount_order'] === null) {
+            $invalidProperties[] = "'amount_order' can't be null";
+        }
+        if ($this->container['price'] === null) {
+            $invalidProperties[] = "'price' can't be null";
+        }
+        if ($this->container['side'] === null) {
+            $invalidProperties[] = "'side' can't be null";
+        }
+        if ($this->container['order_type'] === null) {
+            $invalidProperties[] = "'order_type' can't be null";
+        }
+        if ($this->container['time_in_force'] === null) {
+            $invalidProperties[] = "'time_in_force' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -328,7 +305,7 @@ class NewOrder implements ModelInterface, ArrayAccess
     /**
      * Gets exchange_id
      *
-     * @return string|null
+     * @return string
      */
     public function getExchangeId()
     {
@@ -338,7 +315,7 @@ class NewOrder implements ModelInterface, ArrayAccess
     /**
      * Sets exchange_id
      *
-     * @param string|null $exchange_id Exchange name
+     * @param string $exchange_id Exchange identifier.
      *
      * @return $this
      */
@@ -352,7 +329,7 @@ class NewOrder implements ModelInterface, ArrayAccess
     /**
      * Gets client_order_id
      *
-     * @return string|null
+     * @return string
      */
     public function getClientOrderId()
     {
@@ -362,7 +339,7 @@ class NewOrder implements ModelInterface, ArrayAccess
     /**
      * Sets client_order_id
      *
-     * @param string|null $client_order_id Client unique identifier for the trade.
+     * @param string $client_order_id Unique identifier for the order assigned by the `OEML API` client.
      *
      * @return $this
      */
@@ -386,7 +363,7 @@ class NewOrder implements ModelInterface, ArrayAccess
     /**
      * Sets symbol_exchange
      *
-     * @param string|null $symbol_exchange The symbol of the order.
+     * @param string|null $symbol_exchange Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
      *
      * @return $this
      */
@@ -410,7 +387,7 @@ class NewOrder implements ModelInterface, ArrayAccess
     /**
      * Sets symbol_coinapi
      *
-     * @param string|null $symbol_coinapi The CoinAPI symbol of the order.
+     * @param string|null $symbol_coinapi CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
      *
      * @return $this
      */
@@ -424,7 +401,7 @@ class NewOrder implements ModelInterface, ArrayAccess
     /**
      * Gets amount_order
      *
-     * @return float|null
+     * @return float
      */
     public function getAmountOrder()
     {
@@ -434,7 +411,7 @@ class NewOrder implements ModelInterface, ArrayAccess
     /**
      * Sets amount_order
      *
-     * @param float|null $amount_order Quoted decimal amount to purchase.
+     * @param float $amount_order Order quantity.
      *
      * @return $this
      */
@@ -448,7 +425,7 @@ class NewOrder implements ModelInterface, ArrayAccess
     /**
      * Gets price
      *
-     * @return float|null
+     * @return float
      */
     public function getPrice()
     {
@@ -458,7 +435,7 @@ class NewOrder implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param float|null $price Quoted decimal amount to spend per unit.
+     * @param float $price Order price.
      *
      * @return $this
      */
@@ -472,7 +449,7 @@ class NewOrder implements ModelInterface, ArrayAccess
     /**
      * Gets side
      *
-     * @return string|null
+     * @return \OpenAPI\Client\Model\OrdSide
      */
     public function getSide()
     {
@@ -482,21 +459,12 @@ class NewOrder implements ModelInterface, ArrayAccess
     /**
      * Sets side
      *
-     * @param string|null $side Buy or Sell
+     * @param \OpenAPI\Client\Model\OrdSide $side side
      *
      * @return $this
      */
     public function setSide($side)
     {
-        $allowedValues = $this->getSideAllowableValues();
-        if (!is_null($side) && !in_array($side, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'side', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['side'] = $side;
 
         return $this;
@@ -505,7 +473,7 @@ class NewOrder implements ModelInterface, ArrayAccess
     /**
      * Gets order_type
      *
-     * @return string|null
+     * @return \OpenAPI\Client\Model\OrdType
      */
     public function getOrderType()
     {
@@ -515,21 +483,12 @@ class NewOrder implements ModelInterface, ArrayAccess
     /**
      * Sets order_type
      *
-     * @param string|null $order_type The order type.
+     * @param \OpenAPI\Client\Model\OrdType $order_type order_type
      *
      * @return $this
      */
     public function setOrderType($order_type)
     {
-        $allowedValues = $this->getOrderTypeAllowableValues();
-        if (!is_null($order_type) && !in_array($order_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'order_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['order_type'] = $order_type;
 
         return $this;
@@ -538,7 +497,7 @@ class NewOrder implements ModelInterface, ArrayAccess
     /**
      * Gets time_in_force
      *
-     * @return \OpenAPI\Client\Model\TimeInForce|null
+     * @return \OpenAPI\Client\Model\TimeInForce
      */
     public function getTimeInForce()
     {
@@ -548,7 +507,7 @@ class NewOrder implements ModelInterface, ArrayAccess
     /**
      * Sets time_in_force
      *
-     * @param \OpenAPI\Client\Model\TimeInForce|null $time_in_force time_in_force
+     * @param \OpenAPI\Client\Model\TimeInForce $time_in_force time_in_force
      *
      * @return $this
      */
@@ -572,7 +531,7 @@ class NewOrder implements ModelInterface, ArrayAccess
     /**
      * Sets expire_time
      *
-     * @param \DateTime|null $expire_time Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
+     * @param \DateTime|null $expire_time Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
      *
      * @return $this
      */

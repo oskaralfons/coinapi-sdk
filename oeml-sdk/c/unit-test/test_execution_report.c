@@ -39,9 +39,9 @@ execution_report_t* instantiate_execution_report(int include_optional) {
       0.0783,
       oeml___rest_api_execution_report_SIDE_"BUY",
       oeml___rest_api_execution_report_ORDERTYPE_"LIMIT",
-      oeml___rest_api_execution_report__GOOD_TILL_CANCEL,
+      oeml___rest_api_execution_report__"GOOD_TILL_CANCEL",
       null,
-      list_create()
+      MAKER_OR_CANCEL
     );
   } else {
     execution_report = execution_report_create(
@@ -62,9 +62,9 @@ execution_report_t* instantiate_execution_report(int include_optional) {
       0.0783,
       oeml___rest_api_execution_report_SIDE_"BUY",
       oeml___rest_api_execution_report_ORDERTYPE_"LIMIT",
-      oeml___rest_api_execution_report__GOOD_TILL_CANCEL,
+      oeml___rest_api_execution_report__"GOOD_TILL_CANCEL",
       null,
-      list_create()
+      MAKER_OR_CANCEL
     );
   }
 

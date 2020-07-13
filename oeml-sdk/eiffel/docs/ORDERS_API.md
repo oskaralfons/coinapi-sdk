@@ -72,7 +72,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_orders_get**
-> v1_orders_get (exchange_id:  detachable STRING_32 ): detachable LIST [ORDER]
+> v1_orders_get (exchange_id:  detachable STRING_32 ): detachable ORDERS
 	
 
 Get all orders
@@ -88,7 +88,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LIST [ORDER]**](Order.md)
+[**ORDERS**](Orders.md)
 
 ### Authorization
 

@@ -78,10 +78,10 @@ defmodule OEML-RESTAPI.Api.Orders do
     - :exchange_id (String.t): Filter the output to the orders from the specific exchange.
   ## Returns
 
-  {:ok, [%Order{}, ...]} on success
+  {:ok, %OEML-RESTAPI.Model.Orders{}} on success
   {:error, info} on failure
   """
-  @spec v1_orders_get(Tesla.Env.client, keyword()) :: {:ok, list(OEML-RESTAPI.Model.Order.t)} | {:error, Tesla.Env.t}
+  @spec v1_orders_get(Tesla.Env.client, keyword()) :: {:ok, OEML-RESTAPI.Model.Orders.t} | {:error, Tesla.Env.t}
   def v1_orders_get(connection, opts \\ []) do
     optional_params = %{
       :"exchange_id" => :query
@@ -93,7 +93,7 @@ defmodule OEML-RESTAPI.Api.Orders do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, [%OEML-RESTAPI.Model.Order{}]}
+      { 200, %OEML-RESTAPI.Model.Orders{}}
     ])
   end
 

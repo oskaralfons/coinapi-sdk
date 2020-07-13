@@ -596,7 +596,7 @@ class ExecutionReport(object):
     def exec_inst(self):
         """Gets the exec_inst of this ExecutionReport.  # noqa: E501
 
-        Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>   # noqa: E501
+        Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>  # noqa: E501
 
         :return: The exec_inst of this ExecutionReport.  # noqa: E501
         :rtype: list[str]
@@ -607,7 +607,7 @@ class ExecutionReport(object):
     def exec_inst(self, exec_inst):
         """Sets the exec_inst of this ExecutionReport.
 
-        Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>   # noqa: E501
+        Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>  # noqa: E501
 
         :param exec_inst: The exec_inst of this ExecutionReport.  # noqa: E501
         :type: list[str]

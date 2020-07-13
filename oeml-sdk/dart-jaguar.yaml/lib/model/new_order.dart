@@ -3,37 +3,45 @@ import 'package:jaguar_serializer/jaguar_serializer.dart';
 
 import 'package:openapi/model/time_in_force.dart';
 
+import 'package:openapi/model/ord_type.dart';
+
+import 'package:openapi/model/ord_side.dart';
+
 part 'new_order.jser.dart';
 
 class NewOrder {
-   /* Exchange name */
+   /* Exchange identifier. */
   @Alias('exchange_id', isNullable: false,  )
   final String exchangeId;
-   /* Client unique identifier for the trade. */
+   /* Unique identifier for the order assigned by the `OEML API` client. */
   @Alias('client_order_id', isNullable: false,  )
   final String clientOrderId;
-   /* The symbol of the order. */
+   /* Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order. */
   @Alias('symbol_exchange', isNullable: false,  )
   final String symbolExchange;
-   /* The CoinAPI symbol of the order. */
+   /* CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order. */
   @Alias('symbol_coinapi', isNullable: false,  )
   final String symbolCoinapi;
-   /* Quoted decimal amount to purchase. */
+   /* Order quantity. */
   @Alias('amount_order', isNullable: false,  )
   final num amountOrder;
-   /* Quoted decimal amount to spend per unit. */
+   /* Order price. */
   @Alias('price', isNullable: false,  )
   final num price;
-   /* Buy or Sell */
+  
   @Alias('side', isNullable: false,
           
-  )
-  final String side;
-  //enum sideEnum {  BUY,  SELL,  }; /* The order type. */
-  @Alias('order_type', isNullable: false,
+             processor:  const OrdSideFieldProcessor(),
           
   )
-  final String orderType;
+  final OrdSide side;
+  //enum sideEnum {  BUY,  SELL,  };
+  @Alias('order_type', isNullable: false,
+          
+             processor:  const OrdTypeFieldProcessor(),
+          
+  )
+  final OrdType orderType;
   //enum orderTypeEnum {  LIMIT,  };
   @Alias('time_in_force', isNullable: false,
           
@@ -41,10 +49,10 @@ class NewOrder {
           
   )
   final TimeInForce timeInForce;
-  //enum timeInForceEnum {  GOOD_TILL_CANCEL,  GOOD_TILL_TIME_EXCHANGE,  GOOD_TILL_TIME_OMS,  FILL_OR_KILL,  IMMEDIATE_OR_CANCEL,  }; /* Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS */
+  //enum timeInForceEnum {  GOOD_TILL_CANCEL,  GOOD_TILL_TIME_EXCHANGE,  GOOD_TILL_TIME_OMS,  FILL_OR_KILL,  IMMEDIATE_OR_CANCEL,  }; /* Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`. */
   @Alias('expire_time', isNullable: false,  )
   final DateTime expireTime;
-   /* Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>  */
+   /* Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> */
   @Alias('exec_inst', isNullable: false,
           
              processor:  const List<String>FieldProcessor(),
@@ -57,16 +65,16 @@ class NewOrder {
       
 
 {
+    
      this.exchangeId = null,  
-     this.clientOrderId = null,  
-     this.symbolExchange = null,  
+     this.clientOrderId = null,   this.symbolExchange = null,  
      this.symbolCoinapi = null,  
+    
      this.amountOrder = null,  
      this.price = null,  
      this.side = null,  
      this.orderType = null,  
-     this.timeInForce = null,  
-     this.expireTime = null,  
+     this.timeInForce = null,   this.expireTime = null,  
      this.execInst = const [] 
     
     }

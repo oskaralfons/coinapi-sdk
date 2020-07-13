@@ -6,30 +6,32 @@ import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import org.openapitools.model.OrdSide;
+import org.openapitools.model.OrdType;
 import org.openapitools.model.TimeInForce;
 
 @Canonical
 class NewOrder {
-    /* Exchange name */
+    /* Exchange identifier. */
     String exchangeId
-    /* Client unique identifier for the trade. */
+    /* Unique identifier for the order assigned by the `OEML API` client. */
     String clientOrderId
-    /* The symbol of the order. */
+    /* Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order. */
     String symbolExchange
-    /* The CoinAPI symbol of the order. */
+    /* CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order. */
     String symbolCoinapi
-    /* Quoted decimal amount to purchase. */
+    /* Order quantity. */
     BigDecimal amountOrder
-    /* Quoted decimal amount to spend per unit. */
+    /* Order price. */
     BigDecimal price
-    /* Buy or Sell */
-    String side
-    /* The order type. */
-    String orderType
+    
+    OrdSide side
+    
+    OrdType orderType
     
     TimeInForce timeInForce
-    /* Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS */
+    /* Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`. */
     Date expireTime = null
-    /* Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>  */
+    /* Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> */
     List<String> execInst = new ArrayList<ExecInstEnum>()
 }

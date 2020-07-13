@@ -63,7 +63,7 @@ import org.openapitools.client.model.TimeInForce;
         /* Required for orders with time_in_force &#x3D; GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS */
         [XmlElement(name="expire_time")]
         public var expireTime: Date = NaN;
-        /* Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt;  */
+        /* Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; */
         // This declaration below of _execInst_obj_class is to force flash compiler to include this class
         private var _execInst_obj_class: Array = null;
         [XmlElementWrapper(name="exec_inst")]

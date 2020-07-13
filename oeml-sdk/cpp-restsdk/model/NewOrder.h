@@ -21,6 +21,8 @@
 
 #include "../ModelBase.h"
 
+#include "OrdSide.h"
+#include "OrdType.h"
 #include <cpprest/details/basic_types.h>
 #include "TimeInForce.h"
 #include <vector>
@@ -56,7 +58,7 @@ public:
     /// NewOrder members
 
     /// <summary>
-    /// Exchange name
+    /// Exchange identifier.
     /// </summary>
     utility::string_t getExchangeId() const;
     bool exchangeIdIsSet() const;
@@ -65,7 +67,7 @@ public:
     void setExchangeId(const utility::string_t& value);
 
     /// <summary>
-    /// Client unique identifier for the trade.
+    /// Unique identifier for the order assigned by the &#x60;OEML API&#x60; client.
     /// </summary>
     utility::string_t getClientOrderId() const;
     bool clientOrderIdIsSet() const;
@@ -74,7 +76,7 @@ public:
     void setClientOrderId(const utility::string_t& value);
 
     /// <summary>
-    /// The symbol of the order.
+    /// Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.
     /// </summary>
     utility::string_t getSymbolExchange() const;
     bool symbolExchangeIsSet() const;
@@ -83,7 +85,7 @@ public:
     void setSymbolExchange(const utility::string_t& value);
 
     /// <summary>
-    /// The CoinAPI symbol of the order.
+    /// CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.
     /// </summary>
     utility::string_t getSymbolCoinapi() const;
     bool symbolCoinapiIsSet() const;
@@ -92,7 +94,7 @@ public:
     void setSymbolCoinapi(const utility::string_t& value);
 
     /// <summary>
-    /// Quoted decimal amount to purchase.
+    /// Order quantity.
     /// </summary>
     double getAmountOrder() const;
     bool amountOrderIsSet() const;
@@ -101,7 +103,7 @@ public:
     void setAmountOrder(double value);
 
     /// <summary>
-    /// Quoted decimal amount to spend per unit.
+    /// Order price.
     /// </summary>
     double getPrice() const;
     bool priceIsSet() const;
@@ -110,22 +112,22 @@ public:
     void setPrice(double value);
 
     /// <summary>
-    /// Buy or Sell
+    /// 
     /// </summary>
-    utility::string_t getSide() const;
+    std::shared_ptr<OrdSide> getSide() const;
     bool sideIsSet() const;
     void unsetSide();
 
-    void setSide(const utility::string_t& value);
+    void setSide(const std::shared_ptr<OrdSide>& value);
 
     /// <summary>
-    /// The order type.
+    /// 
     /// </summary>
-    utility::string_t getOrderType() const;
+    std::shared_ptr<OrdType> getOrderType() const;
     bool orderTypeIsSet() const;
     void unsetOrder_type();
 
-    void setOrderType(const utility::string_t& value);
+    void setOrderType(const std::shared_ptr<OrdType>& value);
 
     /// <summary>
     /// 
@@ -137,7 +139,7 @@ public:
     void setTimeInForce(const std::shared_ptr<TimeInForce>& value);
 
     /// <summary>
-    /// Required for orders with time_in_force &#x3D; GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
+    /// Expiration time. Conditionaly required for orders with time_in_force &#x3D; &#x60;GOOD_TILL_TIME_EXCHANGE&#x60; or &#x60;GOOD_TILL_TIME_OEML&#x60;.
     /// </summary>
     std::shared_ptr<utility::datetime> getExpireTime() const;
     bool expireTimeIsSet() const;
@@ -146,7 +148,7 @@ public:
     void setExpireTime(const std::shared_ptr<utility::datetime>& value);
 
     /// <summary>
-    /// Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; 
+    /// Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt;
     /// </summary>
     std::vector<utility::string_t>& getExecInst();
     bool execInstIsSet() const;
@@ -168,9 +170,9 @@ protected:
     bool m_Amount_orderIsSet;
     double m_Price;
     bool m_PriceIsSet;
-    utility::string_t m_Side;
+    std::shared_ptr<OrdSide> m_Side;
     bool m_SideIsSet;
-    utility::string_t m_Order_type;
+    std::shared_ptr<OrdType> m_Order_type;
     bool m_Order_typeIsSet;
     std::shared_ptr<TimeInForce> m_Time_in_force;
     bool m_Time_in_forceIsSet;

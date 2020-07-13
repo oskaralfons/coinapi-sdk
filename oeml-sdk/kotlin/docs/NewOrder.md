@@ -4,31 +4,17 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**exchangeId** | **kotlin.String** | Exchange name |  [optional]
-**clientOrderId** | **kotlin.String** | Client unique identifier for the trade. |  [optional]
-**symbolExchange** | **kotlin.String** | The symbol of the order. |  [optional]
-**symbolCoinapi** | **kotlin.String** | The CoinAPI symbol of the order. |  [optional]
-**amountOrder** | [**java.math.BigDecimal**](java.math.BigDecimal.md) | Quoted decimal amount to purchase. |  [optional]
-**price** | [**java.math.BigDecimal**](java.math.BigDecimal.md) | Quoted decimal amount to spend per unit. |  [optional]
-**side** | [**inline**](#SideEnum) | Buy or Sell |  [optional]
-**orderType** | [**inline**](#OrderTypeEnum) | The order type. |  [optional]
-**timeInForce** | [**TimeInForce**](TimeInForce.md) |  |  [optional]
-**expireTime** | [**java.time.LocalDate**](java.time.LocalDate.md) | Required for orders with time_in_force &#x3D; GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS |  [optional]
-**execInst** | [**inline**](#kotlin.Array&lt;ExecInstEnum&gt;) | Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt;  |  [optional]
-
-
-<a name="SideEnum"></a>
-## Enum: side
-Name | Value
----- | -----
-side | BUY, SELL
-
-
-<a name="OrderTypeEnum"></a>
-## Enum: order_type
-Name | Value
----- | -----
-orderType | LIMIT
+**exchangeId** | **kotlin.String** | Exchange identifier. | 
+**clientOrderId** | **kotlin.String** | Unique identifier for the order assigned by the &#x60;OEML API&#x60; client. | 
+**amountOrder** | [**java.math.BigDecimal**](java.math.BigDecimal.md) | Order quantity. | 
+**price** | [**java.math.BigDecimal**](java.math.BigDecimal.md) | Order price. | 
+**side** | [**OrdSide**](OrdSide.md) |  | 
+**orderType** | [**OrdType**](OrdType.md) |  | 
+**timeInForce** | [**TimeInForce**](TimeInForce.md) |  | 
+**symbolExchange** | **kotlin.String** | Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order. |  [optional]
+**symbolCoinapi** | **kotlin.String** | CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order. |  [optional]
+**expireTime** | [**java.time.LocalDate**](java.time.LocalDate.md) | Expiration time. Conditionaly required for orders with time_in_force &#x3D; &#x60;GOOD_TILL_TIME_EXCHANGE&#x60; or &#x60;GOOD_TILL_TIME_OEML&#x60;. |  [optional]
+**execInst** | [**inline**](#kotlin.Array&lt;ExecInstEnum&gt;) | Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; |  [optional]
 
 
 <a name="kotlin.Array<ExecInstEnum>"></a>

@@ -10,23 +10,23 @@
 #' @title NewOrder
 #' @description NewOrder Class
 #' @format An \code{R6Class} generator object
-#' @field exchange_id  character [optional]
+#' @field exchange_id  character 
 #'
-#' @field client_order_id  character [optional]
+#' @field client_order_id  character 
 #'
 #' @field symbol_exchange  character [optional]
 #'
 #' @field symbol_coinapi  character [optional]
 #'
-#' @field amount_order  numeric [optional]
+#' @field amount_order  numeric 
 #'
-#' @field price  numeric [optional]
+#' @field price  numeric 
 #'
-#' @field side  character [optional]
+#' @field side  \link{OrdSide} 
 #'
-#' @field order_type  character [optional]
+#' @field order_type  \link{OrdType} 
 #'
-#' @field time_in_force  \link{TimeInForce} [optional]
+#' @field time_in_force  \link{TimeInForce} 
 #'
 #' @field expire_time  character [optional]
 #'
@@ -50,15 +50,33 @@ NewOrder <- R6::R6Class(
     `time_in_force` = NULL,
     `expire_time` = NULL,
     `exec_inst` = NULL,
-    initialize = function(`exchange_id`=NULL, `client_order_id`=NULL, `symbol_exchange`=NULL, `symbol_coinapi`=NULL, `amount_order`=NULL, `price`=NULL, `side`=NULL, `order_type`=NULL, `time_in_force`=NULL, `expire_time`=NULL, `exec_inst`=NULL, ...){
+    initialize = function(`exchange_id`, `client_order_id`, `amount_order`, `price`, `side`, `order_type`, `time_in_force`, `symbol_exchange`=NULL, `symbol_coinapi`=NULL, `expire_time`=NULL, `exec_inst`=NULL, ...){
       local.optional.var <- list(...)
-      if (!is.null(`exchange_id`)) {
+      if (!missing(`exchange_id`)) {
         stopifnot(is.character(`exchange_id`), length(`exchange_id`) == 1)
         self$`exchange_id` <- `exchange_id`
       }
-      if (!is.null(`client_order_id`)) {
+      if (!missing(`client_order_id`)) {
         stopifnot(is.character(`client_order_id`), length(`client_order_id`) == 1)
         self$`client_order_id` <- `client_order_id`
+      }
+      if (!missing(`amount_order`)) {
+        self$`amount_order` <- `amount_order`
+      }
+      if (!missing(`price`)) {
+        self$`price` <- `price`
+      }
+      if (!missing(`side`)) {
+        stopifnot(R6::is.R6(`side`))
+        self$`side` <- `side`
+      }
+      if (!missing(`order_type`)) {
+        stopifnot(R6::is.R6(`order_type`))
+        self$`order_type` <- `order_type`
+      }
+      if (!missing(`time_in_force`)) {
+        stopifnot(R6::is.R6(`time_in_force`))
+        self$`time_in_force` <- `time_in_force`
       }
       if (!is.null(`symbol_exchange`)) {
         stopifnot(is.character(`symbol_exchange`), length(`symbol_exchange`) == 1)
@@ -67,24 +85,6 @@ NewOrder <- R6::R6Class(
       if (!is.null(`symbol_coinapi`)) {
         stopifnot(is.character(`symbol_coinapi`), length(`symbol_coinapi`) == 1)
         self$`symbol_coinapi` <- `symbol_coinapi`
-      }
-      if (!is.null(`amount_order`)) {
-        self$`amount_order` <- `amount_order`
-      }
-      if (!is.null(`price`)) {
-        self$`price` <- `price`
-      }
-      if (!is.null(`side`)) {
-        stopifnot(is.character(`side`), length(`side`) == 1)
-        self$`side` <- `side`
-      }
-      if (!is.null(`order_type`)) {
-        stopifnot(is.character(`order_type`), length(`order_type`) == 1)
-        self$`order_type` <- `order_type`
-      }
-      if (!is.null(`time_in_force`)) {
-        stopifnot(R6::is.R6(`time_in_force`))
-        self$`time_in_force` <- `time_in_force`
       }
       if (!is.null(`expire_time`)) {
         self$`expire_time` <- `expire_time`
@@ -123,11 +123,11 @@ NewOrder <- R6::R6Class(
       }
       if (!is.null(self$`side`)) {
         NewOrderObject[['side']] <-
-          self$`side`
+          self$`side`$toJSON()
       }
       if (!is.null(self$`order_type`)) {
         NewOrderObject[['order_type']] <-
-          self$`order_type`
+          self$`order_type`$toJSON()
       }
       if (!is.null(self$`time_in_force`)) {
         NewOrderObject[['time_in_force']] <-
@@ -165,10 +165,14 @@ NewOrder <- R6::R6Class(
         self$`price` <- NewOrderObject$`price`
       }
       if (!is.null(NewOrderObject$`side`)) {
-        self$`side` <- NewOrderObject$`side`
+        sideObject <- OrdSide$new()
+        sideObject$fromJSON(jsonlite::toJSON(NewOrderObject$side, auto_unbox = TRUE, digits = NA))
+        self$`side` <- sideObject
       }
       if (!is.null(NewOrderObject$`order_type`)) {
-        self$`order_type` <- NewOrderObject$`order_type`
+        order_typeObject <- OrdType$new()
+        order_typeObject$fromJSON(jsonlite::toJSON(NewOrderObject$order_type, auto_unbox = TRUE, digits = NA))
+        self$`order_type` <- order_typeObject
       }
       if (!is.null(NewOrderObject$`time_in_force`)) {
         time_in_forceObject <- TimeInForce$new()
@@ -229,16 +233,16 @@ NewOrder <- R6::R6Class(
         if (!is.null(self$`side`)) {
         sprintf(
         '"side":
-          "%s"
-                ',
-        self$`side`
+        %s
+        ',
+        jsonlite::toJSON(self$`side`$toJSON(), auto_unbox=TRUE, digits = NA)
         )},
         if (!is.null(self$`order_type`)) {
         sprintf(
         '"order_type":
-          "%s"
-                ',
-        self$`order_type`
+        %s
+        ',
+        jsonlite::toJSON(self$`order_type`$toJSON(), auto_unbox=TRUE, digits = NA)
         )},
         if (!is.null(self$`time_in_force`)) {
         sprintf(
@@ -273,8 +277,8 @@ NewOrder <- R6::R6Class(
       self$`symbol_coinapi` <- NewOrderObject$`symbol_coinapi`
       self$`amount_order` <- NewOrderObject$`amount_order`
       self$`price` <- NewOrderObject$`price`
-      self$`side` <- NewOrderObject$`side`
-      self$`order_type` <- NewOrderObject$`order_type`
+      self$`side` <- OrdSide$new()$fromJSON(jsonlite::toJSON(NewOrderObject$side, auto_unbox = TRUE, digits = NA))
+      self$`order_type` <- OrdType$new()$fromJSON(jsonlite::toJSON(NewOrderObject$order_type, auto_unbox = TRUE, digits = NA))
       self$`time_in_force` <- TimeInForce$new()$fromJSON(jsonlite::toJSON(NewOrderObject$time_in_force, auto_unbox = TRUE, digits = NA))
       self$`expire_time` <- NewOrderObject$`expire_time`
       self$`exec_inst` <- ApiClient$new()$deserializeObj(NewOrderObject$`exec_inst`, "array[character]", loadNamespace("openapi"))

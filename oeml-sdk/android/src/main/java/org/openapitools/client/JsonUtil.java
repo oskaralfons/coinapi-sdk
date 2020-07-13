@@ -81,12 +81,16 @@ public class JsonUtil {
       return new TypeToken<List<NewOrder>>(){}.getType();
     }
     
+    if ("OrdSide".equalsIgnoreCase(className)) {
+      return new TypeToken<List<OrdSide>>(){}.getType();
+    }
+    
     if ("OrdStatus".equalsIgnoreCase(className)) {
       return new TypeToken<List<OrdStatus>>(){}.getType();
     }
     
-    if ("Order".equalsIgnoreCase(className)) {
-      return new TypeToken<List<Order>>(){}.getType();
+    if ("OrdType".equalsIgnoreCase(className)) {
+      return new TypeToken<List<OrdType>>(){}.getType();
     }
     
     if ("OrderCancelAllRequest".equalsIgnoreCase(className)) {
@@ -97,8 +101,12 @@ public class JsonUtil {
       return new TypeToken<List<OrderCancelSingleRequest>>(){}.getType();
     }
     
-    if ("OrderData".equalsIgnoreCase(className)) {
-      return new TypeToken<List<OrderData>>(){}.getType();
+    if ("Orders".equalsIgnoreCase(className)) {
+      return new TypeToken<List<Orders>>(){}.getType();
+    }
+    
+    if ("OrdersData".equalsIgnoreCase(className)) {
+      return new TypeToken<List<OrdersData>>(){}.getType();
     }
     
     if ("Position".equalsIgnoreCase(className)) {
@@ -147,12 +155,16 @@ public class JsonUtil {
       return new TypeToken<NewOrder>(){}.getType();
     }
     
+    if ("OrdSide".equalsIgnoreCase(className)) {
+      return new TypeToken<OrdSide>(){}.getType();
+    }
+    
     if ("OrdStatus".equalsIgnoreCase(className)) {
       return new TypeToken<OrdStatus>(){}.getType();
     }
     
-    if ("Order".equalsIgnoreCase(className)) {
-      return new TypeToken<Order>(){}.getType();
+    if ("OrdType".equalsIgnoreCase(className)) {
+      return new TypeToken<OrdType>(){}.getType();
     }
     
     if ("OrderCancelAllRequest".equalsIgnoreCase(className)) {
@@ -163,8 +175,12 @@ public class JsonUtil {
       return new TypeToken<OrderCancelSingleRequest>(){}.getType();
     }
     
-    if ("OrderData".equalsIgnoreCase(className)) {
-      return new TypeToken<OrderData>(){}.getType();
+    if ("Orders".equalsIgnoreCase(className)) {
+      return new TypeToken<Orders>(){}.getType();
+    }
+    
+    if ("OrdersData".equalsIgnoreCase(className)) {
+      return new TypeToken<OrdersData>(){}.getType();
     }
     
     if ("Position".equalsIgnoreCase(className)) {

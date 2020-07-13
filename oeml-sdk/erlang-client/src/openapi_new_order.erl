@@ -5,15 +5,15 @@
 -export_type([openapi_new_order/0]).
 
 -type openapi_new_order() ::
-    #{ 'exchange_id' => binary(),
-       'client_order_id' => binary(),
+    #{ 'exchange_id' := binary(),
+       'client_order_id' := binary(),
        'symbol_exchange' => binary(),
        'symbol_coinapi' => binary(),
-       'amount_order' => integer(),
-       'price' => integer(),
-       'side' => binary(),
-       'order_type' => binary(),
-       'time_in_force' => openapi_time_in_force:openapi_time_in_force(),
+       'amount_order' := integer(),
+       'price' := integer(),
+       'side' := openapi_ord_side:openapi_ord_side(),
+       'order_type' := openapi_ord_type:openapi_ord_type(),
+       'time_in_force' := openapi_time_in_force:openapi_time_in_force(),
        'expire_time' => calendar:date(),
        'exec_inst' => list()
      }.

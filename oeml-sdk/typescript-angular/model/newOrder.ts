@@ -9,62 +9,49 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { OrdSide } from './ordSide';
+import { OrdType } from './ordType';
 import { TimeInForce } from './timeInForce';
 
 
 export interface NewOrder { 
     /**
-     * Exchange name
+     * Exchange identifier.
      */
-    exchange_id?: string;
+    exchange_id: string;
     /**
-     * Client unique identifier for the trade.
+     * Unique identifier for the order assigned by the `OEML API` client.
      */
-    client_order_id?: string;
+    client_order_id: string;
     /**
-     * The symbol of the order.
+     * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
      */
     symbol_exchange?: string;
     /**
-     * The CoinAPI symbol of the order.
+     * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
      */
     symbol_coinapi?: string;
     /**
-     * Quoted decimal amount to purchase.
+     * Order quantity.
      */
-    amount_order?: number;
+    amount_order: number;
     /**
-     * Quoted decimal amount to spend per unit.
+     * Order price.
      */
-    price?: number;
+    price: number;
+    side: OrdSide;
+    order_type: OrdType;
+    time_in_force: TimeInForce;
     /**
-     * Buy or Sell
-     */
-    side?: NewOrder.SideEnum;
-    /**
-     * The order type.
-     */
-    order_type?: NewOrder.OrderTypeEnum;
-    time_in_force?: TimeInForce;
-    /**
-     * Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
+     * Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
      */
     expire_time?: string;
     /**
-     * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> 
+     * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>
      */
     exec_inst?: Array<NewOrder.ExecInstEnum>;
 }
 export namespace NewOrder {
-    export type SideEnum = 'BUY' | 'SELL';
-    export const SideEnum = {
-        BUY: 'BUY' as SideEnum,
-        SELL: 'SELL' as SideEnum
-    };
-    export type OrderTypeEnum = 'LIMIT';
-    export const OrderTypeEnum = {
-        LIMIT: 'LIMIT' as OrderTypeEnum
-    };
     export type ExecInstEnum = 'MAKER_OR_CANCEL' | 'AUCTION_ONLY' | 'INDICATION_OF_INTEREST';
     export const ExecInstEnum = {
         MAKERORCANCEL: 'MAKER_OR_CANCEL' as ExecInstEnum,

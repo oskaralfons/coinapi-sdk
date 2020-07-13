@@ -74,8 +74,8 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional)</param>
-        /// <returns>List&lt;Order&gt;</returns>
-        List<Order> V1OrdersGet (string exchangeId = default(string));
+        /// <returns>Orders</returns>
+        Orders V1OrdersGet (string exchangeId = default(string));
 
         /// <summary>
         /// Get all orders
@@ -85,8 +85,8 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional)</param>
-        /// <returns>ApiResponse of List&lt;Order&gt;</returns>
-        ApiResponse<List<Order>> V1OrdersGetWithHttpInfo (string exchangeId = default(string));
+        /// <returns>ApiResponse of Orders</returns>
+        ApiResponse<Orders> V1OrdersGetWithHttpInfo (string exchangeId = default(string));
         /// <summary>
         /// Create new order
         /// </summary>
@@ -181,8 +181,8 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional)</param>
-        /// <returns>Task of List&lt;Order&gt;</returns>
-        System.Threading.Tasks.Task<List<Order>> V1OrdersGetAsync (string exchangeId = default(string));
+        /// <returns>Task of Orders</returns>
+        System.Threading.Tasks.Task<Orders> V1OrdersGetAsync (string exchangeId = default(string));
 
         /// <summary>
         /// Get all orders
@@ -192,8 +192,8 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional)</param>
-        /// <returns>Task of ApiResponse (List&lt;Order&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Order>>> V1OrdersGetAsyncWithHttpInfo (string exchangeId = default(string));
+        /// <returns>Task of ApiResponse (Orders)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Orders>> V1OrdersGetAsyncWithHttpInfo (string exchangeId = default(string));
         /// <summary>
         /// Create new order
         /// </summary>
@@ -652,10 +652,10 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional)</param>
-        /// <returns>List&lt;Order&gt;</returns>
-        public List<Order> V1OrdersGet (string exchangeId = default(string))
+        /// <returns>Orders</returns>
+        public Orders V1OrdersGet (string exchangeId = default(string))
         {
-             ApiResponse<List<Order>> localVarResponse = V1OrdersGetWithHttpInfo(exchangeId);
+             ApiResponse<Orders> localVarResponse = V1OrdersGetWithHttpInfo(exchangeId);
              return localVarResponse.Data;
         }
 
@@ -664,8 +664,8 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional)</param>
-        /// <returns>ApiResponse of List&lt;Order&gt;</returns>
-        public ApiResponse<List<Order>> V1OrdersGetWithHttpInfo (string exchangeId = default(string))
+        /// <returns>ApiResponse of Orders</returns>
+        public ApiResponse<Orders> V1OrdersGetWithHttpInfo (string exchangeId = default(string))
         {
 
             var localVarPath = "/v1/orders";
@@ -705,9 +705,9 @@ namespace CoinAPI.OMS.REST.V1.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<List<Order>>(localVarStatusCode,
+            return new ApiResponse<Orders>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (List<Order>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<Order>)));
+                (Orders) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Orders)));
         }
 
         /// <summary>
@@ -715,10 +715,10 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional)</param>
-        /// <returns>Task of List&lt;Order&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Order>> V1OrdersGetAsync (string exchangeId = default(string))
+        /// <returns>Task of Orders</returns>
+        public async System.Threading.Tasks.Task<Orders> V1OrdersGetAsync (string exchangeId = default(string))
         {
-             ApiResponse<List<Order>> localVarResponse = await V1OrdersGetAsyncWithHttpInfo(exchangeId);
+             ApiResponse<Orders> localVarResponse = await V1OrdersGetAsyncWithHttpInfo(exchangeId);
              return localVarResponse.Data;
 
         }
@@ -728,8 +728,8 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional)</param>
-        /// <returns>Task of ApiResponse (List&lt;Order&gt;)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<List<Order>>> V1OrdersGetAsyncWithHttpInfo (string exchangeId = default(string))
+        /// <returns>Task of ApiResponse (Orders)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Orders>> V1OrdersGetAsyncWithHttpInfo (string exchangeId = default(string))
         {
 
             var localVarPath = "/v1/orders";
@@ -769,9 +769,9 @@ namespace CoinAPI.OMS.REST.V1.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<List<Order>>(localVarStatusCode,
+            return new ApiResponse<Orders>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (List<Order>) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<Order>)));
+                (Orders) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Orders)));
         }
 
         /// <summary>

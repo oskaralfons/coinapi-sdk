@@ -15,23 +15,25 @@
 
 typedef struct new_order_t new_order_t;
 
+#include "ord_side.h"
+#include "ord_type.h"
 #include "time_in_force.h"
 
-// Enum SIDE for new_order
+// Enum  for new_order
 
-typedef enum  { oeml___rest_api_new_order_SIDE_NULL = 0, oeml___rest_api_new_order_SIDE_BUY, oeml___rest_api_new_order_SIDE_SELL } oeml___rest_api_new_order_SIDE_e;
+typedef enum  { oeml___rest_api_new_order__NULL = 0, oeml___rest_api_new_order__BUY, oeml___rest_api_new_order__SELL } oeml___rest_api_new_order__e;
 
-char* new_order_side_ToString(oeml___rest_api_new_order_SIDE_e side);
+char* new_order_side_ToString(oeml___rest_api_new_order__e side);
 
-oeml___rest_api_new_order_SIDE_e new_order_side_FromString(char* side);
+oeml___rest_api_new_order__e new_order_side_FromString(char* side);
 
-// Enum ORDERTYPE for new_order
+// Enum  for new_order
 
-typedef enum  { oeml___rest_api_new_order_ORDERTYPE_NULL = 0, oeml___rest_api_new_order_ORDERTYPE_LIMIT } oeml___rest_api_new_order_ORDERTYPE_e;
+typedef enum  { oeml___rest_api_new_order__NULL = 0, oeml___rest_api_new_order__LIMIT } oeml___rest_api_new_order__e;
 
-char* new_order_order_type_ToString(oeml___rest_api_new_order_ORDERTYPE_e order_type);
+char* new_order_order_type_ToString(oeml___rest_api_new_order__e order_type);
 
-oeml___rest_api_new_order_ORDERTYPE_e new_order_order_type_FromString(char* order_type);
+oeml___rest_api_new_order__e new_order_order_type_FromString(char* order_type);
 
 // Enum  for new_order
 
@@ -58,8 +60,6 @@ typedef struct new_order_t {
     char *symbol_coinapi; // string
     double amount_order; //numeric
     double price; //numeric
-    oeml___rest_api_new_order_SIDE_e side; //enum
-    oeml___rest_api_new_order_ORDERTYPE_e order_type; //enum
     list_t *exec_inst; //primitive container
 
 } new_order_t;
@@ -71,8 +71,6 @@ new_order_t *new_order_create(
     char *symbol_coinapi,
     double amount_order,
     double price,
-    oeml___rest_api_new_order_SIDE_e side,
-    oeml___rest_api_new_order_ORDERTYPE_e order_type,
     list_t *exec_inst
 );
 

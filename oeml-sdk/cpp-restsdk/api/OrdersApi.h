@@ -25,9 +25,9 @@
 #include "ExecutionReport.h"
 #include "Message.h"
 #include "NewOrder.h"
-#include "Order.h"
 #include "OrderCancelAllRequest.h"
 #include "OrderCancelSingleRequest.h"
+#include "Orders.h"
 #include <cpprest/details/basic_types.h>
 
 
@@ -77,7 +77,7 @@ public:
     /// Get all current open orders across all or single specified exchange.
     /// </remarks>
     /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
-    pplx::task<std::vector<std::shared_ptr<Order>>> v1OrdersGet(
+    pplx::task<std::shared_ptr<Orders>> v1OrdersGet(
         boost::optional<utility::string_t> exchangeId
     ) const;
     /// <summary>

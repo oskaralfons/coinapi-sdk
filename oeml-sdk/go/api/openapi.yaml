@@ -203,12 +203,8 @@ paths:
 components:
   schemas:
     Orders:
-      items:
-        $ref: '#/components/schemas/Order'
-      type: array
-    Order:
       example:
-        exchange_name: KRAKEN
+        exchange_id: KRAKEN
         data:
         - amount_open: 0.22
           time_order:
@@ -224,12 +220,11 @@ components:
           client_order_id: KPP-222389382-AQ
           side: BUY
           expire_time: ""
-          exec_inst:
-          - MAKER_OR_CANCEL
-          - MAKER_OR_CANCEL
+          exec_inst: MAKER_OR_CANCEL
           exchange_order_id: 90832ASASAS89789-1112
           symbol_coinapi: KRAKEN_SPOT_BTC_USD
           exchange_id: KRAKEN
+          time_in_force: GOOD_TILL_CANCEL
           price: 0.0783
           amount_order: 0.045
           id: KPP-222389382-AQ
@@ -249,12 +244,11 @@ components:
           client_order_id: KPP-222389382-AQ
           side: BUY
           expire_time: ""
-          exec_inst:
-          - MAKER_OR_CANCEL
-          - MAKER_OR_CANCEL
+          exec_inst: MAKER_OR_CANCEL
           exchange_order_id: 90832ASASAS89789-1112
           symbol_coinapi: KRAKEN_SPOT_BTC_USD
           exchange_id: KRAKEN
+          time_in_force: GOOD_TILL_CANCEL
           price: 0.0783
           amount_order: 0.045
           id: KPP-222389382-AQ
@@ -263,17 +257,17 @@ components:
         type: snapshotOrders
       properties:
         type:
-          description: "null"
+          description: Constant value `snapshotOrders`.
           example: snapshotOrders
           type: string
-        exchange_name:
-          description: Exchange name
+        exchange_id:
+          description: Exchange identifier.
           example: KRAKEN
           type: string
         data:
           description: Orders array
           items:
-            $ref: '#/components/schemas/Order_data'
+            $ref: '#/components/schemas/Orders_data'
           type: array
       type: object
     NewOrder:
@@ -282,61 +276,56 @@ components:
         exchange_id: KRAKEN
         client_order_id: KPP-222389382-AQ
         side: BUY
+        time_in_force: GOOD_TILL_CANCEL
         price: 0.0783
         amount_order: 0.045
         expire_time: ""
-        exec_inst:
-        - MAKER_OR_CANCEL
-        - MAKER_OR_CANCEL
+        exec_inst: MAKER_OR_CANCEL
         order_type: LIMIT
         symbol_exchange: BTCUSD
       properties:
         exchange_id:
-          description: Exchange name
+          description: Exchange identifier.
           example: KRAKEN
           type: string
         client_order_id:
-          description: Client unique identifier for the trade.
+          description: Unique identifier for the order assigned by the `OEML API`
+            client.
           example: KPP-222389382-AQ
           type: string
         symbol_exchange:
-          description: The symbol of the order.
+          description: Exchange symbol. One of the properties (`symbol_exchange`,
+            `symbol_coinapi`) is required to identify the market for the order.
           example: BTCUSD
           type: string
         symbol_coinapi:
-          description: The CoinAPI symbol of the order.
+          description: CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`)
+            is required to identify the market for the order.
           example: KRAKEN_SPOT_BTC_USD
           type: string
         amount_order:
-          description: Quoted decimal amount to purchase.
+          description: Order quantity.
           example: 0.045
           type: number
         price:
-          description: Quoted decimal amount to spend per unit.
+          description: Order price.
           example: 0.0783
           type: number
         side:
-          description: Buy or Sell
-          enum:
-          - BUY
-          - SELL
-          example: BUY
-          type: string
+          $ref: '#/components/schemas/OrdSide'
         order_type:
-          description: The order type.
-          enum:
-          - LIMIT
-          example: LIMIT
-          type: string
+          $ref: '#/components/schemas/OrdType'
         time_in_force:
           $ref: '#/components/schemas/TimeInForce'
         expire_time:
-          description: Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE,
-            GOOD_TILL_TIME_OMS
+          description: Expiration time. Conditionaly required for orders with time_in_force
+            = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
           type: date
         exec_inst:
-          description: |
-            Order execution instructions are documented in the separate section: <a href="#oeml-order-params-exec">OEML / Starter Guide / Order parameters / Execution instructions</a>
+          description: 'Order execution instructions are documented in the separate
+            section: <a href="#oeml-order-params-exec">OEML / Starter Guide / Order
+            parameters / Execution instructions</a>'
+          example: MAKER_OR_CANCEL
           items:
             enum:
             - MAKER_OR_CANCEL
@@ -344,6 +333,14 @@ components:
             - INDICATION_OF_INTEREST
             type: string
           type: array
+      required:
+      - amount_order
+      - client_order_id
+      - exchange_id
+      - order_type
+      - price
+      - side
+      - time_in_force
       type: object
     ExecutionReport:
       example:
@@ -361,13 +358,12 @@ components:
         client_order_id: KPP-222389382-AQ
         side: BUY
         expire_time: ""
-        exec_inst:
-        - MAKER_OR_CANCEL
-        - MAKER_OR_CANCEL
+        exec_inst: MAKER_OR_CANCEL
         type: updateOrder
         exchange_order_id: 90832ASASAS89789-1112
         symbol_coinapi: KRAKEN_SPOT_BTC_USD
         exchange_id: KRAKEN
+        time_in_force: GOOD_TILL_CANCEL
         price: 0.0783
         amount_order: 0.045
         id: KPP-222389382-AQ
@@ -458,8 +454,10 @@ components:
             GOOD_TILL_TIME_OMS
           type: date
         exec_inst:
-          description: |
-            Order execution instructions are documented in the separate section: <a href="#oeml-order-params-exec">OEML / Starter Guide / Order parameters / Execution instructions</a>
+          description: 'Order execution instructions are documented in the separate
+            section: <a href="#oeml-order-params-exec">OEML / Starter Guide / Order
+            parameters / Execution instructions</a>'
+          example: MAKER_OR_CANCEL
           items:
             enum:
             - MAKER_OR_CANCEL
@@ -580,26 +578,6 @@ components:
             $ref: '#/components/schemas/Position_data'
           type: array
       type: object
-    TimeInForce:
-      description: |
-        Order time in force options are documented in the separate section: <a href="#oeml-order-lifecycle">OEML / Starter Guide / Order parameters / Time in force</a>
-      enum:
-      - GOOD_TILL_CANCEL
-      - GOOD_TILL_TIME_EXCHANGE
-      - GOOD_TILL_TIME_OMS
-      - FILL_OR_KILL
-      - IMMEDIATE_OR_CANCEL
-      type: string
-    ExecInst:
-      description: |
-        Order execution instructions are documented in the separate section: <a href="#oeml-order-params-exec">OEML / Starter Guide / Order parameters / Execution instructions</a>
-      items:
-        enum:
-        - MAKER_OR_CANCEL
-        - AUCTION_ONLY
-        - INDICATION_OF_INTEREST
-        type: string
-      type: array
     CreateOrderValidationError:
       properties:
         type:
@@ -660,7 +638,45 @@ components:
       - CANCELED
       - REJECTED
       type: string
-    Order_data:
+    OrdSide:
+      description: |
+        Side of order.
+      enum:
+      - BUY
+      - SELL
+      example: BUY
+      type: string
+    OrdType:
+      description: |
+        Order types are documented in the separate section: <a href="#oeml-order-params-type">OEML / Starter Guide / Order parameters / Order type</a>
+      enum:
+      - LIMIT
+      example: LIMIT
+      type: string
+    TimeInForce:
+      description: |
+        Order time in force options are documented in the separate section: <a href="#oeml-order-params-tif">OEML / Starter Guide / Order parameters / Time in force</a>
+      enum:
+      - GOOD_TILL_CANCEL
+      - GOOD_TILL_TIME_EXCHANGE
+      - GOOD_TILL_TIME_OMS
+      - FILL_OR_KILL
+      - IMMEDIATE_OR_CANCEL
+      example: GOOD_TILL_CANCEL
+      type: string
+    ExecInst:
+      description: 'Order execution instructions are documented in the separate section:
+        <a href="#oeml-order-params-exec">OEML / Starter Guide / Order parameters
+        / Execution instructions</a>'
+      example: MAKER_OR_CANCEL
+      items:
+        enum:
+        - MAKER_OR_CANCEL
+        - AUCTION_ONLY
+        - INDICATION_OF_INTEREST
+        type: string
+      type: array
+    Orders_data:
       example:
         amount_open: 0.22
         time_order:
@@ -676,12 +692,11 @@ components:
         client_order_id: KPP-222389382-AQ
         side: BUY
         expire_time: ""
-        exec_inst:
-        - MAKER_OR_CANCEL
-        - MAKER_OR_CANCEL
+        exec_inst: MAKER_OR_CANCEL
         exchange_order_id: 90832ASASAS89789-1112
         symbol_coinapi: KRAKEN_SPOT_BTC_USD
         exchange_id: KRAKEN
+        time_in_force: GOOD_TILL_CANCEL
         price: 0.0783
         amount_order: 0.045
         id: KPP-222389382-AQ
@@ -768,8 +783,10 @@ components:
             GOOD_TILL_TIME_OMS
           type: date
         exec_inst:
-          description: |
-            Order execution instructions are documented in the separate section: <a href="#oeml-order-params-exec">OEML / Starter Guide / Order parameters / Execution instructions</a>
+          description: 'Order execution instructions are documented in the separate
+            section: <a href="#oeml-order-params-exec">OEML / Starter Guide / Order
+            parameters / Execution instructions</a>'
+          example: MAKER_OR_CANCEL
           items:
             enum:
             - MAKER_OR_CANCEL

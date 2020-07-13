@@ -14,36 +14,34 @@ require 'date'
 
 module OpenapiClient
   class NewOrder
-    # Exchange name
+    # Exchange identifier.
     attr_accessor :exchange_id
 
-    # Client unique identifier for the trade.
+    # Unique identifier for the order assigned by the `OEML API` client.
     attr_accessor :client_order_id
 
-    # The symbol of the order.
+    # Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
     attr_accessor :symbol_exchange
 
-    # The CoinAPI symbol of the order.
+    # CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
     attr_accessor :symbol_coinapi
 
-    # Quoted decimal amount to purchase.
+    # Order quantity.
     attr_accessor :amount_order
 
-    # Quoted decimal amount to spend per unit.
+    # Order price.
     attr_accessor :price
 
-    # Buy or Sell
     attr_accessor :side
 
-    # The order type.
     attr_accessor :order_type
 
     attr_accessor :time_in_force
 
-    # Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
+    # Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
     attr_accessor :expire_time
 
-    # Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> 
+    # Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>
     attr_accessor :exec_inst
 
     class EnumAttributeValidator
@@ -94,8 +92,8 @@ module OpenapiClient
         :'symbol_coinapi' => :'String',
         :'amount_order' => :'Float',
         :'price' => :'Float',
-        :'side' => :'String',
-        :'order_type' => :'String',
+        :'side' => :'OrdSide',
+        :'order_type' => :'OrdType',
         :'time_in_force' => :'TimeInForce',
         :'expire_time' => :'Date',
         :'exec_inst' => :'Array<String>'
@@ -174,37 +172,48 @@ module OpenapiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @exchange_id.nil?
+        invalid_properties.push('invalid value for "exchange_id", exchange_id cannot be nil.')
+      end
+
+      if @client_order_id.nil?
+        invalid_properties.push('invalid value for "client_order_id", client_order_id cannot be nil.')
+      end
+
+      if @amount_order.nil?
+        invalid_properties.push('invalid value for "amount_order", amount_order cannot be nil.')
+      end
+
+      if @price.nil?
+        invalid_properties.push('invalid value for "price", price cannot be nil.')
+      end
+
+      if @side.nil?
+        invalid_properties.push('invalid value for "side", side cannot be nil.')
+      end
+
+      if @order_type.nil?
+        invalid_properties.push('invalid value for "order_type", order_type cannot be nil.')
+      end
+
+      if @time_in_force.nil?
+        invalid_properties.push('invalid value for "time_in_force", time_in_force cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      side_validator = EnumAttributeValidator.new('String', ["BUY", "SELL"])
-      return false unless side_validator.valid?(@side)
-      order_type_validator = EnumAttributeValidator.new('String', ["LIMIT"])
-      return false unless order_type_validator.valid?(@order_type)
+      return false if @exchange_id.nil?
+      return false if @client_order_id.nil?
+      return false if @amount_order.nil?
+      return false if @price.nil?
+      return false if @side.nil?
+      return false if @order_type.nil?
+      return false if @time_in_force.nil?
       true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] side Object to be assigned
-    def side=(side)
-      validator = EnumAttributeValidator.new('String', ["BUY", "SELL"])
-      unless validator.valid?(side)
-        fail ArgumentError, "invalid value for \"side\", must be one of #{validator.allowable_values}."
-      end
-      @side = side
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] order_type Object to be assigned
-    def order_type=(order_type)
-      validator = EnumAttributeValidator.new('String', ["LIMIT"])
-      unless validator.valid?(order_type)
-        fail ArgumentError, "invalid value for \"order_type\", must be one of #{validator.allowable_values}."
-      end
-      @order_type = order_type
     end
 
     # Checks equality by comparing each attribute.

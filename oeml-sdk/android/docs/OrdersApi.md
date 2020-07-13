@@ -106,7 +106,7 @@ No authorization required
 
 ## v1OrdersGet
 
-> List&lt;Order&gt; v1OrdersGet(exchangeId)
+> Orders v1OrdersGet(exchangeId)
 
 Get all orders
 
@@ -121,7 +121,7 @@ Get all current open orders across all or single specified exchange.
 OrdersApi apiInstance = new OrdersApi();
 String exchangeId = KRAKEN; // String | Filter the output to the orders from the specific exchange.
 try {
-    List<Order> result = apiInstance.v1OrdersGet(exchangeId);
+    Orders result = apiInstance.v1OrdersGet(exchangeId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrdersApi#v1OrdersGet");
@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;Order&gt;**](Order.md)
+[**Orders**](Orders.md)
 
 ### Authorization
 

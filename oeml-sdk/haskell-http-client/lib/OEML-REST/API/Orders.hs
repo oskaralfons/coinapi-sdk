@@ -121,7 +121,7 @@ instance Produces V1OrdersCancelPost MimeApplictionJson
 -- Get all current open orders across all or single specified exchange.
 -- 
 v1OrdersGet 
-  :: OEML-RESTRequest V1OrdersGet MimeNoContent [Order] MimeJSON
+  :: OEML-RESTRequest V1OrdersGet MimeNoContent Orders MimeJSON
 v1OrdersGet =
   _mkRequest "GET" ["/v1/orders"]
 

@@ -229,7 +229,7 @@ ExecutionReport.prototype['time_in_force'] = undefined;
 ExecutionReport.prototype['expire_time'] = undefined;
 
 /**
- * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> 
+ * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>
  * @member {Array.<module:model/ExecutionReport.ExecInstEnum>} exec_inst
  */
 ExecutionReport.prototype['exec_inst'] = undefined;

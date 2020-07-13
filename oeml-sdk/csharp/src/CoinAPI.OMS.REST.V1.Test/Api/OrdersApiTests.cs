@@ -96,7 +96,7 @@ namespace CoinAPI.OMS.REST.V1.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string exchangeId = null;
             //var response = instance.V1OrdersGet(exchangeId);
-            //Assert.IsInstanceOf(typeof(List<Order>), response, "response is List<Order>");
+            //Assert.IsInstanceOf(typeof(Orders), response, "response is Orders");
         }
         
         /// <summary>

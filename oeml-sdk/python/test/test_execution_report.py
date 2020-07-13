@@ -59,9 +59,7 @@ class TestExecutionReport(unittest.TestCase):
                 order_type = 'LIMIT', 
                 time_in_force = 'GOOD_TILL_CANCEL', 
                 expire_time = null, 
-                exec_inst = [
-                    'MAKER_OR_CANCEL'
-                    ]
+                exec_inst = MAKER_OR_CANCEL
             )
         else :
             return ExecutionReport(

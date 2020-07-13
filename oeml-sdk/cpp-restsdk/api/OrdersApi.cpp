@@ -318,7 +318,7 @@ pplx::task<std::shared_ptr<ExecutionReport>> OrdersApi::v1OrdersCancelPost(std::
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<Order>>> OrdersApi::v1OrdersGet(boost::optional<utility::string_t> exchangeId) const
+pplx::task<std::shared_ptr<Orders>> OrdersApi::v1OrdersGet(boost::optional<utility::string_t> exchangeId) const
 {
 
 
@@ -419,17 +419,13 @@ pplx::task<std::vector<std::shared_ptr<Order>>> OrdersApi::v1OrdersGet(boost::op
     })
     .then([=](utility::string_t localVarResponse)
     {
-        std::vector<std::shared_ptr<Order>> localVarResult;
+        std::shared_ptr<Orders> localVarResult(new Orders());
 
         if(localVarResponseHttpContentType == utility::conversions::to_string_t("application/json"))
         {
             web::json::value localVarJson = web::json::value::parse(localVarResponse);
-            for( auto& localVarItem : localVarJson.as_array() )
-            {
-                std::shared_ptr<Order> localVarItemObj;
-                ModelBase::fromJson(localVarItem, localVarItemObj);
-                localVarResult.push_back(localVarItemObj);
-            }
+
+            ModelBase::fromJson(localVarJson, localVarResult);
         }
         // else if(localVarResponseHttpContentType == utility::conversions::to_string_t("multipart/form-data"))
         // {

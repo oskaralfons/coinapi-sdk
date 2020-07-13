@@ -137,10 +137,10 @@ QJsonObject OAINewOrder::asJsonObject() const {
     if (m_price_isSet) {
         obj.insert(QString("price"), ::OpenAPI::toJsonValue(price));
     }
-    if (m_side_isSet) {
+    if (side.isSet()) {
         obj.insert(QString("side"), ::OpenAPI::toJsonValue(side));
     }
-    if (m_order_type_isSet) {
+    if (order_type.isSet()) {
         obj.insert(QString("order_type"), ::OpenAPI::toJsonValue(order_type));
     }
     if (time_in_force.isSet()) {
@@ -251,10 +251,10 @@ bool OAINewOrder::is_price_Valid() const{
     return m_price_isValid;
 }
 
-QString OAINewOrder::getSide() const {
+OAIOrdSide OAINewOrder::getSide() const {
     return side;
 }
-void OAINewOrder::setSide(const QString &side) {
+void OAINewOrder::setSide(const OAIOrdSide &side) {
     this->side = side;
     this->m_side_isSet = true;
 }
@@ -267,10 +267,10 @@ bool OAINewOrder::is_side_Valid() const{
     return m_side_isValid;
 }
 
-QString OAINewOrder::getOrderType() const {
+OAIOrdType OAINewOrder::getOrderType() const {
     return order_type;
 }
-void OAINewOrder::setOrderType(const QString &order_type) {
+void OAINewOrder::setOrderType(const OAIOrdType &order_type) {
     this->order_type = order_type;
     this->m_order_type_isSet = true;
 }
@@ -364,12 +364,12 @@ bool OAINewOrder::isSet() const {
             break;
         }
 
-        if (m_side_isSet) {
+        if (side.isSet()) {
             isObjectUpdated = true;
             break;
         }
 
-        if (m_order_type_isSet) {
+        if (order_type.isSet()) {
             isObjectUpdated = true;
             break;
         }
@@ -394,7 +394,7 @@ bool OAINewOrder::isSet() const {
 
 bool OAINewOrder::isValid() const {
     // only required properties are required for the object to be considered valid
-    return true;
+    return m_exchange_id_isValid && m_client_order_id_isValid && m_amount_order_isValid && m_price_isValid && m_side_isValid && m_order_type_isValid && m_time_in_force_isValid && true;
 }
 
 } // namespace OpenAPI

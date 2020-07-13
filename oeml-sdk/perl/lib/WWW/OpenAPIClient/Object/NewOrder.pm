@@ -30,6 +30,8 @@ use Log::Any qw($log);
 use Date::Parse;
 use DateTime;
 
+use WWW::OpenAPIClient::Object::OrdSide;
+use WWW::OpenAPIClient::Object::OrdType;
 use WWW::OpenAPIClient::Object::TimeInForce;
 
 use base ("Class::Accessor", "Class::Data::Inheritable");
@@ -165,56 +167,56 @@ __PACKAGE__->method_documentation({
     'exchange_id' => {
         datatype => 'string',
         base_name => 'exchange_id',
-        description => 'Exchange name',
+        description => 'Exchange identifier.',
         format => '',
         read_only => '',
             },
     'client_order_id' => {
         datatype => 'string',
         base_name => 'client_order_id',
-        description => 'Client unique identifier for the trade.',
+        description => 'Unique identifier for the order assigned by the &#x60;OEML API&#x60; client.',
         format => '',
         read_only => '',
             },
     'symbol_exchange' => {
         datatype => 'string',
         base_name => 'symbol_exchange',
-        description => 'The symbol of the order.',
+        description => 'Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.',
         format => '',
         read_only => '',
             },
     'symbol_coinapi' => {
         datatype => 'string',
         base_name => 'symbol_coinapi',
-        description => 'The CoinAPI symbol of the order.',
+        description => 'CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.',
         format => '',
         read_only => '',
             },
     'amount_order' => {
         datatype => 'double',
         base_name => 'amount_order',
-        description => 'Quoted decimal amount to purchase.',
+        description => 'Order quantity.',
         format => '',
         read_only => '',
             },
     'price' => {
         datatype => 'double',
         base_name => 'price',
-        description => 'Quoted decimal amount to spend per unit.',
+        description => 'Order price.',
         format => '',
         read_only => '',
             },
     'side' => {
-        datatype => 'string',
+        datatype => 'OrdSide',
         base_name => 'side',
-        description => 'Buy or Sell',
+        description => '',
         format => '',
         read_only => '',
             },
     'order_type' => {
-        datatype => 'string',
+        datatype => 'OrdType',
         base_name => 'order_type',
-        description => 'The order type.',
+        description => '',
         format => '',
         read_only => '',
             },
@@ -228,14 +230,14 @@ __PACKAGE__->method_documentation({
     'expire_time' => {
         datatype => 'DateTime',
         base_name => 'expire_time',
-        description => 'Required for orders with time_in_force &#x3D; GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS',
+        description => 'Expiration time. Conditionaly required for orders with time_in_force &#x3D; &#x60;GOOD_TILL_TIME_EXCHANGE&#x60; or &#x60;GOOD_TILL_TIME_OEML&#x60;.',
         format => '',
         read_only => '',
             },
     'exec_inst' => {
         datatype => 'ARRAY[string]',
         base_name => 'exec_inst',
-        description => 'Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; ',
+        description => 'Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt;',
         format => '',
         read_only => '',
             },
@@ -248,8 +250,8 @@ __PACKAGE__->openapi_types( {
     'symbol_coinapi' => 'string',
     'amount_order' => 'double',
     'price' => 'double',
-    'side' => 'string',
-    'order_type' => 'string',
+    'side' => 'OrdSide',
+    'order_type' => 'OrdType',
     'time_in_force' => 'TimeInForce',
     'expire_time' => 'DateTime',
     'exec_inst' => 'ARRAY[string]'

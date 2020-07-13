@@ -100,7 +100,7 @@ No authorization required
 | **490** | Exchange not registered |  -  |
 
 # **V1OrdersGet**
-> array[Order] V1OrdersGet(exchange.id=var.exchange.id)
+> Orders V1OrdersGet(exchange.id=var.exchange.id)
 
 Get all orders
 
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**array[Order]**](Order.md)
+[**Orders**](Orders.md)
 
 ### Authorization
 
@@ -153,7 +153,7 @@ This request creating new order for the specific exchange.
 ```R
 library(openapi)
 
-var.new.order <- NewOrder$new("exchange_id_example", "client_order_id_example", "symbol_exchange_example", "symbol_coinapi_example", 123, 123, "side_example", "order_type_example", TimeInForce$new(), "expire_time_example", list("exec_inst_example")) # NewOrder | 
+var.new.order <- NewOrder$new("exchange_id_example", "client_order_id_example", "symbol_exchange_example", "symbol_coinapi_example", 123, 123, OrdSide$new(), OrdType$new(), TimeInForce$new(), "expire_time_example", list("exec_inst_example")) # NewOrder | 
 
 #Create new order
 api.instance <- OrdersApi$new()

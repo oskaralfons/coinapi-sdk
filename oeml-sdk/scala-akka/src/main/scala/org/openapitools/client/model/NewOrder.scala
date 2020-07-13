@@ -15,43 +15,30 @@ import java.time.LocalDate
 import org.openapitools.client.core.ApiModel
 
 case class NewOrder (
-  /* Exchange name */
-  exchangeId: Option[String] = None,
-  /* Client unique identifier for the trade. */
-  clientOrderId: Option[String] = None,
-  /* The symbol of the order. */
+  /* Exchange identifier. */
+  exchangeId: String,
+  /* Unique identifier for the order assigned by the `OEML API` client. */
+  clientOrderId: String,
+  /* Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order. */
   symbolExchange: Option[String] = None,
-  /* The CoinAPI symbol of the order. */
+  /* CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order. */
   symbolCoinapi: Option[String] = None,
-  /* Quoted decimal amount to purchase. */
-  amountOrder: Option[Double] = None,
-  /* Quoted decimal amount to spend per unit. */
-  price: Option[Double] = None,
-  /* Buy or Sell */
-  side: Option[NewOrderEnums.Side] = None,
-  /* The order type. */
-  orderType: Option[NewOrderEnums.OrderType] = None,
-  timeInForce: Option[TimeInForce] = None,
-  /* Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS */
+  /* Order quantity. */
+  amountOrder: Double,
+  /* Order price. */
+  price: Double,
+  side: OrdSide,
+  orderType: OrdType,
+  timeInForce: TimeInForce,
+  /* Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`. */
   expireTime: Option[LocalDate] = None,
-  /* Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>  */
+  /* Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> */
   execInst: Option[NewOrderEnums.Seq[ExecInst]] = None
 ) extends ApiModel
 
 object NewOrderEnums {
 
-  type Side = Side.Value
-  type OrderType = OrderType.Value
   type Seq[ExecInst] = Seq[ExecInst].Value
-  object Side extends Enumeration {
-    val BUY = Value("BUY")
-    val SELL = Value("SELL")
-  }
-
-  object OrderType extends Enumeration {
-    val LIMIT = Value("LIMIT")
-  }
-
   object Seq[ExecInst] extends Enumeration {
   }
 

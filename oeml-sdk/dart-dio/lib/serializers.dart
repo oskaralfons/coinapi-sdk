@@ -12,11 +12,13 @@ import 'package:openapi/model/create_order_validation_error.dart';
 import 'package:openapi/model/execution_report.dart';
 import 'package:openapi/model/message.dart';
 import 'package:openapi/model/new_order.dart';
+import 'package:openapi/model/ord_side.dart';
 import 'package:openapi/model/ord_status.dart';
-import 'package:openapi/model/order.dart';
+import 'package:openapi/model/ord_type.dart';
 import 'package:openapi/model/order_cancel_all_request.dart';
 import 'package:openapi/model/order_cancel_single_request.dart';
-import 'package:openapi/model/order_data.dart';
+import 'package:openapi/model/orders.dart';
+import 'package:openapi/model/orders_data.dart';
 import 'package:openapi/model/position.dart';
 import 'package:openapi/model/position_data.dart';
 import 'package:openapi/model/severity.dart';
@@ -32,11 +34,13 @@ CreateOrderValidationError,
 ExecutionReport,
 Message,
 NewOrder,
+OrdSide,
 OrdStatus,
-Order,
+OrdType,
 OrderCancelAllRequest,
 OrderCancelSingleRequest,
-OrderData,
+Orders,
+OrdersData,
 Position,
 PositionData,
 Severity,
@@ -65,11 +69,14 @@ const FullType(BuiltList, const [const FullType(Message)]),
 const FullType(BuiltList, const [const FullType(NewOrder)]),
 () => new ListBuilder<NewOrder>())
 ..addBuilderFactory(
+const FullType(BuiltList, const [const FullType(OrdSide)]),
+() => new ListBuilder<OrdSide>())
+..addBuilderFactory(
 const FullType(BuiltList, const [const FullType(OrdStatus)]),
 () => new ListBuilder<OrdStatus>())
 ..addBuilderFactory(
-const FullType(BuiltList, const [const FullType(Order)]),
-() => new ListBuilder<Order>())
+const FullType(BuiltList, const [const FullType(OrdType)]),
+() => new ListBuilder<OrdType>())
 ..addBuilderFactory(
 const FullType(BuiltList, const [const FullType(OrderCancelAllRequest)]),
 () => new ListBuilder<OrderCancelAllRequest>())
@@ -77,8 +84,11 @@ const FullType(BuiltList, const [const FullType(OrderCancelAllRequest)]),
 const FullType(BuiltList, const [const FullType(OrderCancelSingleRequest)]),
 () => new ListBuilder<OrderCancelSingleRequest>())
 ..addBuilderFactory(
-const FullType(BuiltList, const [const FullType(OrderData)]),
-() => new ListBuilder<OrderData>())
+const FullType(BuiltList, const [const FullType(Orders)]),
+() => new ListBuilder<Orders>())
+..addBuilderFactory(
+const FullType(BuiltList, const [const FullType(OrdersData)]),
+() => new ListBuilder<OrdersData>())
 ..addBuilderFactory(
 const FullType(BuiltList, const [const FullType(Position)]),
 () => new ListBuilder<Position>())

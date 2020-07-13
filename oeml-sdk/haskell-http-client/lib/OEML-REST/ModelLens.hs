@@ -254,12 +254,12 @@ messageMessageL f Message{..} = (\messageMessage -> Message { messageMessage, ..
 -- * NewOrder
 
 -- | 'newOrderExchangeId' Lens
-newOrderExchangeIdL :: Lens_' NewOrder (Maybe Text)
+newOrderExchangeIdL :: Lens_' NewOrder (Text)
 newOrderExchangeIdL f NewOrder{..} = (\newOrderExchangeId -> NewOrder { newOrderExchangeId, ..} ) <$> f newOrderExchangeId
 {-# INLINE newOrderExchangeIdL #-}
 
 -- | 'newOrderClientOrderId' Lens
-newOrderClientOrderIdL :: Lens_' NewOrder (Maybe Text)
+newOrderClientOrderIdL :: Lens_' NewOrder (Text)
 newOrderClientOrderIdL f NewOrder{..} = (\newOrderClientOrderId -> NewOrder { newOrderClientOrderId, ..} ) <$> f newOrderClientOrderId
 {-# INLINE newOrderClientOrderIdL #-}
 
@@ -274,27 +274,27 @@ newOrderSymbolCoinapiL f NewOrder{..} = (\newOrderSymbolCoinapi -> NewOrder { ne
 {-# INLINE newOrderSymbolCoinapiL #-}
 
 -- | 'newOrderAmountOrder' Lens
-newOrderAmountOrderL :: Lens_' NewOrder (Maybe Double)
+newOrderAmountOrderL :: Lens_' NewOrder (Double)
 newOrderAmountOrderL f NewOrder{..} = (\newOrderAmountOrder -> NewOrder { newOrderAmountOrder, ..} ) <$> f newOrderAmountOrder
 {-# INLINE newOrderAmountOrderL #-}
 
 -- | 'newOrderPrice' Lens
-newOrderPriceL :: Lens_' NewOrder (Maybe Double)
+newOrderPriceL :: Lens_' NewOrder (Double)
 newOrderPriceL f NewOrder{..} = (\newOrderPrice -> NewOrder { newOrderPrice, ..} ) <$> f newOrderPrice
 {-# INLINE newOrderPriceL #-}
 
 -- | 'newOrderSide' Lens
-newOrderSideL :: Lens_' NewOrder (Maybe E'Side)
+newOrderSideL :: Lens_' NewOrder (OrdSide)
 newOrderSideL f NewOrder{..} = (\newOrderSide -> NewOrder { newOrderSide, ..} ) <$> f newOrderSide
 {-# INLINE newOrderSideL #-}
 
 -- | 'newOrderOrderType' Lens
-newOrderOrderTypeL :: Lens_' NewOrder (Maybe E'OrderType)
+newOrderOrderTypeL :: Lens_' NewOrder (OrdType)
 newOrderOrderTypeL f NewOrder{..} = (\newOrderOrderType -> NewOrder { newOrderOrderType, ..} ) <$> f newOrderOrderType
 {-# INLINE newOrderOrderTypeL #-}
 
 -- | 'newOrderTimeInForce' Lens
-newOrderTimeInForceL :: Lens_' NewOrder (Maybe TimeInForce)
+newOrderTimeInForceL :: Lens_' NewOrder (TimeInForce)
 newOrderTimeInForceL f NewOrder{..} = (\newOrderTimeInForce -> NewOrder { newOrderTimeInForce, ..} ) <$> f newOrderTimeInForce
 {-# INLINE newOrderTimeInForceL #-}
 
@@ -310,26 +310,15 @@ newOrderExecInstL f NewOrder{..} = (\newOrderExecInst -> NewOrder { newOrderExec
 
 
 
+-- * OrdSide
+
+
+
 -- * OrdStatus
 
 
 
--- * Order
-
--- | 'orderType' Lens
-orderTypeL :: Lens_' Order (Maybe Text)
-orderTypeL f Order{..} = (\orderType -> Order { orderType, ..} ) <$> f orderType
-{-# INLINE orderTypeL #-}
-
--- | 'orderExchangeName' Lens
-orderExchangeNameL :: Lens_' Order (Maybe Text)
-orderExchangeNameL f Order{..} = (\orderExchangeName -> Order { orderExchangeName, ..} ) <$> f orderExchangeName
-{-# INLINE orderExchangeNameL #-}
-
--- | 'orderData' Lens
-orderDataL :: Lens_' Order (Maybe [OrderData])
-orderDataL f Order{..} = (\orderData -> Order { orderData, ..} ) <$> f orderData
-{-# INLINE orderDataL #-}
+-- * OrdType
 
 
 
@@ -361,102 +350,121 @@ orderCancelSingleRequestClientOrderIdL f OrderCancelSingleRequest{..} = (\orderC
 
 
 
--- * OrderData
+-- * Orders
 
--- | 'orderDataExchangeId' Lens
-orderDataExchangeIdL :: Lens_' OrderData (Maybe Text)
-orderDataExchangeIdL f OrderData{..} = (\orderDataExchangeId -> OrderData { orderDataExchangeId, ..} ) <$> f orderDataExchangeId
-{-# INLINE orderDataExchangeIdL #-}
+-- | 'ordersType' Lens
+ordersTypeL :: Lens_' Orders (Maybe Text)
+ordersTypeL f Orders{..} = (\ordersType -> Orders { ordersType, ..} ) <$> f ordersType
+{-# INLINE ordersTypeL #-}
 
--- | 'orderDataId' Lens
-orderDataIdL :: Lens_' OrderData (Maybe Text)
-orderDataIdL f OrderData{..} = (\orderDataId -> OrderData { orderDataId, ..} ) <$> f orderDataId
-{-# INLINE orderDataIdL #-}
+-- | 'ordersExchangeId' Lens
+ordersExchangeIdL :: Lens_' Orders (Maybe Text)
+ordersExchangeIdL f Orders{..} = (\ordersExchangeId -> Orders { ordersExchangeId, ..} ) <$> f ordersExchangeId
+{-# INLINE ordersExchangeIdL #-}
 
--- | 'orderDataClientOrderIdFormatExchange' Lens
-orderDataClientOrderIdFormatExchangeL :: Lens_' OrderData (Maybe Text)
-orderDataClientOrderIdFormatExchangeL f OrderData{..} = (\orderDataClientOrderIdFormatExchange -> OrderData { orderDataClientOrderIdFormatExchange, ..} ) <$> f orderDataClientOrderIdFormatExchange
-{-# INLINE orderDataClientOrderIdFormatExchangeL #-}
+-- | 'ordersData' Lens
+ordersDataL :: Lens_' Orders (Maybe [OrdersData])
+ordersDataL f Orders{..} = (\ordersData -> Orders { ordersData, ..} ) <$> f ordersData
+{-# INLINE ordersDataL #-}
 
--- | 'orderDataExchangeOrderId' Lens
-orderDataExchangeOrderIdL :: Lens_' OrderData (Maybe Text)
-orderDataExchangeOrderIdL f OrderData{..} = (\orderDataExchangeOrderId -> OrderData { orderDataExchangeOrderId, ..} ) <$> f orderDataExchangeOrderId
-{-# INLINE orderDataExchangeOrderIdL #-}
 
--- | 'orderDataAmountOpen' Lens
-orderDataAmountOpenL :: Lens_' OrderData (Maybe Double)
-orderDataAmountOpenL f OrderData{..} = (\orderDataAmountOpen -> OrderData { orderDataAmountOpen, ..} ) <$> f orderDataAmountOpen
-{-# INLINE orderDataAmountOpenL #-}
 
--- | 'orderDataAmountFilled' Lens
-orderDataAmountFilledL :: Lens_' OrderData (Maybe Double)
-orderDataAmountFilledL f OrderData{..} = (\orderDataAmountFilled -> OrderData { orderDataAmountFilled, ..} ) <$> f orderDataAmountFilled
-{-# INLINE orderDataAmountFilledL #-}
+-- * OrdersData
 
--- | 'orderDataStatus' Lens
-orderDataStatusL :: Lens_' OrderData (Maybe OrdStatus)
-orderDataStatusL f OrderData{..} = (\orderDataStatus -> OrderData { orderDataStatus, ..} ) <$> f orderDataStatus
-{-# INLINE orderDataStatusL #-}
+-- | 'ordersDataExchangeId' Lens
+ordersDataExchangeIdL :: Lens_' OrdersData (Maybe Text)
+ordersDataExchangeIdL f OrdersData{..} = (\ordersDataExchangeId -> OrdersData { ordersDataExchangeId, ..} ) <$> f ordersDataExchangeId
+{-# INLINE ordersDataExchangeIdL #-}
 
--- | 'orderDataTimeOrder' Lens
-orderDataTimeOrderL :: Lens_' OrderData (Maybe [[Text]])
-orderDataTimeOrderL f OrderData{..} = (\orderDataTimeOrder -> OrderData { orderDataTimeOrder, ..} ) <$> f orderDataTimeOrder
-{-# INLINE orderDataTimeOrderL #-}
+-- | 'ordersDataId' Lens
+ordersDataIdL :: Lens_' OrdersData (Maybe Text)
+ordersDataIdL f OrdersData{..} = (\ordersDataId -> OrdersData { ordersDataId, ..} ) <$> f ordersDataId
+{-# INLINE ordersDataIdL #-}
 
--- | 'orderDataErrorMessage' Lens
-orderDataErrorMessageL :: Lens_' OrderData (Maybe Text)
-orderDataErrorMessageL f OrderData{..} = (\orderDataErrorMessage -> OrderData { orderDataErrorMessage, ..} ) <$> f orderDataErrorMessage
-{-# INLINE orderDataErrorMessageL #-}
+-- | 'ordersDataClientOrderIdFormatExchange' Lens
+ordersDataClientOrderIdFormatExchangeL :: Lens_' OrdersData (Maybe Text)
+ordersDataClientOrderIdFormatExchangeL f OrdersData{..} = (\ordersDataClientOrderIdFormatExchange -> OrdersData { ordersDataClientOrderIdFormatExchange, ..} ) <$> f ordersDataClientOrderIdFormatExchange
+{-# INLINE ordersDataClientOrderIdFormatExchangeL #-}
 
--- | 'orderDataClientOrderId' Lens
-orderDataClientOrderIdL :: Lens_' OrderData (Maybe Text)
-orderDataClientOrderIdL f OrderData{..} = (\orderDataClientOrderId -> OrderData { orderDataClientOrderId, ..} ) <$> f orderDataClientOrderId
-{-# INLINE orderDataClientOrderIdL #-}
+-- | 'ordersDataExchangeOrderId' Lens
+ordersDataExchangeOrderIdL :: Lens_' OrdersData (Maybe Text)
+ordersDataExchangeOrderIdL f OrdersData{..} = (\ordersDataExchangeOrderId -> OrdersData { ordersDataExchangeOrderId, ..} ) <$> f ordersDataExchangeOrderId
+{-# INLINE ordersDataExchangeOrderIdL #-}
 
--- | 'orderDataSymbolExchange' Lens
-orderDataSymbolExchangeL :: Lens_' OrderData (Maybe Text)
-orderDataSymbolExchangeL f OrderData{..} = (\orderDataSymbolExchange -> OrderData { orderDataSymbolExchange, ..} ) <$> f orderDataSymbolExchange
-{-# INLINE orderDataSymbolExchangeL #-}
+-- | 'ordersDataAmountOpen' Lens
+ordersDataAmountOpenL :: Lens_' OrdersData (Maybe Double)
+ordersDataAmountOpenL f OrdersData{..} = (\ordersDataAmountOpen -> OrdersData { ordersDataAmountOpen, ..} ) <$> f ordersDataAmountOpen
+{-# INLINE ordersDataAmountOpenL #-}
 
--- | 'orderDataSymbolCoinapi' Lens
-orderDataSymbolCoinapiL :: Lens_' OrderData (Maybe Text)
-orderDataSymbolCoinapiL f OrderData{..} = (\orderDataSymbolCoinapi -> OrderData { orderDataSymbolCoinapi, ..} ) <$> f orderDataSymbolCoinapi
-{-# INLINE orderDataSymbolCoinapiL #-}
+-- | 'ordersDataAmountFilled' Lens
+ordersDataAmountFilledL :: Lens_' OrdersData (Maybe Double)
+ordersDataAmountFilledL f OrdersData{..} = (\ordersDataAmountFilled -> OrdersData { ordersDataAmountFilled, ..} ) <$> f ordersDataAmountFilled
+{-# INLINE ordersDataAmountFilledL #-}
 
--- | 'orderDataAmountOrder' Lens
-orderDataAmountOrderL :: Lens_' OrderData (Maybe Double)
-orderDataAmountOrderL f OrderData{..} = (\orderDataAmountOrder -> OrderData { orderDataAmountOrder, ..} ) <$> f orderDataAmountOrder
-{-# INLINE orderDataAmountOrderL #-}
+-- | 'ordersDataStatus' Lens
+ordersDataStatusL :: Lens_' OrdersData (Maybe OrdStatus)
+ordersDataStatusL f OrdersData{..} = (\ordersDataStatus -> OrdersData { ordersDataStatus, ..} ) <$> f ordersDataStatus
+{-# INLINE ordersDataStatusL #-}
 
--- | 'orderDataPrice' Lens
-orderDataPriceL :: Lens_' OrderData (Maybe Double)
-orderDataPriceL f OrderData{..} = (\orderDataPrice -> OrderData { orderDataPrice, ..} ) <$> f orderDataPrice
-{-# INLINE orderDataPriceL #-}
+-- | 'ordersDataTimeOrder' Lens
+ordersDataTimeOrderL :: Lens_' OrdersData (Maybe [[Text]])
+ordersDataTimeOrderL f OrdersData{..} = (\ordersDataTimeOrder -> OrdersData { ordersDataTimeOrder, ..} ) <$> f ordersDataTimeOrder
+{-# INLINE ordersDataTimeOrderL #-}
 
--- | 'orderDataSide' Lens
-orderDataSideL :: Lens_' OrderData (Maybe E'Side)
-orderDataSideL f OrderData{..} = (\orderDataSide -> OrderData { orderDataSide, ..} ) <$> f orderDataSide
-{-# INLINE orderDataSideL #-}
+-- | 'ordersDataErrorMessage' Lens
+ordersDataErrorMessageL :: Lens_' OrdersData (Maybe Text)
+ordersDataErrorMessageL f OrdersData{..} = (\ordersDataErrorMessage -> OrdersData { ordersDataErrorMessage, ..} ) <$> f ordersDataErrorMessage
+{-# INLINE ordersDataErrorMessageL #-}
 
--- | 'orderDataOrderType' Lens
-orderDataOrderTypeL :: Lens_' OrderData (Maybe E'OrderType)
-orderDataOrderTypeL f OrderData{..} = (\orderDataOrderType -> OrderData { orderDataOrderType, ..} ) <$> f orderDataOrderType
-{-# INLINE orderDataOrderTypeL #-}
+-- | 'ordersDataClientOrderId' Lens
+ordersDataClientOrderIdL :: Lens_' OrdersData (Maybe Text)
+ordersDataClientOrderIdL f OrdersData{..} = (\ordersDataClientOrderId -> OrdersData { ordersDataClientOrderId, ..} ) <$> f ordersDataClientOrderId
+{-# INLINE ordersDataClientOrderIdL #-}
 
--- | 'orderDataTimeInForce' Lens
-orderDataTimeInForceL :: Lens_' OrderData (Maybe TimeInForce)
-orderDataTimeInForceL f OrderData{..} = (\orderDataTimeInForce -> OrderData { orderDataTimeInForce, ..} ) <$> f orderDataTimeInForce
-{-# INLINE orderDataTimeInForceL #-}
+-- | 'ordersDataSymbolExchange' Lens
+ordersDataSymbolExchangeL :: Lens_' OrdersData (Maybe Text)
+ordersDataSymbolExchangeL f OrdersData{..} = (\ordersDataSymbolExchange -> OrdersData { ordersDataSymbolExchange, ..} ) <$> f ordersDataSymbolExchange
+{-# INLINE ordersDataSymbolExchangeL #-}
 
--- | 'orderDataExpireTime' Lens
-orderDataExpireTimeL :: Lens_' OrderData (Maybe Date)
-orderDataExpireTimeL f OrderData{..} = (\orderDataExpireTime -> OrderData { orderDataExpireTime, ..} ) <$> f orderDataExpireTime
-{-# INLINE orderDataExpireTimeL #-}
+-- | 'ordersDataSymbolCoinapi' Lens
+ordersDataSymbolCoinapiL :: Lens_' OrdersData (Maybe Text)
+ordersDataSymbolCoinapiL f OrdersData{..} = (\ordersDataSymbolCoinapi -> OrdersData { ordersDataSymbolCoinapi, ..} ) <$> f ordersDataSymbolCoinapi
+{-# INLINE ordersDataSymbolCoinapiL #-}
 
--- | 'orderDataExecInst' Lens
-orderDataExecInstL :: Lens_' OrderData (Maybe [E'ExecInst])
-orderDataExecInstL f OrderData{..} = (\orderDataExecInst -> OrderData { orderDataExecInst, ..} ) <$> f orderDataExecInst
-{-# INLINE orderDataExecInstL #-}
+-- | 'ordersDataAmountOrder' Lens
+ordersDataAmountOrderL :: Lens_' OrdersData (Maybe Double)
+ordersDataAmountOrderL f OrdersData{..} = (\ordersDataAmountOrder -> OrdersData { ordersDataAmountOrder, ..} ) <$> f ordersDataAmountOrder
+{-# INLINE ordersDataAmountOrderL #-}
+
+-- | 'ordersDataPrice' Lens
+ordersDataPriceL :: Lens_' OrdersData (Maybe Double)
+ordersDataPriceL f OrdersData{..} = (\ordersDataPrice -> OrdersData { ordersDataPrice, ..} ) <$> f ordersDataPrice
+{-# INLINE ordersDataPriceL #-}
+
+-- | 'ordersDataSide' Lens
+ordersDataSideL :: Lens_' OrdersData (Maybe E'Side)
+ordersDataSideL f OrdersData{..} = (\ordersDataSide -> OrdersData { ordersDataSide, ..} ) <$> f ordersDataSide
+{-# INLINE ordersDataSideL #-}
+
+-- | 'ordersDataOrderType' Lens
+ordersDataOrderTypeL :: Lens_' OrdersData (Maybe E'OrderType)
+ordersDataOrderTypeL f OrdersData{..} = (\ordersDataOrderType -> OrdersData { ordersDataOrderType, ..} ) <$> f ordersDataOrderType
+{-# INLINE ordersDataOrderTypeL #-}
+
+-- | 'ordersDataTimeInForce' Lens
+ordersDataTimeInForceL :: Lens_' OrdersData (Maybe TimeInForce)
+ordersDataTimeInForceL f OrdersData{..} = (\ordersDataTimeInForce -> OrdersData { ordersDataTimeInForce, ..} ) <$> f ordersDataTimeInForce
+{-# INLINE ordersDataTimeInForceL #-}
+
+-- | 'ordersDataExpireTime' Lens
+ordersDataExpireTimeL :: Lens_' OrdersData (Maybe Date)
+ordersDataExpireTimeL f OrdersData{..} = (\ordersDataExpireTime -> OrdersData { ordersDataExpireTime, ..} ) <$> f ordersDataExpireTime
+{-# INLINE ordersDataExpireTimeL #-}
+
+-- | 'ordersDataExecInst' Lens
+ordersDataExecInstL :: Lens_' OrdersData (Maybe [E'ExecInst])
+ordersDataExecInstL f OrdersData{..} = (\ordersDataExecInst -> OrdersData { ordersDataExecInst, ..} ) <$> f ordersDataExecInst
+{-# INLINE ordersDataExecInstL #-}
 
 
 

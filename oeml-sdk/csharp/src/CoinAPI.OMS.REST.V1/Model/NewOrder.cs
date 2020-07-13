@@ -31,58 +31,20 @@ namespace CoinAPI.OMS.REST.V1.Model
     public partial class NewOrder :  IEquatable<NewOrder>, IValidatableObject
     {
         /// <summary>
-        /// Buy or Sell
+        /// Gets or Sets Side
         /// </summary>
-        /// <value>Buy or Sell</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum SideEnum
-        {
-            /// <summary>
-            /// Enum BUY for value: BUY
-            /// </summary>
-            [EnumMember(Value = "BUY")]
-            BUY = 1,
-
-            /// <summary>
-            /// Enum SELL for value: SELL
-            /// </summary>
-            [EnumMember(Value = "SELL")]
-            SELL = 2
-
-        }
-
+        [DataMember(Name="side", EmitDefaultValue=true)]
+        public OrdSide Side { get; set; }
         /// <summary>
-        /// Buy or Sell
+        /// Gets or Sets OrderType
         /// </summary>
-        /// <value>Buy or Sell</value>
-        [DataMember(Name="side", EmitDefaultValue=false)]
-        public SideEnum? Side { get; set; }
-        /// <summary>
-        /// The order type.
-        /// </summary>
-        /// <value>The order type.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum OrderTypeEnum
-        {
-            /// <summary>
-            /// Enum LIMIT for value: LIMIT
-            /// </summary>
-            [EnumMember(Value = "LIMIT")]
-            LIMIT = 1
-
-        }
-
-        /// <summary>
-        /// The order type.
-        /// </summary>
-        /// <value>The order type.</value>
-        [DataMember(Name="order_type", EmitDefaultValue=false)]
-        public OrderTypeEnum? OrderType { get; set; }
+        [DataMember(Name="order_type", EmitDefaultValue=true)]
+        public OrdType OrderType { get; set; }
         /// <summary>
         /// Gets or Sets TimeInForce
         /// </summary>
-        [DataMember(Name="time_in_force", EmitDefaultValue=false)]
-        public TimeInForce? TimeInForce { get; set; }
+        [DataMember(Name="time_in_force", EmitDefaultValue=true)]
+        public TimeInForce TimeInForce { get; set; }
         /// <summary>
         /// Defines ExecInst
         /// </summary>
@@ -111,89 +73,157 @@ namespace CoinAPI.OMS.REST.V1.Model
 
 
         /// <summary>
-        /// Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; 
+        /// Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt;
         /// </summary>
-        /// <value>Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; </value>
+        /// <value>Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt;</value>
         [DataMember(Name="exec_inst", EmitDefaultValue=false)]
         public List<ExecInstEnum> ExecInst { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="NewOrder" /> class.
         /// </summary>
-        /// <param name="exchangeId">Exchange name.</param>
-        /// <param name="clientOrderId">Client unique identifier for the trade..</param>
-        /// <param name="symbolExchange">The symbol of the order..</param>
-        /// <param name="symbolCoinapi">The CoinAPI symbol of the order..</param>
-        /// <param name="amountOrder">Quoted decimal amount to purchase..</param>
-        /// <param name="price">Quoted decimal amount to spend per unit..</param>
-        /// <param name="side">Buy or Sell.</param>
-        /// <param name="orderType">The order type..</param>
-        /// <param name="timeInForce">timeInForce.</param>
-        /// <param name="expireTime">Required for orders with time_in_force &#x3D; GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS.</param>
-        /// <param name="execInst">Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; .</param>
-        public NewOrder(string exchangeId = default(string), string clientOrderId = default(string), string symbolExchange = default(string), string symbolCoinapi = default(string), decimal amountOrder = default(decimal), decimal price = default(decimal), SideEnum? side = default(SideEnum?), OrderTypeEnum? orderType = default(OrderTypeEnum?), TimeInForce? timeInForce = default(TimeInForce?), DateTime expireTime = default(DateTime), List<ExecInstEnum> execInst = default(List<ExecInstEnum>))
+        [JsonConstructorAttribute]
+        protected NewOrder() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NewOrder" /> class.
+        /// </summary>
+        /// <param name="exchangeId">Exchange identifier. (required).</param>
+        /// <param name="clientOrderId">Unique identifier for the order assigned by the &#x60;OEML API&#x60; client. (required).</param>
+        /// <param name="symbolExchange">Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order..</param>
+        /// <param name="symbolCoinapi">CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order..</param>
+        /// <param name="amountOrder">Order quantity. (required).</param>
+        /// <param name="price">Order price. (required).</param>
+        /// <param name="side">side (required).</param>
+        /// <param name="orderType">orderType (required).</param>
+        /// <param name="timeInForce">timeInForce (required).</param>
+        /// <param name="expireTime">Expiration time. Conditionaly required for orders with time_in_force &#x3D; &#x60;GOOD_TILL_TIME_EXCHANGE&#x60; or &#x60;GOOD_TILL_TIME_OEML&#x60;..</param>
+        /// <param name="execInst">Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt;.</param>
+        public NewOrder(string exchangeId = default(string), string clientOrderId = default(string), string symbolExchange = default(string), string symbolCoinapi = default(string), decimal amountOrder = default(decimal), decimal price = default(decimal), OrdSide side = default(OrdSide), OrdType orderType = default(OrdType), TimeInForce timeInForce = default(TimeInForce), DateTime expireTime = default(DateTime), List<ExecInstEnum> execInst = default(List<ExecInstEnum>))
         {
-            this.ExchangeId = exchangeId;
-            this.ClientOrderId = clientOrderId;
+            // to ensure "exchangeId" is required (not null)
+            if (exchangeId == null)
+            {
+                throw new InvalidDataException("exchangeId is a required property for NewOrder and cannot be null");
+            }
+            else
+            {
+                this.ExchangeId = exchangeId;
+            }
+            
+            // to ensure "clientOrderId" is required (not null)
+            if (clientOrderId == null)
+            {
+                throw new InvalidDataException("clientOrderId is a required property for NewOrder and cannot be null");
+            }
+            else
+            {
+                this.ClientOrderId = clientOrderId;
+            }
+            
+            // to ensure "amountOrder" is required (not null)
+            if (amountOrder == null)
+            {
+                throw new InvalidDataException("amountOrder is a required property for NewOrder and cannot be null");
+            }
+            else
+            {
+                this.AmountOrder = amountOrder;
+            }
+            
+            // to ensure "price" is required (not null)
+            if (price == null)
+            {
+                throw new InvalidDataException("price is a required property for NewOrder and cannot be null");
+            }
+            else
+            {
+                this.Price = price;
+            }
+            
+            // to ensure "side" is required (not null)
+            if (side == null)
+            {
+                throw new InvalidDataException("side is a required property for NewOrder and cannot be null");
+            }
+            else
+            {
+                this.Side = side;
+            }
+            
+            // to ensure "orderType" is required (not null)
+            if (orderType == null)
+            {
+                throw new InvalidDataException("orderType is a required property for NewOrder and cannot be null");
+            }
+            else
+            {
+                this.OrderType = orderType;
+            }
+            
+            // to ensure "timeInForce" is required (not null)
+            if (timeInForce == null)
+            {
+                throw new InvalidDataException("timeInForce is a required property for NewOrder and cannot be null");
+            }
+            else
+            {
+                this.TimeInForce = timeInForce;
+            }
+            
             this.SymbolExchange = symbolExchange;
             this.SymbolCoinapi = symbolCoinapi;
-            this.AmountOrder = amountOrder;
-            this.Price = price;
-            this.Side = side;
-            this.OrderType = orderType;
-            this.TimeInForce = timeInForce;
             this.ExpireTime = expireTime;
             this.ExecInst = execInst;
         }
         
         /// <summary>
-        /// Exchange name
+        /// Exchange identifier.
         /// </summary>
-        /// <value>Exchange name</value>
-        [DataMember(Name="exchange_id", EmitDefaultValue=false)]
+        /// <value>Exchange identifier.</value>
+        [DataMember(Name="exchange_id", EmitDefaultValue=true)]
         public string ExchangeId { get; set; }
 
         /// <summary>
-        /// Client unique identifier for the trade.
+        /// Unique identifier for the order assigned by the &#x60;OEML API&#x60; client.
         /// </summary>
-        /// <value>Client unique identifier for the trade.</value>
-        [DataMember(Name="client_order_id", EmitDefaultValue=false)]
+        /// <value>Unique identifier for the order assigned by the &#x60;OEML API&#x60; client.</value>
+        [DataMember(Name="client_order_id", EmitDefaultValue=true)]
         public string ClientOrderId { get; set; }
 
         /// <summary>
-        /// The symbol of the order.
+        /// Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.
         /// </summary>
-        /// <value>The symbol of the order.</value>
+        /// <value>Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.</value>
         [DataMember(Name="symbol_exchange", EmitDefaultValue=false)]
         public string SymbolExchange { get; set; }
 
         /// <summary>
-        /// The CoinAPI symbol of the order.
+        /// CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.
         /// </summary>
-        /// <value>The CoinAPI symbol of the order.</value>
+        /// <value>CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.</value>
         [DataMember(Name="symbol_coinapi", EmitDefaultValue=false)]
         public string SymbolCoinapi { get; set; }
 
         /// <summary>
-        /// Quoted decimal amount to purchase.
+        /// Order quantity.
         /// </summary>
-        /// <value>Quoted decimal amount to purchase.</value>
-        [DataMember(Name="amount_order", EmitDefaultValue=false)]
+        /// <value>Order quantity.</value>
+        [DataMember(Name="amount_order", EmitDefaultValue=true)]
         public decimal AmountOrder { get; set; }
 
         /// <summary>
-        /// Quoted decimal amount to spend per unit.
+        /// Order price.
         /// </summary>
-        /// <value>Quoted decimal amount to spend per unit.</value>
-        [DataMember(Name="price", EmitDefaultValue=false)]
+        /// <value>Order price.</value>
+        [DataMember(Name="price", EmitDefaultValue=true)]
         public decimal Price { get; set; }
 
 
 
 
         /// <summary>
-        /// Required for orders with time_in_force &#x3D; GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
+        /// Expiration time. Conditionaly required for orders with time_in_force &#x3D; &#x60;GOOD_TILL_TIME_EXCHANGE&#x60; or &#x60;GOOD_TILL_TIME_OEML&#x60;.
         /// </summary>
-        /// <value>Required for orders with time_in_force &#x3D; GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS</value>
+        /// <value>Expiration time. Conditionaly required for orders with time_in_force &#x3D; &#x60;GOOD_TILL_TIME_EXCHANGE&#x60; or &#x60;GOOD_TILL_TIME_OEML&#x60;.</value>
         [DataMember(Name="expire_time", EmitDefaultValue=false)]
         public DateTime ExpireTime { get; set; }
 

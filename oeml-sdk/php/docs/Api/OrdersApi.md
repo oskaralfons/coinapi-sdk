@@ -126,7 +126,7 @@ No authorization required
 
 ## v1OrdersGet
 
-> \OpenAPI\Client\Model\Order[] v1OrdersGet($exchange_id)
+> \OpenAPI\Client\Model\Orders v1OrdersGet($exchange_id)
 
 Get all orders
 
@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\Order[]**](../Model/Order.md)
+[**\OpenAPI\Client\Model\Orders**](../Model/Orders.md)
 
 ### Authorization
 

@@ -26,13 +26,15 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import org.openapitools.client.model.OrdSide;
+import org.openapitools.client.model.OrdType;
 import org.openapitools.client.model.TimeInForce;
 import org.threeten.bp.LocalDate;
 
 /**
  * NewOrder
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T10:29:48.012Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T10:59:10.382Z[Etc/UTC]")
 public class NewOrder {
   public static final String SERIALIZED_NAME_EXCHANGE_ID = "exchange_id";
   @SerializedName(SERIALIZED_NAME_EXCHANGE_ID)
@@ -58,105 +60,13 @@ public class NewOrder {
   @SerializedName(SERIALIZED_NAME_PRICE)
   private BigDecimal price;
 
-  /**
-   * Buy or Sell
-   */
-  @JsonAdapter(SideEnum.Adapter.class)
-  public enum SideEnum {
-    BUY("BUY"),
-    
-    SELL("SELL");
-
-    private String value;
-
-    SideEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static SideEnum fromValue(String value) {
-      for (SideEnum b : SideEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<SideEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final SideEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public SideEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return SideEnum.fromValue(value);
-      }
-    }
-  }
-
   public static final String SERIALIZED_NAME_SIDE = "side";
   @SerializedName(SERIALIZED_NAME_SIDE)
-  private SideEnum side;
-
-  /**
-   * The order type.
-   */
-  @JsonAdapter(OrderTypeEnum.Adapter.class)
-  public enum OrderTypeEnum {
-    LIMIT("LIMIT");
-
-    private String value;
-
-    OrderTypeEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static OrderTypeEnum fromValue(String value) {
-      for (OrderTypeEnum b : OrderTypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<OrderTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final OrderTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public OrderTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return OrderTypeEnum.fromValue(value);
-      }
-    }
-  }
+  private OrdSide side;
 
   public static final String SERIALIZED_NAME_ORDER_TYPE = "order_type";
   @SerializedName(SERIALIZED_NAME_ORDER_TYPE)
-  private OrderTypeEnum orderType;
+  private OrdType orderType;
 
   public static final String SERIALIZED_NAME_TIME_IN_FORCE = "time_in_force";
   @SerializedName(SERIALIZED_NAME_TIME_IN_FORCE)
@@ -227,11 +137,10 @@ public class NewOrder {
   }
 
    /**
-   * Exchange name
+   * Exchange identifier.
    * @return exchangeId
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "KRAKEN", value = "Exchange name")
+  @ApiModelProperty(example = "KRAKEN", required = true, value = "Exchange identifier.")
 
   public String getExchangeId() {
     return exchangeId;
@@ -250,11 +159,10 @@ public class NewOrder {
   }
 
    /**
-   * Client unique identifier for the trade.
+   * Unique identifier for the order assigned by the &#x60;OEML API&#x60; client.
    * @return clientOrderId
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "KPP-222389382-AQ", value = "Client unique identifier for the trade.")
+  @ApiModelProperty(example = "KPP-222389382-AQ", required = true, value = "Unique identifier for the order assigned by the `OEML API` client.")
 
   public String getClientOrderId() {
     return clientOrderId;
@@ -273,11 +181,11 @@ public class NewOrder {
   }
 
    /**
-   * The symbol of the order.
+   * Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.
    * @return symbolExchange
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "BTCUSD", value = "The symbol of the order.")
+  @ApiModelProperty(example = "BTCUSD", value = "Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.")
 
   public String getSymbolExchange() {
     return symbolExchange;
@@ -296,11 +204,11 @@ public class NewOrder {
   }
 
    /**
-   * The CoinAPI symbol of the order.
+   * CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.
    * @return symbolCoinapi
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "KRAKEN_SPOT_BTC_USD", value = "The CoinAPI symbol of the order.")
+  @ApiModelProperty(example = "KRAKEN_SPOT_BTC_USD", value = "CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.")
 
   public String getSymbolCoinapi() {
     return symbolCoinapi;
@@ -319,11 +227,10 @@ public class NewOrder {
   }
 
    /**
-   * Quoted decimal amount to purchase.
+   * Order quantity.
    * @return amountOrder
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "0.045", value = "Quoted decimal amount to purchase.")
+  @ApiModelProperty(example = "0.045", required = true, value = "Order quantity.")
 
   public BigDecimal getAmountOrder() {
     return amountOrder;
@@ -342,11 +249,10 @@ public class NewOrder {
   }
 
    /**
-   * Quoted decimal amount to spend per unit.
+   * Order price.
    * @return price
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "0.0783", value = "Quoted decimal amount to spend per unit.")
+  @ApiModelProperty(example = "0.0783", required = true, value = "Order price.")
 
   public BigDecimal getPrice() {
     return price;
@@ -358,48 +264,46 @@ public class NewOrder {
   }
 
 
-  public NewOrder side(SideEnum side) {
+  public NewOrder side(OrdSide side) {
     
     this.side = side;
     return this;
   }
 
    /**
-   * Buy or Sell
+   * Get side
    * @return side
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "BUY", value = "Buy or Sell")
+  @ApiModelProperty(required = true, value = "")
 
-  public SideEnum getSide() {
+  public OrdSide getSide() {
     return side;
   }
 
 
-  public void setSide(SideEnum side) {
+  public void setSide(OrdSide side) {
     this.side = side;
   }
 
 
-  public NewOrder orderType(OrderTypeEnum orderType) {
+  public NewOrder orderType(OrdType orderType) {
     
     this.orderType = orderType;
     return this;
   }
 
    /**
-   * The order type.
+   * Get orderType
    * @return orderType
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "LIMIT", value = "The order type.")
+  @ApiModelProperty(required = true, value = "")
 
-  public OrderTypeEnum getOrderType() {
+  public OrdType getOrderType() {
     return orderType;
   }
 
 
-  public void setOrderType(OrderTypeEnum orderType) {
+  public void setOrderType(OrdType orderType) {
     this.orderType = orderType;
   }
 
@@ -414,8 +318,7 @@ public class NewOrder {
    * Get timeInForce
    * @return timeInForce
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
 
   public TimeInForce getTimeInForce() {
     return timeInForce;
@@ -434,11 +337,11 @@ public class NewOrder {
   }
 
    /**
-   * Required for orders with time_in_force &#x3D; GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
+   * Expiration time. Conditionaly required for orders with time_in_force &#x3D; &#x60;GOOD_TILL_TIME_EXCHANGE&#x60; or &#x60;GOOD_TILL_TIME_OEML&#x60;.
    * @return expireTime
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS")
+  @ApiModelProperty(value = "Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.")
 
   public LocalDate getExpireTime() {
     return expireTime;
@@ -465,11 +368,11 @@ public class NewOrder {
   }
 
    /**
-   * Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; 
+   * Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt;
    * @return execInst
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> ")
+  @ApiModelProperty(example = "MAKER_OR_CANCEL", value = "Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>")
 
   public List<ExecInstEnum> getExecInst() {
     return execInst;

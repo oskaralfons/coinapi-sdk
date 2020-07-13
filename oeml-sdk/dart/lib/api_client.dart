@@ -48,16 +48,20 @@ class ApiClient {
           return Message.fromJson(value);
         case 'NewOrder':
           return NewOrder.fromJson(value);
+        case 'OrdSide':
+          return new OrdSideTypeTransformer().decode(value);
         case 'OrdStatus':
           return new OrdStatusTypeTransformer().decode(value);
-        case 'Order':
-          return Order.fromJson(value);
+        case 'OrdType':
+          return new OrdTypeTypeTransformer().decode(value);
         case 'OrderCancelAllRequest':
           return OrderCancelAllRequest.fromJson(value);
         case 'OrderCancelSingleRequest':
           return OrderCancelSingleRequest.fromJson(value);
-        case 'OrderData':
-          return OrderData.fromJson(value);
+        case 'Orders':
+          return Orders.fromJson(value);
+        case 'OrdersData':
+          return OrdersData.fromJson(value);
         case 'Position':
           return Position.fromJson(value);
         case 'PositionData':

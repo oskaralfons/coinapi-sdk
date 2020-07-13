@@ -15,8 +15,8 @@
   | {'symbol_coinapi', binary() }
   | {'amount_order', integer() }
   | {'price', integer() }
-  | {'side', binary() }
-  | {'order_type', binary() }
+  | {'side', openapi_ord_side:openapi_ord_side() }
+  | {'order_type', openapi_ord_type:openapi_ord_type() }
   | {'time_in_force', openapi_time_in_force:openapi_time_in_force() }
   | {'expire_time', date() }
   | {'exec_inst', list(binary()) }
@@ -33,8 +33,8 @@ openapi_new_order(Fields) ->
             , {'symbol_coinapi', binary() }
             , {'amount_order', integer() }
             , {'price', integer() }
-            , {'side', elements([<<"BUY">>, <<"SELL">>]) }
-            , {'order_type', elements([<<"LIMIT">>]) }
+            , {'side', openapi_ord_side:openapi_ord_side() }
+            , {'order_type', openapi_ord_type:openapi_ord_type() }
             , {'time_in_force', openapi_time_in_force:openapi_time_in_force() }
             , {'expire_time', date() }
             , {'exec_inst', list(binary()) }

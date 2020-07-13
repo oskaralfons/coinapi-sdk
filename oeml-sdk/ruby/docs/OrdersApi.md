@@ -108,7 +108,7 @@ No authorization required
 
 ## v1_orders_get
 
-> Array&lt;Order&gt; v1_orders_get(opts)
+> Orders v1_orders_get(opts)
 
 Get all orders
 
@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array&lt;Order&gt;**](Order.md)
+[**Orders**](Orders.md)
 
 ### Authorization
 

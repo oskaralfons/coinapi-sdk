@@ -15,6 +15,8 @@ package org.openapitools.client.model;
 import java.math.BigDecimal;
 import java.util.*;
 import java.util.Date;
+import org.openapitools.client.model.OrdSide;
+import org.openapitools.client.model.OrdType;
 import org.openapitools.client.model.TimeInForce;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
@@ -34,16 +36,10 @@ public class NewOrder {
   private BigDecimal amountOrder = null;
   @SerializedName("price")
   private BigDecimal price = null;
-  public enum SideEnum {
-     BUY,  SELL, 
-  };
   @SerializedName("side")
-  private SideEnum side = null;
-  public enum OrderTypeEnum {
-     LIMIT, 
-  };
+  private OrdSide side = null;
   @SerializedName("order_type")
-  private OrderTypeEnum orderType = null;
+  private OrdType orderType = null;
   @SerializedName("time_in_force")
   private TimeInForce timeInForce = null;
   @SerializedName("expire_time")
@@ -55,9 +51,9 @@ public class NewOrder {
   private List<ExecInstEnum> execInst = null;
 
   /**
-   * Exchange name
+   * Exchange identifier.
    **/
-  @ApiModelProperty(value = "Exchange name")
+  @ApiModelProperty(required = true, value = "Exchange identifier.")
   public String getExchangeId() {
     return exchangeId;
   }
@@ -66,9 +62,9 @@ public class NewOrder {
   }
 
   /**
-   * Client unique identifier for the trade.
+   * Unique identifier for the order assigned by the `OEML API` client.
    **/
-  @ApiModelProperty(value = "Client unique identifier for the trade.")
+  @ApiModelProperty(required = true, value = "Unique identifier for the order assigned by the `OEML API` client.")
   public String getClientOrderId() {
     return clientOrderId;
   }
@@ -77,9 +73,9 @@ public class NewOrder {
   }
 
   /**
-   * The symbol of the order.
+   * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
    **/
-  @ApiModelProperty(value = "The symbol of the order.")
+  @ApiModelProperty(value = "Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.")
   public String getSymbolExchange() {
     return symbolExchange;
   }
@@ -88,9 +84,9 @@ public class NewOrder {
   }
 
   /**
-   * The CoinAPI symbol of the order.
+   * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
    **/
-  @ApiModelProperty(value = "The CoinAPI symbol of the order.")
+  @ApiModelProperty(value = "CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.")
   public String getSymbolCoinapi() {
     return symbolCoinapi;
   }
@@ -99,9 +95,9 @@ public class NewOrder {
   }
 
   /**
-   * Quoted decimal amount to purchase.
+   * Order quantity.
    **/
-  @ApiModelProperty(value = "Quoted decimal amount to purchase.")
+  @ApiModelProperty(required = true, value = "Order quantity.")
   public BigDecimal getAmountOrder() {
     return amountOrder;
   }
@@ -110,9 +106,9 @@ public class NewOrder {
   }
 
   /**
-   * Quoted decimal amount to spend per unit.
+   * Order price.
    **/
-  @ApiModelProperty(value = "Quoted decimal amount to spend per unit.")
+  @ApiModelProperty(required = true, value = "Order price.")
   public BigDecimal getPrice() {
     return price;
   }
@@ -121,30 +117,28 @@ public class NewOrder {
   }
 
   /**
-   * Buy or Sell
    **/
-  @ApiModelProperty(value = "Buy or Sell")
-  public SideEnum getSide() {
+  @ApiModelProperty(required = true, value = "")
+  public OrdSide getSide() {
     return side;
   }
-  public void setSide(SideEnum side) {
+  public void setSide(OrdSide side) {
     this.side = side;
   }
 
   /**
-   * The order type.
    **/
-  @ApiModelProperty(value = "The order type.")
-  public OrderTypeEnum getOrderType() {
+  @ApiModelProperty(required = true, value = "")
+  public OrdType getOrderType() {
     return orderType;
   }
-  public void setOrderType(OrderTypeEnum orderType) {
+  public void setOrderType(OrdType orderType) {
     this.orderType = orderType;
   }
 
   /**
    **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   public TimeInForce getTimeInForce() {
     return timeInForce;
   }
@@ -153,9 +147,9 @@ public class NewOrder {
   }
 
   /**
-   * Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
+   * Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
    **/
-  @ApiModelProperty(value = "Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS")
+  @ApiModelProperty(value = "Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.")
   public Date getExpireTime() {
     return expireTime;
   }
@@ -164,9 +158,9 @@ public class NewOrder {
   }
 
   /**
-   * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> 
+   * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>
    **/
-  @ApiModelProperty(value = "Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> ")
+  @ApiModelProperty(value = "Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>")
   public List<ExecInstEnum> getExecInst() {
     return execInst;
   }

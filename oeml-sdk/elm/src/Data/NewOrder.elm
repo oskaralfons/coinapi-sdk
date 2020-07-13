@@ -10,8 +10,10 @@
 -}
 
 
-module Data.NewOrder exposing (NewOrder, Side(..), OrderType(..), ExecInst(..), decoder, encode, encodeWithTag, toString)
+module Data.NewOrder exposing (NewOrder, ExecInst(..), decoder, encode, encodeWithTag, toString)
 
+import Data.OrdSide as OrdSide exposing (OrdSide)
+import Data.OrdType as OrdType exposing (OrdType)
 import Data.TimeInForce as TimeInForce exposing (TimeInForce)
 import DateOnly exposing (DateOnly)
 import Dict exposing (Dict)
@@ -21,29 +23,18 @@ import Json.Encode as Encode
 
 
 type alias NewOrder =
-    { exchangeId : Maybe (String)
-    , clientOrderId : Maybe (String)
+    { exchangeId : String
+    , clientOrderId : String
     , symbolExchange : Maybe (String)
     , symbolCoinapi : Maybe (String)
-    , amountOrder : Maybe (Float)
-    , price : Maybe (Float)
-    , side : Maybe (Side)
-    , orderType : Maybe (OrderType)
-    , timeInForce : Maybe (TimeInForce)
+    , amountOrder : Float
+    , price : Float
+    , side : OrdSide
+    , orderType : OrdType
+    , timeInForce : TimeInForce
     , expireTime : Maybe (DateOnly)
     , execInst : Maybe ((List ExecInst))
     }
-
-
-type Side
-    = BUY
-    | SELL
-
-
-
-type OrderType
-    = LIMIT
-
 
 
 type ExecInst
@@ -56,15 +47,15 @@ type ExecInst
 decoder : Decoder NewOrder
 decoder =
     Decode.succeed NewOrder
-        |> optional "exchange_id" (Decode.nullable Decode.string) Nothing
-        |> optional "client_order_id" (Decode.nullable Decode.string) Nothing
+        |> required "exchange_id" Decode.string
+        |> required "client_order_id" Decode.string
         |> optional "symbol_exchange" (Decode.nullable Decode.string) Nothing
         |> optional "symbol_coinapi" (Decode.nullable Decode.string) Nothing
-        |> optional "amount_order" (Decode.nullable Decode.float) Nothing
-        |> optional "price" (Decode.nullable Decode.float) Nothing
-        |> optional "side" (Decode.nullable sideDecoder) Nothing
-        |> optional "order_type" (Decode.nullable orderTypeDecoder) Nothing
-        |> optional "time_in_force" (Decode.nullable TimeInForce.decoder) Nothing
+        |> required "amount_order" Decode.float
+        |> required "price" Decode.float
+        |> required "side" OrdSide.decoder
+        |> required "order_type" OrdType.decoder
+        |> required "time_in_force" TimeInForce.decoder
         |> optional "expire_time" (Decode.nullable DateOnly.decoder) Nothing
         |> optional "exec_inst" (Decode.nullable (Decode.list execInstDecoder)) Nothing
 
@@ -82,15 +73,15 @@ encodeWithTag (tagField, tag) model =
 
 encodePairs : NewOrder -> List (String, Encode.Value)
 encodePairs model =
-    [ ( "exchange_id", Maybe.withDefault Encode.null (Maybe.map Encode.string model.exchangeId) )
-    , ( "client_order_id", Maybe.withDefault Encode.null (Maybe.map Encode.string model.clientOrderId) )
+    [ ( "exchange_id", Encode.string model.exchangeId )
+    , ( "client_order_id", Encode.string model.clientOrderId )
     , ( "symbol_exchange", Maybe.withDefault Encode.null (Maybe.map Encode.string model.symbolExchange) )
     , ( "symbol_coinapi", Maybe.withDefault Encode.null (Maybe.map Encode.string model.symbolCoinapi) )
-    , ( "amount_order", Maybe.withDefault Encode.null (Maybe.map Encode.float model.amountOrder) )
-    , ( "price", Maybe.withDefault Encode.null (Maybe.map Encode.float model.price) )
-    , ( "side", Maybe.withDefault Encode.null (Maybe.map encodeSide model.side) )
-    , ( "order_type", Maybe.withDefault Encode.null (Maybe.map encodeOrderType model.orderType) )
-    , ( "time_in_force", Maybe.withDefault Encode.null (Maybe.map TimeInForce.encode model.timeInForce) )
+    , ( "amount_order", Encode.float model.amountOrder )
+    , ( "price", Encode.float model.price )
+    , ( "side", OrdSide.encode model.side )
+    , ( "order_type", OrdType.encode model.orderType )
+    , ( "time_in_force", TimeInForce.encode model.timeInForce )
     , ( "expire_time", Maybe.withDefault Encode.null (Maybe.map DateOnly.encode model.expireTime) )
     , ( "exec_inst", Maybe.withDefault Encode.null (Maybe.map (Encode.list encodeExecInst) model.execInst) )
     ]
@@ -100,60 +91,6 @@ encodePairs model =
 toString : NewOrder -> String
 toString =
     Encode.encode 0 << encode
-
-
-
-
-sideDecoder : Decoder Side
-sideDecoder =
-    Decode.string
-        |> Decode.andThen
-            (\str ->
-                case str of
-                    "BUY" ->
-                        Decode.succeed BUY
-
-                    "SELL" ->
-                        Decode.succeed SELL
-
-                    other ->
-                        Decode.fail <| "Unknown type: " ++ other
-            )
-
-
-
-encodeSide : Side -> Encode.Value
-encodeSide model =
-    case model of
-        BUY ->
-            Encode.string "BUY"
-
-        SELL ->
-            Encode.string "SELL"
-
-
-
-
-orderTypeDecoder : Decoder OrderType
-orderTypeDecoder =
-    Decode.string
-        |> Decode.andThen
-            (\str ->
-                case str of
-                    "LIMIT" ->
-                        Decode.succeed LIMIT
-
-                    other ->
-                        Decode.fail <| "Unknown type: " ++ other
-            )
-
-
-
-encodeOrderType : OrderType -> Encode.Value
-encodeOrderType model =
-    case model of
-        LIMIT ->
-            Encode.string "LIMIT"
 
 
 

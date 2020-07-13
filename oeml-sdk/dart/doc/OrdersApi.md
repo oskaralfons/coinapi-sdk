@@ -103,7 +103,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1OrdersGet**
-> List<Order> v1OrdersGet(exchangeId)
+> Orders v1OrdersGet(exchangeId)
 
 Get all orders
 
@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<Order>**](Order.md)
+[**Orders**](Orders.md)
 
 ### Authorization
 

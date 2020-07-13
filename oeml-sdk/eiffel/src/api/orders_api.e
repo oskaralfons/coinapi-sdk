@@ -94,14 +94,14 @@ feature -- API Access
 			end
 		end	
 
-	v1_orders_get (exchange_id: STRING_32): detachable LIST [ORDER]
+	v1_orders_get (exchange_id: STRING_32): detachable ORDERS
 			-- Get all orders
 			-- Get all current open orders across all or single specified exchange.
 			-- 
 			-- argument: exchange_id Filter the output to the orders from the specific exchange. (optional, default to null)
 			-- 
 			-- 
-			-- Result LIST [ORDER]
+			-- Result ORDERS
 		require
 		local
   			l_path: STRING
@@ -123,7 +123,7 @@ feature -- API Access
 			l_response := api_client.call_api (l_path, "Get", l_request, Void, agent deserializer)
 			if l_response.has_error then
 				last_error := l_response.error
-			elseif attached { LIST [ORDER] } l_response.data ({ LIST [ORDER] }) as l_data then
+			elseif attached { ORDERS } l_response.data ({ ORDERS }) as l_data then
 				Result := l_data
 			else
 				create last_error.make ("Unknown error: Status response [ " + l_response.status.out + "]")

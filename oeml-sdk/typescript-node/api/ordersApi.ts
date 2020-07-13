@@ -18,9 +18,9 @@ import { CreateOrderValidationError } from '../model/createOrderValidationError'
 import { ExecutionReport } from '../model/executionReport';
 import { Message } from '../model/message';
 import { NewOrder } from '../model/newOrder';
-import { Order } from '../model/order';
 import { OrderCancelAllRequest } from '../model/orderCancelAllRequest';
 import { OrderCancelSingleRequest } from '../model/orderCancelSingleRequest';
+import { Orders } from '../model/orders';
 
 import { ObjectSerializer, Authentication, VoidAuth, Interceptor } from '../model/models';
 
@@ -234,7 +234,7 @@ export class OrdersApi {
      * @summary Get all orders
      * @param exchangeId Filter the output to the orders from the specific exchange.
      */
-    public async v1OrdersGet (exchangeId?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: Array<Order>;  }> {
+    public async v1OrdersGet (exchangeId?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: Orders;  }> {
         const localVarPath = this.basePath + '/v1/orders';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -280,12 +280,12 @@ export class OrdersApi {
                     localVarRequestOptions.form = localVarFormParams;
                 }
             }
-            return new Promise<{ response: http.ClientResponse; body: Array<Order>;  }>((resolve, reject) => {
+            return new Promise<{ response: http.ClientResponse; body: Orders;  }>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     if (error) {
                         reject(error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<Order>");
+                        body = ObjectSerializer.deserialize(body, "Orders");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve({ response: response, body: body });
                         } else {

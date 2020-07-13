@@ -77,10 +77,10 @@ public class OASOrdersApi {
      * Get all orders
      * Get all current open orders across all or single specified exchange.
      * @param exchangeId Filter the output to the orders from the specific exchange. (optional)
-     * @return List<OASOrder>
+     * @return OASOrders
      * @throws OAS.ApiException if fails to make API call
      */
-    public List<OASOrder> v1OrdersGet(Map<String, Object> params) {
+    public OASOrders v1OrdersGet(Map<String, Object> params) {
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -88,7 +88,7 @@ public class OASOrdersApi {
 
         List<OAS.Param> form = new List<OAS.Param>();
 
-        return (List<OASOrder>) client.invoke(
+        return (OASOrders) client.invoke(
             'GET', '/v1/orders', '',
             query, form,
             new Map<String, Object>(),
@@ -96,7 +96,7 @@ public class OASOrdersApi {
             new List<String>{ 'application/json' },
             new List<String>(),
             new List<String>(),
-            List<OASOrder>.class
+            OASOrders.class
         );
     }
     /**

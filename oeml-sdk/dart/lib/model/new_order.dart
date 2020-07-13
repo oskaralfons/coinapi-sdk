@@ -1,30 +1,30 @@
 part of openapi.api;
 
 class NewOrder {
-  /* Exchange name */
+  /* Exchange identifier. */
   String exchangeId = null;
-  /* Client unique identifier for the trade. */
+  /* Unique identifier for the order assigned by the `OEML API` client. */
   String clientOrderId = null;
-  /* The symbol of the order. */
+  /* Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order. */
   String symbolExchange = null;
-  /* The CoinAPI symbol of the order. */
+  /* CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order. */
   String symbolCoinapi = null;
-  /* Quoted decimal amount to purchase. */
+  /* Order quantity. */
   num amountOrder = null;
-  /* Quoted decimal amount to spend per unit. */
+  /* Order price. */
   num price = null;
-  /* Buy or Sell */
-  String side = null;
+  
+  OrdSide side = null;
   //enum sideEnum {  BUY,  SELL,  };{
-  /* The order type. */
-  String orderType = null;
+  
+  OrdType orderType = null;
   //enum orderTypeEnum {  LIMIT,  };{
   
   TimeInForce timeInForce = null;
   //enum timeInForceEnum {  GOOD_TILL_CANCEL,  GOOD_TILL_TIME_EXCHANGE,  GOOD_TILL_TIME_OMS,  FILL_OR_KILL,  IMMEDIATE_OR_CANCEL,  };{
-  /* Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS */
+  /* Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`. */
   DateTime expireTime = null;
-  /* Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>  */
+  /* Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> */
   List<String> execInst = [];
   //enum execInstEnum {  MAKER_OR_CANCEL,  AUCTION_ONLY,  INDICATION_OF_INTEREST,  };{
   NewOrder();
@@ -42,8 +42,12 @@ class NewOrder {
     symbolCoinapi = json['symbol_coinapi'];
     amountOrder = json['amount_order'];
     price = json['price'];
-    side = json['side'];
-    orderType = json['order_type'];
+    side = (json['side'] == null) ?
+      null :
+      OrdSide.fromJson(json['side']);
+    orderType = (json['order_type'] == null) ?
+      null :
+      OrdType.fromJson(json['order_type']);
     timeInForce = (json['time_in_force'] == null) ?
       null :
       TimeInForce.fromJson(json['time_in_force']);

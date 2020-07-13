@@ -4,11 +4,13 @@ export * from './createOrderValidationError';
 export * from './executionReport';
 export * from './message';
 export * from './newOrder';
+export * from './ordSide';
 export * from './ordStatus';
-export * from './order';
+export * from './ordType';
 export * from './orderCancelAllRequest';
 export * from './orderCancelSingleRequest';
-export * from './orderData';
+export * from './orders';
+export * from './ordersData';
 export * from './position';
 export * from './positionData';
 export * from './severity';
@@ -22,11 +24,13 @@ import { CreateOrderValidationError } from './createOrderValidationError';
 import { ExecutionReport } from './executionReport';
 import { Message } from './message';
 import { NewOrder } from './newOrder';
+import { OrdSide } from './ordSide';
 import { OrdStatus } from './ordStatus';
-import { Order } from './order';
+import { OrdType } from './ordType';
 import { OrderCancelAllRequest } from './orderCancelAllRequest';
 import { OrderCancelSingleRequest } from './orderCancelSingleRequest';
-import { OrderData } from './orderData';
+import { Orders } from './orders';
+import { OrdersData } from './ordersData';
 import { Position } from './position';
 import { PositionData } from './positionData';
 import { Severity } from './severity';
@@ -49,13 +53,13 @@ let enumsMap: {[index: string]: any} = {
         "ExecutionReport.SideEnum": ExecutionReport.SideEnum,
         "ExecutionReport.OrderTypeEnum": ExecutionReport.OrderTypeEnum,
         "ExecutionReport.ExecInstEnum": ExecutionReport.ExecInstEnum,
-        "NewOrder.SideEnum": NewOrder.SideEnum,
-        "NewOrder.OrderTypeEnum": NewOrder.OrderTypeEnum,
         "NewOrder.ExecInstEnum": NewOrder.ExecInstEnum,
+        "OrdSide": OrdSide,
         "OrdStatus": OrdStatus,
-        "OrderData.SideEnum": OrderData.SideEnum,
-        "OrderData.OrderTypeEnum": OrderData.OrderTypeEnum,
-        "OrderData.ExecInstEnum": OrderData.ExecInstEnum,
+        "OrdType": OrdType,
+        "OrdersData.SideEnum": OrdersData.SideEnum,
+        "OrdersData.OrderTypeEnum": OrdersData.OrderTypeEnum,
+        "OrdersData.ExecInstEnum": OrdersData.ExecInstEnum,
         "Severity": Severity,
         "TimeInForce": TimeInForce,
 }
@@ -67,10 +71,10 @@ let typeMap: {[index: string]: any} = {
     "ExecutionReport": ExecutionReport,
     "Message": Message,
     "NewOrder": NewOrder,
-    "Order": Order,
     "OrderCancelAllRequest": OrderCancelAllRequest,
     "OrderCancelSingleRequest": OrderCancelSingleRequest,
-    "OrderData": OrderData,
+    "Orders": Orders,
+    "OrdersData": OrdersData,
     "Position": Position,
     "PositionData": PositionData,
 }
