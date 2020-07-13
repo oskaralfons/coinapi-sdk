@@ -17,7 +17,7 @@ case class Message (
   /* Type of message. */
   `type`: Option[String] = None,
   severity: Option[Severity] = None,
-  /* If message related exchange then identifier of this exchange. */
+  /* If the message related to exchange, then the identifier of the exchange will be provided. */
   exchangeId: Option[String] = None,
   /* Message text. */
   message: Option[String] = None

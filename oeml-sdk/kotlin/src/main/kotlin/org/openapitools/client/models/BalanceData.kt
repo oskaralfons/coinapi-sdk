@@ -15,21 +15,22 @@ package org.openapitools.client.models
 import com.squareup.moshi.Json
 /**
  * 
- * @param symbolExchange Exchange currency code.
- * @param symbolCoinapi CoinAPI currency code.
+ * @param assetIdExchange Exchange currency code.
+ * @param assetIdCoinapi CoinAPI currency code.
  * @param balance Value of the current total currency balance on the exchange.
  * @param available Value of the current available currency balance on the exchange that can be used as collateral.
  * @param locked Value of the current locked currency balance by the exchange.
- * @param updateOrigin Source of the last modification. 
+ * @param lastUpdatedBy Source of the last modification. 
+ * @param rateUsd Current exchange rate to the USD for the single unit of the currency. 
  */
 
 data class BalanceData (
     /* Exchange currency code. */
-    @Json(name = "symbol_exchange")
-    val symbolExchange: kotlin.String? = null,
+    @Json(name = "asset_id_exchange")
+    val assetIdExchange: kotlin.String? = null,
     /* CoinAPI currency code. */
-    @Json(name = "symbol_coinapi")
-    val symbolCoinapi: kotlin.String? = null,
+    @Json(name = "asset_id_coinapi")
+    val assetIdCoinapi: kotlin.String? = null,
     /* Value of the current total currency balance on the exchange. */
     @Json(name = "balance")
     val balance: kotlin.Float? = null,
@@ -40,8 +41,11 @@ data class BalanceData (
     @Json(name = "locked")
     val locked: kotlin.Float? = null,
     /* Source of the last modification.  */
-    @Json(name = "update_origin")
-    val updateOrigin: BalanceData.UpdateOrigin? = null
+    @Json(name = "last_updated_by")
+    val lastUpdatedBy: BalanceData.LastUpdatedBy? = null,
+    /* Current exchange rate to the USD for the single unit of the currency.  */
+    @Json(name = "rate_usd")
+    val rateUsd: kotlin.Float? = null
 ) {
 
     /**
@@ -49,7 +53,7 @@ data class BalanceData (
     * Values: iNITIALIZATION,bALANCEMANAGER,eXCHANGE
     */
     
-    enum class UpdateOrigin(val value: kotlin.String){
+    enum class LastUpdatedBy(val value: kotlin.String){
         @Json(name = "INITIALIZATION") iNITIALIZATION("INITIALIZATION"),
         @Json(name = "BALANCE_MANAGER") bALANCEMANAGER("BALANCE_MANAGER"),
         @Json(name = "EXCHANGE") eXCHANGE("EXCHANGE");

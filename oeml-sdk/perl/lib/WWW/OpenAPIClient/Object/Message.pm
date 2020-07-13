@@ -179,7 +179,7 @@ __PACKAGE__->method_documentation({
     'exchange_id' => {
         datatype => 'string',
         base_name => 'exchange_id',
-        description => 'If message related exchange then identifier of this exchange.',
+        description => 'If the message related to exchange, then the identifier of the exchange will be provided.',
         format => '',
         read_only => '',
             },

@@ -31,10 +31,10 @@ public class OrderNewSingleRequest {
   private String exchangeId = null;
   @SerializedName("client_order_id")
   private String clientOrderId = null;
-  @SerializedName("symbol_exchange")
-  private String symbolExchange = null;
-  @SerializedName("symbol_coinapi")
-  private String symbolCoinapi = null;
+  @SerializedName("symbol_id_exchange")
+  private String symbolIdExchange = null;
+  @SerializedName("symbol_id_coinapi")
+  private String symbolIdCoinapi = null;
   @SerializedName("amount_order")
   private BigDecimal amountOrder = null;
   @SerializedName("price")
@@ -76,25 +76,25 @@ public class OrderNewSingleRequest {
   }
 
   /**
-   * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
+   * Exchange symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.
    **/
-  @ApiModelProperty(value = "Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.")
-  public String getSymbolExchange() {
-    return symbolExchange;
+  @ApiModelProperty(value = "Exchange symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.")
+  public String getSymbolIdExchange() {
+    return symbolIdExchange;
   }
-  public void setSymbolExchange(String symbolExchange) {
-    this.symbolExchange = symbolExchange;
+  public void setSymbolIdExchange(String symbolIdExchange) {
+    this.symbolIdExchange = symbolIdExchange;
   }
 
   /**
-   * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
+   * CoinAPI symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.
    **/
-  @ApiModelProperty(value = "CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.")
-  public String getSymbolCoinapi() {
-    return symbolCoinapi;
+  @ApiModelProperty(value = "CoinAPI symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.")
+  public String getSymbolIdCoinapi() {
+    return symbolIdCoinapi;
   }
-  public void setSymbolCoinapi(String symbolCoinapi) {
-    this.symbolCoinapi = symbolCoinapi;
+  public void setSymbolIdCoinapi(String symbolIdCoinapi) {
+    this.symbolIdCoinapi = symbolIdCoinapi;
   }
 
   /**
@@ -183,8 +183,8 @@ public class OrderNewSingleRequest {
     OrderNewSingleRequest orderNewSingleRequest = (OrderNewSingleRequest) o;
     return (this.exchangeId == null ? orderNewSingleRequest.exchangeId == null : this.exchangeId.equals(orderNewSingleRequest.exchangeId)) &&
         (this.clientOrderId == null ? orderNewSingleRequest.clientOrderId == null : this.clientOrderId.equals(orderNewSingleRequest.clientOrderId)) &&
-        (this.symbolExchange == null ? orderNewSingleRequest.symbolExchange == null : this.symbolExchange.equals(orderNewSingleRequest.symbolExchange)) &&
-        (this.symbolCoinapi == null ? orderNewSingleRequest.symbolCoinapi == null : this.symbolCoinapi.equals(orderNewSingleRequest.symbolCoinapi)) &&
+        (this.symbolIdExchange == null ? orderNewSingleRequest.symbolIdExchange == null : this.symbolIdExchange.equals(orderNewSingleRequest.symbolIdExchange)) &&
+        (this.symbolIdCoinapi == null ? orderNewSingleRequest.symbolIdCoinapi == null : this.symbolIdCoinapi.equals(orderNewSingleRequest.symbolIdCoinapi)) &&
         (this.amountOrder == null ? orderNewSingleRequest.amountOrder == null : this.amountOrder.equals(orderNewSingleRequest.amountOrder)) &&
         (this.price == null ? orderNewSingleRequest.price == null : this.price.equals(orderNewSingleRequest.price)) &&
         (this.side == null ? orderNewSingleRequest.side == null : this.side.equals(orderNewSingleRequest.side)) &&
@@ -199,8 +199,8 @@ public class OrderNewSingleRequest {
     int result = 17;
     result = 31 * result + (this.exchangeId == null ? 0: this.exchangeId.hashCode());
     result = 31 * result + (this.clientOrderId == null ? 0: this.clientOrderId.hashCode());
-    result = 31 * result + (this.symbolExchange == null ? 0: this.symbolExchange.hashCode());
-    result = 31 * result + (this.symbolCoinapi == null ? 0: this.symbolCoinapi.hashCode());
+    result = 31 * result + (this.symbolIdExchange == null ? 0: this.symbolIdExchange.hashCode());
+    result = 31 * result + (this.symbolIdCoinapi == null ? 0: this.symbolIdCoinapi.hashCode());
     result = 31 * result + (this.amountOrder == null ? 0: this.amountOrder.hashCode());
     result = 31 * result + (this.price == null ? 0: this.price.hashCode());
     result = 31 * result + (this.side == null ? 0: this.side.hashCode());
@@ -218,8 +218,8 @@ public class OrderNewSingleRequest {
     
     sb.append("  exchangeId: ").append(exchangeId).append("\n");
     sb.append("  clientOrderId: ").append(clientOrderId).append("\n");
-    sb.append("  symbolExchange: ").append(symbolExchange).append("\n");
-    sb.append("  symbolCoinapi: ").append(symbolCoinapi).append("\n");
+    sb.append("  symbolIdExchange: ").append(symbolIdExchange).append("\n");
+    sb.append("  symbolIdCoinapi: ").append(symbolIdCoinapi).append("\n");
     sb.append("  amountOrder: ").append(amountOrder).append("\n");
     sb.append("  price: ").append(price).append("\n");
     sb.append("  side: ").append(side).append("\n");

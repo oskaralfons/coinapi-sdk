@@ -34,8 +34,8 @@ class PositionData(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'symbol_exchange': 'str',
-        'symbol_coinapi': 'str',
+        'symbol_id_exchange': 'str',
+        'symbol_id_coinapi': 'str',
         'avg_entry_price': 'float',
         'quantity': 'float',
         'side': 'OrdSide',
@@ -47,8 +47,8 @@ class PositionData(object):
     }
 
     attribute_map = {
-        'symbol_exchange': 'symbol_exchange',
-        'symbol_coinapi': 'symbol_coinapi',
+        'symbol_id_exchange': 'symbol_id_exchange',
+        'symbol_id_coinapi': 'symbol_id_coinapi',
         'avg_entry_price': 'avg_entry_price',
         'quantity': 'quantity',
         'side': 'side',
@@ -59,14 +59,14 @@ class PositionData(object):
         'raw_data': 'raw_data'
     }
 
-    def __init__(self, symbol_exchange=None, symbol_coinapi=None, avg_entry_price=None, quantity=None, side=None, unrealized_pnl=None, leverage=None, cross_margin=None, liquidation_price=None, raw_data=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, symbol_id_exchange=None, symbol_id_coinapi=None, avg_entry_price=None, quantity=None, side=None, unrealized_pnl=None, leverage=None, cross_margin=None, liquidation_price=None, raw_data=None, local_vars_configuration=None):  # noqa: E501
         """PositionData - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._symbol_exchange = None
-        self._symbol_coinapi = None
+        self._symbol_id_exchange = None
+        self._symbol_id_coinapi = None
         self._avg_entry_price = None
         self._quantity = None
         self._side = None
@@ -77,10 +77,10 @@ class PositionData(object):
         self._raw_data = None
         self.discriminator = None
 
-        if symbol_exchange is not None:
-            self.symbol_exchange = symbol_exchange
-        if symbol_coinapi is not None:
-            self.symbol_coinapi = symbol_coinapi
+        if symbol_id_exchange is not None:
+            self.symbol_id_exchange = symbol_id_exchange
+        if symbol_id_coinapi is not None:
+            self.symbol_id_coinapi = symbol_id_coinapi
         if avg_entry_price is not None:
             self.avg_entry_price = avg_entry_price
         if quantity is not None:
@@ -99,50 +99,50 @@ class PositionData(object):
             self.raw_data = raw_data
 
     @property
-    def symbol_exchange(self):
-        """Gets the symbol_exchange of this PositionData.  # noqa: E501
+    def symbol_id_exchange(self):
+        """Gets the symbol_id_exchange of this PositionData.  # noqa: E501
 
         Exchange symbol.  # noqa: E501
 
-        :return: The symbol_exchange of this PositionData.  # noqa: E501
+        :return: The symbol_id_exchange of this PositionData.  # noqa: E501
         :rtype: str
         """
-        return self._symbol_exchange
+        return self._symbol_id_exchange
 
-    @symbol_exchange.setter
-    def symbol_exchange(self, symbol_exchange):
-        """Sets the symbol_exchange of this PositionData.
+    @symbol_id_exchange.setter
+    def symbol_id_exchange(self, symbol_id_exchange):
+        """Sets the symbol_id_exchange of this PositionData.
 
         Exchange symbol.  # noqa: E501
 
-        :param symbol_exchange: The symbol_exchange of this PositionData.  # noqa: E501
+        :param symbol_id_exchange: The symbol_id_exchange of this PositionData.  # noqa: E501
         :type: str
         """
 
-        self._symbol_exchange = symbol_exchange
+        self._symbol_id_exchange = symbol_id_exchange
 
     @property
-    def symbol_coinapi(self):
-        """Gets the symbol_coinapi of this PositionData.  # noqa: E501
+    def symbol_id_coinapi(self):
+        """Gets the symbol_id_coinapi of this PositionData.  # noqa: E501
 
         CoinAPI symbol.  # noqa: E501
 
-        :return: The symbol_coinapi of this PositionData.  # noqa: E501
+        :return: The symbol_id_coinapi of this PositionData.  # noqa: E501
         :rtype: str
         """
-        return self._symbol_coinapi
+        return self._symbol_id_coinapi
 
-    @symbol_coinapi.setter
-    def symbol_coinapi(self, symbol_coinapi):
-        """Sets the symbol_coinapi of this PositionData.
+    @symbol_id_coinapi.setter
+    def symbol_id_coinapi(self, symbol_id_coinapi):
+        """Sets the symbol_id_coinapi of this PositionData.
 
         CoinAPI symbol.  # noqa: E501
 
-        :param symbol_coinapi: The symbol_coinapi of this PositionData.  # noqa: E501
+        :param symbol_id_coinapi: The symbol_id_coinapi of this PositionData.  # noqa: E501
         :type: str
         """
 
-        self._symbol_coinapi = symbol_coinapi
+        self._symbol_id_coinapi = symbol_id_coinapi
 
     @property
     def avg_entry_price(self):

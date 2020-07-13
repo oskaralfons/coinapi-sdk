@@ -25,13 +25,13 @@ export interface OrderExecutionReport {
      */
     "client_order_id": string;
     /**
-     * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
+     * Exchange symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.
      */
-    "symbol_exchange"?: string;
+    "symbol_id_exchange"?: string;
     /**
-     * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
+     * CoinAPI symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.
      */
-    "symbol_coinapi"?: string;
+    "symbol_id_coinapi"?: string;
     /**
      * Order quantity.
      */

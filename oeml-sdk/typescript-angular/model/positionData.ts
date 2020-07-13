@@ -16,11 +16,11 @@ export interface PositionData {
     /**
      * Exchange symbol.
      */
-    symbol_exchange?: string;
+    symbol_id_exchange?: string;
     /**
      * CoinAPI symbol.
      */
-    symbol_coinapi?: string;
+    symbol_id_coinapi?: string;
     /**
      * Calculated average price of all fills on this position.
      */

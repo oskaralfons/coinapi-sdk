@@ -7,14 +7,14 @@ void main() {
 
   group('test PositionData', () {
     // Exchange symbol.
-    // String symbolExchange (default value: null)
-    test('to test the property `symbolExchange`', () async {
+    // String symbolIdExchange (default value: null)
+    test('to test the property `symbolIdExchange`', () async {
       // TODO
     });
 
     // CoinAPI symbol.
-    // String symbolCoinapi (default value: null)
-    test('to test the property `symbolCoinapi`', () async {
+    // String symbolIdCoinapi (default value: null)
+    test('to test the property `symbolIdCoinapi`', () async {
       // TODO
     });
 

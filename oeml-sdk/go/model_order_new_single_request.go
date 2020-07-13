@@ -15,10 +15,10 @@ type OrderNewSingleRequest struct {
 	ExchangeId string `json:"exchange_id"`
 	// The unique identifier of the order assigned by the client.
 	ClientOrderId string `json:"client_order_id"`
-	// Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
-	SymbolExchange string `json:"symbol_exchange,omitempty"`
-	// CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
-	SymbolCoinapi string `json:"symbol_coinapi,omitempty"`
+	// Exchange symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.
+	SymbolIdExchange string `json:"symbol_id_exchange,omitempty"`
+	// CoinAPI symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.
+	SymbolIdCoinapi string `json:"symbol_id_coinapi,omitempty"`
 	// Order quantity.
 	AmountOrder float32 `json:"amount_order"`
 	// Order price.

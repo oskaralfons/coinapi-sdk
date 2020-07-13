@@ -5,10 +5,10 @@ class OrderExecutionReport {
   String exchangeId = null;
   /* The unique identifier of the order assigned by the client. */
   String clientOrderId = null;
-  /* Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order. */
-  String symbolExchange = null;
-  /* CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order. */
-  String symbolCoinapi = null;
+  /* Exchange symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order. */
+  String symbolIdExchange = null;
+  /* CoinAPI symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order. */
+  String symbolIdCoinapi = null;
   /* Order quantity. */
   num amountOrder = null;
   /* Order price. */
@@ -46,15 +46,15 @@ class OrderExecutionReport {
 
   @override
   String toString() {
-    return 'OrderExecutionReport[exchangeId=$exchangeId, clientOrderId=$clientOrderId, symbolExchange=$symbolExchange, symbolCoinapi=$symbolCoinapi, amountOrder=$amountOrder, price=$price, side=$side, orderType=$orderType, timeInForce=$timeInForce, expireTime=$expireTime, execInst=$execInst, clientOrderIdFormatExchange=$clientOrderIdFormatExchange, exchangeOrderId=$exchangeOrderId, amountOpen=$amountOpen, amountFilled=$amountFilled, status=$status, timeOrder=$timeOrder, errorMessage=$errorMessage, ]';
+    return 'OrderExecutionReport[exchangeId=$exchangeId, clientOrderId=$clientOrderId, symbolIdExchange=$symbolIdExchange, symbolIdCoinapi=$symbolIdCoinapi, amountOrder=$amountOrder, price=$price, side=$side, orderType=$orderType, timeInForce=$timeInForce, expireTime=$expireTime, execInst=$execInst, clientOrderIdFormatExchange=$clientOrderIdFormatExchange, exchangeOrderId=$exchangeOrderId, amountOpen=$amountOpen, amountFilled=$amountFilled, status=$status, timeOrder=$timeOrder, errorMessage=$errorMessage, ]';
   }
 
   OrderExecutionReport.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
     exchangeId = json['exchange_id'];
     clientOrderId = json['client_order_id'];
-    symbolExchange = json['symbol_exchange'];
-    symbolCoinapi = json['symbol_coinapi'];
+    symbolIdExchange = json['symbol_id_exchange'];
+    symbolIdCoinapi = json['symbol_id_coinapi'];
     amountOrder = json['amount_order'];
     price = json['price'];
     side = (json['side'] == null) ?
@@ -91,10 +91,10 @@ class OrderExecutionReport {
       json['exchange_id'] = exchangeId;
     if (clientOrderId != null)
       json['client_order_id'] = clientOrderId;
-    if (symbolExchange != null)
-      json['symbol_exchange'] = symbolExchange;
-    if (symbolCoinapi != null)
-      json['symbol_coinapi'] = symbolCoinapi;
+    if (symbolIdExchange != null)
+      json['symbol_id_exchange'] = symbolIdExchange;
+    if (symbolIdCoinapi != null)
+      json['symbol_id_coinapi'] = symbolIdCoinapi;
     if (amountOrder != null)
       json['amount_order'] = amountOrder;
     if (price != null)

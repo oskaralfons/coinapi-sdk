@@ -38,8 +38,8 @@ namespace CoinAPI.OMS.REST.V1.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PositionData" /> class.
         /// </summary>
-        /// <param name="symbolExchange">Exchange symbol..</param>
-        /// <param name="symbolCoinapi">CoinAPI symbol..</param>
+        /// <param name="symbolIdExchange">Exchange symbol..</param>
+        /// <param name="symbolIdCoinapi">CoinAPI symbol..</param>
         /// <param name="avgEntryPrice">Calculated average price of all fills on this position..</param>
         /// <param name="quantity">The current position quantity..</param>
         /// <param name="side">side.</param>
@@ -48,10 +48,10 @@ namespace CoinAPI.OMS.REST.V1.Model
         /// <param name="crossMargin">Is cross margin mode enable for this position?.</param>
         /// <param name="liquidationPrice">Liquidation price. If mark price will reach this value, the position will be liquidated..</param>
         /// <param name="rawData">rawData.</param>
-        public PositionData(string symbolExchange = default(string), string symbolCoinapi = default(string), decimal avgEntryPrice = default(decimal), decimal quantity = default(decimal), OrdSide? side = default(OrdSide?), decimal unrealizedPnl = default(decimal), decimal leverage = default(decimal), bool crossMargin = default(bool), decimal liquidationPrice = default(decimal), Object rawData = default(Object))
+        public PositionData(string symbolIdExchange = default(string), string symbolIdCoinapi = default(string), decimal avgEntryPrice = default(decimal), decimal quantity = default(decimal), OrdSide? side = default(OrdSide?), decimal unrealizedPnl = default(decimal), decimal leverage = default(decimal), bool crossMargin = default(bool), decimal liquidationPrice = default(decimal), Object rawData = default(Object))
         {
-            this.SymbolExchange = symbolExchange;
-            this.SymbolCoinapi = symbolCoinapi;
+            this.SymbolIdExchange = symbolIdExchange;
+            this.SymbolIdCoinapi = symbolIdCoinapi;
             this.AvgEntryPrice = avgEntryPrice;
             this.Quantity = quantity;
             this.Side = side;
@@ -66,15 +66,15 @@ namespace CoinAPI.OMS.REST.V1.Model
         /// Exchange symbol.
         /// </summary>
         /// <value>Exchange symbol.</value>
-        [DataMember(Name="symbol_exchange", EmitDefaultValue=false)]
-        public string SymbolExchange { get; set; }
+        [DataMember(Name="symbol_id_exchange", EmitDefaultValue=false)]
+        public string SymbolIdExchange { get; set; }
 
         /// <summary>
         /// CoinAPI symbol.
         /// </summary>
         /// <value>CoinAPI symbol.</value>
-        [DataMember(Name="symbol_coinapi", EmitDefaultValue=false)]
-        public string SymbolCoinapi { get; set; }
+        [DataMember(Name="symbol_id_coinapi", EmitDefaultValue=false)]
+        public string SymbolIdCoinapi { get; set; }
 
         /// <summary>
         /// Calculated average price of all fills on this position.
@@ -133,8 +133,8 @@ namespace CoinAPI.OMS.REST.V1.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PositionData {\n");
-            sb.Append("  SymbolExchange: ").Append(SymbolExchange).Append("\n");
-            sb.Append("  SymbolCoinapi: ").Append(SymbolCoinapi).Append("\n");
+            sb.Append("  SymbolIdExchange: ").Append(SymbolIdExchange).Append("\n");
+            sb.Append("  SymbolIdCoinapi: ").Append(SymbolIdCoinapi).Append("\n");
             sb.Append("  AvgEntryPrice: ").Append(AvgEntryPrice).Append("\n");
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
             sb.Append("  Side: ").Append(Side).Append("\n");
@@ -178,14 +178,14 @@ namespace CoinAPI.OMS.REST.V1.Model
 
             return 
                 (
-                    this.SymbolExchange == input.SymbolExchange ||
-                    (this.SymbolExchange != null &&
-                    this.SymbolExchange.Equals(input.SymbolExchange))
+                    this.SymbolIdExchange == input.SymbolIdExchange ||
+                    (this.SymbolIdExchange != null &&
+                    this.SymbolIdExchange.Equals(input.SymbolIdExchange))
                 ) && 
                 (
-                    this.SymbolCoinapi == input.SymbolCoinapi ||
-                    (this.SymbolCoinapi != null &&
-                    this.SymbolCoinapi.Equals(input.SymbolCoinapi))
+                    this.SymbolIdCoinapi == input.SymbolIdCoinapi ||
+                    (this.SymbolIdCoinapi != null &&
+                    this.SymbolIdCoinapi.Equals(input.SymbolIdCoinapi))
                 ) && 
                 (
                     this.AvgEntryPrice == input.AvgEntryPrice ||
@@ -238,10 +238,10 @@ namespace CoinAPI.OMS.REST.V1.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.SymbolExchange != null)
-                    hashCode = hashCode * 59 + this.SymbolExchange.GetHashCode();
-                if (this.SymbolCoinapi != null)
-                    hashCode = hashCode * 59 + this.SymbolCoinapi.GetHashCode();
+                if (this.SymbolIdExchange != null)
+                    hashCode = hashCode * 59 + this.SymbolIdExchange.GetHashCode();
+                if (this.SymbolIdCoinapi != null)
+                    hashCode = hashCode * 59 + this.SymbolIdCoinapi.GetHashCode();
                 if (this.AvgEntryPrice != null)
                     hashCode = hashCode * 59 + this.AvgEntryPrice.GetHashCode();
                 if (this.Quantity != null)

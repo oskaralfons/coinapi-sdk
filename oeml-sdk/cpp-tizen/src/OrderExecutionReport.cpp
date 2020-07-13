@@ -25,8 +25,8 @@ OrderExecutionReport::__init()
 {
 	//exchange_id = std::string();
 	//client_order_id = std::string();
-	//symbol_exchange = std::string();
-	//symbol_coinapi = std::string();
+	//symbol_id_exchange = std::string();
+	//symbol_id_coinapi = std::string();
 	//amount_order = double(0);
 	//price = double(0);
 	//side = new OrdSide();
@@ -56,15 +56,15 @@ OrderExecutionReport::__cleanup()
 	//delete client_order_id;
 	//client_order_id = NULL;
 	//}
-	//if(symbol_exchange != NULL) {
+	//if(symbol_id_exchange != NULL) {
 	//
-	//delete symbol_exchange;
-	//symbol_exchange = NULL;
+	//delete symbol_id_exchange;
+	//symbol_id_exchange = NULL;
 	//}
-	//if(symbol_coinapi != NULL) {
+	//if(symbol_id_coinapi != NULL) {
 	//
-	//delete symbol_coinapi;
-	//symbol_coinapi = NULL;
+	//delete symbol_id_coinapi;
+	//symbol_id_coinapi = NULL;
 	//}
 	//if(amount_order != NULL) {
 	//
@@ -166,24 +166,24 @@ OrderExecutionReport::fromJson(char* jsonStr)
 			
 		}
 	}
-	const gchar *symbol_exchangeKey = "symbol_exchange";
-	node = json_object_get_member(pJsonObject, symbol_exchangeKey);
+	const gchar *symbol_id_exchangeKey = "symbol_id_exchange";
+	node = json_object_get_member(pJsonObject, symbol_id_exchangeKey);
 	if (node !=NULL) {
 	
 
 		if (isprimitive("std::string")) {
-			jsonToValue(&symbol_exchange, node, "std::string", "");
+			jsonToValue(&symbol_id_exchange, node, "std::string", "");
 		} else {
 			
 		}
 	}
-	const gchar *symbol_coinapiKey = "symbol_coinapi";
-	node = json_object_get_member(pJsonObject, symbol_coinapiKey);
+	const gchar *symbol_id_coinapiKey = "symbol_id_coinapi";
+	node = json_object_get_member(pJsonObject, symbol_id_coinapiKey);
 	if (node !=NULL) {
 	
 
 		if (isprimitive("std::string")) {
-			jsonToValue(&symbol_coinapi, node, "std::string", "");
+			jsonToValue(&symbol_id_coinapi, node, "std::string", "");
 		} else {
 			
 		}
@@ -424,23 +424,23 @@ OrderExecutionReport::toJson()
 	const gchar *client_order_idKey = "client_order_id";
 	json_object_set_member(pJsonObject, client_order_idKey, node);
 	if (isprimitive("std::string")) {
-		std::string obj = getSymbolExchange();
+		std::string obj = getSymbolIdExchange();
 		node = converttoJson(&obj, "std::string", "");
 	}
 	else {
 		
 	}
-	const gchar *symbol_exchangeKey = "symbol_exchange";
-	json_object_set_member(pJsonObject, symbol_exchangeKey, node);
+	const gchar *symbol_id_exchangeKey = "symbol_id_exchange";
+	json_object_set_member(pJsonObject, symbol_id_exchangeKey, node);
 	if (isprimitive("std::string")) {
-		std::string obj = getSymbolCoinapi();
+		std::string obj = getSymbolIdCoinapi();
 		node = converttoJson(&obj, "std::string", "");
 	}
 	else {
 		
 	}
-	const gchar *symbol_coinapiKey = "symbol_coinapi";
-	json_object_set_member(pJsonObject, symbol_coinapiKey, node);
+	const gchar *symbol_id_coinapiKey = "symbol_id_coinapi";
+	json_object_set_member(pJsonObject, symbol_id_coinapiKey, node);
 	if (isprimitive("long long")) {
 		long long obj = getAmountOrder();
 		node = converttoJson(&obj, "long long", "");
@@ -667,27 +667,27 @@ OrderExecutionReport::setClientOrderId(std::string  client_order_id)
 }
 
 std::string
-OrderExecutionReport::getSymbolExchange()
+OrderExecutionReport::getSymbolIdExchange()
 {
-	return symbol_exchange;
+	return symbol_id_exchange;
 }
 
 void
-OrderExecutionReport::setSymbolExchange(std::string  symbol_exchange)
+OrderExecutionReport::setSymbolIdExchange(std::string  symbol_id_exchange)
 {
-	this->symbol_exchange = symbol_exchange;
+	this->symbol_id_exchange = symbol_id_exchange;
 }
 
 std::string
-OrderExecutionReport::getSymbolCoinapi()
+OrderExecutionReport::getSymbolIdCoinapi()
 {
-	return symbol_coinapi;
+	return symbol_id_coinapi;
 }
 
 void
-OrderExecutionReport::setSymbolCoinapi(std::string  symbol_coinapi)
+OrderExecutionReport::setSymbolIdCoinapi(std::string  symbol_id_coinapi)
 {
-	this->symbol_coinapi = symbol_coinapi;
+	this->symbol_id_coinapi = symbol_id_coinapi;
 }
 
 long long

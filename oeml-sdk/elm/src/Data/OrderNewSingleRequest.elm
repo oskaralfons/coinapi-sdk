@@ -28,8 +28,8 @@ import Json.Encode as Encode
 type alias OrderNewSingleRequest =
     { exchangeId : String
     , clientOrderId : String
-    , symbolExchange : Maybe (String)
-    , symbolCoinapi : Maybe (String)
+    , symbolIdExchange : Maybe (String)
+    , symbolIdCoinapi : Maybe (String)
     , amountOrder : Float
     , price : Float
     , side : OrdSide
@@ -52,8 +52,8 @@ decoder =
     Decode.succeed OrderNewSingleRequest
         |> required "exchange_id" Decode.string
         |> required "client_order_id" Decode.string
-        |> optional "symbol_exchange" (Decode.nullable Decode.string) Nothing
-        |> optional "symbol_coinapi" (Decode.nullable Decode.string) Nothing
+        |> optional "symbol_id_exchange" (Decode.nullable Decode.string) Nothing
+        |> optional "symbol_id_coinapi" (Decode.nullable Decode.string) Nothing
         |> required "amount_order" Decode.float
         |> required "price" Decode.float
         |> required "side" OrdSide.decoder
@@ -78,8 +78,8 @@ encodePairs : OrderNewSingleRequest -> List (String, Encode.Value)
 encodePairs model =
     [ ( "exchange_id", Encode.string model.exchangeId )
     , ( "client_order_id", Encode.string model.clientOrderId )
-    , ( "symbol_exchange", Maybe.withDefault Encode.null (Maybe.map Encode.string model.symbolExchange) )
-    , ( "symbol_coinapi", Maybe.withDefault Encode.null (Maybe.map Encode.string model.symbolCoinapi) )
+    , ( "symbol_id_exchange", Maybe.withDefault Encode.null (Maybe.map Encode.string model.symbolIdExchange) )
+    , ( "symbol_id_coinapi", Maybe.withDefault Encode.null (Maybe.map Encode.string model.symbolIdCoinapi) )
     , ( "amount_order", Encode.float model.amountOrder )
     , ( "price", Encode.float model.price )
     , ( "side", OrdSide.encode model.side )

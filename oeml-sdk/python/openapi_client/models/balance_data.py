@@ -34,95 +34,100 @@ class BalanceData(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'symbol_exchange': 'str',
-        'symbol_coinapi': 'str',
+        'asset_id_exchange': 'str',
+        'asset_id_coinapi': 'str',
         'balance': 'float',
         'available': 'float',
         'locked': 'float',
-        'update_origin': 'str'
+        'last_updated_by': 'str',
+        'rate_usd': 'float'
     }
 
     attribute_map = {
-        'symbol_exchange': 'symbol_exchange',
-        'symbol_coinapi': 'symbol_coinapi',
+        'asset_id_exchange': 'asset_id_exchange',
+        'asset_id_coinapi': 'asset_id_coinapi',
         'balance': 'balance',
         'available': 'available',
         'locked': 'locked',
-        'update_origin': 'update_origin'
+        'last_updated_by': 'last_updated_by',
+        'rate_usd': 'rate_usd'
     }
 
-    def __init__(self, symbol_exchange=None, symbol_coinapi=None, balance=None, available=None, locked=None, update_origin=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, asset_id_exchange=None, asset_id_coinapi=None, balance=None, available=None, locked=None, last_updated_by=None, rate_usd=None, local_vars_configuration=None):  # noqa: E501
         """BalanceData - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._symbol_exchange = None
-        self._symbol_coinapi = None
+        self._asset_id_exchange = None
+        self._asset_id_coinapi = None
         self._balance = None
         self._available = None
         self._locked = None
-        self._update_origin = None
+        self._last_updated_by = None
+        self._rate_usd = None
         self.discriminator = None
 
-        if symbol_exchange is not None:
-            self.symbol_exchange = symbol_exchange
-        if symbol_coinapi is not None:
-            self.symbol_coinapi = symbol_coinapi
+        if asset_id_exchange is not None:
+            self.asset_id_exchange = asset_id_exchange
+        if asset_id_coinapi is not None:
+            self.asset_id_coinapi = asset_id_coinapi
         if balance is not None:
             self.balance = balance
         if available is not None:
             self.available = available
         if locked is not None:
             self.locked = locked
-        if update_origin is not None:
-            self.update_origin = update_origin
+        if last_updated_by is not None:
+            self.last_updated_by = last_updated_by
+        if rate_usd is not None:
+            self.rate_usd = rate_usd
 
     @property
-    def symbol_exchange(self):
-        """Gets the symbol_exchange of this BalanceData.  # noqa: E501
+    def asset_id_exchange(self):
+        """Gets the asset_id_exchange of this BalanceData.  # noqa: E501
 
         Exchange currency code.  # noqa: E501
 
-        :return: The symbol_exchange of this BalanceData.  # noqa: E501
+        :return: The asset_id_exchange of this BalanceData.  # noqa: E501
         :rtype: str
         """
-        return self._symbol_exchange
+        return self._asset_id_exchange
 
-    @symbol_exchange.setter
-    def symbol_exchange(self, symbol_exchange):
-        """Sets the symbol_exchange of this BalanceData.
+    @asset_id_exchange.setter
+    def asset_id_exchange(self, asset_id_exchange):
+        """Sets the asset_id_exchange of this BalanceData.
 
         Exchange currency code.  # noqa: E501
 
-        :param symbol_exchange: The symbol_exchange of this BalanceData.  # noqa: E501
+        :param asset_id_exchange: The asset_id_exchange of this BalanceData.  # noqa: E501
         :type: str
         """
 
-        self._symbol_exchange = symbol_exchange
+        self._asset_id_exchange = asset_id_exchange
 
     @property
-    def symbol_coinapi(self):
-        """Gets the symbol_coinapi of this BalanceData.  # noqa: E501
+    def asset_id_coinapi(self):
+        """Gets the asset_id_coinapi of this BalanceData.  # noqa: E501
 
         CoinAPI currency code.  # noqa: E501
 
-        :return: The symbol_coinapi of this BalanceData.  # noqa: E501
+        :return: The asset_id_coinapi of this BalanceData.  # noqa: E501
         :rtype: str
         """
-        return self._symbol_coinapi
+        return self._asset_id_coinapi
 
-    @symbol_coinapi.setter
-    def symbol_coinapi(self, symbol_coinapi):
-        """Sets the symbol_coinapi of this BalanceData.
+    @asset_id_coinapi.setter
+    def asset_id_coinapi(self, asset_id_coinapi):
+        """Sets the asset_id_coinapi of this BalanceData.
 
         CoinAPI currency code.  # noqa: E501
 
-        :param symbol_coinapi: The symbol_coinapi of this BalanceData.  # noqa: E501
+        :param asset_id_coinapi: The asset_id_coinapi of this BalanceData.  # noqa: E501
         :type: str
         """
 
-        self._symbol_coinapi = symbol_coinapi
+        self._asset_id_coinapi = asset_id_coinapi
 
     @property
     def balance(self):
@@ -194,33 +199,56 @@ class BalanceData(object):
         self._locked = locked
 
     @property
-    def update_origin(self):
-        """Gets the update_origin of this BalanceData.  # noqa: E501
+    def last_updated_by(self):
+        """Gets the last_updated_by of this BalanceData.  # noqa: E501
 
         Source of the last modification.   # noqa: E501
 
-        :return: The update_origin of this BalanceData.  # noqa: E501
+        :return: The last_updated_by of this BalanceData.  # noqa: E501
         :rtype: str
         """
-        return self._update_origin
+        return self._last_updated_by
 
-    @update_origin.setter
-    def update_origin(self, update_origin):
-        """Sets the update_origin of this BalanceData.
+    @last_updated_by.setter
+    def last_updated_by(self, last_updated_by):
+        """Sets the last_updated_by of this BalanceData.
 
         Source of the last modification.   # noqa: E501
 
-        :param update_origin: The update_origin of this BalanceData.  # noqa: E501
+        :param last_updated_by: The last_updated_by of this BalanceData.  # noqa: E501
         :type: str
         """
         allowed_values = ["INITIALIZATION", "BALANCE_MANAGER", "EXCHANGE"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and update_origin not in allowed_values:  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and last_updated_by not in allowed_values:  # noqa: E501
             raise ValueError(
-                "Invalid value for `update_origin` ({0}), must be one of {1}"  # noqa: E501
-                .format(update_origin, allowed_values)
+                "Invalid value for `last_updated_by` ({0}), must be one of {1}"  # noqa: E501
+                .format(last_updated_by, allowed_values)
             )
 
-        self._update_origin = update_origin
+        self._last_updated_by = last_updated_by
+
+    @property
+    def rate_usd(self):
+        """Gets the rate_usd of this BalanceData.  # noqa: E501
+
+        Current exchange rate to the USD for the single unit of the currency.   # noqa: E501
+
+        :return: The rate_usd of this BalanceData.  # noqa: E501
+        :rtype: float
+        """
+        return self._rate_usd
+
+    @rate_usd.setter
+    def rate_usd(self, rate_usd):
+        """Sets the rate_usd of this BalanceData.
+
+        Current exchange rate to the USD for the single unit of the currency.   # noqa: E501
+
+        :param rate_usd: The rate_usd of this BalanceData.  # noqa: E501
+        :type: float
+        """
+
+        self._rate_usd = rate_usd
 
     def to_dict(self):
         """Returns the model properties as a dict"""

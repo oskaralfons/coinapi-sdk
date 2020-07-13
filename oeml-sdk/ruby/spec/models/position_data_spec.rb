@@ -32,13 +32,13 @@ describe 'PositionData' do
       expect(@instance).to be_instance_of(OpenapiClient::PositionData)
     end
   end
-  describe 'test attribute "symbol_exchange"' do
+  describe 'test attribute "symbol_id_exchange"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  describe 'test attribute "symbol_coinapi"' do
+  describe 'test attribute "symbol_id_coinapi"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

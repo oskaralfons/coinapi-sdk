@@ -2,9 +2,9 @@ part of openapi.api;
 
 class PositionData {
   /* Exchange symbol. */
-  String symbolExchange = null;
+  String symbolIdExchange = null;
   /* CoinAPI symbol. */
-  String symbolCoinapi = null;
+  String symbolIdCoinapi = null;
   /* Calculated average price of all fills on this position. */
   num avgEntryPrice = null;
   /* The current position quantity. */
@@ -26,13 +26,13 @@ class PositionData {
 
   @override
   String toString() {
-    return 'PositionData[symbolExchange=$symbolExchange, symbolCoinapi=$symbolCoinapi, avgEntryPrice=$avgEntryPrice, quantity=$quantity, side=$side, unrealizedPnl=$unrealizedPnl, leverage=$leverage, crossMargin=$crossMargin, liquidationPrice=$liquidationPrice, rawData=$rawData, ]';
+    return 'PositionData[symbolIdExchange=$symbolIdExchange, symbolIdCoinapi=$symbolIdCoinapi, avgEntryPrice=$avgEntryPrice, quantity=$quantity, side=$side, unrealizedPnl=$unrealizedPnl, leverage=$leverage, crossMargin=$crossMargin, liquidationPrice=$liquidationPrice, rawData=$rawData, ]';
   }
 
   PositionData.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    symbolExchange = json['symbol_exchange'];
-    symbolCoinapi = json['symbol_coinapi'];
+    symbolIdExchange = json['symbol_id_exchange'];
+    symbolIdCoinapi = json['symbol_id_coinapi'];
     avgEntryPrice = json['avg_entry_price'];
     quantity = json['quantity'];
     side = (json['side'] == null) ?
@@ -47,10 +47,10 @@ class PositionData {
 
   Map<String, dynamic> toJson() {
     Map <String, dynamic> json = {};
-    if (symbolExchange != null)
-      json['symbol_exchange'] = symbolExchange;
-    if (symbolCoinapi != null)
-      json['symbol_coinapi'] = symbolCoinapi;
+    if (symbolIdExchange != null)
+      json['symbol_id_exchange'] = symbolIdExchange;
+    if (symbolIdCoinapi != null)
+      json['symbol_id_coinapi'] = symbolIdCoinapi;
     if (avgEntryPrice != null)
       json['avg_entry_price'] = avgEntryPrice;
     if (quantity != null)

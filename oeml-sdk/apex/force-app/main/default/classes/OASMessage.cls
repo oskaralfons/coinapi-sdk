@@ -27,7 +27,7 @@ public class OASMessage implements OAS.MappedProperties {
     public OASSeverity severity { get; set; }
 
     /**
-     * If message related exchange then identifier of this exchange.
+     * If the message related to exchange, then the identifier of the exchange will be provided.
      * @return exchangeId
      */
     public String exchangeId { get; set; }

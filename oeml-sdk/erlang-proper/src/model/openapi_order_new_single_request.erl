@@ -11,8 +11,8 @@
 -type openapi_order_new_single_request() ::
   [ {'exchange_id', binary() }
   | {'client_order_id', binary() }
-  | {'symbol_exchange', binary() }
-  | {'symbol_coinapi', binary() }
+  | {'symbol_id_exchange', binary() }
+  | {'symbol_id_coinapi', binary() }
   | {'amount_order', integer() }
   | {'price', integer() }
   | {'side', openapi_ord_side:openapi_ord_side() }
@@ -29,8 +29,8 @@ openapi_order_new_single_request() ->
 openapi_order_new_single_request(Fields) ->
   Default = [ {'exchange_id', binary() }
             , {'client_order_id', binary() }
-            , {'symbol_exchange', binary() }
-            , {'symbol_coinapi', binary() }
+            , {'symbol_id_exchange', binary() }
+            , {'symbol_id_coinapi', binary() }
             , {'amount_order', integer() }
             , {'price', integer() }
             , {'side', openapi_ord_side:openapi_ord_side() }

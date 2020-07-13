@@ -21,8 +21,8 @@ import Json.Encode as Encode
 
 
 type alias PositionData =
-    { symbolExchange : Maybe (String)
-    , symbolCoinapi : Maybe (String)
+    { symbolIdExchange : Maybe (String)
+    , symbolIdCoinapi : Maybe (String)
     , avgEntryPrice : Maybe (Float)
     , quantity : Maybe (Float)
     , side : Maybe (OrdSide)
@@ -37,8 +37,8 @@ type alias PositionData =
 decoder : Decoder PositionData
 decoder =
     Decode.succeed PositionData
-        |> optional "symbol_exchange" (Decode.nullable Decode.string) Nothing
-        |> optional "symbol_coinapi" (Decode.nullable Decode.string) Nothing
+        |> optional "symbol_id_exchange" (Decode.nullable Decode.string) Nothing
+        |> optional "symbol_id_coinapi" (Decode.nullable Decode.string) Nothing
         |> optional "avg_entry_price" (Decode.nullable Decode.float) Nothing
         |> optional "quantity" (Decode.nullable Decode.float) Nothing
         |> optional "side" (Decode.nullable OrdSide.decoder) Nothing
@@ -62,8 +62,8 @@ encodeWithTag (tagField, tag) model =
 
 encodePairs : PositionData -> List (String, Encode.Value)
 encodePairs model =
-    [ ( "symbol_exchange", Maybe.withDefault Encode.null (Maybe.map Encode.string model.symbolExchange) )
-    , ( "symbol_coinapi", Maybe.withDefault Encode.null (Maybe.map Encode.string model.symbolCoinapi) )
+    [ ( "symbol_id_exchange", Maybe.withDefault Encode.null (Maybe.map Encode.string model.symbolIdExchange) )
+    , ( "symbol_id_coinapi", Maybe.withDefault Encode.null (Maybe.map Encode.string model.symbolIdCoinapi) )
     , ( "avg_entry_price", Maybe.withDefault Encode.null (Maybe.map Encode.float model.avgEntryPrice) )
     , ( "quantity", Maybe.withDefault Encode.null (Maybe.map Encode.float model.quantity) )
     , ( "side", Maybe.withDefault Encode.null (Maybe.map OrdSide.encode model.side) )

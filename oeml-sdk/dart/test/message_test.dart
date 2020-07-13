@@ -17,7 +17,7 @@ void main() {
       // TODO
     });
 
-    // If message related exchange then identifier of this exchange.
+    // If the message related to exchange, then the identifier of the exchange will be provided.
     // String exchangeId (default value: null)
     test('to test the property `exchangeId`', () async {
       // TODO

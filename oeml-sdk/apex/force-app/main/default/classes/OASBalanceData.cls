@@ -16,15 +16,15 @@
 public class OASBalanceData implements OAS.MappedProperties {
     /**
      * Exchange currency code.
-     * @return symbolExchange
+     * @return assetIdExchange
      */
-    public String symbolExchange { get; set; }
+    public String assetIdExchange { get; set; }
 
     /**
      * CoinAPI currency code.
-     * @return symbolCoinapi
+     * @return assetIdCoinapi
      */
-    public String symbolCoinapi { get; set; }
+    public String assetIdCoinapi { get; set; }
 
     /**
      * Value of the current total currency balance on the exchange.
@@ -47,7 +47,7 @@ public class OASBalanceData implements OAS.MappedProperties {
     /**
      * Source of the last modification.\n
      */
-    public enum UpdateOriginEnum {
+    public enum LastUpdatedByEnum {
         INITIALIZATION,
         BALANCE_MANAGER,
         EXCHANGE
@@ -55,14 +55,21 @@ public class OASBalanceData implements OAS.MappedProperties {
 
     /**
      * Source of the last modification.\n
-     * @return updateOrigin
+     * @return lastUpdatedBy
      */
-    public UpdateOriginEnum updateOrigin { get; set; }
+    public LastUpdatedByEnum lastUpdatedBy { get; set; }
+
+    /**
+     * Current exchange rate to the USD for the single unit of the currency.\n
+     * @return rateUsd
+     */
+    public Double rateUsd { get; set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
-        'symbol_exchange' => 'symbolExchange',
-        'symbol_coinapi' => 'symbolCoinapi',
-        'update_origin' => 'updateOrigin'
+        'asset_id_exchange' => 'assetIdExchange',
+        'asset_id_coinapi' => 'assetIdCoinapi',
+        'last_updated_by' => 'lastUpdatedBy',
+        'rate_usd' => 'rateUsd'
     };
 
     public Map<String, String> getPropertyMappings() {
@@ -71,36 +78,39 @@ public class OASBalanceData implements OAS.MappedProperties {
 
     public static OASBalanceData getExample() {
         OASBalanceData balanceData = new OASBalanceData();
-          balanceData.symbolExchange = 'XBT';
-          balanceData.symbolCoinapi = 'BTC';
+          balanceData.assetIdExchange = 'XBT';
+          balanceData.assetIdCoinapi = 'BTC';
           balanceData.balance = 0.00134444;
           balanceData.available = 0.00134444;
           balanceData.locked = 0.0;
-          balanceData.updateOrigin = UpdateOriginEnum.EXCHANGE;
+          balanceData.lastUpdatedBy = LastUpdatedByEnum.EXCHANGE;
+          balanceData.rateUsd = 1355.12;
         return balanceData;
     }
 
     public Boolean equals(Object obj) {
         if (obj instanceof OASBalanceData) {           
             OASBalanceData balanceData = (OASBalanceData) obj;
-            return this.symbolExchange == balanceData.symbolExchange
-                && this.symbolCoinapi == balanceData.symbolCoinapi
+            return this.assetIdExchange == balanceData.assetIdExchange
+                && this.assetIdCoinapi == balanceData.assetIdCoinapi
                 && this.balance == balanceData.balance
                 && this.available == balanceData.available
                 && this.locked == balanceData.locked
-                && this.updateOrigin == balanceData.updateOrigin;
+                && this.lastUpdatedBy == balanceData.lastUpdatedBy
+                && this.rateUsd == balanceData.rateUsd;
         }
         return false;
     }
 
     public Integer hashCode() {
         Integer hashCode = 43;
-        hashCode = (17 * hashCode) + (symbolExchange == null ? 0 : System.hashCode(symbolExchange));
-        hashCode = (17 * hashCode) + (symbolCoinapi == null ? 0 : System.hashCode(symbolCoinapi));
+        hashCode = (17 * hashCode) + (assetIdExchange == null ? 0 : System.hashCode(assetIdExchange));
+        hashCode = (17 * hashCode) + (assetIdCoinapi == null ? 0 : System.hashCode(assetIdCoinapi));
         hashCode = (17 * hashCode) + (balance == null ? 0 : System.hashCode(balance));
         hashCode = (17 * hashCode) + (available == null ? 0 : System.hashCode(available));
         hashCode = (17 * hashCode) + (locked == null ? 0 : System.hashCode(locked));
-        hashCode = (17 * hashCode) + (updateOrigin == null ? 0 : System.hashCode(updateOrigin));
+        hashCode = (17 * hashCode) + (lastUpdatedBy == null ? 0 : System.hashCode(lastUpdatedBy));
+        hashCode = (17 * hashCode) + (rateUsd == null ? 0 : System.hashCode(rateUsd));
         return hashCode;
     }
 }

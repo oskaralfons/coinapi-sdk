@@ -23,26 +23,27 @@ Balance_data::~Balance_data()
 void
 Balance_data::__init()
 {
-	//symbol_exchange = std::string();
-	//symbol_coinapi = std::string();
+	//asset_id_exchange = std::string();
+	//asset_id_coinapi = std::string();
 	//balance = float(0);
 	//available = float(0);
 	//locked = float(0);
-	//update_origin = std::string();
+	//last_updated_by = std::string();
+	//rate_usd = float(0);
 }
 
 void
 Balance_data::__cleanup()
 {
-	//if(symbol_exchange != NULL) {
+	//if(asset_id_exchange != NULL) {
 	//
-	//delete symbol_exchange;
-	//symbol_exchange = NULL;
+	//delete asset_id_exchange;
+	//asset_id_exchange = NULL;
 	//}
-	//if(symbol_coinapi != NULL) {
+	//if(asset_id_coinapi != NULL) {
 	//
-	//delete symbol_coinapi;
-	//symbol_coinapi = NULL;
+	//delete asset_id_coinapi;
+	//asset_id_coinapi = NULL;
 	//}
 	//if(balance != NULL) {
 	//
@@ -59,10 +60,15 @@ Balance_data::__cleanup()
 	//delete locked;
 	//locked = NULL;
 	//}
-	//if(update_origin != NULL) {
+	//if(last_updated_by != NULL) {
 	//
-	//delete update_origin;
-	//update_origin = NULL;
+	//delete last_updated_by;
+	//last_updated_by = NULL;
+	//}
+	//if(rate_usd != NULL) {
+	//
+	//delete rate_usd;
+	//rate_usd = NULL;
 	//}
 	//
 }
@@ -72,24 +78,24 @@ Balance_data::fromJson(char* jsonStr)
 {
 	JsonObject *pJsonObject = json_node_get_object(json_from_string(jsonStr,NULL));
 	JsonNode *node;
-	const gchar *symbol_exchangeKey = "symbol_exchange";
-	node = json_object_get_member(pJsonObject, symbol_exchangeKey);
+	const gchar *asset_id_exchangeKey = "asset_id_exchange";
+	node = json_object_get_member(pJsonObject, asset_id_exchangeKey);
 	if (node !=NULL) {
 	
 
 		if (isprimitive("std::string")) {
-			jsonToValue(&symbol_exchange, node, "std::string", "");
+			jsonToValue(&asset_id_exchange, node, "std::string", "");
 		} else {
 			
 		}
 	}
-	const gchar *symbol_coinapiKey = "symbol_coinapi";
-	node = json_object_get_member(pJsonObject, symbol_coinapiKey);
+	const gchar *asset_id_coinapiKey = "asset_id_coinapi";
+	node = json_object_get_member(pJsonObject, asset_id_coinapiKey);
 	if (node !=NULL) {
 	
 
 		if (isprimitive("std::string")) {
-			jsonToValue(&symbol_coinapi, node, "std::string", "");
+			jsonToValue(&asset_id_coinapi, node, "std::string", "");
 		} else {
 			
 		}
@@ -127,13 +133,24 @@ Balance_data::fromJson(char* jsonStr)
 			
 		}
 	}
-	const gchar *update_originKey = "update_origin";
-	node = json_object_get_member(pJsonObject, update_originKey);
+	const gchar *last_updated_byKey = "last_updated_by";
+	node = json_object_get_member(pJsonObject, last_updated_byKey);
 	if (node !=NULL) {
 	
 
 		if (isprimitive("std::string")) {
-			jsonToValue(&update_origin, node, "std::string", "");
+			jsonToValue(&last_updated_by, node, "std::string", "");
+		} else {
+			
+		}
+	}
+	const gchar *rate_usdKey = "rate_usd";
+	node = json_object_get_member(pJsonObject, rate_usdKey);
+	if (node !=NULL) {
+	
+
+		if (isprimitive("float")) {
+			jsonToValue(&rate_usd, node, "float", "");
 		} else {
 			
 		}
@@ -151,23 +168,23 @@ Balance_data::toJson()
 	JsonObject *pJsonObject = json_object_new();
 	JsonNode *node;
 	if (isprimitive("std::string")) {
-		std::string obj = getSymbolExchange();
+		std::string obj = getAssetIdExchange();
 		node = converttoJson(&obj, "std::string", "");
 	}
 	else {
 		
 	}
-	const gchar *symbol_exchangeKey = "symbol_exchange";
-	json_object_set_member(pJsonObject, symbol_exchangeKey, node);
+	const gchar *asset_id_exchangeKey = "asset_id_exchange";
+	json_object_set_member(pJsonObject, asset_id_exchangeKey, node);
 	if (isprimitive("std::string")) {
-		std::string obj = getSymbolCoinapi();
+		std::string obj = getAssetIdCoinapi();
 		node = converttoJson(&obj, "std::string", "");
 	}
 	else {
 		
 	}
-	const gchar *symbol_coinapiKey = "symbol_coinapi";
-	json_object_set_member(pJsonObject, symbol_coinapiKey, node);
+	const gchar *asset_id_coinapiKey = "asset_id_coinapi";
+	json_object_set_member(pJsonObject, asset_id_coinapiKey, node);
 	if (isprimitive("float")) {
 		float obj = getBalance();
 		node = converttoJson(&obj, "float", "");
@@ -196,14 +213,23 @@ Balance_data::toJson()
 	const gchar *lockedKey = "locked";
 	json_object_set_member(pJsonObject, lockedKey, node);
 	if (isprimitive("std::string")) {
-		std::string obj = getUpdateOrigin();
+		std::string obj = getLastUpdatedBy();
 		node = converttoJson(&obj, "std::string", "");
 	}
 	else {
 		
 	}
-	const gchar *update_originKey = "update_origin";
-	json_object_set_member(pJsonObject, update_originKey, node);
+	const gchar *last_updated_byKey = "last_updated_by";
+	json_object_set_member(pJsonObject, last_updated_byKey, node);
+	if (isprimitive("float")) {
+		float obj = getRateUsd();
+		node = converttoJson(&obj, "float", "");
+	}
+	else {
+		
+	}
+	const gchar *rate_usdKey = "rate_usd";
+	json_object_set_member(pJsonObject, rate_usdKey, node);
 	node = json_node_alloc();
 	json_node_init(node, JSON_NODE_OBJECT);
 	json_node_take_object(node, pJsonObject);
@@ -213,27 +239,27 @@ Balance_data::toJson()
 }
 
 std::string
-Balance_data::getSymbolExchange()
+Balance_data::getAssetIdExchange()
 {
-	return symbol_exchange;
+	return asset_id_exchange;
 }
 
 void
-Balance_data::setSymbolExchange(std::string  symbol_exchange)
+Balance_data::setAssetIdExchange(std::string  asset_id_exchange)
 {
-	this->symbol_exchange = symbol_exchange;
+	this->asset_id_exchange = asset_id_exchange;
 }
 
 std::string
-Balance_data::getSymbolCoinapi()
+Balance_data::getAssetIdCoinapi()
 {
-	return symbol_coinapi;
+	return asset_id_coinapi;
 }
 
 void
-Balance_data::setSymbolCoinapi(std::string  symbol_coinapi)
+Balance_data::setAssetIdCoinapi(std::string  asset_id_coinapi)
 {
-	this->symbol_coinapi = symbol_coinapi;
+	this->asset_id_coinapi = asset_id_coinapi;
 }
 
 float
@@ -273,15 +299,27 @@ Balance_data::setLocked(float  locked)
 }
 
 std::string
-Balance_data::getUpdateOrigin()
+Balance_data::getLastUpdatedBy()
 {
-	return update_origin;
+	return last_updated_by;
 }
 
 void
-Balance_data::setUpdateOrigin(std::string  update_origin)
+Balance_data::setLastUpdatedBy(std::string  last_updated_by)
 {
-	this->update_origin = update_origin;
+	this->last_updated_by = last_updated_by;
+}
+
+float
+Balance_data::getRateUsd()
+{
+	return rate_usd;
+}
+
+void
+Balance_data::setRateUsd(float  rate_usd)
+{
+	this->rate_usd = rate_usd;
 }
 
 

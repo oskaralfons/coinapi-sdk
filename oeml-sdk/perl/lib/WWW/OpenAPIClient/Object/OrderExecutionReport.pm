@@ -181,17 +181,17 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
-    'symbol_exchange' => {
+    'symbol_id_exchange' => {
         datatype => 'string',
-        base_name => 'symbol_exchange',
-        description => 'Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order.',
+        base_name => 'symbol_id_exchange',
+        description => 'Exchange symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order.',
         format => '',
         read_only => '',
             },
-    'symbol_coinapi' => {
+    'symbol_id_coinapi' => {
         datatype => 'string',
-        base_name => 'symbol_coinapi',
-        description => 'CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order.',
+        base_name => 'symbol_id_coinapi',
+        description => 'CoinAPI symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order.',
         format => '',
         read_only => '',
             },
@@ -298,8 +298,8 @@ __PACKAGE__->method_documentation({
 __PACKAGE__->openapi_types( {
     'exchange_id' => 'string',
     'client_order_id' => 'string',
-    'symbol_exchange' => 'string',
-    'symbol_coinapi' => 'string',
+    'symbol_id_exchange' => 'string',
+    'symbol_id_coinapi' => 'string',
     'amount_order' => 'double',
     'price' => 'double',
     'side' => 'OrdSide',
@@ -319,8 +319,8 @@ __PACKAGE__->openapi_types( {
 __PACKAGE__->attribute_map( {
     'exchange_id' => 'exchange_id',
     'client_order_id' => 'client_order_id',
-    'symbol_exchange' => 'symbol_exchange',
-    'symbol_coinapi' => 'symbol_coinapi',
+    'symbol_id_exchange' => 'symbol_id_exchange',
+    'symbol_id_coinapi' => 'symbol_id_coinapi',
     'amount_order' => 'amount_order',
     'price' => 'price',
     'side' => 'side',

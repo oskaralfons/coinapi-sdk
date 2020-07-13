@@ -75,8 +75,8 @@ private class OASOrderNewSingleRequestTest {
         Map<String, String> propertyMappings = orderNewSingleRequest.getPropertyMappings();
         System.assertEquals('exchangeId', propertyMappings.get('exchange_id'));
         System.assertEquals('clientOrderId', propertyMappings.get('client_order_id'));
-        System.assertEquals('symbolExchange', propertyMappings.get('symbol_exchange'));
-        System.assertEquals('symbolCoinapi', propertyMappings.get('symbol_coinapi'));
+        System.assertEquals('symbolIdExchange', propertyMappings.get('symbol_id_exchange'));
+        System.assertEquals('symbolIdCoinapi', propertyMappings.get('symbol_id_coinapi'));
         System.assertEquals('amountOrder', propertyMappings.get('amount_order'));
         System.assertEquals('orderType', propertyMappings.get('order_type'));
         System.assertEquals('timeInForce', propertyMappings.get('time_in_force'));
@@ -90,8 +90,8 @@ private class OASOrderNewSingleRequestTest {
         System.assertEquals(new List<ExecInstEnum>(), orderNewSingleRequest.execInst);
         System.assertEquals(null, orderNewSingleRequest.exchangeId);
         System.assertEquals(null, orderNewSingleRequest.clientOrderId);
-        System.assertEquals(null, orderNewSingleRequest.symbolExchange);
-        System.assertEquals(null, orderNewSingleRequest.symbolCoinapi);
+        System.assertEquals(null, orderNewSingleRequest.symbolIdExchange);
+        System.assertEquals(null, orderNewSingleRequest.symbolIdCoinapi);
         System.assertEquals(null, orderNewSingleRequest.amountOrder);
         System.assertEquals(null, orderNewSingleRequest.price);
         System.assertEquals(null, orderNewSingleRequest.side);

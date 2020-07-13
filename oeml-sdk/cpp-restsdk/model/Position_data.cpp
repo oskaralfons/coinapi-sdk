@@ -24,10 +24,10 @@ namespace model {
 
 Position_data::Position_data()
 {
-    m_Symbol_exchange = utility::conversions::to_string_t("");
-    m_Symbol_exchangeIsSet = false;
-    m_Symbol_coinapi = utility::conversions::to_string_t("");
-    m_Symbol_coinapiIsSet = false;
+    m_Symbol_id_exchange = utility::conversions::to_string_t("");
+    m_Symbol_id_exchangeIsSet = false;
+    m_Symbol_id_coinapi = utility::conversions::to_string_t("");
+    m_Symbol_id_coinapiIsSet = false;
     m_Avg_entry_price = 0.0;
     m_Avg_entry_priceIsSet = false;
     m_Quantity = 0.0;
@@ -58,13 +58,13 @@ web::json::value Position_data::toJson() const
 
     web::json::value val = web::json::value::object();
     
-    if(m_Symbol_exchangeIsSet)
+    if(m_Symbol_id_exchangeIsSet)
     {
-        val[utility::conversions::to_string_t("symbol_exchange")] = ModelBase::toJson(m_Symbol_exchange);
+        val[utility::conversions::to_string_t("symbol_id_exchange")] = ModelBase::toJson(m_Symbol_id_exchange);
     }
-    if(m_Symbol_coinapiIsSet)
+    if(m_Symbol_id_coinapiIsSet)
     {
-        val[utility::conversions::to_string_t("symbol_coinapi")] = ModelBase::toJson(m_Symbol_coinapi);
+        val[utility::conversions::to_string_t("symbol_id_coinapi")] = ModelBase::toJson(m_Symbol_id_coinapi);
     }
     if(m_Avg_entry_priceIsSet)
     {
@@ -106,24 +106,24 @@ bool Position_data::fromJson(const web::json::value& val)
 {
     bool ok = true;
     
-    if(val.has_field(utility::conversions::to_string_t("symbol_exchange")))
+    if(val.has_field(utility::conversions::to_string_t("symbol_id_exchange")))
     {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("symbol_exchange"));
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("symbol_id_exchange"));
         if(!fieldValue.is_null())
         {
-            utility::string_t refVal_symbol_exchange;
-            ok &= ModelBase::fromJson(fieldValue, refVal_symbol_exchange);
-            setSymbolExchange(refVal_symbol_exchange);
+            utility::string_t refVal_symbol_id_exchange;
+            ok &= ModelBase::fromJson(fieldValue, refVal_symbol_id_exchange);
+            setSymbolIdExchange(refVal_symbol_id_exchange);
         }
     }
-    if(val.has_field(utility::conversions::to_string_t("symbol_coinapi")))
+    if(val.has_field(utility::conversions::to_string_t("symbol_id_coinapi")))
     {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("symbol_coinapi"));
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("symbol_id_coinapi"));
         if(!fieldValue.is_null())
         {
-            utility::string_t refVal_symbol_coinapi;
-            ok &= ModelBase::fromJson(fieldValue, refVal_symbol_coinapi);
-            setSymbolCoinapi(refVal_symbol_coinapi);
+            utility::string_t refVal_symbol_id_coinapi;
+            ok &= ModelBase::fromJson(fieldValue, refVal_symbol_id_coinapi);
+            setSymbolIdCoinapi(refVal_symbol_id_coinapi);
         }
     }
     if(val.has_field(utility::conversions::to_string_t("avg_entry_price")))
@@ -216,13 +216,13 @@ void Position_data::toMultipart(std::shared_ptr<MultipartFormData> multipart, co
     {
         namePrefix += utility::conversions::to_string_t(".");
     }
-    if(m_Symbol_exchangeIsSet)
+    if(m_Symbol_id_exchangeIsSet)
     {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("symbol_exchange"), m_Symbol_exchange));
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("symbol_id_exchange"), m_Symbol_id_exchange));
     }
-    if(m_Symbol_coinapiIsSet)
+    if(m_Symbol_id_coinapiIsSet)
     {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("symbol_coinapi"), m_Symbol_coinapi));
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("symbol_id_coinapi"), m_Symbol_id_coinapi));
     }
     if(m_Avg_entry_priceIsSet)
     {
@@ -267,17 +267,17 @@ bool Position_data::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, 
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    if(multipart->hasContent(utility::conversions::to_string_t("symbol_exchange")))
+    if(multipart->hasContent(utility::conversions::to_string_t("symbol_id_exchange")))
     {
-        utility::string_t refVal_symbol_exchange;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("symbol_exchange")), refVal_symbol_exchange );
-        setSymbolExchange(refVal_symbol_exchange);
+        utility::string_t refVal_symbol_id_exchange;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("symbol_id_exchange")), refVal_symbol_id_exchange );
+        setSymbolIdExchange(refVal_symbol_id_exchange);
     }
-    if(multipart->hasContent(utility::conversions::to_string_t("symbol_coinapi")))
+    if(multipart->hasContent(utility::conversions::to_string_t("symbol_id_coinapi")))
     {
-        utility::string_t refVal_symbol_coinapi;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("symbol_coinapi")), refVal_symbol_coinapi );
-        setSymbolCoinapi(refVal_symbol_coinapi);
+        utility::string_t refVal_symbol_id_coinapi;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("symbol_id_coinapi")), refVal_symbol_id_coinapi );
+        setSymbolIdCoinapi(refVal_symbol_id_coinapi);
     }
     if(multipart->hasContent(utility::conversions::to_string_t("avg_entry_price")))
     {
@@ -330,45 +330,45 @@ bool Position_data::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, 
     return ok;
 }
 
-utility::string_t Position_data::getSymbolExchange() const
+utility::string_t Position_data::getSymbolIdExchange() const
 {
-    return m_Symbol_exchange;
+    return m_Symbol_id_exchange;
 }
 
-void Position_data::setSymbolExchange(const utility::string_t& value)
+void Position_data::setSymbolIdExchange(const utility::string_t& value)
 {
-    m_Symbol_exchange = value;
-    m_Symbol_exchangeIsSet = true;
+    m_Symbol_id_exchange = value;
+    m_Symbol_id_exchangeIsSet = true;
 }
 
-bool Position_data::symbolExchangeIsSet() const
+bool Position_data::symbolIdExchangeIsSet() const
 {
-    return m_Symbol_exchangeIsSet;
+    return m_Symbol_id_exchangeIsSet;
 }
 
-void Position_data::unsetSymbol_exchange()
+void Position_data::unsetSymbol_id_exchange()
 {
-    m_Symbol_exchangeIsSet = false;
+    m_Symbol_id_exchangeIsSet = false;
 }
-utility::string_t Position_data::getSymbolCoinapi() const
+utility::string_t Position_data::getSymbolIdCoinapi() const
 {
-    return m_Symbol_coinapi;
-}
-
-void Position_data::setSymbolCoinapi(const utility::string_t& value)
-{
-    m_Symbol_coinapi = value;
-    m_Symbol_coinapiIsSet = true;
+    return m_Symbol_id_coinapi;
 }
 
-bool Position_data::symbolCoinapiIsSet() const
+void Position_data::setSymbolIdCoinapi(const utility::string_t& value)
 {
-    return m_Symbol_coinapiIsSet;
+    m_Symbol_id_coinapi = value;
+    m_Symbol_id_coinapiIsSet = true;
 }
 
-void Position_data::unsetSymbol_coinapi()
+bool Position_data::symbolIdCoinapiIsSet() const
 {
-    m_Symbol_coinapiIsSet = false;
+    return m_Symbol_id_coinapiIsSet;
+}
+
+void Position_data::unsetSymbol_id_coinapi()
+{
+    m_Symbol_id_coinapiIsSet = false;
 }
 double Position_data::getAvgEntryPrice() const
 {

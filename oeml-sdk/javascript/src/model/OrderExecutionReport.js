@@ -88,11 +88,11 @@ class OrderExecutionReport {
             if (data.hasOwnProperty('client_order_id')) {
                 obj['client_order_id'] = ApiClient.convertToType(data['client_order_id'], 'String');
             }
-            if (data.hasOwnProperty('symbol_exchange')) {
-                obj['symbol_exchange'] = ApiClient.convertToType(data['symbol_exchange'], 'String');
+            if (data.hasOwnProperty('symbol_id_exchange')) {
+                obj['symbol_id_exchange'] = ApiClient.convertToType(data['symbol_id_exchange'], 'String');
             }
-            if (data.hasOwnProperty('symbol_coinapi')) {
-                obj['symbol_coinapi'] = ApiClient.convertToType(data['symbol_coinapi'], 'String');
+            if (data.hasOwnProperty('symbol_id_coinapi')) {
+                obj['symbol_id_coinapi'] = ApiClient.convertToType(data['symbol_id_coinapi'], 'String');
             }
             if (data.hasOwnProperty('amount_order')) {
                 obj['amount_order'] = ApiClient.convertToType(data['amount_order'], 'Number');
@@ -156,16 +156,16 @@ OrderExecutionReport.prototype['exchange_id'] = undefined;
 OrderExecutionReport.prototype['client_order_id'] = undefined;
 
 /**
- * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
- * @member {String} symbol_exchange
+ * Exchange symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.
+ * @member {String} symbol_id_exchange
  */
-OrderExecutionReport.prototype['symbol_exchange'] = undefined;
+OrderExecutionReport.prototype['symbol_id_exchange'] = undefined;
 
 /**
- * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
- * @member {String} symbol_coinapi
+ * CoinAPI symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.
+ * @member {String} symbol_id_coinapi
  */
-OrderExecutionReport.prototype['symbol_coinapi'] = undefined;
+OrderExecutionReport.prototype['symbol_id_coinapi'] = undefined;
 
 /**
  * Order quantity.
@@ -260,15 +260,15 @@ OrderNewSingleRequest.prototype['exchange_id'] = undefined;
  */
 OrderNewSingleRequest.prototype['client_order_id'] = undefined;
 /**
- * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
- * @member {String} symbol_exchange
+ * Exchange symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.
+ * @member {String} symbol_id_exchange
  */
-OrderNewSingleRequest.prototype['symbol_exchange'] = undefined;
+OrderNewSingleRequest.prototype['symbol_id_exchange'] = undefined;
 /**
- * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
- * @member {String} symbol_coinapi
+ * CoinAPI symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.
+ * @member {String} symbol_id_coinapi
  */
-OrderNewSingleRequest.prototype['symbol_coinapi'] = undefined;
+OrderNewSingleRequest.prototype['symbol_id_coinapi'] = undefined;
 /**
  * Order quantity.
  * @member {Number} amount_order

@@ -34,11 +34,11 @@ OAIPosition_data::~OAIPosition_data() {}
 
 void OAIPosition_data::initializeModel() {
 
-    m_symbol_exchange_isSet = false;
-    m_symbol_exchange_isValid = false;
+    m_symbol_id_exchange_isSet = false;
+    m_symbol_id_exchange_isValid = false;
 
-    m_symbol_coinapi_isSet = false;
-    m_symbol_coinapi_isValid = false;
+    m_symbol_id_coinapi_isSet = false;
+    m_symbol_id_coinapi_isValid = false;
 
     m_avg_entry_price_isSet = false;
     m_avg_entry_price_isValid = false;
@@ -74,11 +74,11 @@ void OAIPosition_data::fromJson(QString jsonString) {
 
 void OAIPosition_data::fromJsonObject(QJsonObject json) {
 
-    m_symbol_exchange_isValid = ::OpenAPI::fromJsonValue(symbol_exchange, json[QString("symbol_exchange")]);
-    m_symbol_exchange_isSet = !json[QString("symbol_exchange")].isNull() && m_symbol_exchange_isValid;
+    m_symbol_id_exchange_isValid = ::OpenAPI::fromJsonValue(symbol_id_exchange, json[QString("symbol_id_exchange")]);
+    m_symbol_id_exchange_isSet = !json[QString("symbol_id_exchange")].isNull() && m_symbol_id_exchange_isValid;
 
-    m_symbol_coinapi_isValid = ::OpenAPI::fromJsonValue(symbol_coinapi, json[QString("symbol_coinapi")]);
-    m_symbol_coinapi_isSet = !json[QString("symbol_coinapi")].isNull() && m_symbol_coinapi_isValid;
+    m_symbol_id_coinapi_isValid = ::OpenAPI::fromJsonValue(symbol_id_coinapi, json[QString("symbol_id_coinapi")]);
+    m_symbol_id_coinapi_isSet = !json[QString("symbol_id_coinapi")].isNull() && m_symbol_id_coinapi_isValid;
 
     m_avg_entry_price_isValid = ::OpenAPI::fromJsonValue(avg_entry_price, json[QString("avg_entry_price")]);
     m_avg_entry_price_isSet = !json[QString("avg_entry_price")].isNull() && m_avg_entry_price_isValid;
@@ -114,11 +114,11 @@ QString OAIPosition_data::asJson() const {
 
 QJsonObject OAIPosition_data::asJsonObject() const {
     QJsonObject obj;
-    if (m_symbol_exchange_isSet) {
-        obj.insert(QString("symbol_exchange"), ::OpenAPI::toJsonValue(symbol_exchange));
+    if (m_symbol_id_exchange_isSet) {
+        obj.insert(QString("symbol_id_exchange"), ::OpenAPI::toJsonValue(symbol_id_exchange));
     }
-    if (m_symbol_coinapi_isSet) {
-        obj.insert(QString("symbol_coinapi"), ::OpenAPI::toJsonValue(symbol_coinapi));
+    if (m_symbol_id_coinapi_isSet) {
+        obj.insert(QString("symbol_id_coinapi"), ::OpenAPI::toJsonValue(symbol_id_coinapi));
     }
     if (m_avg_entry_price_isSet) {
         obj.insert(QString("avg_entry_price"), ::OpenAPI::toJsonValue(avg_entry_price));
@@ -147,36 +147,36 @@ QJsonObject OAIPosition_data::asJsonObject() const {
     return obj;
 }
 
-QString OAIPosition_data::getSymbolExchange() const {
-    return symbol_exchange;
+QString OAIPosition_data::getSymbolIdExchange() const {
+    return symbol_id_exchange;
 }
-void OAIPosition_data::setSymbolExchange(const QString &symbol_exchange) {
-    this->symbol_exchange = symbol_exchange;
-    this->m_symbol_exchange_isSet = true;
-}
-
-bool OAIPosition_data::is_symbol_exchange_Set() const{
-    return m_symbol_exchange_isSet;
+void OAIPosition_data::setSymbolIdExchange(const QString &symbol_id_exchange) {
+    this->symbol_id_exchange = symbol_id_exchange;
+    this->m_symbol_id_exchange_isSet = true;
 }
 
-bool OAIPosition_data::is_symbol_exchange_Valid() const{
-    return m_symbol_exchange_isValid;
+bool OAIPosition_data::is_symbol_id_exchange_Set() const{
+    return m_symbol_id_exchange_isSet;
 }
 
-QString OAIPosition_data::getSymbolCoinapi() const {
-    return symbol_coinapi;
-}
-void OAIPosition_data::setSymbolCoinapi(const QString &symbol_coinapi) {
-    this->symbol_coinapi = symbol_coinapi;
-    this->m_symbol_coinapi_isSet = true;
+bool OAIPosition_data::is_symbol_id_exchange_Valid() const{
+    return m_symbol_id_exchange_isValid;
 }
 
-bool OAIPosition_data::is_symbol_coinapi_Set() const{
-    return m_symbol_coinapi_isSet;
+QString OAIPosition_data::getSymbolIdCoinapi() const {
+    return symbol_id_coinapi;
+}
+void OAIPosition_data::setSymbolIdCoinapi(const QString &symbol_id_coinapi) {
+    this->symbol_id_coinapi = symbol_id_coinapi;
+    this->m_symbol_id_coinapi_isSet = true;
 }
 
-bool OAIPosition_data::is_symbol_coinapi_Valid() const{
-    return m_symbol_coinapi_isValid;
+bool OAIPosition_data::is_symbol_id_coinapi_Set() const{
+    return m_symbol_id_coinapi_isSet;
+}
+
+bool OAIPosition_data::is_symbol_id_coinapi_Valid() const{
+    return m_symbol_id_coinapi_isValid;
 }
 
 double OAIPosition_data::getAvgEntryPrice() const {
@@ -310,12 +310,12 @@ bool OAIPosition_data::is_raw_data_Valid() const{
 bool OAIPosition_data::isSet() const {
     bool isObjectUpdated = false;
     do {
-        if (m_symbol_exchange_isSet) {
+        if (m_symbol_id_exchange_isSet) {
             isObjectUpdated = true;
             break;
         }
 
-        if (m_symbol_coinapi_isSet) {
+        if (m_symbol_id_coinapi_isSet) {
             isObjectUpdated = true;
             break;
         }

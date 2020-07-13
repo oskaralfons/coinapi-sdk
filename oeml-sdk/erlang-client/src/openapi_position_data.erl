@@ -5,8 +5,8 @@
 -export_type([openapi_position_data/0]).
 
 -type openapi_position_data() ::
-    #{ 'symbol_exchange' => binary(),
-       'symbol_coinapi' => binary(),
+    #{ 'symbol_id_exchange' => binary(),
+       'symbol_id_coinapi' => binary(),
        'avg_entry_price' => integer(),
        'quantity' => integer(),
        'side' => openapi_ord_side:openapi_ord_side(),
@@ -17,8 +17,8 @@
        'raw_data' => maps:map()
      }.
 
-encode(#{ 'symbol_exchange' := SymbolExchange,
-          'symbol_coinapi' := SymbolCoinapi,
+encode(#{ 'symbol_id_exchange' := SymbolIdExchange,
+          'symbol_id_coinapi' := SymbolIdCoinapi,
           'avg_entry_price' := AvgEntryPrice,
           'quantity' := Quantity,
           'side' := Side,
@@ -28,8 +28,8 @@ encode(#{ 'symbol_exchange' := SymbolExchange,
           'liquidation_price' := LiquidationPrice,
           'raw_data' := RawData
         }) ->
-    #{ 'symbol_exchange' => SymbolExchange,
-       'symbol_coinapi' => SymbolCoinapi,
+    #{ 'symbol_id_exchange' => SymbolIdExchange,
+       'symbol_id_coinapi' => SymbolIdCoinapi,
        'avg_entry_price' => AvgEntryPrice,
        'quantity' => Quantity,
        'side' => Side,

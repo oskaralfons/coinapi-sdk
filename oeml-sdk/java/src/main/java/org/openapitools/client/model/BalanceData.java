@@ -27,15 +27,15 @@ import java.io.IOException;
 /**
  * BalanceData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T15:10:31.759Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T20:50:08.678Z[Etc/UTC]")
 public class BalanceData {
-  public static final String SERIALIZED_NAME_SYMBOL_EXCHANGE = "symbol_exchange";
-  @SerializedName(SERIALIZED_NAME_SYMBOL_EXCHANGE)
-  private String symbolExchange;
+  public static final String SERIALIZED_NAME_ASSET_ID_EXCHANGE = "asset_id_exchange";
+  @SerializedName(SERIALIZED_NAME_ASSET_ID_EXCHANGE)
+  private String assetIdExchange;
 
-  public static final String SERIALIZED_NAME_SYMBOL_COINAPI = "symbol_coinapi";
-  @SerializedName(SERIALIZED_NAME_SYMBOL_COINAPI)
-  private String symbolCoinapi;
+  public static final String SERIALIZED_NAME_ASSET_ID_COINAPI = "asset_id_coinapi";
+  @SerializedName(SERIALIZED_NAME_ASSET_ID_COINAPI)
+  private String assetIdCoinapi;
 
   public static final String SERIALIZED_NAME_BALANCE = "balance";
   @SerializedName(SERIALIZED_NAME_BALANCE)
@@ -52,8 +52,8 @@ public class BalanceData {
   /**
    * Source of the last modification. 
    */
-  @JsonAdapter(UpdateOriginEnum.Adapter.class)
-  public enum UpdateOriginEnum {
+  @JsonAdapter(LastUpdatedByEnum.Adapter.class)
+  public enum LastUpdatedByEnum {
     INITIALIZATION("INITIALIZATION"),
     
     BALANCE_MANAGER("BALANCE_MANAGER"),
@@ -62,7 +62,7 @@ public class BalanceData {
 
     private String value;
 
-    UpdateOriginEnum(String value) {
+    LastUpdatedByEnum(String value) {
       this.value = value;
     }
 
@@ -75,8 +75,8 @@ public class BalanceData {
       return String.valueOf(value);
     }
 
-    public static UpdateOriginEnum fromValue(String value) {
-      for (UpdateOriginEnum b : UpdateOriginEnum.values()) {
+    public static LastUpdatedByEnum fromValue(String value) {
+      for (LastUpdatedByEnum b : LastUpdatedByEnum.values()) {
         if (b.value.equals(value)) {
           return b;
         }
@@ -84,68 +84,72 @@ public class BalanceData {
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
 
-    public static class Adapter extends TypeAdapter<UpdateOriginEnum> {
+    public static class Adapter extends TypeAdapter<LastUpdatedByEnum> {
       @Override
-      public void write(final JsonWriter jsonWriter, final UpdateOriginEnum enumeration) throws IOException {
+      public void write(final JsonWriter jsonWriter, final LastUpdatedByEnum enumeration) throws IOException {
         jsonWriter.value(enumeration.getValue());
       }
 
       @Override
-      public UpdateOriginEnum read(final JsonReader jsonReader) throws IOException {
+      public LastUpdatedByEnum read(final JsonReader jsonReader) throws IOException {
         String value =  jsonReader.nextString();
-        return UpdateOriginEnum.fromValue(value);
+        return LastUpdatedByEnum.fromValue(value);
       }
     }
   }
 
-  public static final String SERIALIZED_NAME_UPDATE_ORIGIN = "update_origin";
-  @SerializedName(SERIALIZED_NAME_UPDATE_ORIGIN)
-  private UpdateOriginEnum updateOrigin;
+  public static final String SERIALIZED_NAME_LAST_UPDATED_BY = "last_updated_by";
+  @SerializedName(SERIALIZED_NAME_LAST_UPDATED_BY)
+  private LastUpdatedByEnum lastUpdatedBy;
+
+  public static final String SERIALIZED_NAME_RATE_USD = "rate_usd";
+  @SerializedName(SERIALIZED_NAME_RATE_USD)
+  private Float rateUsd;
 
 
-  public BalanceData symbolExchange(String symbolExchange) {
+  public BalanceData assetIdExchange(String assetIdExchange) {
     
-    this.symbolExchange = symbolExchange;
+    this.assetIdExchange = assetIdExchange;
     return this;
   }
 
    /**
    * Exchange currency code.
-   * @return symbolExchange
+   * @return assetIdExchange
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "XBT", value = "Exchange currency code.")
 
-  public String getSymbolExchange() {
-    return symbolExchange;
+  public String getAssetIdExchange() {
+    return assetIdExchange;
   }
 
 
-  public void setSymbolExchange(String symbolExchange) {
-    this.symbolExchange = symbolExchange;
+  public void setAssetIdExchange(String assetIdExchange) {
+    this.assetIdExchange = assetIdExchange;
   }
 
 
-  public BalanceData symbolCoinapi(String symbolCoinapi) {
+  public BalanceData assetIdCoinapi(String assetIdCoinapi) {
     
-    this.symbolCoinapi = symbolCoinapi;
+    this.assetIdCoinapi = assetIdCoinapi;
     return this;
   }
 
    /**
    * CoinAPI currency code.
-   * @return symbolCoinapi
+   * @return assetIdCoinapi
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "BTC", value = "CoinAPI currency code.")
 
-  public String getSymbolCoinapi() {
-    return symbolCoinapi;
+  public String getAssetIdCoinapi() {
+    return assetIdCoinapi;
   }
 
 
-  public void setSymbolCoinapi(String symbolCoinapi) {
-    this.symbolCoinapi = symbolCoinapi;
+  public void setAssetIdCoinapi(String assetIdCoinapi) {
+    this.assetIdCoinapi = assetIdCoinapi;
   }
 
 
@@ -218,26 +222,49 @@ public class BalanceData {
   }
 
 
-  public BalanceData updateOrigin(UpdateOriginEnum updateOrigin) {
+  public BalanceData lastUpdatedBy(LastUpdatedByEnum lastUpdatedBy) {
     
-    this.updateOrigin = updateOrigin;
+    this.lastUpdatedBy = lastUpdatedBy;
     return this;
   }
 
    /**
    * Source of the last modification. 
-   * @return updateOrigin
+   * @return lastUpdatedBy
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "EXCHANGE", value = "Source of the last modification. ")
 
-  public UpdateOriginEnum getUpdateOrigin() {
-    return updateOrigin;
+  public LastUpdatedByEnum getLastUpdatedBy() {
+    return lastUpdatedBy;
   }
 
 
-  public void setUpdateOrigin(UpdateOriginEnum updateOrigin) {
-    this.updateOrigin = updateOrigin;
+  public void setLastUpdatedBy(LastUpdatedByEnum lastUpdatedBy) {
+    this.lastUpdatedBy = lastUpdatedBy;
+  }
+
+
+  public BalanceData rateUsd(Float rateUsd) {
+    
+    this.rateUsd = rateUsd;
+    return this;
+  }
+
+   /**
+   * Current exchange rate to the USD for the single unit of the currency. 
+   * @return rateUsd
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "1355.12", value = "Current exchange rate to the USD for the single unit of the currency. ")
+
+  public Float getRateUsd() {
+    return rateUsd;
+  }
+
+
+  public void setRateUsd(Float rateUsd) {
+    this.rateUsd = rateUsd;
   }
 
 
@@ -250,17 +277,18 @@ public class BalanceData {
       return false;
     }
     BalanceData balanceData = (BalanceData) o;
-    return Objects.equals(this.symbolExchange, balanceData.symbolExchange) &&
-        Objects.equals(this.symbolCoinapi, balanceData.symbolCoinapi) &&
+    return Objects.equals(this.assetIdExchange, balanceData.assetIdExchange) &&
+        Objects.equals(this.assetIdCoinapi, balanceData.assetIdCoinapi) &&
         Objects.equals(this.balance, balanceData.balance) &&
         Objects.equals(this.available, balanceData.available) &&
         Objects.equals(this.locked, balanceData.locked) &&
-        Objects.equals(this.updateOrigin, balanceData.updateOrigin);
+        Objects.equals(this.lastUpdatedBy, balanceData.lastUpdatedBy) &&
+        Objects.equals(this.rateUsd, balanceData.rateUsd);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(symbolExchange, symbolCoinapi, balance, available, locked, updateOrigin);
+    return Objects.hash(assetIdExchange, assetIdCoinapi, balance, available, locked, lastUpdatedBy, rateUsd);
   }
 
 
@@ -268,12 +296,13 @@ public class BalanceData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BalanceData {\n");
-    sb.append("    symbolExchange: ").append(toIndentedString(symbolExchange)).append("\n");
-    sb.append("    symbolCoinapi: ").append(toIndentedString(symbolCoinapi)).append("\n");
+    sb.append("    assetIdExchange: ").append(toIndentedString(assetIdExchange)).append("\n");
+    sb.append("    assetIdCoinapi: ").append(toIndentedString(assetIdCoinapi)).append("\n");
     sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
     sb.append("    available: ").append(toIndentedString(available)).append("\n");
     sb.append("    locked: ").append(toIndentedString(locked)).append("\n");
-    sb.append("    updateOrigin: ").append(toIndentedString(updateOrigin)).append("\n");
+    sb.append("    lastUpdatedBy: ").append(toIndentedString(lastUpdatedBy)).append("\n");
+    sb.append("    rateUsd: ").append(toIndentedString(rateUsd)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -40,8 +40,8 @@ class TestPosition(unittest.TestCase):
                 exchange_id = 'KRAKEN', 
                 data = [
                     openapi_client.models.position_data.Position_data(
-                        symbol_exchange = 'XBTUSD', 
-                        symbol_coinapi = 'BITMEX_PERP_BTC_USD', 
+                        symbol_id_exchange = 'XBTUSD', 
+                        symbol_id_coinapi = 'BITMEX_PERP_BTC_USD', 
                         avg_entry_price = 0.00134444, 
                         quantity = 7, 
                         side = 'BUY', 

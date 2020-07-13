@@ -15,10 +15,10 @@ require 'date'
 module OpenapiClient
   class PositionData
     # Exchange symbol.
-    attr_accessor :symbol_exchange
+    attr_accessor :symbol_id_exchange
 
     # CoinAPI symbol.
-    attr_accessor :symbol_coinapi
+    attr_accessor :symbol_id_coinapi
 
     # Calculated average price of all fills on this position.
     attr_accessor :avg_entry_price
@@ -45,8 +45,8 @@ module OpenapiClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'symbol_exchange' => :'symbol_exchange',
-        :'symbol_coinapi' => :'symbol_coinapi',
+        :'symbol_id_exchange' => :'symbol_id_exchange',
+        :'symbol_id_coinapi' => :'symbol_id_coinapi',
         :'avg_entry_price' => :'avg_entry_price',
         :'quantity' => :'quantity',
         :'side' => :'side',
@@ -61,8 +61,8 @@ module OpenapiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'symbol_exchange' => :'String',
-        :'symbol_coinapi' => :'String',
+        :'symbol_id_exchange' => :'String',
+        :'symbol_id_coinapi' => :'String',
         :'avg_entry_price' => :'Float',
         :'quantity' => :'Float',
         :'side' => :'OrdSide',
@@ -95,12 +95,12 @@ module OpenapiClient
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'symbol_exchange')
-        self.symbol_exchange = attributes[:'symbol_exchange']
+      if attributes.key?(:'symbol_id_exchange')
+        self.symbol_id_exchange = attributes[:'symbol_id_exchange']
       end
 
-      if attributes.key?(:'symbol_coinapi')
-        self.symbol_coinapi = attributes[:'symbol_coinapi']
+      if attributes.key?(:'symbol_id_coinapi')
+        self.symbol_id_coinapi = attributes[:'symbol_id_coinapi']
       end
 
       if attributes.key?(:'avg_entry_price')
@@ -154,8 +154,8 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          symbol_exchange == o.symbol_exchange &&
-          symbol_coinapi == o.symbol_coinapi &&
+          symbol_id_exchange == o.symbol_id_exchange &&
+          symbol_id_coinapi == o.symbol_id_coinapi &&
           avg_entry_price == o.avg_entry_price &&
           quantity == o.quantity &&
           side == o.side &&
@@ -175,7 +175,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [symbol_exchange, symbol_coinapi, avg_entry_price, quantity, side, unrealized_pnl, leverage, cross_margin, liquidation_price, raw_data].hash
+      [symbol_id_exchange, symbol_id_coinapi, avg_entry_price, quantity, side, unrealized_pnl, leverage, cross_margin, liquidation_price, raw_data].hash
     end
 
     # Builds the object from hash

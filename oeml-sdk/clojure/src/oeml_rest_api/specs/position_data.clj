@@ -9,8 +9,8 @@
 
 (def position-data-data
   {
-   (ds/opt :symbol_exchange) string?
-   (ds/opt :symbol_coinapi) string?
+   (ds/opt :symbol_id_exchange) string?
+   (ds/opt :symbol_id_coinapi) string?
    (ds/opt :avg_entry_price) float?
    (ds/opt :quantity) float?
    (ds/opt :side) ord-side-spec

@@ -8,8 +8,8 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**symbolExchange** | **String** | Exchange symbol. | [optional] [default to null]
-**symbolCoinapi** | **String** | CoinAPI symbol. | [optional] [default to null]
+**symbolIdExchange** | **String** | Exchange symbol. | [optional] [default to null]
+**symbolIdCoinapi** | **String** | CoinAPI symbol. | [optional] [default to null]
 **avgEntryPrice** | **num** | Calculated average price of all fills on this position. | [optional] [default to null]
 **quantity** | **num** | The current position quantity. | [optional] [default to null]
 **side** | [**OrdSide**](OrdSide.md) |  | [optional] [default to null]

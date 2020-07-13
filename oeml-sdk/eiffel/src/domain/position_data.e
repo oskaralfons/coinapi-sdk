@@ -24,9 +24,9 @@ inherit
 
 feature --Access
 
-    symbol_exchange: detachable STRING_32 
+    symbol_id_exchange: detachable STRING_32 
       -- Exchange symbol.
-    symbol_coinapi: detachable STRING_32 
+    symbol_id_coinapi: detachable STRING_32 
       -- CoinAPI symbol.
     avg_entry_price: REAL_32 
       -- Calculated average price of all fills on this position.
@@ -47,20 +47,20 @@ feature --Access
 
 feature -- Change Element  
  
-    set_symbol_exchange (a_name: like symbol_exchange)
-        -- Set 'symbol_exchange' with 'a_name'.
+    set_symbol_id_exchange (a_name: like symbol_id_exchange)
+        -- Set 'symbol_id_exchange' with 'a_name'.
       do
-        symbol_exchange := a_name
+        symbol_id_exchange := a_name
       ensure
-        symbol_exchange_set: symbol_exchange = a_name		
+        symbol_id_exchange_set: symbol_id_exchange = a_name		
       end
 
-    set_symbol_coinapi (a_name: like symbol_coinapi)
-        -- Set 'symbol_coinapi' with 'a_name'.
+    set_symbol_id_coinapi (a_name: like symbol_id_coinapi)
+        -- Set 'symbol_id_coinapi' with 'a_name'.
       do
-        symbol_coinapi := a_name
+        symbol_id_coinapi := a_name
       ensure
-        symbol_coinapi_set: symbol_coinapi = a_name		
+        symbol_id_coinapi_set: symbol_id_coinapi = a_name		
       end
 
     set_avg_entry_price (a_name: like avg_entry_price)
@@ -135,14 +135,14 @@ feature -- Change Element
       do
         create Result.make_empty
         Result.append("%Nclass POSITION_DATA%N")
-        if attached symbol_exchange as l_symbol_exchange then
-          Result.append ("%Nsymbol_exchange:")
-          Result.append (l_symbol_exchange.out)
+        if attached symbol_id_exchange as l_symbol_id_exchange then
+          Result.append ("%Nsymbol_id_exchange:")
+          Result.append (l_symbol_id_exchange.out)
           Result.append ("%N")    
         end  
-        if attached symbol_coinapi as l_symbol_coinapi then
-          Result.append ("%Nsymbol_coinapi:")
-          Result.append (l_symbol_coinapi.out)
+        if attached symbol_id_coinapi as l_symbol_id_coinapi then
+          Result.append ("%Nsymbol_id_coinapi:")
+          Result.append (l_symbol_id_coinapi.out)
           Result.append ("%N")    
         end  
         if attached avg_entry_price as l_avg_entry_price then

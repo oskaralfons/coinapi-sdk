@@ -11,7 +11,7 @@ class Message {
     String type
     
     Severity severity
-    /* If message related exchange then identifier of this exchange. */
+    /* If the message related to exchange, then the identifier of the exchange will be provided. */
     String exchangeId
     /* Message text. */
     String message

@@ -119,12 +119,13 @@ instance Arbitrary BalanceData where
 genBalanceData :: Int -> Gen BalanceData
 genBalanceData n =
   BalanceData
-    <$> arbitraryReducedMaybe n -- balanceDataSymbolExchange :: Maybe Text
-    <*> arbitraryReducedMaybe n -- balanceDataSymbolCoinapi :: Maybe Text
+    <$> arbitraryReducedMaybe n -- balanceDataAssetIdExchange :: Maybe Text
+    <*> arbitraryReducedMaybe n -- balanceDataAssetIdCoinapi :: Maybe Text
     <*> arbitraryReducedMaybe n -- balanceDataBalance :: Maybe Float
     <*> arbitraryReducedMaybe n -- balanceDataAvailable :: Maybe Float
     <*> arbitraryReducedMaybe n -- balanceDataLocked :: Maybe Float
-    <*> arbitraryReducedMaybe n -- balanceDataUpdateOrigin :: Maybe E'UpdateOrigin
+    <*> arbitraryReducedMaybe n -- balanceDataLastUpdatedBy :: Maybe E'LastUpdatedBy
+    <*> arbitraryReducedMaybe n -- balanceDataRateUsd :: Maybe Float
   
 instance Arbitrary Message where
   arbitrary = sized genMessage
@@ -163,8 +164,8 @@ genOrderExecutionReport n =
   OrderExecutionReport
     <$> arbitrary -- orderExecutionReportExchangeId :: Text
     <*> arbitrary -- orderExecutionReportClientOrderId :: Text
-    <*> arbitraryReducedMaybe n -- orderExecutionReportSymbolExchange :: Maybe Text
-    <*> arbitraryReducedMaybe n -- orderExecutionReportSymbolCoinapi :: Maybe Text
+    <*> arbitraryReducedMaybe n -- orderExecutionReportSymbolIdExchange :: Maybe Text
+    <*> arbitraryReducedMaybe n -- orderExecutionReportSymbolIdCoinapi :: Maybe Text
     <*> arbitrary -- orderExecutionReportAmountOrder :: Double
     <*> arbitrary -- orderExecutionReportPrice :: Double
     <*> arbitraryReduced n -- orderExecutionReportSide :: OrdSide
@@ -202,8 +203,8 @@ genOrderNewSingleRequest n =
   OrderNewSingleRequest
     <$> arbitrary -- orderNewSingleRequestExchangeId :: Text
     <*> arbitrary -- orderNewSingleRequestClientOrderId :: Text
-    <*> arbitraryReducedMaybe n -- orderNewSingleRequestSymbolExchange :: Maybe Text
-    <*> arbitraryReducedMaybe n -- orderNewSingleRequestSymbolCoinapi :: Maybe Text
+    <*> arbitraryReducedMaybe n -- orderNewSingleRequestSymbolIdExchange :: Maybe Text
+    <*> arbitraryReducedMaybe n -- orderNewSingleRequestSymbolIdCoinapi :: Maybe Text
     <*> arbitrary -- orderNewSingleRequestAmountOrder :: Double
     <*> arbitrary -- orderNewSingleRequestPrice :: Double
     <*> arbitraryReduced n -- orderNewSingleRequestSide :: OrdSide
@@ -227,8 +228,8 @@ instance Arbitrary PositionData where
 genPositionData :: Int -> Gen PositionData
 genPositionData n =
   PositionData
-    <$> arbitraryReducedMaybe n -- positionDataSymbolExchange :: Maybe Text
-    <*> arbitraryReducedMaybe n -- positionDataSymbolCoinapi :: Maybe Text
+    <$> arbitraryReducedMaybe n -- positionDataSymbolIdExchange :: Maybe Text
+    <*> arbitraryReducedMaybe n -- positionDataSymbolIdCoinapi :: Maybe Text
     <*> arbitraryReducedMaybe n -- positionDataAvgEntryPrice :: Maybe Double
     <*> arbitraryReducedMaybe n -- positionDataQuantity :: Maybe Double
     <*> arbitraryReducedMaybe n -- positionDataSide :: Maybe OrdSide
@@ -256,7 +257,7 @@ genValidationError n =
 instance Arbitrary E'ExecInst where
   arbitrary = arbitraryBoundedEnum
 
-instance Arbitrary E'UpdateOrigin where
+instance Arbitrary E'LastUpdatedBy where
   arbitrary = arbitraryBoundedEnum
 
 instance Arbitrary OrdSide where

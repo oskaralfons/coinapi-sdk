@@ -60,11 +60,11 @@ public:
 	/*! \brief Set 
 	 */
 	void setSeverity(Severity  severity);
-	/*! \brief Get If message related exchange then identifier of this exchange.
+	/*! \brief Get If the message related to exchange, then the identifier of the exchange will be provided.
 	 */
 	std::string getExchangeId();
 
-	/*! \brief Set If message related exchange then identifier of this exchange.
+	/*! \brief Set If the message related to exchange, then the identifier of the exchange will be provided.
 	 */
 	void setExchangeId(std::string  exchange_id);
 	/*! \brief Get Message text.

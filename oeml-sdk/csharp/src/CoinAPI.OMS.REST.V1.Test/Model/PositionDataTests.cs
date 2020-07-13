@@ -66,20 +66,20 @@ namespace CoinAPI.OMS.REST.V1.Test
 
 
         /// <summary>
-        /// Test the property 'SymbolExchange'
+        /// Test the property 'SymbolIdExchange'
         /// </summary>
         [Test]
-        public void SymbolExchangeTest()
+        public void SymbolIdExchangeTest()
         {
-            // TODO unit test for the property 'SymbolExchange'
+            // TODO unit test for the property 'SymbolIdExchange'
         }
         /// <summary>
-        /// Test the property 'SymbolCoinapi'
+        /// Test the property 'SymbolIdCoinapi'
         /// </summary>
         [Test]
-        public void SymbolCoinapiTest()
+        public void SymbolIdCoinapiTest()
         {
-            // TODO unit test for the property 'SymbolCoinapi'
+            // TODO unit test for the property 'SymbolIdCoinapi'
         }
         /// <summary>
         /// Test the property 'AvgEntryPrice'

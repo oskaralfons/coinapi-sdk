@@ -24,9 +24,9 @@ inherit
 
 feature --Access
 
-    symbol_exchange: detachable STRING_32 
+    asset_id_exchange: detachable STRING_32 
       -- Exchange currency code.
-    symbol_coinapi: detachable STRING_32 
+    asset_id_coinapi: detachable STRING_32 
       -- CoinAPI currency code.
     balance: REAL_32 
       -- Value of the current total currency balance on the exchange.
@@ -34,25 +34,27 @@ feature --Access
       -- Value of the current available currency balance on the exchange that can be used as collateral.
     locked: REAL_32 
       -- Value of the current locked currency balance by the exchange.
-    update_origin: detachable STRING_32 
+    last_updated_by: detachable STRING_32 
       -- Source of the last modification. 
+    rate_usd: REAL_32 
+      -- Current exchange rate to the USD for the single unit of the currency. 
 
 feature -- Change Element  
  
-    set_symbol_exchange (a_name: like symbol_exchange)
-        -- Set 'symbol_exchange' with 'a_name'.
+    set_asset_id_exchange (a_name: like asset_id_exchange)
+        -- Set 'asset_id_exchange' with 'a_name'.
       do
-        symbol_exchange := a_name
+        asset_id_exchange := a_name
       ensure
-        symbol_exchange_set: symbol_exchange = a_name		
+        asset_id_exchange_set: asset_id_exchange = a_name		
       end
 
-    set_symbol_coinapi (a_name: like symbol_coinapi)
-        -- Set 'symbol_coinapi' with 'a_name'.
+    set_asset_id_coinapi (a_name: like asset_id_coinapi)
+        -- Set 'asset_id_coinapi' with 'a_name'.
       do
-        symbol_coinapi := a_name
+        asset_id_coinapi := a_name
       ensure
-        symbol_coinapi_set: symbol_coinapi = a_name		
+        asset_id_coinapi_set: asset_id_coinapi = a_name		
       end
 
     set_balance (a_name: like balance)
@@ -79,12 +81,20 @@ feature -- Change Element
         locked_set: locked = a_name		
       end
 
-    set_update_origin (a_name: like update_origin)
-        -- Set 'update_origin' with 'a_name'.
+    set_last_updated_by (a_name: like last_updated_by)
+        -- Set 'last_updated_by' with 'a_name'.
       do
-        update_origin := a_name
+        last_updated_by := a_name
       ensure
-        update_origin_set: update_origin = a_name		
+        last_updated_by_set: last_updated_by = a_name		
+      end
+
+    set_rate_usd (a_name: like rate_usd)
+        -- Set 'rate_usd' with 'a_name'.
+      do
+        rate_usd := a_name
+      ensure
+        rate_usd_set: rate_usd = a_name		
       end
 
 
@@ -95,14 +105,14 @@ feature -- Change Element
       do
         create Result.make_empty
         Result.append("%Nclass BALANCE_DATA%N")
-        if attached symbol_exchange as l_symbol_exchange then
-          Result.append ("%Nsymbol_exchange:")
-          Result.append (l_symbol_exchange.out)
+        if attached asset_id_exchange as l_asset_id_exchange then
+          Result.append ("%Nasset_id_exchange:")
+          Result.append (l_asset_id_exchange.out)
           Result.append ("%N")    
         end  
-        if attached symbol_coinapi as l_symbol_coinapi then
-          Result.append ("%Nsymbol_coinapi:")
-          Result.append (l_symbol_coinapi.out)
+        if attached asset_id_coinapi as l_asset_id_coinapi then
+          Result.append ("%Nasset_id_coinapi:")
+          Result.append (l_asset_id_coinapi.out)
           Result.append ("%N")    
         end  
         if attached balance as l_balance then
@@ -120,9 +130,14 @@ feature -- Change Element
           Result.append (l_locked.out)
           Result.append ("%N")    
         end  
-        if attached update_origin as l_update_origin then
-          Result.append ("%Nupdate_origin:")
-          Result.append (l_update_origin.out)
+        if attached last_updated_by as l_last_updated_by then
+          Result.append ("%Nlast_updated_by:")
+          Result.append (l_last_updated_by.out)
+          Result.append ("%N")    
+        end  
+        if attached rate_usd as l_rate_usd then
+          Result.append ("%Nrate_usd:")
+          Result.append (l_rate_usd.out)
           Result.append ("%N")    
         end  
       end

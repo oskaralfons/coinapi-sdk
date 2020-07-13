@@ -73,8 +73,8 @@ private class OASPositionDataTest {
     private static void maintainRenamedProperties() {
         OASPositionData positionData = new OASPositionData();
         Map<String, String> propertyMappings = positionData.getPropertyMappings();
-        System.assertEquals('symbolExchange', propertyMappings.get('symbol_exchange'));
-        System.assertEquals('symbolCoinapi', propertyMappings.get('symbol_coinapi'));
+        System.assertEquals('symbolIdExchange', propertyMappings.get('symbol_id_exchange'));
+        System.assertEquals('symbolIdCoinapi', propertyMappings.get('symbol_id_coinapi'));
         System.assertEquals('avgEntryPrice', propertyMappings.get('avg_entry_price'));
         System.assertEquals('unrealizedPnl', propertyMappings.get('unrealized_pnl'));
         System.assertEquals('crossMargin', propertyMappings.get('cross_margin'));

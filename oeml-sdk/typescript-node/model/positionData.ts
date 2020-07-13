@@ -17,11 +17,11 @@ export class PositionData {
     /**
     * Exchange symbol.
     */
-    'symbolExchange'?: string;
+    'symbolIdExchange'?: string;
     /**
     * CoinAPI symbol.
     */
-    'symbolCoinapi'?: string;
+    'symbolIdCoinapi'?: string;
     /**
     * Calculated average price of all fills on this position.
     */
@@ -53,13 +53,13 @@ export class PositionData {
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "symbolExchange",
-            "baseName": "symbol_exchange",
+            "name": "symbolIdExchange",
+            "baseName": "symbol_id_exchange",
             "type": "string"
         },
         {
-            "name": "symbolCoinapi",
-            "baseName": "symbol_coinapi",
+            "name": "symbolIdCoinapi",
+            "baseName": "symbol_id_coinapi",
             "type": "string"
         },
         {

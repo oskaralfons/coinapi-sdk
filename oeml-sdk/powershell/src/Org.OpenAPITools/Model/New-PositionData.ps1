@@ -3,10 +3,10 @@ function New-PositionData {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${symbolUnderscoreexchange},
+        ${symbolUnderscoreidUnderscoreexchange},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${symbolUnderscorecoinapi},
+        ${symbolUnderscoreidUnderscorecoinapi},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Decimal]]
         ${avgUnderscoreentryUnderscoreprice},
@@ -38,8 +38,8 @@ function New-PositionData {
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         New-Object -TypeName Org.OpenAPITools.Model.PositionData -ArgumentList @(
-            ${symbolUnderscoreexchange},
-            ${symbolUnderscorecoinapi},
+            ${symbolUnderscoreidUnderscoreexchange},
+            ${symbolUnderscoreidUnderscorecoinapi},
             ${avgUnderscoreentryUnderscoreprice},
             ${quantity},
             ${side},

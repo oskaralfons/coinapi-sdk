@@ -67,19 +67,19 @@ public class OrderExecutionReportTest {
     }
 
     /**
-     * Test the property 'symbolExchange'
+     * Test the property 'symbolIdExchange'
      */
     @Test
-    public void symbolExchangeTest() {
-        // TODO: test symbolExchange
+    public void symbolIdExchangeTest() {
+        // TODO: test symbolIdExchange
     }
 
     /**
-     * Test the property 'symbolCoinapi'
+     * Test the property 'symbolIdCoinapi'
      */
     @Test
-    public void symbolCoinapiTest() {
-        // TODO: test symbolCoinapi
+    public void symbolIdCoinapiTest() {
+        // TODO: test symbolIdCoinapi
     }
 
     /**

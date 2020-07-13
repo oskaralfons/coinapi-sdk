@@ -93,16 +93,16 @@ class OrderExecutionReportTest extends TestCase
     }
 
     /**
-     * Test attribute "symbol_exchange"
+     * Test attribute "symbol_id_exchange"
      */
-    public function testPropertySymbolExchange()
+    public function testPropertySymbolIdExchange()
     {
     }
 
     /**
-     * Test attribute "symbol_coinapi"
+     * Test attribute "symbol_id_coinapi"
      */
-    public function testPropertySymbolCoinapi()
+    public function testPropertySymbolIdCoinapi()
     {
     }
 

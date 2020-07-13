@@ -19,7 +19,7 @@ export interface Message {
     "type"?: string;
     "severity"?: models.Severity;
     /**
-     * If message related exchange then identifier of this exchange.
+     * If the message related to exchange, then the identifier of the exchange will be provided.
      */
     "exchange_id"?: string;
     /**

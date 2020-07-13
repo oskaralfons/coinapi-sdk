@@ -53,15 +53,15 @@ balanceDataL f Balance{..} = (\balanceData -> Balance { balanceData, ..} ) <$> f
 
 -- * BalanceData
 
--- | 'balanceDataSymbolExchange' Lens
-balanceDataSymbolExchangeL :: Lens_' BalanceData (Maybe Text)
-balanceDataSymbolExchangeL f BalanceData{..} = (\balanceDataSymbolExchange -> BalanceData { balanceDataSymbolExchange, ..} ) <$> f balanceDataSymbolExchange
-{-# INLINE balanceDataSymbolExchangeL #-}
+-- | 'balanceDataAssetIdExchange' Lens
+balanceDataAssetIdExchangeL :: Lens_' BalanceData (Maybe Text)
+balanceDataAssetIdExchangeL f BalanceData{..} = (\balanceDataAssetIdExchange -> BalanceData { balanceDataAssetIdExchange, ..} ) <$> f balanceDataAssetIdExchange
+{-# INLINE balanceDataAssetIdExchangeL #-}
 
--- | 'balanceDataSymbolCoinapi' Lens
-balanceDataSymbolCoinapiL :: Lens_' BalanceData (Maybe Text)
-balanceDataSymbolCoinapiL f BalanceData{..} = (\balanceDataSymbolCoinapi -> BalanceData { balanceDataSymbolCoinapi, ..} ) <$> f balanceDataSymbolCoinapi
-{-# INLINE balanceDataSymbolCoinapiL #-}
+-- | 'balanceDataAssetIdCoinapi' Lens
+balanceDataAssetIdCoinapiL :: Lens_' BalanceData (Maybe Text)
+balanceDataAssetIdCoinapiL f BalanceData{..} = (\balanceDataAssetIdCoinapi -> BalanceData { balanceDataAssetIdCoinapi, ..} ) <$> f balanceDataAssetIdCoinapi
+{-# INLINE balanceDataAssetIdCoinapiL #-}
 
 -- | 'balanceDataBalance' Lens
 balanceDataBalanceL :: Lens_' BalanceData (Maybe Float)
@@ -78,10 +78,15 @@ balanceDataLockedL :: Lens_' BalanceData (Maybe Float)
 balanceDataLockedL f BalanceData{..} = (\balanceDataLocked -> BalanceData { balanceDataLocked, ..} ) <$> f balanceDataLocked
 {-# INLINE balanceDataLockedL #-}
 
--- | 'balanceDataUpdateOrigin' Lens
-balanceDataUpdateOriginL :: Lens_' BalanceData (Maybe E'UpdateOrigin)
-balanceDataUpdateOriginL f BalanceData{..} = (\balanceDataUpdateOrigin -> BalanceData { balanceDataUpdateOrigin, ..} ) <$> f balanceDataUpdateOrigin
-{-# INLINE balanceDataUpdateOriginL #-}
+-- | 'balanceDataLastUpdatedBy' Lens
+balanceDataLastUpdatedByL :: Lens_' BalanceData (Maybe E'LastUpdatedBy)
+balanceDataLastUpdatedByL f BalanceData{..} = (\balanceDataLastUpdatedBy -> BalanceData { balanceDataLastUpdatedBy, ..} ) <$> f balanceDataLastUpdatedBy
+{-# INLINE balanceDataLastUpdatedByL #-}
+
+-- | 'balanceDataRateUsd' Lens
+balanceDataRateUsdL :: Lens_' BalanceData (Maybe Float)
+balanceDataRateUsdL f BalanceData{..} = (\balanceDataRateUsd -> BalanceData { balanceDataRateUsd, ..} ) <$> f balanceDataRateUsd
+{-# INLINE balanceDataRateUsdL #-}
 
 
 
@@ -161,15 +166,15 @@ orderExecutionReportClientOrderIdL :: Lens_' OrderExecutionReport (Text)
 orderExecutionReportClientOrderIdL f OrderExecutionReport{..} = (\orderExecutionReportClientOrderId -> OrderExecutionReport { orderExecutionReportClientOrderId, ..} ) <$> f orderExecutionReportClientOrderId
 {-# INLINE orderExecutionReportClientOrderIdL #-}
 
--- | 'orderExecutionReportSymbolExchange' Lens
-orderExecutionReportSymbolExchangeL :: Lens_' OrderExecutionReport (Maybe Text)
-orderExecutionReportSymbolExchangeL f OrderExecutionReport{..} = (\orderExecutionReportSymbolExchange -> OrderExecutionReport { orderExecutionReportSymbolExchange, ..} ) <$> f orderExecutionReportSymbolExchange
-{-# INLINE orderExecutionReportSymbolExchangeL #-}
+-- | 'orderExecutionReportSymbolIdExchange' Lens
+orderExecutionReportSymbolIdExchangeL :: Lens_' OrderExecutionReport (Maybe Text)
+orderExecutionReportSymbolIdExchangeL f OrderExecutionReport{..} = (\orderExecutionReportSymbolIdExchange -> OrderExecutionReport { orderExecutionReportSymbolIdExchange, ..} ) <$> f orderExecutionReportSymbolIdExchange
+{-# INLINE orderExecutionReportSymbolIdExchangeL #-}
 
--- | 'orderExecutionReportSymbolCoinapi' Lens
-orderExecutionReportSymbolCoinapiL :: Lens_' OrderExecutionReport (Maybe Text)
-orderExecutionReportSymbolCoinapiL f OrderExecutionReport{..} = (\orderExecutionReportSymbolCoinapi -> OrderExecutionReport { orderExecutionReportSymbolCoinapi, ..} ) <$> f orderExecutionReportSymbolCoinapi
-{-# INLINE orderExecutionReportSymbolCoinapiL #-}
+-- | 'orderExecutionReportSymbolIdCoinapi' Lens
+orderExecutionReportSymbolIdCoinapiL :: Lens_' OrderExecutionReport (Maybe Text)
+orderExecutionReportSymbolIdCoinapiL f OrderExecutionReport{..} = (\orderExecutionReportSymbolIdCoinapi -> OrderExecutionReport { orderExecutionReportSymbolIdCoinapi, ..} ) <$> f orderExecutionReportSymbolIdCoinapi
+{-# INLINE orderExecutionReportSymbolIdCoinapiL #-}
 
 -- | 'orderExecutionReportAmountOrder' Lens
 orderExecutionReportAmountOrderL :: Lens_' OrderExecutionReport (Double)
@@ -294,15 +299,15 @@ orderNewSingleRequestClientOrderIdL :: Lens_' OrderNewSingleRequest (Text)
 orderNewSingleRequestClientOrderIdL f OrderNewSingleRequest{..} = (\orderNewSingleRequestClientOrderId -> OrderNewSingleRequest { orderNewSingleRequestClientOrderId, ..} ) <$> f orderNewSingleRequestClientOrderId
 {-# INLINE orderNewSingleRequestClientOrderIdL #-}
 
--- | 'orderNewSingleRequestSymbolExchange' Lens
-orderNewSingleRequestSymbolExchangeL :: Lens_' OrderNewSingleRequest (Maybe Text)
-orderNewSingleRequestSymbolExchangeL f OrderNewSingleRequest{..} = (\orderNewSingleRequestSymbolExchange -> OrderNewSingleRequest { orderNewSingleRequestSymbolExchange, ..} ) <$> f orderNewSingleRequestSymbolExchange
-{-# INLINE orderNewSingleRequestSymbolExchangeL #-}
+-- | 'orderNewSingleRequestSymbolIdExchange' Lens
+orderNewSingleRequestSymbolIdExchangeL :: Lens_' OrderNewSingleRequest (Maybe Text)
+orderNewSingleRequestSymbolIdExchangeL f OrderNewSingleRequest{..} = (\orderNewSingleRequestSymbolIdExchange -> OrderNewSingleRequest { orderNewSingleRequestSymbolIdExchange, ..} ) <$> f orderNewSingleRequestSymbolIdExchange
+{-# INLINE orderNewSingleRequestSymbolIdExchangeL #-}
 
--- | 'orderNewSingleRequestSymbolCoinapi' Lens
-orderNewSingleRequestSymbolCoinapiL :: Lens_' OrderNewSingleRequest (Maybe Text)
-orderNewSingleRequestSymbolCoinapiL f OrderNewSingleRequest{..} = (\orderNewSingleRequestSymbolCoinapi -> OrderNewSingleRequest { orderNewSingleRequestSymbolCoinapi, ..} ) <$> f orderNewSingleRequestSymbolCoinapi
-{-# INLINE orderNewSingleRequestSymbolCoinapiL #-}
+-- | 'orderNewSingleRequestSymbolIdCoinapi' Lens
+orderNewSingleRequestSymbolIdCoinapiL :: Lens_' OrderNewSingleRequest (Maybe Text)
+orderNewSingleRequestSymbolIdCoinapiL f OrderNewSingleRequest{..} = (\orderNewSingleRequestSymbolIdCoinapi -> OrderNewSingleRequest { orderNewSingleRequestSymbolIdCoinapi, ..} ) <$> f orderNewSingleRequestSymbolIdCoinapi
+{-# INLINE orderNewSingleRequestSymbolIdCoinapiL #-}
 
 -- | 'orderNewSingleRequestAmountOrder' Lens
 orderNewSingleRequestAmountOrderL :: Lens_' OrderNewSingleRequest (Double)
@@ -357,15 +362,15 @@ positionDataL f Position{..} = (\positionData -> Position { positionData, ..} ) 
 
 -- * PositionData
 
--- | 'positionDataSymbolExchange' Lens
-positionDataSymbolExchangeL :: Lens_' PositionData (Maybe Text)
-positionDataSymbolExchangeL f PositionData{..} = (\positionDataSymbolExchange -> PositionData { positionDataSymbolExchange, ..} ) <$> f positionDataSymbolExchange
-{-# INLINE positionDataSymbolExchangeL #-}
+-- | 'positionDataSymbolIdExchange' Lens
+positionDataSymbolIdExchangeL :: Lens_' PositionData (Maybe Text)
+positionDataSymbolIdExchangeL f PositionData{..} = (\positionDataSymbolIdExchange -> PositionData { positionDataSymbolIdExchange, ..} ) <$> f positionDataSymbolIdExchange
+{-# INLINE positionDataSymbolIdExchangeL #-}
 
--- | 'positionDataSymbolCoinapi' Lens
-positionDataSymbolCoinapiL :: Lens_' PositionData (Maybe Text)
-positionDataSymbolCoinapiL f PositionData{..} = (\positionDataSymbolCoinapi -> PositionData { positionDataSymbolCoinapi, ..} ) <$> f positionDataSymbolCoinapi
-{-# INLINE positionDataSymbolCoinapiL #-}
+-- | 'positionDataSymbolIdCoinapi' Lens
+positionDataSymbolIdCoinapiL :: Lens_' PositionData (Maybe Text)
+positionDataSymbolIdCoinapiL f PositionData{..} = (\positionDataSymbolIdCoinapi -> PositionData { positionDataSymbolIdCoinapi, ..} ) <$> f positionDataSymbolIdCoinapi
+{-# INLINE positionDataSymbolIdCoinapiL #-}
 
 -- | 'positionDataAvgEntryPrice' Lens
 positionDataAvgEntryPriceL :: Lens_' PositionData (Maybe Double)

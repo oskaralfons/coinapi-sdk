@@ -3,11 +3,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**symbol_exchange** | **character** | Exchange currency code. | [optional] 
-**symbol_coinapi** | **character** | CoinAPI currency code. | [optional] 
+**asset_id_exchange** | **character** | Exchange currency code. | [optional] 
+**asset_id_coinapi** | **character** | CoinAPI currency code. | [optional] 
 **balance** | **numeric** | Value of the current total currency balance on the exchange. | [optional] 
 **available** | **numeric** | Value of the current available currency balance on the exchange that can be used as collateral. | [optional] 
 **locked** | **numeric** | Value of the current locked currency balance by the exchange. | [optional] 
-**update_origin** | **character** | Source of the last modification.  | [optional] 
+**last_updated_by** | **character** | Source of the last modification.  | [optional] 
+**rate_usd** | **numeric** | Current exchange rate to the USD for the single unit of the currency.  | [optional] 
 
 

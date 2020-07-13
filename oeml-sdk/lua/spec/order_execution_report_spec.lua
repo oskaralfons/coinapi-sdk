@@ -30,15 +30,15 @@ describe("order_execution_report", function()
     end)
   end)
 
-  -- unit tests for the property 'symbol_exchange'
-  describe("property symbol_exchange test", function()
+  -- unit tests for the property 'symbol_id_exchange'
+  describe("property symbol_id_exchange test", function()
     it("should work", function()
       -- TODO assertion here: http://olivinelabs.com/busted/#asserts
     end)
   end)
 
-  -- unit tests for the property 'symbol_coinapi'
-  describe("property symbol_coinapi test", function()
+  -- unit tests for the property 'symbol_id_coinapi'
+  describe("property symbol_id_coinapi test", function()
     it("should work", function()
       -- TODO assertion here: http://olivinelabs.com/busted/#asserts
     end)

@@ -11,8 +11,8 @@
 -type openapi_order_execution_report() ::
   [ {'exchange_id', binary() }
   | {'client_order_id', binary() }
-  | {'symbol_exchange', binary() }
-  | {'symbol_coinapi', binary() }
+  | {'symbol_id_exchange', binary() }
+  | {'symbol_id_coinapi', binary() }
   | {'amount_order', integer() }
   | {'price', integer() }
   | {'side', openapi_ord_side:openapi_ord_side() }
@@ -36,8 +36,8 @@ openapi_order_execution_report() ->
 openapi_order_execution_report(Fields) ->
   Default = [ {'exchange_id', binary() }
             , {'client_order_id', binary() }
-            , {'symbol_exchange', binary() }
-            , {'symbol_coinapi', binary() }
+            , {'symbol_id_exchange', binary() }
+            , {'symbol_id_coinapi', binary() }
             , {'amount_order', integer() }
             , {'price', integer() }
             , {'side', openapi_ord_side:openapi_ord_side() }

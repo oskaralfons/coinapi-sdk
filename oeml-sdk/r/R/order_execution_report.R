@@ -14,9 +14,9 @@
 #'
 #' @field client_order_id  character 
 #'
-#' @field symbol_exchange  character [optional]
+#' @field symbol_id_exchange  character [optional]
 #'
-#' @field symbol_coinapi  character [optional]
+#' @field symbol_id_coinapi  character [optional]
 #'
 #' @field amount_order  numeric 
 #'
@@ -55,8 +55,8 @@ OrderExecutionReport <- R6::R6Class(
   public = list(
     `exchange_id` = NULL,
     `client_order_id` = NULL,
-    `symbol_exchange` = NULL,
-    `symbol_coinapi` = NULL,
+    `symbol_id_exchange` = NULL,
+    `symbol_id_coinapi` = NULL,
     `amount_order` = NULL,
     `price` = NULL,
     `side` = NULL,
@@ -71,7 +71,7 @@ OrderExecutionReport <- R6::R6Class(
     `status` = NULL,
     `time_order` = NULL,
     `error_message` = NULL,
-    initialize = function(`exchange_id`, `client_order_id`, `amount_order`, `price`, `side`, `order_type`, `time_in_force`, `client_order_id_format_exchange`, `amount_open`, `amount_filled`, `status`, `time_order`, `symbol_exchange`=NULL, `symbol_coinapi`=NULL, `expire_time`=NULL, `exec_inst`=NULL, `exchange_order_id`=NULL, `error_message`=NULL, ...){
+    initialize = function(`exchange_id`, `client_order_id`, `amount_order`, `price`, `side`, `order_type`, `time_in_force`, `client_order_id_format_exchange`, `amount_open`, `amount_filled`, `status`, `time_order`, `symbol_id_exchange`=NULL, `symbol_id_coinapi`=NULL, `expire_time`=NULL, `exec_inst`=NULL, `exchange_order_id`=NULL, `error_message`=NULL, ...){
       local.optional.var <- list(...)
       if (!missing(`exchange_id`)) {
         stopifnot(is.character(`exchange_id`), length(`exchange_id`) == 1)
@@ -118,13 +118,13 @@ OrderExecutionReport <- R6::R6Class(
         sapply(`time_order`, function(x) stopifnot(R6::is.R6(x)))
         self$`time_order` <- `time_order`
       }
-      if (!is.null(`symbol_exchange`)) {
-        stopifnot(is.character(`symbol_exchange`), length(`symbol_exchange`) == 1)
-        self$`symbol_exchange` <- `symbol_exchange`
+      if (!is.null(`symbol_id_exchange`)) {
+        stopifnot(is.character(`symbol_id_exchange`), length(`symbol_id_exchange`) == 1)
+        self$`symbol_id_exchange` <- `symbol_id_exchange`
       }
-      if (!is.null(`symbol_coinapi`)) {
-        stopifnot(is.character(`symbol_coinapi`), length(`symbol_coinapi`) == 1)
-        self$`symbol_coinapi` <- `symbol_coinapi`
+      if (!is.null(`symbol_id_coinapi`)) {
+        stopifnot(is.character(`symbol_id_coinapi`), length(`symbol_id_coinapi`) == 1)
+        self$`symbol_id_coinapi` <- `symbol_id_coinapi`
       }
       if (!is.null(`expire_time`)) {
         self$`expire_time` <- `expire_time`
@@ -153,13 +153,13 @@ OrderExecutionReport <- R6::R6Class(
         OrderExecutionReportObject[['client_order_id']] <-
           self$`client_order_id`
       }
-      if (!is.null(self$`symbol_exchange`)) {
-        OrderExecutionReportObject[['symbol_exchange']] <-
-          self$`symbol_exchange`
+      if (!is.null(self$`symbol_id_exchange`)) {
+        OrderExecutionReportObject[['symbol_id_exchange']] <-
+          self$`symbol_id_exchange`
       }
-      if (!is.null(self$`symbol_coinapi`)) {
-        OrderExecutionReportObject[['symbol_coinapi']] <-
-          self$`symbol_coinapi`
+      if (!is.null(self$`symbol_id_coinapi`)) {
+        OrderExecutionReportObject[['symbol_id_coinapi']] <-
+          self$`symbol_id_coinapi`
       }
       if (!is.null(self$`amount_order`)) {
         OrderExecutionReportObject[['amount_order']] <-
@@ -228,11 +228,11 @@ OrderExecutionReport <- R6::R6Class(
       if (!is.null(OrderExecutionReportObject$`client_order_id`)) {
         self$`client_order_id` <- OrderExecutionReportObject$`client_order_id`
       }
-      if (!is.null(OrderExecutionReportObject$`symbol_exchange`)) {
-        self$`symbol_exchange` <- OrderExecutionReportObject$`symbol_exchange`
+      if (!is.null(OrderExecutionReportObject$`symbol_id_exchange`)) {
+        self$`symbol_id_exchange` <- OrderExecutionReportObject$`symbol_id_exchange`
       }
-      if (!is.null(OrderExecutionReportObject$`symbol_coinapi`)) {
-        self$`symbol_coinapi` <- OrderExecutionReportObject$`symbol_coinapi`
+      if (!is.null(OrderExecutionReportObject$`symbol_id_coinapi`)) {
+        self$`symbol_id_coinapi` <- OrderExecutionReportObject$`symbol_id_coinapi`
       }
       if (!is.null(OrderExecutionReportObject$`amount_order`)) {
         self$`amount_order` <- OrderExecutionReportObject$`amount_order`
@@ -301,19 +301,19 @@ OrderExecutionReport <- R6::R6Class(
                 ',
         self$`client_order_id`
         )},
-        if (!is.null(self$`symbol_exchange`)) {
+        if (!is.null(self$`symbol_id_exchange`)) {
         sprintf(
-        '"symbol_exchange":
+        '"symbol_id_exchange":
           "%s"
                 ',
-        self$`symbol_exchange`
+        self$`symbol_id_exchange`
         )},
-        if (!is.null(self$`symbol_coinapi`)) {
+        if (!is.null(self$`symbol_id_coinapi`)) {
         sprintf(
-        '"symbol_coinapi":
+        '"symbol_id_coinapi":
           "%s"
                 ',
-        self$`symbol_coinapi`
+        self$`symbol_id_coinapi`
         )},
         if (!is.null(self$`amount_order`)) {
         sprintf(
@@ -421,8 +421,8 @@ OrderExecutionReport <- R6::R6Class(
       OrderExecutionReportObject <- jsonlite::fromJSON(OrderExecutionReportJson)
       self$`exchange_id` <- OrderExecutionReportObject$`exchange_id`
       self$`client_order_id` <- OrderExecutionReportObject$`client_order_id`
-      self$`symbol_exchange` <- OrderExecutionReportObject$`symbol_exchange`
-      self$`symbol_coinapi` <- OrderExecutionReportObject$`symbol_coinapi`
+      self$`symbol_id_exchange` <- OrderExecutionReportObject$`symbol_id_exchange`
+      self$`symbol_id_coinapi` <- OrderExecutionReportObject$`symbol_id_coinapi`
       self$`amount_order` <- OrderExecutionReportObject$`amount_order`
       self$`price` <- OrderExecutionReportObject$`price`
       self$`side` <- OrdSide$new()$fromJSON(jsonlite::toJSON(OrderExecutionReportObject$side, auto_unbox = TRUE, digits = NA))

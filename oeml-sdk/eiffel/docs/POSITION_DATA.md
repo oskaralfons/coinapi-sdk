@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**symbol_exchange** | [**STRING_32**](STRING_32.md) | Exchange symbol. | [optional] [default to null]
-**symbol_coinapi** | [**STRING_32**](STRING_32.md) | CoinAPI symbol. | [optional] [default to null]
+**symbol_id_exchange** | [**STRING_32**](STRING_32.md) | Exchange symbol. | [optional] [default to null]
+**symbol_id_coinapi** | [**STRING_32**](STRING_32.md) | CoinAPI symbol. | [optional] [default to null]
 **avg_entry_price** | **REAL_32** | Calculated average price of all fills on this position. | [optional] [default to null]
 **quantity** | **REAL_32** | The current position quantity. | [optional] [default to null]
 **side** | [**ORD_SIDE**](OrdSide.md) |  | [optional] [default to null]

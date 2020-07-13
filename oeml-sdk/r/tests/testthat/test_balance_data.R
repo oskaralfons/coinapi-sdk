@@ -5,20 +5,20 @@ context("Test BalanceData")
 
 model.instance <- BalanceData$new()
 
-test_that("symbol_exchange", {
-  # tests for the property `symbol_exchange` (character)
+test_that("asset_id_exchange", {
+  # tests for the property `asset_id_exchange` (character)
   # Exchange currency code.
 
   # uncomment below to test the property 
-  #expect_equal(model.instance$`symbol_exchange`, "EXPECTED_RESULT")
+  #expect_equal(model.instance$`asset_id_exchange`, "EXPECTED_RESULT")
 })
 
-test_that("symbol_coinapi", {
-  # tests for the property `symbol_coinapi` (character)
+test_that("asset_id_coinapi", {
+  # tests for the property `asset_id_coinapi` (character)
   # CoinAPI currency code.
 
   # uncomment below to test the property 
-  #expect_equal(model.instance$`symbol_coinapi`, "EXPECTED_RESULT")
+  #expect_equal(model.instance$`asset_id_coinapi`, "EXPECTED_RESULT")
 })
 
 test_that("balance", {
@@ -45,11 +45,19 @@ test_that("locked", {
   #expect_equal(model.instance$`locked`, "EXPECTED_RESULT")
 })
 
-test_that("update_origin", {
-  # tests for the property `update_origin` (character)
+test_that("last_updated_by", {
+  # tests for the property `last_updated_by` (character)
   # Source of the last modification. 
 
   # uncomment below to test the property 
-  #expect_equal(model.instance$`update_origin`, "EXPECTED_RESULT")
+  #expect_equal(model.instance$`last_updated_by`, "EXPECTED_RESULT")
+})
+
+test_that("rate_usd", {
+  # tests for the property `rate_usd` (numeric)
+  # Current exchange rate to the USD for the single unit of the currency. 
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`rate_usd`, "EXPECTED_RESULT")
 })
 

@@ -19,7 +19,7 @@ API.Client.Message.prototype.type;
 API.Client.Message.prototype.severity;
 
 /**
- * If message related exchange then identifier of this exchange.
+ * If the message related to exchange, then the identifier of the exchange will be provided.
  * @type {!string}
  * @export
  */

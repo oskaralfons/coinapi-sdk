@@ -57,8 +57,8 @@ class PositionData implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'symbol_exchange' => 'string',
-        'symbol_coinapi' => 'string',
+        'symbol_id_exchange' => 'string',
+        'symbol_id_coinapi' => 'string',
         'avg_entry_price' => 'float',
         'quantity' => 'float',
         'side' => '\OpenAPI\Client\Model\OrdSide',
@@ -75,8 +75,8 @@ class PositionData implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'symbol_exchange' => null,
-        'symbol_coinapi' => null,
+        'symbol_id_exchange' => null,
+        'symbol_id_coinapi' => null,
         'avg_entry_price' => null,
         'quantity' => null,
         'side' => null,
@@ -114,8 +114,8 @@ class PositionData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'symbol_exchange' => 'symbol_exchange',
-        'symbol_coinapi' => 'symbol_coinapi',
+        'symbol_id_exchange' => 'symbol_id_exchange',
+        'symbol_id_coinapi' => 'symbol_id_coinapi',
         'avg_entry_price' => 'avg_entry_price',
         'quantity' => 'quantity',
         'side' => 'side',
@@ -132,8 +132,8 @@ class PositionData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'symbol_exchange' => 'setSymbolExchange',
-        'symbol_coinapi' => 'setSymbolCoinapi',
+        'symbol_id_exchange' => 'setSymbolIdExchange',
+        'symbol_id_coinapi' => 'setSymbolIdCoinapi',
         'avg_entry_price' => 'setAvgEntryPrice',
         'quantity' => 'setQuantity',
         'side' => 'setSide',
@@ -150,8 +150,8 @@ class PositionData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'symbol_exchange' => 'getSymbolExchange',
-        'symbol_coinapi' => 'getSymbolCoinapi',
+        'symbol_id_exchange' => 'getSymbolIdExchange',
+        'symbol_id_coinapi' => 'getSymbolIdCoinapi',
         'avg_entry_price' => 'getAvgEntryPrice',
         'quantity' => 'getQuantity',
         'side' => 'getSide',
@@ -222,8 +222,8 @@ class PositionData implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['symbol_exchange'] = isset($data['symbol_exchange']) ? $data['symbol_exchange'] : null;
-        $this->container['symbol_coinapi'] = isset($data['symbol_coinapi']) ? $data['symbol_coinapi'] : null;
+        $this->container['symbol_id_exchange'] = isset($data['symbol_id_exchange']) ? $data['symbol_id_exchange'] : null;
+        $this->container['symbol_id_coinapi'] = isset($data['symbol_id_coinapi']) ? $data['symbol_id_coinapi'] : null;
         $this->container['avg_entry_price'] = isset($data['avg_entry_price']) ? $data['avg_entry_price'] : null;
         $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
         $this->container['side'] = isset($data['side']) ? $data['side'] : null;
@@ -259,49 +259,49 @@ class PositionData implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets symbol_exchange
+     * Gets symbol_id_exchange
      *
      * @return string|null
      */
-    public function getSymbolExchange()
+    public function getSymbolIdExchange()
     {
-        return $this->container['symbol_exchange'];
+        return $this->container['symbol_id_exchange'];
     }
 
     /**
-     * Sets symbol_exchange
+     * Sets symbol_id_exchange
      *
-     * @param string|null $symbol_exchange Exchange symbol.
+     * @param string|null $symbol_id_exchange Exchange symbol.
      *
      * @return $this
      */
-    public function setSymbolExchange($symbol_exchange)
+    public function setSymbolIdExchange($symbol_id_exchange)
     {
-        $this->container['symbol_exchange'] = $symbol_exchange;
+        $this->container['symbol_id_exchange'] = $symbol_id_exchange;
 
         return $this;
     }
 
     /**
-     * Gets symbol_coinapi
+     * Gets symbol_id_coinapi
      *
      * @return string|null
      */
-    public function getSymbolCoinapi()
+    public function getSymbolIdCoinapi()
     {
-        return $this->container['symbol_coinapi'];
+        return $this->container['symbol_id_coinapi'];
     }
 
     /**
-     * Sets symbol_coinapi
+     * Sets symbol_id_coinapi
      *
-     * @param string|null $symbol_coinapi CoinAPI symbol.
+     * @param string|null $symbol_id_coinapi CoinAPI symbol.
      *
      * @return $this
      */
-    public function setSymbolCoinapi($symbol_coinapi)
+    public function setSymbolIdCoinapi($symbol_id_coinapi)
     {
-        $this->container['symbol_coinapi'] = $symbol_coinapi;
+        $this->container['symbol_id_coinapi'] = $symbol_id_coinapi;
 
         return $this;
     }

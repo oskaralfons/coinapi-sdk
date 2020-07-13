@@ -9,10 +9,10 @@ function New-OrderExecutionReport {
         ${clientUnderscoreorderUnderscoreid},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${symbolUnderscoreexchange},
+        ${symbolUnderscoreidUnderscoreexchange},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${symbolUnderscorecoinapi},
+        ${symbolUnderscoreidUnderscorecoinapi},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [Decimal]
         ${amountUnderscoreorder},
@@ -64,8 +64,8 @@ function New-OrderExecutionReport {
         New-Object -TypeName Org.OpenAPITools.Model.OrderExecutionReport -ArgumentList @(
             ${exchangeUnderscoreid},
             ${clientUnderscoreorderUnderscoreid},
-            ${symbolUnderscoreexchange},
-            ${symbolUnderscorecoinapi},
+            ${symbolUnderscoreidUnderscoreexchange},
+            ${symbolUnderscoreidUnderscorecoinapi},
             ${amountUnderscoreorder},
             ${price},
             ${side},

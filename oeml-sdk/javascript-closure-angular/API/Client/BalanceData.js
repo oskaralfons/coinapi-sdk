@@ -10,14 +10,14 @@ API.Client.BalanceData = function() {}
  * @type {!string}
  * @export
  */
-API.Client.BalanceData.prototype.symbolExchange;
+API.Client.BalanceData.prototype.assetIdExchange;
 
 /**
  * CoinAPI currency code.
  * @type {!string}
  * @export
  */
-API.Client.BalanceData.prototype.symbolCoinapi;
+API.Client.BalanceData.prototype.assetIdCoinapi;
 
 /**
  * Value of the current total currency balance on the exchange.
@@ -45,10 +45,17 @@ API.Client.BalanceData.prototype.locked;
  * @type {!string}
  * @export
  */
-API.Client.BalanceData.prototype.updateOrigin;
+API.Client.BalanceData.prototype.lastUpdatedBy;
+
+/**
+ * Current exchange rate to the USD for the single unit of the currency. 
+ * @type {!number}
+ * @export
+ */
+API.Client.BalanceData.prototype.rateUsd;
 
 /** @enum {string} */
-API.Client.BalanceData.UpdateOriginEnum = { 
+API.Client.BalanceData.LastUpdatedByEnum = { 
   INITIALIZATION: 'INITIALIZATION',
   BALANCE_MANAGER: 'BALANCE_MANAGER',
   EXCHANGE: 'EXCHANGE',

@@ -39,15 +39,15 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    QString getSymbolExchange() const;
-    void setSymbolExchange(const QString &symbol_exchange);
-    bool is_symbol_exchange_Set() const;
-    bool is_symbol_exchange_Valid() const;
+    QString getAssetIdExchange() const;
+    void setAssetIdExchange(const QString &asset_id_exchange);
+    bool is_asset_id_exchange_Set() const;
+    bool is_asset_id_exchange_Valid() const;
 
-    QString getSymbolCoinapi() const;
-    void setSymbolCoinapi(const QString &symbol_coinapi);
-    bool is_symbol_coinapi_Set() const;
-    bool is_symbol_coinapi_Valid() const;
+    QString getAssetIdCoinapi() const;
+    void setAssetIdCoinapi(const QString &asset_id_coinapi);
+    bool is_asset_id_coinapi_Set() const;
+    bool is_asset_id_coinapi_Valid() const;
 
     float getBalance() const;
     void setBalance(const float &balance);
@@ -64,10 +64,15 @@ public:
     bool is_locked_Set() const;
     bool is_locked_Valid() const;
 
-    QString getUpdateOrigin() const;
-    void setUpdateOrigin(const QString &update_origin);
-    bool is_update_origin_Set() const;
-    bool is_update_origin_Valid() const;
+    QString getLastUpdatedBy() const;
+    void setLastUpdatedBy(const QString &last_updated_by);
+    bool is_last_updated_by_Set() const;
+    bool is_last_updated_by_Valid() const;
+
+    float getRateUsd() const;
+    void setRateUsd(const float &rate_usd);
+    bool is_rate_usd_Set() const;
+    bool is_rate_usd_Valid() const;
 
     virtual bool isSet() const override;
     virtual bool isValid() const override;
@@ -75,13 +80,13 @@ public:
 private:
     void initializeModel();
 
-    QString symbol_exchange;
-    bool m_symbol_exchange_isSet;
-    bool m_symbol_exchange_isValid;
+    QString asset_id_exchange;
+    bool m_asset_id_exchange_isSet;
+    bool m_asset_id_exchange_isValid;
 
-    QString symbol_coinapi;
-    bool m_symbol_coinapi_isSet;
-    bool m_symbol_coinapi_isValid;
+    QString asset_id_coinapi;
+    bool m_asset_id_coinapi_isSet;
+    bool m_asset_id_coinapi_isValid;
 
     float balance;
     bool m_balance_isSet;
@@ -95,9 +100,13 @@ private:
     bool m_locked_isSet;
     bool m_locked_isValid;
 
-    QString update_origin;
-    bool m_update_origin_isSet;
-    bool m_update_origin_isValid;
+    QString last_updated_by;
+    bool m_last_updated_by_isSet;
+    bool m_last_updated_by_isValid;
+
+    float rate_usd;
+    bool m_rate_usd_isSet;
+    bool m_rate_usd_isValid;
 };
 
 } // namespace OpenAPI

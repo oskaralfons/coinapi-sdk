@@ -57,20 +57,20 @@ public:
     /// <summary>
     /// Exchange currency code.
     /// </summary>
-    utility::string_t getSymbolExchange() const;
-    bool symbolExchangeIsSet() const;
-    void unsetSymbol_exchange();
+    utility::string_t getAssetIdExchange() const;
+    bool assetIdExchangeIsSet() const;
+    void unsetAsset_id_exchange();
 
-    void setSymbolExchange(const utility::string_t& value);
+    void setAssetIdExchange(const utility::string_t& value);
 
     /// <summary>
     /// CoinAPI currency code.
     /// </summary>
-    utility::string_t getSymbolCoinapi() const;
-    bool symbolCoinapiIsSet() const;
-    void unsetSymbol_coinapi();
+    utility::string_t getAssetIdCoinapi() const;
+    bool assetIdCoinapiIsSet() const;
+    void unsetAsset_id_coinapi();
 
-    void setSymbolCoinapi(const utility::string_t& value);
+    void setAssetIdCoinapi(const utility::string_t& value);
 
     /// <summary>
     /// Value of the current total currency balance on the exchange.
@@ -102,26 +102,37 @@ public:
     /// <summary>
     /// Source of the last modification. 
     /// </summary>
-    utility::string_t getUpdateOrigin() const;
-    bool updateOriginIsSet() const;
-    void unsetUpdate_origin();
+    utility::string_t getLastUpdatedBy() const;
+    bool lastUpdatedByIsSet() const;
+    void unsetLast_updated_by();
 
-    void setUpdateOrigin(const utility::string_t& value);
+    void setLastUpdatedBy(const utility::string_t& value);
+
+    /// <summary>
+    /// Current exchange rate to the USD for the single unit of the currency. 
+    /// </summary>
+    float getRateUsd() const;
+    bool rateUsdIsSet() const;
+    void unsetRate_usd();
+
+    void setRateUsd(float value);
 
 
 protected:
-    utility::string_t m_Symbol_exchange;
-    bool m_Symbol_exchangeIsSet;
-    utility::string_t m_Symbol_coinapi;
-    bool m_Symbol_coinapiIsSet;
+    utility::string_t m_Asset_id_exchange;
+    bool m_Asset_id_exchangeIsSet;
+    utility::string_t m_Asset_id_coinapi;
+    bool m_Asset_id_coinapiIsSet;
     float m_Balance;
     bool m_BalanceIsSet;
     float m_Available;
     bool m_AvailableIsSet;
     float m_Locked;
     bool m_LockedIsSet;
-    utility::string_t m_Update_origin;
-    bool m_Update_originIsSet;
+    utility::string_t m_Last_updated_by;
+    bool m_Last_updated_byIsSet;
+    float m_Rate_usd;
+    bool m_Rate_usdIsSet;
 };
 
 

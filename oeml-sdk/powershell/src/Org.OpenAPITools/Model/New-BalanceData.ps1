@@ -3,10 +3,10 @@ function New-BalanceData {
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${symbolUnderscoreexchange},
+        ${assetUnderscoreidUnderscoreexchange},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${symbolUnderscorecoinapi},
+        ${assetUnderscoreidUnderscorecoinapi},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${balance},
@@ -18,7 +18,10 @@ function New-BalanceData {
         ${locked},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
         [String]
-        ${updateUnderscoreorigin}
+        ${lastUnderscoreupdatedUnderscoreby},
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Double]]
+        ${rateUnderscoreusd}
     )
 
     Process {
@@ -26,12 +29,13 @@ function New-BalanceData {
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         New-Object -TypeName Org.OpenAPITools.Model.BalanceData -ArgumentList @(
-            ${symbolUnderscoreexchange},
-            ${symbolUnderscorecoinapi},
+            ${assetUnderscoreidUnderscoreexchange},
+            ${assetUnderscoreidUnderscorecoinapi},
             ${balance},
             ${available},
             ${locked},
-            ${updateUnderscoreorigin}
+            ${lastUnderscoreupdatedUnderscoreby},
+            ${rateUnderscoreusd}
         )
     }
 }

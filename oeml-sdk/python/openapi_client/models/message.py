@@ -116,7 +116,7 @@ class Message(object):
     def exchange_id(self):
         """Gets the exchange_id of this Message.  # noqa: E501
 
-        If message related exchange then identifier of this exchange.  # noqa: E501
+        If the message related to exchange, then the identifier of the exchange will be provided.  # noqa: E501
 
         :return: The exchange_id of this Message.  # noqa: E501
         :rtype: str
@@ -127,7 +127,7 @@ class Message(object):
     def exchange_id(self, exchange_id):
         """Sets the exchange_id of this Message.
 
-        If message related exchange then identifier of this exchange.  # noqa: E501
+        If the message related to exchange, then the identifier of the exchange will be provided.  # noqa: E501
 
         :param exchange_id: The exchange_id of this Message.  # noqa: E501
         :type: str

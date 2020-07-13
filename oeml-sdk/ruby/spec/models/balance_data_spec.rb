@@ -32,13 +32,13 @@ describe 'BalanceData' do
       expect(@instance).to be_instance_of(OpenapiClient::BalanceData)
     end
   end
-  describe 'test attribute "symbol_exchange"' do
+  describe 'test attribute "asset_id_exchange"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  describe 'test attribute "symbol_coinapi"' do
+  describe 'test attribute "asset_id_coinapi"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -62,13 +62,19 @@ describe 'BalanceData' do
     end
   end
 
-  describe 'test attribute "update_origin"' do
+  describe 'test attribute "last_updated_by"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
       # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["INITIALIZATION", "BALANCE_MANAGER", "EXCHANGE"])
       # validator.allowable_values.each do |value|
-      #   expect { @instance.update_origin = value }.not_to raise_error
+      #   expect { @instance.last_updated_by = value }.not_to raise_error
       # end
+    end
+  end
+
+  describe 'test attribute "rate_usd"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 

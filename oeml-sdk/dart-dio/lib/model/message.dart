@@ -15,7 +15,7 @@ abstract class Message implements Built<Message, MessageBuilder> {
     @BuiltValueField(wireName: r'severity')
     Severity get severity;
         //enum severityEnum {  INFO,  WARNING,  ERROR,  };
-    /* If message related exchange then identifier of this exchange. */
+    /* If the message related to exchange, then the identifier of the exchange will be provided. */
         @nullable
     @BuiltValueField(wireName: r'exchange_id')
     String get exchangeId;

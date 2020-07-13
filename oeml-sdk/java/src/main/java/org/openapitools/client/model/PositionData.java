@@ -29,15 +29,15 @@ import org.openapitools.client.model.OrdSide;
 /**
  * PositionData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T15:10:31.759Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T20:50:08.678Z[Etc/UTC]")
 public class PositionData {
-  public static final String SERIALIZED_NAME_SYMBOL_EXCHANGE = "symbol_exchange";
-  @SerializedName(SERIALIZED_NAME_SYMBOL_EXCHANGE)
-  private String symbolExchange;
+  public static final String SERIALIZED_NAME_SYMBOL_ID_EXCHANGE = "symbol_id_exchange";
+  @SerializedName(SERIALIZED_NAME_SYMBOL_ID_EXCHANGE)
+  private String symbolIdExchange;
 
-  public static final String SERIALIZED_NAME_SYMBOL_COINAPI = "symbol_coinapi";
-  @SerializedName(SERIALIZED_NAME_SYMBOL_COINAPI)
-  private String symbolCoinapi;
+  public static final String SERIALIZED_NAME_SYMBOL_ID_COINAPI = "symbol_id_coinapi";
+  @SerializedName(SERIALIZED_NAME_SYMBOL_ID_COINAPI)
+  private String symbolIdCoinapi;
 
   public static final String SERIALIZED_NAME_AVG_ENTRY_PRICE = "avg_entry_price";
   @SerializedName(SERIALIZED_NAME_AVG_ENTRY_PRICE)
@@ -72,49 +72,49 @@ public class PositionData {
   private Object rawData;
 
 
-  public PositionData symbolExchange(String symbolExchange) {
+  public PositionData symbolIdExchange(String symbolIdExchange) {
     
-    this.symbolExchange = symbolExchange;
+    this.symbolIdExchange = symbolIdExchange;
     return this;
   }
 
    /**
    * Exchange symbol.
-   * @return symbolExchange
+   * @return symbolIdExchange
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "XBTUSD", value = "Exchange symbol.")
 
-  public String getSymbolExchange() {
-    return symbolExchange;
+  public String getSymbolIdExchange() {
+    return symbolIdExchange;
   }
 
 
-  public void setSymbolExchange(String symbolExchange) {
-    this.symbolExchange = symbolExchange;
+  public void setSymbolIdExchange(String symbolIdExchange) {
+    this.symbolIdExchange = symbolIdExchange;
   }
 
 
-  public PositionData symbolCoinapi(String symbolCoinapi) {
+  public PositionData symbolIdCoinapi(String symbolIdCoinapi) {
     
-    this.symbolCoinapi = symbolCoinapi;
+    this.symbolIdCoinapi = symbolIdCoinapi;
     return this;
   }
 
    /**
    * CoinAPI symbol.
-   * @return symbolCoinapi
+   * @return symbolIdCoinapi
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "BITMEX_PERP_BTC_USD", value = "CoinAPI symbol.")
 
-  public String getSymbolCoinapi() {
-    return symbolCoinapi;
+  public String getSymbolIdCoinapi() {
+    return symbolIdCoinapi;
   }
 
 
-  public void setSymbolCoinapi(String symbolCoinapi) {
-    this.symbolCoinapi = symbolCoinapi;
+  public void setSymbolIdCoinapi(String symbolIdCoinapi) {
+    this.symbolIdCoinapi = symbolIdCoinapi;
   }
 
 
@@ -311,8 +311,8 @@ public class PositionData {
       return false;
     }
     PositionData positionData = (PositionData) o;
-    return Objects.equals(this.symbolExchange, positionData.symbolExchange) &&
-        Objects.equals(this.symbolCoinapi, positionData.symbolCoinapi) &&
+    return Objects.equals(this.symbolIdExchange, positionData.symbolIdExchange) &&
+        Objects.equals(this.symbolIdCoinapi, positionData.symbolIdCoinapi) &&
         Objects.equals(this.avgEntryPrice, positionData.avgEntryPrice) &&
         Objects.equals(this.quantity, positionData.quantity) &&
         Objects.equals(this.side, positionData.side) &&
@@ -325,7 +325,7 @@ public class PositionData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(symbolExchange, symbolCoinapi, avgEntryPrice, quantity, side, unrealizedPnl, leverage, crossMargin, liquidationPrice, rawData);
+    return Objects.hash(symbolIdExchange, symbolIdCoinapi, avgEntryPrice, quantity, side, unrealizedPnl, leverage, crossMargin, liquidationPrice, rawData);
   }
 
 
@@ -333,8 +333,8 @@ public class PositionData {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PositionData {\n");
-    sb.append("    symbolExchange: ").append(toIndentedString(symbolExchange)).append("\n");
-    sb.append("    symbolCoinapi: ").append(toIndentedString(symbolCoinapi)).append("\n");
+    sb.append("    symbolIdExchange: ").append(toIndentedString(symbolIdExchange)).append("\n");
+    sb.append("    symbolIdCoinapi: ").append(toIndentedString(symbolIdCoinapi)).append("\n");
     sb.append("    avgEntryPrice: ").append(toIndentedString(avgEntryPrice)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
     sb.append("    side: ").append(toIndentedString(side)).append("\n");

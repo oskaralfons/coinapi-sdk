@@ -40,11 +40,11 @@ void OAIOrderExecutionReport::initializeModel() {
     m_client_order_id_isSet = false;
     m_client_order_id_isValid = false;
 
-    m_symbol_exchange_isSet = false;
-    m_symbol_exchange_isValid = false;
+    m_symbol_id_exchange_isSet = false;
+    m_symbol_id_exchange_isValid = false;
 
-    m_symbol_coinapi_isSet = false;
-    m_symbol_coinapi_isValid = false;
+    m_symbol_id_coinapi_isSet = false;
+    m_symbol_id_coinapi_isValid = false;
 
     m_amount_order_isSet = false;
     m_amount_order_isValid = false;
@@ -104,11 +104,11 @@ void OAIOrderExecutionReport::fromJsonObject(QJsonObject json) {
     m_client_order_id_isValid = ::OpenAPI::fromJsonValue(client_order_id, json[QString("client_order_id")]);
     m_client_order_id_isSet = !json[QString("client_order_id")].isNull() && m_client_order_id_isValid;
 
-    m_symbol_exchange_isValid = ::OpenAPI::fromJsonValue(symbol_exchange, json[QString("symbol_exchange")]);
-    m_symbol_exchange_isSet = !json[QString("symbol_exchange")].isNull() && m_symbol_exchange_isValid;
+    m_symbol_id_exchange_isValid = ::OpenAPI::fromJsonValue(symbol_id_exchange, json[QString("symbol_id_exchange")]);
+    m_symbol_id_exchange_isSet = !json[QString("symbol_id_exchange")].isNull() && m_symbol_id_exchange_isValid;
 
-    m_symbol_coinapi_isValid = ::OpenAPI::fromJsonValue(symbol_coinapi, json[QString("symbol_coinapi")]);
-    m_symbol_coinapi_isSet = !json[QString("symbol_coinapi")].isNull() && m_symbol_coinapi_isValid;
+    m_symbol_id_coinapi_isValid = ::OpenAPI::fromJsonValue(symbol_id_coinapi, json[QString("symbol_id_coinapi")]);
+    m_symbol_id_coinapi_isSet = !json[QString("symbol_id_coinapi")].isNull() && m_symbol_id_coinapi_isValid;
 
     m_amount_order_isValid = ::OpenAPI::fromJsonValue(amount_order, json[QString("amount_order")]);
     m_amount_order_isSet = !json[QString("amount_order")].isNull() && m_amount_order_isValid;
@@ -178,11 +178,11 @@ QJsonObject OAIOrderExecutionReport::asJsonObject() const {
     if (m_client_order_id_isSet) {
         obj.insert(QString("client_order_id"), ::OpenAPI::toJsonValue(client_order_id));
     }
-    if (m_symbol_exchange_isSet) {
-        obj.insert(QString("symbol_exchange"), ::OpenAPI::toJsonValue(symbol_exchange));
+    if (m_symbol_id_exchange_isSet) {
+        obj.insert(QString("symbol_id_exchange"), ::OpenAPI::toJsonValue(symbol_id_exchange));
     }
-    if (m_symbol_coinapi_isSet) {
-        obj.insert(QString("symbol_coinapi"), ::OpenAPI::toJsonValue(symbol_coinapi));
+    if (m_symbol_id_coinapi_isSet) {
+        obj.insert(QString("symbol_id_coinapi"), ::OpenAPI::toJsonValue(symbol_id_coinapi));
     }
     if (m_amount_order_isSet) {
         obj.insert(QString("amount_order"), ::OpenAPI::toJsonValue(amount_order));
@@ -262,36 +262,36 @@ bool OAIOrderExecutionReport::is_client_order_id_Valid() const{
     return m_client_order_id_isValid;
 }
 
-QString OAIOrderExecutionReport::getSymbolExchange() const {
-    return symbol_exchange;
+QString OAIOrderExecutionReport::getSymbolIdExchange() const {
+    return symbol_id_exchange;
 }
-void OAIOrderExecutionReport::setSymbolExchange(const QString &symbol_exchange) {
-    this->symbol_exchange = symbol_exchange;
-    this->m_symbol_exchange_isSet = true;
-}
-
-bool OAIOrderExecutionReport::is_symbol_exchange_Set() const{
-    return m_symbol_exchange_isSet;
+void OAIOrderExecutionReport::setSymbolIdExchange(const QString &symbol_id_exchange) {
+    this->symbol_id_exchange = symbol_id_exchange;
+    this->m_symbol_id_exchange_isSet = true;
 }
 
-bool OAIOrderExecutionReport::is_symbol_exchange_Valid() const{
-    return m_symbol_exchange_isValid;
+bool OAIOrderExecutionReport::is_symbol_id_exchange_Set() const{
+    return m_symbol_id_exchange_isSet;
 }
 
-QString OAIOrderExecutionReport::getSymbolCoinapi() const {
-    return symbol_coinapi;
-}
-void OAIOrderExecutionReport::setSymbolCoinapi(const QString &symbol_coinapi) {
-    this->symbol_coinapi = symbol_coinapi;
-    this->m_symbol_coinapi_isSet = true;
+bool OAIOrderExecutionReport::is_symbol_id_exchange_Valid() const{
+    return m_symbol_id_exchange_isValid;
 }
 
-bool OAIOrderExecutionReport::is_symbol_coinapi_Set() const{
-    return m_symbol_coinapi_isSet;
+QString OAIOrderExecutionReport::getSymbolIdCoinapi() const {
+    return symbol_id_coinapi;
+}
+void OAIOrderExecutionReport::setSymbolIdCoinapi(const QString &symbol_id_coinapi) {
+    this->symbol_id_coinapi = symbol_id_coinapi;
+    this->m_symbol_id_coinapi_isSet = true;
 }
 
-bool OAIOrderExecutionReport::is_symbol_coinapi_Valid() const{
-    return m_symbol_coinapi_isValid;
+bool OAIOrderExecutionReport::is_symbol_id_coinapi_Set() const{
+    return m_symbol_id_coinapi_isSet;
+}
+
+bool OAIOrderExecutionReport::is_symbol_id_coinapi_Valid() const{
+    return m_symbol_id_coinapi_isValid;
 }
 
 double OAIOrderExecutionReport::getAmountOrder() const {
@@ -531,12 +531,12 @@ bool OAIOrderExecutionReport::isSet() const {
             break;
         }
 
-        if (m_symbol_exchange_isSet) {
+        if (m_symbol_id_exchange_isSet) {
             isObjectUpdated = true;
             break;
         }
 
-        if (m_symbol_coinapi_isSet) {
+        if (m_symbol_id_coinapi_isSet) {
             isObjectUpdated = true;
             break;
         }

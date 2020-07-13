@@ -67,20 +67,20 @@ public:
 	/*! \brief Set The unique identifier of the order assigned by the client.
 	 */
 	void setClientOrderId(std::string  client_order_id);
-	/*! \brief Get Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
+	/*! \brief Get Exchange symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.
 	 */
-	std::string getSymbolExchange();
+	std::string getSymbolIdExchange();
 
-	/*! \brief Set Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
+	/*! \brief Set Exchange symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.
 	 */
-	void setSymbolExchange(std::string  symbol_exchange);
-	/*! \brief Get CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
+	void setSymbolIdExchange(std::string  symbol_id_exchange);
+	/*! \brief Get CoinAPI symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.
 	 */
-	std::string getSymbolCoinapi();
+	std::string getSymbolIdCoinapi();
 
-	/*! \brief Set CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
+	/*! \brief Set CoinAPI symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.
 	 */
-	void setSymbolCoinapi(std::string  symbol_coinapi);
+	void setSymbolIdCoinapi(std::string  symbol_id_coinapi);
 	/*! \brief Get Order quantity.
 	 */
 	long long getAmountOrder();
@@ -183,8 +183,8 @@ public:
 private:
 	std::string exchange_id;
 	std::string client_order_id;
-	std::string symbol_exchange;
-	std::string symbol_coinapi;
+	std::string symbol_id_exchange;
+	std::string symbol_id_coinapi;
 	long long amount_order;
 	long long price;
 	OrdSide side;

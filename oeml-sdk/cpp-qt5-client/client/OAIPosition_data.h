@@ -41,15 +41,15 @@ public:
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    QString getSymbolExchange() const;
-    void setSymbolExchange(const QString &symbol_exchange);
-    bool is_symbol_exchange_Set() const;
-    bool is_symbol_exchange_Valid() const;
+    QString getSymbolIdExchange() const;
+    void setSymbolIdExchange(const QString &symbol_id_exchange);
+    bool is_symbol_id_exchange_Set() const;
+    bool is_symbol_id_exchange_Valid() const;
 
-    QString getSymbolCoinapi() const;
-    void setSymbolCoinapi(const QString &symbol_coinapi);
-    bool is_symbol_coinapi_Set() const;
-    bool is_symbol_coinapi_Valid() const;
+    QString getSymbolIdCoinapi() const;
+    void setSymbolIdCoinapi(const QString &symbol_id_coinapi);
+    bool is_symbol_id_coinapi_Set() const;
+    bool is_symbol_id_coinapi_Valid() const;
 
     double getAvgEntryPrice() const;
     void setAvgEntryPrice(const double &avg_entry_price);
@@ -97,13 +97,13 @@ public:
 private:
     void initializeModel();
 
-    QString symbol_exchange;
-    bool m_symbol_exchange_isSet;
-    bool m_symbol_exchange_isValid;
+    QString symbol_id_exchange;
+    bool m_symbol_id_exchange_isSet;
+    bool m_symbol_id_exchange_isValid;
 
-    QString symbol_coinapi;
-    bool m_symbol_coinapi_isSet;
-    bool m_symbol_coinapi_isValid;
+    QString symbol_id_coinapi;
+    bool m_symbol_id_coinapi_isSet;
+    bool m_symbol_id_coinapi_isValid;
 
     double avg_entry_price;
     bool m_avg_entry_price_isSet;

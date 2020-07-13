@@ -111,35 +111,38 @@ mkBalance =
 -- ** BalanceData
 -- | BalanceData
 data BalanceData = BalanceData
-  { balanceDataSymbolExchange :: !(Maybe Text) -- ^ "symbol_exchange" - Exchange currency code.
-  , balanceDataSymbolCoinapi :: !(Maybe Text) -- ^ "symbol_coinapi" - CoinAPI currency code.
+  { balanceDataAssetIdExchange :: !(Maybe Text) -- ^ "asset_id_exchange" - Exchange currency code.
+  , balanceDataAssetIdCoinapi :: !(Maybe Text) -- ^ "asset_id_coinapi" - CoinAPI currency code.
   , balanceDataBalance :: !(Maybe Float) -- ^ "balance" - Value of the current total currency balance on the exchange.
   , balanceDataAvailable :: !(Maybe Float) -- ^ "available" - Value of the current available currency balance on the exchange that can be used as collateral.
   , balanceDataLocked :: !(Maybe Float) -- ^ "locked" - Value of the current locked currency balance by the exchange.
-  , balanceDataUpdateOrigin :: !(Maybe E'UpdateOrigin) -- ^ "update_origin" - Source of the last modification. 
+  , balanceDataLastUpdatedBy :: !(Maybe E'LastUpdatedBy) -- ^ "last_updated_by" - Source of the last modification. 
+  , balanceDataRateUsd :: !(Maybe Float) -- ^ "rate_usd" - Current exchange rate to the USD for the single unit of the currency. 
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON BalanceData
 instance A.FromJSON BalanceData where
   parseJSON = A.withObject "BalanceData" $ \o ->
     BalanceData
-      <$> (o .:? "symbol_exchange")
-      <*> (o .:? "symbol_coinapi")
+      <$> (o .:? "asset_id_exchange")
+      <*> (o .:? "asset_id_coinapi")
       <*> (o .:? "balance")
       <*> (o .:? "available")
       <*> (o .:? "locked")
-      <*> (o .:? "update_origin")
+      <*> (o .:? "last_updated_by")
+      <*> (o .:? "rate_usd")
 
 -- | ToJSON BalanceData
 instance A.ToJSON BalanceData where
   toJSON BalanceData {..} =
    _omitNulls
-      [ "symbol_exchange" .= balanceDataSymbolExchange
-      , "symbol_coinapi" .= balanceDataSymbolCoinapi
+      [ "asset_id_exchange" .= balanceDataAssetIdExchange
+      , "asset_id_coinapi" .= balanceDataAssetIdCoinapi
       , "balance" .= balanceDataBalance
       , "available" .= balanceDataAvailable
       , "locked" .= balanceDataLocked
-      , "update_origin" .= balanceDataUpdateOrigin
+      , "last_updated_by" .= balanceDataLastUpdatedBy
+      , "rate_usd" .= balanceDataRateUsd
       ]
 
 
@@ -148,12 +151,13 @@ mkBalanceData
   :: BalanceData
 mkBalanceData =
   BalanceData
-  { balanceDataSymbolExchange = Nothing
-  , balanceDataSymbolCoinapi = Nothing
+  { balanceDataAssetIdExchange = Nothing
+  , balanceDataAssetIdCoinapi = Nothing
   , balanceDataBalance = Nothing
   , balanceDataAvailable = Nothing
   , balanceDataLocked = Nothing
-  , balanceDataUpdateOrigin = Nothing
+  , balanceDataLastUpdatedBy = Nothing
+  , balanceDataRateUsd = Nothing
   }
 
 -- ** Message
@@ -163,7 +167,7 @@ mkBalanceData =
 data Message = Message
   { messageType :: !(Maybe Text) -- ^ "type" - Type of message.
   , messageSeverity :: !(Maybe Severity) -- ^ "severity"
-  , messageExchangeId :: !(Maybe Text) -- ^ "exchange_id" - If message related exchange then identifier of this exchange.
+  , messageExchangeId :: !(Maybe Text) -- ^ "exchange_id" - If the message related to exchange, then the identifier of the exchange will be provided.
   , messageMessage :: !(Maybe Text) -- ^ "message" - Message text.
   } deriving (P.Show, P.Eq, P.Typeable)
 
@@ -272,8 +276,8 @@ mkOrderCancelSingleRequest orderCancelSingleRequestExchangeId =
 data OrderExecutionReport = OrderExecutionReport
   { orderExecutionReportExchangeId :: !(Text) -- ^ /Required/ "exchange_id" - Exchange identifier.
   , orderExecutionReportClientOrderId :: !(Text) -- ^ /Required/ "client_order_id" - The unique identifier of the order assigned by the client.
-  , orderExecutionReportSymbolExchange :: !(Maybe Text) -- ^ "symbol_exchange" - Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order.
-  , orderExecutionReportSymbolCoinapi :: !(Maybe Text) -- ^ "symbol_coinapi" - CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order.
+  , orderExecutionReportSymbolIdExchange :: !(Maybe Text) -- ^ "symbol_id_exchange" - Exchange symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order.
+  , orderExecutionReportSymbolIdCoinapi :: !(Maybe Text) -- ^ "symbol_id_coinapi" - CoinAPI symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order.
   , orderExecutionReportAmountOrder :: !(Double) -- ^ /Required/ "amount_order" - Order quantity.
   , orderExecutionReportPrice :: !(Double) -- ^ /Required/ "price" - Order price.
   , orderExecutionReportSide :: !(OrdSide) -- ^ /Required/ "side"
@@ -296,8 +300,8 @@ instance A.FromJSON OrderExecutionReport where
     OrderExecutionReport
       <$> (o .:  "exchange_id")
       <*> (o .:  "client_order_id")
-      <*> (o .:? "symbol_exchange")
-      <*> (o .:? "symbol_coinapi")
+      <*> (o .:? "symbol_id_exchange")
+      <*> (o .:? "symbol_id_coinapi")
       <*> (o .:  "amount_order")
       <*> (o .:  "price")
       <*> (o .:  "side")
@@ -319,8 +323,8 @@ instance A.ToJSON OrderExecutionReport where
    _omitNulls
       [ "exchange_id" .= orderExecutionReportExchangeId
       , "client_order_id" .= orderExecutionReportClientOrderId
-      , "symbol_exchange" .= orderExecutionReportSymbolExchange
-      , "symbol_coinapi" .= orderExecutionReportSymbolCoinapi
+      , "symbol_id_exchange" .= orderExecutionReportSymbolIdExchange
+      , "symbol_id_coinapi" .= orderExecutionReportSymbolIdCoinapi
       , "amount_order" .= orderExecutionReportAmountOrder
       , "price" .= orderExecutionReportPrice
       , "side" .= orderExecutionReportSide
@@ -357,8 +361,8 @@ mkOrderExecutionReport orderExecutionReportExchangeId orderExecutionReportClient
   OrderExecutionReport
   { orderExecutionReportExchangeId
   , orderExecutionReportClientOrderId
-  , orderExecutionReportSymbolExchange = Nothing
-  , orderExecutionReportSymbolCoinapi = Nothing
+  , orderExecutionReportSymbolIdExchange = Nothing
+  , orderExecutionReportSymbolIdCoinapi = Nothing
   , orderExecutionReportAmountOrder
   , orderExecutionReportPrice
   , orderExecutionReportSide
@@ -439,8 +443,8 @@ mkOrderExecutionReportAllOf orderExecutionReportAllOfClientOrderIdFormatExchange
 data OrderNewSingleRequest = OrderNewSingleRequest
   { orderNewSingleRequestExchangeId :: !(Text) -- ^ /Required/ "exchange_id" - Exchange identifier.
   , orderNewSingleRequestClientOrderId :: !(Text) -- ^ /Required/ "client_order_id" - The unique identifier of the order assigned by the client.
-  , orderNewSingleRequestSymbolExchange :: !(Maybe Text) -- ^ "symbol_exchange" - Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order.
-  , orderNewSingleRequestSymbolCoinapi :: !(Maybe Text) -- ^ "symbol_coinapi" - CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order.
+  , orderNewSingleRequestSymbolIdExchange :: !(Maybe Text) -- ^ "symbol_id_exchange" - Exchange symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order.
+  , orderNewSingleRequestSymbolIdCoinapi :: !(Maybe Text) -- ^ "symbol_id_coinapi" - CoinAPI symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order.
   , orderNewSingleRequestAmountOrder :: !(Double) -- ^ /Required/ "amount_order" - Order quantity.
   , orderNewSingleRequestPrice :: !(Double) -- ^ /Required/ "price" - Order price.
   , orderNewSingleRequestSide :: !(OrdSide) -- ^ /Required/ "side"
@@ -456,8 +460,8 @@ instance A.FromJSON OrderNewSingleRequest where
     OrderNewSingleRequest
       <$> (o .:  "exchange_id")
       <*> (o .:  "client_order_id")
-      <*> (o .:? "symbol_exchange")
-      <*> (o .:? "symbol_coinapi")
+      <*> (o .:? "symbol_id_exchange")
+      <*> (o .:? "symbol_id_coinapi")
       <*> (o .:  "amount_order")
       <*> (o .:  "price")
       <*> (o .:  "side")
@@ -472,8 +476,8 @@ instance A.ToJSON OrderNewSingleRequest where
    _omitNulls
       [ "exchange_id" .= orderNewSingleRequestExchangeId
       , "client_order_id" .= orderNewSingleRequestClientOrderId
-      , "symbol_exchange" .= orderNewSingleRequestSymbolExchange
-      , "symbol_coinapi" .= orderNewSingleRequestSymbolCoinapi
+      , "symbol_id_exchange" .= orderNewSingleRequestSymbolIdExchange
+      , "symbol_id_coinapi" .= orderNewSingleRequestSymbolIdCoinapi
       , "amount_order" .= orderNewSingleRequestAmountOrder
       , "price" .= orderNewSingleRequestPrice
       , "side" .= orderNewSingleRequestSide
@@ -498,8 +502,8 @@ mkOrderNewSingleRequest orderNewSingleRequestExchangeId orderNewSingleRequestCli
   OrderNewSingleRequest
   { orderNewSingleRequestExchangeId
   , orderNewSingleRequestClientOrderId
-  , orderNewSingleRequestSymbolExchange = Nothing
-  , orderNewSingleRequestSymbolCoinapi = Nothing
+  , orderNewSingleRequestSymbolIdExchange = Nothing
+  , orderNewSingleRequestSymbolIdCoinapi = Nothing
   , orderNewSingleRequestAmountOrder
   , orderNewSingleRequestPrice
   , orderNewSingleRequestSide
@@ -544,8 +548,8 @@ mkPosition =
 -- ** PositionData
 -- | PositionData
 data PositionData = PositionData
-  { positionDataSymbolExchange :: !(Maybe Text) -- ^ "symbol_exchange" - Exchange symbol.
-  , positionDataSymbolCoinapi :: !(Maybe Text) -- ^ "symbol_coinapi" - CoinAPI symbol.
+  { positionDataSymbolIdExchange :: !(Maybe Text) -- ^ "symbol_id_exchange" - Exchange symbol.
+  , positionDataSymbolIdCoinapi :: !(Maybe Text) -- ^ "symbol_id_coinapi" - CoinAPI symbol.
   , positionDataAvgEntryPrice :: !(Maybe Double) -- ^ "avg_entry_price" - Calculated average price of all fills on this position.
   , positionDataQuantity :: !(Maybe Double) -- ^ "quantity" - The current position quantity.
   , positionDataSide :: !(Maybe OrdSide) -- ^ "side"
@@ -560,8 +564,8 @@ data PositionData = PositionData
 instance A.FromJSON PositionData where
   parseJSON = A.withObject "PositionData" $ \o ->
     PositionData
-      <$> (o .:? "symbol_exchange")
-      <*> (o .:? "symbol_coinapi")
+      <$> (o .:? "symbol_id_exchange")
+      <*> (o .:? "symbol_id_coinapi")
       <*> (o .:? "avg_entry_price")
       <*> (o .:? "quantity")
       <*> (o .:? "side")
@@ -575,8 +579,8 @@ instance A.FromJSON PositionData where
 instance A.ToJSON PositionData where
   toJSON PositionData {..} =
    _omitNulls
-      [ "symbol_exchange" .= positionDataSymbolExchange
-      , "symbol_coinapi" .= positionDataSymbolCoinapi
+      [ "symbol_id_exchange" .= positionDataSymbolIdExchange
+      , "symbol_id_coinapi" .= positionDataSymbolIdCoinapi
       , "avg_entry_price" .= positionDataAvgEntryPrice
       , "quantity" .= positionDataQuantity
       , "side" .= positionDataSide
@@ -593,8 +597,8 @@ mkPositionData
   :: PositionData
 mkPositionData =
   PositionData
-  { positionDataSymbolExchange = Nothing
-  , positionDataSymbolCoinapi = Nothing
+  { positionDataSymbolIdExchange = Nothing
+  , positionDataSymbolIdCoinapi = Nothing
   , positionDataAvgEntryPrice = Nothing
   , positionDataQuantity = Nothing
   , positionDataSide = Nothing
@@ -686,36 +690,36 @@ toE'ExecInst = \case
   s -> P.Left $ "toE'ExecInst: enum parse failure: " P.++ P.show s
 
 
--- ** E'UpdateOrigin
+-- ** E'LastUpdatedBy
 
 -- | Enum of 'Text' . 
 -- Source of the last modification. 
-data E'UpdateOrigin
-  = E'UpdateOrigin'INITIALIZATION -- ^ @"INITIALIZATION"@
-  | E'UpdateOrigin'BALANCE_MANAGER -- ^ @"BALANCE_MANAGER"@
-  | E'UpdateOrigin'EXCHANGE -- ^ @"EXCHANGE"@
+data E'LastUpdatedBy
+  = E'LastUpdatedBy'INITIALIZATION -- ^ @"INITIALIZATION"@
+  | E'LastUpdatedBy'BALANCE_MANAGER -- ^ @"BALANCE_MANAGER"@
+  | E'LastUpdatedBy'EXCHANGE -- ^ @"EXCHANGE"@
   deriving (P.Show, P.Eq, P.Typeable, P.Ord, P.Bounded, P.Enum)
 
-instance A.ToJSON E'UpdateOrigin where toJSON = A.toJSON . fromE'UpdateOrigin
-instance A.FromJSON E'UpdateOrigin where parseJSON o = P.either P.fail (pure . P.id) . toE'UpdateOrigin =<< A.parseJSON o
-instance WH.ToHttpApiData E'UpdateOrigin where toQueryParam = WH.toQueryParam . fromE'UpdateOrigin
-instance WH.FromHttpApiData E'UpdateOrigin where parseQueryParam o = WH.parseQueryParam o >>= P.left T.pack . toE'UpdateOrigin
-instance MimeRender MimeMultipartFormData E'UpdateOrigin where mimeRender _ = mimeRenderDefaultMultipartFormData
+instance A.ToJSON E'LastUpdatedBy where toJSON = A.toJSON . fromE'LastUpdatedBy
+instance A.FromJSON E'LastUpdatedBy where parseJSON o = P.either P.fail (pure . P.id) . toE'LastUpdatedBy =<< A.parseJSON o
+instance WH.ToHttpApiData E'LastUpdatedBy where toQueryParam = WH.toQueryParam . fromE'LastUpdatedBy
+instance WH.FromHttpApiData E'LastUpdatedBy where parseQueryParam o = WH.parseQueryParam o >>= P.left T.pack . toE'LastUpdatedBy
+instance MimeRender MimeMultipartFormData E'LastUpdatedBy where mimeRender _ = mimeRenderDefaultMultipartFormData
 
--- | unwrap 'E'UpdateOrigin' enum
-fromE'UpdateOrigin :: E'UpdateOrigin -> Text
-fromE'UpdateOrigin = \case
-  E'UpdateOrigin'INITIALIZATION -> "INITIALIZATION"
-  E'UpdateOrigin'BALANCE_MANAGER -> "BALANCE_MANAGER"
-  E'UpdateOrigin'EXCHANGE -> "EXCHANGE"
+-- | unwrap 'E'LastUpdatedBy' enum
+fromE'LastUpdatedBy :: E'LastUpdatedBy -> Text
+fromE'LastUpdatedBy = \case
+  E'LastUpdatedBy'INITIALIZATION -> "INITIALIZATION"
+  E'LastUpdatedBy'BALANCE_MANAGER -> "BALANCE_MANAGER"
+  E'LastUpdatedBy'EXCHANGE -> "EXCHANGE"
 
--- | parse 'E'UpdateOrigin' enum
-toE'UpdateOrigin :: Text -> P.Either String E'UpdateOrigin
-toE'UpdateOrigin = \case
-  "INITIALIZATION" -> P.Right E'UpdateOrigin'INITIALIZATION
-  "BALANCE_MANAGER" -> P.Right E'UpdateOrigin'BALANCE_MANAGER
-  "EXCHANGE" -> P.Right E'UpdateOrigin'EXCHANGE
-  s -> P.Left $ "toE'UpdateOrigin: enum parse failure: " P.++ P.show s
+-- | parse 'E'LastUpdatedBy' enum
+toE'LastUpdatedBy :: Text -> P.Either String E'LastUpdatedBy
+toE'LastUpdatedBy = \case
+  "INITIALIZATION" -> P.Right E'LastUpdatedBy'INITIALIZATION
+  "BALANCE_MANAGER" -> P.Right E'LastUpdatedBy'BALANCE_MANAGER
+  "EXCHANGE" -> P.Right E'LastUpdatedBy'EXCHANGE
+  s -> P.Left $ "toE'LastUpdatedBy: enum parse failure: " P.++ P.show s
 
 
 -- ** OrdSide

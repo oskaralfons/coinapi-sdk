@@ -56,8 +56,8 @@ oeml___rest_api_order_new_single_request_EXECINST_e order_new_single_request_exe
 typedef struct order_new_single_request_t {
     char *exchange_id; // string
     char *client_order_id; // string
-    char *symbol_exchange; // string
-    char *symbol_coinapi; // string
+    char *symbol_id_exchange; // string
+    char *symbol_id_coinapi; // string
     double amount_order; //numeric
     double price; //numeric
     list_t *exec_inst; //primitive container
@@ -67,8 +67,8 @@ typedef struct order_new_single_request_t {
 order_new_single_request_t *order_new_single_request_create(
     char *exchange_id,
     char *client_order_id,
-    char *symbol_exchange,
-    char *symbol_coinapi,
+    char *symbol_id_exchange,
+    char *symbol_id_coinapi,
     double amount_order,
     double price,
     list_t *exec_inst

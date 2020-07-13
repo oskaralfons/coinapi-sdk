@@ -10,14 +10,14 @@ API.Client.PositionData = function() {}
  * @type {!string}
  * @export
  */
-API.Client.PositionData.prototype.symbolExchange;
+API.Client.PositionData.prototype.symbolIdExchange;
 
 /**
  * CoinAPI symbol.
  * @type {!string}
  * @export
  */
-API.Client.PositionData.prototype.symbolCoinapi;
+API.Client.PositionData.prototype.symbolIdCoinapi;
 
 /**
  * Calculated average price of all fills on this position.

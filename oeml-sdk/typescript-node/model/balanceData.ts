@@ -16,11 +16,11 @@ export class BalanceData {
     /**
     * Exchange currency code.
     */
-    'symbolExchange'?: string;
+    'assetIdExchange'?: string;
     /**
     * CoinAPI currency code.
     */
-    'symbolCoinapi'?: string;
+    'assetIdCoinapi'?: string;
     /**
     * Value of the current total currency balance on the exchange.
     */
@@ -36,19 +36,23 @@ export class BalanceData {
     /**
     * Source of the last modification. 
     */
-    'updateOrigin'?: BalanceData.UpdateOriginEnum;
+    'lastUpdatedBy'?: BalanceData.LastUpdatedByEnum;
+    /**
+    * Current exchange rate to the USD for the single unit of the currency. 
+    */
+    'rateUsd'?: number;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "symbolExchange",
-            "baseName": "symbol_exchange",
+            "name": "assetIdExchange",
+            "baseName": "asset_id_exchange",
             "type": "string"
         },
         {
-            "name": "symbolCoinapi",
-            "baseName": "symbol_coinapi",
+            "name": "assetIdCoinapi",
+            "baseName": "asset_id_coinapi",
             "type": "string"
         },
         {
@@ -67,9 +71,14 @@ export class BalanceData {
             "type": "number"
         },
         {
-            "name": "updateOrigin",
-            "baseName": "update_origin",
-            "type": "BalanceData.UpdateOriginEnum"
+            "name": "lastUpdatedBy",
+            "baseName": "last_updated_by",
+            "type": "BalanceData.LastUpdatedByEnum"
+        },
+        {
+            "name": "rateUsd",
+            "baseName": "rate_usd",
+            "type": "number"
         }    ];
 
     static getAttributeTypeMap() {
@@ -78,7 +87,7 @@ export class BalanceData {
 }
 
 export namespace BalanceData {
-    export enum UpdateOriginEnum {
+    export enum LastUpdatedByEnum {
         INITIALIZATION = <any> 'INITIALIZATION',
         BALANCEMANAGER = <any> 'BALANCE_MANAGER',
         EXCHANGE = <any> 'EXCHANGE'

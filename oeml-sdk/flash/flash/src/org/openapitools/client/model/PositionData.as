@@ -6,11 +6,11 @@ import org.openapitools.client.model.OrdSide;
     [XmlRootNode(name="PositionData")]
     public class PositionData {
         /* Exchange symbol. */
-        [XmlElement(name="symbol_exchange")]
-        public var symbolExchange: String = null;
+        [XmlElement(name="symbol_id_exchange")]
+        public var symbolIdExchange: String = null;
         /* CoinAPI symbol. */
-        [XmlElement(name="symbol_coinapi")]
-        public var symbolCoinapi: String = null;
+        [XmlElement(name="symbol_id_coinapi")]
+        public var symbolIdCoinapi: String = null;
         /* Calculated average price of all fills on this position. */
         [XmlElement(name="avg_entry_price")]
         public var avgEntryPrice: Number = 0.0;
@@ -36,8 +36,8 @@ import org.openapitools.client.model.OrdSide;
 
     public function toString(): String {
         var str: String = "PositionData: ";
-        str += " (symbolExchange: " + symbolExchange + ")";
-        str += " (symbolCoinapi: " + symbolCoinapi + ")";
+        str += " (symbolIdExchange: " + symbolIdExchange + ")";
+        str += " (symbolIdCoinapi: " + symbolIdCoinapi + ")";
         str += " (avgEntryPrice: " + avgEntryPrice + ")";
         str += " (quantity: " + quantity + ")";
         str += " (side: " + side + ")";

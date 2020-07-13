@@ -9,8 +9,8 @@
 -export_type([openapi_position_data/0]).
 
 -type openapi_position_data() ::
-  [ {'symbol_exchange', binary() }
-  | {'symbol_coinapi', binary() }
+  [ {'symbol_id_exchange', binary() }
+  | {'symbol_id_coinapi', binary() }
   | {'avg_entry_price', integer() }
   | {'quantity', integer() }
   | {'side', openapi_ord_side:openapi_ord_side() }
@@ -26,8 +26,8 @@ openapi_position_data() ->
     openapi_position_data([]).
 
 openapi_position_data(Fields) ->
-  Default = [ {'symbol_exchange', binary() }
-            , {'symbol_coinapi', binary() }
+  Default = [ {'symbol_id_exchange', binary() }
+            , {'symbol_id_coinapi', binary() }
             , {'avg_entry_price', integer() }
             , {'quantity', integer() }
             , {'side', openapi_ord_side:openapi_ord_side() }

@@ -9,12 +9,12 @@ abstract class PositionData implements Built<PositionData, PositionDataBuilder> 
 
     /* Exchange symbol. */
         @nullable
-    @BuiltValueField(wireName: r'symbol_exchange')
-    String get symbolExchange;
+    @BuiltValueField(wireName: r'symbol_id_exchange')
+    String get symbolIdExchange;
     /* CoinAPI symbol. */
         @nullable
-    @BuiltValueField(wireName: r'symbol_coinapi')
-    String get symbolCoinapi;
+    @BuiltValueField(wireName: r'symbol_id_coinapi')
+    String get symbolIdCoinapi;
     /* Calculated average price of all fills on this position. */
         @nullable
     @BuiltValueField(wireName: r'avg_entry_price')

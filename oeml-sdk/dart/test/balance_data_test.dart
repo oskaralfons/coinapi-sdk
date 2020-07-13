@@ -7,14 +7,14 @@ void main() {
 
   group('test BalanceData', () {
     // Exchange currency code.
-    // String symbolExchange (default value: null)
-    test('to test the property `symbolExchange`', () async {
+    // String assetIdExchange (default value: null)
+    test('to test the property `assetIdExchange`', () async {
       // TODO
     });
 
     // CoinAPI currency code.
-    // String symbolCoinapi (default value: null)
-    test('to test the property `symbolCoinapi`', () async {
+    // String assetIdCoinapi (default value: null)
+    test('to test the property `assetIdCoinapi`', () async {
       // TODO
     });
 
@@ -37,8 +37,14 @@ void main() {
     });
 
     // Source of the last modification. 
-    // String updateOrigin (default value: null)
-    test('to test the property `updateOrigin`', () async {
+    // String lastUpdatedBy (default value: null)
+    test('to test the property `lastUpdatedBy`', () async {
+      // TODO
+    });
+
+    // Current exchange rate to the USD for the single unit of the currency. 
+    // double rateUsd (default value: null)
+    test('to test the property `rateUsd`', () async {
       // TODO
     });
 

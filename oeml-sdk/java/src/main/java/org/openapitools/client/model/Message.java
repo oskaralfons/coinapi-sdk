@@ -28,7 +28,7 @@ import org.openapitools.client.model.Severity;
 /**
  * Message
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T15:10:31.759Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T20:50:08.678Z[Etc/UTC]")
 public class Message {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -100,11 +100,11 @@ public class Message {
   }
 
    /**
-   * If message related exchange then identifier of this exchange.
+   * If the message related to exchange, then the identifier of the exchange will be provided.
    * @return exchangeId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "KRAKEN", value = "If message related exchange then identifier of this exchange.")
+  @ApiModelProperty(example = "KRAKEN", value = "If the message related to exchange, then the identifier of the exchange will be provided.")
 
   public String getExchangeId() {
     return exchangeId;

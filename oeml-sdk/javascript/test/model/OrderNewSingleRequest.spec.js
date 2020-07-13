@@ -66,14 +66,14 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property symbolExchange (base name: "symbol_exchange")', function() {
-      // uncomment below and update the code to test the property symbolExchange
+    it('should have the property symbolIdExchange (base name: "symbol_id_exchange")', function() {
+      // uncomment below and update the code to test the property symbolIdExchange
       //var instane = new OemlRestApi.OrderNewSingleRequest();
       //expect(instance).to.be();
     });
 
-    it('should have the property symbolCoinapi (base name: "symbol_coinapi")', function() {
-      // uncomment below and update the code to test the property symbolCoinapi
+    it('should have the property symbolIdCoinapi (base name: "symbol_id_coinapi")', function() {
+      // uncomment below and update the code to test the property symbolIdCoinapi
       //var instane = new OemlRestApi.OrderNewSingleRequest();
       //expect(instance).to.be();
     });

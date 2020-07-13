@@ -59,20 +59,20 @@ public:
     /// <summary>
     /// Exchange symbol.
     /// </summary>
-    utility::string_t getSymbolExchange() const;
-    bool symbolExchangeIsSet() const;
-    void unsetSymbol_exchange();
+    utility::string_t getSymbolIdExchange() const;
+    bool symbolIdExchangeIsSet() const;
+    void unsetSymbol_id_exchange();
 
-    void setSymbolExchange(const utility::string_t& value);
+    void setSymbolIdExchange(const utility::string_t& value);
 
     /// <summary>
     /// CoinAPI symbol.
     /// </summary>
-    utility::string_t getSymbolCoinapi() const;
-    bool symbolCoinapiIsSet() const;
-    void unsetSymbol_coinapi();
+    utility::string_t getSymbolIdCoinapi() const;
+    bool symbolIdCoinapiIsSet() const;
+    void unsetSymbol_id_coinapi();
 
-    void setSymbolCoinapi(const utility::string_t& value);
+    void setSymbolIdCoinapi(const utility::string_t& value);
 
     /// <summary>
     /// Calculated average price of all fills on this position.
@@ -148,10 +148,10 @@ public:
 
 
 protected:
-    utility::string_t m_Symbol_exchange;
-    bool m_Symbol_exchangeIsSet;
-    utility::string_t m_Symbol_coinapi;
-    bool m_Symbol_coinapiIsSet;
+    utility::string_t m_Symbol_id_exchange;
+    bool m_Symbol_id_exchangeIsSet;
+    utility::string_t m_Symbol_id_coinapi;
+    bool m_Symbol_id_coinapiIsSet;
     double m_Avg_entry_price;
     bool m_Avg_entry_priceIsSet;
     double m_Quantity;

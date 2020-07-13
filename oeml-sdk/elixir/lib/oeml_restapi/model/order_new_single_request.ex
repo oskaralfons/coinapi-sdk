@@ -11,8 +11,8 @@ defmodule OEML-RESTAPI.Model.OrderNewSingleRequest do
   defstruct [
     :"exchange_id",
     :"client_order_id",
-    :"symbol_exchange",
-    :"symbol_coinapi",
+    :"symbol_id_exchange",
+    :"symbol_id_coinapi",
     :"amount_order",
     :"price",
     :"side",
@@ -25,8 +25,8 @@ defmodule OEML-RESTAPI.Model.OrderNewSingleRequest do
   @type t :: %__MODULE__{
     :"exchange_id" => String.t,
     :"client_order_id" => String.t,
-    :"symbol_exchange" => String.t | nil,
-    :"symbol_coinapi" => String.t | nil,
+    :"symbol_id_exchange" => String.t | nil,
+    :"symbol_id_coinapi" => String.t | nil,
     :"amount_order" => float(),
     :"price" => float(),
     :"side" => OrdSide,

@@ -47,18 +47,18 @@ public:
 
 	/*! \brief Get Exchange currency code.
 	 */
-	std::string getSymbolExchange();
+	std::string getAssetIdExchange();
 
 	/*! \brief Set Exchange currency code.
 	 */
-	void setSymbolExchange(std::string  symbol_exchange);
+	void setAssetIdExchange(std::string  asset_id_exchange);
 	/*! \brief Get CoinAPI currency code.
 	 */
-	std::string getSymbolCoinapi();
+	std::string getAssetIdCoinapi();
 
 	/*! \brief Set CoinAPI currency code.
 	 */
-	void setSymbolCoinapi(std::string  symbol_coinapi);
+	void setAssetIdCoinapi(std::string  asset_id_coinapi);
 	/*! \brief Get Value of the current total currency balance on the exchange.
 	 */
 	float getBalance();
@@ -82,19 +82,27 @@ public:
 	void setLocked(float  locked);
 	/*! \brief Get Source of the last modification. 
 	 */
-	std::string getUpdateOrigin();
+	std::string getLastUpdatedBy();
 
 	/*! \brief Set Source of the last modification. 
 	 */
-	void setUpdateOrigin(std::string  update_origin);
+	void setLastUpdatedBy(std::string  last_updated_by);
+	/*! \brief Get Current exchange rate to the USD for the single unit of the currency. 
+	 */
+	float getRateUsd();
+
+	/*! \brief Set Current exchange rate to the USD for the single unit of the currency. 
+	 */
+	void setRateUsd(float  rate_usd);
 
 private:
-	std::string symbol_exchange;
-	std::string symbol_coinapi;
+	std::string asset_id_exchange;
+	std::string asset_id_coinapi;
 	float balance;
 	float available;
 	float locked;
-	std::string update_origin;
+	std::string last_updated_by;
+	float rate_usd;
 	void __init();
 	void __cleanup();
 

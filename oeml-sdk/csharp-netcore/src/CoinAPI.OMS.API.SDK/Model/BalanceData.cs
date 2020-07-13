@@ -36,7 +36,7 @@ namespace CoinAPI.OMS.API.SDK.Model
         /// </summary>
         /// <value>Source of the last modification. </value>
         [JsonConverter(typeof(StringEnumConverter))]
-        public enum UpdateOriginEnum
+        public enum LastUpdatedByEnum
         {
             /// <summary>
             /// Enum INITIALIZATION for value: INITIALIZATION
@@ -62,40 +62,42 @@ namespace CoinAPI.OMS.API.SDK.Model
         /// Source of the last modification. 
         /// </summary>
         /// <value>Source of the last modification. </value>
-        [DataMember(Name="update_origin", EmitDefaultValue=false)]
-        public UpdateOriginEnum? UpdateOrigin { get; set; }
+        [DataMember(Name="last_updated_by", EmitDefaultValue=false)]
+        public LastUpdatedByEnum? LastUpdatedBy { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="BalanceData" /> class.
         /// </summary>
-        /// <param name="symbolExchange">Exchange currency code..</param>
-        /// <param name="symbolCoinapi">CoinAPI currency code..</param>
+        /// <param name="assetIdExchange">Exchange currency code..</param>
+        /// <param name="assetIdCoinapi">CoinAPI currency code..</param>
         /// <param name="balance">Value of the current total currency balance on the exchange..</param>
         /// <param name="available">Value of the current available currency balance on the exchange that can be used as collateral..</param>
         /// <param name="locked">Value of the current locked currency balance by the exchange..</param>
-        /// <param name="updateOrigin">Source of the last modification. .</param>
-        public BalanceData(string symbolExchange = default(string), string symbolCoinapi = default(string), float balance = default(float), float available = default(float), float locked = default(float), UpdateOriginEnum? updateOrigin = default(UpdateOriginEnum?))
+        /// <param name="lastUpdatedBy">Source of the last modification. .</param>
+        /// <param name="rateUsd">Current exchange rate to the USD for the single unit of the currency. .</param>
+        public BalanceData(string assetIdExchange = default(string), string assetIdCoinapi = default(string), float balance = default(float), float available = default(float), float locked = default(float), LastUpdatedByEnum? lastUpdatedBy = default(LastUpdatedByEnum?), float rateUsd = default(float))
         {
-            this.SymbolExchange = symbolExchange;
-            this.SymbolCoinapi = symbolCoinapi;
+            this.AssetIdExchange = assetIdExchange;
+            this.AssetIdCoinapi = assetIdCoinapi;
             this.Balance = balance;
             this.Available = available;
             this.Locked = locked;
-            this.UpdateOrigin = updateOrigin;
+            this.LastUpdatedBy = lastUpdatedBy;
+            this.RateUsd = rateUsd;
         }
         
         /// <summary>
         /// Exchange currency code.
         /// </summary>
         /// <value>Exchange currency code.</value>
-        [DataMember(Name="symbol_exchange", EmitDefaultValue=false)]
-        public string SymbolExchange { get; set; }
+        [DataMember(Name="asset_id_exchange", EmitDefaultValue=false)]
+        public string AssetIdExchange { get; set; }
 
         /// <summary>
         /// CoinAPI currency code.
         /// </summary>
         /// <value>CoinAPI currency code.</value>
-        [DataMember(Name="symbol_coinapi", EmitDefaultValue=false)]
-        public string SymbolCoinapi { get; set; }
+        [DataMember(Name="asset_id_coinapi", EmitDefaultValue=false)]
+        public string AssetIdCoinapi { get; set; }
 
         /// <summary>
         /// Value of the current total currency balance on the exchange.
@@ -119,6 +121,13 @@ namespace CoinAPI.OMS.API.SDK.Model
         public float Locked { get; set; }
 
         /// <summary>
+        /// Current exchange rate to the USD for the single unit of the currency. 
+        /// </summary>
+        /// <value>Current exchange rate to the USD for the single unit of the currency. </value>
+        [DataMember(Name="rate_usd", EmitDefaultValue=false)]
+        public float RateUsd { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -126,12 +135,13 @@ namespace CoinAPI.OMS.API.SDK.Model
         {
             var sb = new StringBuilder();
             sb.Append("class BalanceData {\n");
-            sb.Append("  SymbolExchange: ").Append(SymbolExchange).Append("\n");
-            sb.Append("  SymbolCoinapi: ").Append(SymbolCoinapi).Append("\n");
+            sb.Append("  AssetIdExchange: ").Append(AssetIdExchange).Append("\n");
+            sb.Append("  AssetIdCoinapi: ").Append(AssetIdCoinapi).Append("\n");
             sb.Append("  Balance: ").Append(Balance).Append("\n");
             sb.Append("  Available: ").Append(Available).Append("\n");
             sb.Append("  Locked: ").Append(Locked).Append("\n");
-            sb.Append("  UpdateOrigin: ").Append(UpdateOrigin).Append("\n");
+            sb.Append("  LastUpdatedBy: ").Append(LastUpdatedBy).Append("\n");
+            sb.Append("  RateUsd: ").Append(RateUsd).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -167,14 +177,14 @@ namespace CoinAPI.OMS.API.SDK.Model
 
             return 
                 (
-                    this.SymbolExchange == input.SymbolExchange ||
-                    (this.SymbolExchange != null &&
-                    this.SymbolExchange.Equals(input.SymbolExchange))
+                    this.AssetIdExchange == input.AssetIdExchange ||
+                    (this.AssetIdExchange != null &&
+                    this.AssetIdExchange.Equals(input.AssetIdExchange))
                 ) && 
                 (
-                    this.SymbolCoinapi == input.SymbolCoinapi ||
-                    (this.SymbolCoinapi != null &&
-                    this.SymbolCoinapi.Equals(input.SymbolCoinapi))
+                    this.AssetIdCoinapi == input.AssetIdCoinapi ||
+                    (this.AssetIdCoinapi != null &&
+                    this.AssetIdCoinapi.Equals(input.AssetIdCoinapi))
                 ) && 
                 (
                     this.Balance == input.Balance ||
@@ -189,8 +199,12 @@ namespace CoinAPI.OMS.API.SDK.Model
                     this.Locked.Equals(input.Locked)
                 ) && 
                 (
-                    this.UpdateOrigin == input.UpdateOrigin ||
-                    this.UpdateOrigin.Equals(input.UpdateOrigin)
+                    this.LastUpdatedBy == input.LastUpdatedBy ||
+                    this.LastUpdatedBy.Equals(input.LastUpdatedBy)
+                ) && 
+                (
+                    this.RateUsd == input.RateUsd ||
+                    this.RateUsd.Equals(input.RateUsd)
                 );
         }
 
@@ -203,14 +217,15 @@ namespace CoinAPI.OMS.API.SDK.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.SymbolExchange != null)
-                    hashCode = hashCode * 59 + this.SymbolExchange.GetHashCode();
-                if (this.SymbolCoinapi != null)
-                    hashCode = hashCode * 59 + this.SymbolCoinapi.GetHashCode();
+                if (this.AssetIdExchange != null)
+                    hashCode = hashCode * 59 + this.AssetIdExchange.GetHashCode();
+                if (this.AssetIdCoinapi != null)
+                    hashCode = hashCode * 59 + this.AssetIdCoinapi.GetHashCode();
                 hashCode = hashCode * 59 + this.Balance.GetHashCode();
                 hashCode = hashCode * 59 + this.Available.GetHashCode();
                 hashCode = hashCode * 59 + this.Locked.GetHashCode();
-                hashCode = hashCode * 59 + this.UpdateOrigin.GetHashCode();
+                hashCode = hashCode * 59 + this.LastUpdatedBy.GetHashCode();
+                hashCode = hashCode * 59 + this.RateUsd.GetHashCode();
                 return hashCode;
             }
         }

@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **exchange_id** | **String** | Exchange identifier. | 
 **client_order_id** | **String** | The unique identifier of the order assigned by the client. | 
-**symbol_exchange** | **String** | Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order. | [optional] 
-**symbol_coinapi** | **String** | CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order. | [optional] 
+**symbol_id_exchange** | **String** | Exchange symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order. | [optional] 
+**symbol_id_coinapi** | **String** | CoinAPI symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order. | [optional] 
 **amount_order** | **Float** | Order quantity. | 
 **price** | **Float** | Order price. | 
 **side** | [**OrdSide**](OrdSide.md) |  | 
@@ -30,8 +30,8 @@ require 'OpenapiClient'
 
 instance = OpenapiClient::OrderExecutionReport.new(exchange_id: KRAKEN,
                                  client_order_id: 6ab36bc1-344d-432e-ac6d-0bf44ee64c2b,
-                                 symbol_exchange: XBT/USDT,
-                                 symbol_coinapi: KRAKEN_SPOT_BTC_USDT,
+                                 symbol_id_exchange: XBT/USDT,
+                                 symbol_id_coinapi: KRAKEN_SPOT_BTC_USDT,
                                  amount_order: 0.045,
                                  price: 0.0783,
                                  side: null,

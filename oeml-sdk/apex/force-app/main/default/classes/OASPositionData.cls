@@ -16,15 +16,15 @@
 public class OASPositionData implements OAS.MappedProperties {
     /**
      * Exchange symbol.
-     * @return symbolExchange
+     * @return symbolIdExchange
      */
-    public String symbolExchange { get; set; }
+    public String symbolIdExchange { get; set; }
 
     /**
      * CoinAPI symbol.
-     * @return symbolCoinapi
+     * @return symbolIdCoinapi
      */
-    public String symbolCoinapi { get; set; }
+    public String symbolIdCoinapi { get; set; }
 
     /**
      * Calculated average price of all fills on this position.
@@ -75,8 +75,8 @@ public class OASPositionData implements OAS.MappedProperties {
     public Object rawData { get; set; }
 
     private static final Map<String, String> propertyMappings = new Map<String, String>{
-        'symbol_exchange' => 'symbolExchange',
-        'symbol_coinapi' => 'symbolCoinapi',
+        'symbol_id_exchange' => 'symbolIdExchange',
+        'symbol_id_coinapi' => 'symbolIdCoinapi',
         'avg_entry_price' => 'avgEntryPrice',
         'unrealized_pnl' => 'unrealizedPnl',
         'cross_margin' => 'crossMargin',
@@ -90,8 +90,8 @@ public class OASPositionData implements OAS.MappedProperties {
 
     public static OASPositionData getExample() {
         OASPositionData positionData = new OASPositionData();
-          positionData.symbolExchange = 'XBTUSD';
-          positionData.symbolCoinapi = 'BITMEX_PERP_BTC_USD';
+          positionData.symbolIdExchange = 'XBTUSD';
+          positionData.symbolIdCoinapi = 'BITMEX_PERP_BTC_USD';
           positionData.avgEntryPrice = 0.00134444;
           positionData.quantity = 7;
           positionData.side = OASOrdSide.getExample();
@@ -106,8 +106,8 @@ public class OASPositionData implements OAS.MappedProperties {
     public Boolean equals(Object obj) {
         if (obj instanceof OASPositionData) {           
             OASPositionData positionData = (OASPositionData) obj;
-            return this.symbolExchange == positionData.symbolExchange
-                && this.symbolCoinapi == positionData.symbolCoinapi
+            return this.symbolIdExchange == positionData.symbolIdExchange
+                && this.symbolIdCoinapi == positionData.symbolIdCoinapi
                 && this.avgEntryPrice == positionData.avgEntryPrice
                 && this.quantity == positionData.quantity
                 && this.side == positionData.side
@@ -122,8 +122,8 @@ public class OASPositionData implements OAS.MappedProperties {
 
     public Integer hashCode() {
         Integer hashCode = 43;
-        hashCode = (17 * hashCode) + (symbolExchange == null ? 0 : System.hashCode(symbolExchange));
-        hashCode = (17 * hashCode) + (symbolCoinapi == null ? 0 : System.hashCode(symbolCoinapi));
+        hashCode = (17 * hashCode) + (symbolIdExchange == null ? 0 : System.hashCode(symbolIdExchange));
+        hashCode = (17 * hashCode) + (symbolIdCoinapi == null ? 0 : System.hashCode(symbolIdCoinapi));
         hashCode = (17 * hashCode) + (avgEntryPrice == null ? 0 : System.hashCode(avgEntryPrice));
         hashCode = (17 * hashCode) + (quantity == null ? 0 : System.hashCode(quantity));
         hashCode = (17 * hashCode) + (side == null ? 0 : System.hashCode(side));

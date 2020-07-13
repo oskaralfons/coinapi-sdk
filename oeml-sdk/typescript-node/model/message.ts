@@ -20,7 +20,7 @@ export class Message {
     'type'?: string;
     'severity'?: Severity;
     /**
-    * If message related exchange then identifier of this exchange.
+    * If the message related to exchange, then the identifier of the exchange will be provided.
     */
     'exchangeId'?: string;
     /**

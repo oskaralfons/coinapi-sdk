@@ -18,7 +18,7 @@ import scala.reflect.ClassTag
 object EnumsSerializers {
 
   def all: Seq[Serializer[_]] = Seq[Serializer[_]]() :+
-    new EnumNameSerializer(BalanceDataEnums.UpdateOrigin) :+
+    new EnumNameSerializer(BalanceDataEnums.LastUpdatedBy) :+
     new EnumNameSerializer(OrderExecutionReportEnums.Seq[ExecInst]) :+
     new EnumNameSerializer(OrderNewSingleRequestEnums.Seq[ExecInst])
 

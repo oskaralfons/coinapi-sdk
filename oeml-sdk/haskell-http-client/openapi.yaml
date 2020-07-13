@@ -247,18 +247,18 @@ components:
     OrderNewSingleRequest:
       description: The new order message.
       example:
-        symbol_coinapi: KRAKEN_SPOT_BTC_USDT
+        symbol_id_coinapi: KRAKEN_SPOT_BTC_USDT
         exchange_id: KRAKEN
         client_order_id: 6ab36bc1-344d-432e-ac6d-0bf44ee64c2b
         side: BUY
         time_in_force: GOOD_TILL_CANCEL
+        symbol_id_exchange: XBT/USDT
         price: 0.0783
         amount_order: 0.045
         expire_time: 2020-01-01T10:45:20.1677709Z
         exec_inst:
         - MAKER_OR_CANCEL
         order_type: LIMIT
-        symbol_exchange: XBT/USDT
       properties:
         exchange_id:
           description: Exchange identifier.
@@ -268,14 +268,14 @@ components:
           description: The unique identifier of the order assigned by the client.
           example: 6ab36bc1-344d-432e-ac6d-0bf44ee64c2b
           type: string
-        symbol_exchange:
-          description: Exchange symbol. One of the properties (`symbol_exchange`,
-            `symbol_coinapi`) is required to identify the market for the new order.
+        symbol_id_exchange:
+          description: Exchange symbol. One of the properties (`symbol_id_exchange`,
+            `symbol_id_coinapi`) is required to identify the market for the new order.
           example: XBT/USDT
           type: string
-        symbol_coinapi:
-          description: CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`)
-            is required to identify the market for the new order.
+        symbol_id_coinapi:
+          description: CoinAPI symbol. One of the properties (`symbol_id_exchange`,
+            `symbol_id_coinapi`) is required to identify the market for the new order.
           example: KRAKEN_SPOT_BTC_USDT
           type: string
         amount_order:
@@ -376,18 +376,20 @@ components:
       example:
         exchange_id: KRAKEN
         data:
-        - symbol_coinapi: BTC
-          update_origin: EXCHANGE
+        - last_updated_by: EXCHANGE
+          asset_id_exchange: XBT
           balance: 0.00134444
+          rate_usd: 1355.12
           available: 0.00134444
+          asset_id_coinapi: BTC
           locked: 0.0
-          symbol_exchange: XBT
-        - symbol_coinapi: BTC
-          update_origin: EXCHANGE
+        - last_updated_by: EXCHANGE
+          asset_id_exchange: XBT
           balance: 0.00134444
+          rate_usd: 1355.12
           available: 0.00134444
+          asset_id_coinapi: BTC
           locked: 0.0
-          symbol_exchange: XBT
       properties:
         exchange_id:
           description: Exchange identifier.
@@ -407,25 +409,25 @@ components:
       example:
         exchange_id: KRAKEN
         data:
-        - liquidation_price: 0.072323
-          symbol_coinapi: BITMEX_PERP_BTC_USD
+        - symbol_id_coinapi: BITMEX_PERP_BTC_USD
+          liquidation_price: 0.072323
           leverage: 0.0
           side: BUY
           quantity: 7
+          symbol_id_exchange: XBTUSD
           cross_margin: true
           unrealized_pnl: 0.0
           raw_data: Other information provided by the exchange on this position.
-          symbol_exchange: XBTUSD
           avg_entry_price: 0.00134444
-        - liquidation_price: 0.072323
-          symbol_coinapi: BITMEX_PERP_BTC_USD
+        - symbol_id_coinapi: BITMEX_PERP_BTC_USD
+          liquidation_price: 0.072323
           leverage: 0.0
           side: BUY
           quantity: 7
+          symbol_id_exchange: XBTUSD
           cross_margin: true
           unrealized_pnl: 0.0
           raw_data: Other information provided by the exchange on this position.
-          symbol_exchange: XBTUSD
           avg_entry_price: 0.00134444
       properties:
         exchange_id:
@@ -521,7 +523,8 @@ components:
         severity:
           $ref: '#/components/schemas/Severity'
         exchange_id:
-          description: If message related exchange then identifier of this exchange.
+          description: If the message related to exchange, then the identifier of
+            the exchange will be provided.
           example: KRAKEN
           type: string
         message:
@@ -582,18 +585,19 @@ components:
       - time_order
     Balance_data:
       example:
-        symbol_coinapi: BTC
-        update_origin: EXCHANGE
+        last_updated_by: EXCHANGE
+        asset_id_exchange: XBT
         balance: 0.00134444
+        rate_usd: 1355.12
         available: 0.00134444
+        asset_id_coinapi: BTC
         locked: 0.0
-        symbol_exchange: XBT
       properties:
-        symbol_exchange:
+        asset_id_exchange:
           description: Exchange currency code.
           example: XBT
           type: string
-        symbol_coinapi:
+        asset_id_coinapi:
           description: CoinAPI currency code.
           example: BTC
           type: string
@@ -613,7 +617,7 @@ components:
           example: 0.0
           format: float
           type: number
-        update_origin:
+        last_updated_by:
           description: |
             Source of the last modification.
           enum:
@@ -622,24 +626,30 @@ components:
           - EXCHANGE
           example: EXCHANGE
           type: string
+        rate_usd:
+          description: |
+            Current exchange rate to the USD for the single unit of the currency.
+          example: 1355.12
+          format: float
+          type: number
     Position_data:
       example:
+        symbol_id_coinapi: BITMEX_PERP_BTC_USD
         liquidation_price: 0.072323
-        symbol_coinapi: BITMEX_PERP_BTC_USD
         leverage: 0.0
         side: BUY
         quantity: 7
+        symbol_id_exchange: XBTUSD
         cross_margin: true
         unrealized_pnl: 0.0
         raw_data: Other information provided by the exchange on this position.
-        symbol_exchange: XBTUSD
         avg_entry_price: 0.00134444
       properties:
-        symbol_exchange:
+        symbol_id_exchange:
           description: Exchange symbol.
           example: XBTUSD
           type: string
-        symbol_coinapi:
+        symbol_id_coinapi:
           description: CoinAPI symbol.
           example: BITMEX_PERP_BTC_USD
           type: string

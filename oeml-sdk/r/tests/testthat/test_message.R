@@ -22,7 +22,7 @@ test_that("severity", {
 
 test_that("exchange_id", {
   # tests for the property `exchange_id` (character)
-  # If message related exchange then identifier of this exchange.
+  # If the message related to exchange, then the identifier of the exchange will be provided.
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`exchange_id`, "EXPECTED_RESULT")

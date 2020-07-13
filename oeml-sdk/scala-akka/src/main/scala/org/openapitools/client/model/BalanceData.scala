@@ -15,9 +15,9 @@ import org.openapitools.client.core.ApiModel
 
 case class BalanceData (
   /* Exchange currency code. */
-  symbolExchange: Option[String] = None,
+  assetIdExchange: Option[String] = None,
   /* CoinAPI currency code. */
-  symbolCoinapi: Option[String] = None,
+  assetIdCoinapi: Option[String] = None,
   /* Value of the current total currency balance on the exchange. */
   balance: Option[Float] = None,
   /* Value of the current available currency balance on the exchange that can be used as collateral. */
@@ -25,13 +25,15 @@ case class BalanceData (
   /* Value of the current locked currency balance by the exchange. */
   locked: Option[Float] = None,
   /* Source of the last modification.  */
-  updateOrigin: Option[BalanceDataEnums.UpdateOrigin] = None
+  lastUpdatedBy: Option[BalanceDataEnums.LastUpdatedBy] = None,
+  /* Current exchange rate to the USD for the single unit of the currency.  */
+  rateUsd: Option[Float] = None
 ) extends ApiModel
 
 object BalanceDataEnums {
 
-  type UpdateOrigin = UpdateOrigin.Value
-  object UpdateOrigin extends Enumeration {
+  type LastUpdatedBy = LastUpdatedBy.Value
+  object LastUpdatedBy extends Enumeration {
     val INITIALIZATION = Value("INITIALIZATION")
     val BALANCEMANAGER = Value("BALANCE_MANAGER")
     val EXCHANGE = Value("EXCHANGE")

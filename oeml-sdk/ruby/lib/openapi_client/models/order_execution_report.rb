@@ -21,11 +21,11 @@ module OpenapiClient
     # The unique identifier of the order assigned by the client.
     attr_accessor :client_order_id
 
-    # Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
-    attr_accessor :symbol_exchange
+    # Exchange symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.
+    attr_accessor :symbol_id_exchange
 
-    # CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
-    attr_accessor :symbol_coinapi
+    # CoinAPI symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.
+    attr_accessor :symbol_id_coinapi
 
     # Order quantity.
     attr_accessor :amount_order
@@ -92,8 +92,8 @@ module OpenapiClient
       {
         :'exchange_id' => :'exchange_id',
         :'client_order_id' => :'client_order_id',
-        :'symbol_exchange' => :'symbol_exchange',
-        :'symbol_coinapi' => :'symbol_coinapi',
+        :'symbol_id_exchange' => :'symbol_id_exchange',
+        :'symbol_id_coinapi' => :'symbol_id_coinapi',
         :'amount_order' => :'amount_order',
         :'price' => :'price',
         :'side' => :'side',
@@ -116,8 +116,8 @@ module OpenapiClient
       {
         :'exchange_id' => :'String',
         :'client_order_id' => :'String',
-        :'symbol_exchange' => :'String',
-        :'symbol_coinapi' => :'String',
+        :'symbol_id_exchange' => :'String',
+        :'symbol_id_coinapi' => :'String',
         :'amount_order' => :'Float',
         :'price' => :'Float',
         :'side' => :'OrdSide',
@@ -172,12 +172,12 @@ module OpenapiClient
         self.client_order_id = attributes[:'client_order_id']
       end
 
-      if attributes.key?(:'symbol_exchange')
-        self.symbol_exchange = attributes[:'symbol_exchange']
+      if attributes.key?(:'symbol_id_exchange')
+        self.symbol_id_exchange = attributes[:'symbol_id_exchange']
       end
 
-      if attributes.key?(:'symbol_coinapi')
-        self.symbol_coinapi = attributes[:'symbol_coinapi']
+      if attributes.key?(:'symbol_id_coinapi')
+        self.symbol_id_coinapi = attributes[:'symbol_id_coinapi']
       end
 
       if attributes.key?(:'amount_order')
@@ -321,8 +321,8 @@ module OpenapiClient
       self.class == o.class &&
           exchange_id == o.exchange_id &&
           client_order_id == o.client_order_id &&
-          symbol_exchange == o.symbol_exchange &&
-          symbol_coinapi == o.symbol_coinapi &&
+          symbol_id_exchange == o.symbol_id_exchange &&
+          symbol_id_coinapi == o.symbol_id_coinapi &&
           amount_order == o.amount_order &&
           price == o.price &&
           side == o.side &&
@@ -348,7 +348,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [exchange_id, client_order_id, symbol_exchange, symbol_coinapi, amount_order, price, side, order_type, time_in_force, expire_time, exec_inst, client_order_id_format_exchange, exchange_order_id, amount_open, amount_filled, status, time_order, error_message].hash
+      [exchange_id, client_order_id, symbol_id_exchange, symbol_id_coinapi, amount_order, price, side, order_type, time_in_force, expire_time, exec_inst, client_order_id_format_exchange, exchange_order_id, amount_open, amount_filled, status, time_order, error_message].hash
     end
 
     # Builds the object from hash

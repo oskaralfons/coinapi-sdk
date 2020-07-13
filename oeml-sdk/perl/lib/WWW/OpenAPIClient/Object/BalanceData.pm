@@ -161,16 +161,16 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'symbol_exchange' => {
+    'asset_id_exchange' => {
         datatype => 'string',
-        base_name => 'symbol_exchange',
+        base_name => 'asset_id_exchange',
         description => 'Exchange currency code.',
         format => '',
         read_only => '',
             },
-    'symbol_coinapi' => {
+    'asset_id_coinapi' => {
         datatype => 'string',
-        base_name => 'symbol_coinapi',
+        base_name => 'asset_id_coinapi',
         description => 'CoinAPI currency code.',
         format => '',
         read_only => '',
@@ -196,31 +196,40 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
-    'update_origin' => {
+    'last_updated_by' => {
         datatype => 'string',
-        base_name => 'update_origin',
+        base_name => 'last_updated_by',
         description => 'Source of the last modification. ',
+        format => '',
+        read_only => '',
+            },
+    'rate_usd' => {
+        datatype => 'double',
+        base_name => 'rate_usd',
+        description => 'Current exchange rate to the USD for the single unit of the currency. ',
         format => '',
         read_only => '',
             },
 });
 
 __PACKAGE__->openapi_types( {
-    'symbol_exchange' => 'string',
-    'symbol_coinapi' => 'string',
+    'asset_id_exchange' => 'string',
+    'asset_id_coinapi' => 'string',
     'balance' => 'double',
     'available' => 'double',
     'locked' => 'double',
-    'update_origin' => 'string'
+    'last_updated_by' => 'string',
+    'rate_usd' => 'double'
 } );
 
 __PACKAGE__->attribute_map( {
-    'symbol_exchange' => 'symbol_exchange',
-    'symbol_coinapi' => 'symbol_coinapi',
+    'asset_id_exchange' => 'asset_id_exchange',
+    'asset_id_coinapi' => 'asset_id_coinapi',
     'balance' => 'balance',
     'available' => 'available',
     'locked' => 'locked',
-    'update_origin' => 'update_origin'
+    'last_updated_by' => 'last_updated_by',
+    'rate_usd' => 'rate_usd'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

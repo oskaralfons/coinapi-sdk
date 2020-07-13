@@ -29,8 +29,8 @@ oeml___rest_api_position_data__e position_data_side_FromString(char* side);
 
 
 typedef struct position_data_t {
-    char *symbol_exchange; // string
-    char *symbol_coinapi; // string
+    char *symbol_id_exchange; // string
+    char *symbol_id_coinapi; // string
     double avg_entry_price; //numeric
     double quantity; //numeric
     double unrealized_pnl; //numeric
@@ -42,8 +42,8 @@ typedef struct position_data_t {
 } position_data_t;
 
 position_data_t *position_data_create(
-    char *symbol_exchange,
-    char *symbol_coinapi,
+    char *symbol_id_exchange,
+    char *symbol_id_coinapi,
     double avg_entry_price,
     double quantity,
     double unrealized_pnl,

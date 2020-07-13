@@ -21,18 +21,18 @@ API.Client.OrderNewSingleRequest.prototype.exchangeId;
 API.Client.OrderNewSingleRequest.prototype.clientOrderId;
 
 /**
- * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
+ * Exchange symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.
  * @type {!string}
  * @export
  */
-API.Client.OrderNewSingleRequest.prototype.symbolExchange;
+API.Client.OrderNewSingleRequest.prototype.symbolIdExchange;
 
 /**
- * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
+ * CoinAPI symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.
  * @type {!string}
  * @export
  */
-API.Client.OrderNewSingleRequest.prototype.symbolCoinapi;
+API.Client.OrderNewSingleRequest.prototype.symbolIdCoinapi;
 
 /**
  * Order quantity.

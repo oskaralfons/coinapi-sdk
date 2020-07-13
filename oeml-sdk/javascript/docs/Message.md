@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **String** | Type of message. | [optional] 
 **severity** | [**Severity**](Severity.md) |  | [optional] 
-**exchangeId** | **String** | If message related exchange then identifier of this exchange. | [optional] 
+**exchangeId** | **String** | If the message related to exchange, then the identifier of the exchange will be provided. | [optional] 
 **message** | **String** | Message text. | [optional] 
 
 

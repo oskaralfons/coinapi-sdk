@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SymbolExchange** | **string** | Exchange symbol. | [optional] 
-**SymbolCoinapi** | **string** | CoinAPI symbol. | [optional] 
+**SymbolIdExchange** | **string** | Exchange symbol. | [optional] 
+**SymbolIdCoinapi** | **string** | CoinAPI symbol. | [optional] 
 **AvgEntryPrice** | **decimal** | Calculated average price of all fills on this position. | [optional] 
 **Quantity** | **decimal** | The current position quantity. | [optional] 
 **Side** | **OrdSide** |  | [optional] 

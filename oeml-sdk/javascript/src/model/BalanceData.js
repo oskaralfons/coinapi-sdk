@@ -47,11 +47,11 @@ class BalanceData {
         if (data) {
             obj = obj || new BalanceData();
 
-            if (data.hasOwnProperty('symbol_exchange')) {
-                obj['symbol_exchange'] = ApiClient.convertToType(data['symbol_exchange'], 'String');
+            if (data.hasOwnProperty('asset_id_exchange')) {
+                obj['asset_id_exchange'] = ApiClient.convertToType(data['asset_id_exchange'], 'String');
             }
-            if (data.hasOwnProperty('symbol_coinapi')) {
-                obj['symbol_coinapi'] = ApiClient.convertToType(data['symbol_coinapi'], 'String');
+            if (data.hasOwnProperty('asset_id_coinapi')) {
+                obj['asset_id_coinapi'] = ApiClient.convertToType(data['asset_id_coinapi'], 'String');
             }
             if (data.hasOwnProperty('balance')) {
                 obj['balance'] = ApiClient.convertToType(data['balance'], 'Number');
@@ -62,8 +62,11 @@ class BalanceData {
             if (data.hasOwnProperty('locked')) {
                 obj['locked'] = ApiClient.convertToType(data['locked'], 'Number');
             }
-            if (data.hasOwnProperty('update_origin')) {
-                obj['update_origin'] = ApiClient.convertToType(data['update_origin'], 'String');
+            if (data.hasOwnProperty('last_updated_by')) {
+                obj['last_updated_by'] = ApiClient.convertToType(data['last_updated_by'], 'String');
+            }
+            if (data.hasOwnProperty('rate_usd')) {
+                obj['rate_usd'] = ApiClient.convertToType(data['rate_usd'], 'Number');
             }
         }
         return obj;
@@ -74,15 +77,15 @@ class BalanceData {
 
 /**
  * Exchange currency code.
- * @member {String} symbol_exchange
+ * @member {String} asset_id_exchange
  */
-BalanceData.prototype['symbol_exchange'] = undefined;
+BalanceData.prototype['asset_id_exchange'] = undefined;
 
 /**
  * CoinAPI currency code.
- * @member {String} symbol_coinapi
+ * @member {String} asset_id_coinapi
  */
-BalanceData.prototype['symbol_coinapi'] = undefined;
+BalanceData.prototype['asset_id_coinapi'] = undefined;
 
 /**
  * Value of the current total currency balance on the exchange.
@@ -104,20 +107,26 @@ BalanceData.prototype['locked'] = undefined;
 
 /**
  * Source of the last modification. 
- * @member {module:model/BalanceData.UpdateOriginEnum} update_origin
+ * @member {module:model/BalanceData.LastUpdatedByEnum} last_updated_by
  */
-BalanceData.prototype['update_origin'] = undefined;
+BalanceData.prototype['last_updated_by'] = undefined;
+
+/**
+ * Current exchange rate to the USD for the single unit of the currency. 
+ * @member {Number} rate_usd
+ */
+BalanceData.prototype['rate_usd'] = undefined;
 
 
 
 
 
 /**
- * Allowed values for the <code>update_origin</code> property.
+ * Allowed values for the <code>last_updated_by</code> property.
  * @enum {String}
  * @readonly
  */
-BalanceData['UpdateOriginEnum'] = {
+BalanceData['LastUpdatedByEnum'] = {
 
     /**
      * value: "INITIALIZATION"

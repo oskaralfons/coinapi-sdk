@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**symbolUnderscoreexchange** | **string** |  | [optional] [default to null]
-**symbolUnderscorecoinapi** | **string** |  | [optional] [default to null]
+**symbolUnderscoreidUnderscoreexchange** | **string** |  | [optional] [default to null]
+**symbolUnderscoreidUnderscorecoinapi** | **string** |  | [optional] [default to null]
 **avgUnderscoreentryUnderscoreprice** | **integer** |  | [optional] [default to null]
 **quantity** | **integer** |  | [optional] [default to null]
 **side** | [**OrdSide**](OrdSide.md) |  | [optional] [default to null]

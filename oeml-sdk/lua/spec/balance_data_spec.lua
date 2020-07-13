@@ -16,15 +16,15 @@ Please update as you see appropriate
 describe("balance_data", function()
   local openapiclient_balance_data = require "openapiclient.model.balance_data"
 
-  -- unit tests for the property 'symbol_exchange'
-  describe("property symbol_exchange test", function()
+  -- unit tests for the property 'asset_id_exchange'
+  describe("property asset_id_exchange test", function()
     it("should work", function()
       -- TODO assertion here: http://olivinelabs.com/busted/#asserts
     end)
   end)
 
-  -- unit tests for the property 'symbol_coinapi'
-  describe("property symbol_coinapi test", function()
+  -- unit tests for the property 'asset_id_coinapi'
+  describe("property asset_id_coinapi test", function()
     it("should work", function()
       -- TODO assertion here: http://olivinelabs.com/busted/#asserts
     end)
@@ -51,8 +51,15 @@ describe("balance_data", function()
     end)
   end)
 
-  -- unit tests for the property 'update_origin'
-  describe("property update_origin test", function()
+  -- unit tests for the property 'last_updated_by'
+  describe("property last_updated_by test", function()
+    it("should work", function()
+      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
+    end)
+  end)
+
+  -- unit tests for the property 'rate_usd'
+  describe("property rate_usd test", function()
     it("should work", function()
       -- TODO assertion here: http://olivinelabs.com/busted/#asserts
     end)

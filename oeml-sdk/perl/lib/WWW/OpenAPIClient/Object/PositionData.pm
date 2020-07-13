@@ -162,16 +162,16 @@ __PACKAGE__->class_documentation({description => '',
 }                                 );
 
 __PACKAGE__->method_documentation({
-    'symbol_exchange' => {
+    'symbol_id_exchange' => {
         datatype => 'string',
-        base_name => 'symbol_exchange',
+        base_name => 'symbol_id_exchange',
         description => 'Exchange symbol.',
         format => '',
         read_only => '',
             },
-    'symbol_coinapi' => {
+    'symbol_id_coinapi' => {
         datatype => 'string',
-        base_name => 'symbol_coinapi',
+        base_name => 'symbol_id_coinapi',
         description => 'CoinAPI symbol.',
         format => '',
         read_only => '',
@@ -235,8 +235,8 @@ __PACKAGE__->method_documentation({
 });
 
 __PACKAGE__->openapi_types( {
-    'symbol_exchange' => 'string',
-    'symbol_coinapi' => 'string',
+    'symbol_id_exchange' => 'string',
+    'symbol_id_coinapi' => 'string',
     'avg_entry_price' => 'double',
     'quantity' => 'double',
     'side' => 'OrdSide',
@@ -248,8 +248,8 @@ __PACKAGE__->openapi_types( {
 } );
 
 __PACKAGE__->attribute_map( {
-    'symbol_exchange' => 'symbol_exchange',
-    'symbol_coinapi' => 'symbol_coinapi',
+    'symbol_id_exchange' => 'symbol_id_exchange',
+    'symbol_id_coinapi' => 'symbol_id_coinapi',
     'avg_entry_price' => 'avg_entry_price',
     'quantity' => 'quantity',
     'side' => 'side',

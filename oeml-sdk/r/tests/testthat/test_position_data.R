@@ -5,20 +5,20 @@ context("Test PositionData")
 
 model.instance <- PositionData$new()
 
-test_that("symbol_exchange", {
-  # tests for the property `symbol_exchange` (character)
+test_that("symbol_id_exchange", {
+  # tests for the property `symbol_id_exchange` (character)
   # Exchange symbol.
 
   # uncomment below to test the property 
-  #expect_equal(model.instance$`symbol_exchange`, "EXPECTED_RESULT")
+  #expect_equal(model.instance$`symbol_id_exchange`, "EXPECTED_RESULT")
 })
 
-test_that("symbol_coinapi", {
-  # tests for the property `symbol_coinapi` (character)
+test_that("symbol_id_coinapi", {
+  # tests for the property `symbol_id_coinapi` (character)
   # CoinAPI symbol.
 
   # uncomment below to test the property 
-  #expect_equal(model.instance$`symbol_coinapi`, "EXPECTED_RESULT")
+  #expect_equal(model.instance$`symbol_id_coinapi`, "EXPECTED_RESULT")
 })
 
 test_that("avg_entry_price", {

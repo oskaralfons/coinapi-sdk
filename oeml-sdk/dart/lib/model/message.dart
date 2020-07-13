@@ -6,7 +6,7 @@ class Message {
   
   Severity severity = null;
   //enum severityEnum {  INFO,  WARNING,  ERROR,  };{
-  /* If message related exchange then identifier of this exchange. */
+  /* If the message related to exchange, then the identifier of the exchange will be provided. */
   String exchangeId = null;
   /* Message text. */
   String message = null;

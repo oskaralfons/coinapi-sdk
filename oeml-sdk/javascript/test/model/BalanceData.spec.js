@@ -54,14 +54,14 @@
       //expect(instance).to.be.a(OemlRestApi.BalanceData);
     });
 
-    it('should have the property symbolExchange (base name: "symbol_exchange")', function() {
-      // uncomment below and update the code to test the property symbolExchange
+    it('should have the property assetIdExchange (base name: "asset_id_exchange")', function() {
+      // uncomment below and update the code to test the property assetIdExchange
       //var instane = new OemlRestApi.BalanceData();
       //expect(instance).to.be();
     });
 
-    it('should have the property symbolCoinapi (base name: "symbol_coinapi")', function() {
-      // uncomment below and update the code to test the property symbolCoinapi
+    it('should have the property assetIdCoinapi (base name: "asset_id_coinapi")', function() {
+      // uncomment below and update the code to test the property assetIdCoinapi
       //var instane = new OemlRestApi.BalanceData();
       //expect(instance).to.be();
     });
@@ -84,8 +84,14 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property updateOrigin (base name: "update_origin")', function() {
-      // uncomment below and update the code to test the property updateOrigin
+    it('should have the property lastUpdatedBy (base name: "last_updated_by")', function() {
+      // uncomment below and update the code to test the property lastUpdatedBy
+      //var instane = new OemlRestApi.BalanceData();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property rateUsd (base name: "rate_usd")', function() {
+      // uncomment below and update the code to test the property rateUsd
       //var instane = new OemlRestApi.BalanceData();
       //expect(instance).to.be();
     });

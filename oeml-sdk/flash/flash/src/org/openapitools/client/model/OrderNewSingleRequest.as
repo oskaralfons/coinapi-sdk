@@ -12,12 +12,12 @@ import org.openapitools.client.model.TimeInForce;
         /* The unique identifier of the order assigned by the client. */
         [XmlElement(name="client_order_id")]
         public var clientOrderId: String = null;
-        /* Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order. */
-        [XmlElement(name="symbol_exchange")]
-        public var symbolExchange: String = null;
-        /* CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order. */
-        [XmlElement(name="symbol_coinapi")]
-        public var symbolCoinapi: String = null;
+        /* Exchange symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order. */
+        [XmlElement(name="symbol_id_exchange")]
+        public var symbolIdExchange: String = null;
+        /* CoinAPI symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order. */
+        [XmlElement(name="symbol_id_coinapi")]
+        public var symbolIdCoinapi: String = null;
         /* Order quantity. */
         [XmlElement(name="amount_order")]
         public var amountOrder: Number = 0.0;
@@ -44,8 +44,8 @@ import org.openapitools.client.model.TimeInForce;
         var str: String = "OrderNewSingleRequest: ";
         str += " (exchangeId: " + exchangeId + ")";
         str += " (clientOrderId: " + clientOrderId + ")";
-        str += " (symbolExchange: " + symbolExchange + ")";
-        str += " (symbolCoinapi: " + symbolCoinapi + ")";
+        str += " (symbolIdExchange: " + symbolIdExchange + ")";
+        str += " (symbolIdCoinapi: " + symbolIdCoinapi + ")";
         str += " (amountOrder: " + amountOrder + ")";
         str += " (price: " + price + ")";
         str += " (side: " + side + ")";

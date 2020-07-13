@@ -9,9 +9,9 @@ import org.openapitools.model.OrdSide;
 @Canonical
 class PositionData {
     /* Exchange symbol. */
-    String symbolExchange
+    String symbolIdExchange
     /* CoinAPI symbol. */
-    String symbolCoinapi
+    String symbolIdCoinapi
     /* Calculated average price of all fills on this position. */
     BigDecimal avgEntryPrice
     /* The current position quantity. */

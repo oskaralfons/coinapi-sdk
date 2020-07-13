@@ -36,8 +36,8 @@ class OrderExecutionReport(object):
     openapi_types = {
         'exchange_id': 'str',
         'client_order_id': 'str',
-        'symbol_exchange': 'str',
-        'symbol_coinapi': 'str',
+        'symbol_id_exchange': 'str',
+        'symbol_id_coinapi': 'str',
         'amount_order': 'float',
         'price': 'float',
         'side': 'OrdSide',
@@ -57,8 +57,8 @@ class OrderExecutionReport(object):
     attribute_map = {
         'exchange_id': 'exchange_id',
         'client_order_id': 'client_order_id',
-        'symbol_exchange': 'symbol_exchange',
-        'symbol_coinapi': 'symbol_coinapi',
+        'symbol_id_exchange': 'symbol_id_exchange',
+        'symbol_id_coinapi': 'symbol_id_coinapi',
         'amount_order': 'amount_order',
         'price': 'price',
         'side': 'side',
@@ -75,7 +75,7 @@ class OrderExecutionReport(object):
         'error_message': 'error_message'
     }
 
-    def __init__(self, exchange_id=None, client_order_id=None, symbol_exchange=None, symbol_coinapi=None, amount_order=None, price=None, side=None, order_type=None, time_in_force=None, expire_time=None, exec_inst=None, client_order_id_format_exchange=None, exchange_order_id=None, amount_open=None, amount_filled=None, status=None, time_order=None, error_message=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, exchange_id=None, client_order_id=None, symbol_id_exchange=None, symbol_id_coinapi=None, amount_order=None, price=None, side=None, order_type=None, time_in_force=None, expire_time=None, exec_inst=None, client_order_id_format_exchange=None, exchange_order_id=None, amount_open=None, amount_filled=None, status=None, time_order=None, error_message=None, local_vars_configuration=None):  # noqa: E501
         """OrderExecutionReport - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -83,8 +83,8 @@ class OrderExecutionReport(object):
 
         self._exchange_id = None
         self._client_order_id = None
-        self._symbol_exchange = None
-        self._symbol_coinapi = None
+        self._symbol_id_exchange = None
+        self._symbol_id_coinapi = None
         self._amount_order = None
         self._price = None
         self._side = None
@@ -103,10 +103,10 @@ class OrderExecutionReport(object):
 
         self.exchange_id = exchange_id
         self.client_order_id = client_order_id
-        if symbol_exchange is not None:
-            self.symbol_exchange = symbol_exchange
-        if symbol_coinapi is not None:
-            self.symbol_coinapi = symbol_coinapi
+        if symbol_id_exchange is not None:
+            self.symbol_id_exchange = symbol_id_exchange
+        if symbol_id_coinapi is not None:
+            self.symbol_id_coinapi = symbol_id_coinapi
         self.amount_order = amount_order
         self.price = price
         self.side = side
@@ -177,50 +177,50 @@ class OrderExecutionReport(object):
         self._client_order_id = client_order_id
 
     @property
-    def symbol_exchange(self):
-        """Gets the symbol_exchange of this OrderExecutionReport.  # noqa: E501
+    def symbol_id_exchange(self):
+        """Gets the symbol_id_exchange of this OrderExecutionReport.  # noqa: E501
 
-        Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.  # noqa: E501
+        Exchange symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.  # noqa: E501
 
-        :return: The symbol_exchange of this OrderExecutionReport.  # noqa: E501
+        :return: The symbol_id_exchange of this OrderExecutionReport.  # noqa: E501
         :rtype: str
         """
-        return self._symbol_exchange
+        return self._symbol_id_exchange
 
-    @symbol_exchange.setter
-    def symbol_exchange(self, symbol_exchange):
-        """Sets the symbol_exchange of this OrderExecutionReport.
+    @symbol_id_exchange.setter
+    def symbol_id_exchange(self, symbol_id_exchange):
+        """Sets the symbol_id_exchange of this OrderExecutionReport.
 
-        Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.  # noqa: E501
+        Exchange symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.  # noqa: E501
 
-        :param symbol_exchange: The symbol_exchange of this OrderExecutionReport.  # noqa: E501
+        :param symbol_id_exchange: The symbol_id_exchange of this OrderExecutionReport.  # noqa: E501
         :type: str
         """
 
-        self._symbol_exchange = symbol_exchange
+        self._symbol_id_exchange = symbol_id_exchange
 
     @property
-    def symbol_coinapi(self):
-        """Gets the symbol_coinapi of this OrderExecutionReport.  # noqa: E501
+    def symbol_id_coinapi(self):
+        """Gets the symbol_id_coinapi of this OrderExecutionReport.  # noqa: E501
 
-        CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.  # noqa: E501
+        CoinAPI symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.  # noqa: E501
 
-        :return: The symbol_coinapi of this OrderExecutionReport.  # noqa: E501
+        :return: The symbol_id_coinapi of this OrderExecutionReport.  # noqa: E501
         :rtype: str
         """
-        return self._symbol_coinapi
+        return self._symbol_id_coinapi
 
-    @symbol_coinapi.setter
-    def symbol_coinapi(self, symbol_coinapi):
-        """Sets the symbol_coinapi of this OrderExecutionReport.
+    @symbol_id_coinapi.setter
+    def symbol_id_coinapi(self, symbol_id_coinapi):
+        """Sets the symbol_id_coinapi of this OrderExecutionReport.
 
-        CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.  # noqa: E501
+        CoinAPI symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.  # noqa: E501
 
-        :param symbol_coinapi: The symbol_coinapi of this OrderExecutionReport.  # noqa: E501
+        :param symbol_id_coinapi: The symbol_id_coinapi of this OrderExecutionReport.  # noqa: E501
         :type: str
         """
 
-        self._symbol_coinapi = symbol_coinapi
+        self._symbol_id_coinapi = symbol_id_coinapi
 
     @property
     def amount_order(self):

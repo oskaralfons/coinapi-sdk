@@ -50,9 +50,9 @@ public class Message {
   }
 
   /**
-   * If message related exchange then identifier of this exchange.
+   * If the message related to exchange, then the identifier of the exchange will be provided.
    **/
-  @ApiModelProperty(value = "If message related exchange then identifier of this exchange.")
+  @ApiModelProperty(value = "If the message related to exchange, then the identifier of the exchange will be provided.")
   public String getExchangeId() {
     return exchangeId;
   }

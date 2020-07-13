@@ -29,7 +29,7 @@ feature --Access
     severity: detachable SEVERITY 
       
     exchange_id: detachable STRING_32 
-      -- If message related exchange then identifier of this exchange.
+      -- If the message related to exchange, then the identifier of the exchange will be provided.
     message: detachable STRING_32 
       -- Message text.
 

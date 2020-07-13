@@ -12,9 +12,9 @@ package openapi
 // PositionData struct for PositionData
 type PositionData struct {
 	// Exchange symbol.
-	SymbolExchange string `json:"symbol_exchange,omitempty"`
+	SymbolIdExchange string `json:"symbol_id_exchange,omitempty"`
 	// CoinAPI symbol.
-	SymbolCoinapi string `json:"symbol_coinapi,omitempty"`
+	SymbolIdCoinapi string `json:"symbol_id_coinapi,omitempty"`
 	// Calculated average price of all fills on this position.
 	AvgEntryPrice float32 `json:"avg_entry_price,omitempty"`
 	// The current position quantity.

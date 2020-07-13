@@ -91,7 +91,7 @@ export type Balance = {
 
 
 
-            export type BalanceDataUpdateOriginEnum = 'INITIALIZATION' | 'BALANCE_MANAGER' | 'EXCHANGE';
+            export type BalanceDataLastUpdatedByEnum = 'INITIALIZATION' | 'BALANCE_MANAGER' | 'EXCHANGE';
 /**
  * 
  * @export
@@ -102,13 +102,13 @@ export type BalanceData = {
      * @type {string}
      * @memberof BalanceData
      */
-    symbol_exchange?: string;
+    asset_id_exchange?: string;
     /**
      * CoinAPI currency code.
      * @type {string}
      * @memberof BalanceData
      */
-    symbol_coinapi?: string;
+    asset_id_coinapi?: string;
     /**
      * Value of the current total currency balance on the exchange.
      * @type {number}
@@ -132,7 +132,13 @@ export type BalanceData = {
      * @type {string}
      * @memberof BalanceData
      */
-    update_origin?: BalanceDataUpdateOriginEnum;
+    last_updated_by?: BalanceDataLastUpdatedByEnum;
+    /**
+     * Current exchange rate to the USD for the single unit of the currency. 
+     * @type {number}
+     * @memberof BalanceData
+     */
+    rate_usd?: number;
 }
 
 
@@ -154,7 +160,7 @@ export type Message = {
      */
     severity?: Severity;
     /**
-     * If message related exchange then identifier of this exchange.
+     * If the message related to exchange, then the identifier of the exchange will be provided.
      * @type {string}
      * @memberof Message
      */
@@ -249,17 +255,17 @@ export type OrderExecutionReport = {
      */
     client_order_id: string;
     /**
-     * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
+     * Exchange symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.
      * @type {string}
      * @memberof OrderExecutionReport
      */
-    symbol_exchange?: string;
+    symbol_id_exchange?: string;
     /**
-     * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
+     * CoinAPI symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.
      * @type {string}
      * @memberof OrderExecutionReport
      */
-    symbol_coinapi?: string;
+    symbol_id_coinapi?: string;
     /**
      * Order quantity.
      * @type {number}
@@ -417,17 +423,17 @@ export type OrderNewSingleRequest = {
      */
     client_order_id: string;
     /**
-     * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
+     * Exchange symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.
      * @type {string}
      * @memberof OrderNewSingleRequest
      */
-    symbol_exchange?: string;
+    symbol_id_exchange?: string;
     /**
-     * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
+     * CoinAPI symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.
      * @type {string}
      * @memberof OrderNewSingleRequest
      */
-    symbol_coinapi?: string;
+    symbol_id_coinapi?: string;
     /**
      * Order quantity.
      * @type {number}
@@ -503,13 +509,13 @@ export type PositionData = {
      * @type {string}
      * @memberof PositionData
      */
-    symbol_exchange?: string;
+    symbol_id_exchange?: string;
     /**
      * CoinAPI symbol.
      * @type {string}
      * @memberof PositionData
      */
-    symbol_coinapi?: string;
+    symbol_id_coinapi?: string;
     /**
      * Calculated average price of all fills on this position.
      * @type {number}

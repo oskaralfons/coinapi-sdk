@@ -60,8 +60,8 @@ class OrderExecutionReport implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'exchange_id' => 'string',
         'client_order_id' => 'string',
-        'symbol_exchange' => 'string',
-        'symbol_coinapi' => 'string',
+        'symbol_id_exchange' => 'string',
+        'symbol_id_coinapi' => 'string',
         'amount_order' => 'float',
         'price' => 'float',
         'side' => '\OpenAPI\Client\Model\OrdSide',
@@ -86,8 +86,8 @@ class OrderExecutionReport implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'exchange_id' => null,
         'client_order_id' => null,
-        'symbol_exchange' => null,
-        'symbol_coinapi' => null,
+        'symbol_id_exchange' => null,
+        'symbol_id_coinapi' => null,
         'amount_order' => null,
         'price' => null,
         'side' => null,
@@ -133,8 +133,8 @@ class OrderExecutionReport implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'exchange_id' => 'exchange_id',
         'client_order_id' => 'client_order_id',
-        'symbol_exchange' => 'symbol_exchange',
-        'symbol_coinapi' => 'symbol_coinapi',
+        'symbol_id_exchange' => 'symbol_id_exchange',
+        'symbol_id_coinapi' => 'symbol_id_coinapi',
         'amount_order' => 'amount_order',
         'price' => 'price',
         'side' => 'side',
@@ -159,8 +159,8 @@ class OrderExecutionReport implements ModelInterface, ArrayAccess
     protected static $setters = [
         'exchange_id' => 'setExchangeId',
         'client_order_id' => 'setClientOrderId',
-        'symbol_exchange' => 'setSymbolExchange',
-        'symbol_coinapi' => 'setSymbolCoinapi',
+        'symbol_id_exchange' => 'setSymbolIdExchange',
+        'symbol_id_coinapi' => 'setSymbolIdCoinapi',
         'amount_order' => 'setAmountOrder',
         'price' => 'setPrice',
         'side' => 'setSide',
@@ -185,8 +185,8 @@ class OrderExecutionReport implements ModelInterface, ArrayAccess
     protected static $getters = [
         'exchange_id' => 'getExchangeId',
         'client_order_id' => 'getClientOrderId',
-        'symbol_exchange' => 'getSymbolExchange',
-        'symbol_coinapi' => 'getSymbolCoinapi',
+        'symbol_id_exchange' => 'getSymbolIdExchange',
+        'symbol_id_coinapi' => 'getSymbolIdCoinapi',
         'amount_order' => 'getAmountOrder',
         'price' => 'getPrice',
         'side' => 'getSide',
@@ -282,8 +282,8 @@ class OrderExecutionReport implements ModelInterface, ArrayAccess
     {
         $this->container['exchange_id'] = isset($data['exchange_id']) ? $data['exchange_id'] : null;
         $this->container['client_order_id'] = isset($data['client_order_id']) ? $data['client_order_id'] : null;
-        $this->container['symbol_exchange'] = isset($data['symbol_exchange']) ? $data['symbol_exchange'] : null;
-        $this->container['symbol_coinapi'] = isset($data['symbol_coinapi']) ? $data['symbol_coinapi'] : null;
+        $this->container['symbol_id_exchange'] = isset($data['symbol_id_exchange']) ? $data['symbol_id_exchange'] : null;
+        $this->container['symbol_id_coinapi'] = isset($data['symbol_id_coinapi']) ? $data['symbol_id_coinapi'] : null;
         $this->container['amount_order'] = isset($data['amount_order']) ? $data['amount_order'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
         $this->container['side'] = isset($data['side']) ? $data['side'] : null;
@@ -409,49 +409,49 @@ class OrderExecutionReport implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets symbol_exchange
+     * Gets symbol_id_exchange
      *
      * @return string|null
      */
-    public function getSymbolExchange()
+    public function getSymbolIdExchange()
     {
-        return $this->container['symbol_exchange'];
+        return $this->container['symbol_id_exchange'];
     }
 
     /**
-     * Sets symbol_exchange
+     * Sets symbol_id_exchange
      *
-     * @param string|null $symbol_exchange Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
+     * @param string|null $symbol_id_exchange Exchange symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.
      *
      * @return $this
      */
-    public function setSymbolExchange($symbol_exchange)
+    public function setSymbolIdExchange($symbol_id_exchange)
     {
-        $this->container['symbol_exchange'] = $symbol_exchange;
+        $this->container['symbol_id_exchange'] = $symbol_id_exchange;
 
         return $this;
     }
 
     /**
-     * Gets symbol_coinapi
+     * Gets symbol_id_coinapi
      *
      * @return string|null
      */
-    public function getSymbolCoinapi()
+    public function getSymbolIdCoinapi()
     {
-        return $this->container['symbol_coinapi'];
+        return $this->container['symbol_id_coinapi'];
     }
 
     /**
-     * Sets symbol_coinapi
+     * Sets symbol_id_coinapi
      *
-     * @param string|null $symbol_coinapi CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
+     * @param string|null $symbol_id_coinapi CoinAPI symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.
      *
      * @return $this
      */
-    public function setSymbolCoinapi($symbol_coinapi)
+    public function setSymbolIdCoinapi($symbol_id_coinapi)
     {
-        $this->container['symbol_coinapi'] = $symbol_coinapi;
+        $this->container['symbol_id_coinapi'] = $symbol_id_coinapi;
 
         return $this;
     }

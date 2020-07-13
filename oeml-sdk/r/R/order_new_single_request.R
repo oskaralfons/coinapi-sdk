@@ -14,9 +14,9 @@
 #'
 #' @field client_order_id  character 
 #'
-#' @field symbol_exchange  character [optional]
+#' @field symbol_id_exchange  character [optional]
 #'
-#' @field symbol_coinapi  character [optional]
+#' @field symbol_id_coinapi  character [optional]
 #'
 #' @field amount_order  numeric 
 #'
@@ -41,8 +41,8 @@ OrderNewSingleRequest <- R6::R6Class(
   public = list(
     `exchange_id` = NULL,
     `client_order_id` = NULL,
-    `symbol_exchange` = NULL,
-    `symbol_coinapi` = NULL,
+    `symbol_id_exchange` = NULL,
+    `symbol_id_coinapi` = NULL,
     `amount_order` = NULL,
     `price` = NULL,
     `side` = NULL,
@@ -50,7 +50,7 @@ OrderNewSingleRequest <- R6::R6Class(
     `time_in_force` = NULL,
     `expire_time` = NULL,
     `exec_inst` = NULL,
-    initialize = function(`exchange_id`, `client_order_id`, `amount_order`, `price`, `side`, `order_type`, `time_in_force`, `symbol_exchange`=NULL, `symbol_coinapi`=NULL, `expire_time`=NULL, `exec_inst`=NULL, ...){
+    initialize = function(`exchange_id`, `client_order_id`, `amount_order`, `price`, `side`, `order_type`, `time_in_force`, `symbol_id_exchange`=NULL, `symbol_id_coinapi`=NULL, `expire_time`=NULL, `exec_inst`=NULL, ...){
       local.optional.var <- list(...)
       if (!missing(`exchange_id`)) {
         stopifnot(is.character(`exchange_id`), length(`exchange_id`) == 1)
@@ -78,13 +78,13 @@ OrderNewSingleRequest <- R6::R6Class(
         stopifnot(R6::is.R6(`time_in_force`))
         self$`time_in_force` <- `time_in_force`
       }
-      if (!is.null(`symbol_exchange`)) {
-        stopifnot(is.character(`symbol_exchange`), length(`symbol_exchange`) == 1)
-        self$`symbol_exchange` <- `symbol_exchange`
+      if (!is.null(`symbol_id_exchange`)) {
+        stopifnot(is.character(`symbol_id_exchange`), length(`symbol_id_exchange`) == 1)
+        self$`symbol_id_exchange` <- `symbol_id_exchange`
       }
-      if (!is.null(`symbol_coinapi`)) {
-        stopifnot(is.character(`symbol_coinapi`), length(`symbol_coinapi`) == 1)
-        self$`symbol_coinapi` <- `symbol_coinapi`
+      if (!is.null(`symbol_id_coinapi`)) {
+        stopifnot(is.character(`symbol_id_coinapi`), length(`symbol_id_coinapi`) == 1)
+        self$`symbol_id_coinapi` <- `symbol_id_coinapi`
       }
       if (!is.null(`expire_time`)) {
         self$`expire_time` <- `expire_time`
@@ -105,13 +105,13 @@ OrderNewSingleRequest <- R6::R6Class(
         OrderNewSingleRequestObject[['client_order_id']] <-
           self$`client_order_id`
       }
-      if (!is.null(self$`symbol_exchange`)) {
-        OrderNewSingleRequestObject[['symbol_exchange']] <-
-          self$`symbol_exchange`
+      if (!is.null(self$`symbol_id_exchange`)) {
+        OrderNewSingleRequestObject[['symbol_id_exchange']] <-
+          self$`symbol_id_exchange`
       }
-      if (!is.null(self$`symbol_coinapi`)) {
-        OrderNewSingleRequestObject[['symbol_coinapi']] <-
-          self$`symbol_coinapi`
+      if (!is.null(self$`symbol_id_coinapi`)) {
+        OrderNewSingleRequestObject[['symbol_id_coinapi']] <-
+          self$`symbol_id_coinapi`
       }
       if (!is.null(self$`amount_order`)) {
         OrderNewSingleRequestObject[['amount_order']] <-
@@ -152,11 +152,11 @@ OrderNewSingleRequest <- R6::R6Class(
       if (!is.null(OrderNewSingleRequestObject$`client_order_id`)) {
         self$`client_order_id` <- OrderNewSingleRequestObject$`client_order_id`
       }
-      if (!is.null(OrderNewSingleRequestObject$`symbol_exchange`)) {
-        self$`symbol_exchange` <- OrderNewSingleRequestObject$`symbol_exchange`
+      if (!is.null(OrderNewSingleRequestObject$`symbol_id_exchange`)) {
+        self$`symbol_id_exchange` <- OrderNewSingleRequestObject$`symbol_id_exchange`
       }
-      if (!is.null(OrderNewSingleRequestObject$`symbol_coinapi`)) {
-        self$`symbol_coinapi` <- OrderNewSingleRequestObject$`symbol_coinapi`
+      if (!is.null(OrderNewSingleRequestObject$`symbol_id_coinapi`)) {
+        self$`symbol_id_coinapi` <- OrderNewSingleRequestObject$`symbol_id_coinapi`
       }
       if (!is.null(OrderNewSingleRequestObject$`amount_order`)) {
         self$`amount_order` <- OrderNewSingleRequestObject$`amount_order`
@@ -202,19 +202,19 @@ OrderNewSingleRequest <- R6::R6Class(
                 ',
         self$`client_order_id`
         )},
-        if (!is.null(self$`symbol_exchange`)) {
+        if (!is.null(self$`symbol_id_exchange`)) {
         sprintf(
-        '"symbol_exchange":
+        '"symbol_id_exchange":
           "%s"
                 ',
-        self$`symbol_exchange`
+        self$`symbol_id_exchange`
         )},
-        if (!is.null(self$`symbol_coinapi`)) {
+        if (!is.null(self$`symbol_id_coinapi`)) {
         sprintf(
-        '"symbol_coinapi":
+        '"symbol_id_coinapi":
           "%s"
                 ',
-        self$`symbol_coinapi`
+        self$`symbol_id_coinapi`
         )},
         if (!is.null(self$`amount_order`)) {
         sprintf(
@@ -273,8 +273,8 @@ OrderNewSingleRequest <- R6::R6Class(
       OrderNewSingleRequestObject <- jsonlite::fromJSON(OrderNewSingleRequestJson)
       self$`exchange_id` <- OrderNewSingleRequestObject$`exchange_id`
       self$`client_order_id` <- OrderNewSingleRequestObject$`client_order_id`
-      self$`symbol_exchange` <- OrderNewSingleRequestObject$`symbol_exchange`
-      self$`symbol_coinapi` <- OrderNewSingleRequestObject$`symbol_coinapi`
+      self$`symbol_id_exchange` <- OrderNewSingleRequestObject$`symbol_id_exchange`
+      self$`symbol_id_coinapi` <- OrderNewSingleRequestObject$`symbol_id_coinapi`
       self$`amount_order` <- OrderNewSingleRequestObject$`amount_order`
       self$`price` <- OrderNewSingleRequestObject$`price`
       self$`side` <- OrdSide$new()$fromJSON(jsonlite::toJSON(OrderNewSingleRequestObject$side, auto_unbox = TRUE, digits = NA))

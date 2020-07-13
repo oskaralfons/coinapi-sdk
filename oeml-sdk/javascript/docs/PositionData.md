@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**symbolExchange** | **String** | Exchange symbol. | [optional] 
-**symbolCoinapi** | **String** | CoinAPI symbol. | [optional] 
+**symbolIdExchange** | **String** | Exchange symbol. | [optional] 
+**symbolIdCoinapi** | **String** | CoinAPI symbol. | [optional] 
 **avgEntryPrice** | **Number** | Calculated average price of all fills on this position. | [optional] 
 **quantity** | **Number** | The current position quantity. | [optional] 
 **side** | [**OrdSide**](OrdSide.md) |  | [optional] 

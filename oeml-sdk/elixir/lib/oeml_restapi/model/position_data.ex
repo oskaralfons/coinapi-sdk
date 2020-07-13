@@ -9,8 +9,8 @@ defmodule OEML-RESTAPI.Model.PositionData do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"symbol_exchange",
-    :"symbol_coinapi",
+    :"symbol_id_exchange",
+    :"symbol_id_coinapi",
     :"avg_entry_price",
     :"quantity",
     :"side",
@@ -22,8 +22,8 @@ defmodule OEML-RESTAPI.Model.PositionData do
   ]
 
   @type t :: %__MODULE__{
-    :"symbol_exchange" => String.t | nil,
-    :"symbol_coinapi" => String.t | nil,
+    :"symbol_id_exchange" => String.t | nil,
+    :"symbol_id_coinapi" => String.t | nil,
     :"avg_entry_price" => float() | nil,
     :"quantity" => float() | nil,
     :"side" => OrdSide | nil,

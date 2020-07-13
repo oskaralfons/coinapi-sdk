@@ -242,12 +242,13 @@ package .Models is
 
    type BalanceData_Type is
      record
-       Symbol_Exchange : Swagger.Nullable_UString;
-       Symbol_Coinapi : Swagger.Nullable_UString;
+       Asset_Id_Exchange : Swagger.Nullable_UString;
+       Asset_Id_Coinapi : Swagger.Nullable_UString;
        Balance : float;
        Available : float;
        Locked : float;
-       Update_Origin : Swagger.Nullable_UString;
+       Last_Updated_By : Swagger.Nullable_UString;
+       Rate_Usd : float;
      end record;
 
    package BalanceData_Type_Vectors is
@@ -306,8 +307,8 @@ package .Models is
      record
        Exchange_Id : Swagger.UString;
        Client_Order_Id : Swagger.UString;
-       Symbol_Exchange : Swagger.Nullable_UString;
-       Symbol_Coinapi : Swagger.Nullable_UString;
+       Symbol_Id_Exchange : Swagger.Nullable_UString;
+       Symbol_Id_Coinapi : Swagger.Nullable_UString;
        Amount_Order : Swagger.Number;
        Price : Swagger.Number;
        Side : .Models.OrdSide_Type;
@@ -344,8 +345,8 @@ package .Models is
      record
        Exchange_Id : Swagger.UString;
        Client_Order_Id : Swagger.UString;
-       Symbol_Exchange : Swagger.Nullable_UString;
-       Symbol_Coinapi : Swagger.Nullable_UString;
+       Symbol_Id_Exchange : Swagger.Nullable_UString;
+       Symbol_Id_Coinapi : Swagger.Nullable_UString;
        Amount_Order : Swagger.Number;
        Price : Swagger.Number;
        Side : .Models.OrdSide_Type;
@@ -484,8 +485,8 @@ package .Models is
 
    type PositionData_Type is
      record
-       Symbol_Exchange : Swagger.Nullable_UString;
-       Symbol_Coinapi : Swagger.Nullable_UString;
+       Symbol_Id_Exchange : Swagger.Nullable_UString;
+       Symbol_Id_Coinapi : Swagger.Nullable_UString;
        Avg_Entry_Price : Swagger.Number;
        Quantity : Swagger.Number;
        Side : .Models.OrdSide_Type;

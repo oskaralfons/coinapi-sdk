@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **exchange_id** | [**STRING_32**](STRING_32.md) | Exchange identifier. | [default to null]
 **client_order_id** | [**STRING_32**](STRING_32.md) | The unique identifier of the order assigned by the client. | [default to null]
-**symbol_exchange** | [**STRING_32**](STRING_32.md) | Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order. | [optional] [default to null]
-**symbol_coinapi** | [**STRING_32**](STRING_32.md) | CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order. | [optional] [default to null]
+**symbol_id_exchange** | [**STRING_32**](STRING_32.md) | Exchange symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order. | [optional] [default to null]
+**symbol_id_coinapi** | [**STRING_32**](STRING_32.md) | CoinAPI symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order. | [optional] [default to null]
 **amount_order** | **REAL_32** | Order quantity. | [default to null]
 **price** | **REAL_32** | Order price. | [default to null]
 **side** | [**ORD_SIDE**](OrdSide.md) |  | [default to null]

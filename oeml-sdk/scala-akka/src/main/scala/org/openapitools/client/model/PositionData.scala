@@ -15,9 +15,9 @@ import org.openapitools.client.core.ApiModel
 
 case class PositionData (
   /* Exchange symbol. */
-  symbolExchange: Option[String] = None,
+  symbolIdExchange: Option[String] = None,
   /* CoinAPI symbol. */
-  symbolCoinapi: Option[String] = None,
+  symbolIdCoinapi: Option[String] = None,
   /* Calculated average price of all fills on this position. */
   avgEntryPrice: Option[Double] = None,
   /* The current position quantity. */

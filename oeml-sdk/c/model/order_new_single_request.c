@@ -76,8 +76,8 @@ oeml___rest_api_order_new_single_request_EXECINST_e exec_instorder_new_single_re
 order_new_single_request_t *order_new_single_request_create(
     char *exchange_id,
     char *client_order_id,
-    char *symbol_exchange,
-    char *symbol_coinapi,
+    char *symbol_id_exchange,
+    char *symbol_id_coinapi,
     double amount_order,
     double price,
     list_t *exec_inst
@@ -88,8 +88,8 @@ order_new_single_request_t *order_new_single_request_create(
     }
     order_new_single_request_local_var->exchange_id = exchange_id;
     order_new_single_request_local_var->client_order_id = client_order_id;
-    order_new_single_request_local_var->symbol_exchange = symbol_exchange;
-    order_new_single_request_local_var->symbol_coinapi = symbol_coinapi;
+    order_new_single_request_local_var->symbol_id_exchange = symbol_id_exchange;
+    order_new_single_request_local_var->symbol_id_coinapi = symbol_id_coinapi;
     order_new_single_request_local_var->amount_order = amount_order;
     order_new_single_request_local_var->price = price;
     order_new_single_request_local_var->side = side;
@@ -109,8 +109,8 @@ void order_new_single_request_free(order_new_single_request_t *order_new_single_
     listEntry_t *listEntry;
     free(order_new_single_request->exchange_id);
     free(order_new_single_request->client_order_id);
-    free(order_new_single_request->symbol_exchange);
-    free(order_new_single_request->symbol_coinapi);
+    free(order_new_single_request->symbol_id_exchange);
+    free(order_new_single_request->symbol_id_coinapi);
     list_ForEach(listEntry, order_new_single_request->exec_inst) {
         free(listEntry->data);
     }
@@ -141,17 +141,17 @@ cJSON *order_new_single_request_convertToJSON(order_new_single_request_t *order_
     }
 
 
-    // order_new_single_request->symbol_exchange
-    if(order_new_single_request->symbol_exchange) { 
-    if(cJSON_AddStringToObject(item, "symbol_exchange", order_new_single_request->symbol_exchange) == NULL) {
+    // order_new_single_request->symbol_id_exchange
+    if(order_new_single_request->symbol_id_exchange) { 
+    if(cJSON_AddStringToObject(item, "symbol_id_exchange", order_new_single_request->symbol_id_exchange) == NULL) {
     goto fail; //String
     }
      } 
 
 
-    // order_new_single_request->symbol_coinapi
-    if(order_new_single_request->symbol_coinapi) { 
-    if(cJSON_AddStringToObject(item, "symbol_coinapi", order_new_single_request->symbol_coinapi) == NULL) {
+    // order_new_single_request->symbol_id_coinapi
+    if(order_new_single_request->symbol_id_coinapi) { 
+    if(cJSON_AddStringToObject(item, "symbol_id_coinapi", order_new_single_request->symbol_id_coinapi) == NULL) {
     goto fail; //String
     }
      } 
@@ -246,19 +246,19 @@ order_new_single_request_t *order_new_single_request_parseFromJSON(cJSON *order_
     goto end; //String
     }
 
-    // order_new_single_request->symbol_exchange
-    cJSON *symbol_exchange = cJSON_GetObjectItemCaseSensitive(order_new_single_requestJSON, "symbol_exchange");
-    if (symbol_exchange) { 
-    if(!cJSON_IsString(symbol_exchange))
+    // order_new_single_request->symbol_id_exchange
+    cJSON *symbol_id_exchange = cJSON_GetObjectItemCaseSensitive(order_new_single_requestJSON, "symbol_id_exchange");
+    if (symbol_id_exchange) { 
+    if(!cJSON_IsString(symbol_id_exchange))
     {
     goto end; //String
     }
     }
 
-    // order_new_single_request->symbol_coinapi
-    cJSON *symbol_coinapi = cJSON_GetObjectItemCaseSensitive(order_new_single_requestJSON, "symbol_coinapi");
-    if (symbol_coinapi) { 
-    if(!cJSON_IsString(symbol_coinapi))
+    // order_new_single_request->symbol_id_coinapi
+    cJSON *symbol_id_coinapi = cJSON_GetObjectItemCaseSensitive(order_new_single_requestJSON, "symbol_id_coinapi");
+    if (symbol_id_coinapi) { 
+    if(!cJSON_IsString(symbol_id_coinapi))
     {
     goto end; //String
     }
@@ -337,8 +337,8 @@ order_new_single_request_t *order_new_single_request_parseFromJSON(cJSON *order_
     order_new_single_request_local_var = order_new_single_request_create (
         strdup(exchange_id->valuestring),
         strdup(client_order_id->valuestring),
-        symbol_exchange ? strdup(symbol_exchange->valuestring) : NULL,
-        symbol_coinapi ? strdup(symbol_coinapi->valuestring) : NULL,
+        symbol_id_exchange ? strdup(symbol_id_exchange->valuestring) : NULL,
+        symbol_id_coinapi ? strdup(symbol_id_coinapi->valuestring) : NULL,
         amount_order->valuedouble,
         price->valuedouble,
         exec_inst ? exec_instList : NULL

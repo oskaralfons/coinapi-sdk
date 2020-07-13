@@ -19,7 +19,7 @@ module OpenapiClient
 
     attr_accessor :severity
 
-    # If message related exchange then identifier of this exchange.
+    # If the message related to exchange, then the identifier of the exchange will be provided.
     attr_accessor :exchange_id
 
     # Message text.

@@ -40,7 +40,7 @@ namespace CoinAPI.OMS.REST.V1.Model
         /// </summary>
         /// <param name="type">Type of message..</param>
         /// <param name="severity">severity.</param>
-        /// <param name="exchangeId">If message related exchange then identifier of this exchange..</param>
+        /// <param name="exchangeId">If the message related to exchange, then the identifier of the exchange will be provided..</param>
         /// <param name="message">Message text..</param>
         public Message(string type = default(string), Severity? severity = default(Severity?), string exchangeId = default(string), string message = default(string))
         {
@@ -59,9 +59,9 @@ namespace CoinAPI.OMS.REST.V1.Model
 
 
         /// <summary>
-        /// If message related exchange then identifier of this exchange.
+        /// If the message related to exchange, then the identifier of the exchange will be provided.
         /// </summary>
-        /// <value>If message related exchange then identifier of this exchange.</value>
+        /// <value>If the message related to exchange, then the identifier of the exchange will be provided.</value>
         [DataMember(Name="exchange_id", EmitDefaultValue=false)]
         public string ExchangeId { get; set; }
 

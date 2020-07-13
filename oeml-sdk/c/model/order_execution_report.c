@@ -93,8 +93,8 @@ oeml___rest_api_order_execution_report__e statusorder_execution_report_FromStrin
 order_execution_report_t *order_execution_report_create(
     char *exchange_id,
     char *client_order_id,
-    char *symbol_exchange,
-    char *symbol_coinapi,
+    char *symbol_id_exchange,
+    char *symbol_id_coinapi,
     double amount_order,
     double price,
     list_t *exec_inst,
@@ -111,8 +111,8 @@ order_execution_report_t *order_execution_report_create(
     }
     order_execution_report_local_var->exchange_id = exchange_id;
     order_execution_report_local_var->client_order_id = client_order_id;
-    order_execution_report_local_var->symbol_exchange = symbol_exchange;
-    order_execution_report_local_var->symbol_coinapi = symbol_coinapi;
+    order_execution_report_local_var->symbol_id_exchange = symbol_id_exchange;
+    order_execution_report_local_var->symbol_id_coinapi = symbol_id_coinapi;
     order_execution_report_local_var->amount_order = amount_order;
     order_execution_report_local_var->price = price;
     order_execution_report_local_var->side = side;
@@ -139,8 +139,8 @@ void order_execution_report_free(order_execution_report_t *order_execution_repor
     listEntry_t *listEntry;
     free(order_execution_report->exchange_id);
     free(order_execution_report->client_order_id);
-    free(order_execution_report->symbol_exchange);
-    free(order_execution_report->symbol_coinapi);
+    free(order_execution_report->symbol_id_exchange);
+    free(order_execution_report->symbol_id_coinapi);
     list_ForEach(listEntry, order_execution_report->exec_inst) {
         free(listEntry->data);
     }
@@ -178,17 +178,17 @@ cJSON *order_execution_report_convertToJSON(order_execution_report_t *order_exec
     }
 
 
-    // order_execution_report->symbol_exchange
-    if(order_execution_report->symbol_exchange) { 
-    if(cJSON_AddStringToObject(item, "symbol_exchange", order_execution_report->symbol_exchange) == NULL) {
+    // order_execution_report->symbol_id_exchange
+    if(order_execution_report->symbol_id_exchange) { 
+    if(cJSON_AddStringToObject(item, "symbol_id_exchange", order_execution_report->symbol_id_exchange) == NULL) {
     goto fail; //String
     }
      } 
 
 
-    // order_execution_report->symbol_coinapi
-    if(order_execution_report->symbol_coinapi) { 
-    if(cJSON_AddStringToObject(item, "symbol_coinapi", order_execution_report->symbol_coinapi) == NULL) {
+    // order_execution_report->symbol_id_coinapi
+    if(order_execution_report->symbol_id_coinapi) { 
+    if(cJSON_AddStringToObject(item, "symbol_id_coinapi", order_execution_report->symbol_id_coinapi) == NULL) {
     goto fail; //String
     }
      } 
@@ -348,19 +348,19 @@ order_execution_report_t *order_execution_report_parseFromJSON(cJSON *order_exec
     goto end; //String
     }
 
-    // order_execution_report->symbol_exchange
-    cJSON *symbol_exchange = cJSON_GetObjectItemCaseSensitive(order_execution_reportJSON, "symbol_exchange");
-    if (symbol_exchange) { 
-    if(!cJSON_IsString(symbol_exchange))
+    // order_execution_report->symbol_id_exchange
+    cJSON *symbol_id_exchange = cJSON_GetObjectItemCaseSensitive(order_execution_reportJSON, "symbol_id_exchange");
+    if (symbol_id_exchange) { 
+    if(!cJSON_IsString(symbol_id_exchange))
     {
     goto end; //String
     }
     }
 
-    // order_execution_report->symbol_coinapi
-    cJSON *symbol_coinapi = cJSON_GetObjectItemCaseSensitive(order_execution_reportJSON, "symbol_coinapi");
-    if (symbol_coinapi) { 
-    if(!cJSON_IsString(symbol_coinapi))
+    // order_execution_report->symbol_id_coinapi
+    cJSON *symbol_id_coinapi = cJSON_GetObjectItemCaseSensitive(order_execution_reportJSON, "symbol_id_coinapi");
+    if (symbol_id_coinapi) { 
+    if(!cJSON_IsString(symbol_id_coinapi))
     {
     goto end; //String
     }
@@ -518,8 +518,8 @@ order_execution_report_t *order_execution_report_parseFromJSON(cJSON *order_exec
     order_execution_report_local_var = order_execution_report_create (
         strdup(exchange_id->valuestring),
         strdup(client_order_id->valuestring),
-        symbol_exchange ? strdup(symbol_exchange->valuestring) : NULL,
-        symbol_coinapi ? strdup(symbol_coinapi->valuestring) : NULL,
+        symbol_id_exchange ? strdup(symbol_id_exchange->valuestring) : NULL,
+        symbol_id_coinapi ? strdup(symbol_id_coinapi->valuestring) : NULL,
         amount_order->valuedouble,
         price->valuedouble,
         exec_inst ? exec_instList : NULL,

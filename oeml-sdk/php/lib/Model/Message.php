@@ -283,7 +283,7 @@ class Message implements ModelInterface, ArrayAccess
     /**
      * Sets exchange_id
      *
-     * @param string|null $exchange_id If message related exchange then identifier of this exchange.
+     * @param string|null $exchange_id If the message related to exchange, then the identifier of the exchange will be provided.
      *
      * @return $this
      */

@@ -8,8 +8,8 @@ use WWW::OpenAPIClient::Object::PositionData;
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**symbol_exchange** | **string** | Exchange symbol. | [optional] 
-**symbol_coinapi** | **string** | CoinAPI symbol. | [optional] 
+**symbol_id_exchange** | **string** | Exchange symbol. | [optional] 
+**symbol_id_coinapi** | **string** | CoinAPI symbol. | [optional] 
 **avg_entry_price** | **double** | Calculated average price of all fills on this position. | [optional] 
 **quantity** | **double** | The current position quantity. | [optional] 
 **side** | [**OrdSide**](OrdSide.md) |  | [optional] 

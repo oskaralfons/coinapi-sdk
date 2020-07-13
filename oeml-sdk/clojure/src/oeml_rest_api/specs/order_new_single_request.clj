@@ -12,8 +12,8 @@
   {
    (ds/req :exchange_id) string?
    (ds/req :client_order_id) string?
-   (ds/opt :symbol_exchange) string?
-   (ds/opt :symbol_coinapi) string?
+   (ds/opt :symbol_id_exchange) string?
+   (ds/opt :symbol_id_coinapi) string?
    (ds/req :amount_order) float?
    (ds/req :price) float?
    (ds/req :side) ord-side-spec

@@ -16,11 +16,11 @@ export interface BalanceData {
     /**
      * Exchange currency code.
      */
-    "symbol_exchange"?: string;
+    "asset_id_exchange"?: string;
     /**
      * CoinAPI currency code.
      */
-    "symbol_coinapi"?: string;
+    "asset_id_coinapi"?: string;
     /**
      * Value of the current total currency balance on the exchange.
      */
@@ -36,11 +36,15 @@ export interface BalanceData {
     /**
      * Source of the last modification. 
      */
-    "update_origin"?: BalanceData.UpdateOriginEnum;
+    "last_updated_by"?: BalanceData.LastUpdatedByEnum;
+    /**
+     * Current exchange rate to the USD for the single unit of the currency. 
+     */
+    "rate_usd"?: number;
 }
 
 export namespace BalanceData {
-    export enum UpdateOriginEnum {
+    export enum LastUpdatedByEnum {
         INITIALIZATION = <any> 'INITIALIZATION',
         BALANCEMANAGER = <any> 'BALANCE_MANAGER',
         EXCHANGE = <any> 'EXCHANGE'

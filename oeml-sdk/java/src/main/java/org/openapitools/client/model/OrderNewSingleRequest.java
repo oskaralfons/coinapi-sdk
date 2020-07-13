@@ -35,7 +35,7 @@ import org.threeten.bp.LocalDate;
  * The new order message.
  */
 @ApiModel(description = "The new order message.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T15:10:31.759Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T20:50:08.678Z[Etc/UTC]")
 public class OrderNewSingleRequest {
   public static final String SERIALIZED_NAME_EXCHANGE_ID = "exchange_id";
   @SerializedName(SERIALIZED_NAME_EXCHANGE_ID)
@@ -45,13 +45,13 @@ public class OrderNewSingleRequest {
   @SerializedName(SERIALIZED_NAME_CLIENT_ORDER_ID)
   private String clientOrderId;
 
-  public static final String SERIALIZED_NAME_SYMBOL_EXCHANGE = "symbol_exchange";
-  @SerializedName(SERIALIZED_NAME_SYMBOL_EXCHANGE)
-  private String symbolExchange;
+  public static final String SERIALIZED_NAME_SYMBOL_ID_EXCHANGE = "symbol_id_exchange";
+  @SerializedName(SERIALIZED_NAME_SYMBOL_ID_EXCHANGE)
+  private String symbolIdExchange;
 
-  public static final String SERIALIZED_NAME_SYMBOL_COINAPI = "symbol_coinapi";
-  @SerializedName(SERIALIZED_NAME_SYMBOL_COINAPI)
-  private String symbolCoinapi;
+  public static final String SERIALIZED_NAME_SYMBOL_ID_COINAPI = "symbol_id_coinapi";
+  @SerializedName(SERIALIZED_NAME_SYMBOL_ID_COINAPI)
+  private String symbolIdCoinapi;
 
   public static final String SERIALIZED_NAME_AMOUNT_ORDER = "amount_order";
   @SerializedName(SERIALIZED_NAME_AMOUNT_ORDER)
@@ -175,49 +175,49 @@ public class OrderNewSingleRequest {
   }
 
 
-  public OrderNewSingleRequest symbolExchange(String symbolExchange) {
+  public OrderNewSingleRequest symbolIdExchange(String symbolIdExchange) {
     
-    this.symbolExchange = symbolExchange;
+    this.symbolIdExchange = symbolIdExchange;
     return this;
   }
 
    /**
-   * Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order.
-   * @return symbolExchange
+   * Exchange symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order.
+   * @return symbolIdExchange
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "XBT/USDT", value = "Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.")
+  @ApiModelProperty(example = "XBT/USDT", value = "Exchange symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.")
 
-  public String getSymbolExchange() {
-    return symbolExchange;
+  public String getSymbolIdExchange() {
+    return symbolIdExchange;
   }
 
 
-  public void setSymbolExchange(String symbolExchange) {
-    this.symbolExchange = symbolExchange;
+  public void setSymbolIdExchange(String symbolIdExchange) {
+    this.symbolIdExchange = symbolIdExchange;
   }
 
 
-  public OrderNewSingleRequest symbolCoinapi(String symbolCoinapi) {
+  public OrderNewSingleRequest symbolIdCoinapi(String symbolIdCoinapi) {
     
-    this.symbolCoinapi = symbolCoinapi;
+    this.symbolIdCoinapi = symbolIdCoinapi;
     return this;
   }
 
    /**
-   * CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order.
-   * @return symbolCoinapi
+   * CoinAPI symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order.
+   * @return symbolIdCoinapi
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "KRAKEN_SPOT_BTC_USDT", value = "CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.")
+  @ApiModelProperty(example = "KRAKEN_SPOT_BTC_USDT", value = "CoinAPI symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.")
 
-  public String getSymbolCoinapi() {
-    return symbolCoinapi;
+  public String getSymbolIdCoinapi() {
+    return symbolIdCoinapi;
   }
 
 
-  public void setSymbolCoinapi(String symbolCoinapi) {
-    this.symbolCoinapi = symbolCoinapi;
+  public void setSymbolIdCoinapi(String symbolIdCoinapi) {
+    this.symbolIdCoinapi = symbolIdCoinapi;
   }
 
 
@@ -396,8 +396,8 @@ public class OrderNewSingleRequest {
     OrderNewSingleRequest orderNewSingleRequest = (OrderNewSingleRequest) o;
     return Objects.equals(this.exchangeId, orderNewSingleRequest.exchangeId) &&
         Objects.equals(this.clientOrderId, orderNewSingleRequest.clientOrderId) &&
-        Objects.equals(this.symbolExchange, orderNewSingleRequest.symbolExchange) &&
-        Objects.equals(this.symbolCoinapi, orderNewSingleRequest.symbolCoinapi) &&
+        Objects.equals(this.symbolIdExchange, orderNewSingleRequest.symbolIdExchange) &&
+        Objects.equals(this.symbolIdCoinapi, orderNewSingleRequest.symbolIdCoinapi) &&
         Objects.equals(this.amountOrder, orderNewSingleRequest.amountOrder) &&
         Objects.equals(this.price, orderNewSingleRequest.price) &&
         Objects.equals(this.side, orderNewSingleRequest.side) &&
@@ -409,7 +409,7 @@ public class OrderNewSingleRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(exchangeId, clientOrderId, symbolExchange, symbolCoinapi, amountOrder, price, side, orderType, timeInForce, expireTime, execInst);
+    return Objects.hash(exchangeId, clientOrderId, symbolIdExchange, symbolIdCoinapi, amountOrder, price, side, orderType, timeInForce, expireTime, execInst);
   }
 
 
@@ -419,8 +419,8 @@ public class OrderNewSingleRequest {
     sb.append("class OrderNewSingleRequest {\n");
     sb.append("    exchangeId: ").append(toIndentedString(exchangeId)).append("\n");
     sb.append("    clientOrderId: ").append(toIndentedString(clientOrderId)).append("\n");
-    sb.append("    symbolExchange: ").append(toIndentedString(symbolExchange)).append("\n");
-    sb.append("    symbolCoinapi: ").append(toIndentedString(symbolCoinapi)).append("\n");
+    sb.append("    symbolIdExchange: ").append(toIndentedString(symbolIdExchange)).append("\n");
+    sb.append("    symbolIdCoinapi: ").append(toIndentedString(symbolIdCoinapi)).append("\n");
     sb.append("    amountOrder: ").append(toIndentedString(amountOrder)).append("\n");
     sb.append("    price: ").append(toIndentedString(price)).append("\n");
     sb.append("    side: ").append(toIndentedString(side)).append("\n");

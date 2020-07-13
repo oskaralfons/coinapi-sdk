@@ -27,16 +27,16 @@ public class OASOrderExecutionReport implements OASOrderNewSingleRequest, OASOrd
     public String clientOrderId { get; set; }
 
     /**
-     * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
-     * @return symbolExchange
+     * Exchange symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.
+     * @return symbolIdExchange
      */
-    public String symbolExchange { get; set; }
+    public String symbolIdExchange { get; set; }
 
     /**
-     * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
-     * @return symbolCoinapi
+     * CoinAPI symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.
+     * @return symbolIdCoinapi
      */
-    public String symbolCoinapi { get; set; }
+    public String symbolIdCoinapi { get; set; }
 
     /**
      * Order quantity.
@@ -134,8 +134,8 @@ public class OASOrderExecutionReport implements OASOrderNewSingleRequest, OASOrd
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'exchange_id' => 'exchangeId',
         'client_order_id' => 'clientOrderId',
-        'symbol_exchange' => 'symbolExchange',
-        'symbol_coinapi' => 'symbolCoinapi',
+        'symbol_id_exchange' => 'symbolIdExchange',
+        'symbol_id_coinapi' => 'symbolIdCoinapi',
         'amount_order' => 'amountOrder',
         'order_type' => 'orderType',
         'time_in_force' => 'timeInForce',
@@ -162,8 +162,8 @@ public class OASOrderExecutionReport implements OASOrderNewSingleRequest, OASOrd
         OASOrderExecutionReport orderExecutionReport = new OASOrderExecutionReport();
           orderExecutionReport.exchangeId = 'KRAKEN';
           orderExecutionReport.clientOrderId = '6ab36bc1-344d-432e-ac6d-0bf44ee64c2b';
-          orderExecutionReport.symbolExchange = 'XBT/USDT';
-          orderExecutionReport.symbolCoinapi = 'KRAKEN_SPOT_BTC_USDT';
+          orderExecutionReport.symbolIdExchange = 'XBT/USDT';
+          orderExecutionReport.symbolIdCoinapi = 'KRAKEN_SPOT_BTC_USDT';
           orderExecutionReport.amountOrder = 0.045;
           orderExecutionReport.price = 0.0783;
           orderExecutionReport.side = OASOrdSide.getExample();
@@ -186,8 +186,8 @@ public class OASOrderExecutionReport implements OASOrderNewSingleRequest, OASOrd
             OASOrderExecutionReport orderExecutionReport = (OASOrderExecutionReport) obj;
             return this.exchangeId == orderExecutionReport.exchangeId
                 && this.clientOrderId == orderExecutionReport.clientOrderId
-                && this.symbolExchange == orderExecutionReport.symbolExchange
-                && this.symbolCoinapi == orderExecutionReport.symbolCoinapi
+                && this.symbolIdExchange == orderExecutionReport.symbolIdExchange
+                && this.symbolIdCoinapi == orderExecutionReport.symbolIdCoinapi
                 && this.amountOrder == orderExecutionReport.amountOrder
                 && this.price == orderExecutionReport.price
                 && this.side == orderExecutionReport.side
@@ -210,8 +210,8 @@ public class OASOrderExecutionReport implements OASOrderNewSingleRequest, OASOrd
         Integer hashCode = 43;
         hashCode = (17 * hashCode) + (exchangeId == null ? 0 : System.hashCode(exchangeId));
         hashCode = (17 * hashCode) + (clientOrderId == null ? 0 : System.hashCode(clientOrderId));
-        hashCode = (17 * hashCode) + (symbolExchange == null ? 0 : System.hashCode(symbolExchange));
-        hashCode = (17 * hashCode) + (symbolCoinapi == null ? 0 : System.hashCode(symbolCoinapi));
+        hashCode = (17 * hashCode) + (symbolIdExchange == null ? 0 : System.hashCode(symbolIdExchange));
+        hashCode = (17 * hashCode) + (symbolIdCoinapi == null ? 0 : System.hashCode(symbolIdCoinapi));
         hashCode = (17 * hashCode) + (amountOrder == null ? 0 : System.hashCode(amountOrder));
         hashCode = (17 * hashCode) + (price == null ? 0 : System.hashCode(price));
         hashCode = (17 * hashCode) + (side == null ? 0 : System.hashCode(side));

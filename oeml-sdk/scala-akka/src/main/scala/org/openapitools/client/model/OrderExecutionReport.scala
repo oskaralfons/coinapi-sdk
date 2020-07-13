@@ -19,10 +19,10 @@ case class OrderExecutionReport (
   exchangeId: String,
   /* The unique identifier of the order assigned by the client. */
   clientOrderId: String,
-  /* Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order. */
-  symbolExchange: Option[String] = None,
-  /* CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order. */
-  symbolCoinapi: Option[String] = None,
+  /* Exchange symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order. */
+  symbolIdExchange: Option[String] = None,
+  /* CoinAPI symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order. */
+  symbolIdCoinapi: Option[String] = None,
   /* Order quantity. */
   amountOrder: Double,
   /* Order price. */

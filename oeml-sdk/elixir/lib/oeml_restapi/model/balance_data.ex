@@ -9,21 +9,23 @@ defmodule OEML-RESTAPI.Model.BalanceData do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"symbol_exchange",
-    :"symbol_coinapi",
+    :"asset_id_exchange",
+    :"asset_id_coinapi",
     :"balance",
     :"available",
     :"locked",
-    :"update_origin"
+    :"last_updated_by",
+    :"rate_usd"
   ]
 
   @type t :: %__MODULE__{
-    :"symbol_exchange" => String.t | nil,
-    :"symbol_coinapi" => String.t | nil,
+    :"asset_id_exchange" => String.t | nil,
+    :"asset_id_coinapi" => String.t | nil,
     :"balance" => float() | nil,
     :"available" => float() | nil,
     :"locked" => float() | nil,
-    :"update_origin" => String.t | nil
+    :"last_updated_by" => String.t | nil,
+    :"rate_usd" => float() | nil
   }
 end
 

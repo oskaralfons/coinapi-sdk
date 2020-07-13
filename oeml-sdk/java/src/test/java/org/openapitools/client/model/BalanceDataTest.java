@@ -41,19 +41,19 @@ public class BalanceDataTest {
     }
 
     /**
-     * Test the property 'symbolExchange'
+     * Test the property 'assetIdExchange'
      */
     @Test
-    public void symbolExchangeTest() {
-        // TODO: test symbolExchange
+    public void assetIdExchangeTest() {
+        // TODO: test assetIdExchange
     }
 
     /**
-     * Test the property 'symbolCoinapi'
+     * Test the property 'assetIdCoinapi'
      */
     @Test
-    public void symbolCoinapiTest() {
-        // TODO: test symbolCoinapi
+    public void assetIdCoinapiTest() {
+        // TODO: test assetIdCoinapi
     }
 
     /**
@@ -81,11 +81,19 @@ public class BalanceDataTest {
     }
 
     /**
-     * Test the property 'updateOrigin'
+     * Test the property 'lastUpdatedBy'
      */
     @Test
-    public void updateOriginTest() {
-        // TODO: test updateOrigin
+    public void lastUpdatedByTest() {
+        // TODO: test lastUpdatedBy
+    }
+
+    /**
+     * Test the property 'rateUsd'
+     */
+    @Test
+    public void rateUsdTest() {
+        // TODO: test rateUsd
     }
 
 }

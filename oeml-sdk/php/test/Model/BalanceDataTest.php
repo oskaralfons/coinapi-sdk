@@ -79,16 +79,16 @@ class BalanceDataTest extends TestCase
     }
 
     /**
-     * Test attribute "symbol_exchange"
+     * Test attribute "asset_id_exchange"
      */
-    public function testPropertySymbolExchange()
+    public function testPropertyAssetIdExchange()
     {
     }
 
     /**
-     * Test attribute "symbol_coinapi"
+     * Test attribute "asset_id_coinapi"
      */
-    public function testPropertySymbolCoinapi()
+    public function testPropertyAssetIdCoinapi()
     {
     }
 
@@ -114,9 +114,16 @@ class BalanceDataTest extends TestCase
     }
 
     /**
-     * Test attribute "update_origin"
+     * Test attribute "last_updated_by"
      */
-    public function testPropertyUpdateOrigin()
+    public function testPropertyLastUpdatedBy()
+    {
+    }
+
+    /**
+     * Test attribute "rate_usd"
+     */
+    public function testPropertyRateUsd()
     {
     }
 }

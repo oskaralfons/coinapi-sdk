@@ -16,12 +16,12 @@ class OrderNewSingleRequest {
    /* The unique identifier of the order assigned by the client. */
   @Alias('client_order_id', isNullable: false,  )
   final String clientOrderId;
-   /* Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order. */
-  @Alias('symbol_exchange', isNullable: false,  )
-  final String symbolExchange;
-   /* CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order. */
-  @Alias('symbol_coinapi', isNullable: false,  )
-  final String symbolCoinapi;
+   /* Exchange symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order. */
+  @Alias('symbol_id_exchange', isNullable: false,  )
+  final String symbolIdExchange;
+   /* CoinAPI symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order. */
+  @Alias('symbol_id_coinapi', isNullable: false,  )
+  final String symbolIdCoinapi;
    /* Order quantity. */
   @Alias('amount_order', isNullable: false,  )
   final num amountOrder;
@@ -67,8 +67,8 @@ class OrderNewSingleRequest {
 {
     
      this.exchangeId = null,  
-     this.clientOrderId = null,   this.symbolExchange = null,  
-     this.symbolCoinapi = null,  
+     this.clientOrderId = null,   this.symbolIdExchange = null,  
+     this.symbolIdCoinapi = null,  
     
      this.amountOrder = null,  
      this.price = null,  
@@ -82,7 +82,7 @@ class OrderNewSingleRequest {
 
   @override
   String toString() {
-    return 'OrderNewSingleRequest[exchangeId=$exchangeId, clientOrderId=$clientOrderId, symbolExchange=$symbolExchange, symbolCoinapi=$symbolCoinapi, amountOrder=$amountOrder, price=$price, side=$side, orderType=$orderType, timeInForce=$timeInForce, expireTime=$expireTime, execInst=$execInst, ]';
+    return 'OrderNewSingleRequest[exchangeId=$exchangeId, clientOrderId=$clientOrderId, symbolIdExchange=$symbolIdExchange, symbolIdCoinapi=$symbolIdCoinapi, amountOrder=$amountOrder, price=$price, side=$side, orderType=$orderType, timeInForce=$timeInForce, expireTime=$expireTime, execInst=$execInst, ]';
   }
 }
 

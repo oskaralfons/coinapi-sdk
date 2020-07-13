@@ -47,7 +47,7 @@ let primitives = [
                  ];
 
 let enumsMap: {[index: string]: any} = {
-        "BalanceData.UpdateOriginEnum": BalanceData.UpdateOriginEnum,
+        "BalanceData.LastUpdatedByEnum": BalanceData.LastUpdatedByEnum,
         "OrdSide": OrdSide,
         "OrdStatus": OrdStatus,
         "OrdType": OrdType,

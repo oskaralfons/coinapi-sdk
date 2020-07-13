@@ -7,12 +7,13 @@
 
 (def balance-data-data
   {
-   (ds/opt :symbol_exchange) string?
-   (ds/opt :symbol_coinapi) string?
+   (ds/opt :asset_id_exchange) string?
+   (ds/opt :asset_id_coinapi) string?
    (ds/opt :balance) float?
    (ds/opt :available) float?
    (ds/opt :locked) float?
-   (ds/opt :update_origin) string?
+   (ds/opt :last_updated_by) string?
+   (ds/opt :rate_usd) float?
    })
 
 (def balance-data-spec

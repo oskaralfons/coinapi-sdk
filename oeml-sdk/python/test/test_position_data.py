@@ -37,8 +37,8 @@ class TestPositionData(unittest.TestCase):
         # model = openapi_client.models.position_data.PositionData()  # noqa: E501
         if include_optional :
             return PositionData(
-                symbol_exchange = 'XBTUSD', 
-                symbol_coinapi = 'BITMEX_PERP_BTC_USD', 
+                symbol_id_exchange = 'XBTUSD', 
+                symbol_id_coinapi = 'BITMEX_PERP_BTC_USD', 
                 avg_entry_price = 0.00134444, 
                 quantity = 7, 
                 side = 'BUY', 

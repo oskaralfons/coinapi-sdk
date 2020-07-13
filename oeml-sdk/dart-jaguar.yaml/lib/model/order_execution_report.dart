@@ -22,12 +22,12 @@ class OrderExecutionReport {
    /* The unique identifier of the order assigned by the client. */
   @Alias('client_order_id', isNullable: false,  )
   final String clientOrderId;
-   /* Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order. */
-  @Alias('symbol_exchange', isNullable: false,  )
-  final String symbolExchange;
-   /* CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order. */
-  @Alias('symbol_coinapi', isNullable: false,  )
-  final String symbolCoinapi;
+   /* Exchange symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order. */
+  @Alias('symbol_id_exchange', isNullable: false,  )
+  final String symbolIdExchange;
+   /* CoinAPI symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order. */
+  @Alias('symbol_id_coinapi', isNullable: false,  )
+  final String symbolIdCoinapi;
    /* Order quantity. */
   @Alias('amount_order', isNullable: false,  )
   final num amountOrder;
@@ -98,8 +98,8 @@ class OrderExecutionReport {
 {
     
      this.exchangeId = null,  
-     this.clientOrderId = null,   this.symbolExchange = null,  
-     this.symbolCoinapi = null,  
+     this.clientOrderId = null,   this.symbolIdExchange = null,  
+     this.symbolIdCoinapi = null,  
     
      this.amountOrder = null,  
      this.price = null,  
@@ -120,7 +120,7 @@ class OrderExecutionReport {
 
   @override
   String toString() {
-    return 'OrderExecutionReport[exchangeId=$exchangeId, clientOrderId=$clientOrderId, symbolExchange=$symbolExchange, symbolCoinapi=$symbolCoinapi, amountOrder=$amountOrder, price=$price, side=$side, orderType=$orderType, timeInForce=$timeInForce, expireTime=$expireTime, execInst=$execInst, clientOrderIdFormatExchange=$clientOrderIdFormatExchange, exchangeOrderId=$exchangeOrderId, amountOpen=$amountOpen, amountFilled=$amountFilled, status=$status, timeOrder=$timeOrder, errorMessage=$errorMessage, ]';
+    return 'OrderExecutionReport[exchangeId=$exchangeId, clientOrderId=$clientOrderId, symbolIdExchange=$symbolIdExchange, symbolIdCoinapi=$symbolIdCoinapi, amountOrder=$amountOrder, price=$price, side=$side, orderType=$orderType, timeInForce=$timeInForce, expireTime=$expireTime, execInst=$execInst, clientOrderIdFormatExchange=$clientOrderIdFormatExchange, exchangeOrderId=$exchangeOrderId, amountOpen=$amountOpen, amountFilled=$amountFilled, status=$status, timeOrder=$timeOrder, errorMessage=$errorMessage, ]';
   }
 }
 

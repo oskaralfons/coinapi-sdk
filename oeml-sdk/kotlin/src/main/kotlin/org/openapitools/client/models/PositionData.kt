@@ -16,8 +16,8 @@ import org.openapitools.client.models.OrdSide
 import com.squareup.moshi.Json
 /**
  * 
- * @param symbolExchange Exchange symbol.
- * @param symbolCoinapi CoinAPI symbol.
+ * @param symbolIdExchange Exchange symbol.
+ * @param symbolIdCoinapi CoinAPI symbol.
  * @param avgEntryPrice Calculated average price of all fills on this position.
  * @param quantity The current position quantity.
  * @param side 
@@ -30,11 +30,11 @@ import com.squareup.moshi.Json
 
 data class PositionData (
     /* Exchange symbol. */
-    @Json(name = "symbol_exchange")
-    val symbolExchange: kotlin.String? = null,
+    @Json(name = "symbol_id_exchange")
+    val symbolIdExchange: kotlin.String? = null,
     /* CoinAPI symbol. */
-    @Json(name = "symbol_coinapi")
-    val symbolCoinapi: kotlin.String? = null,
+    @Json(name = "symbol_id_coinapi")
+    val symbolIdCoinapi: kotlin.String? = null,
     /* Calculated average price of all fills on this position. */
     @Json(name = "avg_entry_price")
     val avgEntryPrice: java.math.BigDecimal? = null,

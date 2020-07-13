@@ -74,7 +74,7 @@ public:
     void setSeverity(const std::shared_ptr<Severity>& value);
 
     /// <summary>
-    /// If message related exchange then identifier of this exchange.
+    /// If the message related to exchange, then the identifier of the exchange will be provided.
     /// </summary>
     utility::string_t getExchangeId() const;
     bool exchangeIdIsSet() const;

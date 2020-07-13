@@ -48,11 +48,11 @@ class PositionData {
         if (data) {
             obj = obj || new PositionData();
 
-            if (data.hasOwnProperty('symbol_exchange')) {
-                obj['symbol_exchange'] = ApiClient.convertToType(data['symbol_exchange'], 'String');
+            if (data.hasOwnProperty('symbol_id_exchange')) {
+                obj['symbol_id_exchange'] = ApiClient.convertToType(data['symbol_id_exchange'], 'String');
             }
-            if (data.hasOwnProperty('symbol_coinapi')) {
-                obj['symbol_coinapi'] = ApiClient.convertToType(data['symbol_coinapi'], 'String');
+            if (data.hasOwnProperty('symbol_id_coinapi')) {
+                obj['symbol_id_coinapi'] = ApiClient.convertToType(data['symbol_id_coinapi'], 'String');
             }
             if (data.hasOwnProperty('avg_entry_price')) {
                 obj['avg_entry_price'] = ApiClient.convertToType(data['avg_entry_price'], 'Number');
@@ -87,15 +87,15 @@ class PositionData {
 
 /**
  * Exchange symbol.
- * @member {String} symbol_exchange
+ * @member {String} symbol_id_exchange
  */
-PositionData.prototype['symbol_exchange'] = undefined;
+PositionData.prototype['symbol_id_exchange'] = undefined;
 
 /**
  * CoinAPI symbol.
- * @member {String} symbol_coinapi
+ * @member {String} symbol_id_coinapi
  */
-PositionData.prototype['symbol_coinapi'] = undefined;
+PositionData.prototype['symbol_id_coinapi'] = undefined;
 
 /**
  * Calculated average price of all fills on this position.

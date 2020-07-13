@@ -88,8 +88,8 @@ namespace CoinAPI.OMS.REST.V1.Model
         /// </summary>
         /// <param name="exchangeId">Exchange identifier. (required).</param>
         /// <param name="clientOrderId">The unique identifier of the order assigned by the client. (required).</param>
-        /// <param name="symbolExchange">Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order..</param>
-        /// <param name="symbolCoinapi">CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order..</param>
+        /// <param name="symbolIdExchange">Exchange symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order..</param>
+        /// <param name="symbolIdCoinapi">CoinAPI symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order..</param>
         /// <param name="amountOrder">Order quantity. (required).</param>
         /// <param name="price">Order price. (required).</param>
         /// <param name="side">side (required).</param>
@@ -97,7 +97,7 @@ namespace CoinAPI.OMS.REST.V1.Model
         /// <param name="timeInForce">timeInForce (required).</param>
         /// <param name="expireTime">Expiration time. Conditionaly required for orders with time_in_force &#x3D; &#x60;GOOD_TILL_TIME_EXCHANGE&#x60; or &#x60;GOOD_TILL_TIME_OEML&#x60;..</param>
         /// <param name="execInst">Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; .</param>
-        public OrderNewSingleRequest(string exchangeId = default(string), string clientOrderId = default(string), string symbolExchange = default(string), string symbolCoinapi = default(string), decimal amountOrder = default(decimal), decimal price = default(decimal), OrdSide side = default(OrdSide), OrdType orderType = default(OrdType), TimeInForce timeInForce = default(TimeInForce), DateTime expireTime = default(DateTime), List<ExecInstEnum> execInst = default(List<ExecInstEnum>))
+        public OrderNewSingleRequest(string exchangeId = default(string), string clientOrderId = default(string), string symbolIdExchange = default(string), string symbolIdCoinapi = default(string), decimal amountOrder = default(decimal), decimal price = default(decimal), OrdSide side = default(OrdSide), OrdType orderType = default(OrdType), TimeInForce timeInForce = default(TimeInForce), DateTime expireTime = default(DateTime), List<ExecInstEnum> execInst = default(List<ExecInstEnum>))
         {
             // to ensure "exchangeId" is required (not null)
             if (exchangeId == null)
@@ -169,8 +169,8 @@ namespace CoinAPI.OMS.REST.V1.Model
                 this.TimeInForce = timeInForce;
             }
             
-            this.SymbolExchange = symbolExchange;
-            this.SymbolCoinapi = symbolCoinapi;
+            this.SymbolIdExchange = symbolIdExchange;
+            this.SymbolIdCoinapi = symbolIdCoinapi;
             this.ExpireTime = expireTime;
             this.ExecInst = execInst;
         }
@@ -190,18 +190,18 @@ namespace CoinAPI.OMS.REST.V1.Model
         public string ClientOrderId { get; set; }
 
         /// <summary>
-        /// Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order.
+        /// Exchange symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order.
         /// </summary>
-        /// <value>Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order.</value>
-        [DataMember(Name="symbol_exchange", EmitDefaultValue=false)]
-        public string SymbolExchange { get; set; }
+        /// <value>Exchange symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order.</value>
+        [DataMember(Name="symbol_id_exchange", EmitDefaultValue=false)]
+        public string SymbolIdExchange { get; set; }
 
         /// <summary>
-        /// CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order.
+        /// CoinAPI symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order.
         /// </summary>
-        /// <value>CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order.</value>
-        [DataMember(Name="symbol_coinapi", EmitDefaultValue=false)]
-        public string SymbolCoinapi { get; set; }
+        /// <value>CoinAPI symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order.</value>
+        [DataMember(Name="symbol_id_coinapi", EmitDefaultValue=false)]
+        public string SymbolIdCoinapi { get; set; }
 
         /// <summary>
         /// Order quantity.
@@ -238,8 +238,8 @@ namespace CoinAPI.OMS.REST.V1.Model
             sb.Append("class OrderNewSingleRequest {\n");
             sb.Append("  ExchangeId: ").Append(ExchangeId).Append("\n");
             sb.Append("  ClientOrderId: ").Append(ClientOrderId).Append("\n");
-            sb.Append("  SymbolExchange: ").Append(SymbolExchange).Append("\n");
-            sb.Append("  SymbolCoinapi: ").Append(SymbolCoinapi).Append("\n");
+            sb.Append("  SymbolIdExchange: ").Append(SymbolIdExchange).Append("\n");
+            sb.Append("  SymbolIdCoinapi: ").Append(SymbolIdCoinapi).Append("\n");
             sb.Append("  AmountOrder: ").Append(AmountOrder).Append("\n");
             sb.Append("  Price: ").Append(Price).Append("\n");
             sb.Append("  Side: ").Append(Side).Append("\n");
@@ -292,14 +292,14 @@ namespace CoinAPI.OMS.REST.V1.Model
                     this.ClientOrderId.Equals(input.ClientOrderId))
                 ) && 
                 (
-                    this.SymbolExchange == input.SymbolExchange ||
-                    (this.SymbolExchange != null &&
-                    this.SymbolExchange.Equals(input.SymbolExchange))
+                    this.SymbolIdExchange == input.SymbolIdExchange ||
+                    (this.SymbolIdExchange != null &&
+                    this.SymbolIdExchange.Equals(input.SymbolIdExchange))
                 ) && 
                 (
-                    this.SymbolCoinapi == input.SymbolCoinapi ||
-                    (this.SymbolCoinapi != null &&
-                    this.SymbolCoinapi.Equals(input.SymbolCoinapi))
+                    this.SymbolIdCoinapi == input.SymbolIdCoinapi ||
+                    (this.SymbolIdCoinapi != null &&
+                    this.SymbolIdCoinapi.Equals(input.SymbolIdCoinapi))
                 ) && 
                 (
                     this.AmountOrder == input.AmountOrder ||
@@ -352,10 +352,10 @@ namespace CoinAPI.OMS.REST.V1.Model
                     hashCode = hashCode * 59 + this.ExchangeId.GetHashCode();
                 if (this.ClientOrderId != null)
                     hashCode = hashCode * 59 + this.ClientOrderId.GetHashCode();
-                if (this.SymbolExchange != null)
-                    hashCode = hashCode * 59 + this.SymbolExchange.GetHashCode();
-                if (this.SymbolCoinapi != null)
-                    hashCode = hashCode * 59 + this.SymbolCoinapi.GetHashCode();
+                if (this.SymbolIdExchange != null)
+                    hashCode = hashCode * 59 + this.SymbolIdExchange.GetHashCode();
+                if (this.SymbolIdCoinapi != null)
+                    hashCode = hashCode * 59 + this.SymbolIdCoinapi.GetHashCode();
                 if (this.AmountOrder != null)
                     hashCode = hashCode * 59 + this.AmountOrder.GetHashCode();
                 if (this.Price != null)

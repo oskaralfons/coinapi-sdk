@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**symbolExchange** | **kotlin.String** | Exchange symbol. |  [optional]
-**symbolCoinapi** | **kotlin.String** | CoinAPI symbol. |  [optional]
+**symbolIdExchange** | **kotlin.String** | Exchange symbol. |  [optional]
+**symbolIdCoinapi** | **kotlin.String** | CoinAPI symbol. |  [optional]
 **avgEntryPrice** | [**java.math.BigDecimal**](java.math.BigDecimal.md) | Calculated average price of all fills on this position. |  [optional]
 **quantity** | [**java.math.BigDecimal**](java.math.BigDecimal.md) | The current position quantity. |  [optional]
 **side** | [**OrdSide**](OrdSide.md) |  |  [optional]

@@ -18,42 +18,44 @@ import com.google.gson.annotations.SerializedName;
 @ApiModel(description = "")
 public class BalanceData {
   
-  @SerializedName("symbol_exchange")
-  private String symbolExchange = null;
-  @SerializedName("symbol_coinapi")
-  private String symbolCoinapi = null;
+  @SerializedName("asset_id_exchange")
+  private String assetIdExchange = null;
+  @SerializedName("asset_id_coinapi")
+  private String assetIdCoinapi = null;
   @SerializedName("balance")
   private Float balance = null;
   @SerializedName("available")
   private Float available = null;
   @SerializedName("locked")
   private Float locked = null;
-  public enum UpdateOriginEnum {
+  public enum LastUpdatedByEnum {
      INITIALIZATION,  BALANCE_MANAGER,  EXCHANGE, 
   };
-  @SerializedName("update_origin")
-  private UpdateOriginEnum updateOrigin = null;
+  @SerializedName("last_updated_by")
+  private LastUpdatedByEnum lastUpdatedBy = null;
+  @SerializedName("rate_usd")
+  private Float rateUsd = null;
 
   /**
    * Exchange currency code.
    **/
   @ApiModelProperty(value = "Exchange currency code.")
-  public String getSymbolExchange() {
-    return symbolExchange;
+  public String getAssetIdExchange() {
+    return assetIdExchange;
   }
-  public void setSymbolExchange(String symbolExchange) {
-    this.symbolExchange = symbolExchange;
+  public void setAssetIdExchange(String assetIdExchange) {
+    this.assetIdExchange = assetIdExchange;
   }
 
   /**
    * CoinAPI currency code.
    **/
   @ApiModelProperty(value = "CoinAPI currency code.")
-  public String getSymbolCoinapi() {
-    return symbolCoinapi;
+  public String getAssetIdCoinapi() {
+    return assetIdCoinapi;
   }
-  public void setSymbolCoinapi(String symbolCoinapi) {
-    this.symbolCoinapi = symbolCoinapi;
+  public void setAssetIdCoinapi(String assetIdCoinapi) {
+    this.assetIdCoinapi = assetIdCoinapi;
   }
 
   /**
@@ -93,11 +95,22 @@ public class BalanceData {
    * Source of the last modification. 
    **/
   @ApiModelProperty(value = "Source of the last modification. ")
-  public UpdateOriginEnum getUpdateOrigin() {
-    return updateOrigin;
+  public LastUpdatedByEnum getLastUpdatedBy() {
+    return lastUpdatedBy;
   }
-  public void setUpdateOrigin(UpdateOriginEnum updateOrigin) {
-    this.updateOrigin = updateOrigin;
+  public void setLastUpdatedBy(LastUpdatedByEnum lastUpdatedBy) {
+    this.lastUpdatedBy = lastUpdatedBy;
+  }
+
+  /**
+   * Current exchange rate to the USD for the single unit of the currency. 
+   **/
+  @ApiModelProperty(value = "Current exchange rate to the USD for the single unit of the currency. ")
+  public Float getRateUsd() {
+    return rateUsd;
+  }
+  public void setRateUsd(Float rateUsd) {
+    this.rateUsd = rateUsd;
   }
 
 
@@ -110,23 +123,25 @@ public class BalanceData {
       return false;
     }
     BalanceData balanceData = (BalanceData) o;
-    return (this.symbolExchange == null ? balanceData.symbolExchange == null : this.symbolExchange.equals(balanceData.symbolExchange)) &&
-        (this.symbolCoinapi == null ? balanceData.symbolCoinapi == null : this.symbolCoinapi.equals(balanceData.symbolCoinapi)) &&
+    return (this.assetIdExchange == null ? balanceData.assetIdExchange == null : this.assetIdExchange.equals(balanceData.assetIdExchange)) &&
+        (this.assetIdCoinapi == null ? balanceData.assetIdCoinapi == null : this.assetIdCoinapi.equals(balanceData.assetIdCoinapi)) &&
         (this.balance == null ? balanceData.balance == null : this.balance.equals(balanceData.balance)) &&
         (this.available == null ? balanceData.available == null : this.available.equals(balanceData.available)) &&
         (this.locked == null ? balanceData.locked == null : this.locked.equals(balanceData.locked)) &&
-        (this.updateOrigin == null ? balanceData.updateOrigin == null : this.updateOrigin.equals(balanceData.updateOrigin));
+        (this.lastUpdatedBy == null ? balanceData.lastUpdatedBy == null : this.lastUpdatedBy.equals(balanceData.lastUpdatedBy)) &&
+        (this.rateUsd == null ? balanceData.rateUsd == null : this.rateUsd.equals(balanceData.rateUsd));
   }
 
   @Override
   public int hashCode() {
     int result = 17;
-    result = 31 * result + (this.symbolExchange == null ? 0: this.symbolExchange.hashCode());
-    result = 31 * result + (this.symbolCoinapi == null ? 0: this.symbolCoinapi.hashCode());
+    result = 31 * result + (this.assetIdExchange == null ? 0: this.assetIdExchange.hashCode());
+    result = 31 * result + (this.assetIdCoinapi == null ? 0: this.assetIdCoinapi.hashCode());
     result = 31 * result + (this.balance == null ? 0: this.balance.hashCode());
     result = 31 * result + (this.available == null ? 0: this.available.hashCode());
     result = 31 * result + (this.locked == null ? 0: this.locked.hashCode());
-    result = 31 * result + (this.updateOrigin == null ? 0: this.updateOrigin.hashCode());
+    result = 31 * result + (this.lastUpdatedBy == null ? 0: this.lastUpdatedBy.hashCode());
+    result = 31 * result + (this.rateUsd == null ? 0: this.rateUsd.hashCode());
     return result;
   }
 
@@ -135,12 +150,13 @@ public class BalanceData {
     StringBuilder sb = new StringBuilder();
     sb.append("class BalanceData {\n");
     
-    sb.append("  symbolExchange: ").append(symbolExchange).append("\n");
-    sb.append("  symbolCoinapi: ").append(symbolCoinapi).append("\n");
+    sb.append("  assetIdExchange: ").append(assetIdExchange).append("\n");
+    sb.append("  assetIdCoinapi: ").append(assetIdCoinapi).append("\n");
     sb.append("  balance: ").append(balance).append("\n");
     sb.append("  available: ").append(available).append("\n");
     sb.append("  locked: ").append(locked).append("\n");
-    sb.append("  updateOrigin: ").append(updateOrigin).append("\n");
+    sb.append("  lastUpdatedBy: ").append(lastUpdatedBy).append("\n");
+    sb.append("  rateUsd: ").append(rateUsd).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

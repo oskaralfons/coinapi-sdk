@@ -15,11 +15,11 @@ export interface BalanceData {
     /**
      * Exchange currency code.
      */
-    symbol_exchange?: string;
+    asset_id_exchange?: string;
     /**
      * CoinAPI currency code.
      */
-    symbol_coinapi?: string;
+    asset_id_coinapi?: string;
     /**
      * Value of the current total currency balance on the exchange.
      */
@@ -35,14 +35,18 @@ export interface BalanceData {
     /**
      * Source of the last modification. 
      */
-    update_origin?: BalanceData.UpdateOriginEnum;
+    last_updated_by?: BalanceData.LastUpdatedByEnum;
+    /**
+     * Current exchange rate to the USD for the single unit of the currency. 
+     */
+    rate_usd?: number;
 }
 export namespace BalanceData {
-    export type UpdateOriginEnum = 'INITIALIZATION' | 'BALANCE_MANAGER' | 'EXCHANGE';
-    export const UpdateOriginEnum = {
-        INITIALIZATION: 'INITIALIZATION' as UpdateOriginEnum,
-        BALANCEMANAGER: 'BALANCE_MANAGER' as UpdateOriginEnum,
-        EXCHANGE: 'EXCHANGE' as UpdateOriginEnum
+    export type LastUpdatedByEnum = 'INITIALIZATION' | 'BALANCE_MANAGER' | 'EXCHANGE';
+    export const LastUpdatedByEnum = {
+        INITIALIZATION: 'INITIALIZATION' as LastUpdatedByEnum,
+        BALANCEMANAGER: 'BALANCE_MANAGER' as LastUpdatedByEnum,
+        EXCHANGE: 'EXCHANGE' as LastUpdatedByEnum
     };
 }
 

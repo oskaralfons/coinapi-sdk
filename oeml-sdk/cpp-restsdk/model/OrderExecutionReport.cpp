@@ -28,10 +28,10 @@ OrderExecutionReport::OrderExecutionReport()
     m_Exchange_idIsSet = false;
     m_Client_order_id = utility::conversions::to_string_t("");
     m_Client_order_idIsSet = false;
-    m_Symbol_exchange = utility::conversions::to_string_t("");
-    m_Symbol_exchangeIsSet = false;
-    m_Symbol_coinapi = utility::conversions::to_string_t("");
-    m_Symbol_coinapiIsSet = false;
+    m_Symbol_id_exchange = utility::conversions::to_string_t("");
+    m_Symbol_id_exchangeIsSet = false;
+    m_Symbol_id_coinapi = utility::conversions::to_string_t("");
+    m_Symbol_id_coinapiIsSet = false;
     m_Amount_order = 0.0;
     m_Amount_orderIsSet = false;
     m_Price = 0.0;
@@ -77,13 +77,13 @@ web::json::value OrderExecutionReport::toJson() const
     {
         val[utility::conversions::to_string_t("client_order_id")] = ModelBase::toJson(m_Client_order_id);
     }
-    if(m_Symbol_exchangeIsSet)
+    if(m_Symbol_id_exchangeIsSet)
     {
-        val[utility::conversions::to_string_t("symbol_exchange")] = ModelBase::toJson(m_Symbol_exchange);
+        val[utility::conversions::to_string_t("symbol_id_exchange")] = ModelBase::toJson(m_Symbol_id_exchange);
     }
-    if(m_Symbol_coinapiIsSet)
+    if(m_Symbol_id_coinapiIsSet)
     {
-        val[utility::conversions::to_string_t("symbol_coinapi")] = ModelBase::toJson(m_Symbol_coinapi);
+        val[utility::conversions::to_string_t("symbol_id_coinapi")] = ModelBase::toJson(m_Symbol_id_coinapi);
     }
     if(m_Amount_orderIsSet)
     {
@@ -169,24 +169,24 @@ bool OrderExecutionReport::fromJson(const web::json::value& val)
             setClientOrderId(refVal_client_order_id);
         }
     }
-    if(val.has_field(utility::conversions::to_string_t("symbol_exchange")))
+    if(val.has_field(utility::conversions::to_string_t("symbol_id_exchange")))
     {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("symbol_exchange"));
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("symbol_id_exchange"));
         if(!fieldValue.is_null())
         {
-            utility::string_t refVal_symbol_exchange;
-            ok &= ModelBase::fromJson(fieldValue, refVal_symbol_exchange);
-            setSymbolExchange(refVal_symbol_exchange);
+            utility::string_t refVal_symbol_id_exchange;
+            ok &= ModelBase::fromJson(fieldValue, refVal_symbol_id_exchange);
+            setSymbolIdExchange(refVal_symbol_id_exchange);
         }
     }
-    if(val.has_field(utility::conversions::to_string_t("symbol_coinapi")))
+    if(val.has_field(utility::conversions::to_string_t("symbol_id_coinapi")))
     {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("symbol_coinapi"));
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("symbol_id_coinapi"));
         if(!fieldValue.is_null())
         {
-            utility::string_t refVal_symbol_coinapi;
-            ok &= ModelBase::fromJson(fieldValue, refVal_symbol_coinapi);
-            setSymbolCoinapi(refVal_symbol_coinapi);
+            utility::string_t refVal_symbol_id_coinapi;
+            ok &= ModelBase::fromJson(fieldValue, refVal_symbol_id_coinapi);
+            setSymbolIdCoinapi(refVal_symbol_id_coinapi);
         }
     }
     if(val.has_field(utility::conversions::to_string_t("amount_order")))
@@ -347,13 +347,13 @@ void OrderExecutionReport::toMultipart(std::shared_ptr<MultipartFormData> multip
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("client_order_id"), m_Client_order_id));
     }
-    if(m_Symbol_exchangeIsSet)
+    if(m_Symbol_id_exchangeIsSet)
     {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("symbol_exchange"), m_Symbol_exchange));
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("symbol_id_exchange"), m_Symbol_id_exchange));
     }
-    if(m_Symbol_coinapiIsSet)
+    if(m_Symbol_id_coinapiIsSet)
     {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("symbol_coinapi"), m_Symbol_coinapi));
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("symbol_id_coinapi"), m_Symbol_id_coinapi));
     }
     if(m_Amount_orderIsSet)
     {
@@ -434,17 +434,17 @@ bool OrderExecutionReport::fromMultiPart(std::shared_ptr<MultipartFormData> mult
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("client_order_id")), refVal_client_order_id );
         setClientOrderId(refVal_client_order_id);
     }
-    if(multipart->hasContent(utility::conversions::to_string_t("symbol_exchange")))
+    if(multipart->hasContent(utility::conversions::to_string_t("symbol_id_exchange")))
     {
-        utility::string_t refVal_symbol_exchange;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("symbol_exchange")), refVal_symbol_exchange );
-        setSymbolExchange(refVal_symbol_exchange);
+        utility::string_t refVal_symbol_id_exchange;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("symbol_id_exchange")), refVal_symbol_id_exchange );
+        setSymbolIdExchange(refVal_symbol_id_exchange);
     }
-    if(multipart->hasContent(utility::conversions::to_string_t("symbol_coinapi")))
+    if(multipart->hasContent(utility::conversions::to_string_t("symbol_id_coinapi")))
     {
-        utility::string_t refVal_symbol_coinapi;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("symbol_coinapi")), refVal_symbol_coinapi );
-        setSymbolCoinapi(refVal_symbol_coinapi);
+        utility::string_t refVal_symbol_id_coinapi;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("symbol_id_coinapi")), refVal_symbol_id_coinapi );
+        setSymbolIdCoinapi(refVal_symbol_id_coinapi);
     }
     if(multipart->hasContent(utility::conversions::to_string_t("amount_order")))
     {
@@ -573,45 +573,45 @@ void OrderExecutionReport::unsetClient_order_id()
 {
     m_Client_order_idIsSet = false;
 }
-utility::string_t OrderExecutionReport::getSymbolExchange() const
+utility::string_t OrderExecutionReport::getSymbolIdExchange() const
 {
-    return m_Symbol_exchange;
+    return m_Symbol_id_exchange;
 }
 
-void OrderExecutionReport::setSymbolExchange(const utility::string_t& value)
+void OrderExecutionReport::setSymbolIdExchange(const utility::string_t& value)
 {
-    m_Symbol_exchange = value;
-    m_Symbol_exchangeIsSet = true;
+    m_Symbol_id_exchange = value;
+    m_Symbol_id_exchangeIsSet = true;
 }
 
-bool OrderExecutionReport::symbolExchangeIsSet() const
+bool OrderExecutionReport::symbolIdExchangeIsSet() const
 {
-    return m_Symbol_exchangeIsSet;
+    return m_Symbol_id_exchangeIsSet;
 }
 
-void OrderExecutionReport::unsetSymbol_exchange()
+void OrderExecutionReport::unsetSymbol_id_exchange()
 {
-    m_Symbol_exchangeIsSet = false;
+    m_Symbol_id_exchangeIsSet = false;
 }
-utility::string_t OrderExecutionReport::getSymbolCoinapi() const
+utility::string_t OrderExecutionReport::getSymbolIdCoinapi() const
 {
-    return m_Symbol_coinapi;
-}
-
-void OrderExecutionReport::setSymbolCoinapi(const utility::string_t& value)
-{
-    m_Symbol_coinapi = value;
-    m_Symbol_coinapiIsSet = true;
+    return m_Symbol_id_coinapi;
 }
 
-bool OrderExecutionReport::symbolCoinapiIsSet() const
+void OrderExecutionReport::setSymbolIdCoinapi(const utility::string_t& value)
 {
-    return m_Symbol_coinapiIsSet;
+    m_Symbol_id_coinapi = value;
+    m_Symbol_id_coinapiIsSet = true;
 }
 
-void OrderExecutionReport::unsetSymbol_coinapi()
+bool OrderExecutionReport::symbolIdCoinapiIsSet() const
 {
-    m_Symbol_coinapiIsSet = false;
+    return m_Symbol_id_coinapiIsSet;
+}
+
+void OrderExecutionReport::unsetSymbol_id_coinapi()
+{
+    m_Symbol_id_coinapiIsSet = false;
 }
 double OrderExecutionReport::getAmountOrder() const
 {

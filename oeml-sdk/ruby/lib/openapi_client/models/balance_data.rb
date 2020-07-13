@@ -15,10 +15,10 @@ require 'date'
 module OpenapiClient
   class BalanceData
     # Exchange currency code.
-    attr_accessor :symbol_exchange
+    attr_accessor :asset_id_exchange
 
     # CoinAPI currency code.
-    attr_accessor :symbol_coinapi
+    attr_accessor :asset_id_coinapi
 
     # Value of the current total currency balance on the exchange.
     attr_accessor :balance
@@ -30,7 +30,10 @@ module OpenapiClient
     attr_accessor :locked
 
     # Source of the last modification. 
-    attr_accessor :update_origin
+    attr_accessor :last_updated_by
+
+    # Current exchange rate to the USD for the single unit of the currency. 
+    attr_accessor :rate_usd
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -57,24 +60,26 @@ module OpenapiClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'symbol_exchange' => :'symbol_exchange',
-        :'symbol_coinapi' => :'symbol_coinapi',
+        :'asset_id_exchange' => :'asset_id_exchange',
+        :'asset_id_coinapi' => :'asset_id_coinapi',
         :'balance' => :'balance',
         :'available' => :'available',
         :'locked' => :'locked',
-        :'update_origin' => :'update_origin'
+        :'last_updated_by' => :'last_updated_by',
+        :'rate_usd' => :'rate_usd'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'symbol_exchange' => :'String',
-        :'symbol_coinapi' => :'String',
+        :'asset_id_exchange' => :'String',
+        :'asset_id_coinapi' => :'String',
         :'balance' => :'Float',
         :'available' => :'Float',
         :'locked' => :'Float',
-        :'update_origin' => :'String'
+        :'last_updated_by' => :'String',
+        :'rate_usd' => :'Float'
       }
     end
 
@@ -99,12 +104,12 @@ module OpenapiClient
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'symbol_exchange')
-        self.symbol_exchange = attributes[:'symbol_exchange']
+      if attributes.key?(:'asset_id_exchange')
+        self.asset_id_exchange = attributes[:'asset_id_exchange']
       end
 
-      if attributes.key?(:'symbol_coinapi')
-        self.symbol_coinapi = attributes[:'symbol_coinapi']
+      if attributes.key?(:'asset_id_coinapi')
+        self.asset_id_coinapi = attributes[:'asset_id_coinapi']
       end
 
       if attributes.key?(:'balance')
@@ -119,8 +124,12 @@ module OpenapiClient
         self.locked = attributes[:'locked']
       end
 
-      if attributes.key?(:'update_origin')
-        self.update_origin = attributes[:'update_origin']
+      if attributes.key?(:'last_updated_by')
+        self.last_updated_by = attributes[:'last_updated_by']
+      end
+
+      if attributes.key?(:'rate_usd')
+        self.rate_usd = attributes[:'rate_usd']
       end
     end
 
@@ -134,19 +143,19 @@ module OpenapiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      update_origin_validator = EnumAttributeValidator.new('String', ["INITIALIZATION", "BALANCE_MANAGER", "EXCHANGE"])
-      return false unless update_origin_validator.valid?(@update_origin)
+      last_updated_by_validator = EnumAttributeValidator.new('String', ["INITIALIZATION", "BALANCE_MANAGER", "EXCHANGE"])
+      return false unless last_updated_by_validator.valid?(@last_updated_by)
       true
     end
 
     # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] update_origin Object to be assigned
-    def update_origin=(update_origin)
+    # @param [Object] last_updated_by Object to be assigned
+    def last_updated_by=(last_updated_by)
       validator = EnumAttributeValidator.new('String', ["INITIALIZATION", "BALANCE_MANAGER", "EXCHANGE"])
-      unless validator.valid?(update_origin)
-        fail ArgumentError, "invalid value for \"update_origin\", must be one of #{validator.allowable_values}."
+      unless validator.valid?(last_updated_by)
+        fail ArgumentError, "invalid value for \"last_updated_by\", must be one of #{validator.allowable_values}."
       end
-      @update_origin = update_origin
+      @last_updated_by = last_updated_by
     end
 
     # Checks equality by comparing each attribute.
@@ -154,12 +163,13 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          symbol_exchange == o.symbol_exchange &&
-          symbol_coinapi == o.symbol_coinapi &&
+          asset_id_exchange == o.asset_id_exchange &&
+          asset_id_coinapi == o.asset_id_coinapi &&
           balance == o.balance &&
           available == o.available &&
           locked == o.locked &&
-          update_origin == o.update_origin
+          last_updated_by == o.last_updated_by &&
+          rate_usd == o.rate_usd
     end
 
     # @see the `==` method
@@ -171,7 +181,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [symbol_exchange, symbol_coinapi, balance, available, locked, update_origin].hash
+      [asset_id_exchange, asset_id_coinapi, balance, available, locked, last_updated_by, rate_usd].hash
     end
 
     # Builds the object from hash

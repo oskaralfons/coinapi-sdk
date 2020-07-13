@@ -20,10 +20,10 @@ import com.google.gson.annotations.SerializedName;
 @ApiModel(description = "")
 public class PositionData {
   
-  @SerializedName("symbol_exchange")
-  private String symbolExchange = null;
-  @SerializedName("symbol_coinapi")
-  private String symbolCoinapi = null;
+  @SerializedName("symbol_id_exchange")
+  private String symbolIdExchange = null;
+  @SerializedName("symbol_id_coinapi")
+  private String symbolIdCoinapi = null;
   @SerializedName("avg_entry_price")
   private BigDecimal avgEntryPrice = null;
   @SerializedName("quantity")
@@ -45,22 +45,22 @@ public class PositionData {
    * Exchange symbol.
    **/
   @ApiModelProperty(value = "Exchange symbol.")
-  public String getSymbolExchange() {
-    return symbolExchange;
+  public String getSymbolIdExchange() {
+    return symbolIdExchange;
   }
-  public void setSymbolExchange(String symbolExchange) {
-    this.symbolExchange = symbolExchange;
+  public void setSymbolIdExchange(String symbolIdExchange) {
+    this.symbolIdExchange = symbolIdExchange;
   }
 
   /**
    * CoinAPI symbol.
    **/
   @ApiModelProperty(value = "CoinAPI symbol.")
-  public String getSymbolCoinapi() {
-    return symbolCoinapi;
+  public String getSymbolIdCoinapi() {
+    return symbolIdCoinapi;
   }
-  public void setSymbolCoinapi(String symbolCoinapi) {
-    this.symbolCoinapi = symbolCoinapi;
+  public void setSymbolIdCoinapi(String symbolIdCoinapi) {
+    this.symbolIdCoinapi = symbolIdCoinapi;
   }
 
   /**
@@ -159,8 +159,8 @@ public class PositionData {
       return false;
     }
     PositionData positionData = (PositionData) o;
-    return (this.symbolExchange == null ? positionData.symbolExchange == null : this.symbolExchange.equals(positionData.symbolExchange)) &&
-        (this.symbolCoinapi == null ? positionData.symbolCoinapi == null : this.symbolCoinapi.equals(positionData.symbolCoinapi)) &&
+    return (this.symbolIdExchange == null ? positionData.symbolIdExchange == null : this.symbolIdExchange.equals(positionData.symbolIdExchange)) &&
+        (this.symbolIdCoinapi == null ? positionData.symbolIdCoinapi == null : this.symbolIdCoinapi.equals(positionData.symbolIdCoinapi)) &&
         (this.avgEntryPrice == null ? positionData.avgEntryPrice == null : this.avgEntryPrice.equals(positionData.avgEntryPrice)) &&
         (this.quantity == null ? positionData.quantity == null : this.quantity.equals(positionData.quantity)) &&
         (this.side == null ? positionData.side == null : this.side.equals(positionData.side)) &&
@@ -174,8 +174,8 @@ public class PositionData {
   @Override
   public int hashCode() {
     int result = 17;
-    result = 31 * result + (this.symbolExchange == null ? 0: this.symbolExchange.hashCode());
-    result = 31 * result + (this.symbolCoinapi == null ? 0: this.symbolCoinapi.hashCode());
+    result = 31 * result + (this.symbolIdExchange == null ? 0: this.symbolIdExchange.hashCode());
+    result = 31 * result + (this.symbolIdCoinapi == null ? 0: this.symbolIdCoinapi.hashCode());
     result = 31 * result + (this.avgEntryPrice == null ? 0: this.avgEntryPrice.hashCode());
     result = 31 * result + (this.quantity == null ? 0: this.quantity.hashCode());
     result = 31 * result + (this.side == null ? 0: this.side.hashCode());
@@ -192,8 +192,8 @@ public class PositionData {
     StringBuilder sb = new StringBuilder();
     sb.append("class PositionData {\n");
     
-    sb.append("  symbolExchange: ").append(symbolExchange).append("\n");
-    sb.append("  symbolCoinapi: ").append(symbolCoinapi).append("\n");
+    sb.append("  symbolIdExchange: ").append(symbolIdExchange).append("\n");
+    sb.append("  symbolIdCoinapi: ").append(symbolIdCoinapi).append("\n");
     sb.append("  avgEntryPrice: ").append(avgEntryPrice).append("\n");
     sb.append("  quantity: ").append(quantity).append("\n");
     sb.append("  side: ").append(side).append("\n");

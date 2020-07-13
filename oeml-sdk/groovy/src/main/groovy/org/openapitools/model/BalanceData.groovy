@@ -7,9 +7,9 @@ import io.swagger.annotations.ApiModelProperty;
 @Canonical
 class BalanceData {
     /* Exchange currency code. */
-    String symbolExchange
+    String assetIdExchange
     /* CoinAPI currency code. */
-    String symbolCoinapi
+    String assetIdCoinapi
     /* Value of the current total currency balance on the exchange. */
     Float balance
     /* Value of the current available currency balance on the exchange that can be used as collateral. */
@@ -17,5 +17,7 @@ class BalanceData {
     /* Value of the current locked currency balance by the exchange. */
     Float locked
     /* Source of the last modification.  */
-    String updateOrigin
+    String lastUpdatedBy
+    /* Current exchange rate to the USD for the single unit of the currency.  */
+    Float rateUsd
 }

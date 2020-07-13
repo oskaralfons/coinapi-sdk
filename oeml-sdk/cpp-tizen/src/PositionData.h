@@ -48,18 +48,18 @@ public:
 
 	/*! \brief Get Exchange symbol.
 	 */
-	std::string getSymbolExchange();
+	std::string getSymbolIdExchange();
 
 	/*! \brief Set Exchange symbol.
 	 */
-	void setSymbolExchange(std::string  symbol_exchange);
+	void setSymbolIdExchange(std::string  symbol_id_exchange);
 	/*! \brief Get CoinAPI symbol.
 	 */
-	std::string getSymbolCoinapi();
+	std::string getSymbolIdCoinapi();
 
 	/*! \brief Set CoinAPI symbol.
 	 */
-	void setSymbolCoinapi(std::string  symbol_coinapi);
+	void setSymbolIdCoinapi(std::string  symbol_id_coinapi);
 	/*! \brief Get Calculated average price of all fills on this position.
 	 */
 	long long getAvgEntryPrice();
@@ -118,8 +118,8 @@ public:
 	void setRawData(std::string  raw_data);
 
 private:
-	std::string symbol_exchange;
-	std::string symbol_coinapi;
+	std::string symbol_id_exchange;
+	std::string symbol_id_coinapi;
 	long long avg_entry_price;
 	long long quantity;
 	OrdSide side;

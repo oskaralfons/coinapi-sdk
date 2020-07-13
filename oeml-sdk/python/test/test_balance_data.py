@@ -37,12 +37,13 @@ class TestBalanceData(unittest.TestCase):
         # model = openapi_client.models.balance_data.BalanceData()  # noqa: E501
         if include_optional :
             return BalanceData(
-                symbol_exchange = 'XBT', 
-                symbol_coinapi = 'BTC', 
+                asset_id_exchange = 'XBT', 
+                asset_id_coinapi = 'BTC', 
                 balance = 0.00134444, 
                 available = 0.00134444, 
                 locked = 0.0, 
-                update_origin = 'EXCHANGE'
+                last_updated_by = 'EXCHANGE', 
+                rate_usd = 1355.12
             )
         else :
             return BalanceData(

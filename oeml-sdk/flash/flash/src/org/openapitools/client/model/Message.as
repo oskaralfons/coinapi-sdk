@@ -9,7 +9,7 @@ import org.openapitools.client.model.Severity;
         public var type: String = null;
                 [XmlElement(name="severity")]
         public var severity: Severity = NaN;
-        /* If message related exchange then identifier of this exchange. */
+        /* If the message related to exchange, then the identifier of the exchange will be provided. */
         [XmlElement(name="exchange_id")]
         public var exchangeId: String = null;
         /* Message text. */

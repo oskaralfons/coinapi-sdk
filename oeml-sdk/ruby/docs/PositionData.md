@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**symbol_exchange** | **String** | Exchange symbol. | [optional] 
-**symbol_coinapi** | **String** | CoinAPI symbol. | [optional] 
+**symbol_id_exchange** | **String** | Exchange symbol. | [optional] 
+**symbol_id_coinapi** | **String** | CoinAPI symbol. | [optional] 
 **avg_entry_price** | **Float** | Calculated average price of all fills on this position. | [optional] 
 **quantity** | **Float** | The current position quantity. | [optional] 
 **side** | [**OrdSide**](OrdSide.md) |  | [optional] 
@@ -20,8 +20,8 @@ Name | Type | Description | Notes
 ```ruby
 require 'OpenapiClient'
 
-instance = OpenapiClient::PositionData.new(symbol_exchange: XBTUSD,
-                                 symbol_coinapi: BITMEX_PERP_BTC_USD,
+instance = OpenapiClient::PositionData.new(symbol_id_exchange: XBTUSD,
+                                 symbol_id_coinapi: BITMEX_PERP_BTC_USD,
                                  avg_entry_price: 0.00134444,
                                  quantity: 7,
                                  side: null,

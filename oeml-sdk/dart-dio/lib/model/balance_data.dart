@@ -7,12 +7,12 @@ abstract class BalanceData implements Built<BalanceData, BalanceDataBuilder> {
 
     /* Exchange currency code. */
         @nullable
-    @BuiltValueField(wireName: r'symbol_exchange')
-    String get symbolExchange;
+    @BuiltValueField(wireName: r'asset_id_exchange')
+    String get assetIdExchange;
     /* CoinAPI currency code. */
         @nullable
-    @BuiltValueField(wireName: r'symbol_coinapi')
-    String get symbolCoinapi;
+    @BuiltValueField(wireName: r'asset_id_coinapi')
+    String get assetIdCoinapi;
     /* Value of the current total currency balance on the exchange. */
         @nullable
     @BuiltValueField(wireName: r'balance')
@@ -27,9 +27,13 @@ abstract class BalanceData implements Built<BalanceData, BalanceDataBuilder> {
     double get locked;
     /* Source of the last modification.  */
         @nullable
-    @BuiltValueField(wireName: r'update_origin')
-    String get updateOrigin;
-        //enum updateOriginEnum {  INITIALIZATION,  BALANCE_MANAGER,  EXCHANGE,  };
+    @BuiltValueField(wireName: r'last_updated_by')
+    String get lastUpdatedBy;
+        //enum lastUpdatedByEnum {  INITIALIZATION,  BALANCE_MANAGER,  EXCHANGE,  };
+    /* Current exchange rate to the USD for the single unit of the currency.  */
+        @nullable
+    @BuiltValueField(wireName: r'rate_usd')
+    double get rateUsd;
 
     // Boilerplate code needed to wire-up generated code
     BalanceData._();

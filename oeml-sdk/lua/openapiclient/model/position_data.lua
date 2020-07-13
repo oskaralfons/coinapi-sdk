@@ -19,10 +19,10 @@ local function cast_position_data(t)
 	return setmetatable(t, position_data_mt)
 end
 
-local function new_position_data(symbol_exchange, symbol_coinapi, avg_entry_price, quantity, side, unrealized_pnl, leverage, cross_margin, liquidation_price, raw_data)
+local function new_position_data(symbol_id_exchange, symbol_id_coinapi, avg_entry_price, quantity, side, unrealized_pnl, leverage, cross_margin, liquidation_price, raw_data)
 	return cast_position_data({
-		["symbol_exchange"] = symbol_exchange;
-		["symbol_coinapi"] = symbol_coinapi;
+		["symbol_id_exchange"] = symbol_id_exchange;
+		["symbol_id_coinapi"] = symbol_id_coinapi;
 		["avg_entry_price"] = avg_entry_price;
 		["quantity"] = quantity;
 		["side"] = side;

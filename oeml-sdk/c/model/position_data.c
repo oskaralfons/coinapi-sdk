@@ -23,8 +23,8 @@ oeml___rest_api_position_data__e sideposition_data_FromString(char* side){
 }
 
 position_data_t *position_data_create(
-    char *symbol_exchange,
-    char *symbol_coinapi,
+    char *symbol_id_exchange,
+    char *symbol_id_coinapi,
     double avg_entry_price,
     double quantity,
     double unrealized_pnl,
@@ -37,8 +37,8 @@ position_data_t *position_data_create(
     if (!position_data_local_var) {
         return NULL;
     }
-    position_data_local_var->symbol_exchange = symbol_exchange;
-    position_data_local_var->symbol_coinapi = symbol_coinapi;
+    position_data_local_var->symbol_id_exchange = symbol_id_exchange;
+    position_data_local_var->symbol_id_coinapi = symbol_id_coinapi;
     position_data_local_var->avg_entry_price = avg_entry_price;
     position_data_local_var->quantity = quantity;
     position_data_local_var->side = side;
@@ -57,8 +57,8 @@ void position_data_free(position_data_t *position_data) {
         return ;
     }
     listEntry_t *listEntry;
-    free(position_data->symbol_exchange);
-    free(position_data->symbol_coinapi);
+    free(position_data->symbol_id_exchange);
+    free(position_data->symbol_id_coinapi);
     object_free(position_data->raw_data);
     free(position_data);
 }
@@ -66,17 +66,17 @@ void position_data_free(position_data_t *position_data) {
 cJSON *position_data_convertToJSON(position_data_t *position_data) {
     cJSON *item = cJSON_CreateObject();
 
-    // position_data->symbol_exchange
-    if(position_data->symbol_exchange) { 
-    if(cJSON_AddStringToObject(item, "symbol_exchange", position_data->symbol_exchange) == NULL) {
+    // position_data->symbol_id_exchange
+    if(position_data->symbol_id_exchange) { 
+    if(cJSON_AddStringToObject(item, "symbol_id_exchange", position_data->symbol_id_exchange) == NULL) {
     goto fail; //String
     }
      } 
 
 
-    // position_data->symbol_coinapi
-    if(position_data->symbol_coinapi) { 
-    if(cJSON_AddStringToObject(item, "symbol_coinapi", position_data->symbol_coinapi) == NULL) {
+    // position_data->symbol_id_coinapi
+    if(position_data->symbol_id_coinapi) { 
+    if(cJSON_AddStringToObject(item, "symbol_id_coinapi", position_data->symbol_id_coinapi) == NULL) {
     goto fail; //String
     }
      } 
@@ -159,19 +159,19 @@ position_data_t *position_data_parseFromJSON(cJSON *position_dataJSON){
 
     position_data_t *position_data_local_var = NULL;
 
-    // position_data->symbol_exchange
-    cJSON *symbol_exchange = cJSON_GetObjectItemCaseSensitive(position_dataJSON, "symbol_exchange");
-    if (symbol_exchange) { 
-    if(!cJSON_IsString(symbol_exchange))
+    // position_data->symbol_id_exchange
+    cJSON *symbol_id_exchange = cJSON_GetObjectItemCaseSensitive(position_dataJSON, "symbol_id_exchange");
+    if (symbol_id_exchange) { 
+    if(!cJSON_IsString(symbol_id_exchange))
     {
     goto end; //String
     }
     }
 
-    // position_data->symbol_coinapi
-    cJSON *symbol_coinapi = cJSON_GetObjectItemCaseSensitive(position_dataJSON, "symbol_coinapi");
-    if (symbol_coinapi) { 
-    if(!cJSON_IsString(symbol_coinapi))
+    // position_data->symbol_id_coinapi
+    cJSON *symbol_id_coinapi = cJSON_GetObjectItemCaseSensitive(position_dataJSON, "symbol_id_coinapi");
+    if (symbol_id_coinapi) { 
+    if(!cJSON_IsString(symbol_id_coinapi))
     {
     goto end; //String
     }
@@ -244,8 +244,8 @@ position_data_t *position_data_parseFromJSON(cJSON *position_dataJSON){
 
 
     position_data_local_var = position_data_create (
-        symbol_exchange ? strdup(symbol_exchange->valuestring) : NULL,
-        symbol_coinapi ? strdup(symbol_coinapi->valuestring) : NULL,
+        symbol_id_exchange ? strdup(symbol_id_exchange->valuestring) : NULL,
+        symbol_id_coinapi ? strdup(symbol_id_coinapi->valuestring) : NULL,
         avg_entry_price ? avg_entry_price->valuedouble : 0,
         quantity ? quantity->valuedouble : 0,
         unrealized_pnl ? unrealized_pnl->valuedouble : 0,

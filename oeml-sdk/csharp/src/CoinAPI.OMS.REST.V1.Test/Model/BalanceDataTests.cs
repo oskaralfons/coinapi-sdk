@@ -66,20 +66,20 @@ namespace CoinAPI.OMS.REST.V1.Test
 
 
         /// <summary>
-        /// Test the property 'SymbolExchange'
+        /// Test the property 'AssetIdExchange'
         /// </summary>
         [Test]
-        public void SymbolExchangeTest()
+        public void AssetIdExchangeTest()
         {
-            // TODO unit test for the property 'SymbolExchange'
+            // TODO unit test for the property 'AssetIdExchange'
         }
         /// <summary>
-        /// Test the property 'SymbolCoinapi'
+        /// Test the property 'AssetIdCoinapi'
         /// </summary>
         [Test]
-        public void SymbolCoinapiTest()
+        public void AssetIdCoinapiTest()
         {
-            // TODO unit test for the property 'SymbolCoinapi'
+            // TODO unit test for the property 'AssetIdCoinapi'
         }
         /// <summary>
         /// Test the property 'Balance'
@@ -106,12 +106,20 @@ namespace CoinAPI.OMS.REST.V1.Test
             // TODO unit test for the property 'Locked'
         }
         /// <summary>
-        /// Test the property 'UpdateOrigin'
+        /// Test the property 'LastUpdatedBy'
         /// </summary>
         [Test]
-        public void UpdateOriginTest()
+        public void LastUpdatedByTest()
         {
-            // TODO unit test for the property 'UpdateOrigin'
+            // TODO unit test for the property 'LastUpdatedBy'
+        }
+        /// <summary>
+        /// Test the property 'RateUsd'
+        /// </summary>
+        [Test]
+        public void RateUsdTest()
+        {
+            // TODO unit test for the property 'RateUsd'
         }
 
     }

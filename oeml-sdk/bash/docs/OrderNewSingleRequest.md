@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **exchangeUnderscoreid** | **string** |  | [default to null]
 **clientUnderscoreorderUnderscoreid** | **string** |  | [default to null]
-**symbolUnderscoreexchange** | **string** |  | [optional] [default to null]
-**symbolUnderscorecoinapi** | **string** |  | [optional] [default to null]
+**symbolUnderscoreidUnderscoreexchange** | **string** |  | [optional] [default to null]
+**symbolUnderscoreidUnderscorecoinapi** | **string** |  | [optional] [default to null]
 **amountUnderscoreorder** | **integer** |  | [default to null]
 **price** | **integer** |  | [default to null]
 **side** | [**OrdSide**](OrdSide.md) |  | [default to null]

@@ -57,15 +57,15 @@ public:
     bool is_client_order_id_Set() const;
     bool is_client_order_id_Valid() const;
 
-    QString getSymbolExchange() const;
-    void setSymbolExchange(const QString &symbol_exchange);
-    bool is_symbol_exchange_Set() const;
-    bool is_symbol_exchange_Valid() const;
+    QString getSymbolIdExchange() const;
+    void setSymbolIdExchange(const QString &symbol_id_exchange);
+    bool is_symbol_id_exchange_Set() const;
+    bool is_symbol_id_exchange_Valid() const;
 
-    QString getSymbolCoinapi() const;
-    void setSymbolCoinapi(const QString &symbol_coinapi);
-    bool is_symbol_coinapi_Set() const;
-    bool is_symbol_coinapi_Valid() const;
+    QString getSymbolIdCoinapi() const;
+    void setSymbolIdCoinapi(const QString &symbol_id_coinapi);
+    bool is_symbol_id_coinapi_Set() const;
+    bool is_symbol_id_coinapi_Valid() const;
 
     double getAmountOrder() const;
     void setAmountOrder(const double &amount_order);
@@ -151,13 +151,13 @@ private:
     bool m_client_order_id_isSet;
     bool m_client_order_id_isValid;
 
-    QString symbol_exchange;
-    bool m_symbol_exchange_isSet;
-    bool m_symbol_exchange_isValid;
+    QString symbol_id_exchange;
+    bool m_symbol_id_exchange_isSet;
+    bool m_symbol_id_exchange_isValid;
 
-    QString symbol_coinapi;
-    bool m_symbol_coinapi_isSet;
-    bool m_symbol_coinapi_isValid;
+    QString symbol_id_coinapi;
+    bool m_symbol_id_coinapi_isSet;
+    bool m_symbol_id_coinapi_isValid;
 
     double amount_order;
     bool m_amount_order_isSet;

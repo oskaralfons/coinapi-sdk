@@ -388,12 +388,13 @@ package body .Models is
                         Value : in BalanceData_Type) is
    begin
       Into.Start_Entity (Name);
-      Into.Write_Entity ("symbol_exchange", Value.Symbol_Exchange);
-      Into.Write_Entity ("symbol_coinapi", Value.Symbol_Coinapi);
+      Into.Write_Entity ("asset_id_exchange", Value.Asset_Id_Exchange);
+      Into.Write_Entity ("asset_id_coinapi", Value.Asset_Id_Coinapi);
       Into.Write_Entity ("balance", Value.Balance);
       Into.Write_Entity ("available", Value.Available);
       Into.Write_Entity ("locked", Value.Locked);
-      Into.Write_Entity ("update_origin", Value.Update_Origin);
+      Into.Write_Entity ("last_updated_by", Value.Last_Updated_By);
+      Into.Write_Entity ("rate_usd", Value.Rate_Usd);
       Into.End_Entity (Name);
    end Serialize;
 
@@ -414,12 +415,13 @@ package body .Models is
       Object : Swagger.Value_Type;
    begin
       Swagger.Streams.Deserialize (From, Name, Object);
-      Swagger.Streams.Deserialize (Object, "symbol_exchange", Value.Symbol_Exchange);
-      Swagger.Streams.Deserialize (Object, "symbol_coinapi", Value.Symbol_Coinapi);
+      Swagger.Streams.Deserialize (Object, "asset_id_exchange", Value.Asset_Id_Exchange);
+      Swagger.Streams.Deserialize (Object, "asset_id_coinapi", Value.Asset_Id_Coinapi);
       Swagger.Streams.Deserialize (Object, "balance", Value.Balance);
       Swagger.Streams.Deserialize (Object, "available", Value.Available);
       Swagger.Streams.Deserialize (Object, "locked", Value.Locked);
-      Swagger.Streams.Deserialize (Object, "update_origin", Value.Update_Origin);
+      Swagger.Streams.Deserialize (Object, "last_updated_by", Value.Last_Updated_By);
+      Swagger.Streams.Deserialize (Object, "rate_usd", Value.Rate_Usd);
    end Deserialize;
 
    procedure Deserialize (From  : in Swagger.Value_Type;
@@ -494,8 +496,8 @@ package body .Models is
       Into.Start_Entity (Name);
       Into.Write_Entity ("exchange_id", Value.Exchange_Id);
       Into.Write_Entity ("client_order_id", Value.Client_Order_Id);
-      Into.Write_Entity ("symbol_exchange", Value.Symbol_Exchange);
-      Into.Write_Entity ("symbol_coinapi", Value.Symbol_Coinapi);
+      Into.Write_Entity ("symbol_id_exchange", Value.Symbol_Id_Exchange);
+      Into.Write_Entity ("symbol_id_coinapi", Value.Symbol_Id_Coinapi);
       Serialize (Into, "amount_order", Value.Amount_Order);
       Serialize (Into, "price", Value.Price);
       Serialize (Into, "side", Value.Side);
@@ -525,8 +527,8 @@ package body .Models is
       Swagger.Streams.Deserialize (From, Name, Object);
       Swagger.Streams.Deserialize (Object, "exchange_id", Value.Exchange_Id);
       Swagger.Streams.Deserialize (Object, "client_order_id", Value.Client_Order_Id);
-      Swagger.Streams.Deserialize (Object, "symbol_exchange", Value.Symbol_Exchange);
-      Swagger.Streams.Deserialize (Object, "symbol_coinapi", Value.Symbol_Coinapi);
+      Swagger.Streams.Deserialize (Object, "symbol_id_exchange", Value.Symbol_Id_Exchange);
+      Swagger.Streams.Deserialize (Object, "symbol_id_coinapi", Value.Symbol_Id_Coinapi);
       Deserialize (Object, "amount_order", Value.Amount_Order);
       Deserialize (Object, "price", Value.Price);
       Deserialize (Object, "side", Value.Side);
@@ -560,8 +562,8 @@ package body .Models is
       Into.Start_Entity (Name);
       Into.Write_Entity ("exchange_id", Value.Exchange_Id);
       Into.Write_Entity ("client_order_id", Value.Client_Order_Id);
-      Into.Write_Entity ("symbol_exchange", Value.Symbol_Exchange);
-      Into.Write_Entity ("symbol_coinapi", Value.Symbol_Coinapi);
+      Into.Write_Entity ("symbol_id_exchange", Value.Symbol_Id_Exchange);
+      Into.Write_Entity ("symbol_id_coinapi", Value.Symbol_Id_Coinapi);
       Serialize (Into, "amount_order", Value.Amount_Order);
       Serialize (Into, "price", Value.Price);
       Serialize (Into, "side", Value.Side);
@@ -598,8 +600,8 @@ package body .Models is
       Swagger.Streams.Deserialize (From, Name, Object);
       Swagger.Streams.Deserialize (Object, "exchange_id", Value.Exchange_Id);
       Swagger.Streams.Deserialize (Object, "client_order_id", Value.Client_Order_Id);
-      Swagger.Streams.Deserialize (Object, "symbol_exchange", Value.Symbol_Exchange);
-      Swagger.Streams.Deserialize (Object, "symbol_coinapi", Value.Symbol_Coinapi);
+      Swagger.Streams.Deserialize (Object, "symbol_id_exchange", Value.Symbol_Id_Exchange);
+      Swagger.Streams.Deserialize (Object, "symbol_id_coinapi", Value.Symbol_Id_Coinapi);
       Deserialize (Object, "amount_order", Value.Amount_Order);
       Deserialize (Object, "price", Value.Price);
       Deserialize (Object, "side", Value.Side);
@@ -798,8 +800,8 @@ package body .Models is
                         Value : in PositionData_Type) is
    begin
       Into.Start_Entity (Name);
-      Into.Write_Entity ("symbol_exchange", Value.Symbol_Exchange);
-      Into.Write_Entity ("symbol_coinapi", Value.Symbol_Coinapi);
+      Into.Write_Entity ("symbol_id_exchange", Value.Symbol_Id_Exchange);
+      Into.Write_Entity ("symbol_id_coinapi", Value.Symbol_Id_Coinapi);
       Serialize (Into, "avg_entry_price", Value.Avg_Entry_Price);
       Serialize (Into, "quantity", Value.Quantity);
       Serialize (Into, "side", Value.Side);
@@ -828,8 +830,8 @@ package body .Models is
       Object : Swagger.Value_Type;
    begin
       Swagger.Streams.Deserialize (From, Name, Object);
-      Swagger.Streams.Deserialize (Object, "symbol_exchange", Value.Symbol_Exchange);
-      Swagger.Streams.Deserialize (Object, "symbol_coinapi", Value.Symbol_Coinapi);
+      Swagger.Streams.Deserialize (Object, "symbol_id_exchange", Value.Symbol_Id_Exchange);
+      Swagger.Streams.Deserialize (Object, "symbol_id_coinapi", Value.Symbol_Id_Coinapi);
       Deserialize (Object, "avg_entry_price", Value.Avg_Entry_Price);
       Deserialize (Object, "quantity", Value.Quantity);
       Deserialize (Object, "side", Value.Side);

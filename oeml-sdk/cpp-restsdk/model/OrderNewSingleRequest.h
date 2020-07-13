@@ -77,22 +77,22 @@ public:
     void setClientOrderId(const utility::string_t& value);
 
     /// <summary>
-    /// Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order.
+    /// Exchange symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order.
     /// </summary>
-    utility::string_t getSymbolExchange() const;
-    bool symbolExchangeIsSet() const;
-    void unsetSymbol_exchange();
+    utility::string_t getSymbolIdExchange() const;
+    bool symbolIdExchangeIsSet() const;
+    void unsetSymbol_id_exchange();
 
-    void setSymbolExchange(const utility::string_t& value);
+    void setSymbolIdExchange(const utility::string_t& value);
 
     /// <summary>
-    /// CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order.
+    /// CoinAPI symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order.
     /// </summary>
-    utility::string_t getSymbolCoinapi() const;
-    bool symbolCoinapiIsSet() const;
-    void unsetSymbol_coinapi();
+    utility::string_t getSymbolIdCoinapi() const;
+    bool symbolIdCoinapiIsSet() const;
+    void unsetSymbol_id_coinapi();
 
-    void setSymbolCoinapi(const utility::string_t& value);
+    void setSymbolIdCoinapi(const utility::string_t& value);
 
     /// <summary>
     /// Order quantity.
@@ -163,10 +163,10 @@ protected:
     bool m_Exchange_idIsSet;
     utility::string_t m_Client_order_id;
     bool m_Client_order_idIsSet;
-    utility::string_t m_Symbol_exchange;
-    bool m_Symbol_exchangeIsSet;
-    utility::string_t m_Symbol_coinapi;
-    bool m_Symbol_coinapiIsSet;
+    utility::string_t m_Symbol_id_exchange;
+    bool m_Symbol_id_exchangeIsSet;
+    utility::string_t m_Symbol_id_coinapi;
+    bool m_Symbol_id_coinapiIsSet;
     double m_Amount_order;
     bool m_Amount_orderIsSet;
     double m_Price;

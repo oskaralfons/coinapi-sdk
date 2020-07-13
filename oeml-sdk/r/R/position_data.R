@@ -10,9 +10,9 @@
 #' @title PositionData
 #' @description PositionData Class
 #' @format An \code{R6Class} generator object
-#' @field symbol_exchange  character [optional]
+#' @field symbol_id_exchange  character [optional]
 #'
-#' @field symbol_coinapi  character [optional]
+#' @field symbol_id_coinapi  character [optional]
 #'
 #' @field avg_entry_price  numeric [optional]
 #'
@@ -37,8 +37,8 @@
 PositionData <- R6::R6Class(
   'PositionData',
   public = list(
-    `symbol_exchange` = NULL,
-    `symbol_coinapi` = NULL,
+    `symbol_id_exchange` = NULL,
+    `symbol_id_coinapi` = NULL,
     `avg_entry_price` = NULL,
     `quantity` = NULL,
     `side` = NULL,
@@ -47,15 +47,15 @@ PositionData <- R6::R6Class(
     `cross_margin` = NULL,
     `liquidation_price` = NULL,
     `raw_data` = NULL,
-    initialize = function(`symbol_exchange`=NULL, `symbol_coinapi`=NULL, `avg_entry_price`=NULL, `quantity`=NULL, `side`=NULL, `unrealized_pnl`=NULL, `leverage`=NULL, `cross_margin`=NULL, `liquidation_price`=NULL, `raw_data`=NULL, ...){
+    initialize = function(`symbol_id_exchange`=NULL, `symbol_id_coinapi`=NULL, `avg_entry_price`=NULL, `quantity`=NULL, `side`=NULL, `unrealized_pnl`=NULL, `leverage`=NULL, `cross_margin`=NULL, `liquidation_price`=NULL, `raw_data`=NULL, ...){
       local.optional.var <- list(...)
-      if (!is.null(`symbol_exchange`)) {
-        stopifnot(is.character(`symbol_exchange`), length(`symbol_exchange`) == 1)
-        self$`symbol_exchange` <- `symbol_exchange`
+      if (!is.null(`symbol_id_exchange`)) {
+        stopifnot(is.character(`symbol_id_exchange`), length(`symbol_id_exchange`) == 1)
+        self$`symbol_id_exchange` <- `symbol_id_exchange`
       }
-      if (!is.null(`symbol_coinapi`)) {
-        stopifnot(is.character(`symbol_coinapi`), length(`symbol_coinapi`) == 1)
-        self$`symbol_coinapi` <- `symbol_coinapi`
+      if (!is.null(`symbol_id_coinapi`)) {
+        stopifnot(is.character(`symbol_id_coinapi`), length(`symbol_id_coinapi`) == 1)
+        self$`symbol_id_coinapi` <- `symbol_id_coinapi`
       }
       if (!is.null(`avg_entry_price`)) {
         self$`avg_entry_price` <- `avg_entry_price`
@@ -86,13 +86,13 @@ PositionData <- R6::R6Class(
     },
     toJSON = function() {
       PositionDataObject <- list()
-      if (!is.null(self$`symbol_exchange`)) {
-        PositionDataObject[['symbol_exchange']] <-
-          self$`symbol_exchange`
+      if (!is.null(self$`symbol_id_exchange`)) {
+        PositionDataObject[['symbol_id_exchange']] <-
+          self$`symbol_id_exchange`
       }
-      if (!is.null(self$`symbol_coinapi`)) {
-        PositionDataObject[['symbol_coinapi']] <-
-          self$`symbol_coinapi`
+      if (!is.null(self$`symbol_id_coinapi`)) {
+        PositionDataObject[['symbol_id_coinapi']] <-
+          self$`symbol_id_coinapi`
       }
       if (!is.null(self$`avg_entry_price`)) {
         PositionDataObject[['avg_entry_price']] <-
@@ -131,11 +131,11 @@ PositionData <- R6::R6Class(
     },
     fromJSON = function(PositionDataJson) {
       PositionDataObject <- jsonlite::fromJSON(PositionDataJson)
-      if (!is.null(PositionDataObject$`symbol_exchange`)) {
-        self$`symbol_exchange` <- PositionDataObject$`symbol_exchange`
+      if (!is.null(PositionDataObject$`symbol_id_exchange`)) {
+        self$`symbol_id_exchange` <- PositionDataObject$`symbol_id_exchange`
       }
-      if (!is.null(PositionDataObject$`symbol_coinapi`)) {
-        self$`symbol_coinapi` <- PositionDataObject$`symbol_coinapi`
+      if (!is.null(PositionDataObject$`symbol_id_coinapi`)) {
+        self$`symbol_id_coinapi` <- PositionDataObject$`symbol_id_coinapi`
       }
       if (!is.null(PositionDataObject$`avg_entry_price`)) {
         self$`avg_entry_price` <- PositionDataObject$`avg_entry_price`
@@ -168,19 +168,19 @@ PositionData <- R6::R6Class(
     },
     toJSONString = function() {
       jsoncontent <- c(
-        if (!is.null(self$`symbol_exchange`)) {
+        if (!is.null(self$`symbol_id_exchange`)) {
         sprintf(
-        '"symbol_exchange":
+        '"symbol_id_exchange":
           "%s"
                 ',
-        self$`symbol_exchange`
+        self$`symbol_id_exchange`
         )},
-        if (!is.null(self$`symbol_coinapi`)) {
+        if (!is.null(self$`symbol_id_coinapi`)) {
         sprintf(
-        '"symbol_coinapi":
+        '"symbol_id_coinapi":
           "%s"
                 ',
-        self$`symbol_coinapi`
+        self$`symbol_id_coinapi`
         )},
         if (!is.null(self$`avg_entry_price`)) {
         sprintf(
@@ -244,8 +244,8 @@ PositionData <- R6::R6Class(
     },
     fromJSONString = function(PositionDataJson) {
       PositionDataObject <- jsonlite::fromJSON(PositionDataJson)
-      self$`symbol_exchange` <- PositionDataObject$`symbol_exchange`
-      self$`symbol_coinapi` <- PositionDataObject$`symbol_coinapi`
+      self$`symbol_id_exchange` <- PositionDataObject$`symbol_id_exchange`
+      self$`symbol_id_coinapi` <- PositionDataObject$`symbol_id_coinapi`
       self$`avg_entry_price` <- PositionDataObject$`avg_entry_price`
       self$`quantity` <- PositionDataObject$`quantity`
       self$`side` <- OrdSide$new()$fromJSON(jsonlite::toJSON(PositionDataObject$side, auto_unbox = TRUE, digits = NA))

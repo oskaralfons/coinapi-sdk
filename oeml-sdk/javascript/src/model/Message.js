@@ -79,7 +79,7 @@ Message.prototype['type'] = undefined;
 Message.prototype['severity'] = undefined;
 
 /**
- * If message related exchange then identifier of this exchange.
+ * If the message related to exchange, then the identifier of the exchange will be provided.
  * @member {String} exchange_id
  */
 Message.prototype['exchange_id'] = undefined;

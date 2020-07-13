@@ -7,11 +7,11 @@ part 'position_data.jser.dart';
 
 class PositionData {
    /* Exchange symbol. */
-  @Alias('symbol_exchange', isNullable: false,  )
-  final String symbolExchange;
+  @Alias('symbol_id_exchange', isNullable: false,  )
+  final String symbolIdExchange;
    /* CoinAPI symbol. */
-  @Alias('symbol_coinapi', isNullable: false,  )
-  final String symbolCoinapi;
+  @Alias('symbol_id_coinapi', isNullable: false,  )
+  final String symbolIdCoinapi;
    /* Calculated average price of all fills on this position. */
   @Alias('avg_entry_price', isNullable: false,  )
   final num avgEntryPrice;
@@ -46,8 +46,8 @@ class PositionData {
       
 
 {
-     this.symbolExchange = null,  
-     this.symbolCoinapi = null,  
+     this.symbolIdExchange = null,  
+     this.symbolIdCoinapi = null,  
      this.avgEntryPrice = null,  
      this.quantity = null,  
      this.side = null,  
@@ -62,7 +62,7 @@ class PositionData {
 
   @override
   String toString() {
-    return 'PositionData[symbolExchange=$symbolExchange, symbolCoinapi=$symbolCoinapi, avgEntryPrice=$avgEntryPrice, quantity=$quantity, side=$side, unrealizedPnl=$unrealizedPnl, leverage=$leverage, crossMargin=$crossMargin, liquidationPrice=$liquidationPrice, rawData=$rawData, ]';
+    return 'PositionData[symbolIdExchange=$symbolIdExchange, symbolIdCoinapi=$symbolIdCoinapi, avgEntryPrice=$avgEntryPrice, quantity=$quantity, side=$side, unrealizedPnl=$unrealizedPnl, leverage=$leverage, crossMargin=$crossMargin, liquidationPrice=$liquidationPrice, rawData=$rawData, ]';
   }
 }
 
