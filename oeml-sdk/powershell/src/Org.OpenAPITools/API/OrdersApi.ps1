@@ -2,8 +2,8 @@ function Invoke-OrdersApiV1OrdersCancelAllPost {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Org.OpenAPITools.Model.CancelOrderAllRequest]
-        ${cancelOrderAllRequest}
+        [Org.OpenAPITools.Model.OrderCancelAllRequest]
+        ${orderCancelAllRequest}
     )
 
     Process {
@@ -11,7 +11,7 @@ function Invoke-OrdersApiV1OrdersCancelAllPost {
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $Script:OrdersApi.V1OrdersCancelAllPost(
-            ${cancelOrderAllRequest}
+            ${orderCancelAllRequest}
         )
     }
 }
@@ -20,8 +20,8 @@ function Invoke-OrdersApiV1OrdersCancelPost {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Org.OpenAPITools.Model.CancelOrderSingleRequest]
-        ${cancelOrderSingleRequest}
+        [Org.OpenAPITools.Model.OrderCancelSingleRequest]
+        ${orderCancelSingleRequest}
     )
 
     Process {
@@ -29,7 +29,7 @@ function Invoke-OrdersApiV1OrdersCancelPost {
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $Script:OrdersApi.V1OrdersCancelPost(
-            ${cancelOrderSingleRequest}
+            ${orderCancelSingleRequest}
         )
     }
 }
@@ -56,8 +56,8 @@ function Invoke-OrdersApiV1OrdersPost {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Org.OpenAPITools.Model.NewOrderSingle]
-        ${newOrderSingle}
+        [Org.OpenAPITools.Model.OrderNewSingleRequest]
+        ${orderNewSingleRequest}
     )
 
     Process {
@@ -65,7 +65,7 @@ function Invoke-OrdersApiV1OrdersPost {
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $Script:OrdersApi.V1OrdersPost(
-            ${newOrderSingle}
+            ${orderNewSingleRequest}
         )
     }
 }

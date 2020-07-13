@@ -18,8 +18,8 @@ Name | Type | Description | Notes
 **ExecInst** | **List&lt;string&gt;** | Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt;  | [optional] 
 **ClientOrderIdFormatExchange** | **string** | The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. | 
 **ExchangeOrderId** | **string** | The unique identifier of the order assigned by the exchange. | [optional] 
-**AmountOpen** | **decimal** | Amount open | 
-**AmountFilled** | **decimal** | Amount filled | 
+**AmountOpen** | **decimal** | Amount open. | 
+**AmountFilled** | **decimal** | Amount filled. | 
 **Status** | **OrdStatus** |  | 
 **TimeOrder** | **List&lt;List&lt;string&gt;&gt;** | Timestamped history of order status changes. | 
 **ErrorMessage** | **string** | Error message | [optional] 

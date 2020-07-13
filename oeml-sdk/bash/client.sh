@@ -96,10 +96,10 @@ declare -a result_color_table=( "$WHITE" "$WHITE" "$GREEN" "$YELLOW" "$WHITE" "$
 # 1 - required
 declare -A operation_parameters_minimum_occurrences
 operation_parameters_minimum_occurrences["v1BalancesGet:::exchange_id"]=0
-operation_parameters_minimum_occurrences["v1OrdersCancelAllPost:::CancelOrderAllRequest"]=1
-operation_parameters_minimum_occurrences["v1OrdersCancelPost:::CancelOrderSingleRequest"]=1
+operation_parameters_minimum_occurrences["v1OrdersCancelAllPost:::OrderCancelAllRequest"]=1
+operation_parameters_minimum_occurrences["v1OrdersCancelPost:::OrderCancelSingleRequest"]=1
 operation_parameters_minimum_occurrences["v1OrdersGet:::exchange_id"]=0
-operation_parameters_minimum_occurrences["v1OrdersPost:::NewOrderSingle"]=1
+operation_parameters_minimum_occurrences["v1OrdersPost:::OrderNewSingleRequest"]=1
 operation_parameters_minimum_occurrences["v1OrdersStatusClientOrderIdGet:::client_order_id"]=1
 operation_parameters_minimum_occurrences["v1PositionsGet:::exchange_id"]=0
 
@@ -111,10 +111,10 @@ operation_parameters_minimum_occurrences["v1PositionsGet:::exchange_id"]=0
 # 0 - unlimited
 declare -A operation_parameters_maximum_occurrences
 operation_parameters_maximum_occurrences["v1BalancesGet:::exchange_id"]=0
-operation_parameters_maximum_occurrences["v1OrdersCancelAllPost:::CancelOrderAllRequest"]=0
-operation_parameters_maximum_occurrences["v1OrdersCancelPost:::CancelOrderSingleRequest"]=0
+operation_parameters_maximum_occurrences["v1OrdersCancelAllPost:::OrderCancelAllRequest"]=0
+operation_parameters_maximum_occurrences["v1OrdersCancelPost:::OrderCancelSingleRequest"]=0
 operation_parameters_maximum_occurrences["v1OrdersGet:::exchange_id"]=0
-operation_parameters_maximum_occurrences["v1OrdersPost:::NewOrderSingle"]=0
+operation_parameters_maximum_occurrences["v1OrdersPost:::OrderNewSingleRequest"]=0
 operation_parameters_maximum_occurrences["v1OrdersStatusClientOrderIdGet:::client_order_id"]=0
 operation_parameters_maximum_occurrences["v1PositionsGet:::exchange_id"]=0
 
@@ -123,10 +123,10 @@ operation_parameters_maximum_occurrences["v1PositionsGet:::exchange_id"]=0
 # - multi, csv, ssv, tsv
 declare -A operation_parameters_collection_type
 operation_parameters_collection_type["v1BalancesGet:::exchange_id"]=""
-operation_parameters_collection_type["v1OrdersCancelAllPost:::CancelOrderAllRequest"]=""
-operation_parameters_collection_type["v1OrdersCancelPost:::CancelOrderSingleRequest"]=""
+operation_parameters_collection_type["v1OrdersCancelAllPost:::OrderCancelAllRequest"]=""
+operation_parameters_collection_type["v1OrdersCancelPost:::OrderCancelSingleRequest"]=""
 operation_parameters_collection_type["v1OrdersGet:::exchange_id"]=""
-operation_parameters_collection_type["v1OrdersPost:::NewOrderSingle"]=""
+operation_parameters_collection_type["v1OrdersPost:::OrderNewSingleRequest"]=""
 operation_parameters_collection_type["v1OrdersStatusClientOrderIdGet:::client_order_id"]=""
 operation_parameters_collection_type["v1PositionsGet:::exchange_id"]=""
 
@@ -593,7 +593,7 @@ print_v1OrdersCancelAllPost_help() {
     echo -e "This request cancels all open orders on single specified exchange." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF} ${RED}(required)${OFF}${OFF} - CancelOrderAllRequest object." | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF} ${RED}(required)${OFF}${OFF} - OrderCancelAllRequest object." | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -616,7 +616,7 @@ print_v1OrdersCancelPost_help() {
     echo -e "Request cancel for an existing order. The order can be canceled using the 'client_order_id' or 'exchange_order_id'." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF} ${RED}(required)${OFF}${OFF} - CancelOrderSingleRequest object." | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF} ${RED}(required)${OFF}${OFF} - OrderCancelSingleRequest object." | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -660,7 +660,7 @@ print_v1OrdersPost_help() {
     echo -e "This request creating new order for the specific exchange." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF} ${RED}(required)${OFF}${OFF} - NewOrderSingle object." | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF} ${RED}(required)${OFF}${OFF} - OrderNewSingleRequest object." | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"

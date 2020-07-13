@@ -23,7 +23,7 @@ test_that("exchange_order_id", {
 
 test_that("amount_open", {
   # tests for the property `amount_open` (numeric)
-  # Amount open
+  # Amount open.
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`amount_open`, "EXPECTED_RESULT")
@@ -31,7 +31,7 @@ test_that("amount_open", {
 
 test_that("amount_filled", {
   # tests for the property `amount_filled` (numeric)
-  # Amount filled
+  # Amount filled.
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`amount_filled`, "EXPECTED_RESULT")

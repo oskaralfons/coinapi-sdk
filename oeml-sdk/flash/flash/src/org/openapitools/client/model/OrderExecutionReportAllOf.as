@@ -10,10 +10,10 @@ import org.openapitools.client.model.OrdStatus;
         /* The unique identifier of the order assigned by the exchange. */
         [XmlElement(name="exchange_order_id")]
         public var exchangeOrderId: String = null;
-        /* Amount open */
+        /* Amount open. */
         [XmlElement(name="amount_open")]
         public var amountOpen: Number = 0.0;
-        /* Amount filled */
+        /* Amount filled. */
         [XmlElement(name="amount_filled")]
         public var amountFilled: Number = 0.0;
                 [XmlElement(name="status")]

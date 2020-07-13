@@ -70,7 +70,7 @@ void OAIOrdersApi::abortRequests(){
     emit abortRequestsSignal();
 }
 
-void OAIOrdersApi::v1OrdersCancelAllPost(const OAICancelOrderAllRequest &oai_cancel_order_all_request) {
+void OAIOrdersApi::v1OrdersCancelAllPost(const OAIOrderCancelAllRequest &oai_order_cancel_all_request) {
     QString fullPath = QString("%1://%2%3%4%5")
                            .arg(_scheme)
                            .arg(_host)
@@ -83,7 +83,7 @@ void OAIOrdersApi::v1OrdersCancelAllPost(const OAICancelOrderAllRequest &oai_can
     worker->setWorkingDirectory(_workingDirectory);
     OAIHttpRequestInput input(fullPath, "POST");
 
-    QString output = oai_cancel_order_all_request.asJson();
+    QString output = oai_order_cancel_all_request.asJson();
     input.request_body.append(output);
 
     foreach (QString key, this->defaultHeaders.keys()) { input.headers.insert(key, this->defaultHeaders.value(key)); }
@@ -116,7 +116,7 @@ void OAIOrdersApi::v1OrdersCancelAllPostCallback(OAIHttpRequestWorker *worker) {
     }
 }
 
-void OAIOrdersApi::v1OrdersCancelPost(const OAICancelOrderSingleRequest &oai_cancel_order_single_request) {
+void OAIOrdersApi::v1OrdersCancelPost(const OAIOrderCancelSingleRequest &oai_order_cancel_single_request) {
     QString fullPath = QString("%1://%2%3%4%5")
                            .arg(_scheme)
                            .arg(_host)
@@ -129,7 +129,7 @@ void OAIOrdersApi::v1OrdersCancelPost(const OAICancelOrderSingleRequest &oai_can
     worker->setWorkingDirectory(_workingDirectory);
     OAIHttpRequestInput input(fullPath, "POST");
 
-    QString output = oai_cancel_order_single_request.asJson();
+    QString output = oai_order_cancel_single_request.asJson();
     input.request_body.append(output);
 
     foreach (QString key, this->defaultHeaders.keys()) { input.headers.insert(key, this->defaultHeaders.value(key)); }
@@ -220,7 +220,7 @@ void OAIOrdersApi::v1OrdersGetCallback(OAIHttpRequestWorker *worker) {
     }
 }
 
-void OAIOrdersApi::v1OrdersPost(const OAINewOrderSingle &oai_new_order_single) {
+void OAIOrdersApi::v1OrdersPost(const OAIOrderNewSingleRequest &oai_order_new_single_request) {
     QString fullPath = QString("%1://%2%3%4%5")
                            .arg(_scheme)
                            .arg(_host)
@@ -233,7 +233,7 @@ void OAIOrdersApi::v1OrdersPost(const OAINewOrderSingle &oai_new_order_single) {
     worker->setWorkingDirectory(_workingDirectory);
     OAIHttpRequestInput input(fullPath, "POST");
 
-    QString output = oai_new_order_single.asJson();
+    QString output = oai_order_new_single_request.asJson();
     input.request_body.append(output);
 
     foreach (QString key, this->defaultHeaders.keys()) { input.headers.insert(key, this->defaultHeaders.value(key)); }

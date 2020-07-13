@@ -27,11 +27,11 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import org.openapitools.client.model.CancelOrderAllRequest;
-import org.openapitools.client.model.CancelOrderSingleRequest;
 import org.openapitools.client.model.Message;
-import org.openapitools.client.model.NewOrderSingle;
+import org.openapitools.client.model.OrderCancelAllRequest;
+import org.openapitools.client.model.OrderCancelSingleRequest;
 import org.openapitools.client.model.OrderExecutionReport;
+import org.openapitools.client.model.OrderNewSingleRequest;
 import org.openapitools.client.model.ValidationError;
 
 import java.lang.reflect.Type;
@@ -61,7 +61,7 @@ public class OrdersApi {
 
     /**
      * Build call for v1OrdersCancelAllPost
-     * @param cancelOrderAllRequest CancelOrderAllRequest object. (required)
+     * @param orderCancelAllRequest OrderCancelAllRequest object. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -73,8 +73,8 @@ public class OrdersApi {
         <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v1OrdersCancelAllPostCall(CancelOrderAllRequest cancelOrderAllRequest, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = cancelOrderAllRequest;
+    public okhttp3.Call v1OrdersCancelAllPostCall(OrderCancelAllRequest orderCancelAllRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = orderCancelAllRequest;
 
         // create path and map variables
         String localVarPath = "/v1/orders/cancel/all";
@@ -103,15 +103,15 @@ public class OrdersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call v1OrdersCancelAllPostValidateBeforeCall(CancelOrderAllRequest cancelOrderAllRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call v1OrdersCancelAllPostValidateBeforeCall(OrderCancelAllRequest orderCancelAllRequest, final ApiCallback _callback) throws ApiException {
         
-        // verify the required parameter 'cancelOrderAllRequest' is set
-        if (cancelOrderAllRequest == null) {
-            throw new ApiException("Missing the required parameter 'cancelOrderAllRequest' when calling v1OrdersCancelAllPost(Async)");
+        // verify the required parameter 'orderCancelAllRequest' is set
+        if (orderCancelAllRequest == null) {
+            throw new ApiException("Missing the required parameter 'orderCancelAllRequest' when calling v1OrdersCancelAllPost(Async)");
         }
         
 
-        okhttp3.Call localVarCall = v1OrdersCancelAllPostCall(cancelOrderAllRequest, _callback);
+        okhttp3.Call localVarCall = v1OrdersCancelAllPostCall(orderCancelAllRequest, _callback);
         return localVarCall;
 
     }
@@ -119,7 +119,7 @@ public class OrdersApi {
     /**
      * Cancel all orders request
      * This request cancels all open orders on single specified exchange.
-     * @param cancelOrderAllRequest CancelOrderAllRequest object. (required)
+     * @param orderCancelAllRequest OrderCancelAllRequest object. (required)
      * @return Message
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -130,15 +130,15 @@ public class OrdersApi {
         <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
-    public Message v1OrdersCancelAllPost(CancelOrderAllRequest cancelOrderAllRequest) throws ApiException {
-        ApiResponse<Message> localVarResp = v1OrdersCancelAllPostWithHttpInfo(cancelOrderAllRequest);
+    public Message v1OrdersCancelAllPost(OrderCancelAllRequest orderCancelAllRequest) throws ApiException {
+        ApiResponse<Message> localVarResp = v1OrdersCancelAllPostWithHttpInfo(orderCancelAllRequest);
         return localVarResp.getData();
     }
 
     /**
      * Cancel all orders request
      * This request cancels all open orders on single specified exchange.
-     * @param cancelOrderAllRequest CancelOrderAllRequest object. (required)
+     * @param orderCancelAllRequest OrderCancelAllRequest object. (required)
      * @return ApiResponse&lt;Message&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -149,8 +149,8 @@ public class OrdersApi {
         <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Message> v1OrdersCancelAllPostWithHttpInfo(CancelOrderAllRequest cancelOrderAllRequest) throws ApiException {
-        okhttp3.Call localVarCall = v1OrdersCancelAllPostValidateBeforeCall(cancelOrderAllRequest, null);
+    public ApiResponse<Message> v1OrdersCancelAllPostWithHttpInfo(OrderCancelAllRequest orderCancelAllRequest) throws ApiException {
+        okhttp3.Call localVarCall = v1OrdersCancelAllPostValidateBeforeCall(orderCancelAllRequest, null);
         Type localVarReturnType = new TypeToken<Message>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -158,7 +158,7 @@ public class OrdersApi {
     /**
      * Cancel all orders request (asynchronously)
      * This request cancels all open orders on single specified exchange.
-     * @param cancelOrderAllRequest CancelOrderAllRequest object. (required)
+     * @param orderCancelAllRequest OrderCancelAllRequest object. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -170,16 +170,16 @@ public class OrdersApi {
         <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v1OrdersCancelAllPostAsync(CancelOrderAllRequest cancelOrderAllRequest, final ApiCallback<Message> _callback) throws ApiException {
+    public okhttp3.Call v1OrdersCancelAllPostAsync(OrderCancelAllRequest orderCancelAllRequest, final ApiCallback<Message> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = v1OrdersCancelAllPostValidateBeforeCall(cancelOrderAllRequest, _callback);
+        okhttp3.Call localVarCall = v1OrdersCancelAllPostValidateBeforeCall(orderCancelAllRequest, _callback);
         Type localVarReturnType = new TypeToken<Message>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for v1OrdersCancelPost
-     * @param cancelOrderSingleRequest CancelOrderSingleRequest object. (required)
+     * @param orderCancelSingleRequest OrderCancelSingleRequest object. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -191,8 +191,8 @@ public class OrdersApi {
         <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v1OrdersCancelPostCall(CancelOrderSingleRequest cancelOrderSingleRequest, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = cancelOrderSingleRequest;
+    public okhttp3.Call v1OrdersCancelPostCall(OrderCancelSingleRequest orderCancelSingleRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = orderCancelSingleRequest;
 
         // create path and map variables
         String localVarPath = "/v1/orders/cancel";
@@ -221,15 +221,15 @@ public class OrdersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call v1OrdersCancelPostValidateBeforeCall(CancelOrderSingleRequest cancelOrderSingleRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call v1OrdersCancelPostValidateBeforeCall(OrderCancelSingleRequest orderCancelSingleRequest, final ApiCallback _callback) throws ApiException {
         
-        // verify the required parameter 'cancelOrderSingleRequest' is set
-        if (cancelOrderSingleRequest == null) {
-            throw new ApiException("Missing the required parameter 'cancelOrderSingleRequest' when calling v1OrdersCancelPost(Async)");
+        // verify the required parameter 'orderCancelSingleRequest' is set
+        if (orderCancelSingleRequest == null) {
+            throw new ApiException("Missing the required parameter 'orderCancelSingleRequest' when calling v1OrdersCancelPost(Async)");
         }
         
 
-        okhttp3.Call localVarCall = v1OrdersCancelPostCall(cancelOrderSingleRequest, _callback);
+        okhttp3.Call localVarCall = v1OrdersCancelPostCall(orderCancelSingleRequest, _callback);
         return localVarCall;
 
     }
@@ -237,7 +237,7 @@ public class OrdersApi {
     /**
      * Cancel order request
      * Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
-     * @param cancelOrderSingleRequest CancelOrderSingleRequest object. (required)
+     * @param orderCancelSingleRequest OrderCancelSingleRequest object. (required)
      * @return OrderExecutionReport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -248,15 +248,15 @@ public class OrdersApi {
         <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
-    public OrderExecutionReport v1OrdersCancelPost(CancelOrderSingleRequest cancelOrderSingleRequest) throws ApiException {
-        ApiResponse<OrderExecutionReport> localVarResp = v1OrdersCancelPostWithHttpInfo(cancelOrderSingleRequest);
+    public OrderExecutionReport v1OrdersCancelPost(OrderCancelSingleRequest orderCancelSingleRequest) throws ApiException {
+        ApiResponse<OrderExecutionReport> localVarResp = v1OrdersCancelPostWithHttpInfo(orderCancelSingleRequest);
         return localVarResp.getData();
     }
 
     /**
      * Cancel order request
      * Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
-     * @param cancelOrderSingleRequest CancelOrderSingleRequest object. (required)
+     * @param orderCancelSingleRequest OrderCancelSingleRequest object. (required)
      * @return ApiResponse&lt;OrderExecutionReport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -267,8 +267,8 @@ public class OrdersApi {
         <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrderExecutionReport> v1OrdersCancelPostWithHttpInfo(CancelOrderSingleRequest cancelOrderSingleRequest) throws ApiException {
-        okhttp3.Call localVarCall = v1OrdersCancelPostValidateBeforeCall(cancelOrderSingleRequest, null);
+    public ApiResponse<OrderExecutionReport> v1OrdersCancelPostWithHttpInfo(OrderCancelSingleRequest orderCancelSingleRequest) throws ApiException {
+        okhttp3.Call localVarCall = v1OrdersCancelPostValidateBeforeCall(orderCancelSingleRequest, null);
         Type localVarReturnType = new TypeToken<OrderExecutionReport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -276,7 +276,7 @@ public class OrdersApi {
     /**
      * Cancel order request (asynchronously)
      * Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
-     * @param cancelOrderSingleRequest CancelOrderSingleRequest object. (required)
+     * @param orderCancelSingleRequest OrderCancelSingleRequest object. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -288,9 +288,9 @@ public class OrdersApi {
         <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v1OrdersCancelPostAsync(CancelOrderSingleRequest cancelOrderSingleRequest, final ApiCallback<OrderExecutionReport> _callback) throws ApiException {
+    public okhttp3.Call v1OrdersCancelPostAsync(OrderCancelSingleRequest orderCancelSingleRequest, final ApiCallback<OrderExecutionReport> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = v1OrdersCancelPostValidateBeforeCall(cancelOrderSingleRequest, _callback);
+        okhttp3.Call localVarCall = v1OrdersCancelPostValidateBeforeCall(orderCancelSingleRequest, _callback);
         Type localVarReturnType = new TypeToken<OrderExecutionReport>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -410,7 +410,7 @@ public class OrdersApi {
     }
     /**
      * Build call for v1OrdersPost
-     * @param newOrderSingle NewOrderSingle object. (required)
+     * @param orderNewSingleRequest OrderNewSingleRequest object. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -423,8 +423,8 @@ public class OrdersApi {
         <tr><td> 504 </td><td> Exchange didn&#39;t responded in the defined timeout. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v1OrdersPostCall(NewOrderSingle newOrderSingle, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = newOrderSingle;
+    public okhttp3.Call v1OrdersPostCall(OrderNewSingleRequest orderNewSingleRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = orderNewSingleRequest;
 
         // create path and map variables
         String localVarPath = "/v1/orders";
@@ -453,15 +453,15 @@ public class OrdersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call v1OrdersPostValidateBeforeCall(NewOrderSingle newOrderSingle, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call v1OrdersPostValidateBeforeCall(OrderNewSingleRequest orderNewSingleRequest, final ApiCallback _callback) throws ApiException {
         
-        // verify the required parameter 'newOrderSingle' is set
-        if (newOrderSingle == null) {
-            throw new ApiException("Missing the required parameter 'newOrderSingle' when calling v1OrdersPost(Async)");
+        // verify the required parameter 'orderNewSingleRequest' is set
+        if (orderNewSingleRequest == null) {
+            throw new ApiException("Missing the required parameter 'orderNewSingleRequest' when calling v1OrdersPost(Async)");
         }
         
 
-        okhttp3.Call localVarCall = v1OrdersPostCall(newOrderSingle, _callback);
+        okhttp3.Call localVarCall = v1OrdersPostCall(orderNewSingleRequest, _callback);
         return localVarCall;
 
     }
@@ -469,7 +469,7 @@ public class OrdersApi {
     /**
      * Send new order
      * This request creating new order for the specific exchange.
-     * @param newOrderSingle NewOrderSingle object. (required)
+     * @param orderNewSingleRequest OrderNewSingleRequest object. (required)
      * @return OrderExecutionReport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -481,15 +481,15 @@ public class OrdersApi {
         <tr><td> 504 </td><td> Exchange didn&#39;t responded in the defined timeout. </td><td>  -  </td></tr>
      </table>
      */
-    public OrderExecutionReport v1OrdersPost(NewOrderSingle newOrderSingle) throws ApiException {
-        ApiResponse<OrderExecutionReport> localVarResp = v1OrdersPostWithHttpInfo(newOrderSingle);
+    public OrderExecutionReport v1OrdersPost(OrderNewSingleRequest orderNewSingleRequest) throws ApiException {
+        ApiResponse<OrderExecutionReport> localVarResp = v1OrdersPostWithHttpInfo(orderNewSingleRequest);
         return localVarResp.getData();
     }
 
     /**
      * Send new order
      * This request creating new order for the specific exchange.
-     * @param newOrderSingle NewOrderSingle object. (required)
+     * @param orderNewSingleRequest OrderNewSingleRequest object. (required)
      * @return ApiResponse&lt;OrderExecutionReport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -501,8 +501,8 @@ public class OrdersApi {
         <tr><td> 504 </td><td> Exchange didn&#39;t responded in the defined timeout. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OrderExecutionReport> v1OrdersPostWithHttpInfo(NewOrderSingle newOrderSingle) throws ApiException {
-        okhttp3.Call localVarCall = v1OrdersPostValidateBeforeCall(newOrderSingle, null);
+    public ApiResponse<OrderExecutionReport> v1OrdersPostWithHttpInfo(OrderNewSingleRequest orderNewSingleRequest) throws ApiException {
+        okhttp3.Call localVarCall = v1OrdersPostValidateBeforeCall(orderNewSingleRequest, null);
         Type localVarReturnType = new TypeToken<OrderExecutionReport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -510,7 +510,7 @@ public class OrdersApi {
     /**
      * Send new order (asynchronously)
      * This request creating new order for the specific exchange.
-     * @param newOrderSingle NewOrderSingle object. (required)
+     * @param orderNewSingleRequest OrderNewSingleRequest object. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -523,9 +523,9 @@ public class OrdersApi {
         <tr><td> 504 </td><td> Exchange didn&#39;t responded in the defined timeout. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v1OrdersPostAsync(NewOrderSingle newOrderSingle, final ApiCallback<OrderExecutionReport> _callback) throws ApiException {
+    public okhttp3.Call v1OrdersPostAsync(OrderNewSingleRequest orderNewSingleRequest, final ApiCallback<OrderExecutionReport> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = v1OrdersPostValidateBeforeCall(newOrderSingle, _callback);
+        okhttp3.Call localVarCall = v1OrdersPostValidateBeforeCall(orderNewSingleRequest, _callback);
         Type localVarReturnType = new TypeToken<OrderExecutionReport>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

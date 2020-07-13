@@ -4,12 +4,12 @@ import 'package:jaguar_serializer/jaguar_serializer.dart';
 import 'package:jaguar_mimetype/jaguar_mimetype.dart';
 import 'dart:async';
 
-import 'package:openapi/model/cancel_order_single_request.dart';
-import 'package:openapi/model/cancel_order_all_request.dart';
+import 'package:openapi/model/order_cancel_all_request.dart';
 import 'package:openapi/model/validation_error.dart';
+import 'package:openapi/model/order_cancel_single_request.dart';
 import 'package:openapi/model/order_execution_report.dart';
-import 'package:openapi/model/new_order_single.dart';
 import 'package:openapi/model/message.dart';
+import 'package:openapi/model/order_new_single_request.dart';
 
 part 'orders_api.jretro.dart';
 
@@ -27,12 +27,12 @@ class OrdersApi extends ApiClient with _$OrdersApiClient {
     @PostReq(path: "/v1/orders/cancel/all")
     Future<Message> v1OrdersCancelAllPost(
             
-             @AsJson() CancelOrderAllRequest cancelOrderAllRequest
+             @AsJson() OrderCancelAllRequest orderCancelAllRequest
         ) {
         return super.v1OrdersCancelAllPost(
 
         
-        cancelOrderAllRequest
+        orderCancelAllRequest
         ).timeout(timeout);
     }
 
@@ -42,12 +42,12 @@ class OrdersApi extends ApiClient with _$OrdersApiClient {
     @PostReq(path: "/v1/orders/cancel")
     Future<OrderExecutionReport> v1OrdersCancelPost(
             
-             @AsJson() CancelOrderSingleRequest cancelOrderSingleRequest
+             @AsJson() OrderCancelSingleRequest orderCancelSingleRequest
         ) {
         return super.v1OrdersCancelPost(
 
         
-        cancelOrderSingleRequest
+        orderCancelSingleRequest
         ).timeout(timeout);
     }
 
@@ -72,12 +72,12 @@ class OrdersApi extends ApiClient with _$OrdersApiClient {
     @PostReq(path: "/v1/orders")
     Future<OrderExecutionReport> v1OrdersPost(
             
-             @AsJson() NewOrderSingle newOrderSingle
+             @AsJson() OrderNewSingleRequest orderNewSingleRequest
         ) {
         return super.v1OrdersPost(
 
         
-        newOrderSingle
+        orderNewSingleRequest
         ).timeout(timeout);
     }
 

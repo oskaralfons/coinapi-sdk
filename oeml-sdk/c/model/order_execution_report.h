@@ -15,11 +15,11 @@
 
 typedef struct order_execution_report_t order_execution_report_t;
 
-#include "new_order_single.h"
 #include "ord_side.h"
 #include "ord_status.h"
 #include "ord_type.h"
 #include "order_execution_report_all_of.h"
+#include "order_new_single_request.h"
 #include "time_in_force.h"
 
 // Enum  for order_execution_report

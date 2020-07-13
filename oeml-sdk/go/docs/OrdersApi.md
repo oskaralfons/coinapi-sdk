@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## V1OrdersCancelAllPost
 
-> Message V1OrdersCancelAllPost(ctx, cancelOrderAllRequest)
+> Message V1OrdersCancelAllPost(ctx, orderCancelAllRequest)
 
 Cancel all orders request
 
@@ -26,7 +26,7 @@ This request cancels all open orders on single specified exchange.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**cancelOrderAllRequest** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)| CancelOrderAllRequest object. | 
+**orderCancelAllRequest** | [**OrderCancelAllRequest**](OrderCancelAllRequest.md)| OrderCancelAllRequest object. | 
 
 ### Return type
 
@@ -48,7 +48,7 @@ No authorization required
 
 ## V1OrdersCancelPost
 
-> OrderExecutionReport V1OrdersCancelPost(ctx, cancelOrderSingleRequest)
+> OrderExecutionReport V1OrdersCancelPost(ctx, orderCancelSingleRequest)
 
 Cancel order request
 
@@ -60,7 +60,7 @@ Request cancel for an existing order. The order can be canceled using the `clien
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**cancelOrderSingleRequest** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)| CancelOrderSingleRequest object. | 
+**orderCancelSingleRequest** | [**OrderCancelSingleRequest**](OrderCancelSingleRequest.md)| OrderCancelSingleRequest object. | 
 
 ### Return type
 
@@ -125,7 +125,7 @@ No authorization required
 
 ## V1OrdersPost
 
-> OrderExecutionReport V1OrdersPost(ctx, newOrderSingle)
+> OrderExecutionReport V1OrdersPost(ctx, orderNewSingleRequest)
 
 Send new order
 
@@ -137,7 +137,7 @@ This request creating new order for the specific exchange.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)| NewOrderSingle object. | 
+**orderNewSingleRequest** | [**OrderNewSingleRequest**](OrderNewSingleRequest.md)| OrderNewSingleRequest object. | 
 
 ### Return type
 

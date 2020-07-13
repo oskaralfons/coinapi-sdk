@@ -73,12 +73,12 @@ export interface OrderExecutionReport {
     exchange_order_id?: string;
 
     /**
-     * Amount open
+     * Amount open.
      */
     amount_open: number;
 
     /**
-     * Amount filled
+     * Amount filled.
      */
     amount_filled: number;
 

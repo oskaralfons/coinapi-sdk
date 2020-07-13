@@ -26,11 +26,11 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import org.openapitools.client.model.NewOrderSingle;
 import org.openapitools.client.model.OrdSide;
 import org.openapitools.client.model.OrdStatus;
 import org.openapitools.client.model.OrdType;
 import org.openapitools.client.model.OrderExecutionReportAllOf;
+import org.openapitools.client.model.OrderNewSingleRequest;
 import org.openapitools.client.model.TimeInForce;
 import org.threeten.bp.LocalDate;
 
@@ -38,7 +38,7 @@ import org.threeten.bp.LocalDate;
  * The order execution report object.
  */
 @ApiModel(description = "The order execution report object.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T13:50:38.482Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T15:10:31.759Z[Etc/UTC]")
 public class OrderExecutionReport {
   public static final String SERIALIZED_NAME_EXCHANGE_ID = "exchange_id";
   @SerializedName(SERIALIZED_NAME_EXCHANGE_ID)
@@ -468,10 +468,10 @@ public class OrderExecutionReport {
   }
 
    /**
-   * Amount open
+   * Amount open.
    * @return amountOpen
   **/
-  @ApiModelProperty(example = "0.22", required = true, value = "Amount open")
+  @ApiModelProperty(example = "0.22", required = true, value = "Amount open.")
 
   public BigDecimal getAmountOpen() {
     return amountOpen;
@@ -490,10 +490,10 @@ public class OrderExecutionReport {
   }
 
    /**
-   * Amount filled
+   * Amount filled.
    * @return amountFilled
   **/
-  @ApiModelProperty(example = "0.0", required = true, value = "Amount filled")
+  @ApiModelProperty(example = "0.0", required = true, value = "Amount filled.")
 
   public BigDecimal getAmountFilled() {
     return amountFilled;

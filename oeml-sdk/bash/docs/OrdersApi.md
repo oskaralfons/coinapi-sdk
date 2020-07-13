@@ -29,7 +29,7 @@ This request cancels all open orders on single specified exchange.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelOrderAllRequest** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md) | CancelOrderAllRequest object. |
+ **orderCancelAllRequest** | [**OrderCancelAllRequest**](OrderCancelAllRequest.md) | OrderCancelAllRequest object. |
 
 ### Return type
 
@@ -64,7 +64,7 @@ Request cancel for an existing order. The order can be canceled using the 'clien
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelOrderSingleRequest** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md) | CancelOrderSingleRequest object. |
+ **orderCancelSingleRequest** | [**OrderCancelSingleRequest**](OrderCancelSingleRequest.md) | OrderCancelSingleRequest object. |
 
 ### Return type
 
@@ -134,7 +134,7 @@ This request creating new order for the specific exchange.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md) | NewOrderSingle object. |
+ **orderNewSingleRequest** | [**OrderNewSingleRequest**](OrderNewSingleRequest.md) | OrderNewSingleRequest object. |
 
 ### Return type
 

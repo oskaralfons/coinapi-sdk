@@ -19,8 +19,8 @@ object EnumsSerializers {
 
   def all: Seq[Serializer[_]] = Seq[Serializer[_]]() :+
     new EnumNameSerializer(BalanceDataEnums.UpdateOrigin) :+
-    new EnumNameSerializer(NewOrderSingleEnums.Seq[ExecInst]) :+
-    new EnumNameSerializer(OrderExecutionReportEnums.Seq[ExecInst])
+    new EnumNameSerializer(OrderExecutionReportEnums.Seq[ExecInst]) :+
+    new EnumNameSerializer(OrderNewSingleRequestEnums.Seq[ExecInst])
 
   private class EnumNameSerializer[E <: Enumeration: ClassTag](enum: E)
     extends Serializer[E#Value] {

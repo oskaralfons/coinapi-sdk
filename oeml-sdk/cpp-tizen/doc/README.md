@@ -70,15 +70,15 @@ Class | Description
 ------------- | -------------
  *Balance* | 
  *Balance_data* | 
- *CancelOrderAllRequest* | Cancel all orders request object.
- *CancelOrderSingleRequest* | Cancel single order request object.
  *Message* | 
- *NewOrderSingle* | The new order message.
  *OrdSide* | Side of order. 
  *OrdStatus* | Order statuses and the lifecycle are documented in the separate section: <a href=\"#oeml-order-lifecycle\">OEML / Starter Guide / Order Lifecycle</a> 
  *OrdType* | Order types are documented in the separate section: <a href=\"#oeml-order-params-type\">OEML / Starter Guide / Order parameters / Order type</a> 
+ *OrderCancelAllRequest* | Cancel all orders request object.
+ *OrderCancelSingleRequest* | Cancel single order request object.
  *OrderExecutionReport* | The order execution report object.
  *OrderExecutionReport_allOf* | The order execution report message.
+ *OrderNewSingleRequest* | The new order message.
  *Position* | 
  *Position_data* | 
  *Severity* | Severity of the message.

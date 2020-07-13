@@ -24,11 +24,11 @@ inherit
 feature -- API Access
 
 
-	v1_orders_cancel_all_post (cancel_order_all_request: CANCEL_ORDER_ALL_REQUEST): detachable MESSAGE
+	v1_orders_cancel_all_post (order_cancel_all_request: ORDER_CANCEL_ALL_REQUEST): detachable MESSAGE
 			-- Cancel all orders request
 			-- This request cancels all open orders on single specified exchange.
 			-- 
-			-- argument: cancel_order_all_request CancelOrderAllRequest object. (required)
+			-- argument: order_cancel_all_request OrderCancelAllRequest object. (required)
 			-- 
 			-- 
 			-- Result MESSAGE
@@ -40,7 +40,7 @@ feature -- API Access
 		do
 			reset_error
 			create l_request
-			l_request.set_body(cancel_order_all_request)
+			l_request.set_body(order_cancel_all_request)
 			l_path := "/v1/orders/cancel/all"
 
 
@@ -59,11 +59,11 @@ feature -- API Access
 			end
 		end	
 
-	v1_orders_cancel_post (cancel_order_single_request: CANCEL_ORDER_SINGLE_REQUEST): detachable ORDER_EXECUTION_REPORT
+	v1_orders_cancel_post (order_cancel_single_request: ORDER_CANCEL_SINGLE_REQUEST): detachable ORDER_EXECUTION_REPORT
 			-- Cancel order request
 			-- Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
 			-- 
-			-- argument: cancel_order_single_request CancelOrderSingleRequest object. (required)
+			-- argument: order_cancel_single_request OrderCancelSingleRequest object. (required)
 			-- 
 			-- 
 			-- Result ORDER_EXECUTION_REPORT
@@ -75,7 +75,7 @@ feature -- API Access
 		do
 			reset_error
 			create l_request
-			l_request.set_body(cancel_order_single_request)
+			l_request.set_body(order_cancel_single_request)
 			l_path := "/v1/orders/cancel"
 
 
@@ -130,11 +130,11 @@ feature -- API Access
 			end
 		end	
 
-	v1_orders_post (new_order_single: NEW_ORDER_SINGLE): detachable ORDER_EXECUTION_REPORT
+	v1_orders_post (order_new_single_request: ORDER_NEW_SINGLE_REQUEST): detachable ORDER_EXECUTION_REPORT
 			-- Send new order
 			-- This request creating new order for the specific exchange.
 			-- 
-			-- argument: new_order_single NewOrderSingle object. (required)
+			-- argument: order_new_single_request OrderNewSingleRequest object. (required)
 			-- 
 			-- 
 			-- Result ORDER_EXECUTION_REPORT
@@ -146,7 +146,7 @@ feature -- API Access
 		do
 			reset_error
 			create l_request
-			l_request.set_body(new_order_single)
+			l_request.set_body(order_new_single_request)
 			l_path := "/v1/orders"
 
 

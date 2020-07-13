@@ -25,14 +25,14 @@ package .Clients is
    --  This request cancels all open orders on single specified exchange.
    procedure V1_Orders_Cancel_All_Post
       (Client : in out Client_Type;
-       Cancel_Order_All_Request_Type : in .Models.CancelOrderAllRequest_Type;
+       Order_Cancel_All_Request_Type : in .Models.OrderCancelAllRequest_Type;
        Result : out .Models.Message_Type);
 
    --  Cancel order request
    --  Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`.
    procedure V1_Orders_Cancel_Post
       (Client : in out Client_Type;
-       Cancel_Order_Single_Request_Type : in .Models.CancelOrderSingleRequest_Type;
+       Order_Cancel_Single_Request_Type : in .Models.OrderCancelSingleRequest_Type;
        Result : out .Models.OrderExecutionReport_Type);
 
    --  Get open orders
@@ -46,7 +46,7 @@ package .Clients is
    --  This request creating new order for the specific exchange.
    procedure V1_Orders_Post
       (Client : in out Client_Type;
-       New_Order_Single_Type : in .Models.NewOrderSingle_Type;
+       Order_New_Single_Request_Type : in .Models.OrderNewSingleRequest_Type;
        Result : out .Models.OrderExecutionReport_Type);
 
    --  Get order execution report

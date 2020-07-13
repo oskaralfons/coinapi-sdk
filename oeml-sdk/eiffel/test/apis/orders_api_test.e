@@ -19,12 +19,12 @@ feature -- Test routines
             -- This request cancels all open orders on single specified exchange. 
         local
             l_response: MESSAGE
-            l_cancel_order_all_request: CANCEL_ORDER_ALL_REQUEST
+            l_order_cancel_all_request: ORDER_CANCEL_ALL_REQUEST
         do
             -- TODO: Initialize required params.
-            -- l_cancel_order_all_request
+            -- l_order_cancel_all_request
                       
-            -- l_response := api.v1_orders_cancel_all_post(l_cancel_order_all_request)
+            -- l_response := api.v1_orders_cancel_all_post(l_order_cancel_all_request)
             assert ("not_implemented", False)
         end
     
@@ -34,12 +34,12 @@ feature -- Test routines
             -- Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;. 
         local
             l_response: ORDER_EXECUTION_REPORT
-            l_cancel_order_single_request: CANCEL_ORDER_SINGLE_REQUEST
+            l_order_cancel_single_request: ORDER_CANCEL_SINGLE_REQUEST
         do
             -- TODO: Initialize required params.
-            -- l_cancel_order_single_request
+            -- l_order_cancel_single_request
                       
-            -- l_response := api.v1_orders_cancel_post(l_cancel_order_single_request)
+            -- l_response := api.v1_orders_cancel_post(l_order_cancel_single_request)
             assert ("not_implemented", False)
         end
     
@@ -63,12 +63,12 @@ feature -- Test routines
             -- This request creating new order for the specific exchange. 
         local
             l_response: ORDER_EXECUTION_REPORT
-            l_new_order_single: NEW_ORDER_SINGLE
+            l_order_new_single_request: ORDER_NEW_SINGLE_REQUEST
         do
             -- TODO: Initialize required params.
-            -- l_new_order_single
+            -- l_order_new_single_request
                       
-            -- l_response := api.v1_orders_post(l_new_order_single)
+            -- l_response := api.v1_orders_post(l_order_new_single_request)
             assert ("not_implemented", False)
         end
     

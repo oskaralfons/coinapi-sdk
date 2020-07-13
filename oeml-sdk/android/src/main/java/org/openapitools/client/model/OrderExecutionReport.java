@@ -15,11 +15,11 @@ package org.openapitools.client.model;
 import java.math.BigDecimal;
 import java.util.*;
 import java.util.Date;
-import org.openapitools.client.model.NewOrderSingle;
 import org.openapitools.client.model.OrdSide;
 import org.openapitools.client.model.OrdStatus;
 import org.openapitools.client.model.OrdType;
 import org.openapitools.client.model.OrderExecutionReportAllOf;
+import org.openapitools.client.model.OrderNewSingleRequest;
 import org.openapitools.client.model.TimeInForce;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
@@ -211,9 +211,9 @@ public class OrderExecutionReport {
   }
 
   /**
-   * Amount open
+   * Amount open.
    **/
-  @ApiModelProperty(required = true, value = "Amount open")
+  @ApiModelProperty(required = true, value = "Amount open.")
   public BigDecimal getAmountOpen() {
     return amountOpen;
   }
@@ -222,9 +222,9 @@ public class OrderExecutionReport {
   }
 
   /**
-   * Amount filled
+   * Amount filled.
    **/
-  @ApiModelProperty(required = true, value = "Amount filled")
+  @ApiModelProperty(required = true, value = "Amount filled.")
   public BigDecimal getAmountFilled() {
     return amountFilled;
   }

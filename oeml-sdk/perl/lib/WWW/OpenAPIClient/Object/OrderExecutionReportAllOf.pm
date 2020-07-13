@@ -179,14 +179,14 @@ __PACKAGE__->method_documentation({
     'amount_open' => {
         datatype => 'double',
         base_name => 'amount_open',
-        description => 'Amount open',
+        description => 'Amount open.',
         format => '',
         read_only => '',
             },
     'amount_filled' => {
         datatype => 'double',
         base_name => 'amount_filled',
-        description => 'Amount filled',
+        description => 'Amount filled.',
         format => '',
         read_only => '',
             },

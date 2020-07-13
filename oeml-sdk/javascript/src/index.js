@@ -15,15 +15,15 @@
 import ApiClient from './ApiClient';
 import Balance from './model/Balance';
 import BalanceData from './model/BalanceData';
-import CancelOrderAllRequest from './model/CancelOrderAllRequest';
-import CancelOrderSingleRequest from './model/CancelOrderSingleRequest';
 import Message from './model/Message';
-import NewOrderSingle from './model/NewOrderSingle';
 import OrdSide from './model/OrdSide';
 import OrdStatus from './model/OrdStatus';
 import OrdType from './model/OrdType';
+import OrderCancelAllRequest from './model/OrderCancelAllRequest';
+import OrderCancelSingleRequest from './model/OrderCancelSingleRequest';
 import OrderExecutionReport from './model/OrderExecutionReport';
 import OrderExecutionReportAllOf from './model/OrderExecutionReportAllOf';
+import OrderNewSingleRequest from './model/OrderNewSingleRequest';
 import Position from './model/Position';
 import PositionData from './model/PositionData';
 import Severity from './model/Severity';
@@ -85,28 +85,10 @@ export {
     BalanceData,
 
     /**
-     * The CancelOrderAllRequest model constructor.
-     * @property {module:model/CancelOrderAllRequest}
-     */
-    CancelOrderAllRequest,
-
-    /**
-     * The CancelOrderSingleRequest model constructor.
-     * @property {module:model/CancelOrderSingleRequest}
-     */
-    CancelOrderSingleRequest,
-
-    /**
      * The Message model constructor.
      * @property {module:model/Message}
      */
     Message,
-
-    /**
-     * The NewOrderSingle model constructor.
-     * @property {module:model/NewOrderSingle}
-     */
-    NewOrderSingle,
 
     /**
      * The OrdSide model constructor.
@@ -127,6 +109,18 @@ export {
     OrdType,
 
     /**
+     * The OrderCancelAllRequest model constructor.
+     * @property {module:model/OrderCancelAllRequest}
+     */
+    OrderCancelAllRequest,
+
+    /**
+     * The OrderCancelSingleRequest model constructor.
+     * @property {module:model/OrderCancelSingleRequest}
+     */
+    OrderCancelSingleRequest,
+
+    /**
      * The OrderExecutionReport model constructor.
      * @property {module:model/OrderExecutionReport}
      */
@@ -137,6 +131,12 @@ export {
      * @property {module:model/OrderExecutionReportAllOf}
      */
     OrderExecutionReportAllOf,
+
+    /**
+     * The OrderNewSingleRequest model constructor.
+     * @property {module:model/OrderNewSingleRequest}
+     */
+    OrderNewSingleRequest,
 
     /**
      * The Position model constructor.

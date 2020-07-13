@@ -5,12 +5,12 @@ import 'package:dio/dio.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/serializer.dart';
 
-import 'package:openapi/model/cancel_order_single_request.dart';
-import 'package:openapi/model/cancel_order_all_request.dart';
+import 'package:openapi/model/order_cancel_all_request.dart';
 import 'package:openapi/model/validation_error.dart';
+import 'package:openapi/model/order_cancel_single_request.dart';
 import 'package:openapi/model/order_execution_report.dart';
-import 'package:openapi/model/new_order_single.dart';
 import 'package:openapi/model/message.dart';
+import 'package:openapi/model/order_new_single_request.dart';
 
 class OrdersApi {
     final Dio _dio;
@@ -21,7 +21,7 @@ class OrdersApi {
         /// Cancel all orders request
         ///
         /// This request cancels all open orders on single specified exchange.
-        Future<Response<Message>>v1OrdersCancelAllPost(CancelOrderAllRequest cancelOrderAllRequest,{ CancelToken cancelToken, Map<String, String> headers,}) async {
+        Future<Response<Message>>v1OrdersCancelAllPost(OrderCancelAllRequest orderCancelAllRequest,{ CancelToken cancelToken, Map<String, String> headers,}) async {
 
         String _path = "/v1/orders/cancel/all";
 
@@ -35,9 +35,9 @@ class OrdersApi {
         List<String> contentTypes = ["application/json"];
 
 
-            var serializedBody = _serializers.serialize(cancelOrderAllRequest);
-            var jsoncancelOrderAllRequest = json.encode(serializedBody);
-            bodyData = jsoncancelOrderAllRequest;
+            var serializedBody = _serializers.serialize(orderCancelAllRequest);
+            var jsonorderCancelAllRequest = json.encode(serializedBody);
+            bodyData = jsonorderCancelAllRequest;
 
             return _dio.request(
             _path,
@@ -71,7 +71,7 @@ class OrdersApi {
         /// Cancel order request
         ///
         /// Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
-        Future<Response<OrderExecutionReport>>v1OrdersCancelPost(CancelOrderSingleRequest cancelOrderSingleRequest,{ CancelToken cancelToken, Map<String, String> headers,}) async {
+        Future<Response<OrderExecutionReport>>v1OrdersCancelPost(OrderCancelSingleRequest orderCancelSingleRequest,{ CancelToken cancelToken, Map<String, String> headers,}) async {
 
         String _path = "/v1/orders/cancel";
 
@@ -85,9 +85,9 @@ class OrdersApi {
         List<String> contentTypes = ["application/json"];
 
 
-            var serializedBody = _serializers.serialize(cancelOrderSingleRequest);
-            var jsoncancelOrderSingleRequest = json.encode(serializedBody);
-            bodyData = jsoncancelOrderSingleRequest;
+            var serializedBody = _serializers.serialize(orderCancelSingleRequest);
+            var jsonorderCancelSingleRequest = json.encode(serializedBody);
+            bodyData = jsonorderCancelSingleRequest;
 
             return _dio.request(
             _path,
@@ -170,7 +170,7 @@ class OrdersApi {
         /// Send new order
         ///
         /// This request creating new order for the specific exchange.
-        Future<Response<OrderExecutionReport>>v1OrdersPost(NewOrderSingle newOrderSingle,{ CancelToken cancelToken, Map<String, String> headers,}) async {
+        Future<Response<OrderExecutionReport>>v1OrdersPost(OrderNewSingleRequest orderNewSingleRequest,{ CancelToken cancelToken, Map<String, String> headers,}) async {
 
         String _path = "/v1/orders";
 
@@ -184,9 +184,9 @@ class OrdersApi {
         List<String> contentTypes = ["application/json"];
 
 
-            var serializedBody = _serializers.serialize(newOrderSingle);
-            var jsonnewOrderSingle = json.encode(serializedBody);
-            bodyData = jsonnewOrderSingle;
+            var serializedBody = _serializers.serialize(orderNewSingleRequest);
+            var jsonorderNewSingleRequest = json.encode(serializedBody);
+            bodyData = jsonorderNewSingleRequest;
 
             return _dio.request(
             _path,

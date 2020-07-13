@@ -13,12 +13,12 @@
 
 module Request.Orders exposing (v1OrdersCancelAllPost, v1OrdersCancelPost, v1OrdersGet, v1OrdersPost, v1OrdersStatusClientOrderIdGet)
 
-import Data.NewOrderSingle as NewOrderSingle exposing (NewOrderSingle)
 import Data.Message as Message exposing (Message)
-import Data.CancelOrderAllRequest as CancelOrderAllRequest exposing (CancelOrderAllRequest)
-import Data.CancelOrderSingleRequest as CancelOrderSingleRequest exposing (CancelOrderSingleRequest)
+import Data.OrderCancelSingleRequest as OrderCancelSingleRequest exposing (OrderCancelSingleRequest)
 import Data.OrderExecutionReport as OrderExecutionReport exposing (OrderExecutionReport)
 import Data.ValidationError as ValidationError exposing (ValidationError)
+import Data.OrderCancelAllRequest as OrderCancelAllRequest exposing (OrderCancelAllRequest)
+import Data.OrderNewSingleRequest as OrderNewSingleRequest exposing (OrderNewSingleRequest)
 import Dict
 import Http
 import Json.Decode as Decode
@@ -38,7 +38,7 @@ v1OrdersCancelAllPost :
     { onSend : Result Http.Error Message -> msg
 
 
-    , body : CancelOrderAllRequest
+    , body : OrderCancelAllRequest
 
 
     }
@@ -50,7 +50,7 @@ v1OrdersCancelAllPost params =
         , url = Url.crossOrigin basePath
             ["v1", "orders", "cancel", "all"]
             (List.filterMap identity [])
-        , body = Http.jsonBody <| CancelOrderAllRequest.encode params.body
+        , body = Http.jsonBody <| OrderCancelAllRequest.encode params.body
         , expect = Http.expectJson params.onSend Message.decoder
         , timeout = Just 30000
         , tracker = Nothing
@@ -63,7 +63,7 @@ v1OrdersCancelPost :
     { onSend : Result Http.Error OrderExecutionReport -> msg
 
 
-    , body : CancelOrderSingleRequest
+    , body : OrderCancelSingleRequest
 
 
     }
@@ -75,7 +75,7 @@ v1OrdersCancelPost params =
         , url = Url.crossOrigin basePath
             ["v1", "orders", "cancel"]
             (List.filterMap identity [])
-        , body = Http.jsonBody <| CancelOrderSingleRequest.encode params.body
+        , body = Http.jsonBody <| OrderCancelSingleRequest.encode params.body
         , expect = Http.expectJson params.onSend OrderExecutionReport.decoder
         , timeout = Just 30000
         , tracker = Nothing
@@ -113,7 +113,7 @@ v1OrdersPost :
     { onSend : Result Http.Error OrderExecutionReport -> msg
 
 
-    , body : NewOrderSingle
+    , body : OrderNewSingleRequest
 
 
     }
@@ -125,7 +125,7 @@ v1OrdersPost params =
         , url = Url.crossOrigin basePath
             ["v1", "orders"]
             (List.filterMap identity [])
-        , body = Http.jsonBody <| NewOrderSingle.encode params.body
+        , body = Http.jsonBody <| OrderNewSingleRequest.encode params.body
         , expect = Http.expectJson params.onSend OrderExecutionReport.decoder
         , timeout = Just 30000
         , tracker = Nothing

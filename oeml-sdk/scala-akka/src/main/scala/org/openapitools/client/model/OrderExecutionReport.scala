@@ -38,9 +38,9 @@ case class OrderExecutionReport (
   clientOrderIdFormatExchange: String,
   /* The unique identifier of the order assigned by the exchange. */
   exchangeOrderId: Option[String] = None,
-  /* Amount open */
+  /* Amount open. */
   amountOpen: Double,
-  /* Amount filled */
+  /* Amount filled. */
   amountFilled: Double,
   status: OrdStatus,
   /* Timestamped history of order status changes. */

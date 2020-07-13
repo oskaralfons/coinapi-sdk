@@ -11,11 +11,11 @@
  */
 
 import { RequestFile } from '../api';
-import { NewOrderSingle } from './newOrderSingle';
 import { OrdSide } from './ordSide';
 import { OrdStatus } from './ordStatus';
 import { OrdType } from './ordType';
 import { OrderExecutionReportAllOf } from './orderExecutionReportAllOf';
+import { OrderNewSingleRequest } from './orderNewSingleRequest';
 import { TimeInForce } from './timeInForce';
 
 /**
@@ -66,11 +66,11 @@ export class OrderExecutionReport {
     */
     'exchangeOrderId'?: string;
     /**
-    * Amount open
+    * Amount open.
     */
     'amountOpen': number;
     /**
-    * Amount filled
+    * Amount filled.
     */
     'amountFilled': number;
     'status': OrdStatus;

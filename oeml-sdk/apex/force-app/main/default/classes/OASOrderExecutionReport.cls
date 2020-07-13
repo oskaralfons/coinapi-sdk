@@ -13,7 +13,7 @@
 /**
  * The order execution report object.
  */
-public class OASOrderExecutionReport implements OASNewOrderSingle, OASOrderExecutionReportAllOf, OAS.MappedProperties {
+public class OASOrderExecutionReport implements OASOrderNewSingleRequest, OASOrderExecutionReportAllOf, OAS.MappedProperties {
     /**
      * Exchange identifier.
      * @return exchangeId
@@ -102,13 +102,13 @@ public class OASOrderExecutionReport implements OASNewOrderSingle, OASOrderExecu
     public String exchangeOrderId { get; set; }
 
     /**
-     * Amount open
+     * Amount open.
      * @return amountOpen
      */
     public Double amountOpen { get; set; }
 
     /**
-     * Amount filled
+     * Amount filled.
      * @return amountFilled
      */
     public Double amountFilled { get; set; }

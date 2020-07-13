@@ -15,9 +15,9 @@ type OrderExecutionReportAllOf struct {
 	ClientOrderIdFormatExchange string `json:"client_order_id_format_exchange"`
 	// The unique identifier of the order assigned by the exchange.
 	ExchangeOrderId string `json:"exchange_order_id,omitempty"`
-	// Amount open
+	// Amount open.
 	AmountOpen float32 `json:"amount_open"`
-	// Amount filled
+	// Amount filled.
 	AmountFilled float32 `json:"amount_filled"`
 	Status OrdStatus `json:"status"`
 	// Timestamped history of order status changes.

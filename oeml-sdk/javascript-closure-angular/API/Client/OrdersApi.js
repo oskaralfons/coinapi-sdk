@@ -14,11 +14,11 @@
 
 goog.provide('API.Client.OrdersApi');
 
-goog.require('API.Client.CancelOrderAllRequest');
-goog.require('API.Client.CancelOrderSingleRequest');
 goog.require('API.Client.Message');
-goog.require('API.Client.NewOrderSingle');
+goog.require('API.Client.OrderCancelAllRequest');
+goog.require('API.Client.OrderCancelSingleRequest');
 goog.require('API.Client.OrderExecutionReport');
+goog.require('API.Client.OrderNewSingleRequest');
 goog.require('API.Client.ValidationError');
 
 /**
@@ -51,11 +51,11 @@ API.Client.OrdersApi.$inject = ['$http', '$httpParamSerializer', '$injector'];
 /**
  * Cancel all orders request
  * This request cancels all open orders on single specified exchange.
- * @param {!CancelOrderAllRequest} cancelOrderAllRequest CancelOrderAllRequest object.
+ * @param {!OrderCancelAllRequest} orderCancelAllRequest OrderCancelAllRequest object.
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
  * @return {!angular.$q.Promise<!API.Client.Message>}
  */
-API.Client.OrdersApi.prototype.v1OrdersCancelAllPost = function(cancelOrderAllRequest, opt_extraHttpRequestParams) {
+API.Client.OrdersApi.prototype.v1OrdersCancelAllPost = function(orderCancelAllRequest, opt_extraHttpRequestParams) {
   /** @const {string} */
   var path = this.basePath_ + '/v1/orders/cancel/all';
 
@@ -64,16 +64,16 @@ API.Client.OrdersApi.prototype.v1OrdersCancelAllPost = function(cancelOrderAllRe
 
   /** @type {!Object} */
   var headerParams = angular.extend({}, this.defaultHeaders_);
-  // verify required parameter 'cancelOrderAllRequest' is set
-  if (!cancelOrderAllRequest) {
-    throw new Error('Missing required parameter cancelOrderAllRequest when calling v1OrdersCancelAllPost');
+  // verify required parameter 'orderCancelAllRequest' is set
+  if (!orderCancelAllRequest) {
+    throw new Error('Missing required parameter orderCancelAllRequest when calling v1OrdersCancelAllPost');
   }
   /** @type {!Object} */
   var httpRequestParams = {
     method: 'POST',
     url: path,
     json: true,
-    data: cancelOrderAllRequest,
+    data: orderCancelAllRequest,
         params: queryParameters,
     headers: headerParams
   };
@@ -88,11 +88,11 @@ API.Client.OrdersApi.prototype.v1OrdersCancelAllPost = function(cancelOrderAllRe
 /**
  * Cancel order request
  * Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
- * @param {!CancelOrderSingleRequest} cancelOrderSingleRequest CancelOrderSingleRequest object.
+ * @param {!OrderCancelSingleRequest} orderCancelSingleRequest OrderCancelSingleRequest object.
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
  * @return {!angular.$q.Promise<!API.Client.OrderExecutionReport>}
  */
-API.Client.OrdersApi.prototype.v1OrdersCancelPost = function(cancelOrderSingleRequest, opt_extraHttpRequestParams) {
+API.Client.OrdersApi.prototype.v1OrdersCancelPost = function(orderCancelSingleRequest, opt_extraHttpRequestParams) {
   /** @const {string} */
   var path = this.basePath_ + '/v1/orders/cancel';
 
@@ -101,16 +101,16 @@ API.Client.OrdersApi.prototype.v1OrdersCancelPost = function(cancelOrderSingleRe
 
   /** @type {!Object} */
   var headerParams = angular.extend({}, this.defaultHeaders_);
-  // verify required parameter 'cancelOrderSingleRequest' is set
-  if (!cancelOrderSingleRequest) {
-    throw new Error('Missing required parameter cancelOrderSingleRequest when calling v1OrdersCancelPost');
+  // verify required parameter 'orderCancelSingleRequest' is set
+  if (!orderCancelSingleRequest) {
+    throw new Error('Missing required parameter orderCancelSingleRequest when calling v1OrdersCancelPost');
   }
   /** @type {!Object} */
   var httpRequestParams = {
     method: 'POST',
     url: path,
     json: true,
-    data: cancelOrderSingleRequest,
+    data: orderCancelSingleRequest,
         params: queryParameters,
     headers: headerParams
   };
@@ -161,11 +161,11 @@ API.Client.OrdersApi.prototype.v1OrdersGet = function(opt_exchangeId, opt_extraH
 /**
  * Send new order
  * This request creating new order for the specific exchange.
- * @param {!NewOrderSingle} newOrderSingle NewOrderSingle object.
+ * @param {!OrderNewSingleRequest} orderNewSingleRequest OrderNewSingleRequest object.
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
  * @return {!angular.$q.Promise<!API.Client.OrderExecutionReport>}
  */
-API.Client.OrdersApi.prototype.v1OrdersPost = function(newOrderSingle, opt_extraHttpRequestParams) {
+API.Client.OrdersApi.prototype.v1OrdersPost = function(orderNewSingleRequest, opt_extraHttpRequestParams) {
   /** @const {string} */
   var path = this.basePath_ + '/v1/orders';
 
@@ -174,16 +174,16 @@ API.Client.OrdersApi.prototype.v1OrdersPost = function(newOrderSingle, opt_extra
 
   /** @type {!Object} */
   var headerParams = angular.extend({}, this.defaultHeaders_);
-  // verify required parameter 'newOrderSingle' is set
-  if (!newOrderSingle) {
-    throw new Error('Missing required parameter newOrderSingle when calling v1OrdersPost');
+  // verify required parameter 'orderNewSingleRequest' is set
+  if (!orderNewSingleRequest) {
+    throw new Error('Missing required parameter orderNewSingleRequest when calling v1OrdersPost');
   }
   /** @type {!Object} */
   var httpRequestParams = {
     method: 'POST',
     url: path,
     json: true,
-    data: newOrderSingle,
+    data: orderNewSingleRequest,
         params: queryParameters,
     headers: headerParams
   };

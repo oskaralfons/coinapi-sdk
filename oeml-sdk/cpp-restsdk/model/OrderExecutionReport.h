@@ -22,9 +22,9 @@
 
 #include "../ModelBase.h"
 
-#include "NewOrderSingle.h"
 #include "OrdSide.h"
 #include "OrderExecutionReport_allOf.h"
+#include "OrderNewSingleRequest.h"
 #include "OrdType.h"
 #include <cpprest/details/basic_types.h>
 #include "TimeInForce.h"
@@ -179,7 +179,7 @@ public:
     void setExchangeOrderId(const utility::string_t& value);
 
     /// <summary>
-    /// Amount open
+    /// Amount open.
     /// </summary>
     double getAmountOpen() const;
     bool amountOpenIsSet() const;
@@ -188,7 +188,7 @@ public:
     void setAmountOpen(double value);
 
     /// <summary>
-    /// Amount filled
+    /// Amount filled.
     /// </summary>
     double getAmountFilled() const;
     bool amountFilledIsSet() const;

@@ -114,7 +114,7 @@ static bool v1OrdersCancelAllPostProcessor(MemoryStruct_s p_chunk, long code, ch
 }
 
 static bool v1OrdersCancelAllPostHelper(char * accessToken,
-	CancelOrderAllRequest cancelOrderAllRequest, 
+	OrderCancelAllRequest orderCancelAllRequest, 
 	void(* handler)(Message, Error, void* )
 	, void* userData, bool isAsync)
 {
@@ -135,11 +135,11 @@ static bool v1OrdersCancelAllPostHelper(char * accessToken,
 	JsonNode* node;
 	JsonArray* json_array;
 
-	if (isprimitive("CancelOrderAllRequest")) {
-		node = converttoJson(&cancelOrderAllRequest, "CancelOrderAllRequest", "");
+	if (isprimitive("OrderCancelAllRequest")) {
+		node = converttoJson(&orderCancelAllRequest, "OrderCancelAllRequest", "");
 	}
 	
-	char *jsonStr =  cancelOrderAllRequest.toJson();
+	char *jsonStr =  orderCancelAllRequest.toJson();
 	node = json_from_string(jsonStr, NULL);
 	g_free(static_cast<gpointer>(jsonStr));
 	
@@ -198,22 +198,22 @@ static bool v1OrdersCancelAllPostHelper(char * accessToken,
 
 
 bool OrdersManager::v1OrdersCancelAllPostAsync(char * accessToken,
-	CancelOrderAllRequest cancelOrderAllRequest, 
+	OrderCancelAllRequest orderCancelAllRequest, 
 	void(* handler)(Message, Error, void* )
 	, void* userData)
 {
 	return v1OrdersCancelAllPostHelper(accessToken,
-	cancelOrderAllRequest, 
+	orderCancelAllRequest, 
 	handler, userData, true);
 }
 
 bool OrdersManager::v1OrdersCancelAllPostSync(char * accessToken,
-	CancelOrderAllRequest cancelOrderAllRequest, 
+	OrderCancelAllRequest orderCancelAllRequest, 
 	void(* handler)(Message, Error, void* )
 	, void* userData)
 {
 	return v1OrdersCancelAllPostHelper(accessToken,
-	cancelOrderAllRequest, 
+	orderCancelAllRequest, 
 	handler, userData, false);
 }
 
@@ -283,7 +283,7 @@ static bool v1OrdersCancelPostProcessor(MemoryStruct_s p_chunk, long code, char*
 }
 
 static bool v1OrdersCancelPostHelper(char * accessToken,
-	CancelOrderSingleRequest cancelOrderSingleRequest, 
+	OrderCancelSingleRequest orderCancelSingleRequest, 
 	void(* handler)(OrderExecutionReport, Error, void* )
 	, void* userData, bool isAsync)
 {
@@ -304,11 +304,11 @@ static bool v1OrdersCancelPostHelper(char * accessToken,
 	JsonNode* node;
 	JsonArray* json_array;
 
-	if (isprimitive("CancelOrderSingleRequest")) {
-		node = converttoJson(&cancelOrderSingleRequest, "CancelOrderSingleRequest", "");
+	if (isprimitive("OrderCancelSingleRequest")) {
+		node = converttoJson(&orderCancelSingleRequest, "OrderCancelSingleRequest", "");
 	}
 	
-	char *jsonStr =  cancelOrderSingleRequest.toJson();
+	char *jsonStr =  orderCancelSingleRequest.toJson();
 	node = json_from_string(jsonStr, NULL);
 	g_free(static_cast<gpointer>(jsonStr));
 	
@@ -367,22 +367,22 @@ static bool v1OrdersCancelPostHelper(char * accessToken,
 
 
 bool OrdersManager::v1OrdersCancelPostAsync(char * accessToken,
-	CancelOrderSingleRequest cancelOrderSingleRequest, 
+	OrderCancelSingleRequest orderCancelSingleRequest, 
 	void(* handler)(OrderExecutionReport, Error, void* )
 	, void* userData)
 {
 	return v1OrdersCancelPostHelper(accessToken,
-	cancelOrderSingleRequest, 
+	orderCancelSingleRequest, 
 	handler, userData, true);
 }
 
 bool OrdersManager::v1OrdersCancelPostSync(char * accessToken,
-	CancelOrderSingleRequest cancelOrderSingleRequest, 
+	OrderCancelSingleRequest orderCancelSingleRequest, 
 	void(* handler)(OrderExecutionReport, Error, void* )
 	, void* userData)
 {
 	return v1OrdersCancelPostHelper(accessToken,
-	cancelOrderSingleRequest, 
+	orderCancelSingleRequest, 
 	handler, userData, false);
 }
 
@@ -602,7 +602,7 @@ static bool v1OrdersPostProcessor(MemoryStruct_s p_chunk, long code, char* error
 }
 
 static bool v1OrdersPostHelper(char * accessToken,
-	NewOrderSingle newOrderSingle, 
+	OrderNewSingleRequest orderNewSingleRequest, 
 	void(* handler)(OrderExecutionReport, Error, void* )
 	, void* userData, bool isAsync)
 {
@@ -623,11 +623,11 @@ static bool v1OrdersPostHelper(char * accessToken,
 	JsonNode* node;
 	JsonArray* json_array;
 
-	if (isprimitive("NewOrderSingle")) {
-		node = converttoJson(&newOrderSingle, "NewOrderSingle", "");
+	if (isprimitive("OrderNewSingleRequest")) {
+		node = converttoJson(&orderNewSingleRequest, "OrderNewSingleRequest", "");
 	}
 	
-	char *jsonStr =  newOrderSingle.toJson();
+	char *jsonStr =  orderNewSingleRequest.toJson();
 	node = json_from_string(jsonStr, NULL);
 	g_free(static_cast<gpointer>(jsonStr));
 	
@@ -686,22 +686,22 @@ static bool v1OrdersPostHelper(char * accessToken,
 
 
 bool OrdersManager::v1OrdersPostAsync(char * accessToken,
-	NewOrderSingle newOrderSingle, 
+	OrderNewSingleRequest orderNewSingleRequest, 
 	void(* handler)(OrderExecutionReport, Error, void* )
 	, void* userData)
 {
 	return v1OrdersPostHelper(accessToken,
-	newOrderSingle, 
+	orderNewSingleRequest, 
 	handler, userData, true);
 }
 
 bool OrdersManager::v1OrdersPostSync(char * accessToken,
-	NewOrderSingle newOrderSingle, 
+	OrderNewSingleRequest orderNewSingleRequest, 
 	void(* handler)(OrderExecutionReport, Error, void* )
 	, void* userData)
 {
 	return v1OrdersPostHelper(accessToken,
-	newOrderSingle, 
+	orderNewSingleRequest, 
 	handler, userData, false);
 }
 

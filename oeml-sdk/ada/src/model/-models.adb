@@ -105,7 +105,7 @@ package body .Models is
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in CancelOrderSingleRequest_Type) is
+                        Value : in OrderCancelSingleRequest_Type) is
    begin
       Into.Start_Entity (Name);
       Into.Write_Entity ("exchange_id", Value.Exchange_Id);
@@ -116,7 +116,7 @@ package body .Models is
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in CancelOrderSingleRequest_Type_Vectors.Vector) is
+                        Value : in OrderCancelSingleRequest_Type_Vectors.Vector) is
    begin
       Into.Start_Array (Name);
       for Item of Value loop
@@ -127,7 +127,7 @@ package body .Models is
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out CancelOrderSingleRequest_Type) is
+                          Value : out OrderCancelSingleRequest_Type) is
       Object : Swagger.Value_Type;
    begin
       Swagger.Streams.Deserialize (From, Name, Object);
@@ -138,9 +138,9 @@ package body .Models is
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out CancelOrderSingleRequest_Type_Vectors.Vector) is
+                          Value : out OrderCancelSingleRequest_Type_Vectors.Vector) is
       List : Swagger.Value_Array_Type;
-      Item : CancelOrderSingleRequest_Type;
+      Item : OrderCancelSingleRequest_Type;
    begin
       Value.Clear;
       Swagger.Streams.Deserialize (From, Name, List);
@@ -155,7 +155,7 @@ package body .Models is
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in CancelOrderAllRequest_Type) is
+                        Value : in OrderCancelAllRequest_Type) is
    begin
       Into.Start_Entity (Name);
       Into.Write_Entity ("exchange_id", Value.Exchange_Id);
@@ -164,7 +164,7 @@ package body .Models is
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in CancelOrderAllRequest_Type_Vectors.Vector) is
+                        Value : in OrderCancelAllRequest_Type_Vectors.Vector) is
    begin
       Into.Start_Array (Name);
       for Item of Value loop
@@ -175,7 +175,7 @@ package body .Models is
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out CancelOrderAllRequest_Type) is
+                          Value : out OrderCancelAllRequest_Type) is
       Object : Swagger.Value_Type;
    begin
       Swagger.Streams.Deserialize (From, Name, Object);
@@ -184,9 +184,9 @@ package body .Models is
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out CancelOrderAllRequest_Type_Vectors.Vector) is
+                          Value : out OrderCancelAllRequest_Type_Vectors.Vector) is
       List : Swagger.Value_Array_Type;
-      Item : CancelOrderAllRequest_Type;
+      Item : OrderCancelAllRequest_Type;
    begin
       Value.Clear;
       Swagger.Streams.Deserialize (From, Name, List);
@@ -489,7 +489,7 @@ package body .Models is
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in NewOrderSingle_Type) is
+                        Value : in OrderNewSingleRequest_Type) is
    begin
       Into.Start_Entity (Name);
       Into.Write_Entity ("exchange_id", Value.Exchange_Id);
@@ -508,7 +508,7 @@ package body .Models is
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in NewOrderSingle_Type_Vectors.Vector) is
+                        Value : in OrderNewSingleRequest_Type_Vectors.Vector) is
    begin
       Into.Start_Array (Name);
       for Item of Value loop
@@ -519,7 +519,7 @@ package body .Models is
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out NewOrderSingle_Type) is
+                          Value : out OrderNewSingleRequest_Type) is
       Object : Swagger.Value_Type;
    begin
       Swagger.Streams.Deserialize (From, Name, Object);
@@ -538,9 +538,9 @@ package body .Models is
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out NewOrderSingle_Type_Vectors.Vector) is
+                          Value : out OrderNewSingleRequest_Type_Vectors.Vector) is
       List : Swagger.Value_Array_Type;
-      Item : NewOrderSingle_Type;
+      Item : OrderNewSingleRequest_Type;
    begin
       Value.Clear;
       Swagger.Streams.Deserialize (From, Name, List);

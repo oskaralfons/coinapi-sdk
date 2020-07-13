@@ -14,11 +14,11 @@ import localVarRequest = require('request');
 import http = require('http');
 
 /* tslint:disable:no-unused-locals */
-import { CancelOrderAllRequest } from '../model/cancelOrderAllRequest';
-import { CancelOrderSingleRequest } from '../model/cancelOrderSingleRequest';
 import { Message } from '../model/message';
-import { NewOrderSingle } from '../model/newOrderSingle';
+import { OrderCancelAllRequest } from '../model/orderCancelAllRequest';
+import { OrderCancelSingleRequest } from '../model/orderCancelSingleRequest';
 import { OrderExecutionReport } from '../model/orderExecutionReport';
+import { OrderNewSingleRequest } from '../model/orderNewSingleRequest';
 import { ValidationError } from '../model/validationError';
 
 import { ObjectSerializer, Authentication, VoidAuth, Interceptor } from '../model/models';
@@ -93,9 +93,9 @@ export class OrdersApi {
     /**
      * This request cancels all open orders on single specified exchange.
      * @summary Cancel all orders request
-     * @param cancelOrderAllRequest CancelOrderAllRequest object.
+     * @param orderCancelAllRequest OrderCancelAllRequest object.
      */
-    public async v1OrdersCancelAllPost (cancelOrderAllRequest: CancelOrderAllRequest, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: Message;  }> {
+    public async v1OrdersCancelAllPost (orderCancelAllRequest: OrderCancelAllRequest, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: Message;  }> {
         const localVarPath = this.basePath + '/v1/orders/cancel/all';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -108,9 +108,9 @@ export class OrdersApi {
         }
         let localVarFormParams: any = {};
 
-        // verify required parameter 'cancelOrderAllRequest' is not null or undefined
-        if (cancelOrderAllRequest === null || cancelOrderAllRequest === undefined) {
-            throw new Error('Required parameter cancelOrderAllRequest was null or undefined when calling v1OrdersCancelAllPost.');
+        // verify required parameter 'orderCancelAllRequest' is not null or undefined
+        if (orderCancelAllRequest === null || orderCancelAllRequest === undefined) {
+            throw new Error('Required parameter orderCancelAllRequest was null or undefined when calling v1OrdersCancelAllPost.');
         }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);
@@ -124,7 +124,7 @@ export class OrdersApi {
             uri: localVarPath,
             useQuerystring: this._useQuerystring,
             json: true,
-            body: ObjectSerializer.serialize(cancelOrderAllRequest, "CancelOrderAllRequest")
+            body: ObjectSerializer.serialize(orderCancelAllRequest, "OrderCancelAllRequest")
         };
 
         let authenticationPromise = Promise.resolve();
@@ -162,9 +162,9 @@ export class OrdersApi {
     /**
      * Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`.
      * @summary Cancel order request
-     * @param cancelOrderSingleRequest CancelOrderSingleRequest object.
+     * @param orderCancelSingleRequest OrderCancelSingleRequest object.
      */
-    public async v1OrdersCancelPost (cancelOrderSingleRequest: CancelOrderSingleRequest, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: OrderExecutionReport;  }> {
+    public async v1OrdersCancelPost (orderCancelSingleRequest: OrderCancelSingleRequest, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: OrderExecutionReport;  }> {
         const localVarPath = this.basePath + '/v1/orders/cancel';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -177,9 +177,9 @@ export class OrdersApi {
         }
         let localVarFormParams: any = {};
 
-        // verify required parameter 'cancelOrderSingleRequest' is not null or undefined
-        if (cancelOrderSingleRequest === null || cancelOrderSingleRequest === undefined) {
-            throw new Error('Required parameter cancelOrderSingleRequest was null or undefined when calling v1OrdersCancelPost.');
+        // verify required parameter 'orderCancelSingleRequest' is not null or undefined
+        if (orderCancelSingleRequest === null || orderCancelSingleRequest === undefined) {
+            throw new Error('Required parameter orderCancelSingleRequest was null or undefined when calling v1OrdersCancelPost.');
         }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);
@@ -193,7 +193,7 @@ export class OrdersApi {
             uri: localVarPath,
             useQuerystring: this._useQuerystring,
             json: true,
-            body: ObjectSerializer.serialize(cancelOrderSingleRequest, "CancelOrderSingleRequest")
+            body: ObjectSerializer.serialize(orderCancelSingleRequest, "OrderCancelSingleRequest")
         };
 
         let authenticationPromise = Promise.resolve();
@@ -298,9 +298,9 @@ export class OrdersApi {
     /**
      * This request creating new order for the specific exchange.
      * @summary Send new order
-     * @param newOrderSingle NewOrderSingle object.
+     * @param orderNewSingleRequest OrderNewSingleRequest object.
      */
-    public async v1OrdersPost (newOrderSingle: NewOrderSingle, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: OrderExecutionReport;  }> {
+    public async v1OrdersPost (orderNewSingleRequest: OrderNewSingleRequest, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: OrderExecutionReport;  }> {
         const localVarPath = this.basePath + '/v1/orders';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -313,9 +313,9 @@ export class OrdersApi {
         }
         let localVarFormParams: any = {};
 
-        // verify required parameter 'newOrderSingle' is not null or undefined
-        if (newOrderSingle === null || newOrderSingle === undefined) {
-            throw new Error('Required parameter newOrderSingle was null or undefined when calling v1OrdersPost.');
+        // verify required parameter 'orderNewSingleRequest' is not null or undefined
+        if (orderNewSingleRequest === null || orderNewSingleRequest === undefined) {
+            throw new Error('Required parameter orderNewSingleRequest was null or undefined when calling v1OrdersPost.');
         }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);
@@ -329,7 +329,7 @@ export class OrdersApi {
             uri: localVarPath,
             useQuerystring: this._useQuerystring,
             json: true,
-            body: ObjectSerializer.serialize(newOrderSingle, "NewOrderSingle")
+            body: ObjectSerializer.serialize(orderNewSingleRequest, "OrderNewSingleRequest")
         };
 
         let authenticationPromise = Promise.resolve();

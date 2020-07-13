@@ -11,11 +11,11 @@
  */
 package org.openapitools.client.api
 
-import org.openapitools.client.model.CancelOrderAllRequest
-import org.openapitools.client.model.CancelOrderSingleRequest
 import org.openapitools.client.model.Message
-import org.openapitools.client.model.NewOrderSingle
+import org.openapitools.client.model.OrderCancelAllRequest
+import org.openapitools.client.model.OrderCancelSingleRequest
 import org.openapitools.client.model.OrderExecutionReport
+import org.openapitools.client.model.OrderNewSingleRequest
 import org.openapitools.client.model.ValidationError
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
@@ -36,11 +36,11 @@ class OrdersApi(baseUrl: String) {
    *   code 400 : ValidationError (Input model validation errors.)
    *   code 490 : Message (Exchange is unreachable.)
    * 
-   * @param cancelOrderAllRequest CancelOrderAllRequest object.
+   * @param orderCancelAllRequest OrderCancelAllRequest object.
    */
-  def v1OrdersCancelAllPost(cancelOrderAllRequest: CancelOrderAllRequest): ApiRequest[Message] =
+  def v1OrdersCancelAllPost(orderCancelAllRequest: OrderCancelAllRequest): ApiRequest[Message] =
     ApiRequest[Message](ApiMethods.POST, baseUrl, "/v1/orders/cancel/all", "application/json")
-      .withBody(cancelOrderAllRequest)
+      .withBody(orderCancelAllRequest)
       .withSuccessResponse[Message](200)
       .withErrorResponse[ValidationError](400)
       .withErrorResponse[Message](490)
@@ -54,11 +54,11 @@ class OrdersApi(baseUrl: String) {
    *   code 400 : ValidationError (Input model validation errors.)
    *   code 490 : Message (Exchange is unreachable.)
    * 
-   * @param cancelOrderSingleRequest CancelOrderSingleRequest object.
+   * @param orderCancelSingleRequest OrderCancelSingleRequest object.
    */
-  def v1OrdersCancelPost(cancelOrderSingleRequest: CancelOrderSingleRequest): ApiRequest[OrderExecutionReport] =
+  def v1OrdersCancelPost(orderCancelSingleRequest: OrderCancelSingleRequest): ApiRequest[OrderExecutionReport] =
     ApiRequest[OrderExecutionReport](ApiMethods.POST, baseUrl, "/v1/orders/cancel", "application/json")
-      .withBody(cancelOrderSingleRequest)
+      .withBody(orderCancelSingleRequest)
       .withSuccessResponse[OrderExecutionReport](200)
       .withErrorResponse[ValidationError](400)
       .withErrorResponse[Message](490)
@@ -89,11 +89,11 @@ class OrdersApi(baseUrl: String) {
    *   code 490 : Message (Exchange is unreachable.)
    *   code 504 : Message (Exchange didn't responded in the defined timeout.)
    * 
-   * @param newOrderSingle NewOrderSingle object.
+   * @param orderNewSingleRequest OrderNewSingleRequest object.
    */
-  def v1OrdersPost(newOrderSingle: NewOrderSingle): ApiRequest[OrderExecutionReport] =
+  def v1OrdersPost(orderNewSingleRequest: OrderNewSingleRequest): ApiRequest[OrderExecutionReport] =
     ApiRequest[OrderExecutionReport](ApiMethods.POST, baseUrl, "/v1/orders", "application/json")
-      .withBody(newOrderSingle)
+      .withBody(orderNewSingleRequest)
       .withSuccessResponse[OrderExecutionReport](200)
       .withErrorResponse[ValidationError](400)
       .withErrorResponse[Message](490)

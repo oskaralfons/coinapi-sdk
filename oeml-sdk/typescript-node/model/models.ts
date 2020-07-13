@@ -1,14 +1,14 @@
 export * from './balance';
 export * from './balanceData';
-export * from './cancelOrderAllRequest';
-export * from './cancelOrderSingleRequest';
 export * from './message';
-export * from './newOrderSingle';
 export * from './ordSide';
 export * from './ordStatus';
 export * from './ordType';
+export * from './orderCancelAllRequest';
+export * from './orderCancelSingleRequest';
 export * from './orderExecutionReport';
 export * from './orderExecutionReportAllOf';
+export * from './orderNewSingleRequest';
 export * from './position';
 export * from './positionData';
 export * from './severity';
@@ -19,15 +19,15 @@ import localVarRequest = require('request');
 
 import { Balance } from './balance';
 import { BalanceData } from './balanceData';
-import { CancelOrderAllRequest } from './cancelOrderAllRequest';
-import { CancelOrderSingleRequest } from './cancelOrderSingleRequest';
 import { Message } from './message';
-import { NewOrderSingle } from './newOrderSingle';
 import { OrdSide } from './ordSide';
 import { OrdStatus } from './ordStatus';
 import { OrdType } from './ordType';
+import { OrderCancelAllRequest } from './orderCancelAllRequest';
+import { OrderCancelSingleRequest } from './orderCancelSingleRequest';
 import { OrderExecutionReport } from './orderExecutionReport';
 import { OrderExecutionReportAllOf } from './orderExecutionReportAllOf';
+import { OrderNewSingleRequest } from './orderNewSingleRequest';
 import { Position } from './position';
 import { PositionData } from './positionData';
 import { Severity } from './severity';
@@ -48,11 +48,11 @@ let primitives = [
 
 let enumsMap: {[index: string]: any} = {
         "BalanceData.UpdateOriginEnum": BalanceData.UpdateOriginEnum,
-        "NewOrderSingle.ExecInstEnum": NewOrderSingle.ExecInstEnum,
         "OrdSide": OrdSide,
         "OrdStatus": OrdStatus,
         "OrdType": OrdType,
         "OrderExecutionReport.ExecInstEnum": OrderExecutionReport.ExecInstEnum,
+        "OrderNewSingleRequest.ExecInstEnum": OrderNewSingleRequest.ExecInstEnum,
         "Severity": Severity,
         "TimeInForce": TimeInForce,
 }
@@ -60,12 +60,12 @@ let enumsMap: {[index: string]: any} = {
 let typeMap: {[index: string]: any} = {
     "Balance": Balance,
     "BalanceData": BalanceData,
-    "CancelOrderAllRequest": CancelOrderAllRequest,
-    "CancelOrderSingleRequest": CancelOrderSingleRequest,
     "Message": Message,
-    "NewOrderSingle": NewOrderSingle,
+    "OrderCancelAllRequest": OrderCancelAllRequest,
+    "OrderCancelSingleRequest": OrderCancelSingleRequest,
     "OrderExecutionReport": OrderExecutionReport,
     "OrderExecutionReportAllOf": OrderExecutionReportAllOf,
+    "OrderNewSingleRequest": OrderNewSingleRequest,
     "Position": Position,
     "PositionData": PositionData,
     "ValidationError": ValidationError,

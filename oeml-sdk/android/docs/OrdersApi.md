@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## v1OrdersCancelAllPost
 
-> Message v1OrdersCancelAllPost(cancelOrderAllRequest)
+> Message v1OrdersCancelAllPost(orderCancelAllRequest)
 
 Cancel all orders request
 
@@ -27,9 +27,9 @@ This request cancels all open orders on single specified exchange.
 //import org.openapitools.client.api.OrdersApi;
 
 OrdersApi apiInstance = new OrdersApi();
-CancelOrderAllRequest cancelOrderAllRequest = new CancelOrderAllRequest(); // CancelOrderAllRequest | CancelOrderAllRequest object.
+OrderCancelAllRequest orderCancelAllRequest = new OrderCancelAllRequest(); // OrderCancelAllRequest | OrderCancelAllRequest object.
 try {
-    Message result = apiInstance.v1OrdersCancelAllPost(cancelOrderAllRequest);
+    Message result = apiInstance.v1OrdersCancelAllPost(orderCancelAllRequest);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrdersApi#v1OrdersCancelAllPost");
@@ -42,7 +42,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelOrderAllRequest** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)| CancelOrderAllRequest object. |
+ **orderCancelAllRequest** | [**OrderCancelAllRequest**](OrderCancelAllRequest.md)| OrderCancelAllRequest object. |
 
 ### Return type
 
@@ -60,7 +60,7 @@ No authorization required
 
 ## v1OrdersCancelPost
 
-> OrderExecutionReport v1OrdersCancelPost(cancelOrderSingleRequest)
+> OrderExecutionReport v1OrdersCancelPost(orderCancelSingleRequest)
 
 Cancel order request
 
@@ -73,9 +73,9 @@ Request cancel for an existing order. The order can be canceled using the &#x60;
 //import org.openapitools.client.api.OrdersApi;
 
 OrdersApi apiInstance = new OrdersApi();
-CancelOrderSingleRequest cancelOrderSingleRequest = new CancelOrderSingleRequest(); // CancelOrderSingleRequest | CancelOrderSingleRequest object.
+OrderCancelSingleRequest orderCancelSingleRequest = new OrderCancelSingleRequest(); // OrderCancelSingleRequest | OrderCancelSingleRequest object.
 try {
-    OrderExecutionReport result = apiInstance.v1OrdersCancelPost(cancelOrderSingleRequest);
+    OrderExecutionReport result = apiInstance.v1OrdersCancelPost(orderCancelSingleRequest);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrdersApi#v1OrdersCancelPost");
@@ -88,7 +88,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelOrderSingleRequest** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)| CancelOrderSingleRequest object. |
+ **orderCancelSingleRequest** | [**OrderCancelSingleRequest**](OrderCancelSingleRequest.md)| OrderCancelSingleRequest object. |
 
 ### Return type
 
@@ -152,7 +152,7 @@ No authorization required
 
 ## v1OrdersPost
 
-> OrderExecutionReport v1OrdersPost(newOrderSingle)
+> OrderExecutionReport v1OrdersPost(orderNewSingleRequest)
 
 Send new order
 
@@ -165,9 +165,9 @@ This request creating new order for the specific exchange.
 //import org.openapitools.client.api.OrdersApi;
 
 OrdersApi apiInstance = new OrdersApi();
-NewOrderSingle newOrderSingle = new NewOrderSingle(); // NewOrderSingle | NewOrderSingle object.
+OrderNewSingleRequest orderNewSingleRequest = new OrderNewSingleRequest(); // OrderNewSingleRequest | OrderNewSingleRequest object.
 try {
-    OrderExecutionReport result = apiInstance.v1OrdersPost(newOrderSingle);
+    OrderExecutionReport result = apiInstance.v1OrdersPost(orderNewSingleRequest);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrdersApi#v1OrdersPost");
@@ -180,7 +180,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)| NewOrderSingle object. |
+ **orderNewSingleRequest** | [**OrderNewSingleRequest**](OrderNewSingleRequest.md)| OrderNewSingleRequest object. |
 
 ### Return type
 

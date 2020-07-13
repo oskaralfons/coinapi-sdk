@@ -70,8 +70,8 @@ namespace CoinAPI.OMS.REST.V1.Test
         public void V1OrdersCancelAllPostTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //CancelOrderAllRequest cancelOrderAllRequest = null;
-            //var response = instance.V1OrdersCancelAllPost(cancelOrderAllRequest);
+            //OrderCancelAllRequest orderCancelAllRequest = null;
+            //var response = instance.V1OrdersCancelAllPost(orderCancelAllRequest);
             //Assert.IsInstanceOf(typeof(Message), response, "response is Message");
         }
         
@@ -82,8 +82,8 @@ namespace CoinAPI.OMS.REST.V1.Test
         public void V1OrdersCancelPostTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //CancelOrderSingleRequest cancelOrderSingleRequest = null;
-            //var response = instance.V1OrdersCancelPost(cancelOrderSingleRequest);
+            //OrderCancelSingleRequest orderCancelSingleRequest = null;
+            //var response = instance.V1OrdersCancelPost(orderCancelSingleRequest);
             //Assert.IsInstanceOf(typeof(OrderExecutionReport), response, "response is OrderExecutionReport");
         }
         
@@ -106,8 +106,8 @@ namespace CoinAPI.OMS.REST.V1.Test
         public void V1OrdersPostTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //NewOrderSingle newOrderSingle = null;
-            //var response = instance.V1OrdersPost(newOrderSingle);
+            //OrderNewSingleRequest orderNewSingleRequest = null;
+            //var response = instance.V1OrdersPost(orderNewSingleRequest);
             //Assert.IsInstanceOf(typeof(OrderExecutionReport), response, "response is OrderExecutionReport");
         }
         

@@ -53,12 +53,12 @@ sub new {
 #
 # Cancel all orders request
 # 
-# @param CancelOrderAllRequest $cancel_order_all_request CancelOrderAllRequest object. (required)
+# @param OrderCancelAllRequest $order_cancel_all_request OrderCancelAllRequest object. (required)
 {
     my $params = {
-    'cancel_order_all_request' => {
-        data_type => 'CancelOrderAllRequest',
-        description => 'CancelOrderAllRequest object.',
+    'order_cancel_all_request' => {
+        data_type => 'OrderCancelAllRequest',
+        description => 'OrderCancelAllRequest object.',
         required => '1',
     },
     };
@@ -73,9 +73,9 @@ sub new {
 sub v1_orders_cancel_all_post {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'cancel_order_all_request' is set
-    unless (exists $args{'cancel_order_all_request'}) {
-      croak("Missing the required parameter 'cancel_order_all_request' when calling v1_orders_cancel_all_post");
+    # verify the required parameter 'order_cancel_all_request' is set
+    unless (exists $args{'order_cancel_all_request'}) {
+      croak("Missing the required parameter 'order_cancel_all_request' when calling v1_orders_cancel_all_post");
     }
 
     # parse inputs
@@ -95,8 +95,8 @@ sub v1_orders_cancel_all_post {
 
     my $_body_data;
     # body params
-    if ( exists $args{'cancel_order_all_request'}) {
-        $_body_data = $args{'cancel_order_all_request'};
+    if ( exists $args{'order_cancel_all_request'}) {
+        $_body_data = $args{'order_cancel_all_request'};
     }
 
     # authentication setting, if any
@@ -118,12 +118,12 @@ sub v1_orders_cancel_all_post {
 #
 # Cancel order request
 # 
-# @param CancelOrderSingleRequest $cancel_order_single_request CancelOrderSingleRequest object. (required)
+# @param OrderCancelSingleRequest $order_cancel_single_request OrderCancelSingleRequest object. (required)
 {
     my $params = {
-    'cancel_order_single_request' => {
-        data_type => 'CancelOrderSingleRequest',
-        description => 'CancelOrderSingleRequest object.',
+    'order_cancel_single_request' => {
+        data_type => 'OrderCancelSingleRequest',
+        description => 'OrderCancelSingleRequest object.',
         required => '1',
     },
     };
@@ -138,9 +138,9 @@ sub v1_orders_cancel_all_post {
 sub v1_orders_cancel_post {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'cancel_order_single_request' is set
-    unless (exists $args{'cancel_order_single_request'}) {
-      croak("Missing the required parameter 'cancel_order_single_request' when calling v1_orders_cancel_post");
+    # verify the required parameter 'order_cancel_single_request' is set
+    unless (exists $args{'order_cancel_single_request'}) {
+      croak("Missing the required parameter 'order_cancel_single_request' when calling v1_orders_cancel_post");
     }
 
     # parse inputs
@@ -160,8 +160,8 @@ sub v1_orders_cancel_post {
 
     my $_body_data;
     # body params
-    if ( exists $args{'cancel_order_single_request'}) {
-        $_body_data = $args{'cancel_order_single_request'};
+    if ( exists $args{'order_cancel_single_request'}) {
+        $_body_data = $args{'order_cancel_single_request'};
     }
 
     # authentication setting, if any
@@ -243,12 +243,12 @@ sub v1_orders_get {
 #
 # Send new order
 # 
-# @param NewOrderSingle $new_order_single NewOrderSingle object. (required)
+# @param OrderNewSingleRequest $order_new_single_request OrderNewSingleRequest object. (required)
 {
     my $params = {
-    'new_order_single' => {
-        data_type => 'NewOrderSingle',
-        description => 'NewOrderSingle object.',
+    'order_new_single_request' => {
+        data_type => 'OrderNewSingleRequest',
+        description => 'OrderNewSingleRequest object.',
         required => '1',
     },
     };
@@ -263,9 +263,9 @@ sub v1_orders_get {
 sub v1_orders_post {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'new_order_single' is set
-    unless (exists $args{'new_order_single'}) {
-      croak("Missing the required parameter 'new_order_single' when calling v1_orders_post");
+    # verify the required parameter 'order_new_single_request' is set
+    unless (exists $args{'order_new_single_request'}) {
+      croak("Missing the required parameter 'order_new_single_request' when calling v1_orders_post");
     }
 
     # parse inputs
@@ -285,8 +285,8 @@ sub v1_orders_post {
 
     my $_body_data;
     # body params
-    if ( exists $args{'new_order_single'}) {
-        $_body_data = $args{'new_order_single'};
+    if ( exists $args{'order_new_single_request'}) {
+        $_body_data = $args{'order_new_single_request'};
     }
 
     # authentication setting, if any

@@ -27,13 +27,13 @@ public class OASOrderExecutionReportAllOf implements OAS.MappedProperties {
     public String exchangeOrderId { get; set; }
 
     /**
-     * Amount open
+     * Amount open.
      * @return amountOpen
      */
     public Double amountOpen { get; set; }
 
     /**
-     * Amount filled
+     * Amount filled.
      * @return amountFilled
      */
     public Double amountFilled { get; set; }

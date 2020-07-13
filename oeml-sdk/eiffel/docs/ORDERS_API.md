@@ -12,7 +12,7 @@ Feature | HTTP request | Description
 
 
 # **v1_orders_cancel_all_post**
-> v1_orders_cancel_all_post (cancel_order_all_request: CANCEL_ORDER_ALL_REQUEST ): detachable MESSAGE
+> v1_orders_cancel_all_post (order_cancel_all_request: ORDER_CANCEL_ALL_REQUEST ): detachable MESSAGE
 	
 
 Cancel all orders request
@@ -24,7 +24,7 @@ This request cancels all open orders on single specified exchange.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancel_order_all_request** | [**CANCEL_ORDER_ALL_REQUEST**](CANCEL_ORDER_ALL_REQUEST.md)| CancelOrderAllRequest object. | 
+ **order_cancel_all_request** | [**ORDER_CANCEL_ALL_REQUEST**](ORDER_CANCEL_ALL_REQUEST.md)| OrderCancelAllRequest object. | 
 
 ### Return type
 
@@ -42,7 +42,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_orders_cancel_post**
-> v1_orders_cancel_post (cancel_order_single_request: CANCEL_ORDER_SINGLE_REQUEST ): detachable ORDER_EXECUTION_REPORT
+> v1_orders_cancel_post (order_cancel_single_request: ORDER_CANCEL_SINGLE_REQUEST ): detachable ORDER_EXECUTION_REPORT
 	
 
 Cancel order request
@@ -54,7 +54,7 @@ Request cancel for an existing order. The order can be canceled using the `clien
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancel_order_single_request** | [**CANCEL_ORDER_SINGLE_REQUEST**](CANCEL_ORDER_SINGLE_REQUEST.md)| CancelOrderSingleRequest object. | 
+ **order_cancel_single_request** | [**ORDER_CANCEL_SINGLE_REQUEST**](ORDER_CANCEL_SINGLE_REQUEST.md)| OrderCancelSingleRequest object. | 
 
 ### Return type
 
@@ -102,7 +102,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_orders_post**
-> v1_orders_post (new_order_single: NEW_ORDER_SINGLE ): detachable ORDER_EXECUTION_REPORT
+> v1_orders_post (order_new_single_request: ORDER_NEW_SINGLE_REQUEST ): detachable ORDER_EXECUTION_REPORT
 	
 
 Send new order
@@ -114,7 +114,7 @@ This request creating new order for the specific exchange.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **new_order_single** | [**NEW_ORDER_SINGLE**](NEW_ORDER_SINGLE.md)| NewOrderSingle object. | 
+ **order_new_single_request** | [**ORDER_NEW_SINGLE_REQUEST**](ORDER_NEW_SINGLE_REQUEST.md)| OrderNewSingleRequest object. | 
 
 ### Return type
 

@@ -15,11 +15,11 @@ abstract class OrderExecutionReportAllOf implements Built<OrderExecutionReportAl
         @nullable
     @BuiltValueField(wireName: r'exchange_order_id')
     String get exchangeOrderId;
-    /* Amount open */
+    /* Amount open. */
         @nullable
     @BuiltValueField(wireName: r'amount_open')
     num get amountOpen;
-    /* Amount filled */
+    /* Amount filled. */
         @nullable
     @BuiltValueField(wireName: r'amount_filled')
     num get amountFilled;

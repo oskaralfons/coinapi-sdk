@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **client_order_id_format_exchange** | **String** | The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. | 
 **exchange_order_id** | **String** | The unique identifier of the order assigned by the exchange. | [optional] 
-**amount_open** | **Float** | Amount open | 
-**amount_filled** | **Float** | Amount filled | 
+**amount_open** | **Float** | Amount open. | 
+**amount_filled** | **Float** | Amount filled. | 
 **status** | [**OrdStatus**](OrdStatus.md) |  | 
 **time_order** | **Array&lt;Array&lt;String&gt;&gt;** | Timestamped history of order status changes. | 
 **error_message** | **String** | Error message | [optional] 

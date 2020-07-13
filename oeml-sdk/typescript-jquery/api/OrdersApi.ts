@@ -49,9 +49,9 @@ export class OrdersApi {
     /**
      * This request cancels all open orders on single specified exchange.
      * @summary Cancel all orders request
-     * @param cancelOrderAllRequest CancelOrderAllRequest object.
+     * @param orderCancelAllRequest OrderCancelAllRequest object.
      */
-    public v1OrdersCancelAllPost(cancelOrderAllRequest: models.CancelOrderAllRequest, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
+    public v1OrdersCancelAllPost(orderCancelAllRequest: models.OrderCancelAllRequest, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
     { response: JQueryXHR; body: models.Message;  },
     { response: JQueryXHR; errorThrown: string }
     > {
@@ -59,9 +59,9 @@ export class OrdersApi {
 
         let queryParameters: any = {};
         let headerParams: any = {};
-        // verify required parameter 'cancelOrderAllRequest' is not null or undefined
-        if (cancelOrderAllRequest === null || cancelOrderAllRequest === undefined) {
-            throw new Error('Required parameter cancelOrderAllRequest was null or undefined when calling v1OrdersCancelAllPost.');
+        // verify required parameter 'orderCancelAllRequest' is not null or undefined
+        if (orderCancelAllRequest === null || orderCancelAllRequest === undefined) {
+            throw new Error('Required parameter orderCancelAllRequest was null or undefined when calling v1OrdersCancelAllPost.');
         }
 
 
@@ -87,7 +87,7 @@ export class OrdersApi {
             processData: false
         };
 
-        requestOptions.data = JSON.stringify(cancelOrderAllRequest);
+        requestOptions.data = JSON.stringify(orderCancelAllRequest);
         if (headerParams['Content-Type']) {
             requestOptions.contentType = headerParams['Content-Type'];
         }
@@ -116,9 +116,9 @@ export class OrdersApi {
     /**
      * Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`.
      * @summary Cancel order request
-     * @param cancelOrderSingleRequest CancelOrderSingleRequest object.
+     * @param orderCancelSingleRequest OrderCancelSingleRequest object.
      */
-    public v1OrdersCancelPost(cancelOrderSingleRequest: models.CancelOrderSingleRequest, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
+    public v1OrdersCancelPost(orderCancelSingleRequest: models.OrderCancelSingleRequest, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
     { response: JQueryXHR; body: models.OrderExecutionReport;  },
     { response: JQueryXHR; errorThrown: string }
     > {
@@ -126,9 +126,9 @@ export class OrdersApi {
 
         let queryParameters: any = {};
         let headerParams: any = {};
-        // verify required parameter 'cancelOrderSingleRequest' is not null or undefined
-        if (cancelOrderSingleRequest === null || cancelOrderSingleRequest === undefined) {
-            throw new Error('Required parameter cancelOrderSingleRequest was null or undefined when calling v1OrdersCancelPost.');
+        // verify required parameter 'orderCancelSingleRequest' is not null or undefined
+        if (orderCancelSingleRequest === null || orderCancelSingleRequest === undefined) {
+            throw new Error('Required parameter orderCancelSingleRequest was null or undefined when calling v1OrdersCancelPost.');
         }
 
 
@@ -154,7 +154,7 @@ export class OrdersApi {
             processData: false
         };
 
-        requestOptions.data = JSON.stringify(cancelOrderSingleRequest);
+        requestOptions.data = JSON.stringify(orderCancelSingleRequest);
         if (headerParams['Content-Type']) {
             requestOptions.contentType = headerParams['Content-Type'];
         }
@@ -244,9 +244,9 @@ export class OrdersApi {
     /**
      * This request creating new order for the specific exchange.
      * @summary Send new order
-     * @param newOrderSingle NewOrderSingle object.
+     * @param orderNewSingleRequest OrderNewSingleRequest object.
      */
-    public v1OrdersPost(newOrderSingle: models.NewOrderSingle, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
+    public v1OrdersPost(orderNewSingleRequest: models.OrderNewSingleRequest, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
     { response: JQueryXHR; body: models.OrderExecutionReport;  },
     { response: JQueryXHR; errorThrown: string }
     > {
@@ -254,9 +254,9 @@ export class OrdersApi {
 
         let queryParameters: any = {};
         let headerParams: any = {};
-        // verify required parameter 'newOrderSingle' is not null or undefined
-        if (newOrderSingle === null || newOrderSingle === undefined) {
-            throw new Error('Required parameter newOrderSingle was null or undefined when calling v1OrdersPost.');
+        // verify required parameter 'orderNewSingleRequest' is not null or undefined
+        if (orderNewSingleRequest === null || orderNewSingleRequest === undefined) {
+            throw new Error('Required parameter orderNewSingleRequest was null or undefined when calling v1OrdersPost.');
         }
 
 
@@ -282,7 +282,7 @@ export class OrdersApi {
             processData: false
         };
 
-        requestOptions.data = JSON.stringify(newOrderSingle);
+        requestOptions.data = JSON.stringify(orderNewSingleRequest);
         if (headerParams['Content-Type']) {
             requestOptions.contentType = headerParams['Content-Type'];
         }

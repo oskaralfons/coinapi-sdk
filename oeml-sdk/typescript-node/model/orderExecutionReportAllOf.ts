@@ -26,11 +26,11 @@ export class OrderExecutionReportAllOf {
     */
     'exchangeOrderId'?: string;
     /**
-    * Amount open
+    * Amount open.
     */
     'amountOpen': number;
     /**
-    * Amount filled
+    * Amount filled.
     */
     'amountFilled': number;
     'status': OrdStatus;

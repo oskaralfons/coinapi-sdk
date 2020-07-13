@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## v1OrdersCancelAllPost
 
-> \OpenAPI\Client\Model\Message v1OrdersCancelAllPost($cancel_order_all_request)
+> \OpenAPI\Client\Model\Message v1OrdersCancelAllPost($order_cancel_all_request)
 
 Cancel all orders request
 
@@ -32,10 +32,10 @@ $apiInstance = new OpenAPI\Client\Api\OrdersApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$cancel_order_all_request = new \OpenAPI\Client\Model\CancelOrderAllRequest(); // \OpenAPI\Client\Model\CancelOrderAllRequest | CancelOrderAllRequest object.
+$order_cancel_all_request = new \OpenAPI\Client\Model\OrderCancelAllRequest(); // \OpenAPI\Client\Model\OrderCancelAllRequest | OrderCancelAllRequest object.
 
 try {
-    $result = $apiInstance->v1OrdersCancelAllPost($cancel_order_all_request);
+    $result = $apiInstance->v1OrdersCancelAllPost($order_cancel_all_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrdersApi->v1OrdersCancelAllPost: ', $e->getMessage(), PHP_EOL;
@@ -48,7 +48,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancel_order_all_request** | [**\OpenAPI\Client\Model\CancelOrderAllRequest**](../Model/CancelOrderAllRequest.md)| CancelOrderAllRequest object. |
+ **order_cancel_all_request** | [**\OpenAPI\Client\Model\OrderCancelAllRequest**](../Model/OrderCancelAllRequest.md)| OrderCancelAllRequest object. |
 
 ### Return type
 
@@ -70,7 +70,7 @@ No authorization required
 
 ## v1OrdersCancelPost
 
-> \OpenAPI\Client\Model\OrderExecutionReport v1OrdersCancelPost($cancel_order_single_request)
+> \OpenAPI\Client\Model\OrderExecutionReport v1OrdersCancelPost($order_cancel_single_request)
 
 Cancel order request
 
@@ -88,10 +88,10 @@ $apiInstance = new OpenAPI\Client\Api\OrdersApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$cancel_order_single_request = new \OpenAPI\Client\Model\CancelOrderSingleRequest(); // \OpenAPI\Client\Model\CancelOrderSingleRequest | CancelOrderSingleRequest object.
+$order_cancel_single_request = new \OpenAPI\Client\Model\OrderCancelSingleRequest(); // \OpenAPI\Client\Model\OrderCancelSingleRequest | OrderCancelSingleRequest object.
 
 try {
-    $result = $apiInstance->v1OrdersCancelPost($cancel_order_single_request);
+    $result = $apiInstance->v1OrdersCancelPost($order_cancel_single_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrdersApi->v1OrdersCancelPost: ', $e->getMessage(), PHP_EOL;
@@ -104,7 +104,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancel_order_single_request** | [**\OpenAPI\Client\Model\CancelOrderSingleRequest**](../Model/CancelOrderSingleRequest.md)| CancelOrderSingleRequest object. |
+ **order_cancel_single_request** | [**\OpenAPI\Client\Model\OrderCancelSingleRequest**](../Model/OrderCancelSingleRequest.md)| OrderCancelSingleRequest object. |
 
 ### Return type
 
@@ -182,7 +182,7 @@ No authorization required
 
 ## v1OrdersPost
 
-> \OpenAPI\Client\Model\OrderExecutionReport v1OrdersPost($new_order_single)
+> \OpenAPI\Client\Model\OrderExecutionReport v1OrdersPost($order_new_single_request)
 
 Send new order
 
@@ -200,10 +200,10 @@ $apiInstance = new OpenAPI\Client\Api\OrdersApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$new_order_single = new \OpenAPI\Client\Model\NewOrderSingle(); // \OpenAPI\Client\Model\NewOrderSingle | NewOrderSingle object.
+$order_new_single_request = new \OpenAPI\Client\Model\OrderNewSingleRequest(); // \OpenAPI\Client\Model\OrderNewSingleRequest | OrderNewSingleRequest object.
 
 try {
-    $result = $apiInstance->v1OrdersPost($new_order_single);
+    $result = $apiInstance->v1OrdersPost($order_new_single_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrdersApi->v1OrdersPost: ', $e->getMessage(), PHP_EOL;
@@ -216,7 +216,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **new_order_single** | [**\OpenAPI\Client\Model\NewOrderSingle**](../Model/NewOrderSingle.md)| NewOrderSingle object. |
+ **order_new_single_request** | [**\OpenAPI\Client\Model\OrderNewSingleRequest**](../Model/OrderNewSingleRequest.md)| OrderNewSingleRequest object. |
 
 ### Return type
 

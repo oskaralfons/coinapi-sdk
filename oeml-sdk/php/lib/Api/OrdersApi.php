@@ -120,15 +120,15 @@ class OrdersApi
      *
      * Cancel all orders request
      *
-     * @param  \OpenAPI\Client\Model\CancelOrderAllRequest $cancel_order_all_request CancelOrderAllRequest object. (required)
+     * @param  \OpenAPI\Client\Model\OrderCancelAllRequest $order_cancel_all_request OrderCancelAllRequest object. (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Message|\OpenAPI\Client\Model\ValidationError|\OpenAPI\Client\Model\Message
      */
-    public function v1OrdersCancelAllPost($cancel_order_all_request)
+    public function v1OrdersCancelAllPost($order_cancel_all_request)
     {
-        list($response) = $this->v1OrdersCancelAllPostWithHttpInfo($cancel_order_all_request);
+        list($response) = $this->v1OrdersCancelAllPostWithHttpInfo($order_cancel_all_request);
         return $response;
     }
 
@@ -137,15 +137,15 @@ class OrdersApi
      *
      * Cancel all orders request
      *
-     * @param  \OpenAPI\Client\Model\CancelOrderAllRequest $cancel_order_all_request CancelOrderAllRequest object. (required)
+     * @param  \OpenAPI\Client\Model\OrderCancelAllRequest $order_cancel_all_request OrderCancelAllRequest object. (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Message|\OpenAPI\Client\Model\ValidationError|\OpenAPI\Client\Model\Message, HTTP status code, HTTP response headers (array of strings)
      */
-    public function v1OrdersCancelAllPostWithHttpInfo($cancel_order_all_request)
+    public function v1OrdersCancelAllPostWithHttpInfo($order_cancel_all_request)
     {
-        $request = $this->v1OrdersCancelAllPostRequest($cancel_order_all_request);
+        $request = $this->v1OrdersCancelAllPostRequest($order_cancel_all_request);
 
         try {
             $options = $this->createHttpClientOption();
@@ -265,14 +265,14 @@ class OrdersApi
      *
      * Cancel all orders request
      *
-     * @param  \OpenAPI\Client\Model\CancelOrderAllRequest $cancel_order_all_request CancelOrderAllRequest object. (required)
+     * @param  \OpenAPI\Client\Model\OrderCancelAllRequest $order_cancel_all_request OrderCancelAllRequest object. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1OrdersCancelAllPostAsync($cancel_order_all_request)
+    public function v1OrdersCancelAllPostAsync($order_cancel_all_request)
     {
-        return $this->v1OrdersCancelAllPostAsyncWithHttpInfo($cancel_order_all_request)
+        return $this->v1OrdersCancelAllPostAsyncWithHttpInfo($order_cancel_all_request)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -285,15 +285,15 @@ class OrdersApi
      *
      * Cancel all orders request
      *
-     * @param  \OpenAPI\Client\Model\CancelOrderAllRequest $cancel_order_all_request CancelOrderAllRequest object. (required)
+     * @param  \OpenAPI\Client\Model\OrderCancelAllRequest $order_cancel_all_request OrderCancelAllRequest object. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1OrdersCancelAllPostAsyncWithHttpInfo($cancel_order_all_request)
+    public function v1OrdersCancelAllPostAsyncWithHttpInfo($order_cancel_all_request)
     {
         $returnType = '\OpenAPI\Client\Model\Message';
-        $request = $this->v1OrdersCancelAllPostRequest($cancel_order_all_request);
+        $request = $this->v1OrdersCancelAllPostRequest($order_cancel_all_request);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -332,17 +332,17 @@ class OrdersApi
     /**
      * Create request for operation 'v1OrdersCancelAllPost'
      *
-     * @param  \OpenAPI\Client\Model\CancelOrderAllRequest $cancel_order_all_request CancelOrderAllRequest object. (required)
+     * @param  \OpenAPI\Client\Model\OrderCancelAllRequest $order_cancel_all_request OrderCancelAllRequest object. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function v1OrdersCancelAllPostRequest($cancel_order_all_request)
+    protected function v1OrdersCancelAllPostRequest($order_cancel_all_request)
     {
-        // verify the required parameter 'cancel_order_all_request' is set
-        if ($cancel_order_all_request === null || (is_array($cancel_order_all_request) && count($cancel_order_all_request) === 0)) {
+        // verify the required parameter 'order_cancel_all_request' is set
+        if ($order_cancel_all_request === null || (is_array($order_cancel_all_request) && count($order_cancel_all_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $cancel_order_all_request when calling v1OrdersCancelAllPost'
+                'Missing the required parameter $order_cancel_all_request when calling v1OrdersCancelAllPost'
             );
         }
 
@@ -358,8 +358,8 @@ class OrdersApi
 
         // body params
         $_tempBody = null;
-        if (isset($cancel_order_all_request)) {
-            $_tempBody = $cancel_order_all_request;
+        if (isset($order_cancel_all_request)) {
+            $_tempBody = $order_cancel_all_request;
         }
 
         if ($multipart) {
@@ -428,15 +428,15 @@ class OrdersApi
      *
      * Cancel order request
      *
-     * @param  \OpenAPI\Client\Model\CancelOrderSingleRequest $cancel_order_single_request CancelOrderSingleRequest object. (required)
+     * @param  \OpenAPI\Client\Model\OrderCancelSingleRequest $order_cancel_single_request OrderCancelSingleRequest object. (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OrderExecutionReport|\OpenAPI\Client\Model\ValidationError|\OpenAPI\Client\Model\Message
      */
-    public function v1OrdersCancelPost($cancel_order_single_request)
+    public function v1OrdersCancelPost($order_cancel_single_request)
     {
-        list($response) = $this->v1OrdersCancelPostWithHttpInfo($cancel_order_single_request);
+        list($response) = $this->v1OrdersCancelPostWithHttpInfo($order_cancel_single_request);
         return $response;
     }
 
@@ -445,15 +445,15 @@ class OrdersApi
      *
      * Cancel order request
      *
-     * @param  \OpenAPI\Client\Model\CancelOrderSingleRequest $cancel_order_single_request CancelOrderSingleRequest object. (required)
+     * @param  \OpenAPI\Client\Model\OrderCancelSingleRequest $order_cancel_single_request OrderCancelSingleRequest object. (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OrderExecutionReport|\OpenAPI\Client\Model\ValidationError|\OpenAPI\Client\Model\Message, HTTP status code, HTTP response headers (array of strings)
      */
-    public function v1OrdersCancelPostWithHttpInfo($cancel_order_single_request)
+    public function v1OrdersCancelPostWithHttpInfo($order_cancel_single_request)
     {
-        $request = $this->v1OrdersCancelPostRequest($cancel_order_single_request);
+        $request = $this->v1OrdersCancelPostRequest($order_cancel_single_request);
 
         try {
             $options = $this->createHttpClientOption();
@@ -573,14 +573,14 @@ class OrdersApi
      *
      * Cancel order request
      *
-     * @param  \OpenAPI\Client\Model\CancelOrderSingleRequest $cancel_order_single_request CancelOrderSingleRequest object. (required)
+     * @param  \OpenAPI\Client\Model\OrderCancelSingleRequest $order_cancel_single_request OrderCancelSingleRequest object. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1OrdersCancelPostAsync($cancel_order_single_request)
+    public function v1OrdersCancelPostAsync($order_cancel_single_request)
     {
-        return $this->v1OrdersCancelPostAsyncWithHttpInfo($cancel_order_single_request)
+        return $this->v1OrdersCancelPostAsyncWithHttpInfo($order_cancel_single_request)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -593,15 +593,15 @@ class OrdersApi
      *
      * Cancel order request
      *
-     * @param  \OpenAPI\Client\Model\CancelOrderSingleRequest $cancel_order_single_request CancelOrderSingleRequest object. (required)
+     * @param  \OpenAPI\Client\Model\OrderCancelSingleRequest $order_cancel_single_request OrderCancelSingleRequest object. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1OrdersCancelPostAsyncWithHttpInfo($cancel_order_single_request)
+    public function v1OrdersCancelPostAsyncWithHttpInfo($order_cancel_single_request)
     {
         $returnType = '\OpenAPI\Client\Model\OrderExecutionReport';
-        $request = $this->v1OrdersCancelPostRequest($cancel_order_single_request);
+        $request = $this->v1OrdersCancelPostRequest($order_cancel_single_request);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -640,17 +640,17 @@ class OrdersApi
     /**
      * Create request for operation 'v1OrdersCancelPost'
      *
-     * @param  \OpenAPI\Client\Model\CancelOrderSingleRequest $cancel_order_single_request CancelOrderSingleRequest object. (required)
+     * @param  \OpenAPI\Client\Model\OrderCancelSingleRequest $order_cancel_single_request OrderCancelSingleRequest object. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function v1OrdersCancelPostRequest($cancel_order_single_request)
+    protected function v1OrdersCancelPostRequest($order_cancel_single_request)
     {
-        // verify the required parameter 'cancel_order_single_request' is set
-        if ($cancel_order_single_request === null || (is_array($cancel_order_single_request) && count($cancel_order_single_request) === 0)) {
+        // verify the required parameter 'order_cancel_single_request' is set
+        if ($order_cancel_single_request === null || (is_array($order_cancel_single_request) && count($order_cancel_single_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $cancel_order_single_request when calling v1OrdersCancelPost'
+                'Missing the required parameter $order_cancel_single_request when calling v1OrdersCancelPost'
             );
         }
 
@@ -666,8 +666,8 @@ class OrdersApi
 
         // body params
         $_tempBody = null;
-        if (isset($cancel_order_single_request)) {
-            $_tempBody = $cancel_order_single_request;
+        if (isset($order_cancel_single_request)) {
+            $_tempBody = $order_cancel_single_request;
         }
 
         if ($multipart) {
@@ -1026,15 +1026,15 @@ class OrdersApi
      *
      * Send new order
      *
-     * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single NewOrderSingle object. (required)
+     * @param  \OpenAPI\Client\Model\OrderNewSingleRequest $order_new_single_request OrderNewSingleRequest object. (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\OrderExecutionReport|\OpenAPI\Client\Model\ValidationError|\OpenAPI\Client\Model\Message|\OpenAPI\Client\Model\Message
      */
-    public function v1OrdersPost($new_order_single)
+    public function v1OrdersPost($order_new_single_request)
     {
-        list($response) = $this->v1OrdersPostWithHttpInfo($new_order_single);
+        list($response) = $this->v1OrdersPostWithHttpInfo($order_new_single_request);
         return $response;
     }
 
@@ -1043,15 +1043,15 @@ class OrdersApi
      *
      * Send new order
      *
-     * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single NewOrderSingle object. (required)
+     * @param  \OpenAPI\Client\Model\OrderNewSingleRequest $order_new_single_request OrderNewSingleRequest object. (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\OrderExecutionReport|\OpenAPI\Client\Model\ValidationError|\OpenAPI\Client\Model\Message|\OpenAPI\Client\Model\Message, HTTP status code, HTTP response headers (array of strings)
      */
-    public function v1OrdersPostWithHttpInfo($new_order_single)
+    public function v1OrdersPostWithHttpInfo($order_new_single_request)
     {
-        $request = $this->v1OrdersPostRequest($new_order_single);
+        $request = $this->v1OrdersPostRequest($order_new_single_request);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1191,14 +1191,14 @@ class OrdersApi
      *
      * Send new order
      *
-     * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single NewOrderSingle object. (required)
+     * @param  \OpenAPI\Client\Model\OrderNewSingleRequest $order_new_single_request OrderNewSingleRequest object. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1OrdersPostAsync($new_order_single)
+    public function v1OrdersPostAsync($order_new_single_request)
     {
-        return $this->v1OrdersPostAsyncWithHttpInfo($new_order_single)
+        return $this->v1OrdersPostAsyncWithHttpInfo($order_new_single_request)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1211,15 +1211,15 @@ class OrdersApi
      *
      * Send new order
      *
-     * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single NewOrderSingle object. (required)
+     * @param  \OpenAPI\Client\Model\OrderNewSingleRequest $order_new_single_request OrderNewSingleRequest object. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1OrdersPostAsyncWithHttpInfo($new_order_single)
+    public function v1OrdersPostAsyncWithHttpInfo($order_new_single_request)
     {
         $returnType = '\OpenAPI\Client\Model\OrderExecutionReport';
-        $request = $this->v1OrdersPostRequest($new_order_single);
+        $request = $this->v1OrdersPostRequest($order_new_single_request);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1258,17 +1258,17 @@ class OrdersApi
     /**
      * Create request for operation 'v1OrdersPost'
      *
-     * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single NewOrderSingle object. (required)
+     * @param  \OpenAPI\Client\Model\OrderNewSingleRequest $order_new_single_request OrderNewSingleRequest object. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function v1OrdersPostRequest($new_order_single)
+    protected function v1OrdersPostRequest($order_new_single_request)
     {
-        // verify the required parameter 'new_order_single' is set
-        if ($new_order_single === null || (is_array($new_order_single) && count($new_order_single) === 0)) {
+        // verify the required parameter 'order_new_single_request' is set
+        if ($order_new_single_request === null || (is_array($order_new_single_request) && count($order_new_single_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $new_order_single when calling v1OrdersPost'
+                'Missing the required parameter $order_new_single_request when calling v1OrdersPost'
             );
         }
 
@@ -1284,8 +1284,8 @@ class OrdersApi
 
         // body params
         $_tempBody = null;
-        if (isset($new_order_single)) {
-            $_tempBody = $new_order_single;
+        if (isset($order_new_single_request)) {
+            $_tempBody = $order_new_single_request;
         }
 
         if ($multipart) {

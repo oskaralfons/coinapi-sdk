@@ -58,8 +58,8 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/NewOrderSingle'
-        description: NewOrderSingle object.
+              $ref: '#/components/schemas/OrderNewSingleRequest'
+        description: OrderNewSingleRequest object.
         required: true
       responses:
         "200":
@@ -130,8 +130,8 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CancelOrderSingleRequest'
-        description: CancelOrderSingleRequest object.
+              $ref: '#/components/schemas/OrderCancelSingleRequest'
+        description: OrderCancelSingleRequest object.
         required: true
       responses:
         "200":
@@ -165,8 +165,8 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CancelOrderAllRequest'
-        description: CancelOrderAllRequest object.
+              $ref: '#/components/schemas/OrderCancelAllRequest'
+        description: OrderCancelAllRequest object.
         required: true
       responses:
         "200":
@@ -254,7 +254,7 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    NewOrderSingle:
+    OrderNewSingleRequest:
       description: The new order message.
       example:
         symbol_coinapi: KRAKEN_SPOT_BTC_USDT
@@ -328,7 +328,7 @@ components:
       - side
       - time_in_force
       type: object
-    CancelOrderSingleRequest:
+    OrderCancelSingleRequest:
       description: Cancel single order request object.
       example:
         exchange_id: KRAKEN
@@ -354,7 +354,7 @@ components:
       required:
       - exchange_id
       type: object
-    CancelOrderAllRequest:
+    OrderCancelAllRequest:
       description: Cancel all orders request object.
       example:
         exchange_id: KRAKEN
@@ -374,7 +374,7 @@ components:
       type: array
     OrderExecutionReport:
       allOf:
-      - $ref: '#/components/schemas/NewOrderSingle'
+      - $ref: '#/components/schemas/OrderNewSingleRequest'
       - $ref: '#/components/schemas/OrderExecutionReport_allOf'
       description: The order execution report object.
     Balances:
@@ -561,11 +561,11 @@ components:
           example: "3456456754"
           type: string
         amount_open:
-          description: Amount open
+          description: Amount open.
           example: 0.22
           type: number
         amount_filled:
-          description: Amount filled
+          description: Amount filled.
           example: 0.0
           type: number
         status:

@@ -11,11 +11,11 @@
 */
 package org.openapitools.client.models
 
-import org.openapitools.client.models.NewOrderSingle
 import org.openapitools.client.models.OrdSide
 import org.openapitools.client.models.OrdStatus
 import org.openapitools.client.models.OrdType
 import org.openapitools.client.models.OrderExecutionReportAllOf
+import org.openapitools.client.models.OrderNewSingleRequest
 import org.openapitools.client.models.TimeInForce
 
 import com.squareup.moshi.Json
@@ -29,8 +29,8 @@ import com.squareup.moshi.Json
  * @param orderType 
  * @param timeInForce 
  * @param clientOrderIdFormatExchange The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
- * @param amountOpen Amount open
- * @param amountFilled Amount filled
+ * @param amountOpen Amount open.
+ * @param amountFilled Amount filled.
  * @param status 
  * @param timeOrder Timestamped history of order status changes.
  * @param symbolExchange Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
@@ -63,10 +63,10 @@ data class OrderExecutionReport (
     /* The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. */
     @Json(name = "client_order_id_format_exchange")
     val clientOrderIdFormatExchange: kotlin.String,
-    /* Amount open */
+    /* Amount open. */
     @Json(name = "amount_open")
     val amountOpen: java.math.BigDecimal,
-    /* Amount filled */
+    /* Amount filled. */
     @Json(name = "amount_filled")
     val amountFilled: java.math.BigDecimal,
     @Json(name = "status")

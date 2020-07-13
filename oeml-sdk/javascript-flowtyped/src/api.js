@@ -137,46 +137,6 @@ export type BalanceData = {
 
 
 /**
- * Cancel all orders request object.
- * @export
- */
-export type CancelOrderAllRequest = {
-    /**
-     * Identifier of the exchange from which active orders should be canceled.
-     * @type {string}
-     * @memberof CancelOrderAllRequest
-     */
-    exchange_id: string;
-}
-
-
-/**
- * Cancel single order request object.
- * @export
- */
-export type CancelOrderSingleRequest = {
-    /**
-     * Exchange identifier.
-     * @type {string}
-     * @memberof CancelOrderSingleRequest
-     */
-    exchange_id: string;
-    /**
-     * The unique identifier of the order assigned by the exchange. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
-     * @type {string}
-     * @memberof CancelOrderSingleRequest
-     */
-    exchange_order_id?: string;
-    /**
-     * The unique identifier of the order assigned by the client. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
-     * @type {string}
-     * @memberof CancelOrderSingleRequest
-     */
-    client_order_id?: string;
-}
-
-
-/**
  * 
  * @export
  */
@@ -208,82 +168,6 @@ export type Message = {
 }
 
 
-
-            export type NewOrderSingleExecInstEnum = 'MAKER_OR_CANCEL' | 'AUCTION_ONLY' | 'INDICATION_OF_INTEREST';
-/**
- * The new order message.
- * @export
- */
-export type NewOrderSingle = {
-    /**
-     * Exchange identifier.
-     * @type {string}
-     * @memberof NewOrderSingle
-     */
-    exchange_id: string;
-    /**
-     * The unique identifier of the order assigned by the client.
-     * @type {string}
-     * @memberof NewOrderSingle
-     */
-    client_order_id: string;
-    /**
-     * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
-     * @type {string}
-     * @memberof NewOrderSingle
-     */
-    symbol_exchange?: string;
-    /**
-     * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
-     * @type {string}
-     * @memberof NewOrderSingle
-     */
-    symbol_coinapi?: string;
-    /**
-     * Order quantity.
-     * @type {number}
-     * @memberof NewOrderSingle
-     */
-    amount_order: number;
-    /**
-     * Order price.
-     * @type {number}
-     * @memberof NewOrderSingle
-     */
-    price: number;
-    /**
-     * 
-     * @type {OrdSide}
-     * @memberof NewOrderSingle
-     */
-    side: OrdSide;
-    /**
-     * 
-     * @type {OrdType}
-     * @memberof NewOrderSingle
-     */
-    order_type: OrdType;
-    /**
-     * 
-     * @type {TimeInForce}
-     * @memberof NewOrderSingle
-     */
-    time_in_force: TimeInForce;
-    /**
-     * Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
-     * @type {Date}
-     * @memberof NewOrderSingle
-     */
-    expire_time?: Date;
-    /**
-     * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> 
-     * @type {Array<string>}
-     * @memberof NewOrderSingle
-     */
-    exec_inst?: Array<NewOrderSingleExecInstEnum>;
-}
-
-
 /**
  * Side of order. 
  * @export
@@ -304,6 +188,46 @@ export type OrdStatus = 'RECEIVED' | 'ROUTING' | 'ROUTED' | 'NEW' | 'PENDING_CAN
  * @enum {string}
  */
 export type OrdType = 'LIMIT';
+
+/**
+ * Cancel all orders request object.
+ * @export
+ */
+export type OrderCancelAllRequest = {
+    /**
+     * Identifier of the exchange from which active orders should be canceled.
+     * @type {string}
+     * @memberof OrderCancelAllRequest
+     */
+    exchange_id: string;
+}
+
+
+/**
+ * Cancel single order request object.
+ * @export
+ */
+export type OrderCancelSingleRequest = {
+    /**
+     * Exchange identifier.
+     * @type {string}
+     * @memberof OrderCancelSingleRequest
+     */
+    exchange_id: string;
+    /**
+     * The unique identifier of the order assigned by the exchange. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
+     * @type {string}
+     * @memberof OrderCancelSingleRequest
+     */
+    exchange_order_id?: string;
+    /**
+     * The unique identifier of the order assigned by the client. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
+     * @type {string}
+     * @memberof OrderCancelSingleRequest
+     */
+    client_order_id?: string;
+}
+
 
 
             export type OrderExecutionReportExecInstEnum = 'MAKER_OR_CANCEL' | 'AUCTION_ONLY' | 'INDICATION_OF_INTEREST';
@@ -391,13 +315,13 @@ export type OrderExecutionReport = {
      */
     exchange_order_id?: string;
     /**
-     * Amount open
+     * Amount open.
      * @type {number}
      * @memberof OrderExecutionReport
      */
     amount_open: number;
     /**
-     * Amount filled
+     * Amount filled.
      * @type {number}
      * @memberof OrderExecutionReport
      */
@@ -441,13 +365,13 @@ export type OrderExecutionReportAllOf = {
      */
     exchange_order_id?: string;
     /**
-     * Amount open
+     * Amount open.
      * @type {number}
      * @memberof OrderExecutionReportAllOf
      */
     amount_open: number;
     /**
-     * Amount filled
+     * Amount filled.
      * @type {number}
      * @memberof OrderExecutionReportAllOf
      */
@@ -470,6 +394,82 @@ export type OrderExecutionReportAllOf = {
      * @memberof OrderExecutionReportAllOf
      */
     error_message?: string;
+}
+
+
+
+            export type OrderNewSingleRequestExecInstEnum = 'MAKER_OR_CANCEL' | 'AUCTION_ONLY' | 'INDICATION_OF_INTEREST';
+/**
+ * The new order message.
+ * @export
+ */
+export type OrderNewSingleRequest = {
+    /**
+     * Exchange identifier.
+     * @type {string}
+     * @memberof OrderNewSingleRequest
+     */
+    exchange_id: string;
+    /**
+     * The unique identifier of the order assigned by the client.
+     * @type {string}
+     * @memberof OrderNewSingleRequest
+     */
+    client_order_id: string;
+    /**
+     * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
+     * @type {string}
+     * @memberof OrderNewSingleRequest
+     */
+    symbol_exchange?: string;
+    /**
+     * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
+     * @type {string}
+     * @memberof OrderNewSingleRequest
+     */
+    symbol_coinapi?: string;
+    /**
+     * Order quantity.
+     * @type {number}
+     * @memberof OrderNewSingleRequest
+     */
+    amount_order: number;
+    /**
+     * Order price.
+     * @type {number}
+     * @memberof OrderNewSingleRequest
+     */
+    price: number;
+    /**
+     * 
+     * @type {OrdSide}
+     * @memberof OrderNewSingleRequest
+     */
+    side: OrdSide;
+    /**
+     * 
+     * @type {OrdType}
+     * @memberof OrderNewSingleRequest
+     */
+    order_type: OrdType;
+    /**
+     * 
+     * @type {TimeInForce}
+     * @memberof OrderNewSingleRequest
+     */
+    time_in_force: TimeInForce;
+    /**
+     * Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
+     * @type {Date}
+     * @memberof OrderNewSingleRequest
+     */
+    expire_time?: Date;
+    /**
+     * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> 
+     * @type {Array<string>}
+     * @memberof OrderNewSingleRequest
+     */
+    exec_inst?: Array<OrderNewSingleRequestExecInstEnum>;
 }
 
 
@@ -690,10 +690,10 @@ export const OrdersApiFetchParamCreator = function (configuration?: Configuratio
          * @summary Cancel all orders request
          * @throws {RequiredError}
          */
-        v1OrdersCancelAllPost(cancelOrderAllRequest: CancelOrderAllRequest, options: RequestOptions): FetchArgs {
-            // verify required parameter 'cancelOrderAllRequest' is not null or undefined
-            if (cancelOrderAllRequest === null || cancelOrderAllRequest === undefined) {
-                throw new RequiredError('cancelOrderAllRequest','Required parameter cancelOrderAllRequest was null or undefined when calling v1OrdersCancelAllPost.');
+        v1OrdersCancelAllPost(orderCancelAllRequest: OrderCancelAllRequest, options: RequestOptions): FetchArgs {
+            // verify required parameter 'orderCancelAllRequest' is not null or undefined
+            if (orderCancelAllRequest === null || orderCancelAllRequest === undefined) {
+                throw new RequiredError('orderCancelAllRequest','Required parameter orderCancelAllRequest was null or undefined when calling v1OrdersCancelAllPost.');
             }
             const localVarPath = `/v1/orders/cancel/all`;
             const localVarUrlObj = url.parse(localVarPath, true);
@@ -707,8 +707,8 @@ export const OrdersApiFetchParamCreator = function (configuration?: Configuratio
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             localVarRequestOptions.headers = Object.assign({}, localVarHeaderParameter, options.headers);
-            const needsSerialization = (typeof cancelOrderAllRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.body =  needsSerialization ? JSON.stringify(cancelOrderAllRequest != null ? cancelOrderAllRequest : {}) : (((cancelOrderAllRequest:any):string) || "");
+            const needsSerialization = (typeof orderCancelAllRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.body =  needsSerialization ? JSON.stringify(orderCancelAllRequest != null ? orderCancelAllRequest : {}) : (((orderCancelAllRequest:any):string) || "");
 
             return {
                 url: url.format(localVarUrlObj),
@@ -720,10 +720,10 @@ export const OrdersApiFetchParamCreator = function (configuration?: Configuratio
          * @summary Cancel order request
          * @throws {RequiredError}
          */
-        v1OrdersCancelPost(cancelOrderSingleRequest: CancelOrderSingleRequest, options: RequestOptions): FetchArgs {
-            // verify required parameter 'cancelOrderSingleRequest' is not null or undefined
-            if (cancelOrderSingleRequest === null || cancelOrderSingleRequest === undefined) {
-                throw new RequiredError('cancelOrderSingleRequest','Required parameter cancelOrderSingleRequest was null or undefined when calling v1OrdersCancelPost.');
+        v1OrdersCancelPost(orderCancelSingleRequest: OrderCancelSingleRequest, options: RequestOptions): FetchArgs {
+            // verify required parameter 'orderCancelSingleRequest' is not null or undefined
+            if (orderCancelSingleRequest === null || orderCancelSingleRequest === undefined) {
+                throw new RequiredError('orderCancelSingleRequest','Required parameter orderCancelSingleRequest was null or undefined when calling v1OrdersCancelPost.');
             }
             const localVarPath = `/v1/orders/cancel`;
             const localVarUrlObj = url.parse(localVarPath, true);
@@ -737,8 +737,8 @@ export const OrdersApiFetchParamCreator = function (configuration?: Configuratio
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             localVarRequestOptions.headers = Object.assign({}, localVarHeaderParameter, options.headers);
-            const needsSerialization = (typeof cancelOrderSingleRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.body =  needsSerialization ? JSON.stringify(cancelOrderSingleRequest != null ? cancelOrderSingleRequest : {}) : (((cancelOrderSingleRequest:any):string) || "");
+            const needsSerialization = (typeof orderCancelSingleRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.body =  needsSerialization ? JSON.stringify(orderCancelSingleRequest != null ? orderCancelSingleRequest : {}) : (((orderCancelSingleRequest:any):string) || "");
 
             return {
                 url: url.format(localVarUrlObj),
@@ -776,10 +776,10 @@ export const OrdersApiFetchParamCreator = function (configuration?: Configuratio
          * @summary Send new order
          * @throws {RequiredError}
          */
-        v1OrdersPost(newOrderSingle: NewOrderSingle, options: RequestOptions): FetchArgs {
-            // verify required parameter 'newOrderSingle' is not null or undefined
-            if (newOrderSingle === null || newOrderSingle === undefined) {
-                throw new RequiredError('newOrderSingle','Required parameter newOrderSingle was null or undefined when calling v1OrdersPost.');
+        v1OrdersPost(orderNewSingleRequest: OrderNewSingleRequest, options: RequestOptions): FetchArgs {
+            // verify required parameter 'orderNewSingleRequest' is not null or undefined
+            if (orderNewSingleRequest === null || orderNewSingleRequest === undefined) {
+                throw new RequiredError('orderNewSingleRequest','Required parameter orderNewSingleRequest was null or undefined when calling v1OrdersPost.');
             }
             const localVarPath = `/v1/orders`;
             const localVarUrlObj = url.parse(localVarPath, true);
@@ -793,8 +793,8 @@ export const OrdersApiFetchParamCreator = function (configuration?: Configuratio
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             localVarRequestOptions.headers = Object.assign({}, localVarHeaderParameter, options.headers);
-            const needsSerialization = (typeof newOrderSingle !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.body =  needsSerialization ? JSON.stringify(newOrderSingle != null ? newOrderSingle : {}) : (((newOrderSingle:any):string) || "");
+            const needsSerialization = (typeof orderNewSingleRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.body =  needsSerialization ? JSON.stringify(orderNewSingleRequest != null ? orderNewSingleRequest : {}) : (((orderNewSingleRequest:any):string) || "");
 
             return {
                 url: url.format(localVarUrlObj),
@@ -832,13 +832,13 @@ export const OrdersApiFetchParamCreator = function (configuration?: Configuratio
 };
 
 export type OrdersApiType = { 
-    v1OrdersCancelAllPost(cancelOrderAllRequest: CancelOrderAllRequest, options?: RequestOptions): Promise<Message>,
+    v1OrdersCancelAllPost(orderCancelAllRequest: OrderCancelAllRequest, options?: RequestOptions): Promise<Message>,
 
-    v1OrdersCancelPost(cancelOrderSingleRequest: CancelOrderSingleRequest, options?: RequestOptions): Promise<OrderExecutionReport>,
+    v1OrdersCancelPost(orderCancelSingleRequest: OrderCancelSingleRequest, options?: RequestOptions): Promise<OrderExecutionReport>,
 
     v1OrdersGet(exchangeId?: string, options?: RequestOptions): Promise<Array<OrderExecutionReport>>,
 
-    v1OrdersPost(newOrderSingle: NewOrderSingle, options?: RequestOptions): Promise<OrderExecutionReport>,
+    v1OrdersPost(orderNewSingleRequest: OrderNewSingleRequest, options?: RequestOptions): Promise<OrderExecutionReport>,
 
     v1OrdersStatusClientOrderIdGet(clientOrderId: string, options?: RequestOptions): Promise<OrderExecutionReport>,
 }
@@ -855,8 +855,8 @@ export const OrdersApi = function(configuration?: Configuration, fetch: FetchAPI
          * @summary Cancel all orders request
          * @throws {RequiredError}
          */
-        v1OrdersCancelAllPost(cancelOrderAllRequest: CancelOrderAllRequest, options?: RequestOptions = {}): Promise<Message> {
-            const localVarFetchArgs = OrdersApiFetchParamCreator(configuration).v1OrdersCancelAllPost(cancelOrderAllRequest, options);
+        v1OrdersCancelAllPost(orderCancelAllRequest: OrderCancelAllRequest, options?: RequestOptions = {}): Promise<Message> {
+            const localVarFetchArgs = OrdersApiFetchParamCreator(configuration).v1OrdersCancelAllPost(orderCancelAllRequest, options);
             return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                 if (response.status >= 200 && response.status < 300) {
                     return response.json();
@@ -870,8 +870,8 @@ export const OrdersApi = function(configuration?: Configuration, fetch: FetchAPI
          * @summary Cancel order request
          * @throws {RequiredError}
          */
-        v1OrdersCancelPost(cancelOrderSingleRequest: CancelOrderSingleRequest, options?: RequestOptions = {}): Promise<OrderExecutionReport> {
-            const localVarFetchArgs = OrdersApiFetchParamCreator(configuration).v1OrdersCancelPost(cancelOrderSingleRequest, options);
+        v1OrdersCancelPost(orderCancelSingleRequest: OrderCancelSingleRequest, options?: RequestOptions = {}): Promise<OrderExecutionReport> {
+            const localVarFetchArgs = OrdersApiFetchParamCreator(configuration).v1OrdersCancelPost(orderCancelSingleRequest, options);
             return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                 if (response.status >= 200 && response.status < 300) {
                     return response.json();
@@ -900,8 +900,8 @@ export const OrdersApi = function(configuration?: Configuration, fetch: FetchAPI
          * @summary Send new order
          * @throws {RequiredError}
          */
-        v1OrdersPost(newOrderSingle: NewOrderSingle, options?: RequestOptions = {}): Promise<OrderExecutionReport> {
-            const localVarFetchArgs = OrdersApiFetchParamCreator(configuration).v1OrdersPost(newOrderSingle, options);
+        v1OrdersPost(orderNewSingleRequest: OrderNewSingleRequest, options?: RequestOptions = {}): Promise<OrderExecutionReport> {
+            const localVarFetchArgs = OrdersApiFetchParamCreator(configuration).v1OrdersPost(orderNewSingleRequest, options);
             return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                 if (response.status >= 200 && response.status < 300) {
                     return response.json();

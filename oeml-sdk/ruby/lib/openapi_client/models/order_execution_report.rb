@@ -51,10 +51,10 @@ module OpenapiClient
     # The unique identifier of the order assigned by the exchange.
     attr_accessor :exchange_order_id
 
-    # Amount open
+    # Amount open.
     attr_accessor :amount_open
 
-    # Amount filled
+    # Amount filled.
     attr_accessor :amount_filled
 
     attr_accessor :status
@@ -144,8 +144,8 @@ module OpenapiClient
     # List of class defined in allOf (OpenAPI v3)
     def self.openapi_all_of
       [
-      :'NewOrderSingle',
-      :'OrderExecutionReportAllOf'
+      :'OrderExecutionReportAllOf',
+      :'OrderNewSingleRequest'
       ]
     end
 

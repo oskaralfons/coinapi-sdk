@@ -61,18 +61,18 @@ public:
 	/*! \brief Set The unique identifier of the order assigned by the exchange.
 	 */
 	void setExchangeOrderId(std::string  exchange_order_id);
-	/*! \brief Get Amount open
+	/*! \brief Get Amount open.
 	 */
 	long long getAmountOpen();
 
-	/*! \brief Set Amount open
+	/*! \brief Set Amount open.
 	 */
 	void setAmountOpen(long long  amount_open);
-	/*! \brief Get Amount filled
+	/*! \brief Get Amount filled.
 	 */
 	long long getAmountFilled();
 
-	/*! \brief Set Amount filled
+	/*! \brief Set Amount filled.
 	 */
 	void setAmountFilled(long long  amount_filled);
 	/*! \brief Get 

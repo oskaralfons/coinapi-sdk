@@ -317,7 +317,7 @@ class OrderExecutionReportAllOf implements ModelInterface, ArrayAccess
     /**
      * Sets amount_open
      *
-     * @param float $amount_open Amount open
+     * @param float $amount_open Amount open.
      *
      * @return $this
      */
@@ -341,7 +341,7 @@ class OrderExecutionReportAllOf implements ModelInterface, ArrayAccess
     /**
      * Sets amount_filled
      *
-     * @param float $amount_filled Amount filled
+     * @param float $amount_filled Amount filled.
      *
      * @return $this
      */

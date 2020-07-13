@@ -5,11 +5,11 @@
 #include <cstring>
 #include <list>
 #include <glib.h>
-#include "CancelOrderAllRequest.h"
-#include "CancelOrderSingleRequest.h"
 #include "Message.h"
-#include "NewOrderSingle.h"
+#include "OrderCancelAllRequest.h"
+#include "OrderCancelSingleRequest.h"
 #include "OrderExecutionReport.h"
+#include "OrderNewSingleRequest.h"
 #include "ValidationError.h"
 #include "Error.h"
 
@@ -32,26 +32,26 @@ public:
 /*! \brief Cancel all orders request. *Synchronous*
  *
  * This request cancels all open orders on single specified exchange.
- * \param cancelOrderAllRequest CancelOrderAllRequest object. *Required*
+ * \param orderCancelAllRequest OrderCancelAllRequest object. *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool v1OrdersCancelAllPostSync(char * accessToken,
-	CancelOrderAllRequest cancelOrderAllRequest, 
+	OrderCancelAllRequest orderCancelAllRequest, 
 	void(* handler)(Message, Error, void* )
 	, void* userData);
 
 /*! \brief Cancel all orders request. *Asynchronous*
  *
  * This request cancels all open orders on single specified exchange.
- * \param cancelOrderAllRequest CancelOrderAllRequest object. *Required*
+ * \param orderCancelAllRequest OrderCancelAllRequest object. *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool v1OrdersCancelAllPostAsync(char * accessToken,
-	CancelOrderAllRequest cancelOrderAllRequest, 
+	OrderCancelAllRequest orderCancelAllRequest, 
 	void(* handler)(Message, Error, void* )
 	, void* userData);
 
@@ -59,26 +59,26 @@ bool v1OrdersCancelAllPostAsync(char * accessToken,
 /*! \brief Cancel order request. *Synchronous*
  *
  * Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`.
- * \param cancelOrderSingleRequest CancelOrderSingleRequest object. *Required*
+ * \param orderCancelSingleRequest OrderCancelSingleRequest object. *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool v1OrdersCancelPostSync(char * accessToken,
-	CancelOrderSingleRequest cancelOrderSingleRequest, 
+	OrderCancelSingleRequest orderCancelSingleRequest, 
 	void(* handler)(OrderExecutionReport, Error, void* )
 	, void* userData);
 
 /*! \brief Cancel order request. *Asynchronous*
  *
  * Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`.
- * \param cancelOrderSingleRequest CancelOrderSingleRequest object. *Required*
+ * \param orderCancelSingleRequest OrderCancelSingleRequest object. *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool v1OrdersCancelPostAsync(char * accessToken,
-	CancelOrderSingleRequest cancelOrderSingleRequest, 
+	OrderCancelSingleRequest orderCancelSingleRequest, 
 	void(* handler)(OrderExecutionReport, Error, void* )
 	, void* userData);
 
@@ -113,26 +113,26 @@ bool v1OrdersGetAsync(char * accessToken,
 /*! \brief Send new order. *Synchronous*
  *
  * This request creating new order for the specific exchange.
- * \param newOrderSingle NewOrderSingle object. *Required*
+ * \param orderNewSingleRequest OrderNewSingleRequest object. *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool v1OrdersPostSync(char * accessToken,
-	NewOrderSingle newOrderSingle, 
+	OrderNewSingleRequest orderNewSingleRequest, 
 	void(* handler)(OrderExecutionReport, Error, void* )
 	, void* userData);
 
 /*! \brief Send new order. *Asynchronous*
  *
  * This request creating new order for the specific exchange.
- * \param newOrderSingle NewOrderSingle object. *Required*
+ * \param orderNewSingleRequest OrderNewSingleRequest object. *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool v1OrdersPostAsync(char * accessToken,
-	NewOrderSingle newOrderSingle, 
+	OrderNewSingleRequest orderNewSingleRequest, 
 	void(* handler)(OrderExecutionReport, Error, void* )
 	, void* userData);
 

@@ -17,7 +17,7 @@
 // This request cancels all open orders on single specified exchange.
 //
 message_t*
-OrdersAPI_v1OrdersCancelAllPost(apiClient_t *apiClient, cancel_order_all_request_t * cancel_order_all_request )
+OrdersAPI_v1OrdersCancelAllPost(apiClient_t *apiClient, order_cancel_all_request_t * order_cancel_all_request )
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -35,12 +35,12 @@ OrdersAPI_v1OrdersCancelAllPost(apiClient_t *apiClient, cancel_order_all_request
 
 
     // Body Param
-    cJSON *localVarSingleItemJSON_cancel_order_all_request;
-    if (cancel_order_all_request != NULL)
+    cJSON *localVarSingleItemJSON_order_cancel_all_request;
+    if (order_cancel_all_request != NULL)
     {
         //string
-        localVarSingleItemJSON_cancel_order_all_request = cancel_order_all_request_convertToJSON(cancel_order_all_request);
-        localVarBodyParameters = cJSON_Print(localVarSingleItemJSON_cancel_order_all_request);
+        localVarSingleItemJSON_order_cancel_all_request = order_cancel_all_request_convertToJSON(order_cancel_all_request);
+        localVarBodyParameters = cJSON_Print(localVarSingleItemJSON_order_cancel_all_request);
     }
     list_addElement(localVarHeaderType,"application/json"); //produces
     list_addElement(localVarHeaderType,"appliction/json"); //produces
@@ -84,7 +84,7 @@ OrdersAPI_v1OrdersCancelAllPost(apiClient_t *apiClient, cancel_order_all_request
     list_free(localVarHeaderType);
     list_free(localVarContentType);
     free(localVarPath);
-    cJSON_Delete(localVarSingleItemJSON_cancel_order_all_request);
+    cJSON_Delete(localVarSingleItemJSON_order_cancel_all_request);
     free(localVarBodyParameters);
     return elementToReturn;
 end:
@@ -97,7 +97,7 @@ end:
 // Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`.
 //
 order_execution_report_t*
-OrdersAPI_v1OrdersCancelPost(apiClient_t *apiClient, cancel_order_single_request_t * cancel_order_single_request )
+OrdersAPI_v1OrdersCancelPost(apiClient_t *apiClient, order_cancel_single_request_t * order_cancel_single_request )
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -115,12 +115,12 @@ OrdersAPI_v1OrdersCancelPost(apiClient_t *apiClient, cancel_order_single_request
 
 
     // Body Param
-    cJSON *localVarSingleItemJSON_cancel_order_single_request;
-    if (cancel_order_single_request != NULL)
+    cJSON *localVarSingleItemJSON_order_cancel_single_request;
+    if (order_cancel_single_request != NULL)
     {
         //string
-        localVarSingleItemJSON_cancel_order_single_request = cancel_order_single_request_convertToJSON(cancel_order_single_request);
-        localVarBodyParameters = cJSON_Print(localVarSingleItemJSON_cancel_order_single_request);
+        localVarSingleItemJSON_order_cancel_single_request = order_cancel_single_request_convertToJSON(order_cancel_single_request);
+        localVarBodyParameters = cJSON_Print(localVarSingleItemJSON_order_cancel_single_request);
     }
     list_addElement(localVarHeaderType,"application/json"); //produces
     list_addElement(localVarHeaderType,"appliction/json"); //produces
@@ -164,7 +164,7 @@ OrdersAPI_v1OrdersCancelPost(apiClient_t *apiClient, cancel_order_single_request
     list_free(localVarHeaderType);
     list_free(localVarContentType);
     free(localVarPath);
-    cJSON_Delete(localVarSingleItemJSON_cancel_order_single_request);
+    cJSON_Delete(localVarSingleItemJSON_order_cancel_single_request);
     free(localVarBodyParameters);
     return elementToReturn;
 end:
@@ -276,7 +276,7 @@ end:
 // This request creating new order for the specific exchange.
 //
 order_execution_report_t*
-OrdersAPI_v1OrdersPost(apiClient_t *apiClient, new_order_single_t * new_order_single )
+OrdersAPI_v1OrdersPost(apiClient_t *apiClient, order_new_single_request_t * order_new_single_request )
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -294,12 +294,12 @@ OrdersAPI_v1OrdersPost(apiClient_t *apiClient, new_order_single_t * new_order_si
 
 
     // Body Param
-    cJSON *localVarSingleItemJSON_new_order_single;
-    if (new_order_single != NULL)
+    cJSON *localVarSingleItemJSON_order_new_single_request;
+    if (order_new_single_request != NULL)
     {
         //string
-        localVarSingleItemJSON_new_order_single = new_order_single_convertToJSON(new_order_single);
-        localVarBodyParameters = cJSON_Print(localVarSingleItemJSON_new_order_single);
+        localVarSingleItemJSON_order_new_single_request = order_new_single_request_convertToJSON(order_new_single_request);
+        localVarBodyParameters = cJSON_Print(localVarSingleItemJSON_order_new_single_request);
     }
     list_addElement(localVarHeaderType,"application/json"); //produces
     list_addElement(localVarHeaderType,"appliction/json"); //produces
@@ -346,7 +346,7 @@ OrdersAPI_v1OrdersPost(apiClient_t *apiClient, new_order_single_t * new_order_si
     list_free(localVarHeaderType);
     list_free(localVarContentType);
     free(localVarPath);
-    cJSON_Delete(localVarSingleItemJSON_new_order_single);
+    cJSON_Delete(localVarSingleItemJSON_order_new_single_request);
     free(localVarBodyParameters);
     return elementToReturn;
 end:

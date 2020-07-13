@@ -2,7 +2,7 @@
 
 OEML - REST API
 - API version: v1
-  - Build date: 2020-07-13T13:50:38.482Z[Etc/UTC]
+  - Build date: 2020-07-13T15:10:31.759Z[Etc/UTC]
 
 This section will provide necessary information about the `CoinAPI OEML REST API` protocol.
 
@@ -122,15 +122,15 @@ Class | Method | HTTP request | Description
 
  - [Balance](docs/Balance.md)
  - [BalanceData](docs/BalanceData.md)
- - [CancelOrderAllRequest](docs/CancelOrderAllRequest.md)
- - [CancelOrderSingleRequest](docs/CancelOrderSingleRequest.md)
  - [Message](docs/Message.md)
- - [NewOrderSingle](docs/NewOrderSingle.md)
  - [OrdSide](docs/OrdSide.md)
  - [OrdStatus](docs/OrdStatus.md)
  - [OrdType](docs/OrdType.md)
+ - [OrderCancelAllRequest](docs/OrderCancelAllRequest.md)
+ - [OrderCancelSingleRequest](docs/OrderCancelSingleRequest.md)
  - [OrderExecutionReport](docs/OrderExecutionReport.md)
  - [OrderExecutionReportAllOf](docs/OrderExecutionReportAllOf.md)
+ - [OrderNewSingleRequest](docs/OrderNewSingleRequest.md)
  - [Position](docs/Position.md)
  - [PositionData](docs/PositionData.md)
  - [Severity](docs/Severity.md)

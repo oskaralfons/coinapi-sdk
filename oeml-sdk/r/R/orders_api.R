@@ -18,7 +18,7 @@
 #' This request cancels all open orders on single specified exchange.
 #'
 #' \itemize{
-#' \item \emph{ @param } cancel.order.all.request \link{CancelOrderAllRequest}
+#' \item \emph{ @param } order.cancel.all.request \link{OrderCancelAllRequest}
 #' \item \emph{ @returnType } \link{Message} \cr
 #'
 #'
@@ -49,7 +49,7 @@
 #' Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
 #'
 #' \itemize{
-#' \item \emph{ @param } cancel.order.single.request \link{CancelOrderSingleRequest}
+#' \item \emph{ @param } order.cancel.single.request \link{OrderCancelSingleRequest}
 #' \item \emph{ @returnType } \link{OrderExecutionReport} \cr
 #'
 #'
@@ -104,7 +104,7 @@
 #' This request creating new order for the specific exchange.
 #'
 #' \itemize{
-#' \item \emph{ @param } new.order.single \link{NewOrderSingle}
+#' \item \emph{ @param } order.new.single.request \link{OrderNewSingleRequest}
 #' \item \emph{ @returnType } \link{OrderExecutionReport} \cr
 #'
 #'
@@ -170,23 +170,23 @@
 #' ####################  V1OrdersCancelAllPost  ####################
 #'
 #' library(openapi)
-#' var.cancel.order.all.request <- CancelOrderAllRequest$new() # CancelOrderAllRequest | CancelOrderAllRequest object.
+#' var.order.cancel.all.request <- OrderCancelAllRequest$new() # OrderCancelAllRequest | OrderCancelAllRequest object.
 #'
 #' #Cancel all orders request
 #' api.instance <- OrdersApi$new()
 #'
-#' result <- api.instance$V1OrdersCancelAllPost(var.cancel.order.all.request)
+#' result <- api.instance$V1OrdersCancelAllPost(var.order.cancel.all.request)
 #'
 #'
 #' ####################  V1OrdersCancelPost  ####################
 #'
 #' library(openapi)
-#' var.cancel.order.single.request <- CancelOrderSingleRequest$new() # CancelOrderSingleRequest | CancelOrderSingleRequest object.
+#' var.order.cancel.single.request <- OrderCancelSingleRequest$new() # OrderCancelSingleRequest | OrderCancelSingleRequest object.
 #'
 #' #Cancel order request
 #' api.instance <- OrdersApi$new()
 #'
-#' result <- api.instance$V1OrdersCancelPost(var.cancel.order.single.request)
+#' result <- api.instance$V1OrdersCancelPost(var.order.cancel.single.request)
 #'
 #'
 #' ####################  V1OrdersGet  ####################
@@ -203,12 +203,12 @@
 #' ####################  V1OrdersPost  ####################
 #'
 #' library(openapi)
-#' var.new.order.single <- NewOrderSingle$new() # NewOrderSingle | NewOrderSingle object.
+#' var.order.new.single.request <- OrderNewSingleRequest$new() # OrderNewSingleRequest | OrderNewSingleRequest object.
 #'
 #' #Send new order
 #' api.instance <- OrdersApi$new()
 #'
-#' result <- api.instance$V1OrdersPost(var.new.order.single)
+#' result <- api.instance$V1OrdersPost(var.order.new.single.request)
 #'
 #'
 #' ####################  V1OrdersStatusClientOrderIdGet  ####################
@@ -238,8 +238,8 @@ OrdersApi <- R6::R6Class(
         self$apiClient <- ApiClient$new()
       }
     },
-    V1OrdersCancelAllPost = function(cancel.order.all.request, ...){
-      apiResponse <- self$V1OrdersCancelAllPostWithHttpInfo(cancel.order.all.request, ...)
+    V1OrdersCancelAllPost = function(order.cancel.all.request, ...){
+      apiResponse <- self$V1OrdersCancelAllPostWithHttpInfo(order.cancel.all.request, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -252,17 +252,17 @@ OrdersApi <- R6::R6Class(
       }
     },
 
-    V1OrdersCancelAllPostWithHttpInfo = function(cancel.order.all.request, ...){
+    V1OrdersCancelAllPostWithHttpInfo = function(order.cancel.all.request, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`cancel.order.all.request`)) {
-        stop("Missing required parameter `cancel.order.all.request`.")
+      if (missing(`order.cancel.all.request`)) {
+        stop("Missing required parameter `order.cancel.all.request`.")
       }
 
-      if (!missing(`cancel.order.all.request`)) {
-        body <- `cancel.order.all.request`$toJSONString()
+      if (!missing(`order.cancel.all.request`)) {
+        body <- `order.cancel.all.request`$toJSONString()
       } else {
         body <- NULL
       }
@@ -292,8 +292,8 @@ OrdersApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    V1OrdersCancelPost = function(cancel.order.single.request, ...){
-      apiResponse <- self$V1OrdersCancelPostWithHttpInfo(cancel.order.single.request, ...)
+    V1OrdersCancelPost = function(order.cancel.single.request, ...){
+      apiResponse <- self$V1OrdersCancelPostWithHttpInfo(order.cancel.single.request, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -306,17 +306,17 @@ OrdersApi <- R6::R6Class(
       }
     },
 
-    V1OrdersCancelPostWithHttpInfo = function(cancel.order.single.request, ...){
+    V1OrdersCancelPostWithHttpInfo = function(order.cancel.single.request, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`cancel.order.single.request`)) {
-        stop("Missing required parameter `cancel.order.single.request`.")
+      if (missing(`order.cancel.single.request`)) {
+        stop("Missing required parameter `order.cancel.single.request`.")
       }
 
-      if (!missing(`cancel.order.single.request`)) {
-        body <- `cancel.order.single.request`$toJSONString()
+      if (!missing(`order.cancel.single.request`)) {
+        body <- `order.cancel.single.request`$toJSONString()
       } else {
         body <- NULL
       }
@@ -392,8 +392,8 @@ OrdersApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    V1OrdersPost = function(new.order.single, ...){
-      apiResponse <- self$V1OrdersPostWithHttpInfo(new.order.single, ...)
+    V1OrdersPost = function(order.new.single.request, ...){
+      apiResponse <- self$V1OrdersPostWithHttpInfo(order.new.single.request, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -406,17 +406,17 @@ OrdersApi <- R6::R6Class(
       }
     },
 
-    V1OrdersPostWithHttpInfo = function(new.order.single, ...){
+    V1OrdersPostWithHttpInfo = function(order.new.single.request, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`new.order.single`)) {
-        stop("Missing required parameter `new.order.single`.")
+      if (missing(`order.new.single.request`)) {
+        stop("Missing required parameter `order.new.single.request`.")
       }
 
-      if (!missing(`new.order.single`)) {
-        body <- `new.order.single`$toJSONString()
+      if (!missing(`order.new.single.request`)) {
+        body <- `order.new.single.request`$toJSONString()
       } else {
         body <- NULL
       }

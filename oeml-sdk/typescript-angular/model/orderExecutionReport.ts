@@ -9,11 +9,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { NewOrderSingle } from './newOrderSingle';
 import { OrdSide } from './ordSide';
 import { OrdStatus } from './ordStatus';
 import { OrdType } from './ordType';
 import { TimeInForce } from './timeInForce';
+import { OrderNewSingleRequest } from './orderNewSingleRequest';
 import { OrderExecutionReportAllOf } from './orderExecutionReportAllOf';
 
 
@@ -65,11 +65,11 @@ export interface OrderExecutionReport {
      */
     exchange_order_id?: string;
     /**
-     * Amount open
+     * Amount open.
      */
     amount_open: number;
     /**
-     * Amount filled
+     * Amount filled.
      */
     amount_filled: number;
     status: OrdStatus;

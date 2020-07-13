@@ -29,22 +29,22 @@ export class OrdersApi {
     /**
      * This request cancels all open orders on single specified exchange.
      * @summary Cancel all orders request
-     * @param cancelOrderAllRequest CancelOrderAllRequest object.
+     * @param orderCancelAllRequest OrderCancelAllRequest object.
      */
-    public v1OrdersCancelAllPost (cancelOrderAllRequest: models.CancelOrderAllRequest, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Message> {
+    public v1OrdersCancelAllPost (orderCancelAllRequest: models.OrderCancelAllRequest, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Message> {
         const localVarPath = this.basePath + '/v1/orders/cancel/all';
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'cancelOrderAllRequest' is not null or undefined
-        if (cancelOrderAllRequest === null || cancelOrderAllRequest === undefined) {
-            throw new Error('Required parameter cancelOrderAllRequest was null or undefined when calling v1OrdersCancelAllPost.');
+        // verify required parameter 'orderCancelAllRequest' is not null or undefined
+        if (orderCancelAllRequest === null || orderCancelAllRequest === undefined) {
+            throw new Error('Required parameter orderCancelAllRequest was null or undefined when calling v1OrdersCancelAllPost.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {
             method: 'POST',
             url: localVarPath,
-            data: cancelOrderAllRequest,
+            data: orderCancelAllRequest,
             params: queryParameters,
             headers: headerParams
         };
@@ -58,22 +58,22 @@ export class OrdersApi {
     /**
      * Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`.
      * @summary Cancel order request
-     * @param cancelOrderSingleRequest CancelOrderSingleRequest object.
+     * @param orderCancelSingleRequest OrderCancelSingleRequest object.
      */
-    public v1OrdersCancelPost (cancelOrderSingleRequest: models.CancelOrderSingleRequest, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.OrderExecutionReport> {
+    public v1OrdersCancelPost (orderCancelSingleRequest: models.OrderCancelSingleRequest, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.OrderExecutionReport> {
         const localVarPath = this.basePath + '/v1/orders/cancel';
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'cancelOrderSingleRequest' is not null or undefined
-        if (cancelOrderSingleRequest === null || cancelOrderSingleRequest === undefined) {
-            throw new Error('Required parameter cancelOrderSingleRequest was null or undefined when calling v1OrdersCancelPost.');
+        // verify required parameter 'orderCancelSingleRequest' is not null or undefined
+        if (orderCancelSingleRequest === null || orderCancelSingleRequest === undefined) {
+            throw new Error('Required parameter orderCancelSingleRequest was null or undefined when calling v1OrdersCancelPost.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {
             method: 'POST',
             url: localVarPath,
-            data: cancelOrderSingleRequest,
+            data: orderCancelSingleRequest,
             params: queryParameters,
             headers: headerParams
         };
@@ -114,22 +114,22 @@ export class OrdersApi {
     /**
      * This request creating new order for the specific exchange.
      * @summary Send new order
-     * @param newOrderSingle NewOrderSingle object.
+     * @param orderNewSingleRequest OrderNewSingleRequest object.
      */
-    public v1OrdersPost (newOrderSingle: models.NewOrderSingle, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.OrderExecutionReport> {
+    public v1OrdersPost (orderNewSingleRequest: models.OrderNewSingleRequest, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.OrderExecutionReport> {
         const localVarPath = this.basePath + '/v1/orders';
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'newOrderSingle' is not null or undefined
-        if (newOrderSingle === null || newOrderSingle === undefined) {
-            throw new Error('Required parameter newOrderSingle was null or undefined when calling v1OrdersPost.');
+        // verify required parameter 'orderNewSingleRequest' is not null or undefined
+        if (orderNewSingleRequest === null || orderNewSingleRequest === undefined) {
+            throw new Error('Required parameter orderNewSingleRequest was null or undefined when calling v1OrdersPost.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {
             method: 'POST',
             url: localVarPath,
-            data: newOrderSingle,
+            data: orderNewSingleRequest,
             params: queryParameters,
             headers: headerParams
         };

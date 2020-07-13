@@ -1,10 +1,10 @@
 package org.openapitools.client.model {
 
-import org.openapitools.client.model.NewOrderSingle;
 import org.openapitools.client.model.OrdSide;
 import org.openapitools.client.model.OrdStatus;
 import org.openapitools.client.model.OrdType;
 import org.openapitools.client.model.OrderExecutionReportAllOf;
+import org.openapitools.client.model.OrderNewSingleRequest;
 import org.openapitools.client.model.TimeInForce;
 
     [XmlRootNode(name="OrderExecutionReport")]
@@ -48,10 +48,10 @@ import org.openapitools.client.model.TimeInForce;
         /* The unique identifier of the order assigned by the exchange. */
         [XmlElement(name="exchange_order_id")]
         public var exchangeOrderId: String = null;
-        /* Amount open */
+        /* Amount open. */
         [XmlElement(name="amount_open")]
         public var amountOpen: Number = 0.0;
-        /* Amount filled */
+        /* Amount filled. */
         [XmlElement(name="amount_filled")]
         public var amountFilled: Number = 0.0;
                 [XmlElement(name="status")]

@@ -51,9 +51,9 @@ feature --Access
     exchange_order_id: detachable STRING_32 
       -- The unique identifier of the order assigned by the exchange.
     amount_open: REAL_32 
-      -- Amount open
+      -- Amount open.
     amount_filled: REAL_32 
-      -- Amount filled
+      -- Amount filled.
     status: detachable ORD_STATUS 
       
     time_order: detachable LIST [LIST [STRING_32]] 

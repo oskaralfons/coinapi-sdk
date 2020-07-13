@@ -40,15 +40,15 @@ set(SRCS
     model/object.c
     model/balance.c
     model/balance_data.c
-    model/cancel_order_all_request.c
-    model/cancel_order_single_request.c
     model/message.c
-    model/new_order_single.c
     model/ord_side.c
     model/ord_status.c
     model/ord_type.c
+    model/order_cancel_all_request.c
+    model/order_cancel_single_request.c
     model/order_execution_report.c
     model/order_execution_report_all_of.c
+    model/order_new_single_request.c
     model/position.c
     model/position_data.c
     model/severity.c
@@ -69,15 +69,15 @@ set(HDRS
     model/object.h
     model/balance.h
     model/balance_data.h
-    model/cancel_order_all_request.h
-    model/cancel_order_single_request.h
     model/message.h
-    model/new_order_single.h
     model/ord_side.h
     model/ord_status.h
     model/ord_type.h
+    model/order_cancel_all_request.h
+    model/order_cancel_single_request.h
     model/order_execution_report.h
     model/order_execution_report_all_of.h
+    model/order_new_single_request.h
     model/position.h
     model/position_data.h
     model/severity.h

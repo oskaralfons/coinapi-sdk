@@ -14,9 +14,9 @@ class OrderExecutionReportAllOf {
     String clientOrderIdFormatExchange
     /* The unique identifier of the order assigned by the exchange. */
     String exchangeOrderId
-    /* Amount open */
+    /* Amount open. */
     BigDecimal amountOpen
-    /* Amount filled */
+    /* Amount filled. */
     BigDecimal amountFilled
     
     OrdStatus status

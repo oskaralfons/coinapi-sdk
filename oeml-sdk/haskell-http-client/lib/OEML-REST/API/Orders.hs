@@ -67,18 +67,18 @@ import qualified Prelude as P
 -- This request cancels all open orders on single specified exchange.
 -- 
 v1OrdersCancelAllPost 
-  :: (Consumes V1OrdersCancelAllPost MimeJSON, MimeRender MimeJSON CancelOrderAllRequest)
+  :: (Consumes V1OrdersCancelAllPost MimeJSON, MimeRender MimeJSON OrderCancelAllRequest)
   => Accept accept -- ^ request accept ('MimeType')
-  -> CancelOrderAllRequest -- ^ "cancelOrderAllRequest" -  CancelOrderAllRequest object.
+  -> OrderCancelAllRequest -- ^ "orderCancelAllRequest" -  OrderCancelAllRequest object.
   -> OEML-RESTRequest V1OrdersCancelAllPost MimeJSON Message accept
-v1OrdersCancelAllPost  _ cancelOrderAllRequest =
+v1OrdersCancelAllPost  _ orderCancelAllRequest =
   _mkRequest "POST" ["/v1/orders/cancel/all"]
-    `setBodyParam` cancelOrderAllRequest
+    `setBodyParam` orderCancelAllRequest
 
 data V1OrdersCancelAllPost 
 
--- | /Body Param/ "CancelOrderAllRequest" - CancelOrderAllRequest object.
-instance HasBodyParam V1OrdersCancelAllPost CancelOrderAllRequest 
+-- | /Body Param/ "OrderCancelAllRequest" - OrderCancelAllRequest object.
+instance HasBodyParam V1OrdersCancelAllPost OrderCancelAllRequest 
 
 -- | @application/json@
 instance Consumes V1OrdersCancelAllPost MimeJSON
@@ -98,18 +98,18 @@ instance Produces V1OrdersCancelAllPost MimeApplictionJson
 -- Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`.
 -- 
 v1OrdersCancelPost 
-  :: (Consumes V1OrdersCancelPost MimeJSON, MimeRender MimeJSON CancelOrderSingleRequest)
+  :: (Consumes V1OrdersCancelPost MimeJSON, MimeRender MimeJSON OrderCancelSingleRequest)
   => Accept accept -- ^ request accept ('MimeType')
-  -> CancelOrderSingleRequest -- ^ "cancelOrderSingleRequest" -  CancelOrderSingleRequest object.
+  -> OrderCancelSingleRequest -- ^ "orderCancelSingleRequest" -  OrderCancelSingleRequest object.
   -> OEML-RESTRequest V1OrdersCancelPost MimeJSON OrderExecutionReport accept
-v1OrdersCancelPost  _ cancelOrderSingleRequest =
+v1OrdersCancelPost  _ orderCancelSingleRequest =
   _mkRequest "POST" ["/v1/orders/cancel"]
-    `setBodyParam` cancelOrderSingleRequest
+    `setBodyParam` orderCancelSingleRequest
 
 data V1OrdersCancelPost 
 
--- | /Body Param/ "CancelOrderSingleRequest" - CancelOrderSingleRequest object.
-instance HasBodyParam V1OrdersCancelPost CancelOrderSingleRequest 
+-- | /Body Param/ "OrderCancelSingleRequest" - OrderCancelSingleRequest object.
+instance HasBodyParam V1OrdersCancelPost OrderCancelSingleRequest 
 
 -- | @application/json@
 instance Consumes V1OrdersCancelPost MimeJSON
@@ -155,18 +155,18 @@ instance Produces V1OrdersGet MimeApplictionJson
 -- This request creating new order for the specific exchange.
 -- 
 v1OrdersPost 
-  :: (Consumes V1OrdersPost MimeJSON, MimeRender MimeJSON NewOrderSingle)
+  :: (Consumes V1OrdersPost MimeJSON, MimeRender MimeJSON OrderNewSingleRequest)
   => Accept accept -- ^ request accept ('MimeType')
-  -> NewOrderSingle -- ^ "newOrderSingle" -  NewOrderSingle object.
+  -> OrderNewSingleRequest -- ^ "orderNewSingleRequest" -  OrderNewSingleRequest object.
   -> OEML-RESTRequest V1OrdersPost MimeJSON OrderExecutionReport accept
-v1OrdersPost  _ newOrderSingle =
+v1OrdersPost  _ orderNewSingleRequest =
   _mkRequest "POST" ["/v1/orders"]
-    `setBodyParam` newOrderSingle
+    `setBodyParam` orderNewSingleRequest
 
 data V1OrdersPost 
 
--- | /Body Param/ "NewOrderSingle" - NewOrderSingle object.
-instance HasBodyParam V1OrdersPost NewOrderSingle 
+-- | /Body Param/ "OrderNewSingleRequest" - OrderNewSingleRequest object.
+instance HasBodyParam V1OrdersPost OrderNewSingleRequest 
 
 -- | @application/json@
 instance Consumes V1OrdersPost MimeJSON

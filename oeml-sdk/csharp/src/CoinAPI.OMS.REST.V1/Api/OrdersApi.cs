@@ -31,9 +31,9 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// This request cancels all open orders on single specified exchange.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancelOrderAllRequest">CancelOrderAllRequest object.</param>
+        /// <param name="orderCancelAllRequest">OrderCancelAllRequest object.</param>
         /// <returns>Message</returns>
-        Message V1OrdersCancelAllPost (CancelOrderAllRequest cancelOrderAllRequest);
+        Message V1OrdersCancelAllPost (OrderCancelAllRequest orderCancelAllRequest);
 
         /// <summary>
         /// Cancel all orders request
@@ -42,9 +42,9 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// This request cancels all open orders on single specified exchange.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancelOrderAllRequest">CancelOrderAllRequest object.</param>
+        /// <param name="orderCancelAllRequest">OrderCancelAllRequest object.</param>
         /// <returns>ApiResponse of Message</returns>
-        ApiResponse<Message> V1OrdersCancelAllPostWithHttpInfo (CancelOrderAllRequest cancelOrderAllRequest);
+        ApiResponse<Message> V1OrdersCancelAllPostWithHttpInfo (OrderCancelAllRequest orderCancelAllRequest);
         /// <summary>
         /// Cancel order request
         /// </summary>
@@ -52,9 +52,9 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancelOrderSingleRequest">CancelOrderSingleRequest object.</param>
+        /// <param name="orderCancelSingleRequest">OrderCancelSingleRequest object.</param>
         /// <returns>OrderExecutionReport</returns>
-        OrderExecutionReport V1OrdersCancelPost (CancelOrderSingleRequest cancelOrderSingleRequest);
+        OrderExecutionReport V1OrdersCancelPost (OrderCancelSingleRequest orderCancelSingleRequest);
 
         /// <summary>
         /// Cancel order request
@@ -63,9 +63,9 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancelOrderSingleRequest">CancelOrderSingleRequest object.</param>
+        /// <param name="orderCancelSingleRequest">OrderCancelSingleRequest object.</param>
         /// <returns>ApiResponse of OrderExecutionReport</returns>
-        ApiResponse<OrderExecutionReport> V1OrdersCancelPostWithHttpInfo (CancelOrderSingleRequest cancelOrderSingleRequest);
+        ApiResponse<OrderExecutionReport> V1OrdersCancelPostWithHttpInfo (OrderCancelSingleRequest orderCancelSingleRequest);
         /// <summary>
         /// Get open orders
         /// </summary>
@@ -94,9 +94,9 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// This request creating new order for the specific exchange.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="newOrderSingle">NewOrderSingle object.</param>
+        /// <param name="orderNewSingleRequest">OrderNewSingleRequest object.</param>
         /// <returns>OrderExecutionReport</returns>
-        OrderExecutionReport V1OrdersPost (NewOrderSingle newOrderSingle);
+        OrderExecutionReport V1OrdersPost (OrderNewSingleRequest orderNewSingleRequest);
 
         /// <summary>
         /// Send new order
@@ -105,9 +105,9 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// This request creating new order for the specific exchange.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="newOrderSingle">NewOrderSingle object.</param>
+        /// <param name="orderNewSingleRequest">OrderNewSingleRequest object.</param>
         /// <returns>ApiResponse of OrderExecutionReport</returns>
-        ApiResponse<OrderExecutionReport> V1OrdersPostWithHttpInfo (NewOrderSingle newOrderSingle);
+        ApiResponse<OrderExecutionReport> V1OrdersPostWithHttpInfo (OrderNewSingleRequest orderNewSingleRequest);
         /// <summary>
         /// Get order execution report
         /// </summary>
@@ -138,9 +138,9 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// This request cancels all open orders on single specified exchange.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancelOrderAllRequest">CancelOrderAllRequest object.</param>
+        /// <param name="orderCancelAllRequest">OrderCancelAllRequest object.</param>
         /// <returns>Task of Message</returns>
-        System.Threading.Tasks.Task<Message> V1OrdersCancelAllPostAsync (CancelOrderAllRequest cancelOrderAllRequest);
+        System.Threading.Tasks.Task<Message> V1OrdersCancelAllPostAsync (OrderCancelAllRequest orderCancelAllRequest);
 
         /// <summary>
         /// Cancel all orders request
@@ -149,9 +149,9 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// This request cancels all open orders on single specified exchange.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancelOrderAllRequest">CancelOrderAllRequest object.</param>
+        /// <param name="orderCancelAllRequest">OrderCancelAllRequest object.</param>
         /// <returns>Task of ApiResponse (Message)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Message>> V1OrdersCancelAllPostAsyncWithHttpInfo (CancelOrderAllRequest cancelOrderAllRequest);
+        System.Threading.Tasks.Task<ApiResponse<Message>> V1OrdersCancelAllPostAsyncWithHttpInfo (OrderCancelAllRequest orderCancelAllRequest);
         /// <summary>
         /// Cancel order request
         /// </summary>
@@ -159,9 +159,9 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancelOrderSingleRequest">CancelOrderSingleRequest object.</param>
+        /// <param name="orderCancelSingleRequest">OrderCancelSingleRequest object.</param>
         /// <returns>Task of OrderExecutionReport</returns>
-        System.Threading.Tasks.Task<OrderExecutionReport> V1OrdersCancelPostAsync (CancelOrderSingleRequest cancelOrderSingleRequest);
+        System.Threading.Tasks.Task<OrderExecutionReport> V1OrdersCancelPostAsync (OrderCancelSingleRequest orderCancelSingleRequest);
 
         /// <summary>
         /// Cancel order request
@@ -170,9 +170,9 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancelOrderSingleRequest">CancelOrderSingleRequest object.</param>
+        /// <param name="orderCancelSingleRequest">OrderCancelSingleRequest object.</param>
         /// <returns>Task of ApiResponse (OrderExecutionReport)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OrderExecutionReport>> V1OrdersCancelPostAsyncWithHttpInfo (CancelOrderSingleRequest cancelOrderSingleRequest);
+        System.Threading.Tasks.Task<ApiResponse<OrderExecutionReport>> V1OrdersCancelPostAsyncWithHttpInfo (OrderCancelSingleRequest orderCancelSingleRequest);
         /// <summary>
         /// Get open orders
         /// </summary>
@@ -201,9 +201,9 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// This request creating new order for the specific exchange.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="newOrderSingle">NewOrderSingle object.</param>
+        /// <param name="orderNewSingleRequest">OrderNewSingleRequest object.</param>
         /// <returns>Task of OrderExecutionReport</returns>
-        System.Threading.Tasks.Task<OrderExecutionReport> V1OrdersPostAsync (NewOrderSingle newOrderSingle);
+        System.Threading.Tasks.Task<OrderExecutionReport> V1OrdersPostAsync (OrderNewSingleRequest orderNewSingleRequest);
 
         /// <summary>
         /// Send new order
@@ -212,9 +212,9 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// This request creating new order for the specific exchange.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="newOrderSingle">NewOrderSingle object.</param>
+        /// <param name="orderNewSingleRequest">OrderNewSingleRequest object.</param>
         /// <returns>Task of ApiResponse (OrderExecutionReport)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OrderExecutionReport>> V1OrdersPostAsyncWithHttpInfo (NewOrderSingle newOrderSingle);
+        System.Threading.Tasks.Task<ApiResponse<OrderExecutionReport>> V1OrdersPostAsyncWithHttpInfo (OrderNewSingleRequest orderNewSingleRequest);
         /// <summary>
         /// Get order execution report
         /// </summary>
@@ -351,11 +351,11 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// Cancel all orders request This request cancels all open orders on single specified exchange.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancelOrderAllRequest">CancelOrderAllRequest object.</param>
+        /// <param name="orderCancelAllRequest">OrderCancelAllRequest object.</param>
         /// <returns>Message</returns>
-        public Message V1OrdersCancelAllPost (CancelOrderAllRequest cancelOrderAllRequest)
+        public Message V1OrdersCancelAllPost (OrderCancelAllRequest orderCancelAllRequest)
         {
-             ApiResponse<Message> localVarResponse = V1OrdersCancelAllPostWithHttpInfo(cancelOrderAllRequest);
+             ApiResponse<Message> localVarResponse = V1OrdersCancelAllPostWithHttpInfo(orderCancelAllRequest);
              return localVarResponse.Data;
         }
 
@@ -363,13 +363,13 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// Cancel all orders request This request cancels all open orders on single specified exchange.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancelOrderAllRequest">CancelOrderAllRequest object.</param>
+        /// <param name="orderCancelAllRequest">OrderCancelAllRequest object.</param>
         /// <returns>ApiResponse of Message</returns>
-        public ApiResponse<Message> V1OrdersCancelAllPostWithHttpInfo (CancelOrderAllRequest cancelOrderAllRequest)
+        public ApiResponse<Message> V1OrdersCancelAllPostWithHttpInfo (OrderCancelAllRequest orderCancelAllRequest)
         {
-            // verify the required parameter 'cancelOrderAllRequest' is set
-            if (cancelOrderAllRequest == null)
-                throw new ApiException(400, "Missing required parameter 'cancelOrderAllRequest' when calling OrdersApi->V1OrdersCancelAllPost");
+            // verify the required parameter 'orderCancelAllRequest' is set
+            if (orderCancelAllRequest == null)
+                throw new ApiException(400, "Missing required parameter 'orderCancelAllRequest' when calling OrdersApi->V1OrdersCancelAllPost");
 
             var localVarPath = "/v1/orders/cancel/all";
             var localVarPathParams = new Dictionary<String, String>();
@@ -394,13 +394,13 @@ namespace CoinAPI.OMS.REST.V1.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (cancelOrderAllRequest != null && cancelOrderAllRequest.GetType() != typeof(byte[]))
+            if (orderCancelAllRequest != null && orderCancelAllRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(cancelOrderAllRequest); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(orderCancelAllRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = cancelOrderAllRequest; // byte array
+                localVarPostBody = orderCancelAllRequest; // byte array
             }
 
 
@@ -426,11 +426,11 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// Cancel all orders request This request cancels all open orders on single specified exchange.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancelOrderAllRequest">CancelOrderAllRequest object.</param>
+        /// <param name="orderCancelAllRequest">OrderCancelAllRequest object.</param>
         /// <returns>Task of Message</returns>
-        public async System.Threading.Tasks.Task<Message> V1OrdersCancelAllPostAsync (CancelOrderAllRequest cancelOrderAllRequest)
+        public async System.Threading.Tasks.Task<Message> V1OrdersCancelAllPostAsync (OrderCancelAllRequest orderCancelAllRequest)
         {
-             ApiResponse<Message> localVarResponse = await V1OrdersCancelAllPostAsyncWithHttpInfo(cancelOrderAllRequest);
+             ApiResponse<Message> localVarResponse = await V1OrdersCancelAllPostAsyncWithHttpInfo(orderCancelAllRequest);
              return localVarResponse.Data;
 
         }
@@ -439,13 +439,13 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// Cancel all orders request This request cancels all open orders on single specified exchange.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancelOrderAllRequest">CancelOrderAllRequest object.</param>
+        /// <param name="orderCancelAllRequest">OrderCancelAllRequest object.</param>
         /// <returns>Task of ApiResponse (Message)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Message>> V1OrdersCancelAllPostAsyncWithHttpInfo (CancelOrderAllRequest cancelOrderAllRequest)
+        public async System.Threading.Tasks.Task<ApiResponse<Message>> V1OrdersCancelAllPostAsyncWithHttpInfo (OrderCancelAllRequest orderCancelAllRequest)
         {
-            // verify the required parameter 'cancelOrderAllRequest' is set
-            if (cancelOrderAllRequest == null)
-                throw new ApiException(400, "Missing required parameter 'cancelOrderAllRequest' when calling OrdersApi->V1OrdersCancelAllPost");
+            // verify the required parameter 'orderCancelAllRequest' is set
+            if (orderCancelAllRequest == null)
+                throw new ApiException(400, "Missing required parameter 'orderCancelAllRequest' when calling OrdersApi->V1OrdersCancelAllPost");
 
             var localVarPath = "/v1/orders/cancel/all";
             var localVarPathParams = new Dictionary<String, String>();
@@ -470,13 +470,13 @@ namespace CoinAPI.OMS.REST.V1.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (cancelOrderAllRequest != null && cancelOrderAllRequest.GetType() != typeof(byte[]))
+            if (orderCancelAllRequest != null && orderCancelAllRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(cancelOrderAllRequest); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(orderCancelAllRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = cancelOrderAllRequest; // byte array
+                localVarPostBody = orderCancelAllRequest; // byte array
             }
 
 
@@ -502,11 +502,11 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// Cancel order request Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancelOrderSingleRequest">CancelOrderSingleRequest object.</param>
+        /// <param name="orderCancelSingleRequest">OrderCancelSingleRequest object.</param>
         /// <returns>OrderExecutionReport</returns>
-        public OrderExecutionReport V1OrdersCancelPost (CancelOrderSingleRequest cancelOrderSingleRequest)
+        public OrderExecutionReport V1OrdersCancelPost (OrderCancelSingleRequest orderCancelSingleRequest)
         {
-             ApiResponse<OrderExecutionReport> localVarResponse = V1OrdersCancelPostWithHttpInfo(cancelOrderSingleRequest);
+             ApiResponse<OrderExecutionReport> localVarResponse = V1OrdersCancelPostWithHttpInfo(orderCancelSingleRequest);
              return localVarResponse.Data;
         }
 
@@ -514,13 +514,13 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// Cancel order request Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancelOrderSingleRequest">CancelOrderSingleRequest object.</param>
+        /// <param name="orderCancelSingleRequest">OrderCancelSingleRequest object.</param>
         /// <returns>ApiResponse of OrderExecutionReport</returns>
-        public ApiResponse<OrderExecutionReport> V1OrdersCancelPostWithHttpInfo (CancelOrderSingleRequest cancelOrderSingleRequest)
+        public ApiResponse<OrderExecutionReport> V1OrdersCancelPostWithHttpInfo (OrderCancelSingleRequest orderCancelSingleRequest)
         {
-            // verify the required parameter 'cancelOrderSingleRequest' is set
-            if (cancelOrderSingleRequest == null)
-                throw new ApiException(400, "Missing required parameter 'cancelOrderSingleRequest' when calling OrdersApi->V1OrdersCancelPost");
+            // verify the required parameter 'orderCancelSingleRequest' is set
+            if (orderCancelSingleRequest == null)
+                throw new ApiException(400, "Missing required parameter 'orderCancelSingleRequest' when calling OrdersApi->V1OrdersCancelPost");
 
             var localVarPath = "/v1/orders/cancel";
             var localVarPathParams = new Dictionary<String, String>();
@@ -545,13 +545,13 @@ namespace CoinAPI.OMS.REST.V1.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (cancelOrderSingleRequest != null && cancelOrderSingleRequest.GetType() != typeof(byte[]))
+            if (orderCancelSingleRequest != null && orderCancelSingleRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(cancelOrderSingleRequest); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(orderCancelSingleRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = cancelOrderSingleRequest; // byte array
+                localVarPostBody = orderCancelSingleRequest; // byte array
             }
 
 
@@ -577,11 +577,11 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// Cancel order request Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancelOrderSingleRequest">CancelOrderSingleRequest object.</param>
+        /// <param name="orderCancelSingleRequest">OrderCancelSingleRequest object.</param>
         /// <returns>Task of OrderExecutionReport</returns>
-        public async System.Threading.Tasks.Task<OrderExecutionReport> V1OrdersCancelPostAsync (CancelOrderSingleRequest cancelOrderSingleRequest)
+        public async System.Threading.Tasks.Task<OrderExecutionReport> V1OrdersCancelPostAsync (OrderCancelSingleRequest orderCancelSingleRequest)
         {
-             ApiResponse<OrderExecutionReport> localVarResponse = await V1OrdersCancelPostAsyncWithHttpInfo(cancelOrderSingleRequest);
+             ApiResponse<OrderExecutionReport> localVarResponse = await V1OrdersCancelPostAsyncWithHttpInfo(orderCancelSingleRequest);
              return localVarResponse.Data;
 
         }
@@ -590,13 +590,13 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// Cancel order request Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancelOrderSingleRequest">CancelOrderSingleRequest object.</param>
+        /// <param name="orderCancelSingleRequest">OrderCancelSingleRequest object.</param>
         /// <returns>Task of ApiResponse (OrderExecutionReport)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<OrderExecutionReport>> V1OrdersCancelPostAsyncWithHttpInfo (CancelOrderSingleRequest cancelOrderSingleRequest)
+        public async System.Threading.Tasks.Task<ApiResponse<OrderExecutionReport>> V1OrdersCancelPostAsyncWithHttpInfo (OrderCancelSingleRequest orderCancelSingleRequest)
         {
-            // verify the required parameter 'cancelOrderSingleRequest' is set
-            if (cancelOrderSingleRequest == null)
-                throw new ApiException(400, "Missing required parameter 'cancelOrderSingleRequest' when calling OrdersApi->V1OrdersCancelPost");
+            // verify the required parameter 'orderCancelSingleRequest' is set
+            if (orderCancelSingleRequest == null)
+                throw new ApiException(400, "Missing required parameter 'orderCancelSingleRequest' when calling OrdersApi->V1OrdersCancelPost");
 
             var localVarPath = "/v1/orders/cancel";
             var localVarPathParams = new Dictionary<String, String>();
@@ -621,13 +621,13 @@ namespace CoinAPI.OMS.REST.V1.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (cancelOrderSingleRequest != null && cancelOrderSingleRequest.GetType() != typeof(byte[]))
+            if (orderCancelSingleRequest != null && orderCancelSingleRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(cancelOrderSingleRequest); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(orderCancelSingleRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = cancelOrderSingleRequest; // byte array
+                localVarPostBody = orderCancelSingleRequest; // byte array
             }
 
 
@@ -782,11 +782,11 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// Send new order This request creating new order for the specific exchange.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="newOrderSingle">NewOrderSingle object.</param>
+        /// <param name="orderNewSingleRequest">OrderNewSingleRequest object.</param>
         /// <returns>OrderExecutionReport</returns>
-        public OrderExecutionReport V1OrdersPost (NewOrderSingle newOrderSingle)
+        public OrderExecutionReport V1OrdersPost (OrderNewSingleRequest orderNewSingleRequest)
         {
-             ApiResponse<OrderExecutionReport> localVarResponse = V1OrdersPostWithHttpInfo(newOrderSingle);
+             ApiResponse<OrderExecutionReport> localVarResponse = V1OrdersPostWithHttpInfo(orderNewSingleRequest);
              return localVarResponse.Data;
         }
 
@@ -794,13 +794,13 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// Send new order This request creating new order for the specific exchange.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="newOrderSingle">NewOrderSingle object.</param>
+        /// <param name="orderNewSingleRequest">OrderNewSingleRequest object.</param>
         /// <returns>ApiResponse of OrderExecutionReport</returns>
-        public ApiResponse<OrderExecutionReport> V1OrdersPostWithHttpInfo (NewOrderSingle newOrderSingle)
+        public ApiResponse<OrderExecutionReport> V1OrdersPostWithHttpInfo (OrderNewSingleRequest orderNewSingleRequest)
         {
-            // verify the required parameter 'newOrderSingle' is set
-            if (newOrderSingle == null)
-                throw new ApiException(400, "Missing required parameter 'newOrderSingle' when calling OrdersApi->V1OrdersPost");
+            // verify the required parameter 'orderNewSingleRequest' is set
+            if (orderNewSingleRequest == null)
+                throw new ApiException(400, "Missing required parameter 'orderNewSingleRequest' when calling OrdersApi->V1OrdersPost");
 
             var localVarPath = "/v1/orders";
             var localVarPathParams = new Dictionary<String, String>();
@@ -825,13 +825,13 @@ namespace CoinAPI.OMS.REST.V1.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (newOrderSingle != null && newOrderSingle.GetType() != typeof(byte[]))
+            if (orderNewSingleRequest != null && orderNewSingleRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(newOrderSingle); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(orderNewSingleRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = newOrderSingle; // byte array
+                localVarPostBody = orderNewSingleRequest; // byte array
             }
 
 
@@ -857,11 +857,11 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// Send new order This request creating new order for the specific exchange.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="newOrderSingle">NewOrderSingle object.</param>
+        /// <param name="orderNewSingleRequest">OrderNewSingleRequest object.</param>
         /// <returns>Task of OrderExecutionReport</returns>
-        public async System.Threading.Tasks.Task<OrderExecutionReport> V1OrdersPostAsync (NewOrderSingle newOrderSingle)
+        public async System.Threading.Tasks.Task<OrderExecutionReport> V1OrdersPostAsync (OrderNewSingleRequest orderNewSingleRequest)
         {
-             ApiResponse<OrderExecutionReport> localVarResponse = await V1OrdersPostAsyncWithHttpInfo(newOrderSingle);
+             ApiResponse<OrderExecutionReport> localVarResponse = await V1OrdersPostAsyncWithHttpInfo(orderNewSingleRequest);
              return localVarResponse.Data;
 
         }
@@ -870,13 +870,13 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// Send new order This request creating new order for the specific exchange.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="newOrderSingle">NewOrderSingle object.</param>
+        /// <param name="orderNewSingleRequest">OrderNewSingleRequest object.</param>
         /// <returns>Task of ApiResponse (OrderExecutionReport)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<OrderExecutionReport>> V1OrdersPostAsyncWithHttpInfo (NewOrderSingle newOrderSingle)
+        public async System.Threading.Tasks.Task<ApiResponse<OrderExecutionReport>> V1OrdersPostAsyncWithHttpInfo (OrderNewSingleRequest orderNewSingleRequest)
         {
-            // verify the required parameter 'newOrderSingle' is set
-            if (newOrderSingle == null)
-                throw new ApiException(400, "Missing required parameter 'newOrderSingle' when calling OrdersApi->V1OrdersPost");
+            // verify the required parameter 'orderNewSingleRequest' is set
+            if (orderNewSingleRequest == null)
+                throw new ApiException(400, "Missing required parameter 'orderNewSingleRequest' when calling OrdersApi->V1OrdersPost");
 
             var localVarPath = "/v1/orders";
             var localVarPathParams = new Dictionary<String, String>();
@@ -901,13 +901,13 @@ namespace CoinAPI.OMS.REST.V1.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (newOrderSingle != null && newOrderSingle.GetType() != typeof(byte[]))
+            if (orderNewSingleRequest != null && orderNewSingleRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(newOrderSingle); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(orderNewSingleRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = newOrderSingle; // byte array
+                localVarPostBody = orderNewSingleRequest; // byte array
             }
 
 

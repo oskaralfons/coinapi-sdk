@@ -31,9 +31,9 @@ class OrderExecutionReport {
   String clientOrderIdFormatExchange = null;
   /* The unique identifier of the order assigned by the exchange. */
   String exchangeOrderId = null;
-  /* Amount open */
+  /* Amount open. */
   num amountOpen = null;
-  /* Amount filled */
+  /* Amount filled. */
   num amountFilled = null;
   
   OrdStatus status = null;

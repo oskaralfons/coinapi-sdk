@@ -95,14 +95,14 @@ API.Client.OrderExecutionReport.prototype.clientOrderIdFormatExchange;
 API.Client.OrderExecutionReport.prototype.exchangeOrderId;
 
 /**
- * Amount open
+ * Amount open.
  * @type {!number}
  * @export
  */
 API.Client.OrderExecutionReport.prototype.amountOpen;
 
 /**
- * Amount filled
+ * Amount filled.
  * @type {!number}
  * @export
  */

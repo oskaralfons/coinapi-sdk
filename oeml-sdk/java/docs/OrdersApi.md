@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="v1OrdersCancelAllPost"></a>
 # **v1OrdersCancelAllPost**
-> Message v1OrdersCancelAllPost(cancelOrderAllRequest)
+> Message v1OrdersCancelAllPost(orderCancelAllRequest)
 
 Cancel all orders request
 
@@ -34,9 +34,9 @@ public class Example {
     defaultClient.setBasePath("http://localhost:8080");
 
     OrdersApi apiInstance = new OrdersApi(defaultClient);
-    CancelOrderAllRequest cancelOrderAllRequest = new CancelOrderAllRequest(); // CancelOrderAllRequest | CancelOrderAllRequest object.
+    OrderCancelAllRequest orderCancelAllRequest = new OrderCancelAllRequest(); // OrderCancelAllRequest | OrderCancelAllRequest object.
     try {
-      Message result = apiInstance.v1OrdersCancelAllPost(cancelOrderAllRequest);
+      Message result = apiInstance.v1OrdersCancelAllPost(orderCancelAllRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OrdersApi#v1OrdersCancelAllPost");
@@ -53,7 +53,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelOrderAllRequest** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)| CancelOrderAllRequest object. |
+ **orderCancelAllRequest** | [**OrderCancelAllRequest**](OrderCancelAllRequest.md)| OrderCancelAllRequest object. |
 
 ### Return type
 
@@ -77,7 +77,7 @@ No authorization required
 
 <a name="v1OrdersCancelPost"></a>
 # **v1OrdersCancelPost**
-> OrderExecutionReport v1OrdersCancelPost(cancelOrderSingleRequest)
+> OrderExecutionReport v1OrdersCancelPost(orderCancelSingleRequest)
 
 Cancel order request
 
@@ -98,9 +98,9 @@ public class Example {
     defaultClient.setBasePath("http://localhost:8080");
 
     OrdersApi apiInstance = new OrdersApi(defaultClient);
-    CancelOrderSingleRequest cancelOrderSingleRequest = new CancelOrderSingleRequest(); // CancelOrderSingleRequest | CancelOrderSingleRequest object.
+    OrderCancelSingleRequest orderCancelSingleRequest = new OrderCancelSingleRequest(); // OrderCancelSingleRequest | OrderCancelSingleRequest object.
     try {
-      OrderExecutionReport result = apiInstance.v1OrdersCancelPost(cancelOrderSingleRequest);
+      OrderExecutionReport result = apiInstance.v1OrdersCancelPost(orderCancelSingleRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OrdersApi#v1OrdersCancelPost");
@@ -117,7 +117,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelOrderSingleRequest** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)| CancelOrderSingleRequest object. |
+ **orderCancelSingleRequest** | [**OrderCancelSingleRequest**](OrderCancelSingleRequest.md)| OrderCancelSingleRequest object. |
 
 ### Return type
 
@@ -204,7 +204,7 @@ No authorization required
 
 <a name="v1OrdersPost"></a>
 # **v1OrdersPost**
-> OrderExecutionReport v1OrdersPost(newOrderSingle)
+> OrderExecutionReport v1OrdersPost(orderNewSingleRequest)
 
 Send new order
 
@@ -225,9 +225,9 @@ public class Example {
     defaultClient.setBasePath("http://localhost:8080");
 
     OrdersApi apiInstance = new OrdersApi(defaultClient);
-    NewOrderSingle newOrderSingle = new NewOrderSingle(); // NewOrderSingle | NewOrderSingle object.
+    OrderNewSingleRequest orderNewSingleRequest = new OrderNewSingleRequest(); // OrderNewSingleRequest | OrderNewSingleRequest object.
     try {
-      OrderExecutionReport result = apiInstance.v1OrdersPost(newOrderSingle);
+      OrderExecutionReport result = apiInstance.v1OrdersPost(orderNewSingleRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OrdersApi#v1OrdersPost");
@@ -244,7 +244,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)| NewOrderSingle object. |
+ **orderNewSingleRequest** | [**OrderNewSingleRequest**](OrderNewSingleRequest.md)| OrderNewSingleRequest object. |
 
 ### Return type
 

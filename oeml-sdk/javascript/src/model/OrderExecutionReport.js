@@ -12,11 +12,11 @@
  */
 
 import ApiClient from '../ApiClient';
-import NewOrderSingle from './NewOrderSingle';
 import OrdSide from './OrdSide';
 import OrdStatus from './OrdStatus';
 import OrdType from './OrdType';
 import OrderExecutionReportAllOf from './OrderExecutionReportAllOf';
+import OrderNewSingleRequest from './OrderNewSingleRequest';
 import TimeInForce from './TimeInForce';
 
 /**
@@ -29,7 +29,7 @@ class OrderExecutionReport {
      * Constructs a new <code>OrderExecutionReport</code>.
      * The order execution report object.
      * @alias module:model/OrderExecutionReport
-     * @implements module:model/NewOrderSingle
+     * @implements module:model/OrderNewSingleRequest
      * @implements module:model/OrderExecutionReportAllOf
      * @param exchangeId {String} Exchange identifier.
      * @param clientOrderId {String} The unique identifier of the order assigned by the client.
@@ -39,13 +39,13 @@ class OrderExecutionReport {
      * @param orderType {module:model/OrdType} 
      * @param timeInForce {module:model/TimeInForce} 
      * @param clientOrderIdFormatExchange {String} The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
-     * @param amountOpen {Number} Amount open
-     * @param amountFilled {Number} Amount filled
+     * @param amountOpen {Number} Amount open.
+     * @param amountFilled {Number} Amount filled.
      * @param status {module:model/OrdStatus} 
      * @param timeOrder {Array.<Array.<String>>} Timestamped history of order status changes.
      */
     constructor(exchangeId, clientOrderId, amountOrder, price, side, orderType, timeInForce, clientOrderIdFormatExchange, amountOpen, amountFilled, status, timeOrder) { 
-        NewOrderSingle.initialize(this, exchangeId, clientOrderId, amountOrder, price, side, orderType, timeInForce);OrderExecutionReportAllOf.initialize(this, clientOrderIdFormatExchange, amountOpen, amountFilled, status, timeOrder);
+        OrderNewSingleRequest.initialize(this, exchangeId, clientOrderId, amountOrder, price, side, orderType, timeInForce);OrderExecutionReportAllOf.initialize(this, clientOrderIdFormatExchange, amountOpen, amountFilled, status, timeOrder);
         OrderExecutionReport.initialize(this, exchangeId, clientOrderId, amountOrder, price, side, orderType, timeInForce, clientOrderIdFormatExchange, amountOpen, amountFilled, status, timeOrder);
     }
 
@@ -79,7 +79,7 @@ class OrderExecutionReport {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new OrderExecutionReport();
-            NewOrderSingle.constructFromObject(data, obj);
+            OrderNewSingleRequest.constructFromObject(data, obj);
             OrderExecutionReportAllOf.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('exchange_id')) {
@@ -219,13 +219,13 @@ OrderExecutionReport.prototype['client_order_id_format_exchange'] = undefined;
 OrderExecutionReport.prototype['exchange_order_id'] = undefined;
 
 /**
- * Amount open
+ * Amount open.
  * @member {Number} amount_open
  */
 OrderExecutionReport.prototype['amount_open'] = undefined;
 
 /**
- * Amount filled
+ * Amount filled.
  * @member {Number} amount_filled
  */
 OrderExecutionReport.prototype['amount_filled'] = undefined;
@@ -248,59 +248,59 @@ OrderExecutionReport.prototype['time_order'] = undefined;
 OrderExecutionReport.prototype['error_message'] = undefined;
 
 
-// Implement NewOrderSingle interface:
+// Implement OrderNewSingleRequest interface:
 /**
  * Exchange identifier.
  * @member {String} exchange_id
  */
-NewOrderSingle.prototype['exchange_id'] = undefined;
+OrderNewSingleRequest.prototype['exchange_id'] = undefined;
 /**
  * The unique identifier of the order assigned by the client.
  * @member {String} client_order_id
  */
-NewOrderSingle.prototype['client_order_id'] = undefined;
+OrderNewSingleRequest.prototype['client_order_id'] = undefined;
 /**
  * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
  * @member {String} symbol_exchange
  */
-NewOrderSingle.prototype['symbol_exchange'] = undefined;
+OrderNewSingleRequest.prototype['symbol_exchange'] = undefined;
 /**
  * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
  * @member {String} symbol_coinapi
  */
-NewOrderSingle.prototype['symbol_coinapi'] = undefined;
+OrderNewSingleRequest.prototype['symbol_coinapi'] = undefined;
 /**
  * Order quantity.
  * @member {Number} amount_order
  */
-NewOrderSingle.prototype['amount_order'] = undefined;
+OrderNewSingleRequest.prototype['amount_order'] = undefined;
 /**
  * Order price.
  * @member {Number} price
  */
-NewOrderSingle.prototype['price'] = undefined;
+OrderNewSingleRequest.prototype['price'] = undefined;
 /**
  * @member {module:model/OrdSide} side
  */
-NewOrderSingle.prototype['side'] = undefined;
+OrderNewSingleRequest.prototype['side'] = undefined;
 /**
  * @member {module:model/OrdType} order_type
  */
-NewOrderSingle.prototype['order_type'] = undefined;
+OrderNewSingleRequest.prototype['order_type'] = undefined;
 /**
  * @member {module:model/TimeInForce} time_in_force
  */
-NewOrderSingle.prototype['time_in_force'] = undefined;
+OrderNewSingleRequest.prototype['time_in_force'] = undefined;
 /**
  * Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
  * @member {Date} expire_time
  */
-NewOrderSingle.prototype['expire_time'] = undefined;
+OrderNewSingleRequest.prototype['expire_time'] = undefined;
 /**
  * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> 
- * @member {Array.<module:model/NewOrderSingle.ExecInstEnum>} exec_inst
+ * @member {Array.<module:model/OrderNewSingleRequest.ExecInstEnum>} exec_inst
  */
-NewOrderSingle.prototype['exec_inst'] = undefined;
+OrderNewSingleRequest.prototype['exec_inst'] = undefined;
 // Implement OrderExecutionReportAllOf interface:
 /**
  * The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
@@ -313,12 +313,12 @@ OrderExecutionReportAllOf.prototype['client_order_id_format_exchange'] = undefin
  */
 OrderExecutionReportAllOf.prototype['exchange_order_id'] = undefined;
 /**
- * Amount open
+ * Amount open.
  * @member {Number} amount_open
  */
 OrderExecutionReportAllOf.prototype['amount_open'] = undefined;
 /**
- * Amount filled
+ * Amount filled.
  * @member {Number} amount_filled
  */
 OrderExecutionReportAllOf.prototype['amount_filled'] = undefined;

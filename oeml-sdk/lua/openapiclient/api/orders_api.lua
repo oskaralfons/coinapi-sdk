@@ -19,9 +19,9 @@ local basexx = require "basexx"
 local openapiclient_message = require "openapiclient.model.message"
 local openapiclient_order_execution_report = require "openapiclient.model.order_execution_report"
 local openapiclient_validation_error = require "openapiclient.model.validation_error"
-local openapiclient_cancel_order_all_request = require "openapiclient.model.cancel_order_all_request"
-local openapiclient_cancel_order_single_request = require "openapiclient.model.cancel_order_single_request"
-local openapiclient_new_order_single = require "openapiclient.model.new_order_single"
+local openapiclient_order_cancel_all_request = require "openapiclient.model.order_cancel_all_request"
+local openapiclient_order_cancel_single_request = require "openapiclient.model.order_cancel_single_request"
+local openapiclient_order_new_single_request = require "openapiclient.model.order_new_single_request"
 
 local orders_api = {}
 local orders_api_mt = {
@@ -49,7 +49,7 @@ local function new_orders_api(authority, basePath, schemes)
 	}, orders_api_mt)
 end
 
-function orders_api:v1_orders_cancel_all_post(cancel_order_all_request)
+function orders_api:v1_orders_cancel_all_post(order_cancel_all_request)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -68,7 +68,7 @@ function orders_api:v1_orders_cancel_all_post(cancel_order_all_request)
 	--local var_accept = { "application/json", "appliction/json" }
 	req.headers:upsert("content-type", "application/json")
 
-	req:set_body(dkjson.encode(cancel_order_all_request))
+	req:set_body(dkjson.encode(order_cancel_all_request))
 
 
 	-- make the HTTP call
@@ -101,7 +101,7 @@ function orders_api:v1_orders_cancel_all_post(cancel_order_all_request)
 	end
 end
 
-function orders_api:v1_orders_cancel_post(cancel_order_single_request)
+function orders_api:v1_orders_cancel_post(order_cancel_single_request)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -120,7 +120,7 @@ function orders_api:v1_orders_cancel_post(cancel_order_single_request)
 	--local var_accept = { "application/json", "appliction/json" }
 	req.headers:upsert("content-type", "application/json")
 
-	req:set_body(dkjson.encode(cancel_order_single_request))
+	req:set_body(dkjson.encode(order_cancel_single_request))
 
 
 	-- make the HTTP call
@@ -202,7 +202,7 @@ function orders_api:v1_orders_get(exchange_id)
 	end
 end
 
-function orders_api:v1_orders_post(new_order_single)
+function orders_api:v1_orders_post(order_new_single_request)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -221,7 +221,7 @@ function orders_api:v1_orders_post(new_order_single)
 	--local var_accept = { "application/json", "appliction/json" }
 	req.headers:upsert("content-type", "application/json")
 
-	req:set_body(dkjson.encode(new_order_single))
+	req:set_body(dkjson.encode(order_new_single_request))
 
 
 	-- make the HTTP call

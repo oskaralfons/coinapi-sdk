@@ -18,19 +18,19 @@ defmodule OEML-RESTAPI.Api.Orders do
   ## Parameters
 
   - connection (OEML-RESTAPI.Connection): Connection to server
-  - cancel_order_all_request (CancelOrderAllRequest): CancelOrderAllRequest object.
+  - order_cancel_all_request (OrderCancelAllRequest): OrderCancelAllRequest object.
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
   {:ok, %OEML-RESTAPI.Model.Message{}} on success
   {:error, info} on failure
   """
-  @spec v1_orders_cancel_all_post(Tesla.Env.client, OEML-RESTAPI.Model.CancelOrderAllRequest.t, keyword()) :: {:ok, OEML-RESTAPI.Model.Message.t} | {:error, Tesla.Env.t}
-  def v1_orders_cancel_all_post(connection, cancel_order_all_request, _opts \\ []) do
+  @spec v1_orders_cancel_all_post(Tesla.Env.client, OEML-RESTAPI.Model.OrderCancelAllRequest.t, keyword()) :: {:ok, OEML-RESTAPI.Model.Message.t} | {:error, Tesla.Env.t}
+  def v1_orders_cancel_all_post(connection, order_cancel_all_request, _opts \\ []) do
     %{}
     |> method(:post)
     |> url("/v1/orders/cancel/all")
-    |> add_param(:body, :body, cancel_order_all_request)
+    |> add_param(:body, :body, order_cancel_all_request)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
@@ -47,19 +47,19 @@ defmodule OEML-RESTAPI.Api.Orders do
   ## Parameters
 
   - connection (OEML-RESTAPI.Connection): Connection to server
-  - cancel_order_single_request (CancelOrderSingleRequest): CancelOrderSingleRequest object.
+  - order_cancel_single_request (OrderCancelSingleRequest): OrderCancelSingleRequest object.
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
   {:ok, %OEML-RESTAPI.Model.OrderExecutionReport{}} on success
   {:error, info} on failure
   """
-  @spec v1_orders_cancel_post(Tesla.Env.client, OEML-RESTAPI.Model.CancelOrderSingleRequest.t, keyword()) :: {:ok, OEML-RESTAPI.Model.OrderExecutionReport.t} | {:error, Tesla.Env.t}
-  def v1_orders_cancel_post(connection, cancel_order_single_request, _opts \\ []) do
+  @spec v1_orders_cancel_post(Tesla.Env.client, OEML-RESTAPI.Model.OrderCancelSingleRequest.t, keyword()) :: {:ok, OEML-RESTAPI.Model.OrderExecutionReport.t} | {:error, Tesla.Env.t}
+  def v1_orders_cancel_post(connection, order_cancel_single_request, _opts \\ []) do
     %{}
     |> method(:post)
     |> url("/v1/orders/cancel")
-    |> add_param(:body, :body, cancel_order_single_request)
+    |> add_param(:body, :body, order_cancel_single_request)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
@@ -107,19 +107,19 @@ defmodule OEML-RESTAPI.Api.Orders do
   ## Parameters
 
   - connection (OEML-RESTAPI.Connection): Connection to server
-  - new_order_single (NewOrderSingle): NewOrderSingle object.
+  - order_new_single_request (OrderNewSingleRequest): OrderNewSingleRequest object.
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
   {:ok, %OEML-RESTAPI.Model.OrderExecutionReport{}} on success
   {:error, info} on failure
   """
-  @spec v1_orders_post(Tesla.Env.client, OEML-RESTAPI.Model.NewOrderSingle.t, keyword()) :: {:ok, OEML-RESTAPI.Model.OrderExecutionReport.t} | {:error, Tesla.Env.t}
-  def v1_orders_post(connection, new_order_single, _opts \\ []) do
+  @spec v1_orders_post(Tesla.Env.client, OEML-RESTAPI.Model.OrderNewSingleRequest.t, keyword()) :: {:ok, OEML-RESTAPI.Model.OrderExecutionReport.t} | {:error, Tesla.Env.t}
+  def v1_orders_post(connection, order_new_single_request, _opts \\ []) do
     %{}
     |> method(:post)
     |> url("/v1/orders")
-    |> add_param(:body, :body, new_order_single)
+    |> add_param(:body, :body, order_new_single_request)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([

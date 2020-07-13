@@ -13,7 +13,7 @@ private class OASOrdersApiTest {
         Test.setMock(HttpCalloutMock.class, new OASResponseMock(res));
 
         Map<String, Object> params = new Map<String, Object>{
-            'oaSCancelOrderAllRequest' => ''
+            'oaSOrderCancelAllRequest' => ''
         };
 
         OASClient client;
@@ -45,7 +45,7 @@ private class OASOrdersApiTest {
         Test.setMock(HttpCalloutMock.class, new OASResponseMock(res));
 
         Map<String, Object> params = new Map<String, Object>{
-            'oaSCancelOrderSingleRequest' => ''
+            'oaSOrderCancelSingleRequest' => ''
         };
 
         OASClient client;
@@ -109,7 +109,7 @@ private class OASOrdersApiTest {
         Test.setMock(HttpCalloutMock.class, new OASResponseMock(res));
 
         Map<String, Object> params = new Map<String, Object>{
-            'oaSNewOrderSingle' => ''
+            'oaSOrderNewSingleRequest' => ''
         };
 
         OASClient client;

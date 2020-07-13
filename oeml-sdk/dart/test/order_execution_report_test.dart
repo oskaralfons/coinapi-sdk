@@ -81,13 +81,13 @@ void main() {
       // TODO
     });
 
-    // Amount open
+    // Amount open.
     // num amountOpen (default value: null)
     test('to test the property `amountOpen`', () async {
       // TODO
     });
 
-    // Amount filled
+    // Amount filled.
     // num amountFilled (default value: null)
     test('to test the property `amountFilled`', () async {
       // TODO

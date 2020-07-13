@@ -30,11 +30,11 @@ use Log::Any qw($log);
 use Date::Parse;
 use DateTime;
 
-use WWW::OpenAPIClient::Object::NewOrderSingle;
 use WWW::OpenAPIClient::Object::OrdSide;
 use WWW::OpenAPIClient::Object::OrdStatus;
 use WWW::OpenAPIClient::Object::OrdType;
 use WWW::OpenAPIClient::Object::OrderExecutionReportAllOf;
+use WWW::OpenAPIClient::Object::OrderNewSingleRequest;
 use WWW::OpenAPIClient::Object::TimeInForce;
 
 use base ("Class::Accessor", "Class::Data::Inheritable");
@@ -261,14 +261,14 @@ __PACKAGE__->method_documentation({
     'amount_open' => {
         datatype => 'double',
         base_name => 'amount_open',
-        description => 'Amount open',
+        description => 'Amount open.',
         format => '',
         read_only => '',
             },
     'amount_filled' => {
         datatype => 'double',
         base_name => 'amount_filled',
-        description => 'Amount filled',
+        description => 'Amount filled.',
         format => '',
         read_only => '',
             },

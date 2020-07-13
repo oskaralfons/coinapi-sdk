@@ -15,11 +15,11 @@
 
 #include "OAIHttpRequest.h"
 
-#include "OAICancelOrderAllRequest.h"
-#include "OAICancelOrderSingleRequest.h"
 #include "OAIMessage.h"
-#include "OAINewOrderSingle.h"
+#include "OAIOrderCancelAllRequest.h"
+#include "OAIOrderCancelSingleRequest.h"
 #include "OAIOrderExecutionReport.h"
+#include "OAIOrderNewSingleRequest.h"
 #include "OAIValidationError.h"
 #include <QString>
 
@@ -45,10 +45,10 @@ public:
     void enableResponseCompression();
     void abortRequests();
 
-    void v1OrdersCancelAllPost(const OAICancelOrderAllRequest &oai_cancel_order_all_request);
-    void v1OrdersCancelPost(const OAICancelOrderSingleRequest &oai_cancel_order_single_request);
+    void v1OrdersCancelAllPost(const OAIOrderCancelAllRequest &oai_order_cancel_all_request);
+    void v1OrdersCancelPost(const OAIOrderCancelSingleRequest &oai_order_cancel_single_request);
     void v1OrdersGet(const QString &exchange_id);
-    void v1OrdersPost(const OAINewOrderSingle &oai_new_order_single);
+    void v1OrdersPost(const OAIOrderNewSingleRequest &oai_order_new_single_request);
     void v1OrdersStatusClientOrderIdGet(const QString &client_order_id);
 
 private:

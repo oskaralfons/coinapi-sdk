@@ -1,11 +1,11 @@
 package org.openapitools.client.model {
 
 import org.openapitools.common.ListWrapper;
-import org.openapitools.client.model.NewOrderSingle;
 import org.openapitools.client.model.OrdSide;
 import org.openapitools.client.model.OrdStatus;
 import org.openapitools.client.model.OrdType;
 import org.openapitools.client.model.OrderExecutionReportAllOf;
+import org.openapitools.client.model.OrderNewSingleRequest;
 import org.openapitools.client.model.TimeInForce;
 
     public class OrderExecutionReportList implements ListWrapper {

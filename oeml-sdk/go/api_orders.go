@@ -31,10 +31,10 @@ type OrdersApiService service
 V1OrdersCancelAllPost Cancel all orders request
 This request cancels all open orders on single specified exchange.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param cancelOrderAllRequest CancelOrderAllRequest object.
+ * @param orderCancelAllRequest OrderCancelAllRequest object.
 @return Message
 */
-func (a *OrdersApiService) V1OrdersCancelAllPost(ctx _context.Context, cancelOrderAllRequest CancelOrderAllRequest) (Message, *_nethttp.Response, error) {
+func (a *OrdersApiService) V1OrdersCancelAllPost(ctx _context.Context, orderCancelAllRequest OrderCancelAllRequest) (Message, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *OrdersApiService) V1OrdersCancelAllPost(ctx _context.Context, cancelOrd
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = &cancelOrderAllRequest
+	localVarPostBody = &orderCancelAllRequest
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -128,10 +128,10 @@ func (a *OrdersApiService) V1OrdersCancelAllPost(ctx _context.Context, cancelOrd
 V1OrdersCancelPost Cancel order request
 Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param cancelOrderSingleRequest CancelOrderSingleRequest object.
+ * @param orderCancelSingleRequest OrderCancelSingleRequest object.
 @return OrderExecutionReport
 */
-func (a *OrdersApiService) V1OrdersCancelPost(ctx _context.Context, cancelOrderSingleRequest CancelOrderSingleRequest) (OrderExecutionReport, *_nethttp.Response, error) {
+func (a *OrdersApiService) V1OrdersCancelPost(ctx _context.Context, orderCancelSingleRequest OrderCancelSingleRequest) (OrderExecutionReport, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -165,7 +165,7 @@ func (a *OrdersApiService) V1OrdersCancelPost(ctx _context.Context, cancelOrderS
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = &cancelOrderSingleRequest
+	localVarPostBody = &orderCancelSingleRequest
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -319,10 +319,10 @@ func (a *OrdersApiService) V1OrdersGet(ctx _context.Context, localVarOptionals *
 V1OrdersPost Send new order
 This request creating new order for the specific exchange.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param newOrderSingle NewOrderSingle object.
+ * @param orderNewSingleRequest OrderNewSingleRequest object.
 @return OrderExecutionReport
 */
-func (a *OrdersApiService) V1OrdersPost(ctx _context.Context, newOrderSingle NewOrderSingle) (OrderExecutionReport, *_nethttp.Response, error) {
+func (a *OrdersApiService) V1OrdersPost(ctx _context.Context, orderNewSingleRequest OrderNewSingleRequest) (OrderExecutionReport, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -356,7 +356,7 @@ func (a *OrdersApiService) V1OrdersPost(ctx _context.Context, newOrderSingle New
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = &newOrderSingle
+	localVarPostBody = &orderNewSingleRequest
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err

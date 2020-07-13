@@ -14,11 +14,11 @@
 package org.openapitools.client.api;
 
 import org.openapitools.client.ApiException;
-import org.openapitools.client.model.CancelOrderAllRequest;
-import org.openapitools.client.model.CancelOrderSingleRequest;
 import org.openapitools.client.model.Message;
-import org.openapitools.client.model.NewOrderSingle;
+import org.openapitools.client.model.OrderCancelAllRequest;
+import org.openapitools.client.model.OrderCancelSingleRequest;
 import org.openapitools.client.model.OrderExecutionReport;
+import org.openapitools.client.model.OrderNewSingleRequest;
 import org.openapitools.client.model.ValidationError;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -47,8 +47,8 @@ public class OrdersApiTest {
      */
     @Test
     public void v1OrdersCancelAllPostTest() throws ApiException {
-        CancelOrderAllRequest cancelOrderAllRequest = null;
-        Message response = api.v1OrdersCancelAllPost(cancelOrderAllRequest);
+        OrderCancelAllRequest orderCancelAllRequest = null;
+        Message response = api.v1OrdersCancelAllPost(orderCancelAllRequest);
 
         // TODO: test validations
     }
@@ -63,8 +63,8 @@ public class OrdersApiTest {
      */
     @Test
     public void v1OrdersCancelPostTest() throws ApiException {
-        CancelOrderSingleRequest cancelOrderSingleRequest = null;
-        OrderExecutionReport response = api.v1OrdersCancelPost(cancelOrderSingleRequest);
+        OrderCancelSingleRequest orderCancelSingleRequest = null;
+        OrderExecutionReport response = api.v1OrdersCancelPost(orderCancelSingleRequest);
 
         // TODO: test validations
     }
@@ -95,8 +95,8 @@ public class OrdersApiTest {
      */
     @Test
     public void v1OrdersPostTest() throws ApiException {
-        NewOrderSingle newOrderSingle = null;
-        OrderExecutionReport response = api.v1OrdersPost(newOrderSingle);
+        OrderNewSingleRequest orderNewSingleRequest = null;
+        OrderExecutionReport response = api.v1OrdersPost(orderNewSingleRequest);
 
         // TODO: test validations
     }

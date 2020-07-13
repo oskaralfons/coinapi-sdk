@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="v1OrdersCancelAllPost"></a>
 # **v1OrdersCancelAllPost**
-> Message v1OrdersCancelAllPost(cancelOrderAllRequest)
+> Message v1OrdersCancelAllPost(orderCancelAllRequest)
 
 Cancel all orders request
 
@@ -26,9 +26,9 @@ This request cancels all open orders on single specified exchange.
 //import org.openapitools.client.models.*
 
 val apiInstance = OrdersApi()
-val cancelOrderAllRequest : CancelOrderAllRequest =  // CancelOrderAllRequest | CancelOrderAllRequest object.
+val orderCancelAllRequest : OrderCancelAllRequest =  // OrderCancelAllRequest | OrderCancelAllRequest object.
 try {
-    val result : Message = apiInstance.v1OrdersCancelAllPost(cancelOrderAllRequest)
+    val result : Message = apiInstance.v1OrdersCancelAllPost(orderCancelAllRequest)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling OrdersApi#v1OrdersCancelAllPost")
@@ -43,7 +43,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelOrderAllRequest** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)| CancelOrderAllRequest object. |
+ **orderCancelAllRequest** | [**OrderCancelAllRequest**](OrderCancelAllRequest.md)| OrderCancelAllRequest object. |
 
 ### Return type
 
@@ -60,7 +60,7 @@ No authorization required
 
 <a name="v1OrdersCancelPost"></a>
 # **v1OrdersCancelPost**
-> OrderExecutionReport v1OrdersCancelPost(cancelOrderSingleRequest)
+> OrderExecutionReport v1OrdersCancelPost(orderCancelSingleRequest)
 
 Cancel order request
 
@@ -73,9 +73,9 @@ Request cancel for an existing order. The order can be canceled using the &#x60;
 //import org.openapitools.client.models.*
 
 val apiInstance = OrdersApi()
-val cancelOrderSingleRequest : CancelOrderSingleRequest =  // CancelOrderSingleRequest | CancelOrderSingleRequest object.
+val orderCancelSingleRequest : OrderCancelSingleRequest =  // OrderCancelSingleRequest | OrderCancelSingleRequest object.
 try {
-    val result : OrderExecutionReport = apiInstance.v1OrdersCancelPost(cancelOrderSingleRequest)
+    val result : OrderExecutionReport = apiInstance.v1OrdersCancelPost(orderCancelSingleRequest)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling OrdersApi#v1OrdersCancelPost")
@@ -90,7 +90,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelOrderSingleRequest** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)| CancelOrderSingleRequest object. |
+ **orderCancelSingleRequest** | [**OrderCancelSingleRequest**](OrderCancelSingleRequest.md)| OrderCancelSingleRequest object. |
 
 ### Return type
 
@@ -154,7 +154,7 @@ No authorization required
 
 <a name="v1OrdersPost"></a>
 # **v1OrdersPost**
-> OrderExecutionReport v1OrdersPost(newOrderSingle)
+> OrderExecutionReport v1OrdersPost(orderNewSingleRequest)
 
 Send new order
 
@@ -167,9 +167,9 @@ This request creating new order for the specific exchange.
 //import org.openapitools.client.models.*
 
 val apiInstance = OrdersApi()
-val newOrderSingle : NewOrderSingle =  // NewOrderSingle | NewOrderSingle object.
+val orderNewSingleRequest : OrderNewSingleRequest =  // OrderNewSingleRequest | OrderNewSingleRequest object.
 try {
-    val result : OrderExecutionReport = apiInstance.v1OrdersPost(newOrderSingle)
+    val result : OrderExecutionReport = apiInstance.v1OrdersPost(orderNewSingleRequest)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling OrdersApi#v1OrdersPost")
@@ -184,7 +184,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)| NewOrderSingle object. |
+ **orderNewSingleRequest** | [**OrderNewSingleRequest**](OrderNewSingleRequest.md)| OrderNewSingleRequest object. |
 
 ### Return type
 

@@ -28,18 +28,18 @@ public class OASOrdersApi {
     /**
      * Cancel all orders request
      * This request cancels all open orders on single specified exchange.
-     * @param oaSCancelOrderAllRequest CancelOrderAllRequest object. (required)
+     * @param oaSOrderCancelAllRequest OrderCancelAllRequest object. (required)
      * @return OASMessage
      * @throws OAS.ApiException if fails to make API call
      */
     public OASMessage v1OrdersCancelAllPost(Map<String, Object> params) {
-        client.assertNotNull(params.get('oaSCancelOrderAllRequest'), 'oaSCancelOrderAllRequest');
+        client.assertNotNull(params.get('oaSOrderCancelAllRequest'), 'oaSOrderCancelAllRequest');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASMessage) client.invoke(
             'POST', '/v1/orders/cancel/all',
-            (OASCancelOrderAllRequest) params.get('oaSCancelOrderAllRequest'),
+            (OASOrderCancelAllRequest) params.get('oaSOrderCancelAllRequest'),
             query, form,
             new Map<String, Object>(),
             new Map<String, Object>(),
@@ -52,18 +52,18 @@ public class OASOrdersApi {
     /**
      * Cancel order request
      * Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
-     * @param oaSCancelOrderSingleRequest CancelOrderSingleRequest object. (required)
+     * @param oaSOrderCancelSingleRequest OrderCancelSingleRequest object. (required)
      * @return OASOrderExecutionReport
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOrderExecutionReport v1OrdersCancelPost(Map<String, Object> params) {
-        client.assertNotNull(params.get('oaSCancelOrderSingleRequest'), 'oaSCancelOrderSingleRequest');
+        client.assertNotNull(params.get('oaSOrderCancelSingleRequest'), 'oaSOrderCancelSingleRequest');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOrderExecutionReport) client.invoke(
             'POST', '/v1/orders/cancel',
-            (OASCancelOrderSingleRequest) params.get('oaSCancelOrderSingleRequest'),
+            (OASOrderCancelSingleRequest) params.get('oaSOrderCancelSingleRequest'),
             query, form,
             new Map<String, Object>(),
             new Map<String, Object>(),
@@ -102,18 +102,18 @@ public class OASOrdersApi {
     /**
      * Send new order
      * This request creating new order for the specific exchange.
-     * @param oaSNewOrderSingle NewOrderSingle object. (required)
+     * @param oaSOrderNewSingleRequest OrderNewSingleRequest object. (required)
      * @return OASOrderExecutionReport
      * @throws OAS.ApiException if fails to make API call
      */
     public OASOrderExecutionReport v1OrdersPost(Map<String, Object> params) {
-        client.assertNotNull(params.get('oaSNewOrderSingle'), 'oaSNewOrderSingle');
+        client.assertNotNull(params.get('oaSOrderNewSingleRequest'), 'oaSOrderNewSingleRequest');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASOrderExecutionReport) client.invoke(
             'POST', '/v1/orders',
-            (OASNewOrderSingle) params.get('oaSNewOrderSingle'),
+            (OASOrderNewSingleRequest) params.get('oaSOrderNewSingleRequest'),
             query, form,
             new Map<String, Object>(),
             new Map<String, Object>(),

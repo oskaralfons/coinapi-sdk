@@ -7,11 +7,11 @@ import 'package:openapi/model/ord_status.dart';
 
 import 'package:openapi/model/ord_type.dart';
 
-import 'package:openapi/model/new_order_single.dart';
-
 import 'package:openapi/model/ord_side.dart';
 
 import 'package:openapi/model/order_execution_report_all_of.dart';
+
+import 'package:openapi/model/order_new_single_request.dart';
 
 part 'order_execution_report.jser.dart';
 
@@ -71,10 +71,10 @@ class OrderExecutionReport {
    /* The unique identifier of the order assigned by the exchange. */
   @Alias('exchange_order_id', isNullable: false,  )
   final String exchangeOrderId;
-   /* Amount open */
+   /* Amount open. */
   @Alias('amount_open', isNullable: false,  )
   final num amountOpen;
-   /* Amount filled */
+   /* Amount filled. */
   @Alias('amount_filled', isNullable: false,  )
   final num amountFilled;
   

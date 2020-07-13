@@ -4,7 +4,7 @@
 Describe 'Org.OpenAPITools OrdersApi' {
     Context 'OrdersApi' {
         It 'Invoke-OrdersApiV1OrdersCancelAllPost' {
-            $ret = Invoke-PetApiGetPetById -cancelOrderAllRequest "TEST_VALUE"
+            $ret = Invoke-PetApiGetPetById -orderCancelAllRequest "TEST_VALUE"
             #$ret | Should BeOfType Org.OpenAPITools.Model.ModelNameHere
             #$ret.property | Should Be 0
         }
@@ -12,7 +12,7 @@ Describe 'Org.OpenAPITools OrdersApi' {
 
     Context 'OrdersApi' {
         It 'Invoke-OrdersApiV1OrdersCancelPost' {
-            $ret = Invoke-PetApiGetPetById -cancelOrderSingleRequest "TEST_VALUE"
+            $ret = Invoke-PetApiGetPetById -orderCancelSingleRequest "TEST_VALUE"
             #$ret | Should BeOfType Org.OpenAPITools.Model.ModelNameHere
             #$ret.property | Should Be 0
         }
@@ -28,7 +28,7 @@ Describe 'Org.OpenAPITools OrdersApi' {
 
     Context 'OrdersApi' {
         It 'Invoke-OrdersApiV1OrdersPost' {
-            $ret = Invoke-PetApiGetPetById -newOrderSingle "TEST_VALUE"
+            $ret = Invoke-PetApiGetPetById -orderNewSingleRequest "TEST_VALUE"
             #$ret | Should BeOfType Org.OpenAPITools.Model.ModelNameHere
             #$ret.property | Should Be 0
         }

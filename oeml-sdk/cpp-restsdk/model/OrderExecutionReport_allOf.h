@@ -75,7 +75,7 @@ public:
     void setExchangeOrderId(const utility::string_t& value);
 
     /// <summary>
-    /// Amount open
+    /// Amount open.
     /// </summary>
     double getAmountOpen() const;
     bool amountOpenIsSet() const;
@@ -84,7 +84,7 @@ public:
     void setAmountOpen(double value);
 
     /// <summary>
-    /// Amount filled
+    /// Amount filled.
     /// </summary>
     double getAmountFilled() const;
     bool amountFilledIsSet() const;

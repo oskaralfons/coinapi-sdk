@@ -12,10 +12,10 @@ class OrderExecutionReportAllOf {
    /* The unique identifier of the order assigned by the exchange. */
   @Alias('exchange_order_id', isNullable: false,  )
   final String exchangeOrderId;
-   /* Amount open */
+   /* Amount open. */
   @Alias('amount_open', isNullable: false,  )
   final num amountOpen;
-   /* Amount filled */
+   /* Amount filled. */
   @Alias('amount_filled', isNullable: false,  )
   final num amountFilled;
   

@@ -8,16 +8,16 @@
             [oeml-rest-api.specs.balance-data :refer :all]
             [oeml-rest-api.specs.validation-error :refer :all]
             [oeml-rest-api.specs.position-data :refer :all]
-            [oeml-rest-api.specs.cancel-order-single-request :refer :all]
             [oeml-rest-api.specs.message :refer :all]
-            [oeml-rest-api.specs.new-order-single :refer :all]
+            [oeml-rest-api.specs.order-cancel-single-request :refer :all]
             [oeml-rest-api.specs.ord-status :refer :all]
             [oeml-rest-api.specs.order-execution-report-all-of :refer :all]
             [oeml-rest-api.specs.balance :refer :all]
             [oeml-rest-api.specs.ord-type :refer :all]
             [oeml-rest-api.specs.order-execution-report :refer :all]
+            [oeml-rest-api.specs.order-cancel-all-request :refer :all]
             [oeml-rest-api.specs.position :refer :all]
-            [oeml-rest-api.specs.cancel-order-all-request :refer :all]
+            [oeml-rest-api.specs.order-new-single-request :refer :all]
             [oeml-rest-api.specs.ord-side :refer :all]
             )
   (:import (java.io File)))
@@ -26,14 +26,14 @@
 (defn-spec v1-orders-cancel-all-post-with-http-info any?
   "Cancel all orders request
   This request cancels all open orders on single specified exchange."
-  [cancel-order-all-request cancel-order-all-request]
-  (check-required-params cancel-order-all-request)
+  [order-cancel-all-request order-cancel-all-request]
+  (check-required-params order-cancel-all-request)
   (call-api "/v1/orders/cancel/all" :post
             {:path-params   {}
              :header-params {}
              :query-params  {}
              :form-params   {}
-             :body-param    cancel-order-all-request
+             :body-param    order-cancel-all-request
              :content-types ["application/json"]
              :accepts       ["application/json" "appliction/json"]
              :auth-names    []}))
@@ -41,8 +41,8 @@
 (defn-spec v1-orders-cancel-all-post message-spec
   "Cancel all orders request
   This request cancels all open orders on single specified exchange."
-  [cancel-order-all-request cancel-order-all-request]
-  (let [res (:data (v1-orders-cancel-all-post-with-http-info cancel-order-all-request))]
+  [order-cancel-all-request order-cancel-all-request]
+  (let [res (:data (v1-orders-cancel-all-post-with-http-info order-cancel-all-request))]
     (if (:decode-models *api-context*)
        (st/decode message-spec res st/string-transformer)
        res)))
@@ -51,14 +51,14 @@
 (defn-spec v1-orders-cancel-post-with-http-info any?
   "Cancel order request
   Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`."
-  [cancel-order-single-request cancel-order-single-request]
-  (check-required-params cancel-order-single-request)
+  [order-cancel-single-request order-cancel-single-request]
+  (check-required-params order-cancel-single-request)
   (call-api "/v1/orders/cancel" :post
             {:path-params   {}
              :header-params {}
              :query-params  {}
              :form-params   {}
-             :body-param    cancel-order-single-request
+             :body-param    order-cancel-single-request
              :content-types ["application/json"]
              :accepts       ["application/json" "appliction/json"]
              :auth-names    []}))
@@ -66,8 +66,8 @@
 (defn-spec v1-orders-cancel-post order-execution-report-spec
   "Cancel order request
   Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`."
-  [cancel-order-single-request cancel-order-single-request]
-  (let [res (:data (v1-orders-cancel-post-with-http-info cancel-order-single-request))]
+  [order-cancel-single-request order-cancel-single-request]
+  (let [res (:data (v1-orders-cancel-post-with-http-info order-cancel-single-request))]
     (if (:decode-models *api-context*)
        (st/decode order-execution-report-spec res st/string-transformer)
        res)))
@@ -101,14 +101,14 @@
 (defn-spec v1-orders-post-with-http-info any?
   "Send new order
   This request creating new order for the specific exchange."
-  [new-order-single new-order-single]
-  (check-required-params new-order-single)
+  [order-new-single-request order-new-single-request]
+  (check-required-params order-new-single-request)
   (call-api "/v1/orders" :post
             {:path-params   {}
              :header-params {}
              :query-params  {}
              :form-params   {}
-             :body-param    new-order-single
+             :body-param    order-new-single-request
              :content-types ["application/json"]
              :accepts       ["application/json" "appliction/json"]
              :auth-names    []}))
@@ -116,8 +116,8 @@
 (defn-spec v1-orders-post order-execution-report-spec
   "Send new order
   This request creating new order for the specific exchange."
-  [new-order-single new-order-single]
-  (let [res (:data (v1-orders-post-with-http-info new-order-single))]
+  [order-new-single-request order-new-single-request]
+  (let [res (:data (v1-orders-post-with-http-info order-new-single-request))]
     (if (:decode-models *api-context*)
        (st/decode order-execution-report-spec res st/string-transformer)
        res)))

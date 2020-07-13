@@ -1,11 +1,11 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import org.openapitools.model.CancelOrderAllRequest
-import org.openapitools.model.CancelOrderSingleRequest
 import org.openapitools.model.Message
-import org.openapitools.model.NewOrderSingle
+import org.openapitools.model.OrderCancelAllRequest
+import org.openapitools.model.OrderCancelSingleRequest
 import org.openapitools.model.OrderExecutionReport
+import org.openapitools.model.OrderNewSingleRequest
 import org.openapitools.model.ValidationError
 
 class OrdersApi {
@@ -13,7 +13,7 @@ class OrdersApi {
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def v1OrdersCancelAllPost ( CancelOrderAllRequest cancelOrderAllRequest, Closure onSuccess, Closure onFailure)  {
+    def v1OrdersCancelAllPost ( OrderCancelAllRequest orderCancelAllRequest, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/v1/orders/cancel/all"
 
         // params
@@ -23,14 +23,14 @@ class OrdersApi {
         def contentType
 
         // verify required params are set
-        if (cancelOrderAllRequest == null) {
-            throw new RuntimeException("missing required params cancelOrderAllRequest")
+        if (orderCancelAllRequest == null) {
+            throw new RuntimeException("missing required params orderCancelAllRequest")
         }
 
 
 
         contentType = 'application/json';
-        bodyParams = cancelOrderAllRequest
+        bodyParams = orderCancelAllRequest
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
@@ -39,7 +39,7 @@ class OrdersApi {
 
     }
 
-    def v1OrdersCancelPost ( CancelOrderSingleRequest cancelOrderSingleRequest, Closure onSuccess, Closure onFailure)  {
+    def v1OrdersCancelPost ( OrderCancelSingleRequest orderCancelSingleRequest, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/v1/orders/cancel"
 
         // params
@@ -49,14 +49,14 @@ class OrdersApi {
         def contentType
 
         // verify required params are set
-        if (cancelOrderSingleRequest == null) {
-            throw new RuntimeException("missing required params cancelOrderSingleRequest")
+        if (orderCancelSingleRequest == null) {
+            throw new RuntimeException("missing required params orderCancelSingleRequest")
         }
 
 
 
         contentType = 'application/json';
-        bodyParams = cancelOrderSingleRequest
+        bodyParams = orderCancelSingleRequest
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
@@ -88,7 +88,7 @@ class OrdersApi {
 
     }
 
-    def v1OrdersPost ( NewOrderSingle newOrderSingle, Closure onSuccess, Closure onFailure)  {
+    def v1OrdersPost ( OrderNewSingleRequest orderNewSingleRequest, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/v1/orders"
 
         // params
@@ -98,14 +98,14 @@ class OrdersApi {
         def contentType
 
         // verify required params are set
-        if (newOrderSingle == null) {
-            throw new RuntimeException("missing required params newOrderSingle")
+        if (orderNewSingleRequest == null) {
+            throw new RuntimeException("missing required params orderNewSingleRequest")
         }
 
 
 
         contentType = 'application/json';
-        bodyParams = newOrderSingle
+        bodyParams = orderNewSingleRequest
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,

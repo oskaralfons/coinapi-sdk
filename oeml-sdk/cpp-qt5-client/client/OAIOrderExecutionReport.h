@@ -21,11 +21,11 @@
 
 #include <QJsonObject>
 
-#include "OAINewOrderSingle.h"
 #include "OAIOrdSide.h"
 #include "OAIOrdStatus.h"
 #include "OAIOrdType.h"
 #include "OAIOrderExecutionReport_allOf.h"
+#include "OAIOrderNewSingleRequest.h"
 #include "OAITimeInForce.h"
 #include <QDate>
 #include <QList>

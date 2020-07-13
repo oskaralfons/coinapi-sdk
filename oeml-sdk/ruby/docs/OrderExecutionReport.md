@@ -17,8 +17,8 @@ Name | Type | Description | Notes
 **exec_inst** | **Array&lt;String&gt;** | Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt;  | [optional] 
 **client_order_id_format_exchange** | **String** | The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. | 
 **exchange_order_id** | **String** | The unique identifier of the order assigned by the exchange. | [optional] 
-**amount_open** | **Float** | Amount open | 
-**amount_filled** | **Float** | Amount filled | 
+**amount_open** | **Float** | Amount open. | 
+**amount_filled** | **Float** | Amount filled. | 
 **status** | [**OrdStatus**](OrdStatus.md) |  | 
 **time_order** | **Array&lt;Array&lt;String&gt;&gt;** | Timestamped history of order status changes. | 
 **error_message** | **String** | Error message | [optional] 

@@ -11,7 +11,7 @@ void main() {
     //
     // This request cancels all open orders on single specified exchange.
     //
-    //Future<Message> v1OrdersCancelAllPost(CancelOrderAllRequest cancelOrderAllRequest) async 
+    //Future<Message> v1OrdersCancelAllPost(OrderCancelAllRequest orderCancelAllRequest) async 
     test('test v1OrdersCancelAllPost', () async {
       // TODO
     });
@@ -20,7 +20,7 @@ void main() {
     //
     // Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`.
     //
-    //Future<OrderExecutionReport> v1OrdersCancelPost(CancelOrderSingleRequest cancelOrderSingleRequest) async 
+    //Future<OrderExecutionReport> v1OrdersCancelPost(OrderCancelSingleRequest orderCancelSingleRequest) async 
     test('test v1OrdersCancelPost', () async {
       // TODO
     });
@@ -38,7 +38,7 @@ void main() {
     //
     // This request creating new order for the specific exchange.
     //
-    //Future<OrderExecutionReport> v1OrdersPost(NewOrderSingle newOrderSingle) async 
+    //Future<OrderExecutionReport> v1OrdersPost(OrderNewSingleRequest orderNewSingleRequest) async 
     test('test v1OrdersPost', () async {
       // TODO
     });

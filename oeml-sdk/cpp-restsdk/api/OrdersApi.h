@@ -22,11 +22,11 @@
 
 #include "../ApiClient.h"
 
-#include "CancelOrderAllRequest.h"
-#include "CancelOrderSingleRequest.h"
 #include "Message.h"
-#include "NewOrderSingle.h"
+#include "OrderCancelAllRequest.h"
+#include "OrderCancelSingleRequest.h"
 #include "OrderExecutionReport.h"
+#include "OrderNewSingleRequest.h"
 #include "ValidationError.h"
 #include <cpprest/details/basic_types.h>
 
@@ -56,9 +56,9 @@ public:
     /// <remarks>
     /// This request cancels all open orders on single specified exchange.
     /// </remarks>
-    /// <param name="cancelOrderAllRequest">CancelOrderAllRequest object.</param>
+    /// <param name="orderCancelAllRequest">OrderCancelAllRequest object.</param>
     pplx::task<std::shared_ptr<Message>> v1OrdersCancelAllPost(
-        std::shared_ptr<CancelOrderAllRequest> cancelOrderAllRequest
+        std::shared_ptr<OrderCancelAllRequest> orderCancelAllRequest
     ) const;
     /// <summary>
     /// Cancel order request
@@ -66,9 +66,9 @@ public:
     /// <remarks>
     /// Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
     /// </remarks>
-    /// <param name="cancelOrderSingleRequest">CancelOrderSingleRequest object.</param>
+    /// <param name="orderCancelSingleRequest">OrderCancelSingleRequest object.</param>
     pplx::task<std::shared_ptr<OrderExecutionReport>> v1OrdersCancelPost(
-        std::shared_ptr<CancelOrderSingleRequest> cancelOrderSingleRequest
+        std::shared_ptr<OrderCancelSingleRequest> orderCancelSingleRequest
     ) const;
     /// <summary>
     /// Get open orders
@@ -86,9 +86,9 @@ public:
     /// <remarks>
     /// This request creating new order for the specific exchange.
     /// </remarks>
-    /// <param name="newOrderSingle">NewOrderSingle object.</param>
+    /// <param name="orderNewSingleRequest">OrderNewSingleRequest object.</param>
     pplx::task<std::shared_ptr<OrderExecutionReport>> v1OrdersPost(
-        std::shared_ptr<NewOrderSingle> newOrderSingle
+        std::shared_ptr<OrderNewSingleRequest> orderNewSingleRequest
     ) const;
     /// <summary>
     /// Get order execution report

@@ -85,34 +85,6 @@ balanceDataUpdateOriginL f BalanceData{..} = (\balanceDataUpdateOrigin -> Balanc
 
 
 
--- * CancelOrderAllRequest
-
--- | 'cancelOrderAllRequestExchangeId' Lens
-cancelOrderAllRequestExchangeIdL :: Lens_' CancelOrderAllRequest (Text)
-cancelOrderAllRequestExchangeIdL f CancelOrderAllRequest{..} = (\cancelOrderAllRequestExchangeId -> CancelOrderAllRequest { cancelOrderAllRequestExchangeId, ..} ) <$> f cancelOrderAllRequestExchangeId
-{-# INLINE cancelOrderAllRequestExchangeIdL #-}
-
-
-
--- * CancelOrderSingleRequest
-
--- | 'cancelOrderSingleRequestExchangeId' Lens
-cancelOrderSingleRequestExchangeIdL :: Lens_' CancelOrderSingleRequest (Text)
-cancelOrderSingleRequestExchangeIdL f CancelOrderSingleRequest{..} = (\cancelOrderSingleRequestExchangeId -> CancelOrderSingleRequest { cancelOrderSingleRequestExchangeId, ..} ) <$> f cancelOrderSingleRequestExchangeId
-{-# INLINE cancelOrderSingleRequestExchangeIdL #-}
-
--- | 'cancelOrderSingleRequestExchangeOrderId' Lens
-cancelOrderSingleRequestExchangeOrderIdL :: Lens_' CancelOrderSingleRequest (Maybe Text)
-cancelOrderSingleRequestExchangeOrderIdL f CancelOrderSingleRequest{..} = (\cancelOrderSingleRequestExchangeOrderId -> CancelOrderSingleRequest { cancelOrderSingleRequestExchangeOrderId, ..} ) <$> f cancelOrderSingleRequestExchangeOrderId
-{-# INLINE cancelOrderSingleRequestExchangeOrderIdL #-}
-
--- | 'cancelOrderSingleRequestClientOrderId' Lens
-cancelOrderSingleRequestClientOrderIdL :: Lens_' CancelOrderSingleRequest (Maybe Text)
-cancelOrderSingleRequestClientOrderIdL f CancelOrderSingleRequest{..} = (\cancelOrderSingleRequestClientOrderId -> CancelOrderSingleRequest { cancelOrderSingleRequestClientOrderId, ..} ) <$> f cancelOrderSingleRequestClientOrderId
-{-# INLINE cancelOrderSingleRequestClientOrderIdL #-}
-
-
-
 -- * Message
 
 -- | 'messageType' Lens
@@ -137,65 +109,6 @@ messageMessageL f Message{..} = (\messageMessage -> Message { messageMessage, ..
 
 
 
--- * NewOrderSingle
-
--- | 'newOrderSingleExchangeId' Lens
-newOrderSingleExchangeIdL :: Lens_' NewOrderSingle (Text)
-newOrderSingleExchangeIdL f NewOrderSingle{..} = (\newOrderSingleExchangeId -> NewOrderSingle { newOrderSingleExchangeId, ..} ) <$> f newOrderSingleExchangeId
-{-# INLINE newOrderSingleExchangeIdL #-}
-
--- | 'newOrderSingleClientOrderId' Lens
-newOrderSingleClientOrderIdL :: Lens_' NewOrderSingle (Text)
-newOrderSingleClientOrderIdL f NewOrderSingle{..} = (\newOrderSingleClientOrderId -> NewOrderSingle { newOrderSingleClientOrderId, ..} ) <$> f newOrderSingleClientOrderId
-{-# INLINE newOrderSingleClientOrderIdL #-}
-
--- | 'newOrderSingleSymbolExchange' Lens
-newOrderSingleSymbolExchangeL :: Lens_' NewOrderSingle (Maybe Text)
-newOrderSingleSymbolExchangeL f NewOrderSingle{..} = (\newOrderSingleSymbolExchange -> NewOrderSingle { newOrderSingleSymbolExchange, ..} ) <$> f newOrderSingleSymbolExchange
-{-# INLINE newOrderSingleSymbolExchangeL #-}
-
--- | 'newOrderSingleSymbolCoinapi' Lens
-newOrderSingleSymbolCoinapiL :: Lens_' NewOrderSingle (Maybe Text)
-newOrderSingleSymbolCoinapiL f NewOrderSingle{..} = (\newOrderSingleSymbolCoinapi -> NewOrderSingle { newOrderSingleSymbolCoinapi, ..} ) <$> f newOrderSingleSymbolCoinapi
-{-# INLINE newOrderSingleSymbolCoinapiL #-}
-
--- | 'newOrderSingleAmountOrder' Lens
-newOrderSingleAmountOrderL :: Lens_' NewOrderSingle (Double)
-newOrderSingleAmountOrderL f NewOrderSingle{..} = (\newOrderSingleAmountOrder -> NewOrderSingle { newOrderSingleAmountOrder, ..} ) <$> f newOrderSingleAmountOrder
-{-# INLINE newOrderSingleAmountOrderL #-}
-
--- | 'newOrderSinglePrice' Lens
-newOrderSinglePriceL :: Lens_' NewOrderSingle (Double)
-newOrderSinglePriceL f NewOrderSingle{..} = (\newOrderSinglePrice -> NewOrderSingle { newOrderSinglePrice, ..} ) <$> f newOrderSinglePrice
-{-# INLINE newOrderSinglePriceL #-}
-
--- | 'newOrderSingleSide' Lens
-newOrderSingleSideL :: Lens_' NewOrderSingle (OrdSide)
-newOrderSingleSideL f NewOrderSingle{..} = (\newOrderSingleSide -> NewOrderSingle { newOrderSingleSide, ..} ) <$> f newOrderSingleSide
-{-# INLINE newOrderSingleSideL #-}
-
--- | 'newOrderSingleOrderType' Lens
-newOrderSingleOrderTypeL :: Lens_' NewOrderSingle (OrdType)
-newOrderSingleOrderTypeL f NewOrderSingle{..} = (\newOrderSingleOrderType -> NewOrderSingle { newOrderSingleOrderType, ..} ) <$> f newOrderSingleOrderType
-{-# INLINE newOrderSingleOrderTypeL #-}
-
--- | 'newOrderSingleTimeInForce' Lens
-newOrderSingleTimeInForceL :: Lens_' NewOrderSingle (TimeInForce)
-newOrderSingleTimeInForceL f NewOrderSingle{..} = (\newOrderSingleTimeInForce -> NewOrderSingle { newOrderSingleTimeInForce, ..} ) <$> f newOrderSingleTimeInForce
-{-# INLINE newOrderSingleTimeInForceL #-}
-
--- | 'newOrderSingleExpireTime' Lens
-newOrderSingleExpireTimeL :: Lens_' NewOrderSingle (Maybe Date)
-newOrderSingleExpireTimeL f NewOrderSingle{..} = (\newOrderSingleExpireTime -> NewOrderSingle { newOrderSingleExpireTime, ..} ) <$> f newOrderSingleExpireTime
-{-# INLINE newOrderSingleExpireTimeL #-}
-
--- | 'newOrderSingleExecInst' Lens
-newOrderSingleExecInstL :: Lens_' NewOrderSingle (Maybe [E'ExecInst])
-newOrderSingleExecInstL f NewOrderSingle{..} = (\newOrderSingleExecInst -> NewOrderSingle { newOrderSingleExecInst, ..} ) <$> f newOrderSingleExecInst
-{-# INLINE newOrderSingleExecInstL #-}
-
-
-
 -- * OrdSide
 
 
@@ -205,6 +118,34 @@ newOrderSingleExecInstL f NewOrderSingle{..} = (\newOrderSingleExecInst -> NewOr
 
 
 -- * OrdType
+
+
+
+-- * OrderCancelAllRequest
+
+-- | 'orderCancelAllRequestExchangeId' Lens
+orderCancelAllRequestExchangeIdL :: Lens_' OrderCancelAllRequest (Text)
+orderCancelAllRequestExchangeIdL f OrderCancelAllRequest{..} = (\orderCancelAllRequestExchangeId -> OrderCancelAllRequest { orderCancelAllRequestExchangeId, ..} ) <$> f orderCancelAllRequestExchangeId
+{-# INLINE orderCancelAllRequestExchangeIdL #-}
+
+
+
+-- * OrderCancelSingleRequest
+
+-- | 'orderCancelSingleRequestExchangeId' Lens
+orderCancelSingleRequestExchangeIdL :: Lens_' OrderCancelSingleRequest (Text)
+orderCancelSingleRequestExchangeIdL f OrderCancelSingleRequest{..} = (\orderCancelSingleRequestExchangeId -> OrderCancelSingleRequest { orderCancelSingleRequestExchangeId, ..} ) <$> f orderCancelSingleRequestExchangeId
+{-# INLINE orderCancelSingleRequestExchangeIdL #-}
+
+-- | 'orderCancelSingleRequestExchangeOrderId' Lens
+orderCancelSingleRequestExchangeOrderIdL :: Lens_' OrderCancelSingleRequest (Maybe Text)
+orderCancelSingleRequestExchangeOrderIdL f OrderCancelSingleRequest{..} = (\orderCancelSingleRequestExchangeOrderId -> OrderCancelSingleRequest { orderCancelSingleRequestExchangeOrderId, ..} ) <$> f orderCancelSingleRequestExchangeOrderId
+{-# INLINE orderCancelSingleRequestExchangeOrderIdL #-}
+
+-- | 'orderCancelSingleRequestClientOrderId' Lens
+orderCancelSingleRequestClientOrderIdL :: Lens_' OrderCancelSingleRequest (Maybe Text)
+orderCancelSingleRequestClientOrderIdL f OrderCancelSingleRequest{..} = (\orderCancelSingleRequestClientOrderId -> OrderCancelSingleRequest { orderCancelSingleRequestClientOrderId, ..} ) <$> f orderCancelSingleRequestClientOrderId
+{-# INLINE orderCancelSingleRequestClientOrderIdL #-}
 
 
 
@@ -338,6 +279,65 @@ orderExecutionReportAllOfTimeOrderL f OrderExecutionReportAllOf{..} = (\orderExe
 orderExecutionReportAllOfErrorMessageL :: Lens_' OrderExecutionReportAllOf (Maybe Text)
 orderExecutionReportAllOfErrorMessageL f OrderExecutionReportAllOf{..} = (\orderExecutionReportAllOfErrorMessage -> OrderExecutionReportAllOf { orderExecutionReportAllOfErrorMessage, ..} ) <$> f orderExecutionReportAllOfErrorMessage
 {-# INLINE orderExecutionReportAllOfErrorMessageL #-}
+
+
+
+-- * OrderNewSingleRequest
+
+-- | 'orderNewSingleRequestExchangeId' Lens
+orderNewSingleRequestExchangeIdL :: Lens_' OrderNewSingleRequest (Text)
+orderNewSingleRequestExchangeIdL f OrderNewSingleRequest{..} = (\orderNewSingleRequestExchangeId -> OrderNewSingleRequest { orderNewSingleRequestExchangeId, ..} ) <$> f orderNewSingleRequestExchangeId
+{-# INLINE orderNewSingleRequestExchangeIdL #-}
+
+-- | 'orderNewSingleRequestClientOrderId' Lens
+orderNewSingleRequestClientOrderIdL :: Lens_' OrderNewSingleRequest (Text)
+orderNewSingleRequestClientOrderIdL f OrderNewSingleRequest{..} = (\orderNewSingleRequestClientOrderId -> OrderNewSingleRequest { orderNewSingleRequestClientOrderId, ..} ) <$> f orderNewSingleRequestClientOrderId
+{-# INLINE orderNewSingleRequestClientOrderIdL #-}
+
+-- | 'orderNewSingleRequestSymbolExchange' Lens
+orderNewSingleRequestSymbolExchangeL :: Lens_' OrderNewSingleRequest (Maybe Text)
+orderNewSingleRequestSymbolExchangeL f OrderNewSingleRequest{..} = (\orderNewSingleRequestSymbolExchange -> OrderNewSingleRequest { orderNewSingleRequestSymbolExchange, ..} ) <$> f orderNewSingleRequestSymbolExchange
+{-# INLINE orderNewSingleRequestSymbolExchangeL #-}
+
+-- | 'orderNewSingleRequestSymbolCoinapi' Lens
+orderNewSingleRequestSymbolCoinapiL :: Lens_' OrderNewSingleRequest (Maybe Text)
+orderNewSingleRequestSymbolCoinapiL f OrderNewSingleRequest{..} = (\orderNewSingleRequestSymbolCoinapi -> OrderNewSingleRequest { orderNewSingleRequestSymbolCoinapi, ..} ) <$> f orderNewSingleRequestSymbolCoinapi
+{-# INLINE orderNewSingleRequestSymbolCoinapiL #-}
+
+-- | 'orderNewSingleRequestAmountOrder' Lens
+orderNewSingleRequestAmountOrderL :: Lens_' OrderNewSingleRequest (Double)
+orderNewSingleRequestAmountOrderL f OrderNewSingleRequest{..} = (\orderNewSingleRequestAmountOrder -> OrderNewSingleRequest { orderNewSingleRequestAmountOrder, ..} ) <$> f orderNewSingleRequestAmountOrder
+{-# INLINE orderNewSingleRequestAmountOrderL #-}
+
+-- | 'orderNewSingleRequestPrice' Lens
+orderNewSingleRequestPriceL :: Lens_' OrderNewSingleRequest (Double)
+orderNewSingleRequestPriceL f OrderNewSingleRequest{..} = (\orderNewSingleRequestPrice -> OrderNewSingleRequest { orderNewSingleRequestPrice, ..} ) <$> f orderNewSingleRequestPrice
+{-# INLINE orderNewSingleRequestPriceL #-}
+
+-- | 'orderNewSingleRequestSide' Lens
+orderNewSingleRequestSideL :: Lens_' OrderNewSingleRequest (OrdSide)
+orderNewSingleRequestSideL f OrderNewSingleRequest{..} = (\orderNewSingleRequestSide -> OrderNewSingleRequest { orderNewSingleRequestSide, ..} ) <$> f orderNewSingleRequestSide
+{-# INLINE orderNewSingleRequestSideL #-}
+
+-- | 'orderNewSingleRequestOrderType' Lens
+orderNewSingleRequestOrderTypeL :: Lens_' OrderNewSingleRequest (OrdType)
+orderNewSingleRequestOrderTypeL f OrderNewSingleRequest{..} = (\orderNewSingleRequestOrderType -> OrderNewSingleRequest { orderNewSingleRequestOrderType, ..} ) <$> f orderNewSingleRequestOrderType
+{-# INLINE orderNewSingleRequestOrderTypeL #-}
+
+-- | 'orderNewSingleRequestTimeInForce' Lens
+orderNewSingleRequestTimeInForceL :: Lens_' OrderNewSingleRequest (TimeInForce)
+orderNewSingleRequestTimeInForceL f OrderNewSingleRequest{..} = (\orderNewSingleRequestTimeInForce -> OrderNewSingleRequest { orderNewSingleRequestTimeInForce, ..} ) <$> f orderNewSingleRequestTimeInForce
+{-# INLINE orderNewSingleRequestTimeInForceL #-}
+
+-- | 'orderNewSingleRequestExpireTime' Lens
+orderNewSingleRequestExpireTimeL :: Lens_' OrderNewSingleRequest (Maybe Date)
+orderNewSingleRequestExpireTimeL f OrderNewSingleRequest{..} = (\orderNewSingleRequestExpireTime -> OrderNewSingleRequest { orderNewSingleRequestExpireTime, ..} ) <$> f orderNewSingleRequestExpireTime
+{-# INLINE orderNewSingleRequestExpireTimeL #-}
+
+-- | 'orderNewSingleRequestExecInst' Lens
+orderNewSingleRequestExecInstL :: Lens_' OrderNewSingleRequest (Maybe [E'ExecInst])
+orderNewSingleRequestExecInstL f OrderNewSingleRequest{..} = (\orderNewSingleRequestExecInst -> OrderNewSingleRequest { orderNewSingleRequestExecInst, ..} ) <$> f orderNewSingleRequestExecInst
+{-# INLINE orderNewSingleRequestExecInstL #-}
 
 
 

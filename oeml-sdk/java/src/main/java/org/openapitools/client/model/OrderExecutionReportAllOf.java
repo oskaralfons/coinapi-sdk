@@ -32,7 +32,7 @@ import org.openapitools.client.model.OrdStatus;
  * The order execution report message.
  */
 @ApiModel(description = "The order execution report message.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T13:50:38.482Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T15:10:31.759Z[Etc/UTC]")
 public class OrderExecutionReportAllOf {
   public static final String SERIALIZED_NAME_CLIENT_ORDER_ID_FORMAT_EXCHANGE = "client_order_id_format_exchange";
   @SerializedName(SERIALIZED_NAME_CLIENT_ORDER_ID_FORMAT_EXCHANGE)
@@ -115,10 +115,10 @@ public class OrderExecutionReportAllOf {
   }
 
    /**
-   * Amount open
+   * Amount open.
    * @return amountOpen
   **/
-  @ApiModelProperty(example = "0.22", required = true, value = "Amount open")
+  @ApiModelProperty(example = "0.22", required = true, value = "Amount open.")
 
   public BigDecimal getAmountOpen() {
     return amountOpen;
@@ -137,10 +137,10 @@ public class OrderExecutionReportAllOf {
   }
 
    /**
-   * Amount filled
+   * Amount filled.
    * @return amountFilled
   **/
-  @ApiModelProperty(example = "0.0", required = true, value = "Amount filled")
+  @ApiModelProperty(example = "0.0", required = true, value = "Amount filled.")
 
   public BigDecimal getAmountFilled() {
     return amountFilled;

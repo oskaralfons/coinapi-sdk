@@ -62,9 +62,9 @@ public class OrderExecutionReportAllOf {
   }
 
   /**
-   * Amount open
+   * Amount open.
    **/
-  @ApiModelProperty(required = true, value = "Amount open")
+  @ApiModelProperty(required = true, value = "Amount open.")
   public BigDecimal getAmountOpen() {
     return amountOpen;
   }
@@ -73,9 +73,9 @@ public class OrderExecutionReportAllOf {
   }
 
   /**
-   * Amount filled
+   * Amount filled.
    **/
-  @ApiModelProperty(required = true, value = "Amount filled")
+  @ApiModelProperty(required = true, value = "Amount filled.")
   public BigDecimal getAmountFilled() {
     return amountFilled;
   }

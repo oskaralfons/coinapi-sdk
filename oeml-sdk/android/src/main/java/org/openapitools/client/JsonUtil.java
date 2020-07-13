@@ -65,20 +65,8 @@ public class JsonUtil {
       return new TypeToken<List<BalanceData>>(){}.getType();
     }
     
-    if ("CancelOrderAllRequest".equalsIgnoreCase(className)) {
-      return new TypeToken<List<CancelOrderAllRequest>>(){}.getType();
-    }
-    
-    if ("CancelOrderSingleRequest".equalsIgnoreCase(className)) {
-      return new TypeToken<List<CancelOrderSingleRequest>>(){}.getType();
-    }
-    
     if ("Message".equalsIgnoreCase(className)) {
       return new TypeToken<List<Message>>(){}.getType();
-    }
-    
-    if ("NewOrderSingle".equalsIgnoreCase(className)) {
-      return new TypeToken<List<NewOrderSingle>>(){}.getType();
     }
     
     if ("OrdSide".equalsIgnoreCase(className)) {
@@ -93,12 +81,24 @@ public class JsonUtil {
       return new TypeToken<List<OrdType>>(){}.getType();
     }
     
+    if ("OrderCancelAllRequest".equalsIgnoreCase(className)) {
+      return new TypeToken<List<OrderCancelAllRequest>>(){}.getType();
+    }
+    
+    if ("OrderCancelSingleRequest".equalsIgnoreCase(className)) {
+      return new TypeToken<List<OrderCancelSingleRequest>>(){}.getType();
+    }
+    
     if ("OrderExecutionReport".equalsIgnoreCase(className)) {
       return new TypeToken<List<OrderExecutionReport>>(){}.getType();
     }
     
     if ("OrderExecutionReportAllOf".equalsIgnoreCase(className)) {
       return new TypeToken<List<OrderExecutionReportAllOf>>(){}.getType();
+    }
+    
+    if ("OrderNewSingleRequest".equalsIgnoreCase(className)) {
+      return new TypeToken<List<OrderNewSingleRequest>>(){}.getType();
     }
     
     if ("Position".equalsIgnoreCase(className)) {
@@ -135,20 +135,8 @@ public class JsonUtil {
       return new TypeToken<BalanceData>(){}.getType();
     }
     
-    if ("CancelOrderAllRequest".equalsIgnoreCase(className)) {
-      return new TypeToken<CancelOrderAllRequest>(){}.getType();
-    }
-    
-    if ("CancelOrderSingleRequest".equalsIgnoreCase(className)) {
-      return new TypeToken<CancelOrderSingleRequest>(){}.getType();
-    }
-    
     if ("Message".equalsIgnoreCase(className)) {
       return new TypeToken<Message>(){}.getType();
-    }
-    
-    if ("NewOrderSingle".equalsIgnoreCase(className)) {
-      return new TypeToken<NewOrderSingle>(){}.getType();
     }
     
     if ("OrdSide".equalsIgnoreCase(className)) {
@@ -163,12 +151,24 @@ public class JsonUtil {
       return new TypeToken<OrdType>(){}.getType();
     }
     
+    if ("OrderCancelAllRequest".equalsIgnoreCase(className)) {
+      return new TypeToken<OrderCancelAllRequest>(){}.getType();
+    }
+    
+    if ("OrderCancelSingleRequest".equalsIgnoreCase(className)) {
+      return new TypeToken<OrderCancelSingleRequest>(){}.getType();
+    }
+    
     if ("OrderExecutionReport".equalsIgnoreCase(className)) {
       return new TypeToken<OrderExecutionReport>(){}.getType();
     }
     
     if ("OrderExecutionReportAllOf".equalsIgnoreCase(className)) {
       return new TypeToken<OrderExecutionReportAllOf>(){}.getType();
+    }
+    
+    if ("OrderNewSingleRequest".equalsIgnoreCase(className)) {
+      return new TypeToken<OrderNewSingleRequest>(){}.getType();
     }
     
     if ("Position".equalsIgnoreCase(className)) {

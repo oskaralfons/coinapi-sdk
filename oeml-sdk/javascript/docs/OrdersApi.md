@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## v1OrdersCancelAllPost
 
-> Message v1OrdersCancelAllPost(cancelOrderAllRequest)
+> Message v1OrdersCancelAllPost(orderCancelAllRequest)
 
 Cancel all orders request
 
@@ -26,8 +26,8 @@ This request cancels all open orders on single specified exchange.
 import OemlRestApi from 'oeml_rest_api';
 
 let apiInstance = new OemlRestApi.OrdersApi();
-let cancelOrderAllRequest = new OemlRestApi.CancelOrderAllRequest(); // CancelOrderAllRequest | CancelOrderAllRequest object.
-apiInstance.v1OrdersCancelAllPost(cancelOrderAllRequest, (error, data, response) => {
+let orderCancelAllRequest = new OemlRestApi.OrderCancelAllRequest(); // OrderCancelAllRequest | OrderCancelAllRequest object.
+apiInstance.v1OrdersCancelAllPost(orderCancelAllRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -41,7 +41,7 @@ apiInstance.v1OrdersCancelAllPost(cancelOrderAllRequest, (error, data, response)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelOrderAllRequest** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)| CancelOrderAllRequest object. | 
+ **orderCancelAllRequest** | [**OrderCancelAllRequest**](OrderCancelAllRequest.md)| OrderCancelAllRequest object. | 
 
 ### Return type
 
@@ -59,7 +59,7 @@ No authorization required
 
 ## v1OrdersCancelPost
 
-> OrderExecutionReport v1OrdersCancelPost(cancelOrderSingleRequest)
+> OrderExecutionReport v1OrdersCancelPost(orderCancelSingleRequest)
 
 Cancel order request
 
@@ -71,8 +71,8 @@ Request cancel for an existing order. The order can be canceled using the &#x60;
 import OemlRestApi from 'oeml_rest_api';
 
 let apiInstance = new OemlRestApi.OrdersApi();
-let cancelOrderSingleRequest = new OemlRestApi.CancelOrderSingleRequest(); // CancelOrderSingleRequest | CancelOrderSingleRequest object.
-apiInstance.v1OrdersCancelPost(cancelOrderSingleRequest, (error, data, response) => {
+let orderCancelSingleRequest = new OemlRestApi.OrderCancelSingleRequest(); // OrderCancelSingleRequest | OrderCancelSingleRequest object.
+apiInstance.v1OrdersCancelPost(orderCancelSingleRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -86,7 +86,7 @@ apiInstance.v1OrdersCancelPost(cancelOrderSingleRequest, (error, data, response)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelOrderSingleRequest** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)| CancelOrderSingleRequest object. | 
+ **orderCancelSingleRequest** | [**OrderCancelSingleRequest**](OrderCancelSingleRequest.md)| OrderCancelSingleRequest object. | 
 
 ### Return type
 
@@ -151,7 +151,7 @@ No authorization required
 
 ## v1OrdersPost
 
-> OrderExecutionReport v1OrdersPost(newOrderSingle)
+> OrderExecutionReport v1OrdersPost(orderNewSingleRequest)
 
 Send new order
 
@@ -163,8 +163,8 @@ This request creating new order for the specific exchange.
 import OemlRestApi from 'oeml_rest_api';
 
 let apiInstance = new OemlRestApi.OrdersApi();
-let newOrderSingle = new OemlRestApi.NewOrderSingle(); // NewOrderSingle | NewOrderSingle object.
-apiInstance.v1OrdersPost(newOrderSingle, (error, data, response) => {
+let orderNewSingleRequest = new OemlRestApi.OrderNewSingleRequest(); // OrderNewSingleRequest | OrderNewSingleRequest object.
+apiInstance.v1OrdersPost(orderNewSingleRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -178,7 +178,7 @@ apiInstance.v1OrdersPost(newOrderSingle, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)| NewOrderSingle object. | 
+ **orderNewSingleRequest** | [**OrderNewSingleRequest**](OrderNewSingleRequest.md)| OrderNewSingleRequest object. | 
 
 ### Return type
 

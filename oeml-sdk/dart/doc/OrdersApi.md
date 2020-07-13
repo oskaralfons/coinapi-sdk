@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **v1OrdersCancelAllPost**
-> Message v1OrdersCancelAllPost(cancelOrderAllRequest)
+> Message v1OrdersCancelAllPost(orderCancelAllRequest)
 
 Cancel all orders request
 
@@ -28,10 +28,10 @@ This request cancels all open orders on single specified exchange.
 import 'package:openapi/api.dart';
 
 var api_instance = OrdersApi();
-var cancelOrderAllRequest = CancelOrderAllRequest(); // CancelOrderAllRequest | CancelOrderAllRequest object.
+var orderCancelAllRequest = OrderCancelAllRequest(); // OrderCancelAllRequest | OrderCancelAllRequest object.
 
 try { 
-    var result = api_instance.v1OrdersCancelAllPost(cancelOrderAllRequest);
+    var result = api_instance.v1OrdersCancelAllPost(orderCancelAllRequest);
     print(result);
 } catch (e) {
     print("Exception when calling OrdersApi->v1OrdersCancelAllPost: $e\n");
@@ -42,7 +42,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelOrderAllRequest** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)| CancelOrderAllRequest object. | 
+ **orderCancelAllRequest** | [**OrderCancelAllRequest**](OrderCancelAllRequest.md)| OrderCancelAllRequest object. | 
 
 ### Return type
 
@@ -60,7 +60,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1OrdersCancelPost**
-> OrderExecutionReport v1OrdersCancelPost(cancelOrderSingleRequest)
+> OrderExecutionReport v1OrdersCancelPost(orderCancelSingleRequest)
 
 Cancel order request
 
@@ -71,10 +71,10 @@ Request cancel for an existing order. The order can be canceled using the `clien
 import 'package:openapi/api.dart';
 
 var api_instance = OrdersApi();
-var cancelOrderSingleRequest = CancelOrderSingleRequest(); // CancelOrderSingleRequest | CancelOrderSingleRequest object.
+var orderCancelSingleRequest = OrderCancelSingleRequest(); // OrderCancelSingleRequest | OrderCancelSingleRequest object.
 
 try { 
-    var result = api_instance.v1OrdersCancelPost(cancelOrderSingleRequest);
+    var result = api_instance.v1OrdersCancelPost(orderCancelSingleRequest);
     print(result);
 } catch (e) {
     print("Exception when calling OrdersApi->v1OrdersCancelPost: $e\n");
@@ -85,7 +85,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelOrderSingleRequest** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)| CancelOrderSingleRequest object. | 
+ **orderCancelSingleRequest** | [**OrderCancelSingleRequest**](OrderCancelSingleRequest.md)| OrderCancelSingleRequest object. | 
 
 ### Return type
 
@@ -146,7 +146,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1OrdersPost**
-> OrderExecutionReport v1OrdersPost(newOrderSingle)
+> OrderExecutionReport v1OrdersPost(orderNewSingleRequest)
 
 Send new order
 
@@ -157,10 +157,10 @@ This request creating new order for the specific exchange.
 import 'package:openapi/api.dart';
 
 var api_instance = OrdersApi();
-var newOrderSingle = NewOrderSingle(); // NewOrderSingle | NewOrderSingle object.
+var orderNewSingleRequest = OrderNewSingleRequest(); // OrderNewSingleRequest | OrderNewSingleRequest object.
 
 try { 
-    var result = api_instance.v1OrdersPost(newOrderSingle);
+    var result = api_instance.v1OrdersPost(orderNewSingleRequest);
     print(result);
 } catch (e) {
     print("Exception when calling OrdersApi->v1OrdersPost: $e\n");
@@ -171,7 +171,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)| NewOrderSingle object. | 
+ **orderNewSingleRequest** | [**OrderNewSingleRequest**](OrderNewSingleRequest.md)| OrderNewSingleRequest object. | 
 
 ### Return type
 

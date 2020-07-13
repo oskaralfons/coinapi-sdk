@@ -2,8 +2,8 @@
             import 'package:openapi/model/ord_status.dart';
             import 'package:built_collection/built_collection.dart';
             import 'package:openapi/model/time_in_force.dart';
+            import 'package:openapi/model/order_new_single_request.dart';
             import 'package:openapi/model/ord_type.dart';
-            import 'package:openapi/model/new_order_single.dart';
             import 'package:openapi/model/order_execution_report_all_of.dart';
         import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -68,11 +68,11 @@ abstract class OrderExecutionReport implements Built<OrderExecutionReport, Order
         @nullable
     @BuiltValueField(wireName: r'exchange_order_id')
     String get exchangeOrderId;
-    /* Amount open */
+    /* Amount open. */
         @nullable
     @BuiltValueField(wireName: r'amount_open')
     num get amountOpen;
-    /* Amount filled */
+    /* Amount filled. */
         @nullable
     @BuiltValueField(wireName: r'amount_filled')
     num get amountFilled;

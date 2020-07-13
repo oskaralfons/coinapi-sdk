@@ -17,15 +17,15 @@ from __future__ import absolute_import
 # import models into model package
 from openapi_client.models.balance import Balance
 from openapi_client.models.balance_data import BalanceData
-from openapi_client.models.cancel_order_all_request import CancelOrderAllRequest
-from openapi_client.models.cancel_order_single_request import CancelOrderSingleRequest
 from openapi_client.models.message import Message
-from openapi_client.models.new_order_single import NewOrderSingle
 from openapi_client.models.ord_side import OrdSide
 from openapi_client.models.ord_status import OrdStatus
 from openapi_client.models.ord_type import OrdType
+from openapi_client.models.order_cancel_all_request import OrderCancelAllRequest
+from openapi_client.models.order_cancel_single_request import OrderCancelSingleRequest
 from openapi_client.models.order_execution_report import OrderExecutionReport
 from openapi_client.models.order_execution_report_all_of import OrderExecutionReportAllOf
+from openapi_client.models.order_new_single_request import OrderNewSingleRequest
 from openapi_client.models.position import Position
 from openapi_client.models.position_data import PositionData
 from openapi_client.models.severity import Severity

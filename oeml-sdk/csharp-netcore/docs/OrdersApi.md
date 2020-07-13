@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="v1orderscancelallpost"></a>
 # **V1OrdersCancelAllPost**
-> Message V1OrdersCancelAllPost (CancelOrderAllRequest cancelOrderAllRequest)
+> Message V1OrdersCancelAllPost (OrderCancelAllRequest orderCancelAllRequest)
 
 Cancel all orders request
 
@@ -36,12 +36,12 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "http://localhost:8080";
             var apiInstance = new OrdersApi(config);
-            var cancelOrderAllRequest = new CancelOrderAllRequest(); // CancelOrderAllRequest | CancelOrderAllRequest object.
+            var orderCancelAllRequest = new OrderCancelAllRequest(); // OrderCancelAllRequest | OrderCancelAllRequest object.
 
             try
             {
                 // Cancel all orders request
-                Message result = apiInstance.V1OrdersCancelAllPost(cancelOrderAllRequest);
+                Message result = apiInstance.V1OrdersCancelAllPost(orderCancelAllRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -59,7 +59,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelOrderAllRequest** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)| CancelOrderAllRequest object. | 
+ **orderCancelAllRequest** | [**OrderCancelAllRequest**](OrderCancelAllRequest.md)| OrderCancelAllRequest object. | 
 
 ### Return type
 
@@ -85,7 +85,7 @@ No authorization required
 
 <a name="v1orderscancelpost"></a>
 # **V1OrdersCancelPost**
-> OrderExecutionReport V1OrdersCancelPost (CancelOrderSingleRequest cancelOrderSingleRequest)
+> OrderExecutionReport V1OrdersCancelPost (OrderCancelSingleRequest orderCancelSingleRequest)
 
 Cancel order request
 
@@ -108,12 +108,12 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "http://localhost:8080";
             var apiInstance = new OrdersApi(config);
-            var cancelOrderSingleRequest = new CancelOrderSingleRequest(); // CancelOrderSingleRequest | CancelOrderSingleRequest object.
+            var orderCancelSingleRequest = new OrderCancelSingleRequest(); // OrderCancelSingleRequest | OrderCancelSingleRequest object.
 
             try
             {
                 // Cancel order request
-                OrderExecutionReport result = apiInstance.V1OrdersCancelPost(cancelOrderSingleRequest);
+                OrderExecutionReport result = apiInstance.V1OrdersCancelPost(orderCancelSingleRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -131,7 +131,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelOrderSingleRequest** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)| CancelOrderSingleRequest object. | 
+ **orderCancelSingleRequest** | [**OrderCancelSingleRequest**](OrderCancelSingleRequest.md)| OrderCancelSingleRequest object. | 
 
 ### Return type
 
@@ -228,7 +228,7 @@ No authorization required
 
 <a name="v1orderspost"></a>
 # **V1OrdersPost**
-> OrderExecutionReport V1OrdersPost (NewOrderSingle newOrderSingle)
+> OrderExecutionReport V1OrdersPost (OrderNewSingleRequest orderNewSingleRequest)
 
 Send new order
 
@@ -251,12 +251,12 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "http://localhost:8080";
             var apiInstance = new OrdersApi(config);
-            var newOrderSingle = new NewOrderSingle(); // NewOrderSingle | NewOrderSingle object.
+            var orderNewSingleRequest = new OrderNewSingleRequest(); // OrderNewSingleRequest | OrderNewSingleRequest object.
 
             try
             {
                 // Send new order
-                OrderExecutionReport result = apiInstance.V1OrdersPost(newOrderSingle);
+                OrderExecutionReport result = apiInstance.V1OrdersPost(orderNewSingleRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -274,7 +274,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)| NewOrderSingle object. | 
+ **orderNewSingleRequest** | [**OrderNewSingleRequest**](OrderNewSingleRequest.md)| OrderNewSingleRequest object. | 
 
 ### Return type
 

@@ -6,11 +6,11 @@ import org.openapitools.exception.ApiError;
 import org.openapitools.common.ApiUserCredentials;
 import org.openapitools.event.Response;
 import org.openapitools.common.OpenApi;
-import org.openapitools.client.model.CancelOrderAllRequest;
-import org.openapitools.client.model.CancelOrderSingleRequest;
 import org.openapitools.client.model.Message;
-import org.openapitools.client.model.NewOrderSingle;
+import org.openapitools.client.model.OrderCancelAllRequest;
+import org.openapitools.client.model.OrderCancelSingleRequest;
 import org.openapitools.client.model.OrderExecutionReport;
+import org.openapitools.client.model.OrderNewSingleRequest;
 import org.openapitools.client.model.ValidationError;
 
 import mx.rpc.AsyncToken;
@@ -38,7 +38,7 @@ public class OrdersApi extends OpenApi {
     /*
      * Returns Message 
      */
-    public function v1_orders_cancel_all_post (cancelOrderAllRequest: CancelOrderAllRequest): String {
+    public function v1_orders_cancel_all_post (orderCancelAllRequest: OrderCancelAllRequest): String {
         // create path and map variables
         var path: String = "/v1/orders/cancel/all".replace(/{format}/g,"xml");
 
@@ -53,7 +53,7 @@ public class OrdersApi extends OpenApi {
 
         
         
-        var token:AsyncToken = getApiInvoker().invokeAPI(path, "POST", queryParams, cancelOrderAllRequest, headerParams);
+        var token:AsyncToken = getApiInvoker().invokeAPI(path, "POST", queryParams, orderCancelAllRequest, headerParams);
 
         var requestId: String = getUniqueId();
 
@@ -68,7 +68,7 @@ public class OrdersApi extends OpenApi {
     /*
      * Returns OrderExecutionReport 
      */
-    public function v1_orders_cancel_post (cancelOrderSingleRequest: CancelOrderSingleRequest): String {
+    public function v1_orders_cancel_post (orderCancelSingleRequest: OrderCancelSingleRequest): String {
         // create path and map variables
         var path: String = "/v1/orders/cancel".replace(/{format}/g,"xml");
 
@@ -83,7 +83,7 @@ public class OrdersApi extends OpenApi {
 
         
         
-        var token:AsyncToken = getApiInvoker().invokeAPI(path, "POST", queryParams, cancelOrderSingleRequest, headerParams);
+        var token:AsyncToken = getApiInvoker().invokeAPI(path, "POST", queryParams, orderCancelSingleRequest, headerParams);
 
         var requestId: String = getUniqueId();
 
@@ -130,7 +130,7 @@ public class OrdersApi extends OpenApi {
     /*
      * Returns OrderExecutionReport 
      */
-    public function v1_orders_post (newOrderSingle: NewOrderSingle): String {
+    public function v1_orders_post (orderNewSingleRequest: OrderNewSingleRequest): String {
         // create path and map variables
         var path: String = "/v1/orders".replace(/{format}/g,"xml");
 
@@ -145,7 +145,7 @@ public class OrdersApi extends OpenApi {
 
         
         
-        var token:AsyncToken = getApiInvoker().invokeAPI(path, "POST", queryParams, newOrderSingle, headerParams);
+        var token:AsyncToken = getApiInvoker().invokeAPI(path, "POST", queryParams, orderNewSingleRequest, headerParams);
 
         var requestId: String = getUniqueId();
 

@@ -6,11 +6,11 @@ import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import org.openapitools.model.NewOrderSingle;
 import org.openapitools.model.OrdSide;
 import org.openapitools.model.OrdStatus;
 import org.openapitools.model.OrdType;
 import org.openapitools.model.OrderExecutionReportAllOf;
+import org.openapitools.model.OrderNewSingleRequest;
 import org.openapitools.model.TimeInForce;
 
 @Canonical
@@ -41,9 +41,9 @@ class OrderExecutionReport {
     String clientOrderIdFormatExchange
     /* The unique identifier of the order assigned by the exchange. */
     String exchangeOrderId
-    /* Amount open */
+    /* Amount open. */
     BigDecimal amountOpen
-    /* Amount filled */
+    /* Amount filled. */
     BigDecimal amountFilled
     
     OrdStatus status

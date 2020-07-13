@@ -156,74 +156,6 @@ mkBalanceData =
   , balanceDataUpdateOrigin = Nothing
   }
 
--- ** CancelOrderAllRequest
--- | CancelOrderAllRequest
--- Cancel all orders request object.
-data CancelOrderAllRequest = CancelOrderAllRequest
-  { cancelOrderAllRequestExchangeId :: !(Text) -- ^ /Required/ "exchange_id" - Identifier of the exchange from which active orders should be canceled.
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON CancelOrderAllRequest
-instance A.FromJSON CancelOrderAllRequest where
-  parseJSON = A.withObject "CancelOrderAllRequest" $ \o ->
-    CancelOrderAllRequest
-      <$> (o .:  "exchange_id")
-
--- | ToJSON CancelOrderAllRequest
-instance A.ToJSON CancelOrderAllRequest where
-  toJSON CancelOrderAllRequest {..} =
-   _omitNulls
-      [ "exchange_id" .= cancelOrderAllRequestExchangeId
-      ]
-
-
--- | Construct a value of type 'CancelOrderAllRequest' (by applying it's required fields, if any)
-mkCancelOrderAllRequest
-  :: Text -- ^ 'cancelOrderAllRequestExchangeId': Identifier of the exchange from which active orders should be canceled.
-  -> CancelOrderAllRequest
-mkCancelOrderAllRequest cancelOrderAllRequestExchangeId =
-  CancelOrderAllRequest
-  { cancelOrderAllRequestExchangeId
-  }
-
--- ** CancelOrderSingleRequest
--- | CancelOrderSingleRequest
--- Cancel single order request object.
-data CancelOrderSingleRequest = CancelOrderSingleRequest
-  { cancelOrderSingleRequestExchangeId :: !(Text) -- ^ /Required/ "exchange_id" - Exchange identifier.
-  , cancelOrderSingleRequestExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - The unique identifier of the order assigned by the exchange. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order.
-  , cancelOrderSingleRequestClientOrderId :: !(Maybe Text) -- ^ "client_order_id" - The unique identifier of the order assigned by the client. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order.
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON CancelOrderSingleRequest
-instance A.FromJSON CancelOrderSingleRequest where
-  parseJSON = A.withObject "CancelOrderSingleRequest" $ \o ->
-    CancelOrderSingleRequest
-      <$> (o .:  "exchange_id")
-      <*> (o .:? "exchange_order_id")
-      <*> (o .:? "client_order_id")
-
--- | ToJSON CancelOrderSingleRequest
-instance A.ToJSON CancelOrderSingleRequest where
-  toJSON CancelOrderSingleRequest {..} =
-   _omitNulls
-      [ "exchange_id" .= cancelOrderSingleRequestExchangeId
-      , "exchange_order_id" .= cancelOrderSingleRequestExchangeOrderId
-      , "client_order_id" .= cancelOrderSingleRequestClientOrderId
-      ]
-
-
--- | Construct a value of type 'CancelOrderSingleRequest' (by applying it's required fields, if any)
-mkCancelOrderSingleRequest
-  :: Text -- ^ 'cancelOrderSingleRequestExchangeId': Exchange identifier.
-  -> CancelOrderSingleRequest
-mkCancelOrderSingleRequest cancelOrderSingleRequestExchangeId =
-  CancelOrderSingleRequest
-  { cancelOrderSingleRequestExchangeId
-  , cancelOrderSingleRequestExchangeOrderId = Nothing
-  , cancelOrderSingleRequestClientOrderId = Nothing
-  }
-
 -- ** Message
 -- | Message
 -- Message object.
@@ -266,80 +198,72 @@ mkMessage =
   , messageMessage = Nothing
   }
 
--- ** NewOrderSingle
--- | NewOrderSingle
--- The new order message.
-data NewOrderSingle = NewOrderSingle
-  { newOrderSingleExchangeId :: !(Text) -- ^ /Required/ "exchange_id" - Exchange identifier.
-  , newOrderSingleClientOrderId :: !(Text) -- ^ /Required/ "client_order_id" - The unique identifier of the order assigned by the client.
-  , newOrderSingleSymbolExchange :: !(Maybe Text) -- ^ "symbol_exchange" - Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order.
-  , newOrderSingleSymbolCoinapi :: !(Maybe Text) -- ^ "symbol_coinapi" - CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order.
-  , newOrderSingleAmountOrder :: !(Double) -- ^ /Required/ "amount_order" - Order quantity.
-  , newOrderSinglePrice :: !(Double) -- ^ /Required/ "price" - Order price.
-  , newOrderSingleSide :: !(OrdSide) -- ^ /Required/ "side"
-  , newOrderSingleOrderType :: !(OrdType) -- ^ /Required/ "order_type"
-  , newOrderSingleTimeInForce :: !(TimeInForce) -- ^ /Required/ "time_in_force"
-  , newOrderSingleExpireTime :: !(Maybe Date) -- ^ "expire_time" - Expiration time. Conditionaly required for orders with time_in_force &#x3D; &#x60;GOOD_TILL_TIME_EXCHANGE&#x60; or &#x60;GOOD_TILL_TIME_OEML&#x60;.
-  , newOrderSingleExecInst :: !(Maybe [E'ExecInst]) -- ^ "exec_inst" - Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; 
+-- ** OrderCancelAllRequest
+-- | OrderCancelAllRequest
+-- Cancel all orders request object.
+data OrderCancelAllRequest = OrderCancelAllRequest
+  { orderCancelAllRequestExchangeId :: !(Text) -- ^ /Required/ "exchange_id" - Identifier of the exchange from which active orders should be canceled.
   } deriving (P.Show, P.Eq, P.Typeable)
 
--- | FromJSON NewOrderSingle
-instance A.FromJSON NewOrderSingle where
-  parseJSON = A.withObject "NewOrderSingle" $ \o ->
-    NewOrderSingle
+-- | FromJSON OrderCancelAllRequest
+instance A.FromJSON OrderCancelAllRequest where
+  parseJSON = A.withObject "OrderCancelAllRequest" $ \o ->
+    OrderCancelAllRequest
       <$> (o .:  "exchange_id")
-      <*> (o .:  "client_order_id")
-      <*> (o .:? "symbol_exchange")
-      <*> (o .:? "symbol_coinapi")
-      <*> (o .:  "amount_order")
-      <*> (o .:  "price")
-      <*> (o .:  "side")
-      <*> (o .:  "order_type")
-      <*> (o .:  "time_in_force")
-      <*> (o .:? "expire_time")
-      <*> (o .:? "exec_inst")
 
--- | ToJSON NewOrderSingle
-instance A.ToJSON NewOrderSingle where
-  toJSON NewOrderSingle {..} =
+-- | ToJSON OrderCancelAllRequest
+instance A.ToJSON OrderCancelAllRequest where
+  toJSON OrderCancelAllRequest {..} =
    _omitNulls
-      [ "exchange_id" .= newOrderSingleExchangeId
-      , "client_order_id" .= newOrderSingleClientOrderId
-      , "symbol_exchange" .= newOrderSingleSymbolExchange
-      , "symbol_coinapi" .= newOrderSingleSymbolCoinapi
-      , "amount_order" .= newOrderSingleAmountOrder
-      , "price" .= newOrderSinglePrice
-      , "side" .= newOrderSingleSide
-      , "order_type" .= newOrderSingleOrderType
-      , "time_in_force" .= newOrderSingleTimeInForce
-      , "expire_time" .= newOrderSingleExpireTime
-      , "exec_inst" .= newOrderSingleExecInst
+      [ "exchange_id" .= orderCancelAllRequestExchangeId
       ]
 
 
--- | Construct a value of type 'NewOrderSingle' (by applying it's required fields, if any)
-mkNewOrderSingle
-  :: Text -- ^ 'newOrderSingleExchangeId': Exchange identifier.
-  -> Text -- ^ 'newOrderSingleClientOrderId': The unique identifier of the order assigned by the client.
-  -> Double -- ^ 'newOrderSingleAmountOrder': Order quantity.
-  -> Double -- ^ 'newOrderSinglePrice': Order price.
-  -> OrdSide -- ^ 'newOrderSingleSide' 
-  -> OrdType -- ^ 'newOrderSingleOrderType' 
-  -> TimeInForce -- ^ 'newOrderSingleTimeInForce' 
-  -> NewOrderSingle
-mkNewOrderSingle newOrderSingleExchangeId newOrderSingleClientOrderId newOrderSingleAmountOrder newOrderSinglePrice newOrderSingleSide newOrderSingleOrderType newOrderSingleTimeInForce =
-  NewOrderSingle
-  { newOrderSingleExchangeId
-  , newOrderSingleClientOrderId
-  , newOrderSingleSymbolExchange = Nothing
-  , newOrderSingleSymbolCoinapi = Nothing
-  , newOrderSingleAmountOrder
-  , newOrderSinglePrice
-  , newOrderSingleSide
-  , newOrderSingleOrderType
-  , newOrderSingleTimeInForce
-  , newOrderSingleExpireTime = Nothing
-  , newOrderSingleExecInst = Nothing
+-- | Construct a value of type 'OrderCancelAllRequest' (by applying it's required fields, if any)
+mkOrderCancelAllRequest
+  :: Text -- ^ 'orderCancelAllRequestExchangeId': Identifier of the exchange from which active orders should be canceled.
+  -> OrderCancelAllRequest
+mkOrderCancelAllRequest orderCancelAllRequestExchangeId =
+  OrderCancelAllRequest
+  { orderCancelAllRequestExchangeId
+  }
+
+-- ** OrderCancelSingleRequest
+-- | OrderCancelSingleRequest
+-- Cancel single order request object.
+data OrderCancelSingleRequest = OrderCancelSingleRequest
+  { orderCancelSingleRequestExchangeId :: !(Text) -- ^ /Required/ "exchange_id" - Exchange identifier.
+  , orderCancelSingleRequestExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - The unique identifier of the order assigned by the exchange. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order.
+  , orderCancelSingleRequestClientOrderId :: !(Maybe Text) -- ^ "client_order_id" - The unique identifier of the order assigned by the client. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order.
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON OrderCancelSingleRequest
+instance A.FromJSON OrderCancelSingleRequest where
+  parseJSON = A.withObject "OrderCancelSingleRequest" $ \o ->
+    OrderCancelSingleRequest
+      <$> (o .:  "exchange_id")
+      <*> (o .:? "exchange_order_id")
+      <*> (o .:? "client_order_id")
+
+-- | ToJSON OrderCancelSingleRequest
+instance A.ToJSON OrderCancelSingleRequest where
+  toJSON OrderCancelSingleRequest {..} =
+   _omitNulls
+      [ "exchange_id" .= orderCancelSingleRequestExchangeId
+      , "exchange_order_id" .= orderCancelSingleRequestExchangeOrderId
+      , "client_order_id" .= orderCancelSingleRequestClientOrderId
+      ]
+
+
+-- | Construct a value of type 'OrderCancelSingleRequest' (by applying it's required fields, if any)
+mkOrderCancelSingleRequest
+  :: Text -- ^ 'orderCancelSingleRequestExchangeId': Exchange identifier.
+  -> OrderCancelSingleRequest
+mkOrderCancelSingleRequest orderCancelSingleRequestExchangeId =
+  OrderCancelSingleRequest
+  { orderCancelSingleRequestExchangeId
+  , orderCancelSingleRequestExchangeOrderId = Nothing
+  , orderCancelSingleRequestClientOrderId = Nothing
   }
 
 -- ** OrderExecutionReport
@@ -359,8 +283,8 @@ data OrderExecutionReport = OrderExecutionReport
   , orderExecutionReportExecInst :: !(Maybe [E'ExecInst]) -- ^ "exec_inst" - Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; 
   , orderExecutionReportClientOrderIdFormatExchange :: !(Text) -- ^ /Required/ "client_order_id_format_exchange" - The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
   , orderExecutionReportExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - The unique identifier of the order assigned by the exchange.
-  , orderExecutionReportAmountOpen :: !(Double) -- ^ /Required/ "amount_open" - Amount open
-  , orderExecutionReportAmountFilled :: !(Double) -- ^ /Required/ "amount_filled" - Amount filled
+  , orderExecutionReportAmountOpen :: !(Double) -- ^ /Required/ "amount_open" - Amount open.
+  , orderExecutionReportAmountFilled :: !(Double) -- ^ /Required/ "amount_filled" - Amount filled.
   , orderExecutionReportStatus :: !(OrdStatus) -- ^ /Required/ "status"
   , orderExecutionReportTimeOrder :: !([[Text]]) -- ^ /Required/ "time_order" - Timestamped history of order status changes.
   , orderExecutionReportErrorMessage :: !(Maybe Text) -- ^ "error_message" - Error message
@@ -424,8 +348,8 @@ mkOrderExecutionReport
   -> OrdType -- ^ 'orderExecutionReportOrderType' 
   -> TimeInForce -- ^ 'orderExecutionReportTimeInForce' 
   -> Text -- ^ 'orderExecutionReportClientOrderIdFormatExchange': The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
-  -> Double -- ^ 'orderExecutionReportAmountOpen': Amount open
-  -> Double -- ^ 'orderExecutionReportAmountFilled': Amount filled
+  -> Double -- ^ 'orderExecutionReportAmountOpen': Amount open.
+  -> Double -- ^ 'orderExecutionReportAmountFilled': Amount filled.
   -> OrdStatus -- ^ 'orderExecutionReportStatus' 
   -> [[Text]] -- ^ 'orderExecutionReportTimeOrder': Timestamped history of order status changes.
   -> OrderExecutionReport
@@ -457,8 +381,8 @@ mkOrderExecutionReport orderExecutionReportExchangeId orderExecutionReportClient
 data OrderExecutionReportAllOf = OrderExecutionReportAllOf
   { orderExecutionReportAllOfClientOrderIdFormatExchange :: !(Text) -- ^ /Required/ "client_order_id_format_exchange" - The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
   , orderExecutionReportAllOfExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - The unique identifier of the order assigned by the exchange.
-  , orderExecutionReportAllOfAmountOpen :: !(Double) -- ^ /Required/ "amount_open" - Amount open
-  , orderExecutionReportAllOfAmountFilled :: !(Double) -- ^ /Required/ "amount_filled" - Amount filled
+  , orderExecutionReportAllOfAmountOpen :: !(Double) -- ^ /Required/ "amount_open" - Amount open.
+  , orderExecutionReportAllOfAmountFilled :: !(Double) -- ^ /Required/ "amount_filled" - Amount filled.
   , orderExecutionReportAllOfStatus :: !(OrdStatus) -- ^ /Required/ "status"
   , orderExecutionReportAllOfTimeOrder :: !([[Text]]) -- ^ /Required/ "time_order" - Timestamped history of order status changes.
   , orderExecutionReportAllOfErrorMessage :: !(Maybe Text) -- ^ "error_message" - Error message
@@ -493,8 +417,8 @@ instance A.ToJSON OrderExecutionReportAllOf where
 -- | Construct a value of type 'OrderExecutionReportAllOf' (by applying it's required fields, if any)
 mkOrderExecutionReportAllOf
   :: Text -- ^ 'orderExecutionReportAllOfClientOrderIdFormatExchange': The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
-  -> Double -- ^ 'orderExecutionReportAllOfAmountOpen': Amount open
-  -> Double -- ^ 'orderExecutionReportAllOfAmountFilled': Amount filled
+  -> Double -- ^ 'orderExecutionReportAllOfAmountOpen': Amount open.
+  -> Double -- ^ 'orderExecutionReportAllOfAmountFilled': Amount filled.
   -> OrdStatus -- ^ 'orderExecutionReportAllOfStatus' 
   -> [[Text]] -- ^ 'orderExecutionReportAllOfTimeOrder': Timestamped history of order status changes.
   -> OrderExecutionReportAllOf
@@ -507,6 +431,82 @@ mkOrderExecutionReportAllOf orderExecutionReportAllOfClientOrderIdFormatExchange
   , orderExecutionReportAllOfStatus
   , orderExecutionReportAllOfTimeOrder
   , orderExecutionReportAllOfErrorMessage = Nothing
+  }
+
+-- ** OrderNewSingleRequest
+-- | OrderNewSingleRequest
+-- The new order message.
+data OrderNewSingleRequest = OrderNewSingleRequest
+  { orderNewSingleRequestExchangeId :: !(Text) -- ^ /Required/ "exchange_id" - Exchange identifier.
+  , orderNewSingleRequestClientOrderId :: !(Text) -- ^ /Required/ "client_order_id" - The unique identifier of the order assigned by the client.
+  , orderNewSingleRequestSymbolExchange :: !(Maybe Text) -- ^ "symbol_exchange" - Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order.
+  , orderNewSingleRequestSymbolCoinapi :: !(Maybe Text) -- ^ "symbol_coinapi" - CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order.
+  , orderNewSingleRequestAmountOrder :: !(Double) -- ^ /Required/ "amount_order" - Order quantity.
+  , orderNewSingleRequestPrice :: !(Double) -- ^ /Required/ "price" - Order price.
+  , orderNewSingleRequestSide :: !(OrdSide) -- ^ /Required/ "side"
+  , orderNewSingleRequestOrderType :: !(OrdType) -- ^ /Required/ "order_type"
+  , orderNewSingleRequestTimeInForce :: !(TimeInForce) -- ^ /Required/ "time_in_force"
+  , orderNewSingleRequestExpireTime :: !(Maybe Date) -- ^ "expire_time" - Expiration time. Conditionaly required for orders with time_in_force &#x3D; &#x60;GOOD_TILL_TIME_EXCHANGE&#x60; or &#x60;GOOD_TILL_TIME_OEML&#x60;.
+  , orderNewSingleRequestExecInst :: !(Maybe [E'ExecInst]) -- ^ "exec_inst" - Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; 
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON OrderNewSingleRequest
+instance A.FromJSON OrderNewSingleRequest where
+  parseJSON = A.withObject "OrderNewSingleRequest" $ \o ->
+    OrderNewSingleRequest
+      <$> (o .:  "exchange_id")
+      <*> (o .:  "client_order_id")
+      <*> (o .:? "symbol_exchange")
+      <*> (o .:? "symbol_coinapi")
+      <*> (o .:  "amount_order")
+      <*> (o .:  "price")
+      <*> (o .:  "side")
+      <*> (o .:  "order_type")
+      <*> (o .:  "time_in_force")
+      <*> (o .:? "expire_time")
+      <*> (o .:? "exec_inst")
+
+-- | ToJSON OrderNewSingleRequest
+instance A.ToJSON OrderNewSingleRequest where
+  toJSON OrderNewSingleRequest {..} =
+   _omitNulls
+      [ "exchange_id" .= orderNewSingleRequestExchangeId
+      , "client_order_id" .= orderNewSingleRequestClientOrderId
+      , "symbol_exchange" .= orderNewSingleRequestSymbolExchange
+      , "symbol_coinapi" .= orderNewSingleRequestSymbolCoinapi
+      , "amount_order" .= orderNewSingleRequestAmountOrder
+      , "price" .= orderNewSingleRequestPrice
+      , "side" .= orderNewSingleRequestSide
+      , "order_type" .= orderNewSingleRequestOrderType
+      , "time_in_force" .= orderNewSingleRequestTimeInForce
+      , "expire_time" .= orderNewSingleRequestExpireTime
+      , "exec_inst" .= orderNewSingleRequestExecInst
+      ]
+
+
+-- | Construct a value of type 'OrderNewSingleRequest' (by applying it's required fields, if any)
+mkOrderNewSingleRequest
+  :: Text -- ^ 'orderNewSingleRequestExchangeId': Exchange identifier.
+  -> Text -- ^ 'orderNewSingleRequestClientOrderId': The unique identifier of the order assigned by the client.
+  -> Double -- ^ 'orderNewSingleRequestAmountOrder': Order quantity.
+  -> Double -- ^ 'orderNewSingleRequestPrice': Order price.
+  -> OrdSide -- ^ 'orderNewSingleRequestSide' 
+  -> OrdType -- ^ 'orderNewSingleRequestOrderType' 
+  -> TimeInForce -- ^ 'orderNewSingleRequestTimeInForce' 
+  -> OrderNewSingleRequest
+mkOrderNewSingleRequest orderNewSingleRequestExchangeId orderNewSingleRequestClientOrderId orderNewSingleRequestAmountOrder orderNewSingleRequestPrice orderNewSingleRequestSide orderNewSingleRequestOrderType orderNewSingleRequestTimeInForce =
+  OrderNewSingleRequest
+  { orderNewSingleRequestExchangeId
+  , orderNewSingleRequestClientOrderId
+  , orderNewSingleRequestSymbolExchange = Nothing
+  , orderNewSingleRequestSymbolCoinapi = Nothing
+  , orderNewSingleRequestAmountOrder
+  , orderNewSingleRequestPrice
+  , orderNewSingleRequestSide
+  , orderNewSingleRequestOrderType
+  , orderNewSingleRequestTimeInForce
+  , orderNewSingleRequestExpireTime = Nothing
+  , orderNewSingleRequestExecInst = Nothing
   }
 
 -- ** Position

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **V1OrdersCancelAllPost**
-> Message V1OrdersCancelAllPost(cancel.order.all.request)
+> Message V1OrdersCancelAllPost(order.cancel.all.request)
 
 Cancel all orders request
 
@@ -22,11 +22,11 @@ This request cancels all open orders on single specified exchange.
 ```R
 library(openapi)
 
-var.cancel.order.all.request <- CancelOrderAllRequest$new("exchange_id_example") # CancelOrderAllRequest | CancelOrderAllRequest object.
+var.order.cancel.all.request <- OrderCancelAllRequest$new("exchange_id_example") # OrderCancelAllRequest | OrderCancelAllRequest object.
 
 #Cancel all orders request
 api.instance <- OrdersApi$new()
-result <- api.instance$V1OrdersCancelAllPost(var.cancel.order.all.request)
+result <- api.instance$V1OrdersCancelAllPost(var.order.cancel.all.request)
 dput(result)
 ```
 
@@ -34,7 +34,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancel.order.all.request** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)| CancelOrderAllRequest object. | 
+ **order.cancel.all.request** | [**OrderCancelAllRequest**](OrderCancelAllRequest.md)| OrderCancelAllRequest object. | 
 
 ### Return type
 
@@ -57,7 +57,7 @@ No authorization required
 | **490** | Exchange is unreachable. |  -  |
 
 # **V1OrdersCancelPost**
-> OrderExecutionReport V1OrdersCancelPost(cancel.order.single.request)
+> OrderExecutionReport V1OrdersCancelPost(order.cancel.single.request)
 
 Cancel order request
 
@@ -67,11 +67,11 @@ Request cancel for an existing order. The order can be canceled using the `clien
 ```R
 library(openapi)
 
-var.cancel.order.single.request <- CancelOrderSingleRequest$new("exchange_id_example", "exchange_order_id_example", "client_order_id_example") # CancelOrderSingleRequest | CancelOrderSingleRequest object.
+var.order.cancel.single.request <- OrderCancelSingleRequest$new("exchange_id_example", "exchange_order_id_example", "client_order_id_example") # OrderCancelSingleRequest | OrderCancelSingleRequest object.
 
 #Cancel order request
 api.instance <- OrdersApi$new()
-result <- api.instance$V1OrdersCancelPost(var.cancel.order.single.request)
+result <- api.instance$V1OrdersCancelPost(var.order.cancel.single.request)
 dput(result)
 ```
 
@@ -79,7 +79,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancel.order.single.request** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)| CancelOrderSingleRequest object. | 
+ **order.cancel.single.request** | [**OrderCancelSingleRequest**](OrderCancelSingleRequest.md)| OrderCancelSingleRequest object. | 
 
 ### Return type
 
@@ -146,7 +146,7 @@ No authorization required
 | **490** | Filtered exchange is unreachable. |  -  |
 
 # **V1OrdersPost**
-> OrderExecutionReport V1OrdersPost(new.order.single)
+> OrderExecutionReport V1OrdersPost(order.new.single.request)
 
 Send new order
 
@@ -156,11 +156,11 @@ This request creating new order for the specific exchange.
 ```R
 library(openapi)
 
-var.new.order.single <- NewOrderSingle$new("exchange_id_example", "client_order_id_example", "symbol_exchange_example", "symbol_coinapi_example", 123, 123, OrdSide$new(), OrdType$new(), TimeInForce$new(), "expire_time_example", list("exec_inst_example")) # NewOrderSingle | NewOrderSingle object.
+var.order.new.single.request <- OrderNewSingleRequest$new("exchange_id_example", "client_order_id_example", "symbol_exchange_example", "symbol_coinapi_example", 123, 123, OrdSide$new(), OrdType$new(), TimeInForce$new(), "expire_time_example", list("exec_inst_example")) # OrderNewSingleRequest | OrderNewSingleRequest object.
 
 #Send new order
 api.instance <- OrdersApi$new()
-result <- api.instance$V1OrdersPost(var.new.order.single)
+result <- api.instance$V1OrdersPost(var.order.new.single.request)
 dput(result)
 ```
 
@@ -168,7 +168,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **new.order.single** | [**NewOrderSingle**](NewOrderSingle.md)| NewOrderSingle object. | 
+ **order.new.single.request** | [**OrderNewSingleRequest**](OrderNewSingleRequest.md)| OrderNewSingleRequest object. | 
 
 ### Return type
 

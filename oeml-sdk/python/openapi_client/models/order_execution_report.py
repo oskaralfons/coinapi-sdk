@@ -447,7 +447,7 @@ class OrderExecutionReport(object):
     def amount_open(self):
         """Gets the amount_open of this OrderExecutionReport.  # noqa: E501
 
-        Amount open  # noqa: E501
+        Amount open.  # noqa: E501
 
         :return: The amount_open of this OrderExecutionReport.  # noqa: E501
         :rtype: float
@@ -458,7 +458,7 @@ class OrderExecutionReport(object):
     def amount_open(self, amount_open):
         """Sets the amount_open of this OrderExecutionReport.
 
-        Amount open  # noqa: E501
+        Amount open.  # noqa: E501
 
         :param amount_open: The amount_open of this OrderExecutionReport.  # noqa: E501
         :type: float
@@ -472,7 +472,7 @@ class OrderExecutionReport(object):
     def amount_filled(self):
         """Gets the amount_filled of this OrderExecutionReport.  # noqa: E501
 
-        Amount filled  # noqa: E501
+        Amount filled.  # noqa: E501
 
         :return: The amount_filled of this OrderExecutionReport.  # noqa: E501
         :rtype: float
@@ -483,7 +483,7 @@ class OrderExecutionReport(object):
     def amount_filled(self, amount_filled):
         """Sets the amount_filled of this OrderExecutionReport.
 
-        Amount filled  # noqa: E501
+        Amount filled.  # noqa: E501
 
         :param amount_filled: The amount_filled of this OrderExecutionReport.  # noqa: E501
         :type: float

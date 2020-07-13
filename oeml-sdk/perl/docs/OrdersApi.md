@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **v1_orders_cancel_all_post**
-> Message v1_orders_cancel_all_post(cancel_order_all_request => $cancel_order_all_request)
+> Message v1_orders_cancel_all_post(order_cancel_all_request => $order_cancel_all_request)
 
 Cancel all orders request
 
@@ -30,10 +30,10 @@ use WWW::OpenAPIClient::OrdersApi;
 my $api_instance = WWW::OpenAPIClient::OrdersApi->new(
 );
 
-my $cancel_order_all_request = WWW::OpenAPIClient::Object::CancelOrderAllRequest->new(); # CancelOrderAllRequest | CancelOrderAllRequest object.
+my $order_cancel_all_request = WWW::OpenAPIClient::Object::OrderCancelAllRequest->new(); # OrderCancelAllRequest | OrderCancelAllRequest object.
 
 eval { 
-    my $result = $api_instance->v1_orders_cancel_all_post(cancel_order_all_request => $cancel_order_all_request);
+    my $result = $api_instance->v1_orders_cancel_all_post(order_cancel_all_request => $order_cancel_all_request);
     print Dumper($result);
 };
 if ($@) {
@@ -45,7 +45,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancel_order_all_request** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)| CancelOrderAllRequest object. | 
+ **order_cancel_all_request** | [**OrderCancelAllRequest**](OrderCancelAllRequest.md)| OrderCancelAllRequest object. | 
 
 ### Return type
 
@@ -63,7 +63,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_orders_cancel_post**
-> OrderExecutionReport v1_orders_cancel_post(cancel_order_single_request => $cancel_order_single_request)
+> OrderExecutionReport v1_orders_cancel_post(order_cancel_single_request => $order_cancel_single_request)
 
 Cancel order request
 
@@ -76,10 +76,10 @@ use WWW::OpenAPIClient::OrdersApi;
 my $api_instance = WWW::OpenAPIClient::OrdersApi->new(
 );
 
-my $cancel_order_single_request = WWW::OpenAPIClient::Object::CancelOrderSingleRequest->new(); # CancelOrderSingleRequest | CancelOrderSingleRequest object.
+my $order_cancel_single_request = WWW::OpenAPIClient::Object::OrderCancelSingleRequest->new(); # OrderCancelSingleRequest | OrderCancelSingleRequest object.
 
 eval { 
-    my $result = $api_instance->v1_orders_cancel_post(cancel_order_single_request => $cancel_order_single_request);
+    my $result = $api_instance->v1_orders_cancel_post(order_cancel_single_request => $order_cancel_single_request);
     print Dumper($result);
 };
 if ($@) {
@@ -91,7 +91,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancel_order_single_request** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)| CancelOrderSingleRequest object. | 
+ **order_cancel_single_request** | [**OrderCancelSingleRequest**](OrderCancelSingleRequest.md)| OrderCancelSingleRequest object. | 
 
 ### Return type
 
@@ -155,7 +155,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_orders_post**
-> OrderExecutionReport v1_orders_post(new_order_single => $new_order_single)
+> OrderExecutionReport v1_orders_post(order_new_single_request => $order_new_single_request)
 
 Send new order
 
@@ -168,10 +168,10 @@ use WWW::OpenAPIClient::OrdersApi;
 my $api_instance = WWW::OpenAPIClient::OrdersApi->new(
 );
 
-my $new_order_single = WWW::OpenAPIClient::Object::NewOrderSingle->new(); # NewOrderSingle | NewOrderSingle object.
+my $order_new_single_request = WWW::OpenAPIClient::Object::OrderNewSingleRequest->new(); # OrderNewSingleRequest | OrderNewSingleRequest object.
 
 eval { 
-    my $result = $api_instance->v1_orders_post(new_order_single => $new_order_single);
+    my $result = $api_instance->v1_orders_post(order_new_single_request => $order_new_single_request);
     print Dumper($result);
 };
 if ($@) {
@@ -183,7 +183,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **new_order_single** | [**NewOrderSingle**](NewOrderSingle.md)| NewOrderSingle object. | 
+ **order_new_single_request** | [**OrderNewSingleRequest**](OrderNewSingleRequest.md)| OrderNewSingleRequest object. | 
 
 ### Return type
 

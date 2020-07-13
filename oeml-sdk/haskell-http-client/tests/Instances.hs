@@ -126,24 +126,6 @@ genBalanceData n =
     <*> arbitraryReducedMaybe n -- balanceDataLocked :: Maybe Float
     <*> arbitraryReducedMaybe n -- balanceDataUpdateOrigin :: Maybe E'UpdateOrigin
   
-instance Arbitrary CancelOrderAllRequest where
-  arbitrary = sized genCancelOrderAllRequest
-
-genCancelOrderAllRequest :: Int -> Gen CancelOrderAllRequest
-genCancelOrderAllRequest n =
-  CancelOrderAllRequest
-    <$> arbitrary -- cancelOrderAllRequestExchangeId :: Text
-  
-instance Arbitrary CancelOrderSingleRequest where
-  arbitrary = sized genCancelOrderSingleRequest
-
-genCancelOrderSingleRequest :: Int -> Gen CancelOrderSingleRequest
-genCancelOrderSingleRequest n =
-  CancelOrderSingleRequest
-    <$> arbitrary -- cancelOrderSingleRequestExchangeId :: Text
-    <*> arbitraryReducedMaybe n -- cancelOrderSingleRequestExchangeOrderId :: Maybe Text
-    <*> arbitraryReducedMaybe n -- cancelOrderSingleRequestClientOrderId :: Maybe Text
-  
 instance Arbitrary Message where
   arbitrary = sized genMessage
 
@@ -155,23 +137,23 @@ genMessage n =
     <*> arbitraryReducedMaybe n -- messageExchangeId :: Maybe Text
     <*> arbitraryReducedMaybe n -- messageMessage :: Maybe Text
   
-instance Arbitrary NewOrderSingle where
-  arbitrary = sized genNewOrderSingle
+instance Arbitrary OrderCancelAllRequest where
+  arbitrary = sized genOrderCancelAllRequest
 
-genNewOrderSingle :: Int -> Gen NewOrderSingle
-genNewOrderSingle n =
-  NewOrderSingle
-    <$> arbitrary -- newOrderSingleExchangeId :: Text
-    <*> arbitrary -- newOrderSingleClientOrderId :: Text
-    <*> arbitraryReducedMaybe n -- newOrderSingleSymbolExchange :: Maybe Text
-    <*> arbitraryReducedMaybe n -- newOrderSingleSymbolCoinapi :: Maybe Text
-    <*> arbitrary -- newOrderSingleAmountOrder :: Double
-    <*> arbitrary -- newOrderSinglePrice :: Double
-    <*> arbitraryReduced n -- newOrderSingleSide :: OrdSide
-    <*> arbitraryReduced n -- newOrderSingleOrderType :: OrdType
-    <*> arbitraryReduced n -- newOrderSingleTimeInForce :: TimeInForce
-    <*> arbitraryReducedMaybe n -- newOrderSingleExpireTime :: Maybe Date
-    <*> arbitraryReducedMaybe n -- newOrderSingleExecInst :: Maybe [E'ExecInst]
+genOrderCancelAllRequest :: Int -> Gen OrderCancelAllRequest
+genOrderCancelAllRequest n =
+  OrderCancelAllRequest
+    <$> arbitrary -- orderCancelAllRequestExchangeId :: Text
+  
+instance Arbitrary OrderCancelSingleRequest where
+  arbitrary = sized genOrderCancelSingleRequest
+
+genOrderCancelSingleRequest :: Int -> Gen OrderCancelSingleRequest
+genOrderCancelSingleRequest n =
+  OrderCancelSingleRequest
+    <$> arbitrary -- orderCancelSingleRequestExchangeId :: Text
+    <*> arbitraryReducedMaybe n -- orderCancelSingleRequestExchangeOrderId :: Maybe Text
+    <*> arbitraryReducedMaybe n -- orderCancelSingleRequestClientOrderId :: Maybe Text
   
 instance Arbitrary OrderExecutionReport where
   arbitrary = sized genOrderExecutionReport
@@ -211,6 +193,24 @@ genOrderExecutionReportAllOf n =
     <*> arbitraryReduced n -- orderExecutionReportAllOfStatus :: OrdStatus
     <*> arbitraryReduced n -- orderExecutionReportAllOfTimeOrder :: [[Text]]
     <*> arbitraryReducedMaybe n -- orderExecutionReportAllOfErrorMessage :: Maybe Text
+  
+instance Arbitrary OrderNewSingleRequest where
+  arbitrary = sized genOrderNewSingleRequest
+
+genOrderNewSingleRequest :: Int -> Gen OrderNewSingleRequest
+genOrderNewSingleRequest n =
+  OrderNewSingleRequest
+    <$> arbitrary -- orderNewSingleRequestExchangeId :: Text
+    <*> arbitrary -- orderNewSingleRequestClientOrderId :: Text
+    <*> arbitraryReducedMaybe n -- orderNewSingleRequestSymbolExchange :: Maybe Text
+    <*> arbitraryReducedMaybe n -- orderNewSingleRequestSymbolCoinapi :: Maybe Text
+    <*> arbitrary -- orderNewSingleRequestAmountOrder :: Double
+    <*> arbitrary -- orderNewSingleRequestPrice :: Double
+    <*> arbitraryReduced n -- orderNewSingleRequestSide :: OrdSide
+    <*> arbitraryReduced n -- orderNewSingleRequestOrderType :: OrdType
+    <*> arbitraryReduced n -- orderNewSingleRequestTimeInForce :: TimeInForce
+    <*> arbitraryReducedMaybe n -- orderNewSingleRequestExpireTime :: Maybe Date
+    <*> arbitraryReducedMaybe n -- orderNewSingleRequestExecInst :: Maybe [E'ExecInst]
   
 instance Arbitrary Position where
   arbitrary = sized genPosition

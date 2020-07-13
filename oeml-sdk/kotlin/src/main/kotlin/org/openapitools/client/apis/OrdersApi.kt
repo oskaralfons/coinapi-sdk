@@ -11,11 +11,11 @@
 */
 package org.openapitools.client.apis
 
-import org.openapitools.client.models.CancelOrderAllRequest
-import org.openapitools.client.models.CancelOrderSingleRequest
 import org.openapitools.client.models.Message
-import org.openapitools.client.models.NewOrderSingle
+import org.openapitools.client.models.OrderCancelAllRequest
+import org.openapitools.client.models.OrderCancelSingleRequest
 import org.openapitools.client.models.OrderExecutionReport
+import org.openapitools.client.models.OrderNewSingleRequest
 import org.openapitools.client.models.ValidationError
 
 import org.openapitools.client.infrastructure.ApiClient
@@ -41,7 +41,7 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
     /**
     * Cancel all orders request
     * This request cancels all open orders on single specified exchange.
-    * @param cancelOrderAllRequest CancelOrderAllRequest object. 
+    * @param orderCancelAllRequest OrderCancelAllRequest object. 
     * @return Message
     * @throws UnsupportedOperationException If the API returns an informational or redirection response
     * @throws ClientException If the API returns a client error response
@@ -49,8 +49,8 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
     */
     @Suppress("UNCHECKED_CAST")
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun v1OrdersCancelAllPost(cancelOrderAllRequest: CancelOrderAllRequest) : Message {
-        val localVariableBody: kotlin.Any? = cancelOrderAllRequest
+    fun v1OrdersCancelAllPost(orderCancelAllRequest: OrderCancelAllRequest) : Message {
+        val localVariableBody: kotlin.Any? = orderCancelAllRequest
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         val localVariableConfig = RequestConfig(
@@ -82,7 +82,7 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
     /**
     * Cancel order request
     * Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
-    * @param cancelOrderSingleRequest CancelOrderSingleRequest object. 
+    * @param orderCancelSingleRequest OrderCancelSingleRequest object. 
     * @return OrderExecutionReport
     * @throws UnsupportedOperationException If the API returns an informational or redirection response
     * @throws ClientException If the API returns a client error response
@@ -90,8 +90,8 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
     */
     @Suppress("UNCHECKED_CAST")
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun v1OrdersCancelPost(cancelOrderSingleRequest: CancelOrderSingleRequest) : OrderExecutionReport {
-        val localVariableBody: kotlin.Any? = cancelOrderSingleRequest
+    fun v1OrdersCancelPost(orderCancelSingleRequest: OrderCancelSingleRequest) : OrderExecutionReport {
+        val localVariableBody: kotlin.Any? = orderCancelSingleRequest
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         val localVariableConfig = RequestConfig(
@@ -169,7 +169,7 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
     /**
     * Send new order
     * This request creating new order for the specific exchange.
-    * @param newOrderSingle NewOrderSingle object. 
+    * @param orderNewSingleRequest OrderNewSingleRequest object. 
     * @return OrderExecutionReport
     * @throws UnsupportedOperationException If the API returns an informational or redirection response
     * @throws ClientException If the API returns a client error response
@@ -177,8 +177,8 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
     */
     @Suppress("UNCHECKED_CAST")
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun v1OrdersPost(newOrderSingle: NewOrderSingle) : OrderExecutionReport {
-        val localVariableBody: kotlin.Any? = newOrderSingle
+    fun v1OrdersPost(orderNewSingleRequest: OrderNewSingleRequest) : OrderExecutionReport {
+        val localVariableBody: kotlin.Any? = orderNewSingleRequest
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         val localVariableConfig = RequestConfig(

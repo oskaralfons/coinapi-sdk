@@ -105,8 +105,8 @@ namespace CoinAPI.OMS.API.SDK.Model
         /// <param name="execInst">Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; .</param>
         /// <param name="clientOrderIdFormatExchange">The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. (required).</param>
         /// <param name="exchangeOrderId">The unique identifier of the order assigned by the exchange..</param>
-        /// <param name="amountOpen">Amount open (required).</param>
-        /// <param name="amountFilled">Amount filled (required).</param>
+        /// <param name="amountOpen">Amount open. (required).</param>
+        /// <param name="amountFilled">Amount filled. (required).</param>
         /// <param name="status">status (required).</param>
         /// <param name="timeOrder">Timestamped history of order status changes. (required).</param>
         /// <param name="errorMessage">Error message.</param>
@@ -200,16 +200,16 @@ namespace CoinAPI.OMS.API.SDK.Model
         public string ExchangeOrderId { get; set; }
 
         /// <summary>
-        /// Amount open
+        /// Amount open.
         /// </summary>
-        /// <value>Amount open</value>
+        /// <value>Amount open.</value>
         [DataMember(Name="amount_open", EmitDefaultValue=false)]
         public decimal AmountOpen { get; set; }
 
         /// <summary>
-        /// Amount filled
+        /// Amount filled.
         /// </summary>
-        /// <value>Amount filled</value>
+        /// <value>Amount filled.</value>
         [DataMember(Name="amount_filled", EmitDefaultValue=false)]
         public decimal AmountFilled { get; set; }
 
