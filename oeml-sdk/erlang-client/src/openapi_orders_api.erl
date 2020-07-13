@@ -52,11 +52,11 @@ v1_orders_cancel_post(Ctx, OpenapiOrderCancelSingleRequest, Optional) ->
 
 %% @doc Get all orders
 %% Get all current open orders across all or single specified exchange.
--spec v1_orders_get(ctx:ctx()) -> {ok, [openapi_new_order:openapi_new_order()], openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+-spec v1_orders_get(ctx:ctx()) -> {ok, [openapi_execution_report:openapi_execution_report()], openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
 v1_orders_get(Ctx) ->
     v1_orders_get(Ctx, #{}).
 
--spec v1_orders_get(ctx:ctx(), maps:map()) -> {ok, [openapi_new_order:openapi_new_order()], openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+-spec v1_orders_get(ctx:ctx(), maps:map()) -> {ok, [openapi_execution_report:openapi_execution_report()], openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
 v1_orders_get(Ctx, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
@@ -73,12 +73,12 @@ v1_orders_get(Ctx, Optional) ->
 
 %% @doc Create new order
 %% This request creating new order for the specific exchange.
--spec v1_orders_post(ctx:ctx(), openapi_new_order:openapi_new_order()) -> {ok, openapi_execution_report:openapi_execution_report(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
-v1_orders_post(Ctx, OpenapiNewOrder) ->
-    v1_orders_post(Ctx, OpenapiNewOrder, #{}).
+-spec v1_orders_post(ctx:ctx(), openapi_new_order_single:openapi_new_order_single()) -> {ok, openapi_execution_report:openapi_execution_report(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+v1_orders_post(Ctx, OpenapiNewOrderSingle) ->
+    v1_orders_post(Ctx, OpenapiNewOrderSingle, #{}).
 
--spec v1_orders_post(ctx:ctx(), openapi_new_order:openapi_new_order(), maps:map()) -> {ok, openapi_execution_report:openapi_execution_report(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
-v1_orders_post(Ctx, OpenapiNewOrder, Optional) ->
+-spec v1_orders_post(ctx:ctx(), openapi_new_order_single:openapi_new_order_single(), maps:map()) -> {ok, openapi_execution_report:openapi_execution_report(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+v1_orders_post(Ctx, OpenapiNewOrderSingle, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
 
@@ -86,7 +86,7 @@ v1_orders_post(Ctx, OpenapiNewOrder, Optional) ->
     Path = ["/v1/orders"],
     QS = [],
     Headers = [],
-    Body1 = OpenapiNewOrder,
+    Body1 = OpenapiNewOrderSingle,
     ContentTypeHeader = openapi_utils:select_header_content_type([<<"application/json">>]),
     Opts = maps:get(hackney_opts, Optional, []),
 

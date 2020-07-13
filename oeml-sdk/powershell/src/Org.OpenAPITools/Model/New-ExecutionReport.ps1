@@ -1,63 +1,60 @@
 function New-ExecutionReport {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [String]
         ${exchangeUnderscoreid},
-        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${id},
-        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${clientUnderscoreorderUnderscoreidUnderscoreformatUnderscoreexchange},
-        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${exchangeUnderscoreorderUnderscoreid},
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Decimal]]
-        ${amountUnderscoreopen},
-        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Decimal]]
-        ${amountUnderscorefilled},
-        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
-        [Org.OpenAPITools.Model.OrdStatus]
-        ${status},
-        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
-        [String[][]]
-        ${timeUnderscoreorder},
-        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true)]
-        [String]
-        ${errorUnderscoremessage},
-        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [String]
         ${clientUnderscoreorderUnderscoreid},
-        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${symbolUnderscoreexchange},
-        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${symbolUnderscorecoinapi},
-        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Decimal]]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Decimal]
         ${amountUnderscoreorder},
-        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[Decimal]]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Decimal]
         ${price},
-        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
-        [String]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Org.OpenAPITools.Model.OrdSide]
         ${side},
-        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
-        [String]
+        [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Org.OpenAPITools.Model.OrdType]
         ${orderUnderscoretype},
-        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 8, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [Org.OpenAPITools.Model.TimeInForce]
         ${timeUnderscoreinUnderscoreforce},
-        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 9, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[System.DateTime]]
         ${expireUnderscoretime},
-        [Parameter(Position = 18, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 10, ValueFromPipelineByPropertyName = $true)]
         [String[]]
-        ${execUnderscoreinst}
+        ${execUnderscoreinst},
+        [Parameter(Position = 11, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${clientUnderscoreorderUnderscoreidUnderscoreformatUnderscoreexchange},
+        [Parameter(Position = 12, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${exchangeUnderscoreorderUnderscoreid},
+        [Parameter(Position = 13, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Decimal]]
+        ${amountUnderscoreopen},
+        [Parameter(Position = 14, ValueFromPipelineByPropertyName = $true)]
+        [System.Nullable[Decimal]]
+        ${amountUnderscorefilled},
+        [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
+        [Org.OpenAPITools.Model.OrdStatus]
+        ${status},
+        [Parameter(Position = 16, ValueFromPipelineByPropertyName = $true)]
+        [String[][]]
+        ${timeUnderscoreorder},
+        [Parameter(Position = 17, ValueFromPipelineByPropertyName = $true)]
+        [String]
+        ${errorUnderscoremessage}
     )
 
     Process {
@@ -66,14 +63,6 @@ function New-ExecutionReport {
 
         New-Object -TypeName Org.OpenAPITools.Model.ExecutionReport -ArgumentList @(
             ${exchangeUnderscoreid},
-            ${id},
-            ${clientUnderscoreorderUnderscoreidUnderscoreformatUnderscoreexchange},
-            ${exchangeUnderscoreorderUnderscoreid},
-            ${amountUnderscoreopen},
-            ${amountUnderscorefilled},
-            ${status},
-            ${timeUnderscoreorder},
-            ${errorUnderscoremessage},
             ${clientUnderscoreorderUnderscoreid},
             ${symbolUnderscoreexchange},
             ${symbolUnderscorecoinapi},
@@ -83,7 +72,14 @@ function New-ExecutionReport {
             ${orderUnderscoretype},
             ${timeUnderscoreinUnderscoreforce},
             ${expireUnderscoretime},
-            ${execUnderscoreinst}
+            ${execUnderscoreinst},
+            ${clientUnderscoreorderUnderscoreidUnderscoreformatUnderscoreexchange},
+            ${exchangeUnderscoreorderUnderscoreid},
+            ${amountUnderscoreopen},
+            ${amountUnderscorefilled},
+            ${status},
+            ${timeUnderscoreorder},
+            ${errorUnderscoremessage}
         )
     }
 }

@@ -10,8 +10,9 @@ import 'package:openapi/model/balance.dart';
 import 'package:openapi/model/balance_data.dart';
 import 'package:openapi/model/create_order_validation_error.dart';
 import 'package:openapi/model/execution_report.dart';
+import 'package:openapi/model/execution_report_all_of.dart';
 import 'package:openapi/model/message.dart';
-import 'package:openapi/model/new_order.dart';
+import 'package:openapi/model/new_order_single.dart';
 import 'package:openapi/model/ord_side.dart';
 import 'package:openapi/model/ord_status.dart';
 import 'package:openapi/model/ord_type.dart';
@@ -30,8 +31,9 @@ Balance,
 BalanceData,
 CreateOrderValidationError,
 ExecutionReport,
+ExecutionReportAllOf,
 Message,
-NewOrder,
+NewOrderSingle,
 OrdSide,
 OrdStatus,
 OrdType,
@@ -59,11 +61,14 @@ const FullType(BuiltList, const [const FullType(CreateOrderValidationError)]),
 const FullType(BuiltList, const [const FullType(ExecutionReport)]),
 () => new ListBuilder<ExecutionReport>())
 ..addBuilderFactory(
+const FullType(BuiltList, const [const FullType(ExecutionReportAllOf)]),
+() => new ListBuilder<ExecutionReportAllOf>())
+..addBuilderFactory(
 const FullType(BuiltList, const [const FullType(Message)]),
 () => new ListBuilder<Message>())
 ..addBuilderFactory(
-const FullType(BuiltList, const [const FullType(NewOrder)]),
-() => new ListBuilder<NewOrder>())
+const FullType(BuiltList, const [const FullType(NewOrderSingle)]),
+() => new ListBuilder<NewOrderSingle>())
 ..addBuilderFactory(
 const FullType(BuiltList, const [const FullType(OrdSide)]),
 () => new ListBuilder<OrdSide>())

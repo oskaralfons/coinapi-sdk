@@ -29,7 +29,7 @@ void main() {
     //
     // Get all current open orders across all or single specified exchange.
     //
-    //Future<List<NewOrder>> v1OrdersGet({ String exchangeId }) async 
+    //Future<List<ExecutionReport>> v1OrdersGet({ String exchangeId }) async 
     test('test v1OrdersGet', () async {
       // TODO
     });
@@ -38,7 +38,7 @@ void main() {
     //
     // This request creating new order for the specific exchange.
     //
-    //Future<ExecutionReport> v1OrdersPost(NewOrder newOrder) async 
+    //Future<ExecutionReport> v1OrdersPost(NewOrderSingle newOrderSingle) async 
     test('test v1OrdersPost', () async {
       // TODO
     });

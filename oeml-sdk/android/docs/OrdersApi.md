@@ -106,7 +106,7 @@ No authorization required
 
 ## v1OrdersGet
 
-> List&lt;NewOrder&gt; v1OrdersGet(exchangeId)
+> List&lt;ExecutionReport&gt; v1OrdersGet(exchangeId)
 
 Get all orders
 
@@ -121,7 +121,7 @@ Get all current open orders across all or single specified exchange.
 OrdersApi apiInstance = new OrdersApi();
 String exchangeId = KRAKEN; // String | Filter the output to the orders from the specific exchange.
 try {
-    List<NewOrder> result = apiInstance.v1OrdersGet(exchangeId);
+    List<ExecutionReport> result = apiInstance.v1OrdersGet(exchangeId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrdersApi#v1OrdersGet");
@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;NewOrder&gt;**](NewOrder.md)
+[**List&lt;ExecutionReport&gt;**](ExecutionReport.md)
 
 ### Authorization
 
@@ -152,7 +152,7 @@ No authorization required
 
 ## v1OrdersPost
 
-> ExecutionReport v1OrdersPost(newOrder)
+> ExecutionReport v1OrdersPost(newOrderSingle)
 
 Create new order
 
@@ -165,9 +165,9 @@ This request creating new order for the specific exchange.
 //import org.openapitools.client.api.OrdersApi;
 
 OrdersApi apiInstance = new OrdersApi();
-NewOrder newOrder = new NewOrder(); // NewOrder | 
+NewOrderSingle newOrderSingle = new NewOrderSingle(); // NewOrderSingle | 
 try {
-    ExecutionReport result = apiInstance.v1OrdersPost(newOrder);
+    ExecutionReport result = apiInstance.v1OrdersPost(newOrderSingle);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrdersApi#v1OrdersPost");
@@ -180,7 +180,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newOrder** | [**NewOrder**](NewOrder.md)|  |
+ **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)|  |
 
 ### Return type
 

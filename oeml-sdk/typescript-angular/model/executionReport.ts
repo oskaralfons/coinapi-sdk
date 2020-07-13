@@ -9,19 +9,50 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { NewOrderSingle } from './newOrderSingle';
+import { OrdSide } from './ordSide';
 import { OrdStatus } from './ordStatus';
+import { OrdType } from './ordType';
+import { ExecutionReportAllOf } from './executionReportAllOf';
 import { TimeInForce } from './timeInForce';
 
 
 export interface ExecutionReport { 
     /**
-     * Exchange name
+     * Exchange identifier.
      */
-    exchange_id?: string;
+    exchange_id: string;
     /**
-     * Client unique identifier for the trade.
+     * Unique identifier for the order assigned by the `OEML API` client.
      */
-    id?: string;
+    client_order_id: string;
+    /**
+     * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+     */
+    symbol_exchange?: string;
+    /**
+     * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+     */
+    symbol_coinapi?: string;
+    /**
+     * Order quantity.
+     */
+    amount_order: number;
+    /**
+     * Order price.
+     */
+    price: number;
+    side: OrdSide;
+    order_type: OrdType;
+    time_in_force: TimeInForce;
+    /**
+     * Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
+     */
+    expire_time?: string;
+    /**
+     * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>
+     */
+    exec_inst?: Array<ExecutionReport.ExecInstEnum>;
     /**
      * Hash client id
      */
@@ -47,54 +78,8 @@ export interface ExecutionReport {
      * Error message
      */
     error_message?: string;
-    /**
-     * Client unique identifier for the trade.
-     */
-    client_order_id?: string;
-    /**
-     * The symbol of the order.
-     */
-    symbol_exchange?: string;
-    /**
-     * The CoinAPI symbol of the order.
-     */
-    symbol_coinapi?: string;
-    /**
-     * Quoted decimal amount to purchase.
-     */
-    amount_order?: number;
-    /**
-     * Quoted decimal amount to spend per unit.
-     */
-    price?: number;
-    /**
-     * Buy or Sell
-     */
-    side?: ExecutionReport.SideEnum;
-    /**
-     * The order type.
-     */
-    order_type?: ExecutionReport.OrderTypeEnum;
-    time_in_force?: TimeInForce;
-    /**
-     * Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
-     */
-    expire_time?: string;
-    /**
-     * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>
-     */
-    exec_inst?: Array<ExecutionReport.ExecInstEnum>;
 }
 export namespace ExecutionReport {
-    export type SideEnum = 'BUY' | 'SELL';
-    export const SideEnum = {
-        BUY: 'BUY' as SideEnum,
-        SELL: 'SELL' as SideEnum
-    };
-    export type OrderTypeEnum = 'LIMIT';
-    export const OrderTypeEnum = {
-        LIMIT: 'LIMIT' as OrderTypeEnum
-    };
     export type ExecInstEnum = 'MAKER_OR_CANCEL' | 'AUCTION_ONLY' | 'INDICATION_OF_INTEREST';
     export const ExecInstEnum = {
         MAKERORCANCEL: 'MAKER_OR_CANCEL' as ExecInstEnum,

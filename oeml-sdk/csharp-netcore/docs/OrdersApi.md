@@ -155,7 +155,7 @@ No authorization required
 
 <a name="v1ordersget"></a>
 # **V1OrdersGet**
-> List&lt;NewOrder&gt; V1OrdersGet (string exchangeId = null)
+> List&lt;ExecutionReport&gt; V1OrdersGet (string exchangeId = null)
 
 Get all orders
 
@@ -183,7 +183,7 @@ namespace Example
             try
             {
                 // Get all orders
-                List<NewOrder> result = apiInstance.V1OrdersGet(exchangeId);
+                List<ExecutionReport> result = apiInstance.V1OrdersGet(exchangeId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -205,7 +205,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;NewOrder&gt;**](NewOrder.md)
+[**List&lt;ExecutionReport&gt;**](ExecutionReport.md)
 
 ### Authorization
 
@@ -225,7 +225,7 @@ No authorization required
 
 <a name="v1orderspost"></a>
 # **V1OrdersPost**
-> ExecutionReport V1OrdersPost (NewOrder newOrder)
+> ExecutionReport V1OrdersPost (NewOrderSingle newOrderSingle)
 
 Create new order
 
@@ -248,12 +248,12 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "http://localhost:8080";
             var apiInstance = new OrdersApi(config);
-            var newOrder = new NewOrder(); // NewOrder | 
+            var newOrderSingle = new NewOrderSingle(); // NewOrderSingle | 
 
             try
             {
                 // Create new order
-                ExecutionReport result = apiInstance.V1OrdersPost(newOrder);
+                ExecutionReport result = apiInstance.V1OrdersPost(newOrderSingle);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -271,7 +271,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newOrder** | [**NewOrder**](NewOrder.md)|  | 
+ **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)|  | 
 
 ### Return type
 

@@ -186,10 +186,6 @@ export type CreateOrderValidationError = {
 
 
 
-            export type ExecutionReportSideEnum = 'BUY' | 'SELL';
-
-            export type ExecutionReportOrderTypeEnum = 'LIMIT';
-
             export type ExecutionReportExecInstEnum = 'MAKER_OR_CANCEL' | 'AUCTION_ONLY' | 'INDICATION_OF_INTEREST';
 /**
  * 
@@ -197,17 +193,71 @@ export type CreateOrderValidationError = {
  */
 export type ExecutionReport = {
     /**
-     * Exchange name
+     * Exchange identifier.
      * @type {string}
      * @memberof ExecutionReport
      */
-    exchange_id?: string;
+    exchange_id: string;
     /**
-     * Client unique identifier for the trade.
+     * Unique identifier for the order assigned by the `OEML API` client.
      * @type {string}
      * @memberof ExecutionReport
      */
-    id?: string;
+    client_order_id: string;
+    /**
+     * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+     * @type {string}
+     * @memberof ExecutionReport
+     */
+    symbol_exchange?: string;
+    /**
+     * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+     * @type {string}
+     * @memberof ExecutionReport
+     */
+    symbol_coinapi?: string;
+    /**
+     * Order quantity.
+     * @type {number}
+     * @memberof ExecutionReport
+     */
+    amount_order: number;
+    /**
+     * Order price.
+     * @type {number}
+     * @memberof ExecutionReport
+     */
+    price: number;
+    /**
+     * 
+     * @type {OrdSide}
+     * @memberof ExecutionReport
+     */
+    side: OrdSide;
+    /**
+     * 
+     * @type {OrdType}
+     * @memberof ExecutionReport
+     */
+    order_type: OrdType;
+    /**
+     * 
+     * @type {TimeInForce}
+     * @memberof ExecutionReport
+     */
+    time_in_force: TimeInForce;
+    /**
+     * Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
+     * @type {Date}
+     * @memberof ExecutionReport
+     */
+    expire_time?: Date;
+    /**
+     * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>
+     * @type {Array<string>}
+     * @memberof ExecutionReport
+     */
+    exec_inst?: Array<ExecutionReportExecInstEnum>;
     /**
      * Hash client id
      * @type {string}
@@ -250,66 +300,56 @@ export type ExecutionReport = {
      * @memberof ExecutionReport
      */
     error_message?: string;
+}
+
+
+/**
+ * 
+ * @export
+ */
+export type ExecutionReportAllOf = {
     /**
-     * Client unique identifier for the trade.
+     * Hash client id
      * @type {string}
-     * @memberof ExecutionReport
+     * @memberof ExecutionReportAllOf
      */
-    client_order_id?: string;
+    client_order_id_format_exchange?: string;
     /**
-     * The symbol of the order.
+     * Exchange order id
      * @type {string}
-     * @memberof ExecutionReport
+     * @memberof ExecutionReportAllOf
      */
-    symbol_exchange?: string;
+    exchange_order_id?: string;
     /**
-     * The CoinAPI symbol of the order.
-     * @type {string}
-     * @memberof ExecutionReport
-     */
-    symbol_coinapi?: string;
-    /**
-     * Quoted decimal amount to purchase.
+     * Amount open
      * @type {number}
-     * @memberof ExecutionReport
+     * @memberof ExecutionReportAllOf
      */
-    amount_order?: number;
+    amount_open?: number;
     /**
-     * Quoted decimal amount to spend per unit.
+     * Amount filled
      * @type {number}
-     * @memberof ExecutionReport
+     * @memberof ExecutionReportAllOf
      */
-    price?: number;
-    /**
-     * Buy or Sell
-     * @type {string}
-     * @memberof ExecutionReport
-     */
-    side?: ExecutionReportSideEnum;
-    /**
-     * The order type.
-     * @type {string}
-     * @memberof ExecutionReport
-     */
-    order_type?: ExecutionReportOrderTypeEnum;
+    amount_filled?: number;
     /**
      * 
-     * @type {TimeInForce}
-     * @memberof ExecutionReport
+     * @type {OrdStatus}
+     * @memberof ExecutionReportAllOf
      */
-    time_in_force?: TimeInForce;
+    status?: OrdStatus;
     /**
-     * Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
-     * @type {Date}
-     * @memberof ExecutionReport
+     * History of order status changes
+     * @type {Array<Array<string>>}
+     * @memberof ExecutionReportAllOf
      */
-    expire_time?: Date;
+    time_order?: Array<Array<string>>;
     /**
-     * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>
-     * @type {Array<string>}
-     * @memberof ExecutionReport
+     * Error message
+     * @type {string}
+     * @memberof ExecutionReportAllOf
      */
-    exec_inst?: Array<ExecutionReportExecInstEnum>;
+    error_message?: string;
 }
 
 
@@ -346,78 +386,78 @@ export type Message = {
 
 
 
-            export type NewOrderExecInstEnum = 'MAKER_OR_CANCEL' | 'AUCTION_ONLY' | 'INDICATION_OF_INTEREST';
+            export type NewOrderSingleExecInstEnum = 'MAKER_OR_CANCEL' | 'AUCTION_ONLY' | 'INDICATION_OF_INTEREST';
 /**
  * 
  * @export
  */
-export type NewOrder = {
+export type NewOrderSingle = {
     /**
      * Exchange identifier.
      * @type {string}
-     * @memberof NewOrder
+     * @memberof NewOrderSingle
      */
     exchange_id: string;
     /**
      * Unique identifier for the order assigned by the `OEML API` client.
      * @type {string}
-     * @memberof NewOrder
+     * @memberof NewOrderSingle
      */
     client_order_id: string;
     /**
      * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
      * @type {string}
-     * @memberof NewOrder
+     * @memberof NewOrderSingle
      */
     symbol_exchange?: string;
     /**
      * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
      * @type {string}
-     * @memberof NewOrder
+     * @memberof NewOrderSingle
      */
     symbol_coinapi?: string;
     /**
      * Order quantity.
      * @type {number}
-     * @memberof NewOrder
+     * @memberof NewOrderSingle
      */
     amount_order: number;
     /**
      * Order price.
      * @type {number}
-     * @memberof NewOrder
+     * @memberof NewOrderSingle
      */
     price: number;
     /**
      * 
      * @type {OrdSide}
-     * @memberof NewOrder
+     * @memberof NewOrderSingle
      */
     side: OrdSide;
     /**
      * 
      * @type {OrdType}
-     * @memberof NewOrder
+     * @memberof NewOrderSingle
      */
     order_type: OrdType;
     /**
      * 
      * @type {TimeInForce}
-     * @memberof NewOrder
+     * @memberof NewOrderSingle
      */
     time_in_force: TimeInForce;
     /**
      * Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
      * @type {Date}
-     * @memberof NewOrder
+     * @memberof NewOrderSingle
      */
     expire_time?: Date;
     /**
      * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>
      * @type {Array<string>}
-     * @memberof NewOrder
+     * @memberof NewOrderSingle
      */
-    exec_inst?: Array<NewOrderExecInstEnum>;
+    exec_inst?: Array<NewOrderSingleExecInstEnum>;
 }
 
 
@@ -759,10 +799,10 @@ export const OrdersApiFetchParamCreator = function (configuration?: Configuratio
          * @summary Create new order
          * @throws {RequiredError}
          */
-        v1OrdersPost(newOrder: NewOrder, options: RequestOptions): FetchArgs {
-            // verify required parameter 'newOrder' is not null or undefined
-            if (newOrder === null || newOrder === undefined) {
-                throw new RequiredError('newOrder','Required parameter newOrder was null or undefined when calling v1OrdersPost.');
+        v1OrdersPost(newOrderSingle: NewOrderSingle, options: RequestOptions): FetchArgs {
+            // verify required parameter 'newOrderSingle' is not null or undefined
+            if (newOrderSingle === null || newOrderSingle === undefined) {
+                throw new RequiredError('newOrderSingle','Required parameter newOrderSingle was null or undefined when calling v1OrdersPost.');
             }
             const localVarPath = `/v1/orders`;
             const localVarUrlObj = url.parse(localVarPath, true);
@@ -776,8 +816,8 @@ export const OrdersApiFetchParamCreator = function (configuration?: Configuratio
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             localVarRequestOptions.headers = Object.assign({}, localVarHeaderParameter, options.headers);
-            const needsSerialization = (typeof newOrder !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.body =  needsSerialization ? JSON.stringify(newOrder != null ? newOrder : {}) : (((newOrder:any):string) || "");
+            const needsSerialization = (typeof newOrderSingle !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.body =  needsSerialization ? JSON.stringify(newOrderSingle != null ? newOrderSingle : {}) : (((newOrderSingle:any):string) || "");
 
             return {
                 url: url.format(localVarUrlObj),
@@ -819,9 +859,9 @@ export type OrdersApiType = {
 
     v1OrdersCancelPost(orderCancelSingleRequest: OrderCancelSingleRequest, options?: RequestOptions): Promise<ExecutionReport>,
 
-    v1OrdersGet(exchangeId?: string, options?: RequestOptions): Promise<Array<NewOrder>>,
+    v1OrdersGet(exchangeId?: string, options?: RequestOptions): Promise<Array<ExecutionReport>>,
 
-    v1OrdersPost(newOrder: NewOrder, options?: RequestOptions): Promise<ExecutionReport>,
+    v1OrdersPost(newOrderSingle: NewOrderSingle, options?: RequestOptions): Promise<ExecutionReport>,
 
     v1OrdersStatusClientOrderIdGet(clientOrderId: string, options?: RequestOptions): Promise<ExecutionReport>,
 }
@@ -868,7 +908,7 @@ export const OrdersApi = function(configuration?: Configuration, fetch: FetchAPI
          * @summary Get all orders
          * @throws {RequiredError}
          */
-        v1OrdersGet(exchangeId?: string, options?: RequestOptions = {}): Promise<Array<NewOrder>> {
+        v1OrdersGet(exchangeId?: string, options?: RequestOptions = {}): Promise<Array<ExecutionReport>> {
             const localVarFetchArgs = OrdersApiFetchParamCreator(configuration).v1OrdersGet(exchangeId, options);
             return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                 if (response.status >= 200 && response.status < 300) {
@@ -883,8 +923,8 @@ export const OrdersApi = function(configuration?: Configuration, fetch: FetchAPI
          * @summary Create new order
          * @throws {RequiredError}
          */
-        v1OrdersPost(newOrder: NewOrder, options?: RequestOptions = {}): Promise<ExecutionReport> {
-            const localVarFetchArgs = OrdersApiFetchParamCreator(configuration).v1OrdersPost(newOrder, options);
+        v1OrdersPost(newOrderSingle: NewOrderSingle, options?: RequestOptions = {}): Promise<ExecutionReport> {
+            const localVarFetchArgs = OrdersApiFetchParamCreator(configuration).v1OrdersPost(newOrderSingle, options);
             return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                 if (response.status >= 200 && response.status < 300) {
                     return response.json();

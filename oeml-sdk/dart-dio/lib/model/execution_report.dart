@@ -1,6 +1,10 @@
+            import 'package:openapi/model/execution_report_all_of.dart';
+            import 'package:openapi/model/ord_side.dart';
             import 'package:openapi/model/ord_status.dart';
             import 'package:built_collection/built_collection.dart';
             import 'package:openapi/model/time_in_force.dart';
+            import 'package:openapi/model/ord_type.dart';
+            import 'package:openapi/model/new_order_single.dart';
         import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -8,14 +12,54 @@ part 'execution_report.g.dart';
 
 abstract class ExecutionReport implements Built<ExecutionReport, ExecutionReportBuilder> {
 
-    /* Exchange name */
+    /* Exchange identifier. */
         @nullable
     @BuiltValueField(wireName: r'exchange_id')
     String get exchangeId;
-    /* Client unique identifier for the trade. */
+    /* Unique identifier for the order assigned by the `OEML API` client. */
         @nullable
-    @BuiltValueField(wireName: r'id')
-    String get id;
+    @BuiltValueField(wireName: r'client_order_id')
+    String get clientOrderId;
+    /* Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order. */
+        @nullable
+    @BuiltValueField(wireName: r'symbol_exchange')
+    String get symbolExchange;
+    /* CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order. */
+        @nullable
+    @BuiltValueField(wireName: r'symbol_coinapi')
+    String get symbolCoinapi;
+    /* Order quantity. */
+        @nullable
+    @BuiltValueField(wireName: r'amount_order')
+    num get amountOrder;
+    /* Order price. */
+        @nullable
+    @BuiltValueField(wireName: r'price')
+    num get price;
+    
+        @nullable
+    @BuiltValueField(wireName: r'side')
+    OrdSide get side;
+        //enum sideEnum {  BUY,  SELL,  };
+    
+        @nullable
+    @BuiltValueField(wireName: r'order_type')
+    OrdType get orderType;
+        //enum orderTypeEnum {  LIMIT,  };
+    
+        @nullable
+    @BuiltValueField(wireName: r'time_in_force')
+    TimeInForce get timeInForce;
+        //enum timeInForceEnum {  GOOD_TILL_CANCEL,  GOOD_TILL_TIME_EXCHANGE,  GOOD_TILL_TIME_OMS,  FILL_OR_KILL,  IMMEDIATE_OR_CANCEL,  };
+    /* Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`. */
+        @nullable
+    @BuiltValueField(wireName: r'expire_time')
+    DateTime get expireTime;
+    /* Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> */
+        @nullable
+    @BuiltValueField(wireName: r'exec_inst')
+    BuiltList<String> get execInst;
+        //enum execInstEnum {  MAKER_OR_CANCEL,  AUCTION_ONLY,  INDICATION_OF_INTEREST,  };
     /* Hash client id */
         @nullable
     @BuiltValueField(wireName: r'client_order_id_format_exchange')
@@ -45,50 +89,6 @@ abstract class ExecutionReport implements Built<ExecutionReport, ExecutionReport
         @nullable
     @BuiltValueField(wireName: r'error_message')
     String get errorMessage;
-    /* Client unique identifier for the trade. */
-        @nullable
-    @BuiltValueField(wireName: r'client_order_id')
-    String get clientOrderId;
-    /* The symbol of the order. */
-        @nullable
-    @BuiltValueField(wireName: r'symbol_exchange')
-    String get symbolExchange;
-    /* The CoinAPI symbol of the order. */
-        @nullable
-    @BuiltValueField(wireName: r'symbol_coinapi')
-    String get symbolCoinapi;
-    /* Quoted decimal amount to purchase. */
-        @nullable
-    @BuiltValueField(wireName: r'amount_order')
-    num get amountOrder;
-    /* Quoted decimal amount to spend per unit. */
-        @nullable
-    @BuiltValueField(wireName: r'price')
-    num get price;
-    /* Buy or Sell */
-        @nullable
-    @BuiltValueField(wireName: r'side')
-    String get side;
-        //enum sideEnum {  BUY,  SELL,  };
-    /* The order type. */
-        @nullable
-    @BuiltValueField(wireName: r'order_type')
-    String get orderType;
-        //enum orderTypeEnum {  LIMIT,  };
-    
-        @nullable
-    @BuiltValueField(wireName: r'time_in_force')
-    TimeInForce get timeInForce;
-        //enum timeInForceEnum {  GOOD_TILL_CANCEL,  GOOD_TILL_TIME_EXCHANGE,  GOOD_TILL_TIME_OMS,  FILL_OR_KILL,  IMMEDIATE_OR_CANCEL,  };
-    /* Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS */
-        @nullable
-    @BuiltValueField(wireName: r'expire_time')
-    DateTime get expireTime;
-    /* Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> */
-        @nullable
-    @BuiltValueField(wireName: r'exec_inst')
-    BuiltList<String> get execInst;
-        //enum execInstEnum {  MAKER_OR_CANCEL,  AUCTION_ONLY,  INDICATION_OF_INTEREST,  };
 
     // Boilerplate code needed to wire-up generated code
     ExecutionReport._();

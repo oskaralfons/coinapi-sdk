@@ -34,8 +34,9 @@ from openapi_client.models.balance import Balance
 from openapi_client.models.balance_data import BalanceData
 from openapi_client.models.create_order_validation_error import CreateOrderValidationError
 from openapi_client.models.execution_report import ExecutionReport
+from openapi_client.models.execution_report_all_of import ExecutionReportAllOf
 from openapi_client.models.message import Message
-from openapi_client.models.new_order import NewOrder
+from openapi_client.models.new_order_single import NewOrderSingle
 from openapi_client.models.ord_side import OrdSide
 from openapi_client.models.ord_status import OrdStatus
 from openapi_client.models.ord_type import OrdType

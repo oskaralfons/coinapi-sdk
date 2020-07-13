@@ -24,7 +24,11 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import org.openapitools.client.model.ExecutionReportAllOf;
+import org.openapitools.client.model.NewOrderSingle;
+import org.openapitools.client.model.OrdSide;
 import org.openapitools.client.model.OrdStatus;
+import org.openapitools.client.model.OrdType;
 import org.openapitools.client.model.TimeInForce;
 import org.threeten.bp.LocalDate;
 import org.junit.Assert;
@@ -52,70 +56,6 @@ public class ExecutionReportTest {
     @Test
     public void exchangeIdTest() {
         // TODO: test exchangeId
-    }
-
-    /**
-     * Test the property 'id'
-     */
-    @Test
-    public void idTest() {
-        // TODO: test id
-    }
-
-    /**
-     * Test the property 'clientOrderIdFormatExchange'
-     */
-    @Test
-    public void clientOrderIdFormatExchangeTest() {
-        // TODO: test clientOrderIdFormatExchange
-    }
-
-    /**
-     * Test the property 'exchangeOrderId'
-     */
-    @Test
-    public void exchangeOrderIdTest() {
-        // TODO: test exchangeOrderId
-    }
-
-    /**
-     * Test the property 'amountOpen'
-     */
-    @Test
-    public void amountOpenTest() {
-        // TODO: test amountOpen
-    }
-
-    /**
-     * Test the property 'amountFilled'
-     */
-    @Test
-    public void amountFilledTest() {
-        // TODO: test amountFilled
-    }
-
-    /**
-     * Test the property 'status'
-     */
-    @Test
-    public void statusTest() {
-        // TODO: test status
-    }
-
-    /**
-     * Test the property 'timeOrder'
-     */
-    @Test
-    public void timeOrderTest() {
-        // TODO: test timeOrder
-    }
-
-    /**
-     * Test the property 'errorMessage'
-     */
-    @Test
-    public void errorMessageTest() {
-        // TODO: test errorMessage
     }
 
     /**
@@ -196,6 +136,62 @@ public class ExecutionReportTest {
     @Test
     public void execInstTest() {
         // TODO: test execInst
+    }
+
+    /**
+     * Test the property 'clientOrderIdFormatExchange'
+     */
+    @Test
+    public void clientOrderIdFormatExchangeTest() {
+        // TODO: test clientOrderIdFormatExchange
+    }
+
+    /**
+     * Test the property 'exchangeOrderId'
+     */
+    @Test
+    public void exchangeOrderIdTest() {
+        // TODO: test exchangeOrderId
+    }
+
+    /**
+     * Test the property 'amountOpen'
+     */
+    @Test
+    public void amountOpenTest() {
+        // TODO: test amountOpen
+    }
+
+    /**
+     * Test the property 'amountFilled'
+     */
+    @Test
+    public void amountFilledTest() {
+        // TODO: test amountFilled
+    }
+
+    /**
+     * Test the property 'status'
+     */
+    @Test
+    public void statusTest() {
+        // TODO: test status
+    }
+
+    /**
+     * Test the property 'timeOrder'
+     */
+    @Test
+    public void timeOrderTest() {
+        // TODO: test timeOrder
+    }
+
+    /**
+     * Test the property 'errorMessage'
+     */
+    @Test
+    public void errorMessageTest() {
+        // TODO: test errorMessage
     }
 
 }

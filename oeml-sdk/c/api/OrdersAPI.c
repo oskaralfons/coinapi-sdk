@@ -265,7 +265,7 @@ end:
 // This request creating new order for the specific exchange.
 //
 execution_report_t*
-OrdersAPI_v1OrdersPost(apiClient_t *apiClient, new_order_t * new_order )
+OrdersAPI_v1OrdersPost(apiClient_t *apiClient, new_order_single_t * new_order_single )
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -283,12 +283,12 @@ OrdersAPI_v1OrdersPost(apiClient_t *apiClient, new_order_t * new_order )
 
 
     // Body Param
-    cJSON *localVarSingleItemJSON_new_order;
-    if (new_order != NULL)
+    cJSON *localVarSingleItemJSON_new_order_single;
+    if (new_order_single != NULL)
     {
         //string
-        localVarSingleItemJSON_new_order = new_order_convertToJSON(new_order);
-        localVarBodyParameters = cJSON_Print(localVarSingleItemJSON_new_order);
+        localVarSingleItemJSON_new_order_single = new_order_single_convertToJSON(new_order_single);
+        localVarBodyParameters = cJSON_Print(localVarSingleItemJSON_new_order_single);
     }
     list_addElement(localVarHeaderType,"application/json"); //produces
     list_addElement(localVarHeaderType,"appliction/json"); //produces
@@ -332,7 +332,7 @@ OrdersAPI_v1OrdersPost(apiClient_t *apiClient, new_order_t * new_order )
     list_free(localVarHeaderType);
     list_free(localVarContentType);
     free(localVarPath);
-    cJSON_Delete(localVarSingleItemJSON_new_order);
+    cJSON_Delete(localVarSingleItemJSON_new_order_single);
     free(localVarBodyParameters);
     return elementToReturn;
 end:

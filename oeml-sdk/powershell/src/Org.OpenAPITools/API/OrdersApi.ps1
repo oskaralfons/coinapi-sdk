@@ -56,8 +56,8 @@ function Invoke-OrdersApiV1OrdersPost {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Org.OpenAPITools.Model.NewOrder]
-        ${newOrder}
+        [Org.OpenAPITools.Model.NewOrderSingle]
+        ${newOrderSingle}
     )
 
     Process {
@@ -65,7 +65,7 @@ function Invoke-OrdersApiV1OrdersPost {
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $Script:OrdersApi.V1OrdersPost(
-            ${newOrder}
+            ${newOrderSingle}
         )
     }
 }

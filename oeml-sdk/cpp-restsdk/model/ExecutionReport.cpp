@@ -25,8 +25,21 @@ ExecutionReport::ExecutionReport()
 {
     m_Exchange_id = utility::conversions::to_string_t("");
     m_Exchange_idIsSet = false;
-    m_Id = utility::conversions::to_string_t("");
-    m_IdIsSet = false;
+    m_Client_order_id = utility::conversions::to_string_t("");
+    m_Client_order_idIsSet = false;
+    m_Symbol_exchange = utility::conversions::to_string_t("");
+    m_Symbol_exchangeIsSet = false;
+    m_Symbol_coinapi = utility::conversions::to_string_t("");
+    m_Symbol_coinapiIsSet = false;
+    m_Amount_order = 0.0;
+    m_Amount_orderIsSet = false;
+    m_Price = 0.0;
+    m_PriceIsSet = false;
+    m_SideIsSet = false;
+    m_Order_typeIsSet = false;
+    m_Time_in_forceIsSet = false;
+    m_Expire_timeIsSet = false;
+    m_Exec_instIsSet = false;
     m_Client_order_id_format_exchange = utility::conversions::to_string_t("");
     m_Client_order_id_format_exchangeIsSet = false;
     m_Exchange_order_id = utility::conversions::to_string_t("");
@@ -39,23 +52,6 @@ ExecutionReport::ExecutionReport()
     m_Time_orderIsSet = false;
     m_Error_message = utility::conversions::to_string_t("");
     m_Error_messageIsSet = false;
-    m_Client_order_id = utility::conversions::to_string_t("");
-    m_Client_order_idIsSet = false;
-    m_Symbol_exchange = utility::conversions::to_string_t("");
-    m_Symbol_exchangeIsSet = false;
-    m_Symbol_coinapi = utility::conversions::to_string_t("");
-    m_Symbol_coinapiIsSet = false;
-    m_Amount_order = 0.0;
-    m_Amount_orderIsSet = false;
-    m_Price = 0.0;
-    m_PriceIsSet = false;
-    m_Side = utility::conversions::to_string_t("");
-    m_SideIsSet = false;
-    m_Order_type = utility::conversions::to_string_t("");
-    m_Order_typeIsSet = false;
-    m_Time_in_forceIsSet = false;
-    m_Expire_timeIsSet = false;
-    m_Exec_instIsSet = false;
 }
 
 ExecutionReport::~ExecutionReport()
@@ -75,38 +71,6 @@ web::json::value ExecutionReport::toJson() const
     if(m_Exchange_idIsSet)
     {
         val[utility::conversions::to_string_t("exchange_id")] = ModelBase::toJson(m_Exchange_id);
-    }
-    if(m_IdIsSet)
-    {
-        val[utility::conversions::to_string_t("id")] = ModelBase::toJson(m_Id);
-    }
-    if(m_Client_order_id_format_exchangeIsSet)
-    {
-        val[utility::conversions::to_string_t("client_order_id_format_exchange")] = ModelBase::toJson(m_Client_order_id_format_exchange);
-    }
-    if(m_Exchange_order_idIsSet)
-    {
-        val[utility::conversions::to_string_t("exchange_order_id")] = ModelBase::toJson(m_Exchange_order_id);
-    }
-    if(m_Amount_openIsSet)
-    {
-        val[utility::conversions::to_string_t("amount_open")] = ModelBase::toJson(m_Amount_open);
-    }
-    if(m_Amount_filledIsSet)
-    {
-        val[utility::conversions::to_string_t("amount_filled")] = ModelBase::toJson(m_Amount_filled);
-    }
-    if(m_StatusIsSet)
-    {
-        val[utility::conversions::to_string_t("status")] = ModelBase::toJson(m_Status);
-    }
-    if(m_Time_orderIsSet)
-    {
-        val[utility::conversions::to_string_t("time_order")] = ModelBase::toJson(m_Time_order);
-    }
-    if(m_Error_messageIsSet)
-    {
-        val[utility::conversions::to_string_t("error_message")] = ModelBase::toJson(m_Error_message);
     }
     if(m_Client_order_idIsSet)
     {
@@ -148,6 +112,34 @@ web::json::value ExecutionReport::toJson() const
     {
         val[utility::conversions::to_string_t("exec_inst")] = ModelBase::toJson(m_Exec_inst);
     }
+    if(m_Client_order_id_format_exchangeIsSet)
+    {
+        val[utility::conversions::to_string_t("client_order_id_format_exchange")] = ModelBase::toJson(m_Client_order_id_format_exchange);
+    }
+    if(m_Exchange_order_idIsSet)
+    {
+        val[utility::conversions::to_string_t("exchange_order_id")] = ModelBase::toJson(m_Exchange_order_id);
+    }
+    if(m_Amount_openIsSet)
+    {
+        val[utility::conversions::to_string_t("amount_open")] = ModelBase::toJson(m_Amount_open);
+    }
+    if(m_Amount_filledIsSet)
+    {
+        val[utility::conversions::to_string_t("amount_filled")] = ModelBase::toJson(m_Amount_filled);
+    }
+    if(m_StatusIsSet)
+    {
+        val[utility::conversions::to_string_t("status")] = ModelBase::toJson(m_Status);
+    }
+    if(m_Time_orderIsSet)
+    {
+        val[utility::conversions::to_string_t("time_order")] = ModelBase::toJson(m_Time_order);
+    }
+    if(m_Error_messageIsSet)
+    {
+        val[utility::conversions::to_string_t("error_message")] = ModelBase::toJson(m_Error_message);
+    }
 
     return val;
 }
@@ -166,14 +158,104 @@ bool ExecutionReport::fromJson(const web::json::value& val)
             setExchangeId(refVal_exchange_id);
         }
     }
-    if(val.has_field(utility::conversions::to_string_t("id")))
+    if(val.has_field(utility::conversions::to_string_t("client_order_id")))
     {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("id"));
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("client_order_id"));
         if(!fieldValue.is_null())
         {
-            utility::string_t refVal_id;
-            ok &= ModelBase::fromJson(fieldValue, refVal_id);
-            setId(refVal_id);
+            utility::string_t refVal_client_order_id;
+            ok &= ModelBase::fromJson(fieldValue, refVal_client_order_id);
+            setClientOrderId(refVal_client_order_id);
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("symbol_exchange")))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("symbol_exchange"));
+        if(!fieldValue.is_null())
+        {
+            utility::string_t refVal_symbol_exchange;
+            ok &= ModelBase::fromJson(fieldValue, refVal_symbol_exchange);
+            setSymbolExchange(refVal_symbol_exchange);
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("symbol_coinapi")))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("symbol_coinapi"));
+        if(!fieldValue.is_null())
+        {
+            utility::string_t refVal_symbol_coinapi;
+            ok &= ModelBase::fromJson(fieldValue, refVal_symbol_coinapi);
+            setSymbolCoinapi(refVal_symbol_coinapi);
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("amount_order")))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("amount_order"));
+        if(!fieldValue.is_null())
+        {
+            double refVal_amount_order;
+            ok &= ModelBase::fromJson(fieldValue, refVal_amount_order);
+            setAmountOrder(refVal_amount_order);
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("price")))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("price"));
+        if(!fieldValue.is_null())
+        {
+            double refVal_price;
+            ok &= ModelBase::fromJson(fieldValue, refVal_price);
+            setPrice(refVal_price);
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("side")))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("side"));
+        if(!fieldValue.is_null())
+        {
+            std::shared_ptr<OrdSide> refVal_side;
+            ok &= ModelBase::fromJson(fieldValue, refVal_side);
+            setSide(refVal_side);
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("order_type")))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("order_type"));
+        if(!fieldValue.is_null())
+        {
+            std::shared_ptr<OrdType> refVal_order_type;
+            ok &= ModelBase::fromJson(fieldValue, refVal_order_type);
+            setOrderType(refVal_order_type);
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("time_in_force")))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("time_in_force"));
+        if(!fieldValue.is_null())
+        {
+            std::shared_ptr<TimeInForce> refVal_time_in_force;
+            ok &= ModelBase::fromJson(fieldValue, refVal_time_in_force);
+            setTimeInForce(refVal_time_in_force);
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("expire_time")))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("expire_time"));
+        if(!fieldValue.is_null())
+        {
+            std::shared_ptr<utility::datetime> refVal_expire_time;
+            ok &= ModelBase::fromJson(fieldValue, refVal_expire_time);
+            setExpireTime(refVal_expire_time);
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("exec_inst")))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("exec_inst"));
+        if(!fieldValue.is_null())
+        {
+            std::vector<utility::string_t> refVal_exec_inst;
+            ok &= ModelBase::fromJson(fieldValue, refVal_exec_inst);
+            setExecInst(refVal_exec_inst);
         }
     }
     if(val.has_field(utility::conversions::to_string_t("client_order_id_format_exchange")))
@@ -246,106 +328,6 @@ bool ExecutionReport::fromJson(const web::json::value& val)
             setErrorMessage(refVal_error_message);
         }
     }
-    if(val.has_field(utility::conversions::to_string_t("client_order_id")))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("client_order_id"));
-        if(!fieldValue.is_null())
-        {
-            utility::string_t refVal_client_order_id;
-            ok &= ModelBase::fromJson(fieldValue, refVal_client_order_id);
-            setClientOrderId(refVal_client_order_id);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t("symbol_exchange")))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("symbol_exchange"));
-        if(!fieldValue.is_null())
-        {
-            utility::string_t refVal_symbol_exchange;
-            ok &= ModelBase::fromJson(fieldValue, refVal_symbol_exchange);
-            setSymbolExchange(refVal_symbol_exchange);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t("symbol_coinapi")))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("symbol_coinapi"));
-        if(!fieldValue.is_null())
-        {
-            utility::string_t refVal_symbol_coinapi;
-            ok &= ModelBase::fromJson(fieldValue, refVal_symbol_coinapi);
-            setSymbolCoinapi(refVal_symbol_coinapi);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t("amount_order")))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("amount_order"));
-        if(!fieldValue.is_null())
-        {
-            double refVal_amount_order;
-            ok &= ModelBase::fromJson(fieldValue, refVal_amount_order);
-            setAmountOrder(refVal_amount_order);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t("price")))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("price"));
-        if(!fieldValue.is_null())
-        {
-            double refVal_price;
-            ok &= ModelBase::fromJson(fieldValue, refVal_price);
-            setPrice(refVal_price);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t("side")))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("side"));
-        if(!fieldValue.is_null())
-        {
-            utility::string_t refVal_side;
-            ok &= ModelBase::fromJson(fieldValue, refVal_side);
-            setSide(refVal_side);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t("order_type")))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("order_type"));
-        if(!fieldValue.is_null())
-        {
-            utility::string_t refVal_order_type;
-            ok &= ModelBase::fromJson(fieldValue, refVal_order_type);
-            setOrderType(refVal_order_type);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t("time_in_force")))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("time_in_force"));
-        if(!fieldValue.is_null())
-        {
-            std::shared_ptr<TimeInForce> refVal_time_in_force;
-            ok &= ModelBase::fromJson(fieldValue, refVal_time_in_force);
-            setTimeInForce(refVal_time_in_force);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t("expire_time")))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("expire_time"));
-        if(!fieldValue.is_null())
-        {
-            std::shared_ptr<utility::datetime> refVal_expire_time;
-            ok &= ModelBase::fromJson(fieldValue, refVal_expire_time);
-            setExpireTime(refVal_expire_time);
-        }
-    }
-    if(val.has_field(utility::conversions::to_string_t("exec_inst")))
-    {
-        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("exec_inst"));
-        if(!fieldValue.is_null())
-        {
-            std::vector<utility::string_t> refVal_exec_inst;
-            ok &= ModelBase::fromJson(fieldValue, refVal_exec_inst);
-            setExecInst(refVal_exec_inst);
-        }
-    }
     return ok;
 }
 
@@ -359,38 +341,6 @@ void ExecutionReport::toMultipart(std::shared_ptr<MultipartFormData> multipart, 
     if(m_Exchange_idIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("exchange_id"), m_Exchange_id));
-    }
-    if(m_IdIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("id"), m_Id));
-    }
-    if(m_Client_order_id_format_exchangeIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("client_order_id_format_exchange"), m_Client_order_id_format_exchange));
-    }
-    if(m_Exchange_order_idIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("exchange_order_id"), m_Exchange_order_id));
-    }
-    if(m_Amount_openIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("amount_open"), m_Amount_open));
-    }
-    if(m_Amount_filledIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("amount_filled"), m_Amount_filled));
-    }
-    if(m_StatusIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("status"), m_Status));
-    }
-    if(m_Time_orderIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("time_order"), m_Time_order));
-    }
-    if(m_Error_messageIsSet)
-    {
-        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("error_message"), m_Error_message));
     }
     if(m_Client_order_idIsSet)
     {
@@ -432,6 +382,34 @@ void ExecutionReport::toMultipart(std::shared_ptr<MultipartFormData> multipart, 
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("exec_inst"), m_Exec_inst));
     }
+    if(m_Client_order_id_format_exchangeIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("client_order_id_format_exchange"), m_Client_order_id_format_exchange));
+    }
+    if(m_Exchange_order_idIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("exchange_order_id"), m_Exchange_order_id));
+    }
+    if(m_Amount_openIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("amount_open"), m_Amount_open));
+    }
+    if(m_Amount_filledIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("amount_filled"), m_Amount_filled));
+    }
+    if(m_StatusIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("status"), m_Status));
+    }
+    if(m_Time_orderIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("time_order"), m_Time_order));
+    }
+    if(m_Error_messageIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("error_message"), m_Error_message));
+    }
 }
 
 bool ExecutionReport::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
@@ -449,11 +427,65 @@ bool ExecutionReport::fromMultiPart(std::shared_ptr<MultipartFormData> multipart
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("exchange_id")), refVal_exchange_id );
         setExchangeId(refVal_exchange_id);
     }
-    if(multipart->hasContent(utility::conversions::to_string_t("id")))
+    if(multipart->hasContent(utility::conversions::to_string_t("client_order_id")))
     {
-        utility::string_t refVal_id;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("id")), refVal_id );
-        setId(refVal_id);
+        utility::string_t refVal_client_order_id;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("client_order_id")), refVal_client_order_id );
+        setClientOrderId(refVal_client_order_id);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("symbol_exchange")))
+    {
+        utility::string_t refVal_symbol_exchange;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("symbol_exchange")), refVal_symbol_exchange );
+        setSymbolExchange(refVal_symbol_exchange);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("symbol_coinapi")))
+    {
+        utility::string_t refVal_symbol_coinapi;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("symbol_coinapi")), refVal_symbol_coinapi );
+        setSymbolCoinapi(refVal_symbol_coinapi);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("amount_order")))
+    {
+        double refVal_amount_order;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("amount_order")), refVal_amount_order );
+        setAmountOrder(refVal_amount_order);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("price")))
+    {
+        double refVal_price;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("price")), refVal_price );
+        setPrice(refVal_price);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("side")))
+    {
+        std::shared_ptr<OrdSide> refVal_side;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("side")), refVal_side );
+        setSide(refVal_side);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("order_type")))
+    {
+        std::shared_ptr<OrdType> refVal_order_type;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("order_type")), refVal_order_type );
+        setOrderType(refVal_order_type);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("time_in_force")))
+    {
+        std::shared_ptr<TimeInForce> refVal_time_in_force;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("time_in_force")), refVal_time_in_force );
+        setTimeInForce(refVal_time_in_force);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("expire_time")))
+    {
+        std::shared_ptr<utility::datetime> refVal_expire_time;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("expire_time")), refVal_expire_time );
+        setExpireTime(refVal_expire_time);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("exec_inst")))
+    {
+        std::vector<utility::string_t> refVal_exec_inst;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("exec_inst")), refVal_exec_inst );
+        setExecInst(refVal_exec_inst);
     }
     if(multipart->hasContent(utility::conversions::to_string_t("client_order_id_format_exchange")))
     {
@@ -497,66 +529,6 @@ bool ExecutionReport::fromMultiPart(std::shared_ptr<MultipartFormData> multipart
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("error_message")), refVal_error_message );
         setErrorMessage(refVal_error_message);
     }
-    if(multipart->hasContent(utility::conversions::to_string_t("client_order_id")))
-    {
-        utility::string_t refVal_client_order_id;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("client_order_id")), refVal_client_order_id );
-        setClientOrderId(refVal_client_order_id);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t("symbol_exchange")))
-    {
-        utility::string_t refVal_symbol_exchange;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("symbol_exchange")), refVal_symbol_exchange );
-        setSymbolExchange(refVal_symbol_exchange);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t("symbol_coinapi")))
-    {
-        utility::string_t refVal_symbol_coinapi;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("symbol_coinapi")), refVal_symbol_coinapi );
-        setSymbolCoinapi(refVal_symbol_coinapi);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t("amount_order")))
-    {
-        double refVal_amount_order;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("amount_order")), refVal_amount_order );
-        setAmountOrder(refVal_amount_order);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t("price")))
-    {
-        double refVal_price;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("price")), refVal_price );
-        setPrice(refVal_price);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t("side")))
-    {
-        utility::string_t refVal_side;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("side")), refVal_side );
-        setSide(refVal_side);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t("order_type")))
-    {
-        utility::string_t refVal_order_type;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("order_type")), refVal_order_type );
-        setOrderType(refVal_order_type);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t("time_in_force")))
-    {
-        std::shared_ptr<TimeInForce> refVal_time_in_force;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("time_in_force")), refVal_time_in_force );
-        setTimeInForce(refVal_time_in_force);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t("expire_time")))
-    {
-        std::shared_ptr<utility::datetime> refVal_expire_time;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("expire_time")), refVal_expire_time );
-        setExpireTime(refVal_expire_time);
-    }
-    if(multipart->hasContent(utility::conversions::to_string_t("exec_inst")))
-    {
-        std::vector<utility::string_t> refVal_exec_inst;
-        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("exec_inst")), refVal_exec_inst );
-        setExecInst(refVal_exec_inst);
-    }
     return ok;
 }
 
@@ -580,25 +552,205 @@ void ExecutionReport::unsetExchange_id()
 {
     m_Exchange_idIsSet = false;
 }
-utility::string_t ExecutionReport::getId() const
+utility::string_t ExecutionReport::getClientOrderId() const
 {
-    return m_Id;
+    return m_Client_order_id;
 }
 
-void ExecutionReport::setId(const utility::string_t& value)
+void ExecutionReport::setClientOrderId(const utility::string_t& value)
 {
-    m_Id = value;
-    m_IdIsSet = true;
+    m_Client_order_id = value;
+    m_Client_order_idIsSet = true;
 }
 
-bool ExecutionReport::idIsSet() const
+bool ExecutionReport::clientOrderIdIsSet() const
 {
-    return m_IdIsSet;
+    return m_Client_order_idIsSet;
 }
 
-void ExecutionReport::unsetId()
+void ExecutionReport::unsetClient_order_id()
 {
-    m_IdIsSet = false;
+    m_Client_order_idIsSet = false;
+}
+utility::string_t ExecutionReport::getSymbolExchange() const
+{
+    return m_Symbol_exchange;
+}
+
+void ExecutionReport::setSymbolExchange(const utility::string_t& value)
+{
+    m_Symbol_exchange = value;
+    m_Symbol_exchangeIsSet = true;
+}
+
+bool ExecutionReport::symbolExchangeIsSet() const
+{
+    return m_Symbol_exchangeIsSet;
+}
+
+void ExecutionReport::unsetSymbol_exchange()
+{
+    m_Symbol_exchangeIsSet = false;
+}
+utility::string_t ExecutionReport::getSymbolCoinapi() const
+{
+    return m_Symbol_coinapi;
+}
+
+void ExecutionReport::setSymbolCoinapi(const utility::string_t& value)
+{
+    m_Symbol_coinapi = value;
+    m_Symbol_coinapiIsSet = true;
+}
+
+bool ExecutionReport::symbolCoinapiIsSet() const
+{
+    return m_Symbol_coinapiIsSet;
+}
+
+void ExecutionReport::unsetSymbol_coinapi()
+{
+    m_Symbol_coinapiIsSet = false;
+}
+double ExecutionReport::getAmountOrder() const
+{
+    return m_Amount_order;
+}
+
+void ExecutionReport::setAmountOrder(double value)
+{
+    m_Amount_order = value;
+    m_Amount_orderIsSet = true;
+}
+
+bool ExecutionReport::amountOrderIsSet() const
+{
+    return m_Amount_orderIsSet;
+}
+
+void ExecutionReport::unsetAmount_order()
+{
+    m_Amount_orderIsSet = false;
+}
+double ExecutionReport::getPrice() const
+{
+    return m_Price;
+}
+
+void ExecutionReport::setPrice(double value)
+{
+    m_Price = value;
+    m_PriceIsSet = true;
+}
+
+bool ExecutionReport::priceIsSet() const
+{
+    return m_PriceIsSet;
+}
+
+void ExecutionReport::unsetPrice()
+{
+    m_PriceIsSet = false;
+}
+std::shared_ptr<OrdSide> ExecutionReport::getSide() const
+{
+    return m_Side;
+}
+
+void ExecutionReport::setSide(const std::shared_ptr<OrdSide>& value)
+{
+    m_Side = value;
+    m_SideIsSet = true;
+}
+
+bool ExecutionReport::sideIsSet() const
+{
+    return m_SideIsSet;
+}
+
+void ExecutionReport::unsetSide()
+{
+    m_SideIsSet = false;
+}
+std::shared_ptr<OrdType> ExecutionReport::getOrderType() const
+{
+    return m_Order_type;
+}
+
+void ExecutionReport::setOrderType(const std::shared_ptr<OrdType>& value)
+{
+    m_Order_type = value;
+    m_Order_typeIsSet = true;
+}
+
+bool ExecutionReport::orderTypeIsSet() const
+{
+    return m_Order_typeIsSet;
+}
+
+void ExecutionReport::unsetOrder_type()
+{
+    m_Order_typeIsSet = false;
+}
+std::shared_ptr<TimeInForce> ExecutionReport::getTimeInForce() const
+{
+    return m_Time_in_force;
+}
+
+void ExecutionReport::setTimeInForce(const std::shared_ptr<TimeInForce>& value)
+{
+    m_Time_in_force = value;
+    m_Time_in_forceIsSet = true;
+}
+
+bool ExecutionReport::timeInForceIsSet() const
+{
+    return m_Time_in_forceIsSet;
+}
+
+void ExecutionReport::unsetTime_in_force()
+{
+    m_Time_in_forceIsSet = false;
+}
+std::shared_ptr<utility::datetime> ExecutionReport::getExpireTime() const
+{
+    return m_Expire_time;
+}
+
+void ExecutionReport::setExpireTime(const std::shared_ptr<utility::datetime>& value)
+{
+    m_Expire_time = value;
+    m_Expire_timeIsSet = true;
+}
+
+bool ExecutionReport::expireTimeIsSet() const
+{
+    return m_Expire_timeIsSet;
+}
+
+void ExecutionReport::unsetExpire_time()
+{
+    m_Expire_timeIsSet = false;
+}
+std::vector<utility::string_t>& ExecutionReport::getExecInst()
+{
+    return m_Exec_inst;
+}
+
+void ExecutionReport::setExecInst(const std::vector<utility::string_t>& value)
+{
+    m_Exec_inst = value;
+    m_Exec_instIsSet = true;
+}
+
+bool ExecutionReport::execInstIsSet() const
+{
+    return m_Exec_instIsSet;
+}
+
+void ExecutionReport::unsetExec_inst()
+{
+    m_Exec_instIsSet = false;
 }
 utility::string_t ExecutionReport::getClientOrderIdFormatExchange() const
 {
@@ -739,206 +891,6 @@ bool ExecutionReport::errorMessageIsSet() const
 void ExecutionReport::unsetError_message()
 {
     m_Error_messageIsSet = false;
-}
-utility::string_t ExecutionReport::getClientOrderId() const
-{
-    return m_Client_order_id;
-}
-
-void ExecutionReport::setClientOrderId(const utility::string_t& value)
-{
-    m_Client_order_id = value;
-    m_Client_order_idIsSet = true;
-}
-
-bool ExecutionReport::clientOrderIdIsSet() const
-{
-    return m_Client_order_idIsSet;
-}
-
-void ExecutionReport::unsetClient_order_id()
-{
-    m_Client_order_idIsSet = false;
-}
-utility::string_t ExecutionReport::getSymbolExchange() const
-{
-    return m_Symbol_exchange;
-}
-
-void ExecutionReport::setSymbolExchange(const utility::string_t& value)
-{
-    m_Symbol_exchange = value;
-    m_Symbol_exchangeIsSet = true;
-}
-
-bool ExecutionReport::symbolExchangeIsSet() const
-{
-    return m_Symbol_exchangeIsSet;
-}
-
-void ExecutionReport::unsetSymbol_exchange()
-{
-    m_Symbol_exchangeIsSet = false;
-}
-utility::string_t ExecutionReport::getSymbolCoinapi() const
-{
-    return m_Symbol_coinapi;
-}
-
-void ExecutionReport::setSymbolCoinapi(const utility::string_t& value)
-{
-    m_Symbol_coinapi = value;
-    m_Symbol_coinapiIsSet = true;
-}
-
-bool ExecutionReport::symbolCoinapiIsSet() const
-{
-    return m_Symbol_coinapiIsSet;
-}
-
-void ExecutionReport::unsetSymbol_coinapi()
-{
-    m_Symbol_coinapiIsSet = false;
-}
-double ExecutionReport::getAmountOrder() const
-{
-    return m_Amount_order;
-}
-
-void ExecutionReport::setAmountOrder(double value)
-{
-    m_Amount_order = value;
-    m_Amount_orderIsSet = true;
-}
-
-bool ExecutionReport::amountOrderIsSet() const
-{
-    return m_Amount_orderIsSet;
-}
-
-void ExecutionReport::unsetAmount_order()
-{
-    m_Amount_orderIsSet = false;
-}
-double ExecutionReport::getPrice() const
-{
-    return m_Price;
-}
-
-void ExecutionReport::setPrice(double value)
-{
-    m_Price = value;
-    m_PriceIsSet = true;
-}
-
-bool ExecutionReport::priceIsSet() const
-{
-    return m_PriceIsSet;
-}
-
-void ExecutionReport::unsetPrice()
-{
-    m_PriceIsSet = false;
-}
-utility::string_t ExecutionReport::getSide() const
-{
-    return m_Side;
-}
-
-void ExecutionReport::setSide(const utility::string_t& value)
-{
-    m_Side = value;
-    m_SideIsSet = true;
-}
-
-bool ExecutionReport::sideIsSet() const
-{
-    return m_SideIsSet;
-}
-
-void ExecutionReport::unsetSide()
-{
-    m_SideIsSet = false;
-}
-utility::string_t ExecutionReport::getOrderType() const
-{
-    return m_Order_type;
-}
-
-void ExecutionReport::setOrderType(const utility::string_t& value)
-{
-    m_Order_type = value;
-    m_Order_typeIsSet = true;
-}
-
-bool ExecutionReport::orderTypeIsSet() const
-{
-    return m_Order_typeIsSet;
-}
-
-void ExecutionReport::unsetOrder_type()
-{
-    m_Order_typeIsSet = false;
-}
-std::shared_ptr<TimeInForce> ExecutionReport::getTimeInForce() const
-{
-    return m_Time_in_force;
-}
-
-void ExecutionReport::setTimeInForce(const std::shared_ptr<TimeInForce>& value)
-{
-    m_Time_in_force = value;
-    m_Time_in_forceIsSet = true;
-}
-
-bool ExecutionReport::timeInForceIsSet() const
-{
-    return m_Time_in_forceIsSet;
-}
-
-void ExecutionReport::unsetTime_in_force()
-{
-    m_Time_in_forceIsSet = false;
-}
-std::shared_ptr<utility::datetime> ExecutionReport::getExpireTime() const
-{
-    return m_Expire_time;
-}
-
-void ExecutionReport::setExpireTime(const std::shared_ptr<utility::datetime>& value)
-{
-    m_Expire_time = value;
-    m_Expire_timeIsSet = true;
-}
-
-bool ExecutionReport::expireTimeIsSet() const
-{
-    return m_Expire_timeIsSet;
-}
-
-void ExecutionReport::unsetExpire_time()
-{
-    m_Expire_timeIsSet = false;
-}
-std::vector<utility::string_t>& ExecutionReport::getExecInst()
-{
-    return m_Exec_inst;
-}
-
-void ExecutionReport::setExecInst(const std::vector<utility::string_t>& value)
-{
-    m_Exec_inst = value;
-    m_Exec_instIsSet = true;
-}
-
-bool ExecutionReport::execInstIsSet() const
-{
-    return m_Exec_instIsSet;
-}
-
-void ExecutionReport::unsetExec_inst()
-{
-    m_Exec_instIsSet = false;
 }
 }
 }

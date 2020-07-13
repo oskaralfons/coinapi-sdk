@@ -42,8 +42,9 @@ set(SRCS
     model/balance_data.c
     model/create_order_validation_error.c
     model/execution_report.c
+    model/execution_report_all_of.c
     model/message.c
-    model/new_order.c
+    model/new_order_single.c
     model/ord_side.c
     model/ord_status.c
     model/ord_type.c
@@ -70,8 +71,9 @@ set(HDRS
     model/balance_data.h
     model/create_order_validation_error.h
     model/execution_report.h
+    model/execution_report_all_of.h
     model/message.h
-    model/new_order.h
+    model/new_order_single.h
     model/ord_side.h
     model/ord_status.h
     model/ord_type.h

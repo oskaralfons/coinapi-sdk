@@ -2,7 +2,7 @@
 
 OEML - REST API
 - API version: v1
-  - Build date: 2020-07-13T11:09:29.967Z[Etc/UTC]
+  - Build date: 2020-07-13T11:20:42.685Z[Etc/UTC]
 
 This section will provide necessary information about the `CoinAPI OEML REST API` protocol.
 
@@ -124,8 +124,9 @@ Class | Method | HTTP request | Description
  - [BalanceData](docs/BalanceData.md)
  - [CreateOrderValidationError](docs/CreateOrderValidationError.md)
  - [ExecutionReport](docs/ExecutionReport.md)
+ - [ExecutionReportAllOf](docs/ExecutionReportAllOf.md)
  - [Message](docs/Message.md)
- - [NewOrder](docs/NewOrder.md)
+ - [NewOrderSingle](docs/NewOrderSingle.md)
  - [OrdSide](docs/OrdSide.md)
  - [OrdStatus](docs/OrdStatus.md)
  - [OrdType](docs/OrdType.md)

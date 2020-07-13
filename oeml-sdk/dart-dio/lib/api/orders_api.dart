@@ -9,8 +9,8 @@ import 'package:openapi/model/create_order_validation_error.dart';
 import 'package:openapi/model/order_cancel_all_request.dart';
 import 'package:openapi/model/execution_report.dart';
 import 'package:openapi/model/order_cancel_single_request.dart';
+import 'package:openapi/model/new_order_single.dart';
 import 'package:openapi/model/message.dart';
-import 'package:openapi/model/new_order.dart';
 
 class OrdersApi {
     final Dio _dio;
@@ -121,7 +121,7 @@ class OrdersApi {
         /// Get all orders
         ///
         /// Get all current open orders across all or single specified exchange.
-        Future<Response<List<NewOrder>>>v1OrdersGet({ String exchangeId,CancelToken cancelToken, Map<String, String> headers,}) async {
+        Future<Response<List<ExecutionReport>>>v1OrdersGet({ String exchangeId,CancelToken cancelToken, Map<String, String> headers,}) async {
 
         String _path = "/v1/orders";
 
@@ -152,11 +152,11 @@ class OrdersApi {
             cancelToken: cancelToken,
             ).then((response) {
 
-                final FullType type = const FullType(BuiltList, const [const FullType(NewOrder)]);
-                BuiltList<NewOrder> dataList = _serializers.deserialize(response.data is String ? jsonDecode(response.data) : response.data, specifiedType: type);
+                final FullType type = const FullType(BuiltList, const [const FullType(ExecutionReport)]);
+                BuiltList<ExecutionReport> dataList = _serializers.deserialize(response.data is String ? jsonDecode(response.data) : response.data, specifiedType: type);
                 var data = dataList.toList();
 
-            return Response<List<NewOrder>>(
+            return Response<List<ExecutionReport>>(
                 data: data,
                 headers: response.headers,
                 request: response.request,
@@ -170,7 +170,7 @@ class OrdersApi {
         /// Create new order
         ///
         /// This request creating new order for the specific exchange.
-        Future<Response<ExecutionReport>>v1OrdersPost(NewOrder newOrder,{ CancelToken cancelToken, Map<String, String> headers,}) async {
+        Future<Response<ExecutionReport>>v1OrdersPost(NewOrderSingle newOrderSingle,{ CancelToken cancelToken, Map<String, String> headers,}) async {
 
         String _path = "/v1/orders";
 
@@ -184,9 +184,9 @@ class OrdersApi {
         List<String> contentTypes = ["application/json"];
 
 
-            var serializedBody = _serializers.serialize(newOrder);
-            var jsonnewOrder = json.encode(serializedBody);
-            bodyData = jsonnewOrder;
+            var serializedBody = _serializers.serialize(newOrderSingle);
+            var jsonnewOrderSingle = json.encode(serializedBody);
+            bodyData = jsonnewOrderSingle;
 
             return _dio.request(
             _path,

@@ -104,7 +104,7 @@ No authorization required
 
 ## v1OrdersGet
 
-> [NewOrder] v1OrdersGet(opts)
+> [ExecutionReport] v1OrdersGet(opts)
 
 Get all orders
 
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[NewOrder]**](NewOrder.md)
+[**[ExecutionReport]**](ExecutionReport.md)
 
 ### Authorization
 
@@ -151,7 +151,7 @@ No authorization required
 
 ## v1OrdersPost
 
-> ExecutionReport v1OrdersPost(newOrder)
+> ExecutionReport v1OrdersPost(newOrderSingle)
 
 Create new order
 
@@ -163,8 +163,8 @@ This request creating new order for the specific exchange.
 import OemlRestApi from 'oeml_rest_api';
 
 let apiInstance = new OemlRestApi.OrdersApi();
-let newOrder = new OemlRestApi.NewOrder(); // NewOrder | 
-apiInstance.v1OrdersPost(newOrder, (error, data, response) => {
+let newOrderSingle = new OemlRestApi.NewOrderSingle(); // NewOrderSingle | 
+apiInstance.v1OrdersPost(newOrderSingle, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -178,7 +178,7 @@ apiInstance.v1OrdersPost(newOrder, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newOrder** | [**NewOrder**](NewOrder.md)|  | 
+ **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)|  | 
 
 ### Return type
 

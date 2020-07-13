@@ -44,10 +44,12 @@ class ApiClient {
           return CreateOrderValidationError.fromJson(value);
         case 'ExecutionReport':
           return ExecutionReport.fromJson(value);
+        case 'ExecutionReportAllOf':
+          return ExecutionReportAllOf.fromJson(value);
         case 'Message':
           return Message.fromJson(value);
-        case 'NewOrder':
-          return NewOrder.fromJson(value);
+        case 'NewOrderSingle':
+          return NewOrderSingle.fromJson(value);
         case 'OrdSide':
           return new OrdSideTypeTransformer().decode(value);
         case 'OrdStatus':

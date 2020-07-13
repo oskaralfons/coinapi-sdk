@@ -14,7 +14,7 @@ package org.openapitools.client.apis
 import org.openapitools.client.models.CreateOrderValidationError
 import org.openapitools.client.models.ExecutionReport
 import org.openapitools.client.models.Message
-import org.openapitools.client.models.NewOrder
+import org.openapitools.client.models.NewOrderSingle
 import org.openapitools.client.models.OrderCancelAllRequest
 import org.openapitools.client.models.OrderCancelSingleRequest
 
@@ -124,14 +124,14 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
     * Get all orders
     * Get all current open orders across all or single specified exchange.
     * @param exchangeId Filter the output to the orders from the specific exchange. (optional)
-    * @return kotlin.Array<NewOrder>
+    * @return kotlin.Array<ExecutionReport>
     * @throws UnsupportedOperationException If the API returns an informational or redirection response
     * @throws ClientException If the API returns a client error response
     * @throws ServerException If the API returns a server error response
     */
     @Suppress("UNCHECKED_CAST")
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun v1OrdersGet(exchangeId: kotlin.String?) : kotlin.Array<NewOrder> {
+    fun v1OrdersGet(exchangeId: kotlin.String?) : kotlin.Array<ExecutionReport> {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, List<kotlin.String>>()
             .apply {
@@ -146,13 +146,13 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
             query = localVariableQuery,
             headers = localVariableHeaders
         )
-        val localVarResponse = request<kotlin.Array<NewOrder>>(
+        val localVarResponse = request<kotlin.Array<ExecutionReport>>(
             localVariableConfig,
             localVariableBody
         )
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Array<NewOrder>
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Array<ExecutionReport>
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -169,7 +169,7 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
     /**
     * Create new order
     * This request creating new order for the specific exchange.
-    * @param newOrder  
+    * @param newOrderSingle  
     * @return ExecutionReport
     * @throws UnsupportedOperationException If the API returns an informational or redirection response
     * @throws ClientException If the API returns a client error response
@@ -177,8 +177,8 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
     */
     @Suppress("UNCHECKED_CAST")
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun v1OrdersPost(newOrder: NewOrder) : ExecutionReport {
-        val localVariableBody: kotlin.Any? = newOrder
+    fun v1OrdersPost(newOrderSingle: NewOrderSingle) : ExecutionReport {
+        val localVariableBody: kotlin.Any? = newOrderSingle
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         val localVariableConfig = RequestConfig(

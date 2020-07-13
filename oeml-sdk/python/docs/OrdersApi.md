@@ -138,7 +138,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_orders_get**
-> list[NewOrder] v1_orders_get(exchange_id=exchange_id)
+> list[ExecutionReport] v1_orders_get(exchange_id=exchange_id)
 
 Get all orders
 
@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[NewOrder]**](NewOrder.md)
+[**list[ExecutionReport]**](ExecutionReport.md)
 
 ### Authorization
 
@@ -200,7 +200,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_orders_post**
-> ExecutionReport v1_orders_post(new_order)
+> ExecutionReport v1_orders_post(new_order_single)
 
 Create new order
 
@@ -225,11 +225,11 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.OrdersApi(api_client)
-    new_order = openapi_client.NewOrder() # NewOrder | 
+    new_order_single = openapi_client.NewOrderSingle() # NewOrderSingle | 
 
     try:
         # Create new order
-        api_response = api_instance.v1_orders_post(new_order)
+        api_response = api_instance.v1_orders_post(new_order_single)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling OrdersApi->v1_orders_post: %s\n" % e)
@@ -239,7 +239,7 @@ with openapi_client.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **new_order** | [**NewOrder**](NewOrder.md)|  | 
+ **new_order_single** | [**NewOrderSingle**](NewOrderSingle.md)|  | 
 
 ### Return type
 

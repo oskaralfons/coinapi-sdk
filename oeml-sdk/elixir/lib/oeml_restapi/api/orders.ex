@@ -78,10 +78,10 @@ defmodule OEML-RESTAPI.Api.Orders do
     - :exchange_id (String.t): Filter the output to the orders from the specific exchange.
   ## Returns
 
-  {:ok, [%NewOrder{}, ...]} on success
+  {:ok, [%ExecutionReport{}, ...]} on success
   {:error, info} on failure
   """
-  @spec v1_orders_get(Tesla.Env.client, keyword()) :: {:ok, list(OEML-RESTAPI.Model.NewOrder.t)} | {:error, Tesla.Env.t}
+  @spec v1_orders_get(Tesla.Env.client, keyword()) :: {:ok, list(OEML-RESTAPI.Model.ExecutionReport.t)} | {:error, Tesla.Env.t}
   def v1_orders_get(connection, opts \\ []) do
     optional_params = %{
       :"exchange_id" => :query
@@ -93,7 +93,7 @@ defmodule OEML-RESTAPI.Api.Orders do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, [%OEML-RESTAPI.Model.NewOrder{}]}
+      { 200, [%OEML-RESTAPI.Model.ExecutionReport{}]}
     ])
   end
 
@@ -104,19 +104,19 @@ defmodule OEML-RESTAPI.Api.Orders do
   ## Parameters
 
   - connection (OEML-RESTAPI.Connection): Connection to server
-  - new_order (NewOrder): 
+  - new_order_single (NewOrderSingle): 
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
   {:ok, %OEML-RESTAPI.Model.ExecutionReport{}} on success
   {:error, info} on failure
   """
-  @spec v1_orders_post(Tesla.Env.client, OEML-RESTAPI.Model.NewOrder.t, keyword()) :: {:ok, OEML-RESTAPI.Model.ExecutionReport.t} | {:error, Tesla.Env.t}
-  def v1_orders_post(connection, new_order, _opts \\ []) do
+  @spec v1_orders_post(Tesla.Env.client, OEML-RESTAPI.Model.NewOrderSingle.t, keyword()) :: {:ok, OEML-RESTAPI.Model.ExecutionReport.t} | {:error, Tesla.Env.t}
+  def v1_orders_post(connection, new_order_single, _opts \\ []) do
     %{}
     |> method(:post)
     |> url("/v1/orders")
-    |> add_param(:body, :body, new_order)
+    |> add_param(:body, :body, new_order_single)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([

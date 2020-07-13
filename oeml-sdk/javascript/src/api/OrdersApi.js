@@ -16,7 +16,7 @@ import ApiClient from "../ApiClient";
 import CreateOrderValidationError from '../model/CreateOrderValidationError';
 import ExecutionReport from '../model/ExecutionReport';
 import Message from '../model/Message';
-import NewOrder from '../model/NewOrder';
+import NewOrderSingle from '../model/NewOrderSingle';
 import OrderCancelAllRequest from '../model/OrderCancelAllRequest';
 import OrderCancelSingleRequest from '../model/OrderCancelSingleRequest';
 
@@ -127,7 +127,7 @@ export default class OrdersApi {
      * Callback function to receive the result of the v1OrdersGet operation.
      * @callback module:api/OrdersApi~v1OrdersGetCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/NewOrder>} data The data returned by the service call.
+     * @param {Array.<module:model/ExecutionReport>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -137,7 +137,7 @@ export default class OrdersApi {
      * @param {Object} opts Optional parameters
      * @param {String} opts.exchangeId Filter the output to the orders from the specific exchange.
      * @param {module:api/OrdersApi~v1OrdersGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/NewOrder>}
+     * data is of type: {@link Array.<module:model/ExecutionReport>}
      */
     v1OrdersGet(opts, callback) {
       opts = opts || {};
@@ -156,7 +156,7 @@ export default class OrdersApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = [NewOrder];
+      let returnType = [ExecutionReport];
       return this.apiClient.callApi(
         '/v1/orders', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -175,15 +175,15 @@ export default class OrdersApi {
     /**
      * Create new order
      * This request creating new order for the specific exchange.
-     * @param {module:model/NewOrder} newOrder 
+     * @param {module:model/NewOrderSingle} newOrderSingle 
      * @param {module:api/OrdersApi~v1OrdersPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ExecutionReport}
      */
-    v1OrdersPost(newOrder, callback) {
-      let postBody = newOrder;
-      // verify the required parameter 'newOrder' is set
-      if (newOrder === undefined || newOrder === null) {
-        throw new Error("Missing the required parameter 'newOrder' when calling v1OrdersPost");
+    v1OrdersPost(newOrderSingle, callback) {
+      let postBody = newOrderSingle;
+      // verify the required parameter 'newOrderSingle' is set
+      if (newOrderSingle === undefined || newOrderSingle === null) {
+        throw new Error("Missing the required parameter 'newOrderSingle' when calling v1OrdersPost");
       }
 
       let pathParams = {

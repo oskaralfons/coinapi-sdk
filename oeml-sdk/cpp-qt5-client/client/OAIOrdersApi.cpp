@@ -198,13 +198,13 @@ void OAIOrdersApi::v1OrdersGetCallback(OAIHttpRequestWorker *worker) {
         msg = "Error: " + worker->error_str;
         error_str = QString("%1, %2").arg(worker->error_str).arg(QString(worker->response));
     }
-    QList<OAINewOrder> output;
+    QList<OAIExecutionReport> output;
     QString json(worker->response);
     QByteArray array(json.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonArray jsonArray = doc.array();
     foreach (QJsonValue obj, jsonArray) {
-        OAINewOrder val;
+        OAIExecutionReport val;
         ::OpenAPI::fromJsonValue(val, obj);
         output.append(val);
     }
@@ -219,7 +219,7 @@ void OAIOrdersApi::v1OrdersGetCallback(OAIHttpRequestWorker *worker) {
     }
 }
 
-void OAIOrdersApi::v1OrdersPost(const OAINewOrder &oai_new_order) {
+void OAIOrdersApi::v1OrdersPost(const OAINewOrderSingle &oai_new_order_single) {
     QString fullPath = QString("%1://%2%3%4%5")
                            .arg(_scheme)
                            .arg(_host)
@@ -232,7 +232,7 @@ void OAIOrdersApi::v1OrdersPost(const OAINewOrder &oai_new_order) {
     worker->setWorkingDirectory(_workingDirectory);
     OAIHttpRequestInput input(fullPath, "POST");
 
-    QString output = oai_new_order.asJson();
+    QString output = oai_new_order_single.asJson();
     input.request_body.append(output);
 
     foreach (QString key, this->defaultHeaders.keys()) { input.headers.insert(key, this->defaultHeaders.value(key)); }

@@ -6,18 +6,78 @@ goog.provide('API.Client.ExecutionReport');
 API.Client.ExecutionReport = function() {}
 
 /**
- * Exchange name
+ * Exchange identifier.
  * @type {!string}
  * @export
  */
 API.Client.ExecutionReport.prototype.exchangeId;
 
 /**
- * Client unique identifier for the trade.
+ * Unique identifier for the order assigned by the `OEML API` client.
  * @type {!string}
  * @export
  */
-API.Client.ExecutionReport.prototype.id;
+API.Client.ExecutionReport.prototype.clientOrderId;
+
+/**
+ * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+ * @type {!string}
+ * @export
+ */
+API.Client.ExecutionReport.prototype.symbolExchange;
+
+/**
+ * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+ * @type {!string}
+ * @export
+ */
+API.Client.ExecutionReport.prototype.symbolCoinapi;
+
+/**
+ * Order quantity.
+ * @type {!number}
+ * @export
+ */
+API.Client.ExecutionReport.prototype.amountOrder;
+
+/**
+ * Order price.
+ * @type {!number}
+ * @export
+ */
+API.Client.ExecutionReport.prototype.price;
+
+/**
+ * @type {!API.Client.OrdSide}
+ * @export
+ */
+API.Client.ExecutionReport.prototype.side;
+
+/**
+ * @type {!API.Client.OrdType}
+ * @export
+ */
+API.Client.ExecutionReport.prototype.orderType;
+
+/**
+ * @type {!API.Client.TimeInForce}
+ * @export
+ */
+API.Client.ExecutionReport.prototype.timeInForce;
+
+/**
+ * Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
+ * @type {!API.Client.date}
+ * @export
+ */
+API.Client.ExecutionReport.prototype.expireTime;
+
+/**
+ * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>
+ * @type {!Array<!string>}
+ * @export
+ */
+API.Client.ExecutionReport.prototype.execInst;
 
 /**
  * Hash client id
@@ -67,84 +127,6 @@ API.Client.ExecutionReport.prototype.timeOrder;
  */
 API.Client.ExecutionReport.prototype.errorMessage;
 
-/**
- * Client unique identifier for the trade.
- * @type {!string}
- * @export
- */
-API.Client.ExecutionReport.prototype.clientOrderId;
-
-/**
- * The symbol of the order.
- * @type {!string}
- * @export
- */
-API.Client.ExecutionReport.prototype.symbolExchange;
-
-/**
- * The CoinAPI symbol of the order.
- * @type {!string}
- * @export
- */
-API.Client.ExecutionReport.prototype.symbolCoinapi;
-
-/**
- * Quoted decimal amount to purchase.
- * @type {!number}
- * @export
- */
-API.Client.ExecutionReport.prototype.amountOrder;
-
-/**
- * Quoted decimal amount to spend per unit.
- * @type {!number}
- * @export
- */
-API.Client.ExecutionReport.prototype.price;
-
-/**
- * Buy or Sell
- * @type {!string}
- * @export
- */
-API.Client.ExecutionReport.prototype.side;
-
-/**
- * The order type.
- * @type {!string}
- * @export
- */
-API.Client.ExecutionReport.prototype.orderType;
-
-/**
- * @type {!API.Client.TimeInForce}
- * @export
- */
-API.Client.ExecutionReport.prototype.timeInForce;
-
-/**
- * Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
- * @type {!API.Client.date}
- * @export
- */
-API.Client.ExecutionReport.prototype.expireTime;
-
-/**
- * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>
- * @type {!Array<!string>}
- * @export
- */
-API.Client.ExecutionReport.prototype.execInst;
-
-/** @enum {string} */
-API.Client.ExecutionReport.SideEnum = { 
-  BUY: 'BUY',
-  SELL: 'SELL',
-}
-/** @enum {string} */
-API.Client.ExecutionReport.OrderTypeEnum = { 
-  LIMIT: 'LIMIT',
-}
 /** @enum {string} */
 API.Client.ExecutionReport.Array&lt;!ExecInstEnum&gt; = { 
   MAKER_OR_CANCEL: 'MAKER_OR_CANCEL',

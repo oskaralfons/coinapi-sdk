@@ -15,7 +15,11 @@ package org.openapitools.client.model;
 import java.math.BigDecimal;
 import java.util.*;
 import java.util.Date;
+import org.openapitools.client.model.ExecutionReportAllOf;
+import org.openapitools.client.model.NewOrderSingle;
+import org.openapitools.client.model.OrdSide;
 import org.openapitools.client.model.OrdStatus;
+import org.openapitools.client.model.OrdType;
 import org.openapitools.client.model.TimeInForce;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
@@ -25,8 +29,29 @@ public class ExecutionReport {
   
   @SerializedName("exchange_id")
   private String exchangeId = null;
-  @SerializedName("id")
-  private String id = null;
+  @SerializedName("client_order_id")
+  private String clientOrderId = null;
+  @SerializedName("symbol_exchange")
+  private String symbolExchange = null;
+  @SerializedName("symbol_coinapi")
+  private String symbolCoinapi = null;
+  @SerializedName("amount_order")
+  private BigDecimal amountOrder = null;
+  @SerializedName("price")
+  private BigDecimal price = null;
+  @SerializedName("side")
+  private OrdSide side = null;
+  @SerializedName("order_type")
+  private OrdType orderType = null;
+  @SerializedName("time_in_force")
+  private TimeInForce timeInForce = null;
+  @SerializedName("expire_time")
+  private Date expireTime = null;
+  public enum List&lt;ExecInstEnum&gt; {
+     MAKER_OR_CANCEL,  AUCTION_ONLY,  INDICATION_OF_INTEREST, 
+  };
+  @SerializedName("exec_inst")
+  private List<ExecInstEnum> execInst = null;
   @SerializedName("client_order_id_format_exchange")
   private String clientOrderIdFormatExchange = null;
   @SerializedName("exchange_order_id")
@@ -41,40 +66,11 @@ public class ExecutionReport {
   private List<List<String>> timeOrder = null;
   @SerializedName("error_message")
   private String errorMessage = null;
-  @SerializedName("client_order_id")
-  private String clientOrderId = null;
-  @SerializedName("symbol_exchange")
-  private String symbolExchange = null;
-  @SerializedName("symbol_coinapi")
-  private String symbolCoinapi = null;
-  @SerializedName("amount_order")
-  private BigDecimal amountOrder = null;
-  @SerializedName("price")
-  private BigDecimal price = null;
-  public enum SideEnum {
-     BUY,  SELL, 
-  };
-  @SerializedName("side")
-  private SideEnum side = null;
-  public enum OrderTypeEnum {
-     LIMIT, 
-  };
-  @SerializedName("order_type")
-  private OrderTypeEnum orderType = null;
-  @SerializedName("time_in_force")
-  private TimeInForce timeInForce = null;
-  @SerializedName("expire_time")
-  private Date expireTime = null;
-  public enum List&lt;ExecInstEnum&gt; {
-     MAKER_OR_CANCEL,  AUCTION_ONLY,  INDICATION_OF_INTEREST, 
-  };
-  @SerializedName("exec_inst")
-  private List<ExecInstEnum> execInst = null;
 
   /**
-   * Exchange name
+   * Exchange identifier.
    **/
-  @ApiModelProperty(value = "Exchange name")
+  @ApiModelProperty(required = true, value = "Exchange identifier.")
   public String getExchangeId() {
     return exchangeId;
   }
@@ -83,14 +79,110 @@ public class ExecutionReport {
   }
 
   /**
-   * Client unique identifier for the trade.
+   * Unique identifier for the order assigned by the `OEML API` client.
    **/
-  @ApiModelProperty(value = "Client unique identifier for the trade.")
-  public String getId() {
-    return id;
+  @ApiModelProperty(required = true, value = "Unique identifier for the order assigned by the `OEML API` client.")
+  public String getClientOrderId() {
+    return clientOrderId;
   }
-  public void setId(String id) {
-    this.id = id;
+  public void setClientOrderId(String clientOrderId) {
+    this.clientOrderId = clientOrderId;
+  }
+
+  /**
+   * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+   **/
+  @ApiModelProperty(value = "Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.")
+  public String getSymbolExchange() {
+    return symbolExchange;
+  }
+  public void setSymbolExchange(String symbolExchange) {
+    this.symbolExchange = symbolExchange;
+  }
+
+  /**
+   * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+   **/
+  @ApiModelProperty(value = "CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.")
+  public String getSymbolCoinapi() {
+    return symbolCoinapi;
+  }
+  public void setSymbolCoinapi(String symbolCoinapi) {
+    this.symbolCoinapi = symbolCoinapi;
+  }
+
+  /**
+   * Order quantity.
+   **/
+  @ApiModelProperty(required = true, value = "Order quantity.")
+  public BigDecimal getAmountOrder() {
+    return amountOrder;
+  }
+  public void setAmountOrder(BigDecimal amountOrder) {
+    this.amountOrder = amountOrder;
+  }
+
+  /**
+   * Order price.
+   **/
+  @ApiModelProperty(required = true, value = "Order price.")
+  public BigDecimal getPrice() {
+    return price;
+  }
+  public void setPrice(BigDecimal price) {
+    this.price = price;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(required = true, value = "")
+  public OrdSide getSide() {
+    return side;
+  }
+  public void setSide(OrdSide side) {
+    this.side = side;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(required = true, value = "")
+  public OrdType getOrderType() {
+    return orderType;
+  }
+  public void setOrderType(OrdType orderType) {
+    this.orderType = orderType;
+  }
+
+  /**
+   **/
+  @ApiModelProperty(required = true, value = "")
+  public TimeInForce getTimeInForce() {
+    return timeInForce;
+  }
+  public void setTimeInForce(TimeInForce timeInForce) {
+    this.timeInForce = timeInForce;
+  }
+
+  /**
+   * Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
+   **/
+  @ApiModelProperty(value = "Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.")
+  public Date getExpireTime() {
+    return expireTime;
+  }
+  public void setExpireTime(Date expireTime) {
+    this.expireTime = expireTime;
+  }
+
+  /**
+   * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>
+   **/
+  @ApiModelProperty(value = "Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>")
+  public List<ExecInstEnum> getExecInst() {
+    return execInst;
+  }
+  public void setExecInst(List<ExecInstEnum> execInst) {
+    this.execInst = execInst;
   }
 
   /**
@@ -169,115 +261,6 @@ public class ExecutionReport {
     this.errorMessage = errorMessage;
   }
 
-  /**
-   * Client unique identifier for the trade.
-   **/
-  @ApiModelProperty(value = "Client unique identifier for the trade.")
-  public String getClientOrderId() {
-    return clientOrderId;
-  }
-  public void setClientOrderId(String clientOrderId) {
-    this.clientOrderId = clientOrderId;
-  }
-
-  /**
-   * The symbol of the order.
-   **/
-  @ApiModelProperty(value = "The symbol of the order.")
-  public String getSymbolExchange() {
-    return symbolExchange;
-  }
-  public void setSymbolExchange(String symbolExchange) {
-    this.symbolExchange = symbolExchange;
-  }
-
-  /**
-   * The CoinAPI symbol of the order.
-   **/
-  @ApiModelProperty(value = "The CoinAPI symbol of the order.")
-  public String getSymbolCoinapi() {
-    return symbolCoinapi;
-  }
-  public void setSymbolCoinapi(String symbolCoinapi) {
-    this.symbolCoinapi = symbolCoinapi;
-  }
-
-  /**
-   * Quoted decimal amount to purchase.
-   **/
-  @ApiModelProperty(value = "Quoted decimal amount to purchase.")
-  public BigDecimal getAmountOrder() {
-    return amountOrder;
-  }
-  public void setAmountOrder(BigDecimal amountOrder) {
-    this.amountOrder = amountOrder;
-  }
-
-  /**
-   * Quoted decimal amount to spend per unit.
-   **/
-  @ApiModelProperty(value = "Quoted decimal amount to spend per unit.")
-  public BigDecimal getPrice() {
-    return price;
-  }
-  public void setPrice(BigDecimal price) {
-    this.price = price;
-  }
-
-  /**
-   * Buy or Sell
-   **/
-  @ApiModelProperty(value = "Buy or Sell")
-  public SideEnum getSide() {
-    return side;
-  }
-  public void setSide(SideEnum side) {
-    this.side = side;
-  }
-
-  /**
-   * The order type.
-   **/
-  @ApiModelProperty(value = "The order type.")
-  public OrderTypeEnum getOrderType() {
-    return orderType;
-  }
-  public void setOrderType(OrderTypeEnum orderType) {
-    this.orderType = orderType;
-  }
-
-  /**
-   **/
-  @ApiModelProperty(value = "")
-  public TimeInForce getTimeInForce() {
-    return timeInForce;
-  }
-  public void setTimeInForce(TimeInForce timeInForce) {
-    this.timeInForce = timeInForce;
-  }
-
-  /**
-   * Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
-   **/
-  @ApiModelProperty(value = "Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS")
-  public Date getExpireTime() {
-    return expireTime;
-  }
-  public void setExpireTime(Date expireTime) {
-    this.expireTime = expireTime;
-  }
-
-  /**
-   * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>
-   **/
-  @ApiModelProperty(value = "Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>")
-  public List<ExecInstEnum> getExecInst() {
-    return execInst;
-  }
-  public void setExecInst(List<ExecInstEnum> execInst) {
-    this.execInst = execInst;
-  }
-
 
   @Override
   public boolean equals(Object o) {
@@ -289,14 +272,6 @@ public class ExecutionReport {
     }
     ExecutionReport executionReport = (ExecutionReport) o;
     return (this.exchangeId == null ? executionReport.exchangeId == null : this.exchangeId.equals(executionReport.exchangeId)) &&
-        (this.id == null ? executionReport.id == null : this.id.equals(executionReport.id)) &&
-        (this.clientOrderIdFormatExchange == null ? executionReport.clientOrderIdFormatExchange == null : this.clientOrderIdFormatExchange.equals(executionReport.clientOrderIdFormatExchange)) &&
-        (this.exchangeOrderId == null ? executionReport.exchangeOrderId == null : this.exchangeOrderId.equals(executionReport.exchangeOrderId)) &&
-        (this.amountOpen == null ? executionReport.amountOpen == null : this.amountOpen.equals(executionReport.amountOpen)) &&
-        (this.amountFilled == null ? executionReport.amountFilled == null : this.amountFilled.equals(executionReport.amountFilled)) &&
-        (this.status == null ? executionReport.status == null : this.status.equals(executionReport.status)) &&
-        (this.timeOrder == null ? executionReport.timeOrder == null : this.timeOrder.equals(executionReport.timeOrder)) &&
-        (this.errorMessage == null ? executionReport.errorMessage == null : this.errorMessage.equals(executionReport.errorMessage)) &&
         (this.clientOrderId == null ? executionReport.clientOrderId == null : this.clientOrderId.equals(executionReport.clientOrderId)) &&
         (this.symbolExchange == null ? executionReport.symbolExchange == null : this.symbolExchange.equals(executionReport.symbolExchange)) &&
         (this.symbolCoinapi == null ? executionReport.symbolCoinapi == null : this.symbolCoinapi.equals(executionReport.symbolCoinapi)) &&
@@ -306,21 +281,20 @@ public class ExecutionReport {
         (this.orderType == null ? executionReport.orderType == null : this.orderType.equals(executionReport.orderType)) &&
         (this.timeInForce == null ? executionReport.timeInForce == null : this.timeInForce.equals(executionReport.timeInForce)) &&
         (this.expireTime == null ? executionReport.expireTime == null : this.expireTime.equals(executionReport.expireTime)) &&
-        (this.execInst == null ? executionReport.execInst == null : this.execInst.equals(executionReport.execInst));
+        (this.execInst == null ? executionReport.execInst == null : this.execInst.equals(executionReport.execInst)) &&
+        (this.clientOrderIdFormatExchange == null ? executionReport.clientOrderIdFormatExchange == null : this.clientOrderIdFormatExchange.equals(executionReport.clientOrderIdFormatExchange)) &&
+        (this.exchangeOrderId == null ? executionReport.exchangeOrderId == null : this.exchangeOrderId.equals(executionReport.exchangeOrderId)) &&
+        (this.amountOpen == null ? executionReport.amountOpen == null : this.amountOpen.equals(executionReport.amountOpen)) &&
+        (this.amountFilled == null ? executionReport.amountFilled == null : this.amountFilled.equals(executionReport.amountFilled)) &&
+        (this.status == null ? executionReport.status == null : this.status.equals(executionReport.status)) &&
+        (this.timeOrder == null ? executionReport.timeOrder == null : this.timeOrder.equals(executionReport.timeOrder)) &&
+        (this.errorMessage == null ? executionReport.errorMessage == null : this.errorMessage.equals(executionReport.errorMessage));
   }
 
   @Override
   public int hashCode() {
     int result = 17;
     result = 31 * result + (this.exchangeId == null ? 0: this.exchangeId.hashCode());
-    result = 31 * result + (this.id == null ? 0: this.id.hashCode());
-    result = 31 * result + (this.clientOrderIdFormatExchange == null ? 0: this.clientOrderIdFormatExchange.hashCode());
-    result = 31 * result + (this.exchangeOrderId == null ? 0: this.exchangeOrderId.hashCode());
-    result = 31 * result + (this.amountOpen == null ? 0: this.amountOpen.hashCode());
-    result = 31 * result + (this.amountFilled == null ? 0: this.amountFilled.hashCode());
-    result = 31 * result + (this.status == null ? 0: this.status.hashCode());
-    result = 31 * result + (this.timeOrder == null ? 0: this.timeOrder.hashCode());
-    result = 31 * result + (this.errorMessage == null ? 0: this.errorMessage.hashCode());
     result = 31 * result + (this.clientOrderId == null ? 0: this.clientOrderId.hashCode());
     result = 31 * result + (this.symbolExchange == null ? 0: this.symbolExchange.hashCode());
     result = 31 * result + (this.symbolCoinapi == null ? 0: this.symbolCoinapi.hashCode());
@@ -331,6 +305,13 @@ public class ExecutionReport {
     result = 31 * result + (this.timeInForce == null ? 0: this.timeInForce.hashCode());
     result = 31 * result + (this.expireTime == null ? 0: this.expireTime.hashCode());
     result = 31 * result + (this.execInst == null ? 0: this.execInst.hashCode());
+    result = 31 * result + (this.clientOrderIdFormatExchange == null ? 0: this.clientOrderIdFormatExchange.hashCode());
+    result = 31 * result + (this.exchangeOrderId == null ? 0: this.exchangeOrderId.hashCode());
+    result = 31 * result + (this.amountOpen == null ? 0: this.amountOpen.hashCode());
+    result = 31 * result + (this.amountFilled == null ? 0: this.amountFilled.hashCode());
+    result = 31 * result + (this.status == null ? 0: this.status.hashCode());
+    result = 31 * result + (this.timeOrder == null ? 0: this.timeOrder.hashCode());
+    result = 31 * result + (this.errorMessage == null ? 0: this.errorMessage.hashCode());
     return result;
   }
 
@@ -340,14 +321,6 @@ public class ExecutionReport {
     sb.append("class ExecutionReport {\n");
     
     sb.append("  exchangeId: ").append(exchangeId).append("\n");
-    sb.append("  id: ").append(id).append("\n");
-    sb.append("  clientOrderIdFormatExchange: ").append(clientOrderIdFormatExchange).append("\n");
-    sb.append("  exchangeOrderId: ").append(exchangeOrderId).append("\n");
-    sb.append("  amountOpen: ").append(amountOpen).append("\n");
-    sb.append("  amountFilled: ").append(amountFilled).append("\n");
-    sb.append("  status: ").append(status).append("\n");
-    sb.append("  timeOrder: ").append(timeOrder).append("\n");
-    sb.append("  errorMessage: ").append(errorMessage).append("\n");
     sb.append("  clientOrderId: ").append(clientOrderId).append("\n");
     sb.append("  symbolExchange: ").append(symbolExchange).append("\n");
     sb.append("  symbolCoinapi: ").append(symbolCoinapi).append("\n");
@@ -358,6 +331,13 @@ public class ExecutionReport {
     sb.append("  timeInForce: ").append(timeInForce).append("\n");
     sb.append("  expireTime: ").append(expireTime).append("\n");
     sb.append("  execInst: ").append(execInst).append("\n");
+    sb.append("  clientOrderIdFormatExchange: ").append(clientOrderIdFormatExchange).append("\n");
+    sb.append("  exchangeOrderId: ").append(exchangeOrderId).append("\n");
+    sb.append("  amountOpen: ").append(amountOpen).append("\n");
+    sb.append("  amountFilled: ").append(amountFilled).append("\n");
+    sb.append("  status: ").append(status).append("\n");
+    sb.append("  timeOrder: ").append(timeOrder).append("\n");
+    sb.append("  errorMessage: ").append(errorMessage).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

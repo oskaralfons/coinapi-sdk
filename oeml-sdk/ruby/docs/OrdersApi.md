@@ -108,7 +108,7 @@ No authorization required
 
 ## v1_orders_get
 
-> Array&lt;NewOrder&gt; v1_orders_get(opts)
+> Array&lt;ExecutionReport&gt; v1_orders_get(opts)
 
 Get all orders
 
@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array&lt;NewOrder&gt;**](NewOrder.md)
+[**Array&lt;ExecutionReport&gt;**](ExecutionReport.md)
 
 ### Authorization
 
@@ -157,7 +157,7 @@ No authorization required
 
 ## v1_orders_post
 
-> ExecutionReport v1_orders_post(new_order)
+> ExecutionReport v1_orders_post(new_order_single)
 
 Create new order
 
@@ -170,11 +170,11 @@ This request creating new order for the specific exchange.
 require 'openapi_client'
 
 api_instance = OpenapiClient::OrdersApi.new
-new_order = OpenapiClient::NewOrder.new # NewOrder | 
+new_order_single = OpenapiClient::NewOrderSingle.new # NewOrderSingle | 
 
 begin
   #Create new order
-  result = api_instance.v1_orders_post(new_order)
+  result = api_instance.v1_orders_post(new_order_single)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Exception when calling OrdersApi->v1_orders_post: #{e}"
@@ -186,7 +186,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **new_order** | [**NewOrder**](NewOrder.md)|  | 
+ **new_order_single** | [**NewOrderSingle**](NewOrderSingle.md)|  | 
 
 ### Return type
 

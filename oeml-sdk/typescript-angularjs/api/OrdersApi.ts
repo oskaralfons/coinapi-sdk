@@ -89,7 +89,7 @@ export class OrdersApi {
      * @summary Get all orders
      * @param exchangeId Filter the output to the orders from the specific exchange.
      */
-    public v1OrdersGet (exchangeId?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.NewOrder>> {
+    public v1OrdersGet (exchangeId?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.ExecutionReport>> {
         const localVarPath = this.basePath + '/v1/orders';
 
         let queryParameters: any = {};
@@ -114,22 +114,22 @@ export class OrdersApi {
     /**
      * This request creating new order for the specific exchange.
      * @summary Create new order
-     * @param newOrder 
+     * @param newOrderSingle 
      */
-    public v1OrdersPost (newOrder: models.NewOrder, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.ExecutionReport> {
+    public v1OrdersPost (newOrderSingle: models.NewOrderSingle, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.ExecutionReport> {
         const localVarPath = this.basePath + '/v1/orders';
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'newOrder' is not null or undefined
-        if (newOrder === null || newOrder === undefined) {
-            throw new Error('Required parameter newOrder was null or undefined when calling v1OrdersPost.');
+        // verify required parameter 'newOrderSingle' is not null or undefined
+        if (newOrderSingle === null || newOrderSingle === undefined) {
+            throw new Error('Required parameter newOrderSingle was null or undefined when calling v1OrdersPost.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {
             method: 'POST',
             url: localVarPath,
-            data: newOrder,
+            data: newOrderSingle,
             params: queryParameters,
             headers: headerParams
         };

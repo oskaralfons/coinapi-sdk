@@ -17,7 +17,7 @@ goog.provide('API.Client.OrdersApi');
 goog.require('API.Client.CreateOrderValidationError');
 goog.require('API.Client.ExecutionReport');
 goog.require('API.Client.Message');
-goog.require('API.Client.NewOrder');
+goog.require('API.Client.NewOrderSingle');
 goog.require('API.Client.OrderCancelAllRequest');
 goog.require('API.Client.OrderCancelSingleRequest');
 
@@ -127,7 +127,7 @@ API.Client.OrdersApi.prototype.v1OrdersCancelPost = function(orderCancelSingleRe
  * Get all current open orders across all or single specified exchange.
  * @param {!string=} opt_exchangeId Filter the output to the orders from the specific exchange.
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
- * @return {!angular.$q.Promise<!Array<!API.Client.NewOrder>>}
+ * @return {!angular.$q.Promise<!Array<!API.Client.ExecutionReport>>}
  */
 API.Client.OrdersApi.prototype.v1OrdersGet = function(opt_exchangeId, opt_extraHttpRequestParams) {
   /** @const {string} */
@@ -161,11 +161,11 @@ API.Client.OrdersApi.prototype.v1OrdersGet = function(opt_exchangeId, opt_extraH
 /**
  * Create new order
  * This request creating new order for the specific exchange.
- * @param {!NewOrder} newOrder 
+ * @param {!NewOrderSingle} newOrderSingle 
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
  * @return {!angular.$q.Promise<!API.Client.ExecutionReport>}
  */
-API.Client.OrdersApi.prototype.v1OrdersPost = function(newOrder, opt_extraHttpRequestParams) {
+API.Client.OrdersApi.prototype.v1OrdersPost = function(newOrderSingle, opt_extraHttpRequestParams) {
   /** @const {string} */
   var path = this.basePath_ + '/v1/orders';
 
@@ -174,16 +174,16 @@ API.Client.OrdersApi.prototype.v1OrdersPost = function(newOrder, opt_extraHttpRe
 
   /** @type {!Object} */
   var headerParams = angular.extend({}, this.defaultHeaders_);
-  // verify required parameter 'newOrder' is set
-  if (!newOrder) {
-    throw new Error('Missing required parameter newOrder when calling v1OrdersPost');
+  // verify required parameter 'newOrderSingle' is set
+  if (!newOrderSingle) {
+    throw new Error('Missing required parameter newOrderSingle when calling v1OrdersPost');
   }
   /** @type {!Object} */
   var httpRequestParams = {
     method: 'POST',
     url: path,
     json: true,
-    data: newOrder,
+    data: newOrderSingle,
         params: queryParameters,
     headers: headerParams
   };

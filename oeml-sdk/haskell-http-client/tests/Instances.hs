@@ -146,8 +146,17 @@ instance Arbitrary ExecutionReport where
 genExecutionReport :: Int -> Gen ExecutionReport
 genExecutionReport n =
   ExecutionReport
-    <$> arbitraryReducedMaybe n -- executionReportExchangeId :: Maybe Text
-    <*> arbitraryReducedMaybe n -- executionReportId :: Maybe Text
+    <$> arbitrary -- executionReportExchangeId :: Text
+    <*> arbitrary -- executionReportClientOrderId :: Text
+    <*> arbitraryReducedMaybe n -- executionReportSymbolExchange :: Maybe Text
+    <*> arbitraryReducedMaybe n -- executionReportSymbolCoinapi :: Maybe Text
+    <*> arbitrary -- executionReportAmountOrder :: Double
+    <*> arbitrary -- executionReportPrice :: Double
+    <*> arbitraryReduced n -- executionReportSide :: OrdSide
+    <*> arbitraryReduced n -- executionReportOrderType :: OrdType
+    <*> arbitraryReduced n -- executionReportTimeInForce :: TimeInForce
+    <*> arbitraryReducedMaybe n -- executionReportExpireTime :: Maybe Date
+    <*> arbitraryReducedMaybe n -- executionReportExecInst :: Maybe [E'ExecInst]
     <*> arbitraryReducedMaybe n -- executionReportClientOrderIdFormatExchange :: Maybe Text
     <*> arbitraryReducedMaybe n -- executionReportExchangeOrderId :: Maybe Text
     <*> arbitraryReducedMaybe n -- executionReportAmountOpen :: Maybe Double
@@ -155,16 +164,20 @@ genExecutionReport n =
     <*> arbitraryReducedMaybe n -- executionReportStatus :: Maybe OrdStatus
     <*> arbitraryReducedMaybe n -- executionReportTimeOrder :: Maybe [[Text]]
     <*> arbitraryReducedMaybe n -- executionReportErrorMessage :: Maybe Text
-    <*> arbitraryReducedMaybe n -- executionReportClientOrderId :: Maybe Text
-    <*> arbitraryReducedMaybe n -- executionReportSymbolExchange :: Maybe Text
-    <*> arbitraryReducedMaybe n -- executionReportSymbolCoinapi :: Maybe Text
-    <*> arbitraryReducedMaybe n -- executionReportAmountOrder :: Maybe Double
-    <*> arbitraryReducedMaybe n -- executionReportPrice :: Maybe Double
-    <*> arbitraryReducedMaybe n -- executionReportSide :: Maybe E'Side
-    <*> arbitraryReducedMaybe n -- executionReportOrderType :: Maybe E'OrderType
-    <*> arbitraryReducedMaybe n -- executionReportTimeInForce :: Maybe TimeInForce
-    <*> arbitraryReducedMaybe n -- executionReportExpireTime :: Maybe Date
-    <*> arbitraryReducedMaybe n -- executionReportExecInst :: Maybe [E'ExecInst]
+  
+instance Arbitrary ExecutionReportAllOf where
+  arbitrary = sized genExecutionReportAllOf
+
+genExecutionReportAllOf :: Int -> Gen ExecutionReportAllOf
+genExecutionReportAllOf n =
+  ExecutionReportAllOf
+    <$> arbitraryReducedMaybe n -- executionReportAllOfClientOrderIdFormatExchange :: Maybe Text
+    <*> arbitraryReducedMaybe n -- executionReportAllOfExchangeOrderId :: Maybe Text
+    <*> arbitraryReducedMaybe n -- executionReportAllOfAmountOpen :: Maybe Double
+    <*> arbitraryReducedMaybe n -- executionReportAllOfAmountFilled :: Maybe Double
+    <*> arbitraryReducedMaybe n -- executionReportAllOfStatus :: Maybe OrdStatus
+    <*> arbitraryReducedMaybe n -- executionReportAllOfTimeOrder :: Maybe [[Text]]
+    <*> arbitraryReducedMaybe n -- executionReportAllOfErrorMessage :: Maybe Text
   
 instance Arbitrary Message where
   arbitrary = sized genMessage
@@ -177,23 +190,23 @@ genMessage n =
     <*> arbitraryReducedMaybe n -- messageExchangeId :: Maybe Text
     <*> arbitraryReducedMaybe n -- messageMessage :: Maybe Text
   
-instance Arbitrary NewOrder where
-  arbitrary = sized genNewOrder
+instance Arbitrary NewOrderSingle where
+  arbitrary = sized genNewOrderSingle
 
-genNewOrder :: Int -> Gen NewOrder
-genNewOrder n =
-  NewOrder
-    <$> arbitrary -- newOrderExchangeId :: Text
-    <*> arbitrary -- newOrderClientOrderId :: Text
-    <*> arbitraryReducedMaybe n -- newOrderSymbolExchange :: Maybe Text
-    <*> arbitraryReducedMaybe n -- newOrderSymbolCoinapi :: Maybe Text
-    <*> arbitrary -- newOrderAmountOrder :: Double
-    <*> arbitrary -- newOrderPrice :: Double
-    <*> arbitraryReduced n -- newOrderSide :: OrdSide
-    <*> arbitraryReduced n -- newOrderOrderType :: OrdType
-    <*> arbitraryReduced n -- newOrderTimeInForce :: TimeInForce
-    <*> arbitraryReducedMaybe n -- newOrderExpireTime :: Maybe Date
-    <*> arbitraryReducedMaybe n -- newOrderExecInst :: Maybe [E'ExecInst]
+genNewOrderSingle :: Int -> Gen NewOrderSingle
+genNewOrderSingle n =
+  NewOrderSingle
+    <$> arbitrary -- newOrderSingleExchangeId :: Text
+    <*> arbitrary -- newOrderSingleClientOrderId :: Text
+    <*> arbitraryReducedMaybe n -- newOrderSingleSymbolExchange :: Maybe Text
+    <*> arbitraryReducedMaybe n -- newOrderSingleSymbolCoinapi :: Maybe Text
+    <*> arbitrary -- newOrderSingleAmountOrder :: Double
+    <*> arbitrary -- newOrderSinglePrice :: Double
+    <*> arbitraryReduced n -- newOrderSingleSide :: OrdSide
+    <*> arbitraryReduced n -- newOrderSingleOrderType :: OrdType
+    <*> arbitraryReduced n -- newOrderSingleTimeInForce :: TimeInForce
+    <*> arbitraryReducedMaybe n -- newOrderSingleExpireTime :: Maybe Date
+    <*> arbitraryReducedMaybe n -- newOrderSingleExecInst :: Maybe [E'ExecInst]
   
 instance Arbitrary OrderCancelAllRequest where
   arbitrary = sized genOrderCancelAllRequest
@@ -245,12 +258,6 @@ genPositionData n =
 
 
 instance Arbitrary E'ExecInst where
-  arbitrary = arbitraryBoundedEnum
-
-instance Arbitrary E'OrderType where
-  arbitrary = arbitraryBoundedEnum
-
-instance Arbitrary E'Side where
   arbitrary = arbitraryBoundedEnum
 
 instance Arbitrary E'UpdateOrigin where

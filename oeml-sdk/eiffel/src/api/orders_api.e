@@ -94,14 +94,14 @@ feature -- API Access
 			end
 		end	
 
-	v1_orders_get (exchange_id: STRING_32): detachable LIST [NEW_ORDER]
+	v1_orders_get (exchange_id: STRING_32): detachable LIST [EXECUTION_REPORT]
 			-- Get all orders
 			-- Get all current open orders across all or single specified exchange.
 			-- 
 			-- argument: exchange_id Filter the output to the orders from the specific exchange. (optional, default to null)
 			-- 
 			-- 
-			-- Result LIST [NEW_ORDER]
+			-- Result LIST [EXECUTION_REPORT]
 		require
 		local
   			l_path: STRING
@@ -123,18 +123,18 @@ feature -- API Access
 			l_response := api_client.call_api (l_path, "Get", l_request, Void, agent deserializer)
 			if l_response.has_error then
 				last_error := l_response.error
-			elseif attached { LIST [NEW_ORDER] } l_response.data ({ LIST [NEW_ORDER] }) as l_data then
+			elseif attached { LIST [EXECUTION_REPORT] } l_response.data ({ LIST [EXECUTION_REPORT] }) as l_data then
 				Result := l_data
 			else
 				create last_error.make ("Unknown error: Status response [ " + l_response.status.out + "]")
 			end
 		end	
 
-	v1_orders_post (new_order: NEW_ORDER): detachable EXECUTION_REPORT
+	v1_orders_post (new_order_single: NEW_ORDER_SINGLE): detachable EXECUTION_REPORT
 			-- Create new order
 			-- This request creating new order for the specific exchange.
 			-- 
-			-- argument: new_order  (required)
+			-- argument: new_order_single  (required)
 			-- 
 			-- 
 			-- Result EXECUTION_REPORT
@@ -146,7 +146,7 @@ feature -- API Access
 		do
 			reset_error
 			create l_request
-			l_request.set_body(new_order)
+			l_request.set_body(new_order_single)
 			l_path := "/v1/orders"
 
 

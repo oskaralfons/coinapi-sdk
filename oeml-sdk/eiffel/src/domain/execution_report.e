@@ -25,9 +25,27 @@ inherit
 feature --Access
 
     exchange_id: detachable STRING_32 
-      -- Exchange name
-    id: detachable STRING_32 
-      -- Client unique identifier for the trade.
+      -- Exchange identifier.
+    client_order_id: detachable STRING_32 
+      -- Unique identifier for the order assigned by the `OEML API` client.
+    symbol_exchange: detachable STRING_32 
+      -- Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+    symbol_coinapi: detachable STRING_32 
+      -- CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+    amount_order: REAL_32 
+      -- Order quantity.
+    price: REAL_32 
+      -- Order price.
+    side: detachable ORD_SIDE 
+      
+    order_type: detachable ORD_TYPE 
+      
+    time_in_force: detachable TIME_IN_FORCE 
+      
+    expire_time: detachable DATE 
+      -- Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
+    exec_inst: detachable LIST [STRING_32] 
+      -- Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>
     client_order_id_format_exchange: detachable STRING_32 
       -- Hash client id
     exchange_order_id: detachable STRING_32 
@@ -42,26 +60,6 @@ feature --Access
       -- History of order status changes
     error_message: detachable STRING_32 
       -- Error message
-    client_order_id: detachable STRING_32 
-      -- Client unique identifier for the trade.
-    symbol_exchange: detachable STRING_32 
-      -- The symbol of the order.
-    symbol_coinapi: detachable STRING_32 
-      -- The CoinAPI symbol of the order.
-    amount_order: REAL_32 
-      -- Quoted decimal amount to purchase.
-    price: REAL_32 
-      -- Quoted decimal amount to spend per unit.
-    side: detachable STRING_32 
-      -- Buy or Sell
-    order_type: detachable STRING_32 
-      -- The order type.
-    time_in_force: detachable TIME_IN_FORCE 
-      
-    expire_time: detachable DATE 
-      -- Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
-    exec_inst: detachable LIST [STRING_32] 
-      -- Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>
 
 feature -- Change Element  
  
@@ -71,70 +69,6 @@ feature -- Change Element
         exchange_id := a_name
       ensure
         exchange_id_set: exchange_id = a_name		
-      end
-
-    set_id (a_name: like id)
-        -- Set 'id' with 'a_name'.
-      do
-        id := a_name
-      ensure
-        id_set: id = a_name		
-      end
-
-    set_client_order_id_format_exchange (a_name: like client_order_id_format_exchange)
-        -- Set 'client_order_id_format_exchange' with 'a_name'.
-      do
-        client_order_id_format_exchange := a_name
-      ensure
-        client_order_id_format_exchange_set: client_order_id_format_exchange = a_name		
-      end
-
-    set_exchange_order_id (a_name: like exchange_order_id)
-        -- Set 'exchange_order_id' with 'a_name'.
-      do
-        exchange_order_id := a_name
-      ensure
-        exchange_order_id_set: exchange_order_id = a_name		
-      end
-
-    set_amount_open (a_name: like amount_open)
-        -- Set 'amount_open' with 'a_name'.
-      do
-        amount_open := a_name
-      ensure
-        amount_open_set: amount_open = a_name		
-      end
-
-    set_amount_filled (a_name: like amount_filled)
-        -- Set 'amount_filled' with 'a_name'.
-      do
-        amount_filled := a_name
-      ensure
-        amount_filled_set: amount_filled = a_name		
-      end
-
-    set_status (a_name: like status)
-        -- Set 'status' with 'a_name'.
-      do
-        status := a_name
-      ensure
-        status_set: status = a_name		
-      end
-
-    set_time_order (a_name: like time_order)
-        -- Set 'time_order' with 'a_name'.
-      do
-        time_order := a_name
-      ensure
-        time_order_set: time_order = a_name		
-      end
-
-    set_error_message (a_name: like error_message)
-        -- Set 'error_message' with 'a_name'.
-      do
-        error_message := a_name
-      ensure
-        error_message_set: error_message = a_name		
       end
 
     set_client_order_id (a_name: like client_order_id)
@@ -217,6 +151,62 @@ feature -- Change Element
         exec_inst_set: exec_inst = a_name		
       end
 
+    set_client_order_id_format_exchange (a_name: like client_order_id_format_exchange)
+        -- Set 'client_order_id_format_exchange' with 'a_name'.
+      do
+        client_order_id_format_exchange := a_name
+      ensure
+        client_order_id_format_exchange_set: client_order_id_format_exchange = a_name		
+      end
+
+    set_exchange_order_id (a_name: like exchange_order_id)
+        -- Set 'exchange_order_id' with 'a_name'.
+      do
+        exchange_order_id := a_name
+      ensure
+        exchange_order_id_set: exchange_order_id = a_name		
+      end
+
+    set_amount_open (a_name: like amount_open)
+        -- Set 'amount_open' with 'a_name'.
+      do
+        amount_open := a_name
+      ensure
+        amount_open_set: amount_open = a_name		
+      end
+
+    set_amount_filled (a_name: like amount_filled)
+        -- Set 'amount_filled' with 'a_name'.
+      do
+        amount_filled := a_name
+      ensure
+        amount_filled_set: amount_filled = a_name		
+      end
+
+    set_status (a_name: like status)
+        -- Set 'status' with 'a_name'.
+      do
+        status := a_name
+      ensure
+        status_set: status = a_name		
+      end
+
+    set_time_order (a_name: like time_order)
+        -- Set 'time_order' with 'a_name'.
+      do
+        time_order := a_name
+      ensure
+        time_order_set: time_order = a_name		
+      end
+
+    set_error_message (a_name: like error_message)
+        -- Set 'error_message' with 'a_name'.
+      do
+        error_message := a_name
+      ensure
+        error_message_set: error_message = a_name		
+      end
+
 
  feature -- Status Report
 
@@ -228,48 +218,6 @@ feature -- Change Element
         if attached exchange_id as l_exchange_id then
           Result.append ("%Nexchange_id:")
           Result.append (l_exchange_id.out)
-          Result.append ("%N")    
-        end  
-        if attached id as l_id then
-          Result.append ("%Nid:")
-          Result.append (l_id.out)
-          Result.append ("%N")    
-        end  
-        if attached client_order_id_format_exchange as l_client_order_id_format_exchange then
-          Result.append ("%Nclient_order_id_format_exchange:")
-          Result.append (l_client_order_id_format_exchange.out)
-          Result.append ("%N")    
-        end  
-        if attached exchange_order_id as l_exchange_order_id then
-          Result.append ("%Nexchange_order_id:")
-          Result.append (l_exchange_order_id.out)
-          Result.append ("%N")    
-        end  
-        if attached amount_open as l_amount_open then
-          Result.append ("%Namount_open:")
-          Result.append (l_amount_open.out)
-          Result.append ("%N")    
-        end  
-        if attached amount_filled as l_amount_filled then
-          Result.append ("%Namount_filled:")
-          Result.append (l_amount_filled.out)
-          Result.append ("%N")    
-        end  
-        if attached status as l_status then
-          Result.append ("%Nstatus:")
-          Result.append (l_status.out)
-          Result.append ("%N")    
-        end  
-        if attached time_order as l_time_order then
-          across l_time_order as ic loop
-            Result.append ("%N time_order:")
-            Result.append (ic.item.out)
-            Result.append ("%N")
-          end
-        end 
-        if attached error_message as l_error_message then
-          Result.append ("%Nerror_message:")
-          Result.append (l_error_message.out)
           Result.append ("%N")    
         end  
         if attached client_order_id as l_client_order_id then
@@ -324,6 +272,43 @@ feature -- Change Element
             Result.append ("%N")
           end
         end 
+        if attached client_order_id_format_exchange as l_client_order_id_format_exchange then
+          Result.append ("%Nclient_order_id_format_exchange:")
+          Result.append (l_client_order_id_format_exchange.out)
+          Result.append ("%N")    
+        end  
+        if attached exchange_order_id as l_exchange_order_id then
+          Result.append ("%Nexchange_order_id:")
+          Result.append (l_exchange_order_id.out)
+          Result.append ("%N")    
+        end  
+        if attached amount_open as l_amount_open then
+          Result.append ("%Namount_open:")
+          Result.append (l_amount_open.out)
+          Result.append ("%N")    
+        end  
+        if attached amount_filled as l_amount_filled then
+          Result.append ("%Namount_filled:")
+          Result.append (l_amount_filled.out)
+          Result.append ("%N")    
+        end  
+        if attached status as l_status then
+          Result.append ("%Nstatus:")
+          Result.append (l_status.out)
+          Result.append ("%N")    
+        end  
+        if attached time_order as l_time_order then
+          across l_time_order as ic loop
+            Result.append ("%N time_order:")
+            Result.append (ic.item.out)
+            Result.append ("%N")
+          end
+        end 
+        if attached error_message as l_error_message then
+          Result.append ("%Nerror_message:")
+          Result.append (l_error_message.out)
+          Result.append ("%N")    
+        end  
       end
 end
 

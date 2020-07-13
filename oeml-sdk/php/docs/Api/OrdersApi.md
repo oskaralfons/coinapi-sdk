@@ -126,7 +126,7 @@ No authorization required
 
 ## v1OrdersGet
 
-> \OpenAPI\Client\Model\NewOrder[] v1OrdersGet($exchange_id)
+> \OpenAPI\Client\Model\ExecutionReport[] v1OrdersGet($exchange_id)
 
 Get all orders
 
@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\NewOrder[]**](../Model/NewOrder.md)
+[**\OpenAPI\Client\Model\ExecutionReport[]**](../Model/ExecutionReport.md)
 
 ### Authorization
 
@@ -182,7 +182,7 @@ No authorization required
 
 ## v1OrdersPost
 
-> \OpenAPI\Client\Model\ExecutionReport v1OrdersPost($new_order)
+> \OpenAPI\Client\Model\ExecutionReport v1OrdersPost($new_order_single)
 
 Create new order
 
@@ -200,10 +200,10 @@ $apiInstance = new OpenAPI\Client\Api\OrdersApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$new_order = new \OpenAPI\Client\Model\NewOrder(); // \OpenAPI\Client\Model\NewOrder | 
+$new_order_single = new \OpenAPI\Client\Model\NewOrderSingle(); // \OpenAPI\Client\Model\NewOrderSingle | 
 
 try {
-    $result = $apiInstance->v1OrdersPost($new_order);
+    $result = $apiInstance->v1OrdersPost($new_order_single);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrdersApi->v1OrdersPost: ', $e->getMessage(), PHP_EOL;
@@ -216,7 +216,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **new_order** | [**\OpenAPI\Client\Model\NewOrder**](../Model/NewOrder.md)|  |
+ **new_order_single** | [**\OpenAPI\Client\Model\NewOrderSingle**](../Model/NewOrderSingle.md)|  |
 
 ### Return type
 

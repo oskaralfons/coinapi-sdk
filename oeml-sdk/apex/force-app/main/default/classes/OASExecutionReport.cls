@@ -13,18 +13,81 @@
 /**
  * OASExecutionReport
  */
-public class OASExecutionReport implements OAS.MappedProperties {
+public class OASExecutionReport implements OASNewOrderSingle, OASExecutionReportAllOf, OAS.MappedProperties {
     /**
-     * Exchange name
+     * Exchange identifier.
      * @return exchangeId
      */
     public String exchangeId { get; set; }
 
     /**
-     * Client unique identifier for the trade.
-     * @return id
+     * Unique identifier for the order assigned by the `OEML API` client.
+     * @return clientOrderId
      */
-    public String id { get; set; }
+    public String clientOrderId { get; set; }
+
+    /**
+     * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+     * @return symbolExchange
+     */
+    public String symbolExchange { get; set; }
+
+    /**
+     * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+     * @return symbolCoinapi
+     */
+    public String symbolCoinapi { get; set; }
+
+    /**
+     * Order quantity.
+     * @return amountOrder
+     */
+    public Double amountOrder { get; set; }
+
+    /**
+     * Order price.
+     * @return price
+     */
+    public Double price { get; set; }
+
+    /**
+     * Get side
+     * @return side
+     */
+    public OASOrdSide side { get; set; }
+
+    /**
+     * Get orderType
+     * @return orderType
+     */
+    public OASOrdType orderType { get; set; }
+
+    /**
+     * Get timeInForce
+     * @return timeInForce
+     */
+    public OASTimeInForce timeInForce { get; set; }
+
+    /**
+     * Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
+     * @return expireTime
+     */
+    public Date expireTime { get; set; }
+
+    /**
+     * Gets or Sets execInst
+     */
+    public enum ExecInstEnum {
+        MAKER_OR_CANCEL,
+        AUCTION_ONLY,
+        INDICATION_OF_INTEREST
+    }
+
+    /**
+     * Order execution instructions are documented in the separate section: <a href="#oeml-order-params-exec">OEML / Starter Guide / Order parameters / Execution instructions</a>
+     * @return execInst
+     */
+    public List<ExecInstEnum> execInst { get; set; }
 
     /**
      * Hash client id
@@ -68,98 +131,8 @@ public class OASExecutionReport implements OAS.MappedProperties {
      */
     public String errorMessage { get; set; }
 
-    /**
-     * Client unique identifier for the trade.
-     * @return clientOrderId
-     */
-    public String clientOrderId { get; set; }
-
-    /**
-     * The symbol of the order.
-     * @return symbolExchange
-     */
-    public String symbolExchange { get; set; }
-
-    /**
-     * The CoinAPI symbol of the order.
-     * @return symbolCoinapi
-     */
-    public String symbolCoinapi { get; set; }
-
-    /**
-     * Quoted decimal amount to purchase.
-     * @return amountOrder
-     */
-    public Double amountOrder { get; set; }
-
-    /**
-     * Quoted decimal amount to spend per unit.
-     * @return price
-     */
-    public Double price { get; set; }
-
-    /**
-     * Buy or Sell
-     */
-    public enum SideEnum {
-        BUY,
-        SELL
-    }
-
-    /**
-     * Buy or Sell
-     * @return side
-     */
-    public SideEnum side { get; set; }
-
-    /**
-     * The order type.
-     */
-    public enum OrderTypeEnum {
-        LIMIT
-    }
-
-    /**
-     * The order type.
-     * @return orderType
-     */
-    public OrderTypeEnum orderType { get; set; }
-
-    /**
-     * Get timeInForce
-     * @return timeInForce
-     */
-    public OASTimeInForce timeInForce { get; set; }
-
-    /**
-     * Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
-     * @return expireTime
-     */
-    public Date expireTime { get; set; }
-
-    /**
-     * Gets or Sets execInst
-     */
-    public enum ExecInstEnum {
-        MAKER_OR_CANCEL,
-        AUCTION_ONLY,
-        INDICATION_OF_INTEREST
-    }
-
-    /**
-     * Order execution instructions are documented in the separate section: <a href="#oeml-order-params-exec">OEML / Starter Guide / Order parameters / Execution instructions</a>
-     * @return execInst
-     */
-    public List<ExecInstEnum> execInst { get; set; }
-
     private static final Map<String, String> propertyMappings = new Map<String, String>{
         'exchange_id' => 'exchangeId',
-        'client_order_id_format_exchange' => 'clientOrderIdFormatExchange',
-        'exchange_order_id' => 'exchangeOrderId',
-        'amount_open' => 'amountOpen',
-        'amount_filled' => 'amountFilled',
-        'time_order' => 'timeOrder',
-        'error_message' => 'errorMessage',
         'client_order_id' => 'clientOrderId',
         'symbol_exchange' => 'symbolExchange',
         'symbol_coinapi' => 'symbolCoinapi',
@@ -167,7 +140,13 @@ public class OASExecutionReport implements OAS.MappedProperties {
         'order_type' => 'orderType',
         'time_in_force' => 'timeInForce',
         'expire_time' => 'expireTime',
-        'exec_inst' => 'execInst'
+        'exec_inst' => 'execInst',
+        'client_order_id_format_exchange' => 'clientOrderIdFormatExchange',
+        'exchange_order_id' => 'exchangeOrderId',
+        'amount_open' => 'amountOpen',
+        'amount_filled' => 'amountFilled',
+        'time_order' => 'timeOrder',
+        'error_message' => 'errorMessage'
     };
 
     public Map<String, String> getPropertyMappings() {
@@ -175,14 +154,23 @@ public class OASExecutionReport implements OAS.MappedProperties {
     }
 
     public OASExecutionReport() {
-        timeOrder = new List<List<String>>();
         execInst = new List<ExecInstEnum>();
+        timeOrder = new List<List<String>>();
     }
 
     public static OASExecutionReport getExample() {
         OASExecutionReport executionReport = new OASExecutionReport();
           executionReport.exchangeId = 'KRAKEN';
-          executionReport.id = 'KPP-222389382-AQ';
+          executionReport.clientOrderId = 'KPP-222389382-AQ';
+          executionReport.symbolExchange = 'BTCUSD';
+          executionReport.symbolCoinapi = 'KRAKEN_SPOT_BTC_USD';
+          executionReport.amountOrder = 0.045;
+          executionReport.price = 0.0783;
+          executionReport.side = OASOrdSide.getExample();
+          executionReport.orderType = OASOrdType.getExample();
+          executionReport.timeInForce = OASTimeInForce.getExample();
+          executionReport.expireTime = Date.getExample();
+          executionReport.execInst = List<ExecInstEnum>.LIST_EXECINSTENUM_NEW_LIST_STRING_MAKER_OR_CANCEL_;
           executionReport.clientOrderIdFormatExchange = 'f81211e2-27c4-b86a-8143-01088ba9222c';
           executionReport.exchangeOrderId = '90832ASASAS89789-1112';
           executionReport.amountOpen = 0.22;
@@ -190,16 +178,6 @@ public class OASExecutionReport implements OAS.MappedProperties {
           executionReport.status = OASOrdStatus.getExample();
           executionReport.timeOrder = new List<List<String>>{new List<String>{'["RECEIVED","2020-05-27T11:16:20.1677709Z"]'}};
           executionReport.errorMessage = '{"result":"error","reason":"InsufficientFunds","message":"Failed to place buy order on symbol \'BTCUSD\' for price $7,000.00 and quantity 0.22 BTC due to insufficient funds"}';
-          executionReport.clientOrderId = 'KPP-222389382-AQ';
-          executionReport.symbolExchange = 'BTCUSD';
-          executionReport.symbolCoinapi = 'KRAKEN_SPOT_BTC_USD';
-          executionReport.amountOrder = 0.045;
-          executionReport.price = 0.0783;
-          executionReport.side = SideEnum.BUY;
-          executionReport.orderType = OrderTypeEnum.LIMIT;
-          executionReport.timeInForce = OASTimeInForce.getExample();
-          executionReport.expireTime = Date.getExample();
-          executionReport.execInst = List<ExecInstEnum>.LIST_EXECINSTENUM_NEW_LIST_STRING_MAKER_OR_CANCEL_;
         return executionReport;
     }
 
@@ -207,14 +185,6 @@ public class OASExecutionReport implements OAS.MappedProperties {
         if (obj instanceof OASExecutionReport) {           
             OASExecutionReport executionReport = (OASExecutionReport) obj;
             return this.exchangeId == executionReport.exchangeId
-                && this.id == executionReport.id
-                && this.clientOrderIdFormatExchange == executionReport.clientOrderIdFormatExchange
-                && this.exchangeOrderId == executionReport.exchangeOrderId
-                && this.amountOpen == executionReport.amountOpen
-                && this.amountFilled == executionReport.amountFilled
-                && this.status == executionReport.status
-                && this.timeOrder == executionReport.timeOrder
-                && this.errorMessage == executionReport.errorMessage
                 && this.clientOrderId == executionReport.clientOrderId
                 && this.symbolExchange == executionReport.symbolExchange
                 && this.symbolCoinapi == executionReport.symbolCoinapi
@@ -224,7 +194,14 @@ public class OASExecutionReport implements OAS.MappedProperties {
                 && this.orderType == executionReport.orderType
                 && this.timeInForce == executionReport.timeInForce
                 && this.expireTime == executionReport.expireTime
-                && this.execInst == executionReport.execInst;
+                && this.execInst == executionReport.execInst
+                && this.clientOrderIdFormatExchange == executionReport.clientOrderIdFormatExchange
+                && this.exchangeOrderId == executionReport.exchangeOrderId
+                && this.amountOpen == executionReport.amountOpen
+                && this.amountFilled == executionReport.amountFilled
+                && this.status == executionReport.status
+                && this.timeOrder == executionReport.timeOrder
+                && this.errorMessage == executionReport.errorMessage;
         }
         return false;
     }
@@ -232,14 +209,6 @@ public class OASExecutionReport implements OAS.MappedProperties {
     public Integer hashCode() {
         Integer hashCode = 43;
         hashCode = (17 * hashCode) + (exchangeId == null ? 0 : System.hashCode(exchangeId));
-        hashCode = (17 * hashCode) + (id == null ? 0 : System.hashCode(id));
-        hashCode = (17 * hashCode) + (clientOrderIdFormatExchange == null ? 0 : System.hashCode(clientOrderIdFormatExchange));
-        hashCode = (17 * hashCode) + (exchangeOrderId == null ? 0 : System.hashCode(exchangeOrderId));
-        hashCode = (17 * hashCode) + (amountOpen == null ? 0 : System.hashCode(amountOpen));
-        hashCode = (17 * hashCode) + (amountFilled == null ? 0 : System.hashCode(amountFilled));
-        hashCode = (17 * hashCode) + (status == null ? 0 : System.hashCode(status));
-        hashCode = (17 * hashCode) + (timeOrder == null ? 0 : System.hashCode(timeOrder));
-        hashCode = (17 * hashCode) + (errorMessage == null ? 0 : System.hashCode(errorMessage));
         hashCode = (17 * hashCode) + (clientOrderId == null ? 0 : System.hashCode(clientOrderId));
         hashCode = (17 * hashCode) + (symbolExchange == null ? 0 : System.hashCode(symbolExchange));
         hashCode = (17 * hashCode) + (symbolCoinapi == null ? 0 : System.hashCode(symbolCoinapi));
@@ -250,6 +219,13 @@ public class OASExecutionReport implements OAS.MappedProperties {
         hashCode = (17 * hashCode) + (timeInForce == null ? 0 : System.hashCode(timeInForce));
         hashCode = (17 * hashCode) + (expireTime == null ? 0 : System.hashCode(expireTime));
         hashCode = (17 * hashCode) + (execInst == null ? 0 : System.hashCode(execInst));
+        hashCode = (17 * hashCode) + (clientOrderIdFormatExchange == null ? 0 : System.hashCode(clientOrderIdFormatExchange));
+        hashCode = (17 * hashCode) + (exchangeOrderId == null ? 0 : System.hashCode(exchangeOrderId));
+        hashCode = (17 * hashCode) + (amountOpen == null ? 0 : System.hashCode(amountOpen));
+        hashCode = (17 * hashCode) + (amountFilled == null ? 0 : System.hashCode(amountFilled));
+        hashCode = (17 * hashCode) + (status == null ? 0 : System.hashCode(status));
+        hashCode = (17 * hashCode) + (timeOrder == null ? 0 : System.hashCode(timeOrder));
+        hashCode = (17 * hashCode) + (errorMessage == null ? 0 : System.hashCode(errorMessage));
         return hashCode;
     }
 }

@@ -82,7 +82,7 @@ No authorization required
 
 ## V1OrdersGet
 
-> []NewOrder V1OrdersGet(ctx, optional)
+> []ExecutionReport V1OrdersGet(ctx, optional)
 
 Get all orders
 
@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]NewOrder**](NewOrder.md)
+[**[]ExecutionReport**](ExecutionReport.md)
 
 ### Authorization
 
@@ -125,7 +125,7 @@ No authorization required
 
 ## V1OrdersPost
 
-> ExecutionReport V1OrdersPost(ctx, newOrder)
+> ExecutionReport V1OrdersPost(ctx, newOrderSingle)
 
 Create new order
 
@@ -137,7 +137,7 @@ This request creating new order for the specific exchange.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**newOrder** | [**NewOrder**](NewOrder.md)|  | 
+**newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)|  | 
 
 ### Return type
 

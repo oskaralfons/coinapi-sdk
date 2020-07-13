@@ -14,7 +14,7 @@ package org.openapitools.client.api
 import org.openapitools.client.model.CreateOrderValidationError
 import org.openapitools.client.model.ExecutionReport
 import org.openapitools.client.model.Message
-import org.openapitools.client.model.NewOrder
+import org.openapitools.client.model.NewOrderSingle
 import org.openapitools.client.model.OrderCancelAllRequest
 import org.openapitools.client.model.OrderCancelSingleRequest
 import org.openapitools.client.core._
@@ -64,14 +64,14 @@ class OrdersApi(baseUrl: String) {
    * Get all current open orders across all or single specified exchange.
    * 
    * Expected answers:
-   *   code 200 : Seq[NewOrder] (Collection of requested open orders.)
+   *   code 200 : Seq[ExecutionReport] (Collection of requested open orders.)
    * 
    * @param exchangeId Filter the output to the orders from the specific exchange.
    */
-  def v1OrdersGet(exchangeId: Option[String] = None): ApiRequest[Seq[NewOrder]] =
-    ApiRequest[Seq[NewOrder]](ApiMethods.GET, baseUrl, "/v1/orders", "application/json")
+  def v1OrdersGet(exchangeId: Option[String] = None): ApiRequest[Seq[ExecutionReport]] =
+    ApiRequest[Seq[ExecutionReport]](ApiMethods.GET, baseUrl, "/v1/orders", "application/json")
       .withQueryParam("exchange_id", exchangeId)
-      .withSuccessResponse[Seq[NewOrder]](200)
+      .withSuccessResponse[Seq[ExecutionReport]](200)
       
 
   /**
@@ -82,11 +82,11 @@ class OrdersApi(baseUrl: String) {
    *   code 400 : CreateOrderValidationError (Validation errors)
    *   code 490 : Message (Exchange not registered)
    * 
-   * @param newOrder 
+   * @param newOrderSingle 
    */
-  def v1OrdersPost(newOrder: NewOrder): ApiRequest[ExecutionReport] =
+  def v1OrdersPost(newOrderSingle: NewOrderSingle): ApiRequest[ExecutionReport] =
     ApiRequest[ExecutionReport](ApiMethods.POST, baseUrl, "/v1/orders", "application/json")
-      .withBody(newOrder)
+      .withBody(newOrderSingle)
       .withSuccessResponse[ExecutionReport](200)
       .withErrorResponse[CreateOrderValidationError](400)
       .withErrorResponse[Message](490)

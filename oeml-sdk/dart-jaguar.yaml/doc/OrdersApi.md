@@ -103,7 +103,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1OrdersGet**
-> List<NewOrder> v1OrdersGet(exchangeId)
+> List<ExecutionReport> v1OrdersGet(exchangeId)
 
 Get all orders
 
@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<NewOrder>**](NewOrder.md)
+[**List<ExecutionReport>**](ExecutionReport.md)
 
 ### Authorization
 
@@ -146,7 +146,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1OrdersPost**
-> ExecutionReport v1OrdersPost(newOrder)
+> ExecutionReport v1OrdersPost(newOrderSingle)
 
 Create new order
 
@@ -157,10 +157,10 @@ This request creating new order for the specific exchange.
 import 'package:openapi/api.dart';
 
 var api_instance = new OrdersApi();
-var newOrder = new NewOrder(); // NewOrder | 
+var newOrderSingle = new NewOrderSingle(); // NewOrderSingle | 
 
 try { 
-    var result = api_instance.v1OrdersPost(newOrder);
+    var result = api_instance.v1OrdersPost(newOrderSingle);
     print(result);
 } catch (e) {
     print("Exception when calling OrdersApi->v1OrdersPost: $e\n");
@@ -171,7 +171,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newOrder** | [**NewOrder**](NewOrder.md)|  | 
+ **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)|  | 
 
 ### Return type
 

@@ -700,7 +700,7 @@ class OrdersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\NewOrder[]
+     * @return \OpenAPI\Client\Model\ExecutionReport[]
      */
     public function v1OrdersGet($exchange_id = null)
     {
@@ -717,7 +717,7 @@ class OrdersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\NewOrder[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ExecutionReport[], HTTP status code, HTTP response headers (array of strings)
      */
     public function v1OrdersGetWithHttpInfo($exchange_id = null)
     {
@@ -754,20 +754,20 @@ class OrdersApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\NewOrder[]' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ExecutionReport[]' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\NewOrder[]', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ExecutionReport[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\NewOrder[]';
+            $returnType = '\OpenAPI\Client\Model\ExecutionReport[]';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -786,7 +786,7 @@ class OrdersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\NewOrder[]',
+                        '\OpenAPI\Client\Model\ExecutionReport[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -828,7 +828,7 @@ class OrdersApi
      */
     public function v1OrdersGetAsyncWithHttpInfo($exchange_id = null)
     {
-        $returnType = '\OpenAPI\Client\Model\NewOrder[]';
+        $returnType = '\OpenAPI\Client\Model\ExecutionReport[]';
         $request = $this->v1OrdersGetRequest($exchange_id);
 
         return $this->client
@@ -966,15 +966,15 @@ class OrdersApi
      *
      * Create new order
      *
-     * @param  \OpenAPI\Client\Model\NewOrder $new_order new_order (required)
+     * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single new_order_single (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ExecutionReport|\OpenAPI\Client\Model\CreateOrderValidationError|\OpenAPI\Client\Model\Message
      */
-    public function v1OrdersPost($new_order)
+    public function v1OrdersPost($new_order_single)
     {
-        list($response) = $this->v1OrdersPostWithHttpInfo($new_order);
+        list($response) = $this->v1OrdersPostWithHttpInfo($new_order_single);
         return $response;
     }
 
@@ -983,15 +983,15 @@ class OrdersApi
      *
      * Create new order
      *
-     * @param  \OpenAPI\Client\Model\NewOrder $new_order (required)
+     * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ExecutionReport|\OpenAPI\Client\Model\CreateOrderValidationError|\OpenAPI\Client\Model\Message, HTTP status code, HTTP response headers (array of strings)
      */
-    public function v1OrdersPostWithHttpInfo($new_order)
+    public function v1OrdersPostWithHttpInfo($new_order_single)
     {
-        $request = $this->v1OrdersPostRequest($new_order);
+        $request = $this->v1OrdersPostRequest($new_order_single);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1111,14 +1111,14 @@ class OrdersApi
      *
      * Create new order
      *
-     * @param  \OpenAPI\Client\Model\NewOrder $new_order (required)
+     * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1OrdersPostAsync($new_order)
+    public function v1OrdersPostAsync($new_order_single)
     {
-        return $this->v1OrdersPostAsyncWithHttpInfo($new_order)
+        return $this->v1OrdersPostAsyncWithHttpInfo($new_order_single)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1131,15 +1131,15 @@ class OrdersApi
      *
      * Create new order
      *
-     * @param  \OpenAPI\Client\Model\NewOrder $new_order (required)
+     * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1OrdersPostAsyncWithHttpInfo($new_order)
+    public function v1OrdersPostAsyncWithHttpInfo($new_order_single)
     {
         $returnType = '\OpenAPI\Client\Model\ExecutionReport';
-        $request = $this->v1OrdersPostRequest($new_order);
+        $request = $this->v1OrdersPostRequest($new_order_single);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1178,17 +1178,17 @@ class OrdersApi
     /**
      * Create request for operation 'v1OrdersPost'
      *
-     * @param  \OpenAPI\Client\Model\NewOrder $new_order (required)
+     * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function v1OrdersPostRequest($new_order)
+    protected function v1OrdersPostRequest($new_order_single)
     {
-        // verify the required parameter 'new_order' is set
-        if ($new_order === null || (is_array($new_order) && count($new_order) === 0)) {
+        // verify the required parameter 'new_order_single' is set
+        if ($new_order_single === null || (is_array($new_order_single) && count($new_order_single) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $new_order when calling v1OrdersPost'
+                'Missing the required parameter $new_order_single when calling v1OrdersPost'
             );
         }
 
@@ -1204,8 +1204,8 @@ class OrdersApi
 
         // body params
         $_tempBody = null;
-        if (isset($new_order)) {
-            $_tempBody = $new_order;
+        if (isset($new_order_single)) {
+            $_tempBody = $new_order_single;
         }
 
         if ($multipart) {

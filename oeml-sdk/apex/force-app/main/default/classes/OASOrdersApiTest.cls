@@ -82,8 +82,8 @@ private class OASOrdersApiTest {
 
         OASClient client;
         OASOrdersApi api;
-        List<OASNewOrder> response;
-        List<OASNewOrder> expectedResponse;
+        List<OASExecutionReport> response;
+        List<OASExecutionReport> expectedResponse;
         String js = '';
 
         api = new OASOrdersApi(new OASClient());
@@ -92,7 +92,7 @@ private class OASOrdersApiTest {
         res.setHeader('Content-Type', 'application/json');
         res.setBody(js);
         expectedResponse = List.getExample();
-        response = (List<OASNewOrder>) api.v1OrdersGet(params);
+        response = (List<OASExecutionReport>) api.v1OrdersGet(params);
         System.assertEquals(expectedResponse, response);
     }
 
@@ -109,7 +109,7 @@ private class OASOrdersApiTest {
         Test.setMock(HttpCalloutMock.class, new OASResponseMock(res));
 
         Map<String, Object> params = new Map<String, Object>{
-            'oaSNewOrder' => ''
+            'oaSNewOrderSingle' => ''
         };
 
         OASClient client;

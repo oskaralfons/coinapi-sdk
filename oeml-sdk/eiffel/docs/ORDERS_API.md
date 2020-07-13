@@ -72,7 +72,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_orders_get**
-> v1_orders_get (exchange_id:  detachable STRING_32 ): detachable LIST [NEW_ORDER]
+> v1_orders_get (exchange_id:  detachable STRING_32 ): detachable LIST [EXECUTION_REPORT]
 	
 
 Get all orders
@@ -88,7 +88,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LIST [NEW_ORDER]**](NewOrder.md)
+[**LIST [EXECUTION_REPORT]**](ExecutionReport.md)
 
 ### Authorization
 
@@ -102,7 +102,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_orders_post**
-> v1_orders_post (new_order: NEW_ORDER ): detachable EXECUTION_REPORT
+> v1_orders_post (new_order_single: NEW_ORDER_SINGLE ): detachable EXECUTION_REPORT
 	
 
 Create new order
@@ -114,7 +114,7 @@ This request creating new order for the specific exchange.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **new_order** | [**NEW_ORDER**](NEW_ORDER.md)|  | 
+ **new_order_single** | [**NEW_ORDER_SINGLE**](NEW_ORDER_SINGLE.md)|  | 
 
 ### Return type
 

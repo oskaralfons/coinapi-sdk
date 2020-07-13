@@ -8,8 +8,8 @@ import 'package:openapi/model/create_order_validation_error.dart';
 import 'package:openapi/model/order_cancel_all_request.dart';
 import 'package:openapi/model/execution_report.dart';
 import 'package:openapi/model/order_cancel_single_request.dart';
+import 'package:openapi/model/new_order_single.dart';
 import 'package:openapi/model/message.dart';
-import 'package:openapi/model/new_order.dart';
 
 part 'orders_api.jretro.dart';
 
@@ -55,7 +55,7 @@ class OrdersApi extends ApiClient with _$OrdersApiClient {
     ///
     /// Get all current open orders across all or single specified exchange.
     @GetReq(path: "/v1/orders")
-    Future<List<NewOrder>> v1OrdersGet(
+    Future<List<ExecutionReport>> v1OrdersGet(
         
             @QueryParam("exchange_id") String exchangeId
         ) {
@@ -72,12 +72,12 @@ class OrdersApi extends ApiClient with _$OrdersApiClient {
     @PostReq(path: "/v1/orders")
     Future<ExecutionReport> v1OrdersPost(
             
-             @AsJson() NewOrder newOrder
+             @AsJson() NewOrderSingle newOrderSingle
         ) {
         return super.v1OrdersPost(
 
         
-        newOrder
+        newOrderSingle
         ).timeout(timeout);
     }
 

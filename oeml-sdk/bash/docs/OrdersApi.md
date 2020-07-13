@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**array[NewOrder]**](NewOrder.md)
+[**array[ExecutionReport]**](ExecutionReport.md)
 
 ### Authorization
 
@@ -134,7 +134,7 @@ This request creating new order for the specific exchange.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newOrder** | [**NewOrder**](NewOrder.md) |  |
+ **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md) |  |
 
 ### Return type
 

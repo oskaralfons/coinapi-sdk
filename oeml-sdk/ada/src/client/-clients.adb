@@ -72,7 +72,7 @@ package body .Clients is
    procedure V1_Orders_Get
       (Client : in out Client_Type;
        Exchange_Id : in Swagger.Nullable_UString;
-       Result : out .Models.NewOrder_Type_Vectors.Vector) is
+       Result : out .Models.ExecutionReport_Type_Vectors.Vector) is
       URI   : Swagger.Clients.URI_Type;
       Reply : Swagger.Value_Type;
    begin
@@ -88,7 +88,7 @@ package body .Clients is
    --  This request creating new order for the specific exchange.
    procedure V1_Orders_Post
       (Client : in out Client_Type;
-       New_Order_Type : in .Models.NewOrder_Type;
+       New_Order_Single_Type : in .Models.NewOrderSingle_Type;
        Result : out .Models.ExecutionReport_Type) is
       URI   : Swagger.Clients.URI_Type;
       Req   : Swagger.Clients.Request_Type;
@@ -97,7 +97,7 @@ package body .Clients is
       Client.Set_Accept ((Swagger.Clients.APPLICATION_JSON,
                           Swagger.Clients.APPLICTION_JSON));
       Client.Initialize (Req, (1 => Swagger.Clients.APPLICATION_JSON));
-      .Models.Serialize (Req.Stream, "", New_Order_Type);
+      .Models.Serialize (Req.Stream, "", New_Order_Single_Type);
 
       URI.Set_Path ("/v1/orders");
       Client.Call (Swagger.Clients.POST, URI, Req, Reply);

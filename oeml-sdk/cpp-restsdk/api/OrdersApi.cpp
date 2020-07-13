@@ -318,7 +318,7 @@ pplx::task<std::shared_ptr<ExecutionReport>> OrdersApi::v1OrdersCancelPost(std::
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<NewOrder>>> OrdersApi::v1OrdersGet(boost::optional<utility::string_t> exchangeId) const
+pplx::task<std::vector<std::shared_ptr<ExecutionReport>>> OrdersApi::v1OrdersGet(boost::optional<utility::string_t> exchangeId) const
 {
 
 
@@ -419,14 +419,14 @@ pplx::task<std::vector<std::shared_ptr<NewOrder>>> OrdersApi::v1OrdersGet(boost:
     })
     .then([=](utility::string_t localVarResponse)
     {
-        std::vector<std::shared_ptr<NewOrder>> localVarResult;
+        std::vector<std::shared_ptr<ExecutionReport>> localVarResult;
 
         if(localVarResponseHttpContentType == utility::conversions::to_string_t("application/json"))
         {
             web::json::value localVarJson = web::json::value::parse(localVarResponse);
             for( auto& localVarItem : localVarJson.as_array() )
             {
-                std::shared_ptr<NewOrder> localVarItemObj;
+                std::shared_ptr<ExecutionReport> localVarItemObj;
                 ModelBase::fromJson(localVarItem, localVarItemObj);
                 localVarResult.push_back(localVarItemObj);
             }
@@ -444,13 +444,13 @@ pplx::task<std::vector<std::shared_ptr<NewOrder>>> OrdersApi::v1OrdersGet(boost:
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ExecutionReport>> OrdersApi::v1OrdersPost(std::shared_ptr<NewOrder> newOrder) const
+pplx::task<std::shared_ptr<ExecutionReport>> OrdersApi::v1OrdersPost(std::shared_ptr<NewOrderSingle> newOrderSingle) const
 {
 
-    // verify the required parameter 'newOrder' is set
-    if (newOrder == nullptr)
+    // verify the required parameter 'newOrderSingle' is set
+    if (newOrderSingle == nullptr)
     {
-        throw ApiException(400, utility::conversions::to_string_t("Missing required parameter 'newOrder' when calling OrdersApi->v1OrdersPost"));
+        throw ApiException(400, utility::conversions::to_string_t("Missing required parameter 'newOrderSingle' when calling OrdersApi->v1OrdersPost"));
     }
 
 
@@ -503,7 +503,7 @@ pplx::task<std::shared_ptr<ExecutionReport>> OrdersApi::v1OrdersPost(std::shared
         localVarRequestHttpContentType = utility::conversions::to_string_t("application/json");
         web::json::value localVarJson;
 
-        localVarJson = ModelBase::toJson(newOrder);
+        localVarJson = ModelBase::toJson(newOrderSingle);
         
 
         localVarHttpBody = std::shared_ptr<IHttpBody>( new JsonBody( localVarJson ) );
@@ -514,9 +514,9 @@ pplx::task<std::shared_ptr<ExecutionReport>> OrdersApi::v1OrdersPost(std::shared
         localVarRequestHttpContentType = utility::conversions::to_string_t("multipart/form-data");
         std::shared_ptr<MultipartFormData> localVarMultipart(new MultipartFormData);
 
-        if(newOrder.get())
+        if(newOrderSingle.get())
         {
-            newOrder->toMultipart(localVarMultipart, utility::conversions::to_string_t("newOrder"));
+            newOrderSingle->toMultipart(localVarMultipart, utility::conversions::to_string_t("newOrderSingle"));
         }
         
 

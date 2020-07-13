@@ -151,7 +151,7 @@ module OpenapiClient
     # Get all current open orders across all or single specified exchange.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :exchange_id Filter the output to the orders from the specific exchange.
-    # @return [Array<NewOrder>]
+    # @return [Array<ExecutionReport>]
     def v1_orders_get(opts = {})
       data, _status_code, _headers = v1_orders_get_with_http_info(opts)
       data
@@ -161,7 +161,7 @@ module OpenapiClient
     # Get all current open orders across all or single specified exchange.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :exchange_id Filter the output to the orders from the specific exchange.
-    # @return [Array<(Array<NewOrder>, Integer, Hash)>] Array<NewOrder> data, response status code and response headers
+    # @return [Array<(Array<ExecutionReport>, Integer, Hash)>] Array<ExecutionReport> data, response status code and response headers
     def v1_orders_get_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrdersApi.v1_orders_get ...'
@@ -185,7 +185,7 @@ module OpenapiClient
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] || 'Array<NewOrder>' 
+      return_type = opts[:return_type] || 'Array<ExecutionReport>' 
 
       # auth_names
       auth_names = opts[:auth_names] || []
@@ -208,26 +208,26 @@ module OpenapiClient
 
     # Create new order
     # This request creating new order for the specific exchange.
-    # @param new_order [NewOrder] 
+    # @param new_order_single [NewOrderSingle] 
     # @param [Hash] opts the optional parameters
     # @return [ExecutionReport]
-    def v1_orders_post(new_order, opts = {})
-      data, _status_code, _headers = v1_orders_post_with_http_info(new_order, opts)
+    def v1_orders_post(new_order_single, opts = {})
+      data, _status_code, _headers = v1_orders_post_with_http_info(new_order_single, opts)
       data
     end
 
     # Create new order
     # This request creating new order for the specific exchange.
-    # @param new_order [NewOrder] 
+    # @param new_order_single [NewOrderSingle] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ExecutionReport, Integer, Hash)>] ExecutionReport data, response status code and response headers
-    def v1_orders_post_with_http_info(new_order, opts = {})
+    def v1_orders_post_with_http_info(new_order_single, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrdersApi.v1_orders_post ...'
       end
-      # verify the required parameter 'new_order' is set
-      if @api_client.config.client_side_validation && new_order.nil?
-        fail ArgumentError, "Missing the required parameter 'new_order' when calling OrdersApi.v1_orders_post"
+      # verify the required parameter 'new_order_single' is set
+      if @api_client.config.client_side_validation && new_order_single.nil?
+        fail ArgumentError, "Missing the required parameter 'new_order_single' when calling OrdersApi.v1_orders_post"
       end
       # resource path
       local_var_path = '/v1/orders'
@@ -246,7 +246,7 @@ module OpenapiClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] || @api_client.object_to_http_body(new_order) 
+      post_body = opts[:body] || @api_client.object_to_http_body(new_order_single) 
 
       # return_type
       return_type = opts[:return_type] || 'ExecutionReport' 

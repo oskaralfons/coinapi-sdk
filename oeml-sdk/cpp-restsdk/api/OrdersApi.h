@@ -24,7 +24,7 @@
 #include "CreateOrderValidationError.h"
 #include "ExecutionReport.h"
 #include "Message.h"
-#include "NewOrder.h"
+#include "NewOrderSingle.h"
 #include "OrderCancelAllRequest.h"
 #include "OrderCancelSingleRequest.h"
 #include <cpprest/details/basic_types.h>
@@ -76,7 +76,7 @@ public:
     /// Get all current open orders across all or single specified exchange.
     /// </remarks>
     /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
-    pplx::task<std::vector<std::shared_ptr<NewOrder>>> v1OrdersGet(
+    pplx::task<std::vector<std::shared_ptr<ExecutionReport>>> v1OrdersGet(
         boost::optional<utility::string_t> exchangeId
     ) const;
     /// <summary>
@@ -85,9 +85,9 @@ public:
     /// <remarks>
     /// This request creating new order for the specific exchange.
     /// </remarks>
-    /// <param name="newOrder"></param>
+    /// <param name="newOrderSingle"></param>
     pplx::task<std::shared_ptr<ExecutionReport>> v1OrdersPost(
-        std::shared_ptr<NewOrder> newOrder
+        std::shared_ptr<NewOrderSingle> newOrderSingle
     ) const;
     /// <summary>
     /// Get order status

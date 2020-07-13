@@ -170,12 +170,12 @@ class OrdersApi {
   /// Get all orders
   ///
   /// Get all current open orders across all or single specified exchange.
-  Future<List<NewOrder>> v1OrdersGet({ String exchangeId }) async {
+  Future<List<ExecutionReport>> v1OrdersGet({ String exchangeId }) async {
     Response response = await v1OrdersGetWithHttpInfo( exchangeId: exchangeId );
     if(response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<NewOrder>') as List).map((item) => item as NewOrder).toList();
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<ExecutionReport>') as List).map((item) => item as ExecutionReport).toList();
     } else {
       return null;
     }
@@ -184,12 +184,12 @@ class OrdersApi {
   /// Create new order with HTTP info returned
   ///
   /// This request creating new order for the specific exchange.
-  Future<Response> v1OrdersPostWithHttpInfo(NewOrder newOrder) async {
-    Object postBody = newOrder;
+  Future<Response> v1OrdersPostWithHttpInfo(NewOrderSingle newOrderSingle) async {
+    Object postBody = newOrderSingle;
 
     // verify required params are set
-    if(newOrder == null) {
-     throw ApiException(400, "Missing required param: newOrder");
+    if(newOrderSingle == null) {
+     throw ApiException(400, "Missing required param: newOrderSingle");
     }
 
     // create path and map variables
@@ -228,8 +228,8 @@ class OrdersApi {
   /// Create new order
   ///
   /// This request creating new order for the specific exchange.
-  Future<ExecutionReport> v1OrdersPost(NewOrder newOrder) async {
-    Response response = await v1OrdersPostWithHttpInfo(newOrder);
+  Future<ExecutionReport> v1OrdersPost(NewOrderSingle newOrderSingle) async {
+    Response response = await v1OrdersPostWithHttpInfo(newOrderSingle);
     if(response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {

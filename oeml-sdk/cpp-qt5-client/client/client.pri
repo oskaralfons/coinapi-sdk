@@ -6,8 +6,9 @@ HEADERS += \
     $${PWD}/OAIBalance_data.h \
     $${PWD}/OAICreateOrderValidationError.h \
     $${PWD}/OAIExecutionReport.h \
+    $${PWD}/OAIExecutionReport_allOf.h \
     $${PWD}/OAIMessage.h \
-    $${PWD}/OAINewOrder.h \
+    $${PWD}/OAINewOrderSingle.h \
     $${PWD}/OAIOrdSide.h \
     $${PWD}/OAIOrdStatus.h \
     $${PWD}/OAIOrdType.h \
@@ -34,8 +35,9 @@ SOURCES += \
     $${PWD}/OAIBalance_data.cpp \
     $${PWD}/OAICreateOrderValidationError.cpp \
     $${PWD}/OAIExecutionReport.cpp \
+    $${PWD}/OAIExecutionReport_allOf.cpp \
     $${PWD}/OAIMessage.cpp \
-    $${PWD}/OAINewOrder.cpp \
+    $${PWD}/OAINewOrderSingle.cpp \
     $${PWD}/OAIOrdSide.cpp \
     $${PWD}/OAIOrdStatus.cpp \
     $${PWD}/OAIOrdType.cpp \

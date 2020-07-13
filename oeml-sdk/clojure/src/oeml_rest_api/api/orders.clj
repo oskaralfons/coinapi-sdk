@@ -9,14 +9,15 @@
             [oeml-rest-api.specs.position-data :refer :all]
             [oeml-rest-api.specs.message :refer :all]
             [oeml-rest-api.specs.order-cancel-single-request :refer :all]
+            [oeml-rest-api.specs.new-order-single :refer :all]
             [oeml-rest-api.specs.create-order-validation-error :refer :all]
             [oeml-rest-api.specs.ord-status :refer :all]
             [oeml-rest-api.specs.balance :refer :all]
+            [oeml-rest-api.specs.execution-report-all-of :refer :all]
             [oeml-rest-api.specs.ord-type :refer :all]
             [oeml-rest-api.specs.order-cancel-all-request :refer :all]
             [oeml-rest-api.specs.position :refer :all]
             [oeml-rest-api.specs.execution-report :refer :all]
-            [oeml-rest-api.specs.new-order :refer :all]
             [oeml-rest-api.specs.ord-side :refer :all]
             )
   (:import (java.io File)))
@@ -86,28 +87,28 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn-spec v1-orders-get (s/coll-of new-order-spec)
+(defn-spec v1-orders-get (s/coll-of execution-report-spec)
   "Get all orders
   Get all current open orders across all or single specified exchange."
   ([] (v1-orders-get nil))
   ([optional-params any?]
    (let [res (:data (v1-orders-get-with-http-info optional-params))]
      (if (:decode-models *api-context*)
-        (st/decode (s/coll-of new-order-spec) res st/string-transformer)
+        (st/decode (s/coll-of execution-report-spec) res st/string-transformer)
         res))))
 
 
 (defn-spec v1-orders-post-with-http-info any?
   "Create new order
   This request creating new order for the specific exchange."
-  [new-order new-order]
-  (check-required-params new-order)
+  [new-order-single new-order-single]
+  (check-required-params new-order-single)
   (call-api "/v1/orders" :post
             {:path-params   {}
              :header-params {}
              :query-params  {}
              :form-params   {}
-             :body-param    new-order
+             :body-param    new-order-single
              :content-types ["application/json"]
              :accepts       ["application/json" "appliction/json"]
              :auth-names    []}))
@@ -115,8 +116,8 @@
 (defn-spec v1-orders-post execution-report-spec
   "Create new order
   This request creating new order for the specific exchange."
-  [new-order new-order]
-  (let [res (:data (v1-orders-post-with-http-info new-order))]
+  [new-order-single new-order-single]
+  (let [res (:data (v1-orders-post-with-http-info new-order-single))]
     (if (:decode-models *api-context*)
        (st/decode execution-report-spec res st/string-transformer)
        res)))

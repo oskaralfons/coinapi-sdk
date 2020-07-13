@@ -17,7 +17,7 @@ import org.openapitools.client.ApiException;
 import org.openapitools.client.model.CreateOrderValidationError;
 import org.openapitools.client.model.ExecutionReport;
 import org.openapitools.client.model.Message;
-import org.openapitools.client.model.NewOrder;
+import org.openapitools.client.model.NewOrderSingle;
 import org.openapitools.client.model.OrderCancelAllRequest;
 import org.openapitools.client.model.OrderCancelSingleRequest;
 import org.junit.Test;
@@ -80,7 +80,7 @@ public class OrdersApiTest {
     @Test
     public void v1OrdersGetTest() throws ApiException {
         String exchangeId = null;
-        List<NewOrder> response = api.v1OrdersGet(exchangeId);
+        List<ExecutionReport> response = api.v1OrdersGet(exchangeId);
 
         // TODO: test validations
     }
@@ -95,8 +95,8 @@ public class OrdersApiTest {
      */
     @Test
     public void v1OrdersPostTest() throws ApiException {
-        NewOrder newOrder = null;
-        ExecutionReport response = api.v1OrdersPost(newOrder);
+        NewOrderSingle newOrderSingle = null;
+        ExecutionReport response = api.v1OrdersPost(newOrderSingle);
 
         // TODO: test validations
     }

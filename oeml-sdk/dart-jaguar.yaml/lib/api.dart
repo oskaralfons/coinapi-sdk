@@ -16,8 +16,9 @@ import 'package:openapi/model/balance.dart';
 import 'package:openapi/model/balance_data.dart';
 import 'package:openapi/model/create_order_validation_error.dart';
 import 'package:openapi/model/execution_report.dart';
+import 'package:openapi/model/execution_report_all_of.dart';
 import 'package:openapi/model/message.dart';
-import 'package:openapi/model/new_order.dart';
+import 'package:openapi/model/new_order_single.dart';
 import 'package:openapi/model/ord_side.dart';
 import 'package:openapi/model/ord_status.dart';
 import 'package:openapi/model/ord_type.dart';
@@ -35,8 +36,9 @@ final _jsonJaguarRepo = JsonRepo()
 ..add(BalanceDataSerializer())
 ..add(CreateOrderValidationErrorSerializer())
 ..add(ExecutionReportSerializer())
+..add(ExecutionReportAllOfSerializer())
 ..add(MessageSerializer())
-..add(NewOrderSerializer())
+..add(NewOrderSingleSerializer())
 
 
 

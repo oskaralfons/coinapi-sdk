@@ -290,7 +290,7 @@ class OrdersApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: list[NewOrder]
+        :return: list[ExecutionReport]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -317,7 +317,7 @@ class OrdersApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(list[NewOrder], status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(list[ExecutionReport], status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -374,7 +374,7 @@ class OrdersApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[NewOrder]',  # noqa: E501
+            response_type='list[ExecutionReport]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -382,17 +382,17 @@ class OrdersApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v1_orders_post(self, new_order, **kwargs):  # noqa: E501
+    def v1_orders_post(self, new_order_single, **kwargs):  # noqa: E501
         """Create new order  # noqa: E501
 
         This request creating new order for the specific exchange.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v1_orders_post(new_order, async_req=True)
+        >>> thread = api.v1_orders_post(new_order_single, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param NewOrder new_order: (required)
+        :param NewOrderSingle new_order_single: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -405,19 +405,19 @@ class OrdersApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v1_orders_post_with_http_info(new_order, **kwargs)  # noqa: E501
+        return self.v1_orders_post_with_http_info(new_order_single, **kwargs)  # noqa: E501
 
-    def v1_orders_post_with_http_info(self, new_order, **kwargs):  # noqa: E501
+    def v1_orders_post_with_http_info(self, new_order_single, **kwargs):  # noqa: E501
         """Create new order  # noqa: E501
 
         This request creating new order for the specific exchange.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v1_orders_post_with_http_info(new_order, async_req=True)
+        >>> thread = api.v1_orders_post_with_http_info(new_order_single, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param NewOrder new_order: (required)
+        :param NewOrderSingle new_order_single: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -435,7 +435,7 @@ class OrdersApi(object):
         local_var_params = locals()
 
         all_params = [
-            'new_order'
+            'new_order_single'
         ]
         all_params.extend(
             [
@@ -454,10 +454,10 @@ class OrdersApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'new_order' is set
-        if self.api_client.client_side_validation and ('new_order' not in local_var_params or  # noqa: E501
-                                                        local_var_params['new_order'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `new_order` when calling `v1_orders_post`")  # noqa: E501
+        # verify the required parameter 'new_order_single' is set
+        if self.api_client.client_side_validation and ('new_order_single' not in local_var_params or  # noqa: E501
+                                                        local_var_params['new_order_single'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `new_order_single` when calling `v1_orders_post`")  # noqa: E501
 
         collection_formats = {}
 
@@ -471,8 +471,8 @@ class OrdersApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'new_order' in local_var_params:
-            body_params = local_var_params['new_order']
+        if 'new_order_single' in local_var_params:
+            body_params = local_var_params['new_order_single']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json', 'appliction/json'])  # noqa: E501

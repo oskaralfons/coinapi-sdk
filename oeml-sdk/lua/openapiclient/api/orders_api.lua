@@ -19,7 +19,7 @@ local basexx = require "basexx"
 local openapiclient_create_order_validation_error = require "openapiclient.model.create_order_validation_error"
 local openapiclient_execution_report = require "openapiclient.model.execution_report"
 local openapiclient_message = require "openapiclient.model.message"
-local openapiclient_new_order = require "openapiclient.model.new_order"
+local openapiclient_new_order_single = require "openapiclient.model.new_order_single"
 local openapiclient_order_cancel_all_request = require "openapiclient.model.order_cancel_all_request"
 local openapiclient_order_cancel_single_request = require "openapiclient.model.order_cancel_single_request"
 
@@ -188,7 +188,7 @@ function orders_api:v1_orders_get(exchange_id)
 			return nil, err3
 		end
 		for _, ob in ipairs(result) do
-			openapiclient_new_order.cast(ob)
+			openapiclient_execution_report.cast(ob)
 		end
 		return result, headers
 	else
@@ -202,7 +202,7 @@ function orders_api:v1_orders_get(exchange_id)
 	end
 end
 
-function orders_api:v1_orders_post(new_order)
+function orders_api:v1_orders_post(new_order_single)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -221,7 +221,7 @@ function orders_api:v1_orders_post(new_order)
 	--local var_accept = { "application/json", "appliction/json" }
 	req.headers:upsert("content-type", "application/json")
 
-	req:set_body(dkjson.encode(new_order))
+	req:set_body(dkjson.encode(new_order_single))
 
 
 	-- make the HTTP call

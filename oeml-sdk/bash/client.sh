@@ -99,7 +99,7 @@ operation_parameters_minimum_occurrences["v1BalancesGet:::exchange_id"]=0
 operation_parameters_minimum_occurrences["v1OrdersCancelAllPost:::OrderCancelAllRequest"]=1
 operation_parameters_minimum_occurrences["v1OrdersCancelPost:::OrderCancelSingleRequest"]=1
 operation_parameters_minimum_occurrences["v1OrdersGet:::exchange_id"]=0
-operation_parameters_minimum_occurrences["v1OrdersPost:::NewOrder"]=1
+operation_parameters_minimum_occurrences["v1OrdersPost:::NewOrderSingle"]=1
 operation_parameters_minimum_occurrences["v1OrdersStatusClientOrderIdGet:::client_order_id"]=1
 operation_parameters_minimum_occurrences["v1PositionsGet:::exchange_id"]=0
 
@@ -114,7 +114,7 @@ operation_parameters_maximum_occurrences["v1BalancesGet:::exchange_id"]=0
 operation_parameters_maximum_occurrences["v1OrdersCancelAllPost:::OrderCancelAllRequest"]=0
 operation_parameters_maximum_occurrences["v1OrdersCancelPost:::OrderCancelSingleRequest"]=0
 operation_parameters_maximum_occurrences["v1OrdersGet:::exchange_id"]=0
-operation_parameters_maximum_occurrences["v1OrdersPost:::NewOrder"]=0
+operation_parameters_maximum_occurrences["v1OrdersPost:::NewOrderSingle"]=0
 operation_parameters_maximum_occurrences["v1OrdersStatusClientOrderIdGet:::client_order_id"]=0
 operation_parameters_maximum_occurrences["v1PositionsGet:::exchange_id"]=0
 
@@ -126,7 +126,7 @@ operation_parameters_collection_type["v1BalancesGet:::exchange_id"]=""
 operation_parameters_collection_type["v1OrdersCancelAllPost:::OrderCancelAllRequest"]=""
 operation_parameters_collection_type["v1OrdersCancelPost:::OrderCancelSingleRequest"]=""
 operation_parameters_collection_type["v1OrdersGet:::exchange_id"]=""
-operation_parameters_collection_type["v1OrdersPost:::NewOrder"]=""
+operation_parameters_collection_type["v1OrdersPost:::NewOrderSingle"]=""
 operation_parameters_collection_type["v1OrdersStatusClientOrderIdGet:::client_order_id"]=""
 operation_parameters_collection_type["v1PositionsGet:::exchange_id"]=""
 

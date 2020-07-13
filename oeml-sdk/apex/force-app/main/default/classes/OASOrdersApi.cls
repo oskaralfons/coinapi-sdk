@@ -77,10 +77,10 @@ public class OASOrdersApi {
      * Get all orders
      * Get all current open orders across all or single specified exchange.
      * @param exchangeId Filter the output to the orders from the specific exchange. (optional)
-     * @return List<OASNewOrder>
+     * @return List<OASExecutionReport>
      * @throws OAS.ApiException if fails to make API call
      */
-    public List<OASNewOrder> v1OrdersGet(Map<String, Object> params) {
+    public List<OASExecutionReport> v1OrdersGet(Map<String, Object> params) {
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -88,7 +88,7 @@ public class OASOrdersApi {
 
         List<OAS.Param> form = new List<OAS.Param>();
 
-        return (List<OASNewOrder>) client.invoke(
+        return (List<OASExecutionReport>) client.invoke(
             'GET', '/v1/orders', '',
             query, form,
             new Map<String, Object>(),
@@ -96,24 +96,24 @@ public class OASOrdersApi {
             new List<String>{ 'application/json' },
             new List<String>(),
             new List<String>(),
-            List<OASNewOrder>.class
+            List<OASExecutionReport>.class
         );
     }
     /**
      * Create new order
      * This request creating new order for the specific exchange.
-     * @param oaSNewOrder  (required)
+     * @param oaSNewOrderSingle  (required)
      * @return OASExecutionReport
      * @throws OAS.ApiException if fails to make API call
      */
     public OASExecutionReport v1OrdersPost(Map<String, Object> params) {
-        client.assertNotNull(params.get('oaSNewOrder'), 'oaSNewOrder');
+        client.assertNotNull(params.get('oaSNewOrderSingle'), 'oaSNewOrderSingle');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASExecutionReport) client.invoke(
             'POST', '/v1/orders',
-            (OASNewOrder) params.get('oaSNewOrder'),
+            (OASNewOrderSingle) params.get('oaSNewOrderSingle'),
             query, form,
             new Map<String, Object>(),
             new Map<String, Object>(),

@@ -8,7 +8,7 @@
 #include "CreateOrderValidationError.h"
 #include "ExecutionReport.h"
 #include "Message.h"
-#include "NewOrder.h"
+#include "NewOrderSingle.h"
 #include "OrderCancelAllRequest.h"
 #include "OrderCancelSingleRequest.h"
 #include "Error.h"
@@ -93,7 +93,7 @@ bool v1OrdersCancelPostAsync(char * accessToken,
  */
 bool v1OrdersGetSync(char * accessToken,
 	std::string exchangeId, 
-	void(* handler)(std::list<NewOrder>, Error, void* )
+	void(* handler)(std::list<ExecutionReport>, Error, void* )
 	, void* userData);
 
 /*! \brief Get all orders. *Asynchronous*
@@ -106,33 +106,33 @@ bool v1OrdersGetSync(char * accessToken,
  */
 bool v1OrdersGetAsync(char * accessToken,
 	std::string exchangeId, 
-	void(* handler)(std::list<NewOrder>, Error, void* )
+	void(* handler)(std::list<ExecutionReport>, Error, void* )
 	, void* userData);
 
 
 /*! \brief Create new order. *Synchronous*
  *
  * This request creating new order for the specific exchange.
- * \param newOrder  *Required*
+ * \param newOrderSingle  *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool v1OrdersPostSync(char * accessToken,
-	NewOrder newOrder, 
+	NewOrderSingle newOrderSingle, 
 	void(* handler)(ExecutionReport, Error, void* )
 	, void* userData);
 
 /*! \brief Create new order. *Asynchronous*
  *
  * This request creating new order for the specific exchange.
- * \param newOrder  *Required*
+ * \param newOrderSingle  *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool v1OrdersPostAsync(char * accessToken,
-	NewOrder newOrder, 
+	NewOrderSingle newOrderSingle, 
 	void(* handler)(ExecutionReport, Error, void* )
 	, void* userData);
 

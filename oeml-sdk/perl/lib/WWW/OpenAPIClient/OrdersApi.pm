@@ -195,10 +195,10 @@ sub v1_orders_cancel_post {
     __PACKAGE__->method_documentation->{ 'v1_orders_get' } = { 
         summary => 'Get all orders',
         params => $params,
-        returns => 'ARRAY[NewOrder]',
+        returns => 'ARRAY[ExecutionReport]',
         };
 }
-# @return ARRAY[NewOrder]
+# @return ARRAY[ExecutionReport]
 #
 sub v1_orders_get {
     my ($self, %args) = @_;
@@ -234,7 +234,7 @@ sub v1_orders_get {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('ARRAY[NewOrder]', $response);
+    my $_response_object = $self->{api_client}->deserialize('ARRAY[ExecutionReport]', $response);
     return $_response_object;
 }
 
@@ -243,11 +243,11 @@ sub v1_orders_get {
 #
 # Create new order
 # 
-# @param NewOrder $new_order  (required)
+# @param NewOrderSingle $new_order_single  (required)
 {
     my $params = {
-    'new_order' => {
-        data_type => 'NewOrder',
+    'new_order_single' => {
+        data_type => 'NewOrderSingle',
         description => '',
         required => '1',
     },
@@ -263,9 +263,9 @@ sub v1_orders_get {
 sub v1_orders_post {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'new_order' is set
-    unless (exists $args{'new_order'}) {
-      croak("Missing the required parameter 'new_order' when calling v1_orders_post");
+    # verify the required parameter 'new_order_single' is set
+    unless (exists $args{'new_order_single'}) {
+      croak("Missing the required parameter 'new_order_single' when calling v1_orders_post");
     }
 
     # parse inputs
@@ -285,8 +285,8 @@ sub v1_orders_post {
 
     my $_body_data;
     # body params
-    if ( exists $args{'new_order'}) {
-        $_body_data = $args{'new_order'};
+    if ( exists $args{'new_order_single'}) {
+        $_body_data = $args{'new_order_single'};
     }
 
     # authentication setting, if any

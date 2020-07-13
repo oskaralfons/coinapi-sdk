@@ -121,7 +121,7 @@ instance Produces V1OrdersCancelPost MimeApplictionJson
 -- Get all current open orders across all or single specified exchange.
 -- 
 v1OrdersGet 
-  :: OEML-RESTRequest V1OrdersGet MimeNoContent [NewOrder] MimeJSON
+  :: OEML-RESTRequest V1OrdersGet MimeNoContent [ExecutionReport] MimeJSON
 v1OrdersGet =
   _mkRequest "GET" ["/v1/orders"]
 
@@ -144,16 +144,16 @@ instance Produces V1OrdersGet MimeJSON
 -- This request creating new order for the specific exchange.
 -- 
 v1OrdersPost 
-  :: (Consumes V1OrdersPost MimeJSON, MimeRender MimeJSON NewOrder)
+  :: (Consumes V1OrdersPost MimeJSON, MimeRender MimeJSON NewOrderSingle)
   => Accept accept -- ^ request accept ('MimeType')
-  -> NewOrder -- ^ "newOrder"
+  -> NewOrderSingle -- ^ "newOrderSingle"
   -> OEML-RESTRequest V1OrdersPost MimeJSON ExecutionReport accept
-v1OrdersPost  _ newOrder =
+v1OrdersPost  _ newOrderSingle =
   _mkRequest "POST" ["/v1/orders"]
-    `setBodyParam` newOrder
+    `setBodyParam` newOrderSingle
 
 data V1OrdersPost 
-instance HasBodyParam V1OrdersPost NewOrder 
+instance HasBodyParam V1OrdersPost NewOrderSingle 
 
 -- | @application/json@
 instance Consumes V1OrdersPost MimeJSON

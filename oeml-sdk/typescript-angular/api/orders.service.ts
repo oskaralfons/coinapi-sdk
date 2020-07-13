@@ -20,7 +20,7 @@ import { Observable }                                        from 'rxjs';
 import { CreateOrderValidationError } from '../model/models';
 import { ExecutionReport } from '../model/models';
 import { Message } from '../model/models';
-import { NewOrder } from '../model/models';
+import { NewOrderSingle } from '../model/models';
 import { OrderCancelAllRequest } from '../model/models';
 import { OrderCancelSingleRequest } from '../model/models';
 
@@ -210,9 +210,9 @@ export class OrdersService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public v1OrdersGet(exchangeId?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Array<NewOrder>>;
-    public v1OrdersGet(exchangeId?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Array<NewOrder>>>;
-    public v1OrdersGet(exchangeId?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Array<NewOrder>>>;
+    public v1OrdersGet(exchangeId?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Array<ExecutionReport>>;
+    public v1OrdersGet(exchangeId?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Array<ExecutionReport>>>;
+    public v1OrdersGet(exchangeId?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Array<ExecutionReport>>>;
     public v1OrdersGet(exchangeId?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
 
         let queryParameters = new HttpParams({encoder: this.encoder});
@@ -241,7 +241,7 @@ export class OrdersService {
             responseType = 'text';
         }
 
-        return this.httpClient.get<Array<NewOrder>>(`${this.configuration.basePath}/v1/orders`,
+        return this.httpClient.get<Array<ExecutionReport>>(`${this.configuration.basePath}/v1/orders`,
             {
                 params: queryParameters,
                 responseType: <any>responseType,
@@ -256,16 +256,16 @@ export class OrdersService {
     /**
      * Create new order
      * This request creating new order for the specific exchange.
-     * @param newOrder 
+     * @param newOrderSingle 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public v1OrdersPost(newOrder: NewOrder, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json' | 'appliction/json'}): Observable<ExecutionReport>;
-    public v1OrdersPost(newOrder: NewOrder, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json' | 'appliction/json'}): Observable<HttpResponse<ExecutionReport>>;
-    public v1OrdersPost(newOrder: NewOrder, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json' | 'appliction/json'}): Observable<HttpEvent<ExecutionReport>>;
-    public v1OrdersPost(newOrder: NewOrder, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json' | 'appliction/json'}): Observable<any> {
-        if (newOrder === null || newOrder === undefined) {
-            throw new Error('Required parameter newOrder was null or undefined when calling v1OrdersPost.');
+    public v1OrdersPost(newOrderSingle: NewOrderSingle, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json' | 'appliction/json'}): Observable<ExecutionReport>;
+    public v1OrdersPost(newOrderSingle: NewOrderSingle, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json' | 'appliction/json'}): Observable<HttpResponse<ExecutionReport>>;
+    public v1OrdersPost(newOrderSingle: NewOrderSingle, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json' | 'appliction/json'}): Observable<HttpEvent<ExecutionReport>>;
+    public v1OrdersPost(newOrderSingle: NewOrderSingle, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json' | 'appliction/json'}): Observable<any> {
+        if (newOrderSingle === null || newOrderSingle === undefined) {
+            throw new Error('Required parameter newOrderSingle was null or undefined when calling v1OrdersPost.');
         }
 
         let headers = this.defaultHeaders;
@@ -299,7 +299,7 @@ export class OrdersService {
         }
 
         return this.httpClient.post<ExecutionReport>(`${this.configuration.basePath}/v1/orders`,
-            newOrder,
+            newOrderSingle,
             {
                 responseType: <any>responseType,
                 withCredentials: this.configuration.withCredentials,

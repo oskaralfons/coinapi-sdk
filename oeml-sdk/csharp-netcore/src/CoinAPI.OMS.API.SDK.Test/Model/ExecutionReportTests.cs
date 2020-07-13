@@ -66,70 +66,6 @@ namespace CoinAPI.OMS.API.SDK.Test
             // TODO unit test for the property 'ExchangeId'
         }
         /// <summary>
-        /// Test the property 'Id'
-        /// </summary>
-        [Fact]
-        public void IdTest()
-        {
-            // TODO unit test for the property 'Id'
-        }
-        /// <summary>
-        /// Test the property 'ClientOrderIdFormatExchange'
-        /// </summary>
-        [Fact]
-        public void ClientOrderIdFormatExchangeTest()
-        {
-            // TODO unit test for the property 'ClientOrderIdFormatExchange'
-        }
-        /// <summary>
-        /// Test the property 'ExchangeOrderId'
-        /// </summary>
-        [Fact]
-        public void ExchangeOrderIdTest()
-        {
-            // TODO unit test for the property 'ExchangeOrderId'
-        }
-        /// <summary>
-        /// Test the property 'AmountOpen'
-        /// </summary>
-        [Fact]
-        public void AmountOpenTest()
-        {
-            // TODO unit test for the property 'AmountOpen'
-        }
-        /// <summary>
-        /// Test the property 'AmountFilled'
-        /// </summary>
-        [Fact]
-        public void AmountFilledTest()
-        {
-            // TODO unit test for the property 'AmountFilled'
-        }
-        /// <summary>
-        /// Test the property 'Status'
-        /// </summary>
-        [Fact]
-        public void StatusTest()
-        {
-            // TODO unit test for the property 'Status'
-        }
-        /// <summary>
-        /// Test the property 'TimeOrder'
-        /// </summary>
-        [Fact]
-        public void TimeOrderTest()
-        {
-            // TODO unit test for the property 'TimeOrder'
-        }
-        /// <summary>
-        /// Test the property 'ErrorMessage'
-        /// </summary>
-        [Fact]
-        public void ErrorMessageTest()
-        {
-            // TODO unit test for the property 'ErrorMessage'
-        }
-        /// <summary>
         /// Test the property 'ClientOrderId'
         /// </summary>
         [Fact]
@@ -208,6 +144,62 @@ namespace CoinAPI.OMS.API.SDK.Test
         public void ExecInstTest()
         {
             // TODO unit test for the property 'ExecInst'
+        }
+        /// <summary>
+        /// Test the property 'ClientOrderIdFormatExchange'
+        /// </summary>
+        [Fact]
+        public void ClientOrderIdFormatExchangeTest()
+        {
+            // TODO unit test for the property 'ClientOrderIdFormatExchange'
+        }
+        /// <summary>
+        /// Test the property 'ExchangeOrderId'
+        /// </summary>
+        [Fact]
+        public void ExchangeOrderIdTest()
+        {
+            // TODO unit test for the property 'ExchangeOrderId'
+        }
+        /// <summary>
+        /// Test the property 'AmountOpen'
+        /// </summary>
+        [Fact]
+        public void AmountOpenTest()
+        {
+            // TODO unit test for the property 'AmountOpen'
+        }
+        /// <summary>
+        /// Test the property 'AmountFilled'
+        /// </summary>
+        [Fact]
+        public void AmountFilledTest()
+        {
+            // TODO unit test for the property 'AmountFilled'
+        }
+        /// <summary>
+        /// Test the property 'Status'
+        /// </summary>
+        [Fact]
+        public void StatusTest()
+        {
+            // TODO unit test for the property 'Status'
+        }
+        /// <summary>
+        /// Test the property 'TimeOrder'
+        /// </summary>
+        [Fact]
+        public void TimeOrderTest()
+        {
+            // TODO unit test for the property 'TimeOrder'
+        }
+        /// <summary>
+        /// Test the property 'ErrorMessage'
+        /// </summary>
+        [Fact]
+        public void ErrorMessageTest()
+        {
+            // TODO unit test for the property 'ErrorMessage'
         }
 
     }

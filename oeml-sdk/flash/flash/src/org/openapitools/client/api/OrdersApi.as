@@ -9,7 +9,7 @@ import org.openapitools.common.OpenApi;
 import org.openapitools.client.model.CreateOrderValidationError;
 import org.openapitools.client.model.ExecutionReport;
 import org.openapitools.client.model.Message;
-import org.openapitools.client.model.NewOrder;
+import org.openapitools.client.model.NewOrderSingle;
 import org.openapitools.client.model.OrderCancelAllRequest;
 import org.openapitools.client.model.OrderCancelSingleRequest;
 
@@ -130,7 +130,7 @@ public class OrdersApi extends OpenApi {
     /*
      * Returns ExecutionReport 
      */
-    public function v1_orders_post (newOrder: NewOrder): String {
+    public function v1_orders_post (newOrderSingle: NewOrderSingle): String {
         // create path and map variables
         var path: String = "/v1/orders".replace(/{format}/g,"xml");
 
@@ -145,7 +145,7 @@ public class OrdersApi extends OpenApi {
 
         
         
-        var token:AsyncToken = getApiInvoker().invokeAPI(path, "POST", queryParams, newOrder, headerParams);
+        var token:AsyncToken = getApiInvoker().invokeAPI(path, "POST", queryParams, newOrderSingle, headerParams);
 
         var requestId: String = getUniqueId();
 

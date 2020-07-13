@@ -100,7 +100,7 @@ No authorization required
 | **490** | Exchange not registered |  -  |
 
 # **V1OrdersGet**
-> array[NewOrder] V1OrdersGet(exchange.id=var.exchange.id)
+> array[ExecutionReport] V1OrdersGet(exchange.id=var.exchange.id)
 
 Get all orders
 
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**array[NewOrder]**](NewOrder.md)
+[**array[ExecutionReport]**](ExecutionReport.md)
 
 ### Authorization
 
@@ -143,7 +143,7 @@ No authorization required
 | **200** | Collection of requested open orders. |  -  |
 
 # **V1OrdersPost**
-> ExecutionReport V1OrdersPost(new.order)
+> ExecutionReport V1OrdersPost(new.order.single)
 
 Create new order
 
@@ -153,11 +153,11 @@ This request creating new order for the specific exchange.
 ```R
 library(openapi)
 
-var.new.order <- NewOrder$new("exchange_id_example", "client_order_id_example", "symbol_exchange_example", "symbol_coinapi_example", 123, 123, OrdSide$new(), OrdType$new(), TimeInForce$new(), "expire_time_example", list("exec_inst_example")) # NewOrder | 
+var.new.order.single <- NewOrderSingle$new("exchange_id_example", "client_order_id_example", "symbol_exchange_example", "symbol_coinapi_example", 123, 123, OrdSide$new(), OrdType$new(), TimeInForce$new(), "expire_time_example", list("exec_inst_example")) # NewOrderSingle | 
 
 #Create new order
 api.instance <- OrdersApi$new()
-result <- api.instance$V1OrdersPost(var.new.order)
+result <- api.instance$V1OrdersPost(var.new.order.single)
 dput(result)
 ```
 
@@ -165,7 +165,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **new.order** | [**NewOrder**](NewOrder.md)|  | 
+ **new.order.single** | [**NewOrderSingle**](NewOrderSingle.md)|  | 
 
 ### Return type
 

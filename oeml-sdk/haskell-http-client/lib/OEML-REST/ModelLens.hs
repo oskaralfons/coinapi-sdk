@@ -126,14 +126,59 @@ createOrderValidationErrorErrorsL f CreateOrderValidationError{..} = (\createOrd
 -- * ExecutionReport
 
 -- | 'executionReportExchangeId' Lens
-executionReportExchangeIdL :: Lens_' ExecutionReport (Maybe Text)
+executionReportExchangeIdL :: Lens_' ExecutionReport (Text)
 executionReportExchangeIdL f ExecutionReport{..} = (\executionReportExchangeId -> ExecutionReport { executionReportExchangeId, ..} ) <$> f executionReportExchangeId
 {-# INLINE executionReportExchangeIdL #-}
 
--- | 'executionReportId' Lens
-executionReportIdL :: Lens_' ExecutionReport (Maybe Text)
-executionReportIdL f ExecutionReport{..} = (\executionReportId -> ExecutionReport { executionReportId, ..} ) <$> f executionReportId
-{-# INLINE executionReportIdL #-}
+-- | 'executionReportClientOrderId' Lens
+executionReportClientOrderIdL :: Lens_' ExecutionReport (Text)
+executionReportClientOrderIdL f ExecutionReport{..} = (\executionReportClientOrderId -> ExecutionReport { executionReportClientOrderId, ..} ) <$> f executionReportClientOrderId
+{-# INLINE executionReportClientOrderIdL #-}
+
+-- | 'executionReportSymbolExchange' Lens
+executionReportSymbolExchangeL :: Lens_' ExecutionReport (Maybe Text)
+executionReportSymbolExchangeL f ExecutionReport{..} = (\executionReportSymbolExchange -> ExecutionReport { executionReportSymbolExchange, ..} ) <$> f executionReportSymbolExchange
+{-# INLINE executionReportSymbolExchangeL #-}
+
+-- | 'executionReportSymbolCoinapi' Lens
+executionReportSymbolCoinapiL :: Lens_' ExecutionReport (Maybe Text)
+executionReportSymbolCoinapiL f ExecutionReport{..} = (\executionReportSymbolCoinapi -> ExecutionReport { executionReportSymbolCoinapi, ..} ) <$> f executionReportSymbolCoinapi
+{-# INLINE executionReportSymbolCoinapiL #-}
+
+-- | 'executionReportAmountOrder' Lens
+executionReportAmountOrderL :: Lens_' ExecutionReport (Double)
+executionReportAmountOrderL f ExecutionReport{..} = (\executionReportAmountOrder -> ExecutionReport { executionReportAmountOrder, ..} ) <$> f executionReportAmountOrder
+{-# INLINE executionReportAmountOrderL #-}
+
+-- | 'executionReportPrice' Lens
+executionReportPriceL :: Lens_' ExecutionReport (Double)
+executionReportPriceL f ExecutionReport{..} = (\executionReportPrice -> ExecutionReport { executionReportPrice, ..} ) <$> f executionReportPrice
+{-# INLINE executionReportPriceL #-}
+
+-- | 'executionReportSide' Lens
+executionReportSideL :: Lens_' ExecutionReport (OrdSide)
+executionReportSideL f ExecutionReport{..} = (\executionReportSide -> ExecutionReport { executionReportSide, ..} ) <$> f executionReportSide
+{-# INLINE executionReportSideL #-}
+
+-- | 'executionReportOrderType' Lens
+executionReportOrderTypeL :: Lens_' ExecutionReport (OrdType)
+executionReportOrderTypeL f ExecutionReport{..} = (\executionReportOrderType -> ExecutionReport { executionReportOrderType, ..} ) <$> f executionReportOrderType
+{-# INLINE executionReportOrderTypeL #-}
+
+-- | 'executionReportTimeInForce' Lens
+executionReportTimeInForceL :: Lens_' ExecutionReport (TimeInForce)
+executionReportTimeInForceL f ExecutionReport{..} = (\executionReportTimeInForce -> ExecutionReport { executionReportTimeInForce, ..} ) <$> f executionReportTimeInForce
+{-# INLINE executionReportTimeInForceL #-}
+
+-- | 'executionReportExpireTime' Lens
+executionReportExpireTimeL :: Lens_' ExecutionReport (Maybe Date)
+executionReportExpireTimeL f ExecutionReport{..} = (\executionReportExpireTime -> ExecutionReport { executionReportExpireTime, ..} ) <$> f executionReportExpireTime
+{-# INLINE executionReportExpireTimeL #-}
+
+-- | 'executionReportExecInst' Lens
+executionReportExecInstL :: Lens_' ExecutionReport (Maybe [E'ExecInst])
+executionReportExecInstL f ExecutionReport{..} = (\executionReportExecInst -> ExecutionReport { executionReportExecInst, ..} ) <$> f executionReportExecInst
+{-# INLINE executionReportExecInstL #-}
 
 -- | 'executionReportClientOrderIdFormatExchange' Lens
 executionReportClientOrderIdFormatExchangeL :: Lens_' ExecutionReport (Maybe Text)
@@ -170,55 +215,44 @@ executionReportErrorMessageL :: Lens_' ExecutionReport (Maybe Text)
 executionReportErrorMessageL f ExecutionReport{..} = (\executionReportErrorMessage -> ExecutionReport { executionReportErrorMessage, ..} ) <$> f executionReportErrorMessage
 {-# INLINE executionReportErrorMessageL #-}
 
--- | 'executionReportClientOrderId' Lens
-executionReportClientOrderIdL :: Lens_' ExecutionReport (Maybe Text)
-executionReportClientOrderIdL f ExecutionReport{..} = (\executionReportClientOrderId -> ExecutionReport { executionReportClientOrderId, ..} ) <$> f executionReportClientOrderId
-{-# INLINE executionReportClientOrderIdL #-}
 
--- | 'executionReportSymbolExchange' Lens
-executionReportSymbolExchangeL :: Lens_' ExecutionReport (Maybe Text)
-executionReportSymbolExchangeL f ExecutionReport{..} = (\executionReportSymbolExchange -> ExecutionReport { executionReportSymbolExchange, ..} ) <$> f executionReportSymbolExchange
-{-# INLINE executionReportSymbolExchangeL #-}
 
--- | 'executionReportSymbolCoinapi' Lens
-executionReportSymbolCoinapiL :: Lens_' ExecutionReport (Maybe Text)
-executionReportSymbolCoinapiL f ExecutionReport{..} = (\executionReportSymbolCoinapi -> ExecutionReport { executionReportSymbolCoinapi, ..} ) <$> f executionReportSymbolCoinapi
-{-# INLINE executionReportSymbolCoinapiL #-}
+-- * ExecutionReportAllOf
 
--- | 'executionReportAmountOrder' Lens
-executionReportAmountOrderL :: Lens_' ExecutionReport (Maybe Double)
-executionReportAmountOrderL f ExecutionReport{..} = (\executionReportAmountOrder -> ExecutionReport { executionReportAmountOrder, ..} ) <$> f executionReportAmountOrder
-{-# INLINE executionReportAmountOrderL #-}
+-- | 'executionReportAllOfClientOrderIdFormatExchange' Lens
+executionReportAllOfClientOrderIdFormatExchangeL :: Lens_' ExecutionReportAllOf (Maybe Text)
+executionReportAllOfClientOrderIdFormatExchangeL f ExecutionReportAllOf{..} = (\executionReportAllOfClientOrderIdFormatExchange -> ExecutionReportAllOf { executionReportAllOfClientOrderIdFormatExchange, ..} ) <$> f executionReportAllOfClientOrderIdFormatExchange
+{-# INLINE executionReportAllOfClientOrderIdFormatExchangeL #-}
 
--- | 'executionReportPrice' Lens
-executionReportPriceL :: Lens_' ExecutionReport (Maybe Double)
-executionReportPriceL f ExecutionReport{..} = (\executionReportPrice -> ExecutionReport { executionReportPrice, ..} ) <$> f executionReportPrice
-{-# INLINE executionReportPriceL #-}
+-- | 'executionReportAllOfExchangeOrderId' Lens
+executionReportAllOfExchangeOrderIdL :: Lens_' ExecutionReportAllOf (Maybe Text)
+executionReportAllOfExchangeOrderIdL f ExecutionReportAllOf{..} = (\executionReportAllOfExchangeOrderId -> ExecutionReportAllOf { executionReportAllOfExchangeOrderId, ..} ) <$> f executionReportAllOfExchangeOrderId
+{-# INLINE executionReportAllOfExchangeOrderIdL #-}
 
--- | 'executionReportSide' Lens
-executionReportSideL :: Lens_' ExecutionReport (Maybe E'Side)
-executionReportSideL f ExecutionReport{..} = (\executionReportSide -> ExecutionReport { executionReportSide, ..} ) <$> f executionReportSide
-{-# INLINE executionReportSideL #-}
+-- | 'executionReportAllOfAmountOpen' Lens
+executionReportAllOfAmountOpenL :: Lens_' ExecutionReportAllOf (Maybe Double)
+executionReportAllOfAmountOpenL f ExecutionReportAllOf{..} = (\executionReportAllOfAmountOpen -> ExecutionReportAllOf { executionReportAllOfAmountOpen, ..} ) <$> f executionReportAllOfAmountOpen
+{-# INLINE executionReportAllOfAmountOpenL #-}
 
--- | 'executionReportOrderType' Lens
-executionReportOrderTypeL :: Lens_' ExecutionReport (Maybe E'OrderType)
-executionReportOrderTypeL f ExecutionReport{..} = (\executionReportOrderType -> ExecutionReport { executionReportOrderType, ..} ) <$> f executionReportOrderType
-{-# INLINE executionReportOrderTypeL #-}
+-- | 'executionReportAllOfAmountFilled' Lens
+executionReportAllOfAmountFilledL :: Lens_' ExecutionReportAllOf (Maybe Double)
+executionReportAllOfAmountFilledL f ExecutionReportAllOf{..} = (\executionReportAllOfAmountFilled -> ExecutionReportAllOf { executionReportAllOfAmountFilled, ..} ) <$> f executionReportAllOfAmountFilled
+{-# INLINE executionReportAllOfAmountFilledL #-}
 
--- | 'executionReportTimeInForce' Lens
-executionReportTimeInForceL :: Lens_' ExecutionReport (Maybe TimeInForce)
-executionReportTimeInForceL f ExecutionReport{..} = (\executionReportTimeInForce -> ExecutionReport { executionReportTimeInForce, ..} ) <$> f executionReportTimeInForce
-{-# INLINE executionReportTimeInForceL #-}
+-- | 'executionReportAllOfStatus' Lens
+executionReportAllOfStatusL :: Lens_' ExecutionReportAllOf (Maybe OrdStatus)
+executionReportAllOfStatusL f ExecutionReportAllOf{..} = (\executionReportAllOfStatus -> ExecutionReportAllOf { executionReportAllOfStatus, ..} ) <$> f executionReportAllOfStatus
+{-# INLINE executionReportAllOfStatusL #-}
 
--- | 'executionReportExpireTime' Lens
-executionReportExpireTimeL :: Lens_' ExecutionReport (Maybe Date)
-executionReportExpireTimeL f ExecutionReport{..} = (\executionReportExpireTime -> ExecutionReport { executionReportExpireTime, ..} ) <$> f executionReportExpireTime
-{-# INLINE executionReportExpireTimeL #-}
+-- | 'executionReportAllOfTimeOrder' Lens
+executionReportAllOfTimeOrderL :: Lens_' ExecutionReportAllOf (Maybe [[Text]])
+executionReportAllOfTimeOrderL f ExecutionReportAllOf{..} = (\executionReportAllOfTimeOrder -> ExecutionReportAllOf { executionReportAllOfTimeOrder, ..} ) <$> f executionReportAllOfTimeOrder
+{-# INLINE executionReportAllOfTimeOrderL #-}
 
--- | 'executionReportExecInst' Lens
-executionReportExecInstL :: Lens_' ExecutionReport (Maybe [E'ExecInst])
-executionReportExecInstL f ExecutionReport{..} = (\executionReportExecInst -> ExecutionReport { executionReportExecInst, ..} ) <$> f executionReportExecInst
-{-# INLINE executionReportExecInstL #-}
+-- | 'executionReportAllOfErrorMessage' Lens
+executionReportAllOfErrorMessageL :: Lens_' ExecutionReportAllOf (Maybe Text)
+executionReportAllOfErrorMessageL f ExecutionReportAllOf{..} = (\executionReportAllOfErrorMessage -> ExecutionReportAllOf { executionReportAllOfErrorMessage, ..} ) <$> f executionReportAllOfErrorMessage
+{-# INLINE executionReportAllOfErrorMessageL #-}
 
 
 
@@ -246,62 +280,62 @@ messageMessageL f Message{..} = (\messageMessage -> Message { messageMessage, ..
 
 
 
--- * NewOrder
+-- * NewOrderSingle
 
--- | 'newOrderExchangeId' Lens
-newOrderExchangeIdL :: Lens_' NewOrder (Text)
-newOrderExchangeIdL f NewOrder{..} = (\newOrderExchangeId -> NewOrder { newOrderExchangeId, ..} ) <$> f newOrderExchangeId
-{-# INLINE newOrderExchangeIdL #-}
+-- | 'newOrderSingleExchangeId' Lens
+newOrderSingleExchangeIdL :: Lens_' NewOrderSingle (Text)
+newOrderSingleExchangeIdL f NewOrderSingle{..} = (\newOrderSingleExchangeId -> NewOrderSingle { newOrderSingleExchangeId, ..} ) <$> f newOrderSingleExchangeId
+{-# INLINE newOrderSingleExchangeIdL #-}
 
--- | 'newOrderClientOrderId' Lens
-newOrderClientOrderIdL :: Lens_' NewOrder (Text)
-newOrderClientOrderIdL f NewOrder{..} = (\newOrderClientOrderId -> NewOrder { newOrderClientOrderId, ..} ) <$> f newOrderClientOrderId
-{-# INLINE newOrderClientOrderIdL #-}
+-- | 'newOrderSingleClientOrderId' Lens
+newOrderSingleClientOrderIdL :: Lens_' NewOrderSingle (Text)
+newOrderSingleClientOrderIdL f NewOrderSingle{..} = (\newOrderSingleClientOrderId -> NewOrderSingle { newOrderSingleClientOrderId, ..} ) <$> f newOrderSingleClientOrderId
+{-# INLINE newOrderSingleClientOrderIdL #-}
 
--- | 'newOrderSymbolExchange' Lens
-newOrderSymbolExchangeL :: Lens_' NewOrder (Maybe Text)
-newOrderSymbolExchangeL f NewOrder{..} = (\newOrderSymbolExchange -> NewOrder { newOrderSymbolExchange, ..} ) <$> f newOrderSymbolExchange
-{-# INLINE newOrderSymbolExchangeL #-}
+-- | 'newOrderSingleSymbolExchange' Lens
+newOrderSingleSymbolExchangeL :: Lens_' NewOrderSingle (Maybe Text)
+newOrderSingleSymbolExchangeL f NewOrderSingle{..} = (\newOrderSingleSymbolExchange -> NewOrderSingle { newOrderSingleSymbolExchange, ..} ) <$> f newOrderSingleSymbolExchange
+{-# INLINE newOrderSingleSymbolExchangeL #-}
 
--- | 'newOrderSymbolCoinapi' Lens
-newOrderSymbolCoinapiL :: Lens_' NewOrder (Maybe Text)
-newOrderSymbolCoinapiL f NewOrder{..} = (\newOrderSymbolCoinapi -> NewOrder { newOrderSymbolCoinapi, ..} ) <$> f newOrderSymbolCoinapi
-{-# INLINE newOrderSymbolCoinapiL #-}
+-- | 'newOrderSingleSymbolCoinapi' Lens
+newOrderSingleSymbolCoinapiL :: Lens_' NewOrderSingle (Maybe Text)
+newOrderSingleSymbolCoinapiL f NewOrderSingle{..} = (\newOrderSingleSymbolCoinapi -> NewOrderSingle { newOrderSingleSymbolCoinapi, ..} ) <$> f newOrderSingleSymbolCoinapi
+{-# INLINE newOrderSingleSymbolCoinapiL #-}
 
--- | 'newOrderAmountOrder' Lens
-newOrderAmountOrderL :: Lens_' NewOrder (Double)
-newOrderAmountOrderL f NewOrder{..} = (\newOrderAmountOrder -> NewOrder { newOrderAmountOrder, ..} ) <$> f newOrderAmountOrder
-{-# INLINE newOrderAmountOrderL #-}
+-- | 'newOrderSingleAmountOrder' Lens
+newOrderSingleAmountOrderL :: Lens_' NewOrderSingle (Double)
+newOrderSingleAmountOrderL f NewOrderSingle{..} = (\newOrderSingleAmountOrder -> NewOrderSingle { newOrderSingleAmountOrder, ..} ) <$> f newOrderSingleAmountOrder
+{-# INLINE newOrderSingleAmountOrderL #-}
 
--- | 'newOrderPrice' Lens
-newOrderPriceL :: Lens_' NewOrder (Double)
-newOrderPriceL f NewOrder{..} = (\newOrderPrice -> NewOrder { newOrderPrice, ..} ) <$> f newOrderPrice
-{-# INLINE newOrderPriceL #-}
+-- | 'newOrderSinglePrice' Lens
+newOrderSinglePriceL :: Lens_' NewOrderSingle (Double)
+newOrderSinglePriceL f NewOrderSingle{..} = (\newOrderSinglePrice -> NewOrderSingle { newOrderSinglePrice, ..} ) <$> f newOrderSinglePrice
+{-# INLINE newOrderSinglePriceL #-}
 
--- | 'newOrderSide' Lens
-newOrderSideL :: Lens_' NewOrder (OrdSide)
-newOrderSideL f NewOrder{..} = (\newOrderSide -> NewOrder { newOrderSide, ..} ) <$> f newOrderSide
-{-# INLINE newOrderSideL #-}
+-- | 'newOrderSingleSide' Lens
+newOrderSingleSideL :: Lens_' NewOrderSingle (OrdSide)
+newOrderSingleSideL f NewOrderSingle{..} = (\newOrderSingleSide -> NewOrderSingle { newOrderSingleSide, ..} ) <$> f newOrderSingleSide
+{-# INLINE newOrderSingleSideL #-}
 
--- | 'newOrderOrderType' Lens
-newOrderOrderTypeL :: Lens_' NewOrder (OrdType)
-newOrderOrderTypeL f NewOrder{..} = (\newOrderOrderType -> NewOrder { newOrderOrderType, ..} ) <$> f newOrderOrderType
-{-# INLINE newOrderOrderTypeL #-}
+-- | 'newOrderSingleOrderType' Lens
+newOrderSingleOrderTypeL :: Lens_' NewOrderSingle (OrdType)
+newOrderSingleOrderTypeL f NewOrderSingle{..} = (\newOrderSingleOrderType -> NewOrderSingle { newOrderSingleOrderType, ..} ) <$> f newOrderSingleOrderType
+{-# INLINE newOrderSingleOrderTypeL #-}
 
--- | 'newOrderTimeInForce' Lens
-newOrderTimeInForceL :: Lens_' NewOrder (TimeInForce)
-newOrderTimeInForceL f NewOrder{..} = (\newOrderTimeInForce -> NewOrder { newOrderTimeInForce, ..} ) <$> f newOrderTimeInForce
-{-# INLINE newOrderTimeInForceL #-}
+-- | 'newOrderSingleTimeInForce' Lens
+newOrderSingleTimeInForceL :: Lens_' NewOrderSingle (TimeInForce)
+newOrderSingleTimeInForceL f NewOrderSingle{..} = (\newOrderSingleTimeInForce -> NewOrderSingle { newOrderSingleTimeInForce, ..} ) <$> f newOrderSingleTimeInForce
+{-# INLINE newOrderSingleTimeInForceL #-}
 
--- | 'newOrderExpireTime' Lens
-newOrderExpireTimeL :: Lens_' NewOrder (Maybe Date)
-newOrderExpireTimeL f NewOrder{..} = (\newOrderExpireTime -> NewOrder { newOrderExpireTime, ..} ) <$> f newOrderExpireTime
-{-# INLINE newOrderExpireTimeL #-}
+-- | 'newOrderSingleExpireTime' Lens
+newOrderSingleExpireTimeL :: Lens_' NewOrderSingle (Maybe Date)
+newOrderSingleExpireTimeL f NewOrderSingle{..} = (\newOrderSingleExpireTime -> NewOrderSingle { newOrderSingleExpireTime, ..} ) <$> f newOrderSingleExpireTime
+{-# INLINE newOrderSingleExpireTimeL #-}
 
--- | 'newOrderExecInst' Lens
-newOrderExecInstL :: Lens_' NewOrder (Maybe [E'ExecInst])
-newOrderExecInstL f NewOrder{..} = (\newOrderExecInst -> NewOrder { newOrderExecInst, ..} ) <$> f newOrderExecInst
-{-# INLINE newOrderExecInstL #-}
+-- | 'newOrderSingleExecInst' Lens
+newOrderSingleExecInstL :: Lens_' NewOrderSingle (Maybe [E'ExecInst])
+newOrderSingleExecInstL f NewOrderSingle{..} = (\newOrderSingleExecInst -> NewOrderSingle { newOrderSingleExecInst, ..} ) <$> f newOrderSingleExecInst
+{-# INLINE newOrderSingleExecInstL #-}
 
 
 

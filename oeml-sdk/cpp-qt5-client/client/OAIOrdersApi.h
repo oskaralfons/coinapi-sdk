@@ -17,7 +17,7 @@
 #include "OAICreateOrderValidationError.h"
 #include "OAIExecutionReport.h"
 #include "OAIMessage.h"
-#include "OAINewOrder.h"
+#include "OAINewOrderSingle.h"
 #include "OAIOrderCancelAllRequest.h"
 #include "OAIOrderCancelSingleRequest.h"
 #include <QString>
@@ -47,7 +47,7 @@ public:
     void v1OrdersCancelAllPost(const OAIOrderCancelAllRequest &oai_order_cancel_all_request);
     void v1OrdersCancelPost(const OAIOrderCancelSingleRequest &oai_order_cancel_single_request);
     void v1OrdersGet(const QString &exchange_id);
-    void v1OrdersPost(const OAINewOrder &oai_new_order);
+    void v1OrdersPost(const OAINewOrderSingle &oai_new_order_single);
     void v1OrdersStatusClientOrderIdGet(const QString &client_order_id);
 
 private:
@@ -70,19 +70,19 @@ signals:
 
     void v1OrdersCancelAllPostSignal(OAIMessage summary);
     void v1OrdersCancelPostSignal(OAIExecutionReport summary);
-    void v1OrdersGetSignal(QList<OAINewOrder> summary);
+    void v1OrdersGetSignal(QList<OAIExecutionReport> summary);
     void v1OrdersPostSignal(OAIExecutionReport summary);
     void v1OrdersStatusClientOrderIdGetSignal(OAIExecutionReport summary);
 
     void v1OrdersCancelAllPostSignalFull(OAIHttpRequestWorker *worker, OAIMessage summary);
     void v1OrdersCancelPostSignalFull(OAIHttpRequestWorker *worker, OAIExecutionReport summary);
-    void v1OrdersGetSignalFull(OAIHttpRequestWorker *worker, QList<OAINewOrder> summary);
+    void v1OrdersGetSignalFull(OAIHttpRequestWorker *worker, QList<OAIExecutionReport> summary);
     void v1OrdersPostSignalFull(OAIHttpRequestWorker *worker, OAIExecutionReport summary);
     void v1OrdersStatusClientOrderIdGetSignalFull(OAIHttpRequestWorker *worker, OAIExecutionReport summary);
 
     void v1OrdersCancelAllPostSignalE(OAIMessage summary, QNetworkReply::NetworkError error_type, QString error_str);
     void v1OrdersCancelPostSignalE(OAIExecutionReport summary, QNetworkReply::NetworkError error_type, QString error_str);
-    void v1OrdersGetSignalE(QList<OAINewOrder> summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void v1OrdersGetSignalE(QList<OAIExecutionReport> summary, QNetworkReply::NetworkError error_type, QString error_str);
     void v1OrdersPostSignalE(OAIExecutionReport summary, QNetworkReply::NetworkError error_type, QString error_str);
     void v1OrdersStatusClientOrderIdGetSignalE(OAIExecutionReport summary, QNetworkReply::NetworkError error_type, QString error_str);
 

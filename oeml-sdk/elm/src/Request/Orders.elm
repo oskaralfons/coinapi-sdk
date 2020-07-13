@@ -12,12 +12,12 @@
 
 module Request.Orders exposing (v1OrdersCancelAllPost, v1OrdersCancelPost, v1OrdersGet, v1OrdersPost, v1OrdersStatusClientOrderIdGet)
 
+import Data.NewOrderSingle as NewOrderSingle exposing (NewOrderSingle)
 import Data.ExecutionReport as ExecutionReport exposing (ExecutionReport)
 import Data.Message as Message exposing (Message)
 import Data.CreateOrderValidationError as CreateOrderValidationError exposing (CreateOrderValidationError)
 import Data.OrderCancelSingleRequest as OrderCancelSingleRequest exposing (OrderCancelSingleRequest)
 import Data.OrderCancelAllRequest as OrderCancelAllRequest exposing (OrderCancelAllRequest)
-import Data.NewOrder as NewOrder exposing (NewOrder)
 import Dict
 import Http
 import Json.Decode as Decode
@@ -84,7 +84,7 @@ v1OrdersCancelPost params =
 {-| Get all current open orders across all or single specified exchange.
 -}
 v1OrdersGet :
-    { onSend : Result Http.Error (List NewOrder) -> msg
+    { onSend : Result Http.Error (List ExecutionReport) -> msg
 
 
 
@@ -100,7 +100,7 @@ v1OrdersGet params =
             ["v1", "orders"]
             (List.filterMap identity [Maybe.map (Url.string "exchange_id" << identity) params.exchangeId])
         , body = Http.emptyBody
-        , expect = Http.expectJson params.onSend (Decode.list NewOrder.decoder)
+        , expect = Http.expectJson params.onSend (Decode.list ExecutionReport.decoder)
         , timeout = Just 30000
         , tracker = Nothing
         }
@@ -112,7 +112,7 @@ v1OrdersPost :
     { onSend : Result Http.Error ExecutionReport -> msg
 
 
-    , body : NewOrder
+    , body : NewOrderSingle
 
 
     }
@@ -124,7 +124,7 @@ v1OrdersPost params =
         , url = Url.crossOrigin basePath
             ["v1", "orders"]
             (List.filterMap identity [])
-        , body = Http.jsonBody <| NewOrder.encode params.body
+        , body = Http.jsonBody <| NewOrderSingle.encode params.body
         , expect = Http.expectJson params.onSend ExecutionReport.decoder
         , timeout = Just 30000
         , tracker = Nothing

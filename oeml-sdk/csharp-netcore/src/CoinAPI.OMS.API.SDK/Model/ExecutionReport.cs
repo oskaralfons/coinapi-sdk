@@ -32,63 +32,20 @@ namespace CoinAPI.OMS.API.SDK.Model
     public partial class ExecutionReport :  IEquatable<ExecutionReport>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets Status
+        /// Gets or Sets Side
         /// </summary>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public OrdStatus? Status { get; set; }
-        /// <summary>
-        /// Buy or Sell
-        /// </summary>
-        /// <value>Buy or Sell</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum SideEnum
-        {
-            /// <summary>
-            /// Enum BUY for value: BUY
-            /// </summary>
-            [EnumMember(Value = "BUY")]
-            BUY = 1,
-
-            /// <summary>
-            /// Enum SELL for value: SELL
-            /// </summary>
-            [EnumMember(Value = "SELL")]
-            SELL = 2
-
-        }
-
-        /// <summary>
-        /// Buy or Sell
-        /// </summary>
-        /// <value>Buy or Sell</value>
         [DataMember(Name="side", EmitDefaultValue=false)]
-        public SideEnum? Side { get; set; }
+        public OrdSide Side { get; set; }
         /// <summary>
-        /// The order type.
+        /// Gets or Sets OrderType
         /// </summary>
-        /// <value>The order type.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum OrderTypeEnum
-        {
-            /// <summary>
-            /// Enum LIMIT for value: LIMIT
-            /// </summary>
-            [EnumMember(Value = "LIMIT")]
-            LIMIT = 1
-
-        }
-
-        /// <summary>
-        /// The order type.
-        /// </summary>
-        /// <value>The order type.</value>
         [DataMember(Name="order_type", EmitDefaultValue=false)]
-        public OrderTypeEnum? OrderType { get; set; }
+        public OrdType OrderType { get; set; }
         /// <summary>
         /// Gets or Sets TimeInForce
         /// </summary>
         [DataMember(Name="time_in_force", EmitDefaultValue=false)]
-        public TimeInForce? TimeInForce { get; set; }
+        public TimeInForce TimeInForce { get; set; }
         /// <summary>
         /// Defines ExecInst
         /// </summary>
@@ -123,10 +80,29 @@ namespace CoinAPI.OMS.API.SDK.Model
         [DataMember(Name="exec_inst", EmitDefaultValue=false)]
         public List<ExecInstEnum> ExecInst { get; set; }
         /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public OrdStatus? Status { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ExecutionReport" /> class.
         /// </summary>
-        /// <param name="exchangeId">Exchange name.</param>
-        /// <param name="id">Client unique identifier for the trade..</param>
+        [JsonConstructorAttribute]
+        protected ExecutionReport() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ExecutionReport" /> class.
+        /// </summary>
+        /// <param name="exchangeId">Exchange identifier. (required).</param>
+        /// <param name="clientOrderId">Unique identifier for the order assigned by the &#x60;OEML API&#x60; client. (required).</param>
+        /// <param name="symbolExchange">Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order..</param>
+        /// <param name="symbolCoinapi">CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order..</param>
+        /// <param name="amountOrder">Order quantity. (required).</param>
+        /// <param name="price">Order price. (required).</param>
+        /// <param name="side">side (required).</param>
+        /// <param name="orderType">orderType (required).</param>
+        /// <param name="timeInForce">timeInForce (required).</param>
+        /// <param name="expireTime">Expiration time. Conditionaly required for orders with time_in_force &#x3D; &#x60;GOOD_TILL_TIME_EXCHANGE&#x60; or &#x60;GOOD_TILL_TIME_OEML&#x60;..</param>
+        /// <param name="execInst">Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt;.</param>
         /// <param name="clientOrderIdFormatExchange">Hash client id.</param>
         /// <param name="exchangeOrderId">Exchange order id.</param>
         /// <param name="amountOpen">Amount open.</param>
@@ -134,20 +110,21 @@ namespace CoinAPI.OMS.API.SDK.Model
         /// <param name="status">status.</param>
         /// <param name="timeOrder">History of order status changes.</param>
         /// <param name="errorMessage">Error message.</param>
-        /// <param name="clientOrderId">Client unique identifier for the trade..</param>
-        /// <param name="symbolExchange">The symbol of the order..</param>
-        /// <param name="symbolCoinapi">The CoinAPI symbol of the order..</param>
-        /// <param name="amountOrder">Quoted decimal amount to purchase..</param>
-        /// <param name="price">Quoted decimal amount to spend per unit..</param>
-        /// <param name="side">Buy or Sell.</param>
-        /// <param name="orderType">The order type..</param>
-        /// <param name="timeInForce">timeInForce.</param>
-        /// <param name="expireTime">Required for orders with time_in_force &#x3D; GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS.</param>
-        /// <param name="execInst">Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt;.</param>
-        public ExecutionReport(string exchangeId = default(string), string id = default(string), string clientOrderIdFormatExchange = default(string), string exchangeOrderId = default(string), decimal amountOpen = default(decimal), decimal amountFilled = default(decimal), OrdStatus? status = default(OrdStatus?), List<List<string>> timeOrder = default(List<List<string>>), string errorMessage = default(string), string clientOrderId = default(string), string symbolExchange = default(string), string symbolCoinapi = default(string), decimal amountOrder = default(decimal), decimal price = default(decimal), SideEnum? side = default(SideEnum?), OrderTypeEnum? orderType = default(OrderTypeEnum?), TimeInForce? timeInForce = default(TimeInForce?), DateTime expireTime = default(DateTime), List<ExecInstEnum> execInst = default(List<ExecInstEnum>))
+        public ExecutionReport(string exchangeId = default(string), string clientOrderId = default(string), string symbolExchange = default(string), string symbolCoinapi = default(string), decimal amountOrder = default(decimal), decimal price = default(decimal), OrdSide side = default(OrdSide), OrdType orderType = default(OrdType), TimeInForce timeInForce = default(TimeInForce), DateTime expireTime = default(DateTime), List<ExecInstEnum> execInst = default(List<ExecInstEnum>), string clientOrderIdFormatExchange = default(string), string exchangeOrderId = default(string), decimal amountOpen = default(decimal), decimal amountFilled = default(decimal), OrdStatus? status = default(OrdStatus?), List<List<string>> timeOrder = default(List<List<string>>), string errorMessage = default(string))
         {
-            this.ExchangeId = exchangeId;
-            this.Id = id;
+            // to ensure "exchangeId" is required (not null)
+            this.ExchangeId = exchangeId ?? throw new ArgumentNullException("exchangeId is a required property for ExecutionReport and cannot be null");
+            // to ensure "clientOrderId" is required (not null)
+            this.ClientOrderId = clientOrderId ?? throw new ArgumentNullException("clientOrderId is a required property for ExecutionReport and cannot be null");
+            this.AmountOrder = amountOrder;
+            this.Price = price;
+            this.Side = side;
+            this.OrderType = orderType;
+            this.TimeInForce = timeInForce;
+            this.SymbolExchange = symbolExchange;
+            this.SymbolCoinapi = symbolCoinapi;
+            this.ExpireTime = expireTime;
+            this.ExecInst = execInst;
             this.ClientOrderIdFormatExchange = clientOrderIdFormatExchange;
             this.ExchangeOrderId = exchangeOrderId;
             this.AmountOpen = amountOpen;
@@ -155,31 +132,56 @@ namespace CoinAPI.OMS.API.SDK.Model
             this.Status = status;
             this.TimeOrder = timeOrder;
             this.ErrorMessage = errorMessage;
-            this.ClientOrderId = clientOrderId;
-            this.SymbolExchange = symbolExchange;
-            this.SymbolCoinapi = symbolCoinapi;
-            this.AmountOrder = amountOrder;
-            this.Price = price;
-            this.Side = side;
-            this.OrderType = orderType;
-            this.TimeInForce = timeInForce;
-            this.ExpireTime = expireTime;
-            this.ExecInst = execInst;
         }
         
         /// <summary>
-        /// Exchange name
+        /// Exchange identifier.
         /// </summary>
-        /// <value>Exchange name</value>
+        /// <value>Exchange identifier.</value>
         [DataMember(Name="exchange_id", EmitDefaultValue=false)]
         public string ExchangeId { get; set; }
 
         /// <summary>
-        /// Client unique identifier for the trade.
+        /// Unique identifier for the order assigned by the &#x60;OEML API&#x60; client.
         /// </summary>
-        /// <value>Client unique identifier for the trade.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
-        public string Id { get; set; }
+        /// <value>Unique identifier for the order assigned by the &#x60;OEML API&#x60; client.</value>
+        [DataMember(Name="client_order_id", EmitDefaultValue=false)]
+        public string ClientOrderId { get; set; }
+
+        /// <summary>
+        /// Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.
+        /// </summary>
+        /// <value>Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.</value>
+        [DataMember(Name="symbol_exchange", EmitDefaultValue=false)]
+        public string SymbolExchange { get; set; }
+
+        /// <summary>
+        /// CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.
+        /// </summary>
+        /// <value>CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.</value>
+        [DataMember(Name="symbol_coinapi", EmitDefaultValue=false)]
+        public string SymbolCoinapi { get; set; }
+
+        /// <summary>
+        /// Order quantity.
+        /// </summary>
+        /// <value>Order quantity.</value>
+        [DataMember(Name="amount_order", EmitDefaultValue=false)]
+        public decimal AmountOrder { get; set; }
+
+        /// <summary>
+        /// Order price.
+        /// </summary>
+        /// <value>Order price.</value>
+        [DataMember(Name="price", EmitDefaultValue=false)]
+        public decimal Price { get; set; }
+
+        /// <summary>
+        /// Expiration time. Conditionaly required for orders with time_in_force &#x3D; &#x60;GOOD_TILL_TIME_EXCHANGE&#x60; or &#x60;GOOD_TILL_TIME_OEML&#x60;.
+        /// </summary>
+        /// <value>Expiration time. Conditionaly required for orders with time_in_force &#x3D; &#x60;GOOD_TILL_TIME_EXCHANGE&#x60; or &#x60;GOOD_TILL_TIME_OEML&#x60;.</value>
+        [DataMember(Name="expire_time", EmitDefaultValue=false)]
+        public DateTime ExpireTime { get; set; }
 
         /// <summary>
         /// Hash client id
@@ -224,48 +226,6 @@ namespace CoinAPI.OMS.API.SDK.Model
         public string ErrorMessage { get; set; }
 
         /// <summary>
-        /// Client unique identifier for the trade.
-        /// </summary>
-        /// <value>Client unique identifier for the trade.</value>
-        [DataMember(Name="client_order_id", EmitDefaultValue=false)]
-        public string ClientOrderId { get; set; }
-
-        /// <summary>
-        /// The symbol of the order.
-        /// </summary>
-        /// <value>The symbol of the order.</value>
-        [DataMember(Name="symbol_exchange", EmitDefaultValue=false)]
-        public string SymbolExchange { get; set; }
-
-        /// <summary>
-        /// The CoinAPI symbol of the order.
-        /// </summary>
-        /// <value>The CoinAPI symbol of the order.</value>
-        [DataMember(Name="symbol_coinapi", EmitDefaultValue=false)]
-        public string SymbolCoinapi { get; set; }
-
-        /// <summary>
-        /// Quoted decimal amount to purchase.
-        /// </summary>
-        /// <value>Quoted decimal amount to purchase.</value>
-        [DataMember(Name="amount_order", EmitDefaultValue=false)]
-        public decimal AmountOrder { get; set; }
-
-        /// <summary>
-        /// Quoted decimal amount to spend per unit.
-        /// </summary>
-        /// <value>Quoted decimal amount to spend per unit.</value>
-        [DataMember(Name="price", EmitDefaultValue=false)]
-        public decimal Price { get; set; }
-
-        /// <summary>
-        /// Required for orders with time_in_force &#x3D; GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
-        /// </summary>
-        /// <value>Required for orders with time_in_force &#x3D; GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS</value>
-        [DataMember(Name="expire_time", EmitDefaultValue=false)]
-        public DateTime ExpireTime { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -274,14 +234,6 @@ namespace CoinAPI.OMS.API.SDK.Model
             var sb = new StringBuilder();
             sb.Append("class ExecutionReport {\n");
             sb.Append("  ExchangeId: ").Append(ExchangeId).Append("\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  ClientOrderIdFormatExchange: ").Append(ClientOrderIdFormatExchange).Append("\n");
-            sb.Append("  ExchangeOrderId: ").Append(ExchangeOrderId).Append("\n");
-            sb.Append("  AmountOpen: ").Append(AmountOpen).Append("\n");
-            sb.Append("  AmountFilled: ").Append(AmountFilled).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  TimeOrder: ").Append(TimeOrder).Append("\n");
-            sb.Append("  ErrorMessage: ").Append(ErrorMessage).Append("\n");
             sb.Append("  ClientOrderId: ").Append(ClientOrderId).Append("\n");
             sb.Append("  SymbolExchange: ").Append(SymbolExchange).Append("\n");
             sb.Append("  SymbolCoinapi: ").Append(SymbolCoinapi).Append("\n");
@@ -292,6 +244,13 @@ namespace CoinAPI.OMS.API.SDK.Model
             sb.Append("  TimeInForce: ").Append(TimeInForce).Append("\n");
             sb.Append("  ExpireTime: ").Append(ExpireTime).Append("\n");
             sb.Append("  ExecInst: ").Append(ExecInst).Append("\n");
+            sb.Append("  ClientOrderIdFormatExchange: ").Append(ClientOrderIdFormatExchange).Append("\n");
+            sb.Append("  ExchangeOrderId: ").Append(ExchangeOrderId).Append("\n");
+            sb.Append("  AmountOpen: ").Append(AmountOpen).Append("\n");
+            sb.Append("  AmountFilled: ").Append(AmountFilled).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  TimeOrder: ").Append(TimeOrder).Append("\n");
+            sb.Append("  ErrorMessage: ").Append(ErrorMessage).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -330,44 +289,6 @@ namespace CoinAPI.OMS.API.SDK.Model
                     this.ExchangeId == input.ExchangeId ||
                     (this.ExchangeId != null &&
                     this.ExchangeId.Equals(input.ExchangeId))
-                ) && 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.ClientOrderIdFormatExchange == input.ClientOrderIdFormatExchange ||
-                    (this.ClientOrderIdFormatExchange != null &&
-                    this.ClientOrderIdFormatExchange.Equals(input.ClientOrderIdFormatExchange))
-                ) && 
-                (
-                    this.ExchangeOrderId == input.ExchangeOrderId ||
-                    (this.ExchangeOrderId != null &&
-                    this.ExchangeOrderId.Equals(input.ExchangeOrderId))
-                ) && 
-                (
-                    this.AmountOpen == input.AmountOpen ||
-                    this.AmountOpen.Equals(input.AmountOpen)
-                ) && 
-                (
-                    this.AmountFilled == input.AmountFilled ||
-                    this.AmountFilled.Equals(input.AmountFilled)
-                ) && 
-                (
-                    this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
-                ) && 
-                (
-                    this.TimeOrder == input.TimeOrder ||
-                    this.TimeOrder != null &&
-                    input.TimeOrder != null &&
-                    this.TimeOrder.SequenceEqual(input.TimeOrder)
-                ) && 
-                (
-                    this.ErrorMessage == input.ErrorMessage ||
-                    (this.ErrorMessage != null &&
-                    this.ErrorMessage.Equals(input.ErrorMessage))
                 ) && 
                 (
                     this.ClientOrderId == input.ClientOrderId ||
@@ -412,6 +333,39 @@ namespace CoinAPI.OMS.API.SDK.Model
                 (
                     this.ExecInst == input.ExecInst ||
                     this.ExecInst.SequenceEqual(input.ExecInst)
+                ) && 
+                (
+                    this.ClientOrderIdFormatExchange == input.ClientOrderIdFormatExchange ||
+                    (this.ClientOrderIdFormatExchange != null &&
+                    this.ClientOrderIdFormatExchange.Equals(input.ClientOrderIdFormatExchange))
+                ) && 
+                (
+                    this.ExchangeOrderId == input.ExchangeOrderId ||
+                    (this.ExchangeOrderId != null &&
+                    this.ExchangeOrderId.Equals(input.ExchangeOrderId))
+                ) && 
+                (
+                    this.AmountOpen == input.AmountOpen ||
+                    this.AmountOpen.Equals(input.AmountOpen)
+                ) && 
+                (
+                    this.AmountFilled == input.AmountFilled ||
+                    this.AmountFilled.Equals(input.AmountFilled)
+                ) && 
+                (
+                    this.Status == input.Status ||
+                    this.Status.Equals(input.Status)
+                ) && 
+                (
+                    this.TimeOrder == input.TimeOrder ||
+                    this.TimeOrder != null &&
+                    input.TimeOrder != null &&
+                    this.TimeOrder.SequenceEqual(input.TimeOrder)
+                ) && 
+                (
+                    this.ErrorMessage == input.ErrorMessage ||
+                    (this.ErrorMessage != null &&
+                    this.ErrorMessage.Equals(input.ErrorMessage))
                 );
         }
 
@@ -426,19 +380,6 @@ namespace CoinAPI.OMS.API.SDK.Model
                 int hashCode = 41;
                 if (this.ExchangeId != null)
                     hashCode = hashCode * 59 + this.ExchangeId.GetHashCode();
-                if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.ClientOrderIdFormatExchange != null)
-                    hashCode = hashCode * 59 + this.ClientOrderIdFormatExchange.GetHashCode();
-                if (this.ExchangeOrderId != null)
-                    hashCode = hashCode * 59 + this.ExchangeOrderId.GetHashCode();
-                hashCode = hashCode * 59 + this.AmountOpen.GetHashCode();
-                hashCode = hashCode * 59 + this.AmountFilled.GetHashCode();
-                hashCode = hashCode * 59 + this.Status.GetHashCode();
-                if (this.TimeOrder != null)
-                    hashCode = hashCode * 59 + this.TimeOrder.GetHashCode();
-                if (this.ErrorMessage != null)
-                    hashCode = hashCode * 59 + this.ErrorMessage.GetHashCode();
                 if (this.ClientOrderId != null)
                     hashCode = hashCode * 59 + this.ClientOrderId.GetHashCode();
                 if (this.SymbolExchange != null)
@@ -453,6 +394,17 @@ namespace CoinAPI.OMS.API.SDK.Model
                 if (this.ExpireTime != null)
                     hashCode = hashCode * 59 + this.ExpireTime.GetHashCode();
                 hashCode = hashCode * 59 + this.ExecInst.GetHashCode();
+                if (this.ClientOrderIdFormatExchange != null)
+                    hashCode = hashCode * 59 + this.ClientOrderIdFormatExchange.GetHashCode();
+                if (this.ExchangeOrderId != null)
+                    hashCode = hashCode * 59 + this.ExchangeOrderId.GetHashCode();
+                hashCode = hashCode * 59 + this.AmountOpen.GetHashCode();
+                hashCode = hashCode * 59 + this.AmountFilled.GetHashCode();
+                hashCode = hashCode * 59 + this.Status.GetHashCode();
+                if (this.TimeOrder != null)
+                    hashCode = hashCode * 59 + this.TimeOrder.GetHashCode();
+                if (this.ErrorMessage != null)
+                    hashCode = hashCode * 59 + this.ErrorMessage.GetHashCode();
                 return hashCode;
             }
         }

@@ -2,8 +2,9 @@ export * from './balance';
 export * from './balanceData';
 export * from './createOrderValidationError';
 export * from './executionReport';
+export * from './executionReportAllOf';
 export * from './message';
-export * from './newOrder';
+export * from './newOrderSingle';
 export * from './ordSide';
 export * from './ordStatus';
 export * from './ordType';
@@ -20,8 +21,9 @@ import { Balance } from './balance';
 import { BalanceData } from './balanceData';
 import { CreateOrderValidationError } from './createOrderValidationError';
 import { ExecutionReport } from './executionReport';
+import { ExecutionReportAllOf } from './executionReportAllOf';
 import { Message } from './message';
-import { NewOrder } from './newOrder';
+import { NewOrderSingle } from './newOrderSingle';
 import { OrdSide } from './ordSide';
 import { OrdStatus } from './ordStatus';
 import { OrdType } from './ordType';
@@ -46,10 +48,8 @@ let primitives = [
 
 let enumsMap: {[index: string]: any} = {
         "BalanceData.UpdateOriginEnum": BalanceData.UpdateOriginEnum,
-        "ExecutionReport.SideEnum": ExecutionReport.SideEnum,
-        "ExecutionReport.OrderTypeEnum": ExecutionReport.OrderTypeEnum,
         "ExecutionReport.ExecInstEnum": ExecutionReport.ExecInstEnum,
-        "NewOrder.ExecInstEnum": NewOrder.ExecInstEnum,
+        "NewOrderSingle.ExecInstEnum": NewOrderSingle.ExecInstEnum,
         "OrdSide": OrdSide,
         "OrdStatus": OrdStatus,
         "OrdType": OrdType,
@@ -62,8 +62,9 @@ let typeMap: {[index: string]: any} = {
     "BalanceData": BalanceData,
     "CreateOrderValidationError": CreateOrderValidationError,
     "ExecutionReport": ExecutionReport,
+    "ExecutionReportAllOf": ExecutionReportAllOf,
     "Message": Message,
-    "NewOrder": NewOrder,
+    "NewOrderSingle": NewOrderSingle,
     "OrderCancelAllRequest": OrderCancelAllRequest,
     "OrderCancelSingleRequest": OrderCancelSingleRequest,
     "Position": Position,

@@ -86,62 +86,6 @@ class ExecutionReportTest extends TestCase
     }
 
     /**
-     * Test attribute "id"
-     */
-    public function testPropertyId()
-    {
-    }
-
-    /**
-     * Test attribute "client_order_id_format_exchange"
-     */
-    public function testPropertyClientOrderIdFormatExchange()
-    {
-    }
-
-    /**
-     * Test attribute "exchange_order_id"
-     */
-    public function testPropertyExchangeOrderId()
-    {
-    }
-
-    /**
-     * Test attribute "amount_open"
-     */
-    public function testPropertyAmountOpen()
-    {
-    }
-
-    /**
-     * Test attribute "amount_filled"
-     */
-    public function testPropertyAmountFilled()
-    {
-    }
-
-    /**
-     * Test attribute "status"
-     */
-    public function testPropertyStatus()
-    {
-    }
-
-    /**
-     * Test attribute "time_order"
-     */
-    public function testPropertyTimeOrder()
-    {
-    }
-
-    /**
-     * Test attribute "error_message"
-     */
-    public function testPropertyErrorMessage()
-    {
-    }
-
-    /**
      * Test attribute "client_order_id"
      */
     public function testPropertyClientOrderId()
@@ -208,6 +152,55 @@ class ExecutionReportTest extends TestCase
      * Test attribute "exec_inst"
      */
     public function testPropertyExecInst()
+    {
+    }
+
+    /**
+     * Test attribute "client_order_id_format_exchange"
+     */
+    public function testPropertyClientOrderIdFormatExchange()
+    {
+    }
+
+    /**
+     * Test attribute "exchange_order_id"
+     */
+    public function testPropertyExchangeOrderId()
+    {
+    }
+
+    /**
+     * Test attribute "amount_open"
+     */
+    public function testPropertyAmountOpen()
+    {
+    }
+
+    /**
+     * Test attribute "amount_filled"
+     */
+    public function testPropertyAmountFilled()
+    {
+    }
+
+    /**
+     * Test attribute "status"
+     */
+    public function testPropertyStatus()
+    {
+    }
+
+    /**
+     * Test attribute "time_order"
+     */
+    public function testPropertyTimeOrder()
+    {
+    }
+
+    /**
+     * Test attribute "error_message"
+     */
+    public function testPropertyErrorMessage()
     {
     }
 }

@@ -15,32 +15,28 @@
 
 typedef struct execution_report_t execution_report_t;
 
+#include "execution_report_all_of.h"
+#include "new_order_single.h"
+#include "ord_side.h"
 #include "ord_status.h"
+#include "ord_type.h"
 #include "time_in_force.h"
 
 // Enum  for execution_report
 
-typedef enum  { oeml___rest_api_execution_report__NULL = 0, oeml___rest_api_execution_report__RECEIVED, oeml___rest_api_execution_report__ROUTING, oeml___rest_api_execution_report__ROUTED, oeml___rest_api_execution_report__NEW, oeml___rest_api_execution_report__PENDING_CANCEL, oeml___rest_api_execution_report__PARTIALLY_FILLED, oeml___rest_api_execution_report__FILLED, oeml___rest_api_execution_report__CANCELED, oeml___rest_api_execution_report__REJECTED } oeml___rest_api_execution_report__e;
+typedef enum  { oeml___rest_api_execution_report__NULL = 0, oeml___rest_api_execution_report__BUY, oeml___rest_api_execution_report__SELL } oeml___rest_api_execution_report__e;
 
-char* execution_report_status_ToString(oeml___rest_api_execution_report__e status);
+char* execution_report_side_ToString(oeml___rest_api_execution_report__e side);
 
-oeml___rest_api_execution_report__e execution_report_status_FromString(char* status);
+oeml___rest_api_execution_report__e execution_report_side_FromString(char* side);
 
-// Enum SIDE for execution_report
+// Enum  for execution_report
 
-typedef enum  { oeml___rest_api_execution_report_SIDE_NULL = 0, oeml___rest_api_execution_report_SIDE_BUY, oeml___rest_api_execution_report_SIDE_SELL } oeml___rest_api_execution_report_SIDE_e;
+typedef enum  { oeml___rest_api_execution_report__NULL = 0, oeml___rest_api_execution_report__LIMIT } oeml___rest_api_execution_report__e;
 
-char* execution_report_side_ToString(oeml___rest_api_execution_report_SIDE_e side);
+char* execution_report_order_type_ToString(oeml___rest_api_execution_report__e order_type);
 
-oeml___rest_api_execution_report_SIDE_e execution_report_side_FromString(char* side);
-
-// Enum ORDERTYPE for execution_report
-
-typedef enum  { oeml___rest_api_execution_report_ORDERTYPE_NULL = 0, oeml___rest_api_execution_report_ORDERTYPE_LIMIT } oeml___rest_api_execution_report_ORDERTYPE_e;
-
-char* execution_report_order_type_ToString(oeml___rest_api_execution_report_ORDERTYPE_e order_type);
-
-oeml___rest_api_execution_report_ORDERTYPE_e execution_report_order_type_FromString(char* order_type);
+oeml___rest_api_execution_report__e execution_report_order_type_FromString(char* order_type);
 
 // Enum  for execution_report
 
@@ -58,45 +54,47 @@ char* execution_report_exec_inst_ToString(oeml___rest_api_execution_report_EXECI
 
 oeml___rest_api_execution_report_EXECINST_e execution_report_exec_inst_FromString(char* exec_inst);
 
+// Enum  for execution_report
+
+typedef enum  { oeml___rest_api_execution_report__NULL = 0, oeml___rest_api_execution_report__RECEIVED, oeml___rest_api_execution_report__ROUTING, oeml___rest_api_execution_report__ROUTED, oeml___rest_api_execution_report__NEW, oeml___rest_api_execution_report__PENDING_CANCEL, oeml___rest_api_execution_report__PARTIALLY_FILLED, oeml___rest_api_execution_report__FILLED, oeml___rest_api_execution_report__CANCELED, oeml___rest_api_execution_report__REJECTED } oeml___rest_api_execution_report__e;
+
+char* execution_report_status_ToString(oeml___rest_api_execution_report__e status);
+
+oeml___rest_api_execution_report__e execution_report_status_FromString(char* status);
+
 
 
 typedef struct execution_report_t {
     char *exchange_id; // string
-    char *id; // string
+    char *client_order_id; // string
+    char *symbol_exchange; // string
+    char *symbol_coinapi; // string
+    double amount_order; //numeric
+    double price; //numeric
+    list_t *exec_inst; //primitive container
     char *client_order_id_format_exchange; // string
     char *exchange_order_id; // string
     double amount_open; //numeric
     double amount_filled; //numeric
     list_t *time_order; //primitive container
     char *error_message; // string
-    char *client_order_id; // string
-    char *symbol_exchange; // string
-    char *symbol_coinapi; // string
-    double amount_order; //numeric
-    double price; //numeric
-    oeml___rest_api_execution_report_SIDE_e side; //enum
-    oeml___rest_api_execution_report_ORDERTYPE_e order_type; //enum
-    list_t *exec_inst; //primitive container
 
 } execution_report_t;
 
 execution_report_t *execution_report_create(
     char *exchange_id,
-    char *id,
-    char *client_order_id_format_exchange,
-    char *exchange_order_id,
-    double amount_open,
-    double amount_filled,
-    list_t *time_order,
-    char *error_message,
     char *client_order_id,
     char *symbol_exchange,
     char *symbol_coinapi,
     double amount_order,
     double price,
-    oeml___rest_api_execution_report_SIDE_e side,
-    oeml___rest_api_execution_report_ORDERTYPE_e order_type,
-    list_t *exec_inst
+    list_t *exec_inst,
+    char *client_order_id_format_exchange,
+    char *exchange_order_id,
+    double amount_open,
+    double amount_filled,
+    list_t *time_order,
+    char *error_message
 );
 
 void execution_report_free(execution_report_t *execution_report);

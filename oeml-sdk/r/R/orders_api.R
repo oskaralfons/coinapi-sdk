@@ -67,12 +67,12 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } exchange.id character
-#' \item \emph{ @returnType } list( \link{NewOrder} ) \cr
+#' \item \emph{ @returnType } list( \link{ExecutionReport} ) \cr
 #'
 #'
 #' \item status code : 200 | Collection of requested open orders.
 #'
-#' \item return type : array[NewOrder] 
+#' \item return type : array[ExecutionReport] 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -83,7 +83,7 @@
 #' This request creating new order for the specific exchange.
 #'
 #' \itemize{
-#' \item \emph{ @param } new.order \link{NewOrder}
+#' \item \emph{ @param } new.order.single \link{NewOrderSingle}
 #' \item \emph{ @returnType } \link{ExecutionReport} \cr
 #'
 #'
@@ -175,12 +175,12 @@
 #' ####################  V1OrdersPost  ####################
 #'
 #' library(openapi)
-#' var.new.order <- NewOrder$new() # NewOrder | 
+#' var.new.order.single <- NewOrderSingle$new() # NewOrderSingle | 
 #'
 #' #Create new order
 #' api.instance <- OrdersApi$new()
 #'
-#' result <- api.instance$V1OrdersPost(var.new.order)
+#' result <- api.instance$V1OrdersPost(var.new.order.single)
 #'
 #'
 #' ####################  V1OrdersStatusClientOrderIdGet  ####################
@@ -350,7 +350,7 @@ OrdersApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "array[NewOrder]", loadNamespace("openapi")),
+          self$apiClient$deserialize(resp, "array[ExecutionReport]", loadNamespace("openapi")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -364,8 +364,8 @@ OrdersApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    V1OrdersPost = function(new.order, ...){
-      apiResponse <- self$V1OrdersPostWithHttpInfo(new.order, ...)
+    V1OrdersPost = function(new.order.single, ...){
+      apiResponse <- self$V1OrdersPostWithHttpInfo(new.order.single, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -378,17 +378,17 @@ OrdersApi <- R6::R6Class(
       }
     },
 
-    V1OrdersPostWithHttpInfo = function(new.order, ...){
+    V1OrdersPostWithHttpInfo = function(new.order.single, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`new.order`)) {
-        stop("Missing required parameter `new.order`.")
+      if (missing(`new.order.single`)) {
+        stop("Missing required parameter `new.order.single`.")
       }
 
-      if (!missing(`new.order`)) {
-        body <- `new.order`$toJSONString()
+      if (!missing(`new.order.single`)) {
+        body <- `new.order.single`$toJSONString()
       } else {
         body <- NULL
       }

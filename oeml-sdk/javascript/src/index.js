@@ -17,8 +17,9 @@ import Balance from './model/Balance';
 import BalanceData from './model/BalanceData';
 import CreateOrderValidationError from './model/CreateOrderValidationError';
 import ExecutionReport from './model/ExecutionReport';
+import ExecutionReportAllOf from './model/ExecutionReportAllOf';
 import Message from './model/Message';
-import NewOrder from './model/NewOrder';
+import NewOrderSingle from './model/NewOrderSingle';
 import OrdSide from './model/OrdSide';
 import OrdStatus from './model/OrdStatus';
 import OrdType from './model/OrdType';
@@ -96,16 +97,22 @@ export {
     ExecutionReport,
 
     /**
+     * The ExecutionReportAllOf model constructor.
+     * @property {module:model/ExecutionReportAllOf}
+     */
+    ExecutionReportAllOf,
+
+    /**
      * The Message model constructor.
      * @property {module:model/Message}
      */
     Message,
 
     /**
-     * The NewOrder model constructor.
-     * @property {module:model/NewOrder}
+     * The NewOrderSingle model constructor.
+     * @property {module:model/NewOrderSingle}
      */
-    NewOrder,
+    NewOrderSingle,
 
     /**
      * The OrdSide model constructor.

@@ -11,18 +11,49 @@
  */
 
 import { RequestFile } from '../api';
+import { ExecutionReportAllOf } from './executionReportAllOf';
+import { NewOrderSingle } from './newOrderSingle';
+import { OrdSide } from './ordSide';
 import { OrdStatus } from './ordStatus';
+import { OrdType } from './ordType';
 import { TimeInForce } from './timeInForce';
 
 export class ExecutionReport {
     /**
-    * Exchange name
+    * Exchange identifier.
     */
-    'exchangeId'?: string;
+    'exchangeId': string;
     /**
-    * Client unique identifier for the trade.
+    * Unique identifier for the order assigned by the `OEML API` client.
     */
-    'id'?: string;
+    'clientOrderId': string;
+    /**
+    * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+    */
+    'symbolExchange'?: string;
+    /**
+    * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+    */
+    'symbolCoinapi'?: string;
+    /**
+    * Order quantity.
+    */
+    'amountOrder': number;
+    /**
+    * Order price.
+    */
+    'price': number;
+    'side': OrdSide;
+    'orderType': OrdType;
+    'timeInForce': TimeInForce;
+    /**
+    * Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
+    */
+    'expireTime'?: string;
+    /**
+    * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>
+    */
+    'execInst'?: Array<ExecutionReport.ExecInstEnum>;
     /**
     * Hash client id
     */
@@ -48,43 +79,6 @@ export class ExecutionReport {
     * Error message
     */
     'errorMessage'?: string;
-    /**
-    * Client unique identifier for the trade.
-    */
-    'clientOrderId'?: string;
-    /**
-    * The symbol of the order.
-    */
-    'symbolExchange'?: string;
-    /**
-    * The CoinAPI symbol of the order.
-    */
-    'symbolCoinapi'?: string;
-    /**
-    * Quoted decimal amount to purchase.
-    */
-    'amountOrder'?: number;
-    /**
-    * Quoted decimal amount to spend per unit.
-    */
-    'price'?: number;
-    /**
-    * Buy or Sell
-    */
-    'side'?: ExecutionReport.SideEnum;
-    /**
-    * The order type.
-    */
-    'orderType'?: ExecutionReport.OrderTypeEnum;
-    'timeInForce'?: TimeInForce;
-    /**
-    * Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
-    */
-    'expireTime'?: string;
-    /**
-    * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>
-    */
-    'execInst'?: Array<ExecutionReport.ExecInstEnum>;
 
     static discriminator: string | undefined = undefined;
 
@@ -95,9 +89,54 @@ export class ExecutionReport {
             "type": "string"
         },
         {
-            "name": "id",
-            "baseName": "id",
+            "name": "clientOrderId",
+            "baseName": "client_order_id",
             "type": "string"
+        },
+        {
+            "name": "symbolExchange",
+            "baseName": "symbol_exchange",
+            "type": "string"
+        },
+        {
+            "name": "symbolCoinapi",
+            "baseName": "symbol_coinapi",
+            "type": "string"
+        },
+        {
+            "name": "amountOrder",
+            "baseName": "amount_order",
+            "type": "number"
+        },
+        {
+            "name": "price",
+            "baseName": "price",
+            "type": "number"
+        },
+        {
+            "name": "side",
+            "baseName": "side",
+            "type": "OrdSide"
+        },
+        {
+            "name": "orderType",
+            "baseName": "order_type",
+            "type": "OrdType"
+        },
+        {
+            "name": "timeInForce",
+            "baseName": "time_in_force",
+            "type": "TimeInForce"
+        },
+        {
+            "name": "expireTime",
+            "baseName": "expire_time",
+            "type": "string"
+        },
+        {
+            "name": "execInst",
+            "baseName": "exec_inst",
+            "type": "Array<ExecutionReport.ExecInstEnum>"
         },
         {
             "name": "clientOrderIdFormatExchange",
@@ -133,56 +172,6 @@ export class ExecutionReport {
             "name": "errorMessage",
             "baseName": "error_message",
             "type": "string"
-        },
-        {
-            "name": "clientOrderId",
-            "baseName": "client_order_id",
-            "type": "string"
-        },
-        {
-            "name": "symbolExchange",
-            "baseName": "symbol_exchange",
-            "type": "string"
-        },
-        {
-            "name": "symbolCoinapi",
-            "baseName": "symbol_coinapi",
-            "type": "string"
-        },
-        {
-            "name": "amountOrder",
-            "baseName": "amount_order",
-            "type": "number"
-        },
-        {
-            "name": "price",
-            "baseName": "price",
-            "type": "number"
-        },
-        {
-            "name": "side",
-            "baseName": "side",
-            "type": "ExecutionReport.SideEnum"
-        },
-        {
-            "name": "orderType",
-            "baseName": "order_type",
-            "type": "ExecutionReport.OrderTypeEnum"
-        },
-        {
-            "name": "timeInForce",
-            "baseName": "time_in_force",
-            "type": "TimeInForce"
-        },
-        {
-            "name": "expireTime",
-            "baseName": "expire_time",
-            "type": "string"
-        },
-        {
-            "name": "execInst",
-            "baseName": "exec_inst",
-            "type": "Array<ExecutionReport.ExecInstEnum>"
         }    ];
 
     static getAttributeTypeMap() {
@@ -191,13 +180,6 @@ export class ExecutionReport {
 }
 
 export namespace ExecutionReport {
-    export enum SideEnum {
-        BUY = <any> 'BUY',
-        SELL = <any> 'SELL'
-    }
-    export enum OrderTypeEnum {
-        LIMIT = <any> 'LIMIT'
-    }
     export enum ExecInstEnum {
         MAKERORCANCEL = <any> 'MAKER_OR_CANCEL',
         AUCTIONONLY = <any> 'AUCTION_ONLY',

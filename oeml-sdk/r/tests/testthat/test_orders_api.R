@@ -35,7 +35,7 @@ test_that("V1OrdersGet", {
   # Get all orders
   # Get all current open orders across all or single specified exchange.
   # @param character  exchange.id  Filter the output to the orders from the specific exchange.  (optional)
-  # @return [array[NewOrder]]
+  # @return [array[ExecutionReport]]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -46,7 +46,7 @@ test_that("V1OrdersPost", {
   # base path: http://localhost:8080
   # Create new order
   # This request creating new order for the specific exchange.
-  # @param NewOrder  new.order   
+  # @param NewOrderSingle  new.order.single   
   # @return [ExecutionReport]
 
   # uncomment below to test the operation

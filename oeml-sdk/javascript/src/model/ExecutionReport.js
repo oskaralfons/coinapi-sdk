@@ -12,7 +12,11 @@
  */
 
 import ApiClient from '../ApiClient';
+import ExecutionReportAllOf from './ExecutionReportAllOf';
+import NewOrderSingle from './NewOrderSingle';
+import OrdSide from './OrdSide';
 import OrdStatus from './OrdStatus';
+import OrdType from './OrdType';
 import TimeInForce from './TimeInForce';
 
 /**
@@ -24,10 +28,19 @@ class ExecutionReport {
     /**
      * Constructs a new <code>ExecutionReport</code>.
      * @alias module:model/ExecutionReport
+     * @implements module:model/NewOrderSingle
+     * @implements module:model/ExecutionReportAllOf
+     * @param exchangeId {String} Exchange identifier.
+     * @param clientOrderId {String} Unique identifier for the order assigned by the `OEML API` client.
+     * @param amountOrder {Number} Order quantity.
+     * @param price {Number} Order price.
+     * @param side {module:model/OrdSide} 
+     * @param orderType {module:model/OrdType} 
+     * @param timeInForce {module:model/TimeInForce} 
      */
-    constructor() { 
-        
-        ExecutionReport.initialize(this);
+    constructor(exchangeId, clientOrderId, amountOrder, price, side, orderType, timeInForce) { 
+        NewOrderSingle.initialize(this, exchangeId, clientOrderId, amountOrder, price, side, orderType, timeInForce);ExecutionReportAllOf.initialize(this);
+        ExecutionReport.initialize(this, exchangeId, clientOrderId, amountOrder, price, side, orderType, timeInForce);
     }
 
     /**
@@ -35,7 +48,14 @@ class ExecutionReport {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, exchangeId, clientOrderId, amountOrder, price, side, orderType, timeInForce) { 
+        obj['exchange_id'] = exchangeId;
+        obj['client_order_id'] = clientOrderId;
+        obj['amount_order'] = amountOrder;
+        obj['price'] = price;
+        obj['side'] = side;
+        obj['order_type'] = orderType;
+        obj['time_in_force'] = timeInForce;
     }
 
     /**
@@ -48,12 +68,41 @@ class ExecutionReport {
     static constructFromObject(data, obj) {
         if (data) {
             obj = obj || new ExecutionReport();
+            NewOrderSingle.constructFromObject(data, obj);
+            ExecutionReportAllOf.constructFromObject(data, obj);
 
             if (data.hasOwnProperty('exchange_id')) {
                 obj['exchange_id'] = ApiClient.convertToType(data['exchange_id'], 'String');
             }
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            if (data.hasOwnProperty('client_order_id')) {
+                obj['client_order_id'] = ApiClient.convertToType(data['client_order_id'], 'String');
+            }
+            if (data.hasOwnProperty('symbol_exchange')) {
+                obj['symbol_exchange'] = ApiClient.convertToType(data['symbol_exchange'], 'String');
+            }
+            if (data.hasOwnProperty('symbol_coinapi')) {
+                obj['symbol_coinapi'] = ApiClient.convertToType(data['symbol_coinapi'], 'String');
+            }
+            if (data.hasOwnProperty('amount_order')) {
+                obj['amount_order'] = ApiClient.convertToType(data['amount_order'], 'Number');
+            }
+            if (data.hasOwnProperty('price')) {
+                obj['price'] = ApiClient.convertToType(data['price'], 'Number');
+            }
+            if (data.hasOwnProperty('side')) {
+                obj['side'] = OrdSide.constructFromObject(data['side']);
+            }
+            if (data.hasOwnProperty('order_type')) {
+                obj['order_type'] = OrdType.constructFromObject(data['order_type']);
+            }
+            if (data.hasOwnProperty('time_in_force')) {
+                obj['time_in_force'] = TimeInForce.constructFromObject(data['time_in_force']);
+            }
+            if (data.hasOwnProperty('expire_time')) {
+                obj['expire_time'] = ApiClient.convertToType(data['expire_time'], 'Date');
+            }
+            if (data.hasOwnProperty('exec_inst')) {
+                obj['exec_inst'] = ApiClient.convertToType(data['exec_inst'], ['String']);
             }
             if (data.hasOwnProperty('client_order_id_format_exchange')) {
                 obj['client_order_id_format_exchange'] = ApiClient.convertToType(data['client_order_id_format_exchange'], 'String');
@@ -76,36 +125,6 @@ class ExecutionReport {
             if (data.hasOwnProperty('error_message')) {
                 obj['error_message'] = ApiClient.convertToType(data['error_message'], 'String');
             }
-            if (data.hasOwnProperty('client_order_id')) {
-                obj['client_order_id'] = ApiClient.convertToType(data['client_order_id'], 'String');
-            }
-            if (data.hasOwnProperty('symbol_exchange')) {
-                obj['symbol_exchange'] = ApiClient.convertToType(data['symbol_exchange'], 'String');
-            }
-            if (data.hasOwnProperty('symbol_coinapi')) {
-                obj['symbol_coinapi'] = ApiClient.convertToType(data['symbol_coinapi'], 'String');
-            }
-            if (data.hasOwnProperty('amount_order')) {
-                obj['amount_order'] = ApiClient.convertToType(data['amount_order'], 'Number');
-            }
-            if (data.hasOwnProperty('price')) {
-                obj['price'] = ApiClient.convertToType(data['price'], 'Number');
-            }
-            if (data.hasOwnProperty('side')) {
-                obj['side'] = ApiClient.convertToType(data['side'], 'String');
-            }
-            if (data.hasOwnProperty('order_type')) {
-                obj['order_type'] = ApiClient.convertToType(data['order_type'], 'String');
-            }
-            if (data.hasOwnProperty('time_in_force')) {
-                obj['time_in_force'] = TimeInForce.constructFromObject(data['time_in_force']);
-            }
-            if (data.hasOwnProperty('expire_time')) {
-                obj['expire_time'] = ApiClient.convertToType(data['expire_time'], 'Date');
-            }
-            if (data.hasOwnProperty('exec_inst')) {
-                obj['exec_inst'] = ApiClient.convertToType(data['exec_inst'], ['String']);
-            }
         }
         return obj;
     }
@@ -114,16 +133,67 @@ class ExecutionReport {
 }
 
 /**
- * Exchange name
+ * Exchange identifier.
  * @member {String} exchange_id
  */
 ExecutionReport.prototype['exchange_id'] = undefined;
 
 /**
- * Client unique identifier for the trade.
- * @member {String} id
+ * Unique identifier for the order assigned by the `OEML API` client.
+ * @member {String} client_order_id
  */
-ExecutionReport.prototype['id'] = undefined;
+ExecutionReport.prototype['client_order_id'] = undefined;
+
+/**
+ * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+ * @member {String} symbol_exchange
+ */
+ExecutionReport.prototype['symbol_exchange'] = undefined;
+
+/**
+ * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+ * @member {String} symbol_coinapi
+ */
+ExecutionReport.prototype['symbol_coinapi'] = undefined;
+
+/**
+ * Order quantity.
+ * @member {Number} amount_order
+ */
+ExecutionReport.prototype['amount_order'] = undefined;
+
+/**
+ * Order price.
+ * @member {Number} price
+ */
+ExecutionReport.prototype['price'] = undefined;
+
+/**
+ * @member {module:model/OrdSide} side
+ */
+ExecutionReport.prototype['side'] = undefined;
+
+/**
+ * @member {module:model/OrdType} order_type
+ */
+ExecutionReport.prototype['order_type'] = undefined;
+
+/**
+ * @member {module:model/TimeInForce} time_in_force
+ */
+ExecutionReport.prototype['time_in_force'] = undefined;
+
+/**
+ * Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
+ * @member {Date} expire_time
+ */
+ExecutionReport.prototype['expire_time'] = undefined;
+
+/**
+ * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>
+ * @member {Array.<module:model/ExecutionReport.ExecInstEnum>} exec_inst
+ */
+ExecutionReport.prototype['exec_inst'] = undefined;
 
 /**
  * Hash client id
@@ -166,103 +236,96 @@ ExecutionReport.prototype['time_order'] = undefined;
  */
 ExecutionReport.prototype['error_message'] = undefined;
 
+
+// Implement NewOrderSingle interface:
 /**
- * Client unique identifier for the trade.
+ * Exchange identifier.
+ * @member {String} exchange_id
+ */
+NewOrderSingle.prototype['exchange_id'] = undefined;
+/**
+ * Unique identifier for the order assigned by the `OEML API` client.
  * @member {String} client_order_id
  */
-ExecutionReport.prototype['client_order_id'] = undefined;
-
+NewOrderSingle.prototype['client_order_id'] = undefined;
 /**
- * The symbol of the order.
+ * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
  * @member {String} symbol_exchange
  */
-ExecutionReport.prototype['symbol_exchange'] = undefined;
-
+NewOrderSingle.prototype['symbol_exchange'] = undefined;
 /**
- * The CoinAPI symbol of the order.
+ * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
  * @member {String} symbol_coinapi
  */
-ExecutionReport.prototype['symbol_coinapi'] = undefined;
-
+NewOrderSingle.prototype['symbol_coinapi'] = undefined;
 /**
- * Quoted decimal amount to purchase.
+ * Order quantity.
  * @member {Number} amount_order
  */
-ExecutionReport.prototype['amount_order'] = undefined;
-
+NewOrderSingle.prototype['amount_order'] = undefined;
 /**
- * Quoted decimal amount to spend per unit.
+ * Order price.
  * @member {Number} price
  */
-ExecutionReport.prototype['price'] = undefined;
-
+NewOrderSingle.prototype['price'] = undefined;
 /**
- * Buy or Sell
- * @member {module:model/ExecutionReport.SideEnum} side
+ * @member {module:model/OrdSide} side
  */
-ExecutionReport.prototype['side'] = undefined;
-
+NewOrderSingle.prototype['side'] = undefined;
 /**
- * The order type.
- * @member {module:model/ExecutionReport.OrderTypeEnum} order_type
+ * @member {module:model/OrdType} order_type
  */
-ExecutionReport.prototype['order_type'] = undefined;
-
+NewOrderSingle.prototype['order_type'] = undefined;
 /**
  * @member {module:model/TimeInForce} time_in_force
  */
-ExecutionReport.prototype['time_in_force'] = undefined;
-
+NewOrderSingle.prototype['time_in_force'] = undefined;
 /**
- * Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
+ * Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
  * @member {Date} expire_time
  */
-ExecutionReport.prototype['expire_time'] = undefined;
-
+NewOrderSingle.prototype['expire_time'] = undefined;
 /**
  * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>
- * @member {Array.<module:model/ExecutionReport.ExecInstEnum>} exec_inst
+ * @member {Array.<module:model/NewOrderSingle.ExecInstEnum>} exec_inst
  */
-ExecutionReport.prototype['exec_inst'] = undefined;
-
-
-
-
-
+NewOrderSingle.prototype['exec_inst'] = undefined;
+// Implement ExecutionReportAllOf interface:
 /**
- * Allowed values for the <code>side</code> property.
- * @enum {String}
- * @readonly
+ * Hash client id
+ * @member {String} client_order_id_format_exchange
  */
-ExecutionReport['SideEnum'] = {
-
-    /**
-     * value: "BUY"
-     * @const
-     */
-    "BUY": "BUY",
-
-    /**
-     * value: "SELL"
-     * @const
-     */
-    "SELL": "SELL"
-};
-
-
+ExecutionReportAllOf.prototype['client_order_id_format_exchange'] = undefined;
 /**
- * Allowed values for the <code>order_type</code> property.
- * @enum {String}
- * @readonly
+ * Exchange order id
+ * @member {String} exchange_order_id
  */
-ExecutionReport['OrderTypeEnum'] = {
+ExecutionReportAllOf.prototype['exchange_order_id'] = undefined;
+/**
+ * Amount open
+ * @member {Number} amount_open
+ */
+ExecutionReportAllOf.prototype['amount_open'] = undefined;
+/**
+ * Amount filled
+ * @member {Number} amount_filled
+ */
+ExecutionReportAllOf.prototype['amount_filled'] = undefined;
+/**
+ * @member {module:model/OrdStatus} status
+ */
+ExecutionReportAllOf.prototype['status'] = undefined;
+/**
+ * History of order status changes
+ * @member {Array.<Array.<String>>} time_order
+ */
+ExecutionReportAllOf.prototype['time_order'] = undefined;
+/**
+ * Error message
+ * @member {String} error_message
+ */
+ExecutionReportAllOf.prototype['error_message'] = undefined;
 
-    /**
-     * value: "LIMIT"
-     * @const
-     */
-    "LIMIT": "LIMIT"
-};
 
 
 /**

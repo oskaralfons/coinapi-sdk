@@ -30,7 +30,11 @@ use Log::Any qw($log);
 use Date::Parse;
 use DateTime;
 
+use WWW::OpenAPIClient::Object::ExecutionReportAllOf;
+use WWW::OpenAPIClient::Object::NewOrderSingle;
+use WWW::OpenAPIClient::Object::OrdSide;
 use WWW::OpenAPIClient::Object::OrdStatus;
+use WWW::OpenAPIClient::Object::OrdType;
 use WWW::OpenAPIClient::Object::TimeInForce;
 
 use base ("Class::Accessor", "Class::Data::Inheritable");
@@ -166,14 +170,77 @@ __PACKAGE__->method_documentation({
     'exchange_id' => {
         datatype => 'string',
         base_name => 'exchange_id',
-        description => 'Exchange name',
+        description => 'Exchange identifier.',
         format => '',
         read_only => '',
             },
-    'id' => {
+    'client_order_id' => {
         datatype => 'string',
-        base_name => 'id',
-        description => 'Client unique identifier for the trade.',
+        base_name => 'client_order_id',
+        description => 'Unique identifier for the order assigned by the &#x60;OEML API&#x60; client.',
+        format => '',
+        read_only => '',
+            },
+    'symbol_exchange' => {
+        datatype => 'string',
+        base_name => 'symbol_exchange',
+        description => 'Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.',
+        format => '',
+        read_only => '',
+            },
+    'symbol_coinapi' => {
+        datatype => 'string',
+        base_name => 'symbol_coinapi',
+        description => 'CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.',
+        format => '',
+        read_only => '',
+            },
+    'amount_order' => {
+        datatype => 'double',
+        base_name => 'amount_order',
+        description => 'Order quantity.',
+        format => '',
+        read_only => '',
+            },
+    'price' => {
+        datatype => 'double',
+        base_name => 'price',
+        description => 'Order price.',
+        format => '',
+        read_only => '',
+            },
+    'side' => {
+        datatype => 'OrdSide',
+        base_name => 'side',
+        description => '',
+        format => '',
+        read_only => '',
+            },
+    'order_type' => {
+        datatype => 'OrdType',
+        base_name => 'order_type',
+        description => '',
+        format => '',
+        read_only => '',
+            },
+    'time_in_force' => {
+        datatype => 'TimeInForce',
+        base_name => 'time_in_force',
+        description => '',
+        format => '',
+        read_only => '',
+            },
+    'expire_time' => {
+        datatype => 'DateTime',
+        base_name => 'expire_time',
+        description => 'Expiration time. Conditionaly required for orders with time_in_force &#x3D; &#x60;GOOD_TILL_TIME_EXCHANGE&#x60; or &#x60;GOOD_TILL_TIME_OEML&#x60;.',
+        format => '',
+        read_only => '',
+            },
+    'exec_inst' => {
+        datatype => 'ARRAY[string]',
+        base_name => 'exec_inst',
+        description => 'Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt;',
         format => '',
         read_only => '',
             },
@@ -226,110 +293,31 @@ __PACKAGE__->method_documentation({
         format => '',
         read_only => '',
             },
-    'client_order_id' => {
-        datatype => 'string',
-        base_name => 'client_order_id',
-        description => 'Client unique identifier for the trade.',
-        format => '',
-        read_only => '',
-            },
-    'symbol_exchange' => {
-        datatype => 'string',
-        base_name => 'symbol_exchange',
-        description => 'The symbol of the order.',
-        format => '',
-        read_only => '',
-            },
-    'symbol_coinapi' => {
-        datatype => 'string',
-        base_name => 'symbol_coinapi',
-        description => 'The CoinAPI symbol of the order.',
-        format => '',
-        read_only => '',
-            },
-    'amount_order' => {
-        datatype => 'double',
-        base_name => 'amount_order',
-        description => 'Quoted decimal amount to purchase.',
-        format => '',
-        read_only => '',
-            },
-    'price' => {
-        datatype => 'double',
-        base_name => 'price',
-        description => 'Quoted decimal amount to spend per unit.',
-        format => '',
-        read_only => '',
-            },
-    'side' => {
-        datatype => 'string',
-        base_name => 'side',
-        description => 'Buy or Sell',
-        format => '',
-        read_only => '',
-            },
-    'order_type' => {
-        datatype => 'string',
-        base_name => 'order_type',
-        description => 'The order type.',
-        format => '',
-        read_only => '',
-            },
-    'time_in_force' => {
-        datatype => 'TimeInForce',
-        base_name => 'time_in_force',
-        description => '',
-        format => '',
-        read_only => '',
-            },
-    'expire_time' => {
-        datatype => 'DateTime',
-        base_name => 'expire_time',
-        description => 'Required for orders with time_in_force &#x3D; GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS',
-        format => '',
-        read_only => '',
-            },
-    'exec_inst' => {
-        datatype => 'ARRAY[string]',
-        base_name => 'exec_inst',
-        description => 'Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt;',
-        format => '',
-        read_only => '',
-            },
 });
 
 __PACKAGE__->openapi_types( {
     'exchange_id' => 'string',
-    'id' => 'string',
+    'client_order_id' => 'string',
+    'symbol_exchange' => 'string',
+    'symbol_coinapi' => 'string',
+    'amount_order' => 'double',
+    'price' => 'double',
+    'side' => 'OrdSide',
+    'order_type' => 'OrdType',
+    'time_in_force' => 'TimeInForce',
+    'expire_time' => 'DateTime',
+    'exec_inst' => 'ARRAY[string]',
     'client_order_id_format_exchange' => 'string',
     'exchange_order_id' => 'string',
     'amount_open' => 'double',
     'amount_filled' => 'double',
     'status' => 'OrdStatus',
     'time_order' => 'ARRAY[ARRAY[string]]',
-    'error_message' => 'string',
-    'client_order_id' => 'string',
-    'symbol_exchange' => 'string',
-    'symbol_coinapi' => 'string',
-    'amount_order' => 'double',
-    'price' => 'double',
-    'side' => 'string',
-    'order_type' => 'string',
-    'time_in_force' => 'TimeInForce',
-    'expire_time' => 'DateTime',
-    'exec_inst' => 'ARRAY[string]'
+    'error_message' => 'string'
 } );
 
 __PACKAGE__->attribute_map( {
     'exchange_id' => 'exchange_id',
-    'id' => 'id',
-    'client_order_id_format_exchange' => 'client_order_id_format_exchange',
-    'exchange_order_id' => 'exchange_order_id',
-    'amount_open' => 'amount_open',
-    'amount_filled' => 'amount_filled',
-    'status' => 'status',
-    'time_order' => 'time_order',
-    'error_message' => 'error_message',
     'client_order_id' => 'client_order_id',
     'symbol_exchange' => 'symbol_exchange',
     'symbol_coinapi' => 'symbol_coinapi',
@@ -339,7 +327,14 @@ __PACKAGE__->attribute_map( {
     'order_type' => 'order_type',
     'time_in_force' => 'time_in_force',
     'expire_time' => 'expire_time',
-    'exec_inst' => 'exec_inst'
+    'exec_inst' => 'exec_inst',
+    'client_order_id_format_exchange' => 'client_order_id_format_exchange',
+    'exchange_order_id' => 'exchange_order_id',
+    'amount_open' => 'amount_open',
+    'amount_filled' => 'amount_filled',
+    'status' => 'status',
+    'time_order' => 'time_order',
+    'error_message' => 'error_message'
 } );
 
 __PACKAGE__->mk_accessors(keys %{__PACKAGE__->attribute_map});

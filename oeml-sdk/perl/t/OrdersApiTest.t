@@ -57,8 +57,8 @@ isa_ok($api, 'WWW::OpenAPIClient::OrdersApi');
 # v1_orders_post test
 #
 {
-    my $new_order = undef; # replace NULL with a proper value
-    my $result = $api->v1_orders_post(new_order => $new_order);
+    my $new_order_single = undef; # replace NULL with a proper value
+    my $result = $api->v1_orders_post(new_order_single => $new_order_single);
 }
 
 #

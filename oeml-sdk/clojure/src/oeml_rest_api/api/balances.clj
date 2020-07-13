@@ -9,14 +9,15 @@
             [oeml-rest-api.specs.position-data :refer :all]
             [oeml-rest-api.specs.message :refer :all]
             [oeml-rest-api.specs.order-cancel-single-request :refer :all]
+            [oeml-rest-api.specs.new-order-single :refer :all]
             [oeml-rest-api.specs.create-order-validation-error :refer :all]
             [oeml-rest-api.specs.ord-status :refer :all]
             [oeml-rest-api.specs.balance :refer :all]
+            [oeml-rest-api.specs.execution-report-all-of :refer :all]
             [oeml-rest-api.specs.ord-type :refer :all]
             [oeml-rest-api.specs.order-cancel-all-request :refer :all]
             [oeml-rest-api.specs.position :refer :all]
             [oeml-rest-api.specs.execution-report :refer :all]
-            [oeml-rest-api.specs.new-order :refer :all]
             [oeml-rest-api.specs.ord-side :refer :all]
             )
   (:import (java.io File)))

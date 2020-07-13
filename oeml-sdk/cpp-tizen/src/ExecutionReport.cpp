@@ -24,7 +24,16 @@ void
 ExecutionReport::__init()
 {
 	//exchange_id = std::string();
-	//id = std::string();
+	//client_order_id = std::string();
+	//symbol_exchange = std::string();
+	//symbol_coinapi = std::string();
+	//amount_order = double(0);
+	//price = double(0);
+	//side = new OrdSide();
+	//order_type = new OrdType();
+	//time_in_force = new TimeInForce();
+	//expire_time = null;
+	//new std::list()std::list> exec_inst;
 	//client_order_id_format_exchange = std::string();
 	//exchange_order_id = std::string();
 	//amount_open = double(0);
@@ -32,16 +41,6 @@ ExecutionReport::__init()
 	//status = new OrdStatus();
 	//new std::list()std::list> time_order;
 	//error_message = std::string();
-	//client_order_id = std::string();
-	//symbol_exchange = std::string();
-	//symbol_coinapi = std::string();
-	//amount_order = double(0);
-	//price = double(0);
-	//side = std::string();
-	//order_type = std::string();
-	//time_in_force = new TimeInForce();
-	//expire_time = null;
-	//new std::list()std::list> exec_inst;
 }
 
 void
@@ -51,46 +50,6 @@ ExecutionReport::__cleanup()
 	//
 	//delete exchange_id;
 	//exchange_id = NULL;
-	//}
-	//if(id != NULL) {
-	//
-	//delete id;
-	//id = NULL;
-	//}
-	//if(client_order_id_format_exchange != NULL) {
-	//
-	//delete client_order_id_format_exchange;
-	//client_order_id_format_exchange = NULL;
-	//}
-	//if(exchange_order_id != NULL) {
-	//
-	//delete exchange_order_id;
-	//exchange_order_id = NULL;
-	//}
-	//if(amount_open != NULL) {
-	//
-	//delete amount_open;
-	//amount_open = NULL;
-	//}
-	//if(amount_filled != NULL) {
-	//
-	//delete amount_filled;
-	//amount_filled = NULL;
-	//}
-	//if(status != NULL) {
-	//
-	//delete status;
-	//status = NULL;
-	//}
-	//if(time_order != NULL) {
-	//time_order.RemoveAll(true);
-	//delete time_order;
-	//time_order = NULL;
-	//}
-	//if(error_message != NULL) {
-	//
-	//delete error_message;
-	//error_message = NULL;
 	//}
 	//if(client_order_id != NULL) {
 	//
@@ -142,6 +101,41 @@ ExecutionReport::__cleanup()
 	//delete exec_inst;
 	//exec_inst = NULL;
 	//}
+	//if(client_order_id_format_exchange != NULL) {
+	//
+	//delete client_order_id_format_exchange;
+	//client_order_id_format_exchange = NULL;
+	//}
+	//if(exchange_order_id != NULL) {
+	//
+	//delete exchange_order_id;
+	//exchange_order_id = NULL;
+	//}
+	//if(amount_open != NULL) {
+	//
+	//delete amount_open;
+	//amount_open = NULL;
+	//}
+	//if(amount_filled != NULL) {
+	//
+	//delete amount_filled;
+	//amount_filled = NULL;
+	//}
+	//if(status != NULL) {
+	//
+	//delete status;
+	//status = NULL;
+	//}
+	//if(time_order != NULL) {
+	//time_order.RemoveAll(true);
+	//delete time_order;
+	//time_order = NULL;
+	//}
+	//if(error_message != NULL) {
+	//
+	//delete error_message;
+	//error_message = NULL;
+	//}
 	//
 }
 
@@ -161,16 +155,144 @@ ExecutionReport::fromJson(char* jsonStr)
 			
 		}
 	}
-	const gchar *idKey = "id";
-	node = json_object_get_member(pJsonObject, idKey);
+	const gchar *client_order_idKey = "client_order_id";
+	node = json_object_get_member(pJsonObject, client_order_idKey);
 	if (node !=NULL) {
 	
 
 		if (isprimitive("std::string")) {
-			jsonToValue(&id, node, "std::string", "");
+			jsonToValue(&client_order_id, node, "std::string", "");
 		} else {
 			
 		}
+	}
+	const gchar *symbol_exchangeKey = "symbol_exchange";
+	node = json_object_get_member(pJsonObject, symbol_exchangeKey);
+	if (node !=NULL) {
+	
+
+		if (isprimitive("std::string")) {
+			jsonToValue(&symbol_exchange, node, "std::string", "");
+		} else {
+			
+		}
+	}
+	const gchar *symbol_coinapiKey = "symbol_coinapi";
+	node = json_object_get_member(pJsonObject, symbol_coinapiKey);
+	if (node !=NULL) {
+	
+
+		if (isprimitive("std::string")) {
+			jsonToValue(&symbol_coinapi, node, "std::string", "");
+		} else {
+			
+		}
+	}
+	const gchar *amount_orderKey = "amount_order";
+	node = json_object_get_member(pJsonObject, amount_orderKey);
+	if (node !=NULL) {
+	
+
+		if (isprimitive("long long")) {
+			jsonToValue(&amount_order, node, "long long", "");
+		} else {
+			
+			long long* obj = static_cast<long long*> (&amount_order);
+			obj->fromJson(json_to_string(node, false));
+			
+		}
+	}
+	const gchar *priceKey = "price";
+	node = json_object_get_member(pJsonObject, priceKey);
+	if (node !=NULL) {
+	
+
+		if (isprimitive("long long")) {
+			jsonToValue(&price, node, "long long", "");
+		} else {
+			
+			long long* obj = static_cast<long long*> (&price);
+			obj->fromJson(json_to_string(node, false));
+			
+		}
+	}
+	const gchar *sideKey = "side";
+	node = json_object_get_member(pJsonObject, sideKey);
+	if (node !=NULL) {
+	
+
+		if (isprimitive("OrdSide")) {
+			jsonToValue(&side, node, "OrdSide", "OrdSide");
+		} else {
+			
+			OrdSide* obj = static_cast<OrdSide*> (&side);
+			obj->fromJson(json_to_string(node, false));
+			
+		}
+	}
+	const gchar *order_typeKey = "order_type";
+	node = json_object_get_member(pJsonObject, order_typeKey);
+	if (node !=NULL) {
+	
+
+		if (isprimitive("OrdType")) {
+			jsonToValue(&order_type, node, "OrdType", "OrdType");
+		} else {
+			
+			OrdType* obj = static_cast<OrdType*> (&order_type);
+			obj->fromJson(json_to_string(node, false));
+			
+		}
+	}
+	const gchar *time_in_forceKey = "time_in_force";
+	node = json_object_get_member(pJsonObject, time_in_forceKey);
+	if (node !=NULL) {
+	
+
+		if (isprimitive("TimeInForce")) {
+			jsonToValue(&time_in_force, node, "TimeInForce", "TimeInForce");
+		} else {
+			
+			TimeInForce* obj = static_cast<TimeInForce*> (&time_in_force);
+			obj->fromJson(json_to_string(node, false));
+			
+		}
+	}
+	const gchar *expire_timeKey = "expire_time";
+	node = json_object_get_member(pJsonObject, expire_timeKey);
+	if (node !=NULL) {
+	
+
+		if (isprimitive("Date")) {
+			jsonToValue(&expire_time, node, "Date", "Date");
+		} else {
+			
+			Date* obj = static_cast<Date*> (&expire_time);
+			obj->fromJson(json_to_string(node, false));
+			
+		}
+	}
+	const gchar *exec_instKey = "exec_inst";
+	node = json_object_get_member(pJsonObject, exec_instKey);
+	if (node !=NULL) {
+	
+		{
+			JsonArray* arr = json_node_get_array(node);
+			JsonNode*  temp_json;
+			list<std::string> new_list;
+			std::string inst;
+			for (guint i=0;i<json_array_get_length(arr);i++) {
+				temp_json = json_array_get_element(arr,i);
+				if (isprimitive("std::string")) {
+					jsonToValue(&inst, temp_json, "std::string", "");
+				} else {
+					
+				}
+				new_list.push_back(inst);
+			}
+			exec_inst = new_list;
+		}
+		
 	}
 	const gchar *client_order_id_format_exchangeKey = "client_order_id_format_exchange";
 	node = json_object_get_member(pJsonObject, client_order_id_format_exchangeKey);
@@ -271,139 +393,6 @@ ExecutionReport::fromJson(char* jsonStr)
 			
 		}
 	}
-	const gchar *client_order_idKey = "client_order_id";
-	node = json_object_get_member(pJsonObject, client_order_idKey);
-	if (node !=NULL) {
-	
-
-		if (isprimitive("std::string")) {
-			jsonToValue(&client_order_id, node, "std::string", "");
-		} else {
-			
-		}
-	}
-	const gchar *symbol_exchangeKey = "symbol_exchange";
-	node = json_object_get_member(pJsonObject, symbol_exchangeKey);
-	if (node !=NULL) {
-	
-
-		if (isprimitive("std::string")) {
-			jsonToValue(&symbol_exchange, node, "std::string", "");
-		} else {
-			
-		}
-	}
-	const gchar *symbol_coinapiKey = "symbol_coinapi";
-	node = json_object_get_member(pJsonObject, symbol_coinapiKey);
-	if (node !=NULL) {
-	
-
-		if (isprimitive("std::string")) {
-			jsonToValue(&symbol_coinapi, node, "std::string", "");
-		} else {
-			
-		}
-	}
-	const gchar *amount_orderKey = "amount_order";
-	node = json_object_get_member(pJsonObject, amount_orderKey);
-	if (node !=NULL) {
-	
-
-		if (isprimitive("long long")) {
-			jsonToValue(&amount_order, node, "long long", "");
-		} else {
-			
-			long long* obj = static_cast<long long*> (&amount_order);
-			obj->fromJson(json_to_string(node, false));
-			
-		}
-	}
-	const gchar *priceKey = "price";
-	node = json_object_get_member(pJsonObject, priceKey);
-	if (node !=NULL) {
-	
-
-		if (isprimitive("long long")) {
-			jsonToValue(&price, node, "long long", "");
-		} else {
-			
-			long long* obj = static_cast<long long*> (&price);
-			obj->fromJson(json_to_string(node, false));
-			
-		}
-	}
-	const gchar *sideKey = "side";
-	node = json_object_get_member(pJsonObject, sideKey);
-	if (node !=NULL) {
-	
-
-		if (isprimitive("std::string")) {
-			jsonToValue(&side, node, "std::string", "");
-		} else {
-			
-		}
-	}
-	const gchar *order_typeKey = "order_type";
-	node = json_object_get_member(pJsonObject, order_typeKey);
-	if (node !=NULL) {
-	
-
-		if (isprimitive("std::string")) {
-			jsonToValue(&order_type, node, "std::string", "");
-		} else {
-			
-		}
-	}
-	const gchar *time_in_forceKey = "time_in_force";
-	node = json_object_get_member(pJsonObject, time_in_forceKey);
-	if (node !=NULL) {
-	
-
-		if (isprimitive("TimeInForce")) {
-			jsonToValue(&time_in_force, node, "TimeInForce", "TimeInForce");
-		} else {
-			
-			TimeInForce* obj = static_cast<TimeInForce*> (&time_in_force);
-			obj->fromJson(json_to_string(node, false));
-			
-		}
-	}
-	const gchar *expire_timeKey = "expire_time";
-	node = json_object_get_member(pJsonObject, expire_timeKey);
-	if (node !=NULL) {
-	
-
-		if (isprimitive("Date")) {
-			jsonToValue(&expire_time, node, "Date", "Date");
-		} else {
-			
-			Date* obj = static_cast<Date*> (&expire_time);
-			obj->fromJson(json_to_string(node, false));
-			
-		}
-	}
-	const gchar *exec_instKey = "exec_inst";
-	node = json_object_get_member(pJsonObject, exec_instKey);
-	if (node !=NULL) {
-	
-		{
-			JsonArray* arr = json_node_get_array(node);
-			JsonNode*  temp_json;
-			list<std::string> new_list;
-			std::string inst;
-			for (guint i=0;i<json_array_get_length(arr);i++) {
-				temp_json = json_array_get_element(arr,i);
-				if (isprimitive("std::string")) {
-					jsonToValue(&inst, temp_json, "std::string", "");
-				} else {
-					
-				}
-				new_list.push_back(inst);
-			}
-			exec_inst = new_list;
-		}
-		
-	}
 }
 
 ExecutionReport::ExecutionReport(char* json)
@@ -426,14 +415,131 @@ ExecutionReport::toJson()
 	const gchar *exchange_idKey = "exchange_id";
 	json_object_set_member(pJsonObject, exchange_idKey, node);
 	if (isprimitive("std::string")) {
-		std::string obj = getId();
+		std::string obj = getClientOrderId();
 		node = converttoJson(&obj, "std::string", "");
 	}
 	else {
 		
 	}
-	const gchar *idKey = "id";
-	json_object_set_member(pJsonObject, idKey, node);
+	const gchar *client_order_idKey = "client_order_id";
+	json_object_set_member(pJsonObject, client_order_idKey, node);
+	if (isprimitive("std::string")) {
+		std::string obj = getSymbolExchange();
+		node = converttoJson(&obj, "std::string", "");
+	}
+	else {
+		
+	}
+	const gchar *symbol_exchangeKey = "symbol_exchange";
+	json_object_set_member(pJsonObject, symbol_exchangeKey, node);
+	if (isprimitive("std::string")) {
+		std::string obj = getSymbolCoinapi();
+		node = converttoJson(&obj, "std::string", "");
+	}
+	else {
+		
+	}
+	const gchar *symbol_coinapiKey = "symbol_coinapi";
+	json_object_set_member(pJsonObject, symbol_coinapiKey, node);
+	if (isprimitive("long long")) {
+		long long obj = getAmountOrder();
+		node = converttoJson(&obj, "long long", "");
+	}
+	else {
+		
+		long long obj = static_cast<long long> (getAmountOrder());
+		GError *mygerror;
+		mygerror = NULL;
+		node = json_from_string(obj.toJson(), &mygerror);
+		
+	}
+	const gchar *amount_orderKey = "amount_order";
+	json_object_set_member(pJsonObject, amount_orderKey, node);
+	if (isprimitive("long long")) {
+		long long obj = getPrice();
+		node = converttoJson(&obj, "long long", "");
+	}
+	else {
+		
+		long long obj = static_cast<long long> (getPrice());
+		GError *mygerror;
+		mygerror = NULL;
+		node = json_from_string(obj.toJson(), &mygerror);
+		
+	}
+	const gchar *priceKey = "price";
+	json_object_set_member(pJsonObject, priceKey, node);
+	if (isprimitive("OrdSide")) {
+		OrdSide obj = getSide();
+		node = converttoJson(&obj, "OrdSide", "");
+	}
+	else {
+		
+		OrdSide obj = static_cast<OrdSide> (getSide());
+		GError *mygerror;
+		mygerror = NULL;
+		node = json_from_string(obj.toJson(), &mygerror);
+		
+	}
+	const gchar *sideKey = "side";
+	json_object_set_member(pJsonObject, sideKey, node);
+	if (isprimitive("OrdType")) {
+		OrdType obj = getOrderType();
+		node = converttoJson(&obj, "OrdType", "");
+	}
+	else {
+		
+		OrdType obj = static_cast<OrdType> (getOrderType());
+		GError *mygerror;
+		mygerror = NULL;
+		node = json_from_string(obj.toJson(), &mygerror);
+		
+	}
+	const gchar *order_typeKey = "order_type";
+	json_object_set_member(pJsonObject, order_typeKey, node);
+	if (isprimitive("TimeInForce")) {
+		TimeInForce obj = getTimeInForce();
+		node = converttoJson(&obj, "TimeInForce", "");
+	}
+	else {
+		
+		TimeInForce obj = static_cast<TimeInForce> (getTimeInForce());
+		GError *mygerror;
+		mygerror = NULL;
+		node = json_from_string(obj.toJson(), &mygerror);
+		
+	}
+	const gchar *time_in_forceKey = "time_in_force";
+	json_object_set_member(pJsonObject, time_in_forceKey, node);
+	if (isprimitive("Date")) {
+		Date obj = getExpireTime();
+		node = converttoJson(&obj, "Date", "");
+	}
+	else {
+		
+		Date obj = static_cast<Date> (getExpireTime());
+		GError *mygerror;
+		mygerror = NULL;
+		node = json_from_string(obj.toJson(), &mygerror);
+		
+	}
+	const gchar *expire_timeKey = "expire_time";
+	json_object_set_member(pJsonObject, expire_timeKey, node);
+	if (isprimitive("std::string")) {
+		list<std::string> new_list = static_cast<list <std::string> > (getExecInst());
+		node = converttoJson(&new_list, "std::string", "array");
+	} else {
+		node = json_node_alloc();
+		list<std::string> new_list = static_cast<list <std::string> > (getExecInst());
+		JsonArray* json_array = json_array_new();
+		GError *mygerror;
+		
+	}
+
+
+	
+	const gchar *exec_instKey = "exec_inst";
+	json_object_set_member(pJsonObject, exec_instKey, node);
 	if (isprimitive("std::string")) {
 		std::string obj = getClientOrderIdFormatExchange();
 		node = converttoJson(&obj, "std::string", "");
@@ -528,122 +634,6 @@ ExecutionReport::toJson()
 	}
 	const gchar *error_messageKey = "error_message";
 	json_object_set_member(pJsonObject, error_messageKey, node);
-	if (isprimitive("std::string")) {
-		std::string obj = getClientOrderId();
-		node = converttoJson(&obj, "std::string", "");
-	}
-	else {
-		
-	}
-	const gchar *client_order_idKey = "client_order_id";
-	json_object_set_member(pJsonObject, client_order_idKey, node);
-	if (isprimitive("std::string")) {
-		std::string obj = getSymbolExchange();
-		node = converttoJson(&obj, "std::string", "");
-	}
-	else {
-		
-	}
-	const gchar *symbol_exchangeKey = "symbol_exchange";
-	json_object_set_member(pJsonObject, symbol_exchangeKey, node);
-	if (isprimitive("std::string")) {
-		std::string obj = getSymbolCoinapi();
-		node = converttoJson(&obj, "std::string", "");
-	}
-	else {
-		
-	}
-	const gchar *symbol_coinapiKey = "symbol_coinapi";
-	json_object_set_member(pJsonObject, symbol_coinapiKey, node);
-	if (isprimitive("long long")) {
-		long long obj = getAmountOrder();
-		node = converttoJson(&obj, "long long", "");
-	}
-	else {
-		
-		long long obj = static_cast<long long> (getAmountOrder());
-		GError *mygerror;
-		mygerror = NULL;
-		node = json_from_string(obj.toJson(), &mygerror);
-		
-	}
-	const gchar *amount_orderKey = "amount_order";
-	json_object_set_member(pJsonObject, amount_orderKey, node);
-	if (isprimitive("long long")) {
-		long long obj = getPrice();
-		node = converttoJson(&obj, "long long", "");
-	}
-	else {
-		
-		long long obj = static_cast<long long> (getPrice());
-		GError *mygerror;
-		mygerror = NULL;
-		node = json_from_string(obj.toJson(), &mygerror);
-		
-	}
-	const gchar *priceKey = "price";
-	json_object_set_member(pJsonObject, priceKey, node);
-	if (isprimitive("std::string")) {
-		std::string obj = getSide();
-		node = converttoJson(&obj, "std::string", "");
-	}
-	else {
-		
-	}
-	const gchar *sideKey = "side";
-	json_object_set_member(pJsonObject, sideKey, node);
-	if (isprimitive("std::string")) {
-		std::string obj = getOrderType();
-		node = converttoJson(&obj, "std::string", "");
-	}
-	else {
-		
-	}
-	const gchar *order_typeKey = "order_type";
-	json_object_set_member(pJsonObject, order_typeKey, node);
-	if (isprimitive("TimeInForce")) {
-		TimeInForce obj = getTimeInForce();
-		node = converttoJson(&obj, "TimeInForce", "");
-	}
-	else {
-		
-		TimeInForce obj = static_cast<TimeInForce> (getTimeInForce());
-		GError *mygerror;
-		mygerror = NULL;
-		node = json_from_string(obj.toJson(), &mygerror);
-		
-	}
-	const gchar *time_in_forceKey = "time_in_force";
-	json_object_set_member(pJsonObject, time_in_forceKey, node);
-	if (isprimitive("Date")) {
-		Date obj = getExpireTime();
-		node = converttoJson(&obj, "Date", "");
-	}
-	else {
-		
-		Date obj = static_cast<Date> (getExpireTime());
-		GError *mygerror;
-		mygerror = NULL;
-		node = json_from_string(obj.toJson(), &mygerror);
-		
-	}
-	const gchar *expire_timeKey = "expire_time";
-	json_object_set_member(pJsonObject, expire_timeKey, node);
-	if (isprimitive("std::string")) {
-		list<std::string> new_list = static_cast<list <std::string> > (getExecInst());
-		node = converttoJson(&new_list, "std::string", "array");
-	} else {
-		node = json_node_alloc();
-		list<std::string> new_list = static_cast<list <std::string> > (getExecInst());
-		JsonArray* json_array = json_array_new();
-		GError *mygerror;
-		
-	}
-
-
-	
-	const gchar *exec_instKey = "exec_inst";
-	json_object_set_member(pJsonObject, exec_instKey, node);
 	node = json_node_alloc();
 	json_node_init(node, JSON_NODE_OBJECT);
 	json_node_take_object(node, pJsonObject);
@@ -665,15 +655,123 @@ ExecutionReport::setExchangeId(std::string  exchange_id)
 }
 
 std::string
-ExecutionReport::getId()
+ExecutionReport::getClientOrderId()
 {
-	return id;
+	return client_order_id;
 }
 
 void
-ExecutionReport::setId(std::string  id)
+ExecutionReport::setClientOrderId(std::string  client_order_id)
 {
-	this->id = id;
+	this->client_order_id = client_order_id;
+}
+
+std::string
+ExecutionReport::getSymbolExchange()
+{
+	return symbol_exchange;
+}
+
+void
+ExecutionReport::setSymbolExchange(std::string  symbol_exchange)
+{
+	this->symbol_exchange = symbol_exchange;
+}
+
+std::string
+ExecutionReport::getSymbolCoinapi()
+{
+	return symbol_coinapi;
+}
+
+void
+ExecutionReport::setSymbolCoinapi(std::string  symbol_coinapi)
+{
+	this->symbol_coinapi = symbol_coinapi;
+}
+
+long long
+ExecutionReport::getAmountOrder()
+{
+	return amount_order;
+}
+
+void
+ExecutionReport::setAmountOrder(long long  amount_order)
+{
+	this->amount_order = amount_order;
+}
+
+long long
+ExecutionReport::getPrice()
+{
+	return price;
+}
+
+void
+ExecutionReport::setPrice(long long  price)
+{
+	this->price = price;
+}
+
+OrdSide
+ExecutionReport::getSide()
+{
+	return side;
+}
+
+void
+ExecutionReport::setSide(OrdSide  side)
+{
+	this->side = side;
+}
+
+OrdType
+ExecutionReport::getOrderType()
+{
+	return order_type;
+}
+
+void
+ExecutionReport::setOrderType(OrdType  order_type)
+{
+	this->order_type = order_type;
+}
+
+TimeInForce
+ExecutionReport::getTimeInForce()
+{
+	return time_in_force;
+}
+
+void
+ExecutionReport::setTimeInForce(TimeInForce  time_in_force)
+{
+	this->time_in_force = time_in_force;
+}
+
+Date
+ExecutionReport::getExpireTime()
+{
+	return expire_time;
+}
+
+void
+ExecutionReport::setExpireTime(Date  expire_time)
+{
+	this->expire_time = expire_time;
+}
+
+std::list<std::string>
+ExecutionReport::getExecInst()
+{
+	return exec_inst;
+}
+
+void
+ExecutionReport::setExecInst(std::list <std::string> exec_inst)
+{
+	this->exec_inst = exec_inst;
 }
 
 std::string
@@ -758,126 +856,6 @@ void
 ExecutionReport::setErrorMessage(std::string  error_message)
 {
 	this->error_message = error_message;
-}
-
-std::string
-ExecutionReport::getClientOrderId()
-{
-	return client_order_id;
-}
-
-void
-ExecutionReport::setClientOrderId(std::string  client_order_id)
-{
-	this->client_order_id = client_order_id;
-}
-
-std::string
-ExecutionReport::getSymbolExchange()
-{
-	return symbol_exchange;
-}
-
-void
-ExecutionReport::setSymbolExchange(std::string  symbol_exchange)
-{
-	this->symbol_exchange = symbol_exchange;
-}
-
-std::string
-ExecutionReport::getSymbolCoinapi()
-{
-	return symbol_coinapi;
-}
-
-void
-ExecutionReport::setSymbolCoinapi(std::string  symbol_coinapi)
-{
-	this->symbol_coinapi = symbol_coinapi;
-}
-
-long long
-ExecutionReport::getAmountOrder()
-{
-	return amount_order;
-}
-
-void
-ExecutionReport::setAmountOrder(long long  amount_order)
-{
-	this->amount_order = amount_order;
-}
-
-long long
-ExecutionReport::getPrice()
-{
-	return price;
-}
-
-void
-ExecutionReport::setPrice(long long  price)
-{
-	this->price = price;
-}
-
-std::string
-ExecutionReport::getSide()
-{
-	return side;
-}
-
-void
-ExecutionReport::setSide(std::string  side)
-{
-	this->side = side;
-}
-
-std::string
-ExecutionReport::getOrderType()
-{
-	return order_type;
-}
-
-void
-ExecutionReport::setOrderType(std::string  order_type)
-{
-	this->order_type = order_type;
-}
-
-TimeInForce
-ExecutionReport::getTimeInForce()
-{
-	return time_in_force;
-}
-
-void
-ExecutionReport::setTimeInForce(TimeInForce  time_in_force)
-{
-	this->time_in_force = time_in_force;
-}
-
-Date
-ExecutionReport::getExpireTime()
-{
-	return expire_time;
-}
-
-void
-ExecutionReport::setExpireTime(Date  expire_time)
-{
-	this->expire_time = expire_time;
-}
-
-std::list<std::string>
-ExecutionReport::getExecInst()
-{
-	return exec_inst;
-}
-
-void
-ExecutionReport::setExecInst(std::list <std::string> exec_inst)
-{
-	this->exec_inst = exec_inst;
 }
 
 

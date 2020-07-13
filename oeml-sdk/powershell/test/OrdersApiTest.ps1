@@ -28,7 +28,7 @@ Describe 'Org.OpenAPITools OrdersApi' {
 
     Context 'OrdersApi' {
         It 'Invoke-OrdersApiV1OrdersPost' {
-            $ret = Invoke-PetApiGetPetById -newOrder "TEST_VALUE"
+            $ret = Invoke-PetApiGetPetById -newOrderSingle "TEST_VALUE"
             #$ret | Should BeOfType Org.OpenAPITools.Model.ModelNameHere
             #$ret.property | Should Be 0
         }

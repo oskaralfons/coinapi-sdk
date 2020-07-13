@@ -49,7 +49,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/NewOrder'
+              $ref: '#/components/schemas/NewOrderSingle'
         required: true
       responses:
         "200":
@@ -213,11 +213,11 @@ paths:
 components:
   schemas:
     Orders:
-      description: Orders array
+      description: Collection of currently opened orders.
       items:
-        $ref: '#/components/schemas/NewOrder'
+        $ref: '#/components/schemas/ExecutionReport'
       type: array
-    NewOrder:
+    NewOrderSingle:
       example:
         symbol_coinapi: KRAKEN_SPOT_BTC_USD
         exchange_id: KRAKEN
@@ -290,124 +290,9 @@ components:
       - time_in_force
       type: object
     ExecutionReport:
-      example:
-        amount_open: 0.22
-        time_order:
-        - - '["RECEIVED","2020-05-27T11:16:20.1677709Z"]'
-          - '["RECEIVED","2020-05-27T11:16:20.1677709Z"]'
-        - - '["RECEIVED","2020-05-27T11:16:20.1677709Z"]'
-          - '["RECEIVED","2020-05-27T11:16:20.1677709Z"]'
-        error_message: '{"result":"error","reason":"InsufficientFunds","message":"Failed
-          to place buy order on symbol ''BTCUSD'' for price $7,000.00 and quantity
-          0.22 BTC due to insufficient funds"}'
-        client_order_id_format_exchange: f81211e2-27c4-b86a-8143-01088ba9222c
-        amount_filled: 0.0
-        client_order_id: KPP-222389382-AQ
-        side: BUY
-        expire_time: ""
-        exec_inst: MAKER_OR_CANCEL
-        exchange_order_id: 90832ASASAS89789-1112
-        symbol_coinapi: KRAKEN_SPOT_BTC_USD
-        exchange_id: KRAKEN
-        time_in_force: GOOD_TILL_CANCEL
-        price: 0.0783
-        amount_order: 0.045
-        id: KPP-222389382-AQ
-        order_type: LIMIT
-        symbol_exchange: BTCUSD
-      properties:
-        exchange_id:
-          description: Exchange name
-          example: KRAKEN
-          type: string
-        id:
-          description: Client unique identifier for the trade.
-          example: KPP-222389382-AQ
-          type: string
-        client_order_id_format_exchange:
-          description: Hash client id
-          example: f81211e2-27c4-b86a-8143-01088ba9222c
-          type: string
-        exchange_order_id:
-          description: Exchange order id
-          example: 90832ASASAS89789-1112
-          type: string
-        amount_open:
-          description: Amount open
-          example: 0.22
-          type: number
-        amount_filled:
-          description: Amount filled
-          example: 0.0
-          type: number
-        status:
-          $ref: '#/components/schemas/OrdStatus'
-        time_order:
-          description: History of order status changes
-          items:
-            items:
-              example: '["RECEIVED","2020-05-27T11:16:20.1677709Z"]'
-              type: string
-            type: array
-          type: array
-        error_message:
-          description: Error message
-          example: '{"result":"error","reason":"InsufficientFunds","message":"Failed
-            to place buy order on symbol ''BTCUSD'' for price $7,000.00 and quantity
-            0.22 BTC due to insufficient funds"}'
-          type: string
-        client_order_id:
-          description: Client unique identifier for the trade.
-          example: KPP-222389382-AQ
-          type: string
-        symbol_exchange:
-          description: The symbol of the order.
-          example: BTCUSD
-          type: string
-        symbol_coinapi:
-          description: The CoinAPI symbol of the order.
-          example: KRAKEN_SPOT_BTC_USD
-          type: string
-        amount_order:
-          description: Quoted decimal amount to purchase.
-          example: 0.045
-          type: number
-        price:
-          description: Quoted decimal amount to spend per unit.
-          example: 0.0783
-          type: number
-        side:
-          description: Buy or Sell
-          enum:
-          - BUY
-          - SELL
-          example: BUY
-          type: string
-        order_type:
-          description: The order type.
-          enum:
-          - LIMIT
-          example: LIMIT
-          type: string
-        time_in_force:
-          $ref: '#/components/schemas/TimeInForce'
-        expire_time:
-          description: Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE,
-            GOOD_TILL_TIME_OMS
-          type: date
-        exec_inst:
-          description: 'Order execution instructions are documented in the separate
-            section: <a href="#oeml-order-params-exec">OEML / Starter Guide / Order
-            parameters / Execution instructions</a>'
-          example: MAKER_OR_CANCEL
-          items:
-            enum:
-            - MAKER_OR_CANCEL
-            - AUCTION_ONLY
-            - INDICATION_OF_INTEREST
-            type: string
-          type: array
-      type: object
+      allOf:
+      - $ref: '#/components/schemas/NewOrderSingle'
+      - $ref: '#/components/schemas/ExecutionReport_allOf'
     OrderCancelSingleRequest:
       example:
         exchange_id: KRAKEN
@@ -618,6 +503,40 @@ components:
         - INDICATION_OF_INTEREST
         type: string
       type: array
+    ExecutionReport_allOf:
+      properties:
+        client_order_id_format_exchange:
+          description: Hash client id
+          example: f81211e2-27c4-b86a-8143-01088ba9222c
+          type: string
+        exchange_order_id:
+          description: Exchange order id
+          example: 90832ASASAS89789-1112
+          type: string
+        amount_open:
+          description: Amount open
+          example: 0.22
+          type: number
+        amount_filled:
+          description: Amount filled
+          example: 0.0
+          type: number
+        status:
+          $ref: '#/components/schemas/OrdStatus'
+        time_order:
+          description: History of order status changes
+          items:
+            items:
+              example: '["RECEIVED","2020-05-27T11:16:20.1677709Z"]'
+              type: string
+            type: array
+          type: array
+        error_message:
+          description: Error message
+          example: '{"result":"error","reason":"InsufficientFunds","message":"Failed
+            to place buy order on symbol ''BTCUSD'' for price $7,000.00 and quantity
+            0.22 BTC due to insufficient funds"}'
+          type: string
     Balance_data:
       example:
         symbol_coinapi: BTC

@@ -36,30 +36,6 @@ void OAIExecutionReport::initializeModel() {
     m_exchange_id_isSet = false;
     m_exchange_id_isValid = false;
 
-    m_id_isSet = false;
-    m_id_isValid = false;
-
-    m_client_order_id_format_exchange_isSet = false;
-    m_client_order_id_format_exchange_isValid = false;
-
-    m_exchange_order_id_isSet = false;
-    m_exchange_order_id_isValid = false;
-
-    m_amount_open_isSet = false;
-    m_amount_open_isValid = false;
-
-    m_amount_filled_isSet = false;
-    m_amount_filled_isValid = false;
-
-    m_status_isSet = false;
-    m_status_isValid = false;
-
-    m_time_order_isSet = false;
-    m_time_order_isValid = false;
-
-    m_error_message_isSet = false;
-    m_error_message_isValid = false;
-
     m_client_order_id_isSet = false;
     m_client_order_id_isValid = false;
 
@@ -89,6 +65,27 @@ void OAIExecutionReport::initializeModel() {
 
     m_exec_inst_isSet = false;
     m_exec_inst_isValid = false;
+
+    m_client_order_id_format_exchange_isSet = false;
+    m_client_order_id_format_exchange_isValid = false;
+
+    m_exchange_order_id_isSet = false;
+    m_exchange_order_id_isValid = false;
+
+    m_amount_open_isSet = false;
+    m_amount_open_isValid = false;
+
+    m_amount_filled_isSet = false;
+    m_amount_filled_isValid = false;
+
+    m_status_isSet = false;
+    m_status_isValid = false;
+
+    m_time_order_isSet = false;
+    m_time_order_isValid = false;
+
+    m_error_message_isSet = false;
+    m_error_message_isValid = false;
 }
 
 void OAIExecutionReport::fromJson(QString jsonString) {
@@ -103,8 +100,35 @@ void OAIExecutionReport::fromJsonObject(QJsonObject json) {
     m_exchange_id_isValid = ::OpenAPI::fromJsonValue(exchange_id, json[QString("exchange_id")]);
     m_exchange_id_isSet = !json[QString("exchange_id")].isNull() && m_exchange_id_isValid;
 
-    m_id_isValid = ::OpenAPI::fromJsonValue(id, json[QString("id")]);
-    m_id_isSet = !json[QString("id")].isNull() && m_id_isValid;
+    m_client_order_id_isValid = ::OpenAPI::fromJsonValue(client_order_id, json[QString("client_order_id")]);
+    m_client_order_id_isSet = !json[QString("client_order_id")].isNull() && m_client_order_id_isValid;
+
+    m_symbol_exchange_isValid = ::OpenAPI::fromJsonValue(symbol_exchange, json[QString("symbol_exchange")]);
+    m_symbol_exchange_isSet = !json[QString("symbol_exchange")].isNull() && m_symbol_exchange_isValid;
+
+    m_symbol_coinapi_isValid = ::OpenAPI::fromJsonValue(symbol_coinapi, json[QString("symbol_coinapi")]);
+    m_symbol_coinapi_isSet = !json[QString("symbol_coinapi")].isNull() && m_symbol_coinapi_isValid;
+
+    m_amount_order_isValid = ::OpenAPI::fromJsonValue(amount_order, json[QString("amount_order")]);
+    m_amount_order_isSet = !json[QString("amount_order")].isNull() && m_amount_order_isValid;
+
+    m_price_isValid = ::OpenAPI::fromJsonValue(price, json[QString("price")]);
+    m_price_isSet = !json[QString("price")].isNull() && m_price_isValid;
+
+    m_side_isValid = ::OpenAPI::fromJsonValue(side, json[QString("side")]);
+    m_side_isSet = !json[QString("side")].isNull() && m_side_isValid;
+
+    m_order_type_isValid = ::OpenAPI::fromJsonValue(order_type, json[QString("order_type")]);
+    m_order_type_isSet = !json[QString("order_type")].isNull() && m_order_type_isValid;
+
+    m_time_in_force_isValid = ::OpenAPI::fromJsonValue(time_in_force, json[QString("time_in_force")]);
+    m_time_in_force_isSet = !json[QString("time_in_force")].isNull() && m_time_in_force_isValid;
+
+    m_expire_time_isValid = ::OpenAPI::fromJsonValue(expire_time, json[QString("expire_time")]);
+    m_expire_time_isSet = !json[QString("expire_time")].isNull() && m_expire_time_isValid;
+
+    m_exec_inst_isValid = ::OpenAPI::fromJsonValue(exec_inst, json[QString("exec_inst")]);
+    m_exec_inst_isSet = !json[QString("exec_inst")].isNull() && m_exec_inst_isValid;
 
     m_client_order_id_format_exchange_isValid = ::OpenAPI::fromJsonValue(client_order_id_format_exchange, json[QString("client_order_id_format_exchange")]);
     m_client_order_id_format_exchange_isSet = !json[QString("client_order_id_format_exchange")].isNull() && m_client_order_id_format_exchange_isValid;
@@ -136,36 +160,6 @@ void OAIExecutionReport::fromJsonObject(QJsonObject json) {
 
     m_error_message_isValid = ::OpenAPI::fromJsonValue(error_message, json[QString("error_message")]);
     m_error_message_isSet = !json[QString("error_message")].isNull() && m_error_message_isValid;
-
-    m_client_order_id_isValid = ::OpenAPI::fromJsonValue(client_order_id, json[QString("client_order_id")]);
-    m_client_order_id_isSet = !json[QString("client_order_id")].isNull() && m_client_order_id_isValid;
-
-    m_symbol_exchange_isValid = ::OpenAPI::fromJsonValue(symbol_exchange, json[QString("symbol_exchange")]);
-    m_symbol_exchange_isSet = !json[QString("symbol_exchange")].isNull() && m_symbol_exchange_isValid;
-
-    m_symbol_coinapi_isValid = ::OpenAPI::fromJsonValue(symbol_coinapi, json[QString("symbol_coinapi")]);
-    m_symbol_coinapi_isSet = !json[QString("symbol_coinapi")].isNull() && m_symbol_coinapi_isValid;
-
-    m_amount_order_isValid = ::OpenAPI::fromJsonValue(amount_order, json[QString("amount_order")]);
-    m_amount_order_isSet = !json[QString("amount_order")].isNull() && m_amount_order_isValid;
-
-    m_price_isValid = ::OpenAPI::fromJsonValue(price, json[QString("price")]);
-    m_price_isSet = !json[QString("price")].isNull() && m_price_isValid;
-
-    m_side_isValid = ::OpenAPI::fromJsonValue(side, json[QString("side")]);
-    m_side_isSet = !json[QString("side")].isNull() && m_side_isValid;
-
-    m_order_type_isValid = ::OpenAPI::fromJsonValue(order_type, json[QString("order_type")]);
-    m_order_type_isSet = !json[QString("order_type")].isNull() && m_order_type_isValid;
-
-    m_time_in_force_isValid = ::OpenAPI::fromJsonValue(time_in_force, json[QString("time_in_force")]);
-    m_time_in_force_isSet = !json[QString("time_in_force")].isNull() && m_time_in_force_isValid;
-
-    m_expire_time_isValid = ::OpenAPI::fromJsonValue(expire_time, json[QString("expire_time")]);
-    m_expire_time_isSet = !json[QString("expire_time")].isNull() && m_expire_time_isValid;
-
-    m_exec_inst_isValid = ::OpenAPI::fromJsonValue(exec_inst, json[QString("exec_inst")]);
-    m_exec_inst_isSet = !json[QString("exec_inst")].isNull() && m_exec_inst_isValid;
 }
 
 QString OAIExecutionReport::asJson() const {
@@ -180,8 +174,35 @@ QJsonObject OAIExecutionReport::asJsonObject() const {
     if (m_exchange_id_isSet) {
         obj.insert(QString("exchange_id"), ::OpenAPI::toJsonValue(exchange_id));
     }
-    if (m_id_isSet) {
-        obj.insert(QString("id"), ::OpenAPI::toJsonValue(id));
+    if (m_client_order_id_isSet) {
+        obj.insert(QString("client_order_id"), ::OpenAPI::toJsonValue(client_order_id));
+    }
+    if (m_symbol_exchange_isSet) {
+        obj.insert(QString("symbol_exchange"), ::OpenAPI::toJsonValue(symbol_exchange));
+    }
+    if (m_symbol_coinapi_isSet) {
+        obj.insert(QString("symbol_coinapi"), ::OpenAPI::toJsonValue(symbol_coinapi));
+    }
+    if (m_amount_order_isSet) {
+        obj.insert(QString("amount_order"), ::OpenAPI::toJsonValue(amount_order));
+    }
+    if (m_price_isSet) {
+        obj.insert(QString("price"), ::OpenAPI::toJsonValue(price));
+    }
+    if (side.isSet()) {
+        obj.insert(QString("side"), ::OpenAPI::toJsonValue(side));
+    }
+    if (order_type.isSet()) {
+        obj.insert(QString("order_type"), ::OpenAPI::toJsonValue(order_type));
+    }
+    if (time_in_force.isSet()) {
+        obj.insert(QString("time_in_force"), ::OpenAPI::toJsonValue(time_in_force));
+    }
+    if (m_expire_time_isSet) {
+        obj.insert(QString("expire_time"), ::OpenAPI::toJsonValue(expire_time));
+    }
+    if (exec_inst.size() > 0) {
+        obj.insert(QString("exec_inst"), ::OpenAPI::toJsonValue(exec_inst));
     }
     if (m_client_order_id_format_exchange_isSet) {
         obj.insert(QString("client_order_id_format_exchange"), ::OpenAPI::toJsonValue(client_order_id_format_exchange));
@@ -205,36 +226,6 @@ QJsonObject OAIExecutionReport::asJsonObject() const {
     if (m_error_message_isSet) {
         obj.insert(QString("error_message"), ::OpenAPI::toJsonValue(error_message));
     }
-    if (m_client_order_id_isSet) {
-        obj.insert(QString("client_order_id"), ::OpenAPI::toJsonValue(client_order_id));
-    }
-    if (m_symbol_exchange_isSet) {
-        obj.insert(QString("symbol_exchange"), ::OpenAPI::toJsonValue(symbol_exchange));
-    }
-    if (m_symbol_coinapi_isSet) {
-        obj.insert(QString("symbol_coinapi"), ::OpenAPI::toJsonValue(symbol_coinapi));
-    }
-    if (m_amount_order_isSet) {
-        obj.insert(QString("amount_order"), ::OpenAPI::toJsonValue(amount_order));
-    }
-    if (m_price_isSet) {
-        obj.insert(QString("price"), ::OpenAPI::toJsonValue(price));
-    }
-    if (m_side_isSet) {
-        obj.insert(QString("side"), ::OpenAPI::toJsonValue(side));
-    }
-    if (m_order_type_isSet) {
-        obj.insert(QString("order_type"), ::OpenAPI::toJsonValue(order_type));
-    }
-    if (time_in_force.isSet()) {
-        obj.insert(QString("time_in_force"), ::OpenAPI::toJsonValue(time_in_force));
-    }
-    if (m_expire_time_isSet) {
-        obj.insert(QString("expire_time"), ::OpenAPI::toJsonValue(expire_time));
-    }
-    if (exec_inst.size() > 0) {
-        obj.insert(QString("exec_inst"), ::OpenAPI::toJsonValue(exec_inst));
-    }
     return obj;
 }
 
@@ -254,20 +245,164 @@ bool OAIExecutionReport::is_exchange_id_Valid() const{
     return m_exchange_id_isValid;
 }
 
-QString OAIExecutionReport::getId() const {
-    return id;
+QString OAIExecutionReport::getClientOrderId() const {
+    return client_order_id;
 }
-void OAIExecutionReport::setId(const QString &id) {
-    this->id = id;
-    this->m_id_isSet = true;
-}
-
-bool OAIExecutionReport::is_id_Set() const{
-    return m_id_isSet;
+void OAIExecutionReport::setClientOrderId(const QString &client_order_id) {
+    this->client_order_id = client_order_id;
+    this->m_client_order_id_isSet = true;
 }
 
-bool OAIExecutionReport::is_id_Valid() const{
-    return m_id_isValid;
+bool OAIExecutionReport::is_client_order_id_Set() const{
+    return m_client_order_id_isSet;
+}
+
+bool OAIExecutionReport::is_client_order_id_Valid() const{
+    return m_client_order_id_isValid;
+}
+
+QString OAIExecutionReport::getSymbolExchange() const {
+    return symbol_exchange;
+}
+void OAIExecutionReport::setSymbolExchange(const QString &symbol_exchange) {
+    this->symbol_exchange = symbol_exchange;
+    this->m_symbol_exchange_isSet = true;
+}
+
+bool OAIExecutionReport::is_symbol_exchange_Set() const{
+    return m_symbol_exchange_isSet;
+}
+
+bool OAIExecutionReport::is_symbol_exchange_Valid() const{
+    return m_symbol_exchange_isValid;
+}
+
+QString OAIExecutionReport::getSymbolCoinapi() const {
+    return symbol_coinapi;
+}
+void OAIExecutionReport::setSymbolCoinapi(const QString &symbol_coinapi) {
+    this->symbol_coinapi = symbol_coinapi;
+    this->m_symbol_coinapi_isSet = true;
+}
+
+bool OAIExecutionReport::is_symbol_coinapi_Set() const{
+    return m_symbol_coinapi_isSet;
+}
+
+bool OAIExecutionReport::is_symbol_coinapi_Valid() const{
+    return m_symbol_coinapi_isValid;
+}
+
+double OAIExecutionReport::getAmountOrder() const {
+    return amount_order;
+}
+void OAIExecutionReport::setAmountOrder(const double &amount_order) {
+    this->amount_order = amount_order;
+    this->m_amount_order_isSet = true;
+}
+
+bool OAIExecutionReport::is_amount_order_Set() const{
+    return m_amount_order_isSet;
+}
+
+bool OAIExecutionReport::is_amount_order_Valid() const{
+    return m_amount_order_isValid;
+}
+
+double OAIExecutionReport::getPrice() const {
+    return price;
+}
+void OAIExecutionReport::setPrice(const double &price) {
+    this->price = price;
+    this->m_price_isSet = true;
+}
+
+bool OAIExecutionReport::is_price_Set() const{
+    return m_price_isSet;
+}
+
+bool OAIExecutionReport::is_price_Valid() const{
+    return m_price_isValid;
+}
+
+OAIOrdSide OAIExecutionReport::getSide() const {
+    return side;
+}
+void OAIExecutionReport::setSide(const OAIOrdSide &side) {
+    this->side = side;
+    this->m_side_isSet = true;
+}
+
+bool OAIExecutionReport::is_side_Set() const{
+    return m_side_isSet;
+}
+
+bool OAIExecutionReport::is_side_Valid() const{
+    return m_side_isValid;
+}
+
+OAIOrdType OAIExecutionReport::getOrderType() const {
+    return order_type;
+}
+void OAIExecutionReport::setOrderType(const OAIOrdType &order_type) {
+    this->order_type = order_type;
+    this->m_order_type_isSet = true;
+}
+
+bool OAIExecutionReport::is_order_type_Set() const{
+    return m_order_type_isSet;
+}
+
+bool OAIExecutionReport::is_order_type_Valid() const{
+    return m_order_type_isValid;
+}
+
+OAITimeInForce OAIExecutionReport::getTimeInForce() const {
+    return time_in_force;
+}
+void OAIExecutionReport::setTimeInForce(const OAITimeInForce &time_in_force) {
+    this->time_in_force = time_in_force;
+    this->m_time_in_force_isSet = true;
+}
+
+bool OAIExecutionReport::is_time_in_force_Set() const{
+    return m_time_in_force_isSet;
+}
+
+bool OAIExecutionReport::is_time_in_force_Valid() const{
+    return m_time_in_force_isValid;
+}
+
+QDate OAIExecutionReport::getExpireTime() const {
+    return expire_time;
+}
+void OAIExecutionReport::setExpireTime(const QDate &expire_time) {
+    this->expire_time = expire_time;
+    this->m_expire_time_isSet = true;
+}
+
+bool OAIExecutionReport::is_expire_time_Set() const{
+    return m_expire_time_isSet;
+}
+
+bool OAIExecutionReport::is_expire_time_Valid() const{
+    return m_expire_time_isValid;
+}
+
+QList<QString> OAIExecutionReport::getExecInst() const {
+    return exec_inst;
+}
+void OAIExecutionReport::setExecInst(const QList<QString> &exec_inst) {
+    this->exec_inst = exec_inst;
+    this->m_exec_inst_isSet = true;
+}
+
+bool OAIExecutionReport::is_exec_inst_Set() const{
+    return m_exec_inst_isSet;
+}
+
+bool OAIExecutionReport::is_exec_inst_Valid() const{
+    return m_exec_inst_isValid;
 }
 
 QString OAIExecutionReport::getClientOrderIdFormatExchange() const {
@@ -382,166 +517,6 @@ bool OAIExecutionReport::is_error_message_Valid() const{
     return m_error_message_isValid;
 }
 
-QString OAIExecutionReport::getClientOrderId() const {
-    return client_order_id;
-}
-void OAIExecutionReport::setClientOrderId(const QString &client_order_id) {
-    this->client_order_id = client_order_id;
-    this->m_client_order_id_isSet = true;
-}
-
-bool OAIExecutionReport::is_client_order_id_Set() const{
-    return m_client_order_id_isSet;
-}
-
-bool OAIExecutionReport::is_client_order_id_Valid() const{
-    return m_client_order_id_isValid;
-}
-
-QString OAIExecutionReport::getSymbolExchange() const {
-    return symbol_exchange;
-}
-void OAIExecutionReport::setSymbolExchange(const QString &symbol_exchange) {
-    this->symbol_exchange = symbol_exchange;
-    this->m_symbol_exchange_isSet = true;
-}
-
-bool OAIExecutionReport::is_symbol_exchange_Set() const{
-    return m_symbol_exchange_isSet;
-}
-
-bool OAIExecutionReport::is_symbol_exchange_Valid() const{
-    return m_symbol_exchange_isValid;
-}
-
-QString OAIExecutionReport::getSymbolCoinapi() const {
-    return symbol_coinapi;
-}
-void OAIExecutionReport::setSymbolCoinapi(const QString &symbol_coinapi) {
-    this->symbol_coinapi = symbol_coinapi;
-    this->m_symbol_coinapi_isSet = true;
-}
-
-bool OAIExecutionReport::is_symbol_coinapi_Set() const{
-    return m_symbol_coinapi_isSet;
-}
-
-bool OAIExecutionReport::is_symbol_coinapi_Valid() const{
-    return m_symbol_coinapi_isValid;
-}
-
-double OAIExecutionReport::getAmountOrder() const {
-    return amount_order;
-}
-void OAIExecutionReport::setAmountOrder(const double &amount_order) {
-    this->amount_order = amount_order;
-    this->m_amount_order_isSet = true;
-}
-
-bool OAIExecutionReport::is_amount_order_Set() const{
-    return m_amount_order_isSet;
-}
-
-bool OAIExecutionReport::is_amount_order_Valid() const{
-    return m_amount_order_isValid;
-}
-
-double OAIExecutionReport::getPrice() const {
-    return price;
-}
-void OAIExecutionReport::setPrice(const double &price) {
-    this->price = price;
-    this->m_price_isSet = true;
-}
-
-bool OAIExecutionReport::is_price_Set() const{
-    return m_price_isSet;
-}
-
-bool OAIExecutionReport::is_price_Valid() const{
-    return m_price_isValid;
-}
-
-QString OAIExecutionReport::getSide() const {
-    return side;
-}
-void OAIExecutionReport::setSide(const QString &side) {
-    this->side = side;
-    this->m_side_isSet = true;
-}
-
-bool OAIExecutionReport::is_side_Set() const{
-    return m_side_isSet;
-}
-
-bool OAIExecutionReport::is_side_Valid() const{
-    return m_side_isValid;
-}
-
-QString OAIExecutionReport::getOrderType() const {
-    return order_type;
-}
-void OAIExecutionReport::setOrderType(const QString &order_type) {
-    this->order_type = order_type;
-    this->m_order_type_isSet = true;
-}
-
-bool OAIExecutionReport::is_order_type_Set() const{
-    return m_order_type_isSet;
-}
-
-bool OAIExecutionReport::is_order_type_Valid() const{
-    return m_order_type_isValid;
-}
-
-OAITimeInForce OAIExecutionReport::getTimeInForce() const {
-    return time_in_force;
-}
-void OAIExecutionReport::setTimeInForce(const OAITimeInForce &time_in_force) {
-    this->time_in_force = time_in_force;
-    this->m_time_in_force_isSet = true;
-}
-
-bool OAIExecutionReport::is_time_in_force_Set() const{
-    return m_time_in_force_isSet;
-}
-
-bool OAIExecutionReport::is_time_in_force_Valid() const{
-    return m_time_in_force_isValid;
-}
-
-QDate OAIExecutionReport::getExpireTime() const {
-    return expire_time;
-}
-void OAIExecutionReport::setExpireTime(const QDate &expire_time) {
-    this->expire_time = expire_time;
-    this->m_expire_time_isSet = true;
-}
-
-bool OAIExecutionReport::is_expire_time_Set() const{
-    return m_expire_time_isSet;
-}
-
-bool OAIExecutionReport::is_expire_time_Valid() const{
-    return m_expire_time_isValid;
-}
-
-QList<QString> OAIExecutionReport::getExecInst() const {
-    return exec_inst;
-}
-void OAIExecutionReport::setExecInst(const QList<QString> &exec_inst) {
-    this->exec_inst = exec_inst;
-    this->m_exec_inst_isSet = true;
-}
-
-bool OAIExecutionReport::is_exec_inst_Set() const{
-    return m_exec_inst_isSet;
-}
-
-bool OAIExecutionReport::is_exec_inst_Valid() const{
-    return m_exec_inst_isValid;
-}
-
 bool OAIExecutionReport::isSet() const {
     bool isObjectUpdated = false;
     do {
@@ -550,7 +525,52 @@ bool OAIExecutionReport::isSet() const {
             break;
         }
 
-        if (m_id_isSet) {
+        if (m_client_order_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_symbol_exchange_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_symbol_coinapi_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_amount_order_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_price_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (side.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (order_type.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (time_in_force.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_expire_time_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (exec_inst.size() > 0) {
             isObjectUpdated = true;
             break;
         }
@@ -589,63 +609,13 @@ bool OAIExecutionReport::isSet() const {
             isObjectUpdated = true;
             break;
         }
-
-        if (m_client_order_id_isSet) {
-            isObjectUpdated = true;
-            break;
-        }
-
-        if (m_symbol_exchange_isSet) {
-            isObjectUpdated = true;
-            break;
-        }
-
-        if (m_symbol_coinapi_isSet) {
-            isObjectUpdated = true;
-            break;
-        }
-
-        if (m_amount_order_isSet) {
-            isObjectUpdated = true;
-            break;
-        }
-
-        if (m_price_isSet) {
-            isObjectUpdated = true;
-            break;
-        }
-
-        if (m_side_isSet) {
-            isObjectUpdated = true;
-            break;
-        }
-
-        if (m_order_type_isSet) {
-            isObjectUpdated = true;
-            break;
-        }
-
-        if (time_in_force.isSet()) {
-            isObjectUpdated = true;
-            break;
-        }
-
-        if (m_expire_time_isSet) {
-            isObjectUpdated = true;
-            break;
-        }
-
-        if (exec_inst.size() > 0) {
-            isObjectUpdated = true;
-            break;
-        }
     } while (false);
     return isObjectUpdated;
 }
 
 bool OAIExecutionReport::isValid() const {
     // only required properties are required for the object to be considered valid
-    return true;
+    return m_exchange_id_isValid && m_client_order_id_isValid && m_amount_order_isValid && m_price_isValid && m_side_isValid && m_order_type_isValid && m_time_in_force_isValid && true;
 }
 
 } // namespace OpenAPI

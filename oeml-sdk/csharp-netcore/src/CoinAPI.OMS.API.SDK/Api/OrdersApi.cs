@@ -77,8 +77,8 @@ namespace CoinAPI.OMS.API.SDK.Api
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional)</param>
-        /// <returns>List&lt;NewOrder&gt;</returns>
-        List<NewOrder> V1OrdersGet (string exchangeId = default(string));
+        /// <returns>List&lt;ExecutionReport&gt;</returns>
+        List<ExecutionReport> V1OrdersGet (string exchangeId = default(string));
 
         /// <summary>
         /// Get all orders
@@ -88,8 +88,8 @@ namespace CoinAPI.OMS.API.SDK.Api
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional)</param>
-        /// <returns>ApiResponse of List&lt;NewOrder&gt;</returns>
-        ApiResponse<List<NewOrder>> V1OrdersGetWithHttpInfo (string exchangeId = default(string));
+        /// <returns>ApiResponse of List&lt;ExecutionReport&gt;</returns>
+        ApiResponse<List<ExecutionReport>> V1OrdersGetWithHttpInfo (string exchangeId = default(string));
         /// <summary>
         /// Create new order
         /// </summary>
@@ -97,9 +97,9 @@ namespace CoinAPI.OMS.API.SDK.Api
         /// This request creating new order for the specific exchange.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="newOrder"></param>
+        /// <param name="newOrderSingle"></param>
         /// <returns>ExecutionReport</returns>
-        ExecutionReport V1OrdersPost (NewOrder newOrder);
+        ExecutionReport V1OrdersPost (NewOrderSingle newOrderSingle);
 
         /// <summary>
         /// Create new order
@@ -108,9 +108,9 @@ namespace CoinAPI.OMS.API.SDK.Api
         /// This request creating new order for the specific exchange.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="newOrder"></param>
+        /// <param name="newOrderSingle"></param>
         /// <returns>ApiResponse of ExecutionReport</returns>
-        ApiResponse<ExecutionReport> V1OrdersPostWithHttpInfo (NewOrder newOrder);
+        ApiResponse<ExecutionReport> V1OrdersPostWithHttpInfo (NewOrderSingle newOrderSingle);
         /// <summary>
         /// Get order status
         /// </summary>
@@ -191,8 +191,8 @@ namespace CoinAPI.OMS.API.SDK.Api
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional)</param>
-        /// <returns>Task of List&lt;NewOrder&gt;</returns>
-        System.Threading.Tasks.Task<List<NewOrder>> V1OrdersGetAsync (string exchangeId = default(string));
+        /// <returns>Task of List&lt;ExecutionReport&gt;</returns>
+        System.Threading.Tasks.Task<List<ExecutionReport>> V1OrdersGetAsync (string exchangeId = default(string));
 
         /// <summary>
         /// Get all orders
@@ -202,8 +202,8 @@ namespace CoinAPI.OMS.API.SDK.Api
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional)</param>
-        /// <returns>Task of ApiResponse (List&lt;NewOrder&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<NewOrder>>> V1OrdersGetAsyncWithHttpInfo (string exchangeId = default(string));
+        /// <returns>Task of ApiResponse (List&lt;ExecutionReport&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<ExecutionReport>>> V1OrdersGetAsyncWithHttpInfo (string exchangeId = default(string));
         /// <summary>
         /// Create new order
         /// </summary>
@@ -211,9 +211,9 @@ namespace CoinAPI.OMS.API.SDK.Api
         /// This request creating new order for the specific exchange.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="newOrder"></param>
+        /// <param name="newOrderSingle"></param>
         /// <returns>Task of ExecutionReport</returns>
-        System.Threading.Tasks.Task<ExecutionReport> V1OrdersPostAsync (NewOrder newOrder);
+        System.Threading.Tasks.Task<ExecutionReport> V1OrdersPostAsync (NewOrderSingle newOrderSingle);
 
         /// <summary>
         /// Create new order
@@ -222,9 +222,9 @@ namespace CoinAPI.OMS.API.SDK.Api
         /// This request creating new order for the specific exchange.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="newOrder"></param>
+        /// <param name="newOrderSingle"></param>
         /// <returns>Task of ApiResponse (ExecutionReport)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ExecutionReport>> V1OrdersPostAsyncWithHttpInfo (NewOrder newOrder);
+        System.Threading.Tasks.Task<ApiResponse<ExecutionReport>> V1OrdersPostAsyncWithHttpInfo (NewOrderSingle newOrderSingle);
         /// <summary>
         /// Get order status
         /// </summary>
@@ -603,10 +603,10 @@ namespace CoinAPI.OMS.API.SDK.Api
         /// </summary>
         /// <exception cref="CoinAPI.OMS.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional)</param>
-        /// <returns>List&lt;NewOrder&gt;</returns>
-        public List<NewOrder> V1OrdersGet (string exchangeId = default(string))
+        /// <returns>List&lt;ExecutionReport&gt;</returns>
+        public List<ExecutionReport> V1OrdersGet (string exchangeId = default(string))
         {
-             CoinAPI.OMS.API.SDK.Client.ApiResponse<List<NewOrder>> localVarResponse = V1OrdersGetWithHttpInfo(exchangeId);
+             CoinAPI.OMS.API.SDK.Client.ApiResponse<List<ExecutionReport>> localVarResponse = V1OrdersGetWithHttpInfo(exchangeId);
              return localVarResponse.Data;
         }
 
@@ -615,8 +615,8 @@ namespace CoinAPI.OMS.API.SDK.Api
         /// </summary>
         /// <exception cref="CoinAPI.OMS.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional)</param>
-        /// <returns>ApiResponse of List&lt;NewOrder&gt;</returns>
-        public CoinAPI.OMS.API.SDK.Client.ApiResponse< List<NewOrder> > V1OrdersGetWithHttpInfo (string exchangeId = default(string))
+        /// <returns>ApiResponse of List&lt;ExecutionReport&gt;</returns>
+        public CoinAPI.OMS.API.SDK.Client.ApiResponse< List<ExecutionReport> > V1OrdersGetWithHttpInfo (string exchangeId = default(string))
         {
             CoinAPI.OMS.API.SDK.Client.RequestOptions localVarRequestOptions = new CoinAPI.OMS.API.SDK.Client.RequestOptions();
 
@@ -641,7 +641,7 @@ namespace CoinAPI.OMS.API.SDK.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< List<NewOrder> >("/v1/orders", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get< List<ExecutionReport> >("/v1/orders", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -657,10 +657,10 @@ namespace CoinAPI.OMS.API.SDK.Api
         /// </summary>
         /// <exception cref="CoinAPI.OMS.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional)</param>
-        /// <returns>Task of List&lt;NewOrder&gt;</returns>
-        public async System.Threading.Tasks.Task<List<NewOrder>> V1OrdersGetAsync (string exchangeId = default(string))
+        /// <returns>Task of List&lt;ExecutionReport&gt;</returns>
+        public async System.Threading.Tasks.Task<List<ExecutionReport>> V1OrdersGetAsync (string exchangeId = default(string))
         {
-             CoinAPI.OMS.API.SDK.Client.ApiResponse<List<NewOrder>> localVarResponse = await V1OrdersGetAsyncWithHttpInfo(exchangeId);
+             CoinAPI.OMS.API.SDK.Client.ApiResponse<List<ExecutionReport>> localVarResponse = await V1OrdersGetAsyncWithHttpInfo(exchangeId);
              return localVarResponse.Data;
 
         }
@@ -670,8 +670,8 @@ namespace CoinAPI.OMS.API.SDK.Api
         /// </summary>
         /// <exception cref="CoinAPI.OMS.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional)</param>
-        /// <returns>Task of ApiResponse (List&lt;NewOrder&gt;)</returns>
-        public async System.Threading.Tasks.Task<CoinAPI.OMS.API.SDK.Client.ApiResponse<List<NewOrder>>> V1OrdersGetAsyncWithHttpInfo (string exchangeId = default(string))
+        /// <returns>Task of ApiResponse (List&lt;ExecutionReport&gt;)</returns>
+        public async System.Threading.Tasks.Task<CoinAPI.OMS.API.SDK.Client.ApiResponse<List<ExecutionReport>>> V1OrdersGetAsyncWithHttpInfo (string exchangeId = default(string))
         {
 
             CoinAPI.OMS.API.SDK.Client.RequestOptions localVarRequestOptions = new CoinAPI.OMS.API.SDK.Client.RequestOptions();
@@ -698,7 +698,7 @@ namespace CoinAPI.OMS.API.SDK.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<NewOrder>>("/v1/orders", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<ExecutionReport>>("/v1/orders", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -713,11 +713,11 @@ namespace CoinAPI.OMS.API.SDK.Api
         /// Create new order This request creating new order for the specific exchange.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="newOrder"></param>
+        /// <param name="newOrderSingle"></param>
         /// <returns>ExecutionReport</returns>
-        public ExecutionReport V1OrdersPost (NewOrder newOrder)
+        public ExecutionReport V1OrdersPost (NewOrderSingle newOrderSingle)
         {
-             CoinAPI.OMS.API.SDK.Client.ApiResponse<ExecutionReport> localVarResponse = V1OrdersPostWithHttpInfo(newOrder);
+             CoinAPI.OMS.API.SDK.Client.ApiResponse<ExecutionReport> localVarResponse = V1OrdersPostWithHttpInfo(newOrderSingle);
              return localVarResponse.Data;
         }
 
@@ -725,13 +725,13 @@ namespace CoinAPI.OMS.API.SDK.Api
         /// Create new order This request creating new order for the specific exchange.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="newOrder"></param>
+        /// <param name="newOrderSingle"></param>
         /// <returns>ApiResponse of ExecutionReport</returns>
-        public CoinAPI.OMS.API.SDK.Client.ApiResponse< ExecutionReport > V1OrdersPostWithHttpInfo (NewOrder newOrder)
+        public CoinAPI.OMS.API.SDK.Client.ApiResponse< ExecutionReport > V1OrdersPostWithHttpInfo (NewOrderSingle newOrderSingle)
         {
-            // verify the required parameter 'newOrder' is set
-            if (newOrder == null)
-                throw new CoinAPI.OMS.API.SDK.Client.ApiException(400, "Missing required parameter 'newOrder' when calling OrdersApi->V1OrdersPost");
+            // verify the required parameter 'newOrderSingle' is set
+            if (newOrderSingle == null)
+                throw new CoinAPI.OMS.API.SDK.Client.ApiException(400, "Missing required parameter 'newOrderSingle' when calling OrdersApi->V1OrdersPost");
 
             CoinAPI.OMS.API.SDK.Client.RequestOptions localVarRequestOptions = new CoinAPI.OMS.API.SDK.Client.RequestOptions();
 
@@ -751,7 +751,7 @@ namespace CoinAPI.OMS.API.SDK.Api
             var localVarAccept = CoinAPI.OMS.API.SDK.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.Data = newOrder;
+            localVarRequestOptions.Data = newOrderSingle;
 
 
             // make the HTTP request
@@ -770,11 +770,11 @@ namespace CoinAPI.OMS.API.SDK.Api
         /// Create new order This request creating new order for the specific exchange.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="newOrder"></param>
+        /// <param name="newOrderSingle"></param>
         /// <returns>Task of ExecutionReport</returns>
-        public async System.Threading.Tasks.Task<ExecutionReport> V1OrdersPostAsync (NewOrder newOrder)
+        public async System.Threading.Tasks.Task<ExecutionReport> V1OrdersPostAsync (NewOrderSingle newOrderSingle)
         {
-             CoinAPI.OMS.API.SDK.Client.ApiResponse<ExecutionReport> localVarResponse = await V1OrdersPostAsyncWithHttpInfo(newOrder);
+             CoinAPI.OMS.API.SDK.Client.ApiResponse<ExecutionReport> localVarResponse = await V1OrdersPostAsyncWithHttpInfo(newOrderSingle);
              return localVarResponse.Data;
 
         }
@@ -783,13 +783,13 @@ namespace CoinAPI.OMS.API.SDK.Api
         /// Create new order This request creating new order for the specific exchange.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="newOrder"></param>
+        /// <param name="newOrderSingle"></param>
         /// <returns>Task of ApiResponse (ExecutionReport)</returns>
-        public async System.Threading.Tasks.Task<CoinAPI.OMS.API.SDK.Client.ApiResponse<ExecutionReport>> V1OrdersPostAsyncWithHttpInfo (NewOrder newOrder)
+        public async System.Threading.Tasks.Task<CoinAPI.OMS.API.SDK.Client.ApiResponse<ExecutionReport>> V1OrdersPostAsyncWithHttpInfo (NewOrderSingle newOrderSingle)
         {
-            // verify the required parameter 'newOrder' is set
-            if (newOrder == null)
-                throw new CoinAPI.OMS.API.SDK.Client.ApiException(400, "Missing required parameter 'newOrder' when calling OrdersApi->V1OrdersPost");
+            // verify the required parameter 'newOrderSingle' is set
+            if (newOrderSingle == null)
+                throw new CoinAPI.OMS.API.SDK.Client.ApiException(400, "Missing required parameter 'newOrderSingle' when calling OrdersApi->V1OrdersPost");
 
 
             CoinAPI.OMS.API.SDK.Client.RequestOptions localVarRequestOptions = new CoinAPI.OMS.API.SDK.Client.RequestOptions();
@@ -810,7 +810,7 @@ namespace CoinAPI.OMS.API.SDK.Api
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
             
-            localVarRequestOptions.Data = newOrder;
+            localVarRequestOptions.Data = newOrderSingle;
 
 
             // make the HTTP request

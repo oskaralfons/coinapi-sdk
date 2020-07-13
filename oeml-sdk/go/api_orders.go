@@ -212,16 +212,16 @@ Get all current open orders across all or single specified exchange.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *V1OrdersGetOpts - Optional Parameters:
  * @param "ExchangeId" (optional.String) -  Filter the output to the orders from the specific exchange.
-@return []NewOrder
+@return []ExecutionReport
 */
-func (a *OrdersApiService) V1OrdersGet(ctx _context.Context, localVarOptionals *V1OrdersGetOpts) ([]NewOrder, *_nethttp.Response, error) {
+func (a *OrdersApiService) V1OrdersGet(ctx _context.Context, localVarOptionals *V1OrdersGetOpts) ([]ExecutionReport, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []NewOrder
+		localVarReturnValue  []ExecutionReport
 	)
 
 	// create path and map variables
@@ -290,10 +290,10 @@ func (a *OrdersApiService) V1OrdersGet(ctx _context.Context, localVarOptionals *
 V1OrdersPost Create new order
 This request creating new order for the specific exchange.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param newOrder
+ * @param newOrderSingle
 @return ExecutionReport
 */
-func (a *OrdersApiService) V1OrdersPost(ctx _context.Context, newOrder NewOrder) (ExecutionReport, *_nethttp.Response, error) {
+func (a *OrdersApiService) V1OrdersPost(ctx _context.Context, newOrderSingle NewOrderSingle) (ExecutionReport, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -327,7 +327,7 @@ func (a *OrdersApiService) V1OrdersPost(ctx _context.Context, newOrder NewOrder)
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = &newOrder
+	localVarPostBody = &newOrderSingle
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err

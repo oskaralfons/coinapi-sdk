@@ -60,54 +60,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property id (base name: "id")', function() {
-      // uncomment below and update the code to test the property id
-      //var instane = new OemlRestApi.ExecutionReport();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property clientOrderIdFormatExchange (base name: "client_order_id_format_exchange")', function() {
-      // uncomment below and update the code to test the property clientOrderIdFormatExchange
-      //var instane = new OemlRestApi.ExecutionReport();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property exchangeOrderId (base name: "exchange_order_id")', function() {
-      // uncomment below and update the code to test the property exchangeOrderId
-      //var instane = new OemlRestApi.ExecutionReport();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property amountOpen (base name: "amount_open")', function() {
-      // uncomment below and update the code to test the property amountOpen
-      //var instane = new OemlRestApi.ExecutionReport();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property amountFilled (base name: "amount_filled")', function() {
-      // uncomment below and update the code to test the property amountFilled
-      //var instane = new OemlRestApi.ExecutionReport();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property status (base name: "status")', function() {
-      // uncomment below and update the code to test the property status
-      //var instane = new OemlRestApi.ExecutionReport();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property timeOrder (base name: "time_order")', function() {
-      // uncomment below and update the code to test the property timeOrder
-      //var instane = new OemlRestApi.ExecutionReport();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property errorMessage (base name: "error_message")', function() {
-      // uncomment below and update the code to test the property errorMessage
-      //var instane = new OemlRestApi.ExecutionReport();
-      //expect(instance).to.be();
-    });
-
     it('should have the property clientOrderId (base name: "client_order_id")', function() {
       // uncomment below and update the code to test the property clientOrderId
       //var instane = new OemlRestApi.ExecutionReport();
@@ -164,6 +116,48 @@
 
     it('should have the property execInst (base name: "exec_inst")', function() {
       // uncomment below and update the code to test the property execInst
+      //var instane = new OemlRestApi.ExecutionReport();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property clientOrderIdFormatExchange (base name: "client_order_id_format_exchange")', function() {
+      // uncomment below and update the code to test the property clientOrderIdFormatExchange
+      //var instane = new OemlRestApi.ExecutionReport();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property exchangeOrderId (base name: "exchange_order_id")', function() {
+      // uncomment below and update the code to test the property exchangeOrderId
+      //var instane = new OemlRestApi.ExecutionReport();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property amountOpen (base name: "amount_open")', function() {
+      // uncomment below and update the code to test the property amountOpen
+      //var instane = new OemlRestApi.ExecutionReport();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property amountFilled (base name: "amount_filled")', function() {
+      // uncomment below and update the code to test the property amountFilled
+      //var instane = new OemlRestApi.ExecutionReport();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property status (base name: "status")', function() {
+      // uncomment below and update the code to test the property status
+      //var instane = new OemlRestApi.ExecutionReport();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property timeOrder (base name: "time_order")', function() {
+      // uncomment below and update the code to test the property timeOrder
+      //var instane = new OemlRestApi.ExecutionReport();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property errorMessage (base name: "error_message")', function() {
+      // uncomment below and update the code to test the property errorMessage
       //var instane = new OemlRestApi.ExecutionReport();
       //expect(instance).to.be();
     });

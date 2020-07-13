@@ -17,7 +17,7 @@ import http = require('http');
 import { CreateOrderValidationError } from '../model/createOrderValidationError';
 import { ExecutionReport } from '../model/executionReport';
 import { Message } from '../model/message';
-import { NewOrder } from '../model/newOrder';
+import { NewOrderSingle } from '../model/newOrderSingle';
 import { OrderCancelAllRequest } from '../model/orderCancelAllRequest';
 import { OrderCancelSingleRequest } from '../model/orderCancelSingleRequest';
 
@@ -233,7 +233,7 @@ export class OrdersApi {
      * @summary Get all orders
      * @param exchangeId Filter the output to the orders from the specific exchange.
      */
-    public async v1OrdersGet (exchangeId?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: Array<NewOrder>;  }> {
+    public async v1OrdersGet (exchangeId?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: Array<ExecutionReport>;  }> {
         const localVarPath = this.basePath + '/v1/orders';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -279,12 +279,12 @@ export class OrdersApi {
                     localVarRequestOptions.form = localVarFormParams;
                 }
             }
-            return new Promise<{ response: http.ClientResponse; body: Array<NewOrder>;  }>((resolve, reject) => {
+            return new Promise<{ response: http.ClientResponse; body: Array<ExecutionReport>;  }>((resolve, reject) => {
                 localVarRequest(localVarRequestOptions, (error, response, body) => {
                     if (error) {
                         reject(error);
                     } else {
-                        body = ObjectSerializer.deserialize(body, "Array<NewOrder>");
+                        body = ObjectSerializer.deserialize(body, "Array<ExecutionReport>");
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
                             resolve({ response: response, body: body });
                         } else {
@@ -298,9 +298,9 @@ export class OrdersApi {
     /**
      * This request creating new order for the specific exchange.
      * @summary Create new order
-     * @param newOrder 
+     * @param newOrderSingle 
      */
-    public async v1OrdersPost (newOrder: NewOrder, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: ExecutionReport;  }> {
+    public async v1OrdersPost (newOrderSingle: NewOrderSingle, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: ExecutionReport;  }> {
         const localVarPath = this.basePath + '/v1/orders';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -313,9 +313,9 @@ export class OrdersApi {
         }
         let localVarFormParams: any = {};
 
-        // verify required parameter 'newOrder' is not null or undefined
-        if (newOrder === null || newOrder === undefined) {
-            throw new Error('Required parameter newOrder was null or undefined when calling v1OrdersPost.');
+        // verify required parameter 'newOrderSingle' is not null or undefined
+        if (newOrderSingle === null || newOrderSingle === undefined) {
+            throw new Error('Required parameter newOrderSingle was null or undefined when calling v1OrdersPost.');
         }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);
@@ -329,7 +329,7 @@ export class OrdersApi {
             uri: localVarPath,
             useQuerystring: this._useQuerystring,
             json: true,
-            body: ObjectSerializer.serialize(newOrder, "NewOrder")
+            body: ObjectSerializer.serialize(newOrderSingle, "NewOrderSingle")
         };
 
         let authenticationPromise = Promise.resolve();

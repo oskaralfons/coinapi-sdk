@@ -74,12 +74,6 @@ private class OASExecutionReportTest {
         OASExecutionReport executionReport = new OASExecutionReport();
         Map<String, String> propertyMappings = executionReport.getPropertyMappings();
         System.assertEquals('exchangeId', propertyMappings.get('exchange_id'));
-        System.assertEquals('clientOrderIdFormatExchange', propertyMappings.get('client_order_id_format_exchange'));
-        System.assertEquals('exchangeOrderId', propertyMappings.get('exchange_order_id'));
-        System.assertEquals('amountOpen', propertyMappings.get('amount_open'));
-        System.assertEquals('amountFilled', propertyMappings.get('amount_filled'));
-        System.assertEquals('timeOrder', propertyMappings.get('time_order'));
-        System.assertEquals('errorMessage', propertyMappings.get('error_message'));
         System.assertEquals('clientOrderId', propertyMappings.get('client_order_id'));
         System.assertEquals('symbolExchange', propertyMappings.get('symbol_exchange'));
         System.assertEquals('symbolCoinapi', propertyMappings.get('symbol_coinapi'));
@@ -88,21 +82,20 @@ private class OASExecutionReportTest {
         System.assertEquals('timeInForce', propertyMappings.get('time_in_force'));
         System.assertEquals('expireTime', propertyMappings.get('expire_time'));
         System.assertEquals('execInst', propertyMappings.get('exec_inst'));
+        System.assertEquals('clientOrderIdFormatExchange', propertyMappings.get('client_order_id_format_exchange'));
+        System.assertEquals('exchangeOrderId', propertyMappings.get('exchange_order_id'));
+        System.assertEquals('amountOpen', propertyMappings.get('amount_open'));
+        System.assertEquals('amountFilled', propertyMappings.get('amount_filled'));
+        System.assertEquals('timeOrder', propertyMappings.get('time_order'));
+        System.assertEquals('errorMessage', propertyMappings.get('error_message'));
     }
 
     @isTest
     private static void defaultValuesPopulated() {
         OASExecutionReport executionReport = new OASExecutionReport();
-        System.assertEquals(new List<List<String>>(), executionReport.timeOrder);
         System.assertEquals(new List<ExecInstEnum>(), executionReport.execInst);
+        System.assertEquals(new List<List<String>>(), executionReport.timeOrder);
         System.assertEquals(null, executionReport.exchangeId);
-        System.assertEquals(null, executionReport.id);
-        System.assertEquals(null, executionReport.clientOrderIdFormatExchange);
-        System.assertEquals(null, executionReport.exchangeOrderId);
-        System.assertEquals(null, executionReport.amountOpen);
-        System.assertEquals(null, executionReport.amountFilled);
-        System.assertEquals(null, executionReport.status);
-        System.assertEquals(null, executionReport.errorMessage);
         System.assertEquals(null, executionReport.clientOrderId);
         System.assertEquals(null, executionReport.symbolExchange);
         System.assertEquals(null, executionReport.symbolCoinapi);
@@ -112,5 +105,11 @@ private class OASExecutionReportTest {
         System.assertEquals(null, executionReport.orderType);
         System.assertEquals(null, executionReport.timeInForce);
         System.assertEquals(null, executionReport.expireTime);
+        System.assertEquals(null, executionReport.clientOrderIdFormatExchange);
+        System.assertEquals(null, executionReport.exchangeOrderId);
+        System.assertEquals(null, executionReport.amountOpen);
+        System.assertEquals(null, executionReport.amountFilled);
+        System.assertEquals(null, executionReport.status);
+        System.assertEquals(null, executionReport.errorMessage);
     }
 }

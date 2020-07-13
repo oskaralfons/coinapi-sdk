@@ -73,12 +73,16 @@ public class JsonUtil {
       return new TypeToken<List<ExecutionReport>>(){}.getType();
     }
     
+    if ("ExecutionReportAllOf".equalsIgnoreCase(className)) {
+      return new TypeToken<List<ExecutionReportAllOf>>(){}.getType();
+    }
+    
     if ("Message".equalsIgnoreCase(className)) {
       return new TypeToken<List<Message>>(){}.getType();
     }
     
-    if ("NewOrder".equalsIgnoreCase(className)) {
-      return new TypeToken<List<NewOrder>>(){}.getType();
+    if ("NewOrderSingle".equalsIgnoreCase(className)) {
+      return new TypeToken<List<NewOrderSingle>>(){}.getType();
     }
     
     if ("OrdSide".equalsIgnoreCase(className)) {
@@ -139,12 +143,16 @@ public class JsonUtil {
       return new TypeToken<ExecutionReport>(){}.getType();
     }
     
+    if ("ExecutionReportAllOf".equalsIgnoreCase(className)) {
+      return new TypeToken<ExecutionReportAllOf>(){}.getType();
+    }
+    
     if ("Message".equalsIgnoreCase(className)) {
       return new TypeToken<Message>(){}.getType();
     }
     
-    if ("NewOrder".equalsIgnoreCase(className)) {
-      return new TypeToken<NewOrder>(){}.getType();
+    if ("NewOrderSingle".equalsIgnoreCase(className)) {
+      return new TypeToken<NewOrderSingle>(){}.getType();
     }
     
     if ("OrdSide".equalsIgnoreCase(className)) {

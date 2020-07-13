@@ -4,7 +4,7 @@ import org.openapitools.api.ApiUtils
 import org.openapitools.model.CreateOrderValidationError
 import org.openapitools.model.ExecutionReport
 import org.openapitools.model.Message
-import org.openapitools.model.NewOrder
+import org.openapitools.model.NewOrderSingle
 import org.openapitools.model.OrderCancelAllRequest
 import org.openapitools.model.OrderCancelSingleRequest
 
@@ -84,11 +84,11 @@ class OrdersApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "array",
-                    NewOrder.class )
+                    ExecutionReport.class )
 
     }
 
-    def v1OrdersPost ( NewOrder newOrder, Closure onSuccess, Closure onFailure)  {
+    def v1OrdersPost ( NewOrderSingle newOrderSingle, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/v1/orders"
 
         // params
@@ -98,14 +98,14 @@ class OrdersApi {
         def contentType
 
         // verify required params are set
-        if (newOrder == null) {
-            throw new RuntimeException("missing required params newOrder")
+        if (newOrderSingle == null) {
+            throw new RuntimeException("missing required params newOrderSingle")
         }
 
 
 
         contentType = 'application/json';
-        bodyParams = newOrder
+        bodyParams = newOrderSingle
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,

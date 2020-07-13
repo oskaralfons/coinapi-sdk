@@ -8,7 +8,7 @@
 #include "../model/create_order_validation_error.h"
 #include "../model/execution_report.h"
 #include "../model/message.h"
-#include "../model/new_order.h"
+#include "../model/new_order_single.h"
 #include "../model/order_cancel_all_request.h"
 #include "../model/order_cancel_single_request.h"
 
@@ -42,7 +42,7 @@ OrdersAPI_v1OrdersGet(apiClient_t *apiClient, char * exchange_id );
 // This request creating new order for the specific exchange.
 //
 execution_report_t*
-OrdersAPI_v1OrdersPost(apiClient_t *apiClient, new_order_t * new_order );
+OrdersAPI_v1OrdersPost(apiClient_t *apiClient, new_order_single_t * new_order_single );
 
 
 // Get order status

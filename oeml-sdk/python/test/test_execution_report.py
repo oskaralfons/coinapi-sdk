@@ -37,7 +37,16 @@ class TestExecutionReport(unittest.TestCase):
         if include_optional :
             return ExecutionReport(
                 exchange_id = 'KRAKEN', 
-                id = 'KPP-222389382-AQ', 
+                client_order_id = 'KPP-222389382-AQ', 
+                symbol_exchange = 'BTCUSD', 
+                symbol_coinapi = 'KRAKEN_SPOT_BTC_USD', 
+                amount_order = 0.045, 
+                price = 0.0783, 
+                side = 'BUY', 
+                order_type = 'LIMIT', 
+                time_in_force = 'GOOD_TILL_CANCEL', 
+                expire_time = null, 
+                exec_inst = MAKER_OR_CANCEL, 
                 client_order_id_format_exchange = 'f81211e2-27c4-b86a-8143-01088ba9222c', 
                 exchange_order_id = '90832ASASAS89789-1112', 
                 amount_open = 0.22, 
@@ -48,20 +57,17 @@ class TestExecutionReport(unittest.TestCase):
                         '["RECEIVED","2020-05-27T11:16:20.1677709Z"]'
                         ]
                     ], 
-                error_message = '{"result":"error","reason":"InsufficientFunds","message":"Failed to place buy order on symbol 'BTCUSD' for price $7,000.00 and quantity 0.22 BTC due to insufficient funds"}', 
-                client_order_id = 'KPP-222389382-AQ', 
-                symbol_exchange = 'BTCUSD', 
-                symbol_coinapi = 'KRAKEN_SPOT_BTC_USD', 
-                amount_order = 0.045, 
-                price = 0.0783, 
-                side = 'BUY', 
-                order_type = 'LIMIT', 
-                time_in_force = 'GOOD_TILL_CANCEL', 
-                expire_time = null, 
-                exec_inst = MAKER_OR_CANCEL
+                error_message = '{"result":"error","reason":"InsufficientFunds","message":"Failed to place buy order on symbol 'BTCUSD' for price $7,000.00 and quantity 0.22 BTC due to insufficient funds"}'
             )
         else :
             return ExecutionReport(
+                exchange_id = 'KRAKEN',
+                client_order_id = 'KPP-222389382-AQ',
+                amount_order = 0.045,
+                price = 0.0783,
+                side = 'BUY',
+                order_type = 'LIMIT',
+                time_in_force = 'GOOD_TILL_CANCEL',
         )
 
     def testExecutionReport(self):

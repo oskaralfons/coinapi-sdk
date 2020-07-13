@@ -109,7 +109,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_orders_get**
-> ARRAY[NewOrder] v1_orders_get(exchange_id => $exchange_id)
+> ARRAY[ExecutionReport] v1_orders_get(exchange_id => $exchange_id)
 
 Get all orders
 
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ARRAY[NewOrder]**](NewOrder.md)
+[**ARRAY[ExecutionReport]**](ExecutionReport.md)
 
 ### Authorization
 
@@ -155,7 +155,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_orders_post**
-> ExecutionReport v1_orders_post(new_order => $new_order)
+> ExecutionReport v1_orders_post(new_order_single => $new_order_single)
 
 Create new order
 
@@ -168,10 +168,10 @@ use WWW::OpenAPIClient::OrdersApi;
 my $api_instance = WWW::OpenAPIClient::OrdersApi->new(
 );
 
-my $new_order = WWW::OpenAPIClient::Object::NewOrder->new(); # NewOrder | 
+my $new_order_single = WWW::OpenAPIClient::Object::NewOrderSingle->new(); # NewOrderSingle | 
 
 eval { 
-    my $result = $api_instance->v1_orders_post(new_order => $new_order);
+    my $result = $api_instance->v1_orders_post(new_order_single => $new_order_single);
     print Dumper($result);
 };
 if ($@) {
@@ -183,7 +183,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **new_order** | [**NewOrder**](NewOrder.md)|  | 
+ **new_order_single** | [**NewOrderSingle**](NewOrderSingle.md)|  | 
 
 ### Return type
 

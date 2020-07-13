@@ -40,13 +40,13 @@ package .Clients is
    procedure V1_Orders_Get
       (Client : in out Client_Type;
        Exchange_Id : in Swagger.Nullable_UString;
-       Result : out .Models.NewOrder_Type_Vectors.Vector);
+       Result : out .Models.ExecutionReport_Type_Vectors.Vector);
 
    --  Create new order
    --  This request creating new order for the specific exchange.
    procedure V1_Orders_Post
       (Client : in out Client_Type;
-       New_Order_Type : in .Models.NewOrder_Type;
+       New_Order_Single_Type : in .Models.NewOrderSingle_Type;
        Result : out .Models.ExecutionReport_Type);
 
    --  Get order status

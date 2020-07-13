@@ -26,7 +26,7 @@ import com.android.volley.VolleyError;
 import org.openapitools.client.model.CreateOrderValidationError;
 import org.openapitools.client.model.ExecutionReport;
 import org.openapitools.client.model.Message;
-import org.openapitools.client.model.NewOrder;
+import org.openapitools.client.model.NewOrderSingle;
 import org.openapitools.client.model.OrderCancelAllRequest;
 import org.openapitools.client.model.OrderCancelSingleRequest;
 
@@ -320,9 +320,9 @@ public class OrdersApi {
   * Get all orders
   * Get all current open orders across all or single specified exchange.
    * @param exchangeId Filter the output to the orders from the specific exchange.
-   * @return List<NewOrder>
+   * @return List<ExecutionReport>
   */
-  public List<NewOrder> v1OrdersGet (String exchangeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<ExecutionReport> v1OrdersGet (String exchangeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -353,7 +353,7 @@ public class OrdersApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (List<NewOrder>) ApiInvoker.deserialize(localVarResponse, "array", NewOrder.class);
+         return (List<ExecutionReport>) ApiInvoker.deserialize(localVarResponse, "array", ExecutionReport.class);
       } else {
          return null;
       }
@@ -379,7 +379,7 @@ public class OrdersApi {
    * Get all current open orders across all or single specified exchange.
    * @param exchangeId Filter the output to the orders from the specific exchange.
   */
-  public void v1OrdersGet (String exchangeId, final Response.Listener<List<NewOrder>> responseListener, final Response.ErrorListener errorListener) {
+  public void v1OrdersGet (String exchangeId, final Response.Listener<List<ExecutionReport>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -420,7 +420,7 @@ public class OrdersApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((List<NewOrder>) ApiInvoker.deserialize(localVarResponse,  "array", NewOrder.class));
+              responseListener.onResponse((List<ExecutionReport>) ApiInvoker.deserialize(localVarResponse,  "array", ExecutionReport.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -438,15 +438,15 @@ public class OrdersApi {
   /**
   * Create new order
   * This request creating new order for the specific exchange.
-   * @param newOrder 
+   * @param newOrderSingle 
    * @return ExecutionReport
   */
-  public ExecutionReport v1OrdersPost (NewOrder newOrder) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = newOrder;
-    // verify the required parameter 'newOrder' is set
-    if (newOrder == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'newOrder' when calling v1OrdersPost",
-        new ApiException(400, "Missing the required parameter 'newOrder' when calling v1OrdersPost"));
+  public ExecutionReport v1OrdersPost (NewOrderSingle newOrderSingle) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = newOrderSingle;
+    // verify the required parameter 'newOrderSingle' is set
+    if (newOrderSingle == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'newOrderSingle' when calling v1OrdersPost",
+        new ApiException(400, "Missing the required parameter 'newOrderSingle' when calling v1OrdersPost"));
     }
 
     // create path and map variables
@@ -501,15 +501,15 @@ public class OrdersApi {
       /**
    * Create new order
    * This request creating new order for the specific exchange.
-   * @param newOrder 
+   * @param newOrderSingle 
   */
-  public void v1OrdersPost (NewOrder newOrder, final Response.Listener<ExecutionReport> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = newOrder;
+  public void v1OrdersPost (NewOrderSingle newOrderSingle, final Response.Listener<ExecutionReport> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = newOrderSingle;
 
-    // verify the required parameter 'newOrder' is set
-    if (newOrder == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'newOrder' when calling v1OrdersPost",
-        new ApiException(400, "Missing the required parameter 'newOrder' when calling v1OrdersPost"));
+    // verify the required parameter 'newOrderSingle' is set
+    if (newOrderSingle == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'newOrderSingle' when calling v1OrdersPost",
+        new ApiException(400, "Missing the required parameter 'newOrderSingle' when calling v1OrdersPost"));
     }
 
     // create path and map variables

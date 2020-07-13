@@ -10,9 +10,27 @@
 #' @title ExecutionReport
 #' @description ExecutionReport Class
 #' @format An \code{R6Class} generator object
-#' @field exchange_id  character [optional]
+#' @field exchange_id  character 
 #'
-#' @field id  character [optional]
+#' @field client_order_id  character 
+#'
+#' @field symbol_exchange  character [optional]
+#'
+#' @field symbol_coinapi  character [optional]
+#'
+#' @field amount_order  numeric 
+#'
+#' @field price  numeric 
+#'
+#' @field side  \link{OrdSide} 
+#'
+#' @field order_type  \link{OrdType} 
+#'
+#' @field time_in_force  \link{TimeInForce} 
+#'
+#' @field expire_time  character [optional]
+#'
+#' @field exec_inst  list( character ) [optional]
 #'
 #' @field client_order_id_format_exchange  character [optional]
 #'
@@ -28,26 +46,6 @@
 #'
 #' @field error_message  character [optional]
 #'
-#' @field client_order_id  character [optional]
-#'
-#' @field symbol_exchange  character [optional]
-#'
-#' @field symbol_coinapi  character [optional]
-#'
-#' @field amount_order  numeric [optional]
-#'
-#' @field price  numeric [optional]
-#'
-#' @field side  character [optional]
-#'
-#' @field order_type  character [optional]
-#'
-#' @field time_in_force  \link{TimeInForce} [optional]
-#'
-#' @field expire_time  character [optional]
-#'
-#' @field exec_inst  list( character ) [optional]
-#'
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -56,14 +54,6 @@ ExecutionReport <- R6::R6Class(
   'ExecutionReport',
   public = list(
     `exchange_id` = NULL,
-    `id` = NULL,
-    `client_order_id_format_exchange` = NULL,
-    `exchange_order_id` = NULL,
-    `amount_open` = NULL,
-    `amount_filled` = NULL,
-    `status` = NULL,
-    `time_order` = NULL,
-    `error_message` = NULL,
     `client_order_id` = NULL,
     `symbol_exchange` = NULL,
     `symbol_coinapi` = NULL,
@@ -74,15 +64,56 @@ ExecutionReport <- R6::R6Class(
     `time_in_force` = NULL,
     `expire_time` = NULL,
     `exec_inst` = NULL,
-    initialize = function(`exchange_id`=NULL, `id`=NULL, `client_order_id_format_exchange`=NULL, `exchange_order_id`=NULL, `amount_open`=NULL, `amount_filled`=NULL, `status`=NULL, `time_order`=NULL, `error_message`=NULL, `client_order_id`=NULL, `symbol_exchange`=NULL, `symbol_coinapi`=NULL, `amount_order`=NULL, `price`=NULL, `side`=NULL, `order_type`=NULL, `time_in_force`=NULL, `expire_time`=NULL, `exec_inst`=NULL, ...){
+    `client_order_id_format_exchange` = NULL,
+    `exchange_order_id` = NULL,
+    `amount_open` = NULL,
+    `amount_filled` = NULL,
+    `status` = NULL,
+    `time_order` = NULL,
+    `error_message` = NULL,
+    initialize = function(`exchange_id`, `client_order_id`, `amount_order`, `price`, `side`, `order_type`, `time_in_force`, `symbol_exchange`=NULL, `symbol_coinapi`=NULL, `expire_time`=NULL, `exec_inst`=NULL, `client_order_id_format_exchange`=NULL, `exchange_order_id`=NULL, `amount_open`=NULL, `amount_filled`=NULL, `status`=NULL, `time_order`=NULL, `error_message`=NULL, ...){
       local.optional.var <- list(...)
-      if (!is.null(`exchange_id`)) {
+      if (!missing(`exchange_id`)) {
         stopifnot(is.character(`exchange_id`), length(`exchange_id`) == 1)
         self$`exchange_id` <- `exchange_id`
       }
-      if (!is.null(`id`)) {
-        stopifnot(is.character(`id`), length(`id`) == 1)
-        self$`id` <- `id`
+      if (!missing(`client_order_id`)) {
+        stopifnot(is.character(`client_order_id`), length(`client_order_id`) == 1)
+        self$`client_order_id` <- `client_order_id`
+      }
+      if (!missing(`amount_order`)) {
+        self$`amount_order` <- `amount_order`
+      }
+      if (!missing(`price`)) {
+        self$`price` <- `price`
+      }
+      if (!missing(`side`)) {
+        stopifnot(R6::is.R6(`side`))
+        self$`side` <- `side`
+      }
+      if (!missing(`order_type`)) {
+        stopifnot(R6::is.R6(`order_type`))
+        self$`order_type` <- `order_type`
+      }
+      if (!missing(`time_in_force`)) {
+        stopifnot(R6::is.R6(`time_in_force`))
+        self$`time_in_force` <- `time_in_force`
+      }
+      if (!is.null(`symbol_exchange`)) {
+        stopifnot(is.character(`symbol_exchange`), length(`symbol_exchange`) == 1)
+        self$`symbol_exchange` <- `symbol_exchange`
+      }
+      if (!is.null(`symbol_coinapi`)) {
+        stopifnot(is.character(`symbol_coinapi`), length(`symbol_coinapi`) == 1)
+        self$`symbol_coinapi` <- `symbol_coinapi`
+      }
+      if (!is.null(`expire_time`)) {
+        self$`expire_time` <- `expire_time`
+      }
+      if (!is.null(`exec_inst`)) {
+        stopifnot(is.vector(`exec_inst`), length(`exec_inst`) != 0)
+        sapply(`exec_inst`, function(x) stopifnot(is.character(x)))
+        self$`exec_inst` <- `exec_inst`
       }
       if (!is.null(`client_order_id_format_exchange`)) {
         stopifnot(is.character(`client_order_id_format_exchange`), length(`client_order_id_format_exchange`) == 1)
@@ -111,44 +142,6 @@ ExecutionReport <- R6::R6Class(
         stopifnot(is.character(`error_message`), length(`error_message`) == 1)
         self$`error_message` <- `error_message`
       }
-      if (!is.null(`client_order_id`)) {
-        stopifnot(is.character(`client_order_id`), length(`client_order_id`) == 1)
-        self$`client_order_id` <- `client_order_id`
-      }
-      if (!is.null(`symbol_exchange`)) {
-        stopifnot(is.character(`symbol_exchange`), length(`symbol_exchange`) == 1)
-        self$`symbol_exchange` <- `symbol_exchange`
-      }
-      if (!is.null(`symbol_coinapi`)) {
-        stopifnot(is.character(`symbol_coinapi`), length(`symbol_coinapi`) == 1)
-        self$`symbol_coinapi` <- `symbol_coinapi`
-      }
-      if (!is.null(`amount_order`)) {
-        self$`amount_order` <- `amount_order`
-      }
-      if (!is.null(`price`)) {
-        self$`price` <- `price`
-      }
-      if (!is.null(`side`)) {
-        stopifnot(is.character(`side`), length(`side`) == 1)
-        self$`side` <- `side`
-      }
-      if (!is.null(`order_type`)) {
-        stopifnot(is.character(`order_type`), length(`order_type`) == 1)
-        self$`order_type` <- `order_type`
-      }
-      if (!is.null(`time_in_force`)) {
-        stopifnot(R6::is.R6(`time_in_force`))
-        self$`time_in_force` <- `time_in_force`
-      }
-      if (!is.null(`expire_time`)) {
-        self$`expire_time` <- `expire_time`
-      }
-      if (!is.null(`exec_inst`)) {
-        stopifnot(is.vector(`exec_inst`), length(`exec_inst`) != 0)
-        sapply(`exec_inst`, function(x) stopifnot(is.character(x)))
-        self$`exec_inst` <- `exec_inst`
-      }
     },
     toJSON = function() {
       ExecutionReportObject <- list()
@@ -156,9 +149,45 @@ ExecutionReport <- R6::R6Class(
         ExecutionReportObject[['exchange_id']] <-
           self$`exchange_id`
       }
-      if (!is.null(self$`id`)) {
-        ExecutionReportObject[['id']] <-
-          self$`id`
+      if (!is.null(self$`client_order_id`)) {
+        ExecutionReportObject[['client_order_id']] <-
+          self$`client_order_id`
+      }
+      if (!is.null(self$`symbol_exchange`)) {
+        ExecutionReportObject[['symbol_exchange']] <-
+          self$`symbol_exchange`
+      }
+      if (!is.null(self$`symbol_coinapi`)) {
+        ExecutionReportObject[['symbol_coinapi']] <-
+          self$`symbol_coinapi`
+      }
+      if (!is.null(self$`amount_order`)) {
+        ExecutionReportObject[['amount_order']] <-
+          self$`amount_order`
+      }
+      if (!is.null(self$`price`)) {
+        ExecutionReportObject[['price']] <-
+          self$`price`
+      }
+      if (!is.null(self$`side`)) {
+        ExecutionReportObject[['side']] <-
+          self$`side`$toJSON()
+      }
+      if (!is.null(self$`order_type`)) {
+        ExecutionReportObject[['order_type']] <-
+          self$`order_type`$toJSON()
+      }
+      if (!is.null(self$`time_in_force`)) {
+        ExecutionReportObject[['time_in_force']] <-
+          self$`time_in_force`$toJSON()
+      }
+      if (!is.null(self$`expire_time`)) {
+        ExecutionReportObject[['expire_time']] <-
+          self$`expire_time`
+      }
+      if (!is.null(self$`exec_inst`)) {
+        ExecutionReportObject[['exec_inst']] <-
+          self$`exec_inst`
       }
       if (!is.null(self$`client_order_id_format_exchange`)) {
         ExecutionReportObject[['client_order_id_format_exchange']] <-
@@ -188,46 +217,6 @@ ExecutionReport <- R6::R6Class(
         ExecutionReportObject[['error_message']] <-
           self$`error_message`
       }
-      if (!is.null(self$`client_order_id`)) {
-        ExecutionReportObject[['client_order_id']] <-
-          self$`client_order_id`
-      }
-      if (!is.null(self$`symbol_exchange`)) {
-        ExecutionReportObject[['symbol_exchange']] <-
-          self$`symbol_exchange`
-      }
-      if (!is.null(self$`symbol_coinapi`)) {
-        ExecutionReportObject[['symbol_coinapi']] <-
-          self$`symbol_coinapi`
-      }
-      if (!is.null(self$`amount_order`)) {
-        ExecutionReportObject[['amount_order']] <-
-          self$`amount_order`
-      }
-      if (!is.null(self$`price`)) {
-        ExecutionReportObject[['price']] <-
-          self$`price`
-      }
-      if (!is.null(self$`side`)) {
-        ExecutionReportObject[['side']] <-
-          self$`side`
-      }
-      if (!is.null(self$`order_type`)) {
-        ExecutionReportObject[['order_type']] <-
-          self$`order_type`
-      }
-      if (!is.null(self$`time_in_force`)) {
-        ExecutionReportObject[['time_in_force']] <-
-          self$`time_in_force`$toJSON()
-      }
-      if (!is.null(self$`expire_time`)) {
-        ExecutionReportObject[['expire_time']] <-
-          self$`expire_time`
-      }
-      if (!is.null(self$`exec_inst`)) {
-        ExecutionReportObject[['exec_inst']] <-
-          self$`exec_inst`
-      }
 
       ExecutionReportObject
     },
@@ -236,8 +225,41 @@ ExecutionReport <- R6::R6Class(
       if (!is.null(ExecutionReportObject$`exchange_id`)) {
         self$`exchange_id` <- ExecutionReportObject$`exchange_id`
       }
-      if (!is.null(ExecutionReportObject$`id`)) {
-        self$`id` <- ExecutionReportObject$`id`
+      if (!is.null(ExecutionReportObject$`client_order_id`)) {
+        self$`client_order_id` <- ExecutionReportObject$`client_order_id`
+      }
+      if (!is.null(ExecutionReportObject$`symbol_exchange`)) {
+        self$`symbol_exchange` <- ExecutionReportObject$`symbol_exchange`
+      }
+      if (!is.null(ExecutionReportObject$`symbol_coinapi`)) {
+        self$`symbol_coinapi` <- ExecutionReportObject$`symbol_coinapi`
+      }
+      if (!is.null(ExecutionReportObject$`amount_order`)) {
+        self$`amount_order` <- ExecutionReportObject$`amount_order`
+      }
+      if (!is.null(ExecutionReportObject$`price`)) {
+        self$`price` <- ExecutionReportObject$`price`
+      }
+      if (!is.null(ExecutionReportObject$`side`)) {
+        sideObject <- OrdSide$new()
+        sideObject$fromJSON(jsonlite::toJSON(ExecutionReportObject$side, auto_unbox = TRUE, digits = NA))
+        self$`side` <- sideObject
+      }
+      if (!is.null(ExecutionReportObject$`order_type`)) {
+        order_typeObject <- OrdType$new()
+        order_typeObject$fromJSON(jsonlite::toJSON(ExecutionReportObject$order_type, auto_unbox = TRUE, digits = NA))
+        self$`order_type` <- order_typeObject
+      }
+      if (!is.null(ExecutionReportObject$`time_in_force`)) {
+        time_in_forceObject <- TimeInForce$new()
+        time_in_forceObject$fromJSON(jsonlite::toJSON(ExecutionReportObject$time_in_force, auto_unbox = TRUE, digits = NA))
+        self$`time_in_force` <- time_in_forceObject
+      }
+      if (!is.null(ExecutionReportObject$`expire_time`)) {
+        self$`expire_time` <- ExecutionReportObject$`expire_time`
+      }
+      if (!is.null(ExecutionReportObject$`exec_inst`)) {
+        self$`exec_inst` <- ApiClient$new()$deserializeObj(ExecutionReportObject$`exec_inst`, "array[character]", loadNamespace("openapi"))
       }
       if (!is.null(ExecutionReportObject$`client_order_id_format_exchange`)) {
         self$`client_order_id_format_exchange` <- ExecutionReportObject$`client_order_id_format_exchange`
@@ -262,38 +284,6 @@ ExecutionReport <- R6::R6Class(
       if (!is.null(ExecutionReportObject$`error_message`)) {
         self$`error_message` <- ExecutionReportObject$`error_message`
       }
-      if (!is.null(ExecutionReportObject$`client_order_id`)) {
-        self$`client_order_id` <- ExecutionReportObject$`client_order_id`
-      }
-      if (!is.null(ExecutionReportObject$`symbol_exchange`)) {
-        self$`symbol_exchange` <- ExecutionReportObject$`symbol_exchange`
-      }
-      if (!is.null(ExecutionReportObject$`symbol_coinapi`)) {
-        self$`symbol_coinapi` <- ExecutionReportObject$`symbol_coinapi`
-      }
-      if (!is.null(ExecutionReportObject$`amount_order`)) {
-        self$`amount_order` <- ExecutionReportObject$`amount_order`
-      }
-      if (!is.null(ExecutionReportObject$`price`)) {
-        self$`price` <- ExecutionReportObject$`price`
-      }
-      if (!is.null(ExecutionReportObject$`side`)) {
-        self$`side` <- ExecutionReportObject$`side`
-      }
-      if (!is.null(ExecutionReportObject$`order_type`)) {
-        self$`order_type` <- ExecutionReportObject$`order_type`
-      }
-      if (!is.null(ExecutionReportObject$`time_in_force`)) {
-        time_in_forceObject <- TimeInForce$new()
-        time_in_forceObject$fromJSON(jsonlite::toJSON(ExecutionReportObject$time_in_force, auto_unbox = TRUE, digits = NA))
-        self$`time_in_force` <- time_in_forceObject
-      }
-      if (!is.null(ExecutionReportObject$`expire_time`)) {
-        self$`expire_time` <- ExecutionReportObject$`expire_time`
-      }
-      if (!is.null(ExecutionReportObject$`exec_inst`)) {
-        self$`exec_inst` <- ApiClient$new()$deserializeObj(ExecutionReportObject$`exec_inst`, "array[character]", loadNamespace("openapi"))
-      }
     },
     toJSONString = function() {
       jsoncontent <- c(
@@ -304,12 +294,75 @@ ExecutionReport <- R6::R6Class(
                 ',
         self$`exchange_id`
         )},
-        if (!is.null(self$`id`)) {
+        if (!is.null(self$`client_order_id`)) {
         sprintf(
-        '"id":
+        '"client_order_id":
           "%s"
                 ',
-        self$`id`
+        self$`client_order_id`
+        )},
+        if (!is.null(self$`symbol_exchange`)) {
+        sprintf(
+        '"symbol_exchange":
+          "%s"
+                ',
+        self$`symbol_exchange`
+        )},
+        if (!is.null(self$`symbol_coinapi`)) {
+        sprintf(
+        '"symbol_coinapi":
+          "%s"
+                ',
+        self$`symbol_coinapi`
+        )},
+        if (!is.null(self$`amount_order`)) {
+        sprintf(
+        '"amount_order":
+          %d
+                ',
+        self$`amount_order`
+        )},
+        if (!is.null(self$`price`)) {
+        sprintf(
+        '"price":
+          %d
+                ',
+        self$`price`
+        )},
+        if (!is.null(self$`side`)) {
+        sprintf(
+        '"side":
+        %s
+        ',
+        jsonlite::toJSON(self$`side`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )},
+        if (!is.null(self$`order_type`)) {
+        sprintf(
+        '"order_type":
+        %s
+        ',
+        jsonlite::toJSON(self$`order_type`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )},
+        if (!is.null(self$`time_in_force`)) {
+        sprintf(
+        '"time_in_force":
+        %s
+        ',
+        jsonlite::toJSON(self$`time_in_force`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )},
+        if (!is.null(self$`expire_time`)) {
+        sprintf(
+        '"expire_time":
+          "%s"
+                ',
+        self$`expire_time`
+        )},
+        if (!is.null(self$`exec_inst`)) {
+        sprintf(
+        '"exec_inst":
+           [%s]
+        ',
+        paste(unlist(lapply(self$`exec_inst`, function(x) paste0('"', x, '"'))), collapse=",")
         )},
         if (!is.null(self$`client_order_id_format_exchange`)) {
         sprintf(
@@ -359,76 +412,6 @@ ExecutionReport <- R6::R6Class(
           "%s"
                 ',
         self$`error_message`
-        )},
-        if (!is.null(self$`client_order_id`)) {
-        sprintf(
-        '"client_order_id":
-          "%s"
-                ',
-        self$`client_order_id`
-        )},
-        if (!is.null(self$`symbol_exchange`)) {
-        sprintf(
-        '"symbol_exchange":
-          "%s"
-                ',
-        self$`symbol_exchange`
-        )},
-        if (!is.null(self$`symbol_coinapi`)) {
-        sprintf(
-        '"symbol_coinapi":
-          "%s"
-                ',
-        self$`symbol_coinapi`
-        )},
-        if (!is.null(self$`amount_order`)) {
-        sprintf(
-        '"amount_order":
-          %d
-                ',
-        self$`amount_order`
-        )},
-        if (!is.null(self$`price`)) {
-        sprintf(
-        '"price":
-          %d
-                ',
-        self$`price`
-        )},
-        if (!is.null(self$`side`)) {
-        sprintf(
-        '"side":
-          "%s"
-                ',
-        self$`side`
-        )},
-        if (!is.null(self$`order_type`)) {
-        sprintf(
-        '"order_type":
-          "%s"
-                ',
-        self$`order_type`
-        )},
-        if (!is.null(self$`time_in_force`)) {
-        sprintf(
-        '"time_in_force":
-        %s
-        ',
-        jsonlite::toJSON(self$`time_in_force`$toJSON(), auto_unbox=TRUE, digits = NA)
-        )},
-        if (!is.null(self$`expire_time`)) {
-        sprintf(
-        '"expire_time":
-          "%s"
-                ',
-        self$`expire_time`
-        )},
-        if (!is.null(self$`exec_inst`)) {
-        sprintf(
-        '"exec_inst":
-           [%s]
-        ',
-        paste(unlist(lapply(self$`exec_inst`, function(x) paste0('"', x, '"'))), collapse=",")
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -437,7 +420,16 @@ ExecutionReport <- R6::R6Class(
     fromJSONString = function(ExecutionReportJson) {
       ExecutionReportObject <- jsonlite::fromJSON(ExecutionReportJson)
       self$`exchange_id` <- ExecutionReportObject$`exchange_id`
-      self$`id` <- ExecutionReportObject$`id`
+      self$`client_order_id` <- ExecutionReportObject$`client_order_id`
+      self$`symbol_exchange` <- ExecutionReportObject$`symbol_exchange`
+      self$`symbol_coinapi` <- ExecutionReportObject$`symbol_coinapi`
+      self$`amount_order` <- ExecutionReportObject$`amount_order`
+      self$`price` <- ExecutionReportObject$`price`
+      self$`side` <- OrdSide$new()$fromJSON(jsonlite::toJSON(ExecutionReportObject$side, auto_unbox = TRUE, digits = NA))
+      self$`order_type` <- OrdType$new()$fromJSON(jsonlite::toJSON(ExecutionReportObject$order_type, auto_unbox = TRUE, digits = NA))
+      self$`time_in_force` <- TimeInForce$new()$fromJSON(jsonlite::toJSON(ExecutionReportObject$time_in_force, auto_unbox = TRUE, digits = NA))
+      self$`expire_time` <- ExecutionReportObject$`expire_time`
+      self$`exec_inst` <- ApiClient$new()$deserializeObj(ExecutionReportObject$`exec_inst`, "array[character]", loadNamespace("openapi"))
       self$`client_order_id_format_exchange` <- ExecutionReportObject$`client_order_id_format_exchange`
       self$`exchange_order_id` <- ExecutionReportObject$`exchange_order_id`
       self$`amount_open` <- ExecutionReportObject$`amount_open`
@@ -445,16 +437,6 @@ ExecutionReport <- R6::R6Class(
       self$`status` <- OrdStatus$new()$fromJSON(jsonlite::toJSON(ExecutionReportObject$status, auto_unbox = TRUE, digits = NA))
       self$`time_order` <- ApiClient$new()$deserializeObj(ExecutionReportObject$`time_order`, "array[array[character]]", loadNamespace("openapi"))
       self$`error_message` <- ExecutionReportObject$`error_message`
-      self$`client_order_id` <- ExecutionReportObject$`client_order_id`
-      self$`symbol_exchange` <- ExecutionReportObject$`symbol_exchange`
-      self$`symbol_coinapi` <- ExecutionReportObject$`symbol_coinapi`
-      self$`amount_order` <- ExecutionReportObject$`amount_order`
-      self$`price` <- ExecutionReportObject$`price`
-      self$`side` <- ExecutionReportObject$`side`
-      self$`order_type` <- ExecutionReportObject$`order_type`
-      self$`time_in_force` <- TimeInForce$new()$fromJSON(jsonlite::toJSON(ExecutionReportObject$time_in_force, auto_unbox = TRUE, digits = NA))
-      self$`expire_time` <- ExecutionReportObject$`expire_time`
-      self$`exec_inst` <- ApiClient$new()$deserializeObj(ExecutionReportObject$`exec_inst`, "array[character]", loadNamespace("openapi"))
       self
     }
   )

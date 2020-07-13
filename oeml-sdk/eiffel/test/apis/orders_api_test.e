@@ -48,7 +48,7 @@ feature -- Test routines
             -- 
             -- Get all current open orders across all or single specified exchange. 
         local
-            l_response: LIST [NEW_ORDER]
+            l_response: LIST [EXECUTION_REPORT]
             l_exchange_id: STRING_32
         do
             -- TODO: Initialize required params.
@@ -63,12 +63,12 @@ feature -- Test routines
             -- This request creating new order for the specific exchange. 
         local
             l_response: EXECUTION_REPORT
-            l_new_order: NEW_ORDER
+            l_new_order_single: NEW_ORDER_SINGLE
         do
             -- TODO: Initialize required params.
-            -- l_new_order
+            -- l_new_order_single
                       
-            -- l_response := api.v1_orders_post(l_new_order)
+            -- l_response := api.v1_orders_post(l_new_order_single)
             assert ("not_implemented", False)
         end
     

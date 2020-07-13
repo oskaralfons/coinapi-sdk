@@ -185,7 +185,7 @@ export class OrdersApi {
      * @param exchangeId Filter the output to the orders from the specific exchange.
      */
     public v1OrdersGet(exchangeId?: string, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
-    { response: JQueryXHR; body: Array<models.NewOrder>;  },
+    { response: JQueryXHR; body: Array<models.ExecutionReport>;  },
     { response: JQueryXHR; errorThrown: string }
     > {
         let localVarPath = this.basePath + '/v1/orders';
@@ -227,11 +227,11 @@ export class OrdersApi {
         }
 
         let dfd = $.Deferred<
-            { response: JQueryXHR; body: Array<models.NewOrder>;  },
+            { response: JQueryXHR; body: Array<models.ExecutionReport>;  },
             { response: JQueryXHR; errorThrown: string }
         >();
         $.ajax(requestOptions).then(
-            (data: Array<models.NewOrder>, textStatus: string, jqXHR: JQueryXHR) =>
+            (data: Array<models.ExecutionReport>, textStatus: string, jqXHR: JQueryXHR) =>
                 dfd.resolve({response: jqXHR, body: data}),
             (xhr: JQueryXHR, textStatus: string, errorThrown: string) =>
                 dfd.reject({response: xhr, errorThrown: errorThrown})
@@ -242,9 +242,9 @@ export class OrdersApi {
     /**
      * This request creating new order for the specific exchange.
      * @summary Create new order
-     * @param newOrder 
+     * @param newOrderSingle 
      */
-    public v1OrdersPost(newOrder: models.NewOrder, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
+    public v1OrdersPost(newOrderSingle: models.NewOrderSingle, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
     { response: JQueryXHR; body: models.ExecutionReport;  },
     { response: JQueryXHR; errorThrown: string }
     > {
@@ -252,9 +252,9 @@ export class OrdersApi {
 
         let queryParameters: any = {};
         let headerParams: any = {};
-        // verify required parameter 'newOrder' is not null or undefined
-        if (newOrder === null || newOrder === undefined) {
-            throw new Error('Required parameter newOrder was null or undefined when calling v1OrdersPost.');
+        // verify required parameter 'newOrderSingle' is not null or undefined
+        if (newOrderSingle === null || newOrderSingle === undefined) {
+            throw new Error('Required parameter newOrderSingle was null or undefined when calling v1OrdersPost.');
         }
 
 
@@ -280,7 +280,7 @@ export class OrdersApi {
             processData: false
         };
 
-        requestOptions.data = JSON.stringify(newOrder);
+        requestOptions.data = JSON.stringify(newOrderSingle);
         if (headerParams['Content-Type']) {
             requestOptions.contentType = headerParams['Content-Type'];
         }
