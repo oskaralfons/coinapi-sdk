@@ -1,6 +1,8 @@
 package org.openapitools.client.model {
 
 import org.openapitools.common.ListWrapper;
+import org.openapitools.client.model.Object;
+import org.openapitools.client.model.OrdSide;
 
     public class PositionDataList implements ListWrapper {
         // This declaration below of _Position_data_obj_class is to force flash compiler to include this class

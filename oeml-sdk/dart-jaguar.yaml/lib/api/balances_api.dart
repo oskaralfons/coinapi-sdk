@@ -19,7 +19,7 @@ class BalancesApi extends ApiClient with _$BalancesApiClient {
 
     /// Get balances
     ///
-    /// Returns all of your balances, including available balance.
+    /// Get current currency balance from all or single exchange.
     @GetReq(path: "/v1/balances")
     Future<List<Balance>> v1BalancesGet(
         

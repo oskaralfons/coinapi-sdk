@@ -3,7 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | [**STRING_32**](STRING_32.md) | Exchange identifier. | [optional] [default to null]
 **symbol_exchange** | [**STRING_32**](STRING_32.md) | Exchange currency code. | [optional] [default to null]
 **symbol_coinapi** | [**STRING_32**](STRING_32.md) | CoinAPI currency code. | [optional] [default to null]
 **balance** | **REAL_32** | Value of the current total currency balance on the exchange. | [optional] [default to null]

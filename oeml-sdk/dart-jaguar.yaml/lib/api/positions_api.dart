@@ -17,9 +17,9 @@ class PositionsApi extends ApiClient with _$PositionsApiClient {
 
     PositionsApi({this.base, this.converters, this.timeout = const Duration(minutes: 2)});
 
-    /// Get positions
+    /// Get open positions
     ///
-    /// Returns all of your positions.
+    /// Get current open positions across all or single exchange.
     @GetReq(path: "/v1/positions")
     Future<List<Position>> v1PositionsGet(
         

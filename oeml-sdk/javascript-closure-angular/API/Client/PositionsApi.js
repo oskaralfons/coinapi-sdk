@@ -45,9 +45,9 @@ API.Client.PositionsApi = function($http, $httpParamSerializer, $injector) {
 API.Client.PositionsApi.$inject = ['$http', '$httpParamSerializer', '$injector'];
 
 /**
- * Get positions
- * Returns all of your positions.
- * @param {!string=} opt_exchangeId Exchange name
+ * Get open positions
+ * Get current open positions across all or single exchange.
+ * @param {!string=} opt_exchangeId Filter the balances to the specific exchange.
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
  * @return {!angular.$q.Promise<!Array<!API.Client.Position>>}
  */

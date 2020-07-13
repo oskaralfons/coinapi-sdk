@@ -6,18 +6,11 @@ goog.provide('API.Client.Position');
 API.Client.Position = function() {}
 
 /**
- * Result type.
+ * Exchange identifier.
  * @type {!string}
  * @export
  */
-API.Client.Position.prototype.type;
-
-/**
- * Name of exchange.
- * @type {!string}
- * @export
- */
-API.Client.Position.prototype.exchangeName;
+API.Client.Position.prototype.exchangeId;
 
 /**
  * @type {!Array<!API.Client.Position_data>}

@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**V1OrdersCancelAllPost**](OrdersApi.md#V1OrdersCancelAllPost) | **POST** /v1/orders/cancel/all | Cancel all orders request
 [**V1OrdersCancelPost**](OrdersApi.md#V1OrdersCancelPost) | **POST** /v1/orders/cancel | Cancel order request
-[**V1OrdersGet**](OrdersApi.md#V1OrdersGet) | **GET** /v1/orders | Get all orders
+[**V1OrdersGet**](OrdersApi.md#V1OrdersGet) | **GET** /v1/orders | Get open orders
 [**V1OrdersPost**](OrdersApi.md#V1OrdersPost) | **POST** /v1/orders | Send new order
 [**V1OrdersStatusClientOrderIdGet**](OrdersApi.md#V1OrdersStatusClientOrderIdGet) | **GET** /v1/orders/status/{client_order_id} | Get order execution report
 
@@ -104,7 +104,7 @@ No authorization required
 # **V1OrdersGet**
 > array[OrderExecutionReport] V1OrdersGet(exchange.id=var.exchange.id)
 
-Get all orders
+Get open orders
 
 Get last execution reports for open orders across all or single exchange.
 
@@ -114,7 +114,7 @@ library(openapi)
 
 var.exchange.id <- 'KRAKEN' # character | Filter the open orders to the specific exchange.
 
-#Get all orders
+#Get open orders
 api.instance <- OrdersApi$new()
 result <- api.instance$V1OrdersGet(exchange.id=var.exchange.id)
 dput(result)

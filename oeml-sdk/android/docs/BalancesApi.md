@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Get balances
 
-Returns all of your balances, including available balance.
+Get current currency balance from all or single exchange.
 
 ### Example
 
@@ -23,7 +23,7 @@ Returns all of your balances, including available balance.
 //import org.openapitools.client.api.BalancesApi;
 
 BalancesApi apiInstance = new BalancesApi();
-String exchangeId = KRAKEN; // String | Exchange name
+String exchangeId = KRAKEN; // String | Filter the balances to the specific exchange.
 try {
     List<Balance> result = apiInstance.v1BalancesGet(exchangeId);
     System.out.println(result);
@@ -38,7 +38,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **exchangeId** | **String**| Exchange name | [optional] [default to null]
+ **exchangeId** | **String**| Filter the balances to the specific exchange. | [optional] [default to null]
 
 ### Return type
 

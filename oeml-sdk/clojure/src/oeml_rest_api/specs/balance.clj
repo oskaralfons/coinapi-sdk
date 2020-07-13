@@ -8,8 +8,7 @@
 
 (def balance-data
   {
-   (ds/opt :type) string?
-   (ds/opt :exchange_name) string?
+   (ds/opt :exchange_id) string?
    (ds/opt :data) (s/coll-of balance-data-spec)
    })
 

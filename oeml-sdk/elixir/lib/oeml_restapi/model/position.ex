@@ -9,14 +9,12 @@ defmodule OEML-RESTAPI.Model.Position do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"type",
-    :"exchange_name",
+    :"exchange_id",
     :"data"
   ]
 
   @type t :: %__MODULE__{
-    :"type" => String.t | nil,
-    :"exchange_name" => String.t | nil,
+    :"exchange_id" => String.t | nil,
     :"data" => [PositionData] | nil
   }
 end

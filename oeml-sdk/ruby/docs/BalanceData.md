@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | Exchange identifier. | [optional] 
 **symbol_exchange** | **String** | Exchange currency code. | [optional] 
 **symbol_coinapi** | **String** | CoinAPI currency code. | [optional] 
 **balance** | **Float** | Value of the current total currency balance on the exchange. | [optional] 
@@ -17,8 +16,7 @@ Name | Type | Description | Notes
 ```ruby
 require 'OpenapiClient'
 
-instance = OpenapiClient::BalanceData.new(id: BTC,
-                                 symbol_exchange: BTC,
+instance = OpenapiClient::BalanceData.new(symbol_exchange: XBT,
                                  symbol_coinapi: BTC,
                                  balance: 0.00134444,
                                  available: 0.00134444,

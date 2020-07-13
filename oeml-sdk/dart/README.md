@@ -43,7 +43,7 @@ import 'package:openapi/api.dart';
 
 
 var api_instance = BalancesApi();
-var exchangeId = KRAKEN; // String | Exchange name
+var exchangeId = KRAKEN; // String | Filter the balances to the specific exchange.
 
 try {
     var result = api_instance.v1BalancesGet(exchangeId);
@@ -63,10 +63,10 @@ Class | Method | HTTP request | Description
 *BalancesApi* | [**v1BalancesGet**](doc//BalancesApi.md#v1balancesget) | **GET** /v1/balances | Get balances
 *OrdersApi* | [**v1OrdersCancelAllPost**](doc//OrdersApi.md#v1orderscancelallpost) | **POST** /v1/orders/cancel/all | Cancel all orders request
 *OrdersApi* | [**v1OrdersCancelPost**](doc//OrdersApi.md#v1orderscancelpost) | **POST** /v1/orders/cancel | Cancel order request
-*OrdersApi* | [**v1OrdersGet**](doc//OrdersApi.md#v1ordersget) | **GET** /v1/orders | Get all orders
+*OrdersApi* | [**v1OrdersGet**](doc//OrdersApi.md#v1ordersget) | **GET** /v1/orders | Get open orders
 *OrdersApi* | [**v1OrdersPost**](doc//OrdersApi.md#v1orderspost) | **POST** /v1/orders | Send new order
 *OrdersApi* | [**v1OrdersStatusClientOrderIdGet**](doc//OrdersApi.md#v1ordersstatusclientorderidget) | **GET** /v1/orders/status/{client_order_id} | Get order execution report
-*PositionsApi* | [**v1PositionsGet**](doc//PositionsApi.md#v1positionsget) | **GET** /v1/positions | Get positions
+*PositionsApi* | [**v1PositionsGet**](doc//PositionsApi.md#v1positionsget) | **GET** /v1/positions | Get open positions
 
 
 ## Documentation For Models
@@ -96,6 +96,6 @@ Class | Method | HTTP request | Description
 
 ## Author
 
-
+support@coinapi.io
 
 

@@ -6,8 +6,6 @@ import io.swagger.annotations.ApiModelProperty;
 
 @Canonical
 class BalanceData {
-    /* Exchange identifier. */
-    String id
     /* Exchange currency code. */
     String symbolExchange
     /* CoinAPI currency code. */

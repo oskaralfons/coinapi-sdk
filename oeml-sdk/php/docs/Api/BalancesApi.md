@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Get balances
 
-Returns all of your balances, including available balance.
+Get current currency balance from all or single exchange.
 
 ### Example
 
@@ -28,7 +28,7 @@ $apiInstance = new OpenAPI\Client\Api\BalancesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$exchange_id = KRAKEN; // string | Exchange name
+$exchange_id = KRAKEN; // string | Filter the balances to the specific exchange.
 
 try {
     $result = $apiInstance->v1BalancesGet($exchange_id);
@@ -44,7 +44,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **exchange_id** | **string**| Exchange name | [optional]
+ **exchange_id** | **string**| Filter the balances to the specific exchange. | [optional]
 
 ### Return type
 

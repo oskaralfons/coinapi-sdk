@@ -7,7 +7,6 @@
 
 (def balance-data-data
   {
-   (ds/opt :id) string?
    (ds/opt :symbol_exchange) string?
    (ds/opt :symbol_coinapi) string?
    (ds/opt :balance) float?

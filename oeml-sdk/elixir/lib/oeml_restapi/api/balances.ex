@@ -13,13 +13,13 @@ defmodule OEML-RESTAPI.Api.Balances do
 
   @doc """
   Get balances
-  Returns all of your balances, including available balance.
+  Get current currency balance from all or single exchange.
 
   ## Parameters
 
   - connection (OEML-RESTAPI.Connection): Connection to server
   - opts (KeywordList): [optional] Optional parameters
-    - :exchange_id (String.t): Exchange name
+    - :exchange_id (String.t): Filter the balances to the specific exchange.
   ## Returns
 
   {:ok, [%Balance{}, ...]} on success

@@ -3,8 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **character** | Result type. | [optional] 
-**exchange_name** | **character** | Name of exchange. | [optional] 
+**exchange_id** | **character** | Exchange identifier. | [optional] 
 **data** | [**array[PositionData]**](Position_data.md) |  | [optional] 
 
 

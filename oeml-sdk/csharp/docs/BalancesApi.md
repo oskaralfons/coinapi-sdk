@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Get balances
 
-Returns all of your balances, including available balance.
+Get current currency balance from all or single exchange.
 
 ### Example
 
@@ -33,7 +33,7 @@ namespace Example
         {
             Configuration.Default.BasePath = "http://localhost:8080";
             var apiInstance = new BalancesApi(Configuration.Default);
-            var exchangeId = KRAKEN;  // string | Exchange name (optional) 
+            var exchangeId = KRAKEN;  // string | Filter the balances to the specific exchange. (optional) 
 
             try
             {
@@ -57,7 +57,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **exchangeId** | **string**| Exchange name | [optional] 
+ **exchangeId** | **string**| Filter the balances to the specific exchange. | [optional] 
 
 ### Return type
 
@@ -75,7 +75,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Result |  -  |
+| **200** | Collection of balances. |  -  |
 | **490** | Exchange is unreachable. |  -  |
 
 [[Back to top]](#)

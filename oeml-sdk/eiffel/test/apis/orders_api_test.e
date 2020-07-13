@@ -44,7 +44,7 @@ feature -- Test routines
         end
     
     test_v1_orders_get
-            -- Get all orders
+            -- Get open orders
             -- 
             -- Get last execution reports for open orders across all or single exchange. 
         local

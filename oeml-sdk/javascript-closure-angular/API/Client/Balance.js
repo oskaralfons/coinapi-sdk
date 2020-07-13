@@ -6,18 +6,11 @@ goog.provide('API.Client.Balance');
 API.Client.Balance = function() {}
 
 /**
- * Result type.
+ * Exchange identifier.
  * @type {!string}
  * @export
  */
-API.Client.Balance.prototype.type;
-
-/**
- * Exchange name.
- * @type {!string}
- * @export
- */
-API.Client.Balance.prototype.exchangeName;
+API.Client.Balance.prototype.exchangeId;
 
 /**
  * @type {!Array<!API.Client.Balance_data>}

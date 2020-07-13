@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Get balances
 
-Returns all of your balances, including available balance.
+Get current currency balance from all or single exchange.
 
 ### Example
 
@@ -23,7 +23,7 @@ import OemlRestApi from 'oeml_rest_api';
 
 let apiInstance = new OemlRestApi.BalancesApi();
 let opts = {
-  'exchangeId': KRAKEN // String | Exchange name
+  'exchangeId': KRAKEN // String | Filter the balances to the specific exchange.
 };
 apiInstance.v1BalancesGet(opts, (error, data, response) => {
   if (error) {
@@ -39,7 +39,7 @@ apiInstance.v1BalancesGet(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **exchangeId** | **String**| Exchange name | [optional] 
+ **exchangeId** | **String**| Filter the balances to the specific exchange. | [optional] 
 
 ### Return type
 

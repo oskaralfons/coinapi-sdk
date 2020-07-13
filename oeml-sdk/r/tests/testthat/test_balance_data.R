@@ -5,14 +5,6 @@ context("Test BalanceData")
 
 model.instance <- BalanceData$new()
 
-test_that("id", {
-  # tests for the property `id` (character)
-  # Exchange identifier.
-
-  # uncomment below to test the property 
-  #expect_equal(model.instance$`id`, "EXPECTED_RESULT")
-})
-
 test_that("symbol_exchange", {
   # tests for the property `symbol_exchange` (character)
   # Exchange currency code.

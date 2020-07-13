@@ -46,8 +46,8 @@ API.Client.BalancesApi.$inject = ['$http', '$httpParamSerializer', '$injector'];
 
 /**
  * Get balances
- * Returns all of your balances, including available balance.
- * @param {!string=} opt_exchangeId Exchange name
+ * Get current currency balance from all or single exchange.
+ * @param {!string=} opt_exchangeId Filter the balances to the specific exchange.
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
  * @return {!angular.$q.Promise<!Array<!API.Client.Balance>>}
  */

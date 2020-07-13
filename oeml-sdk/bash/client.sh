@@ -18,7 +18,7 @@
 # https://github.com/coinapi/coinapi-sdk/blob/master/LICENSE
 #
 # CONTACT:
-# 
+# support@coinapi.io
 #
 # MORE INFORMATION:
 # 
@@ -498,7 +498,7 @@ echo "  $ops" | column -t -s ';'
 read -r -d '' ops <<EOF
   ${CYAN}v1OrdersCancelAllPost${OFF};Cancel all orders request
   ${CYAN}v1OrdersCancelPost${OFF};Cancel order request
-  ${CYAN}v1OrdersGet${OFF};Get all orders
+  ${CYAN}v1OrdersGet${OFF};Get open orders
   ${CYAN}v1OrdersPost${OFF};Send new order
   ${CYAN}v1OrdersStatusClientOrderIdGet${OFF};Get order execution report
 EOF
@@ -506,7 +506,7 @@ echo "  $ops" | column -t -s ';'
     echo ""
     echo -e "${BOLD}${WHITE}[positions]${OFF}"
 read -r -d '' ops <<EOF
-  ${CYAN}v1PositionsGet${OFF};Get positions
+  ${CYAN}v1PositionsGet${OFF};Get open positions
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
@@ -539,7 +539,7 @@ print_about() {
     echo -e "${BOLD}${WHITE}OEML - REST API command line client (API version v1)${OFF}"
     echo ""
     echo -e "License: MIT"
-    echo -e "Contact: "
+    echo -e "Contact: support@coinapi.io"
     echo ""
 read -r -d '' appdescription <<EOF
 
@@ -569,15 +569,15 @@ print_v1BalancesGet_help() {
     echo ""
     echo -e "${BOLD}${WHITE}v1BalancesGet - Get balances${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
-    echo -e "Returns all of your balances, including available balance." | paste -sd' ' | fold -sw 80
+    echo -e "Get current currency balance from all or single exchange." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}exchange_id${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Exchange name${YELLOW} Specify as: exchange_id=value${OFF}" \
+    echo -e "  * ${GREEN}exchange_id${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Filter the balances to the specific exchange.${YELLOW} Specify as: exchange_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Result${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  200;Collection of balances.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=490
     echo -e "${result_color_table[${code:0:1}]}  490;Exchange is unreachable.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
@@ -634,7 +634,7 @@ print_v1OrdersCancelPost_help() {
 ##############################################################################
 print_v1OrdersGet_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}v1OrdersGet - Get all orders${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}v1OrdersGet - Get open orders${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "Get last execution reports for open orders across all or single exchange." | paste -sd' ' | fold -sw 80
     echo -e ""
@@ -700,17 +700,17 @@ print_v1OrdersStatusClientOrderIdGet_help() {
 ##############################################################################
 print_v1PositionsGet_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}v1PositionsGet - Get positions${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}v1PositionsGet - Get open positions${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
-    echo -e "Returns all of your positions." | paste -sd' ' | fold -sw 80
+    echo -e "Get current open positions across all or single exchange." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}exchange_id${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Exchange name${YELLOW} Specify as: exchange_id=value${OFF}" \
+    echo -e "  * ${GREEN}exchange_id${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Filter the balances to the specific exchange.${YELLOW} Specify as: exchange_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Result${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  200;Collection of positons.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=490
     echo -e "${result_color_table[${code:0:1}]}  490;Exchange is unreachable.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }

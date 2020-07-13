@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 Get balances
 
-Returns all of your balances, including available balance.
+Get current currency balance from all or single exchange.
 
 ### Example
 ```java
@@ -30,7 +30,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost:8080");
 
     BalancesApi apiInstance = new BalancesApi(defaultClient);
-    String exchangeId = KRAKEN; // String | Exchange name
+    String exchangeId = KRAKEN; // String | Filter the balances to the specific exchange.
     try {
       List<Balance> result = apiInstance.v1BalancesGet(exchangeId);
       System.out.println(result);
@@ -49,7 +49,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **exchangeId** | **String**| Exchange name | [optional]
+ **exchangeId** | **String**| Filter the balances to the specific exchange. | [optional]
 
 ### Return type
 
@@ -67,6 +67,6 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Result |  -  |
+**200** | Collection of balances. |  -  |
 **490** | Exchange is unreachable. |  -  |
 

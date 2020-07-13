@@ -4,16 +4,16 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**V1PositionsGet**](PositionsApi.md#v1positionsget) | **GET** /v1/positions | Get positions
+[**V1PositionsGet**](PositionsApi.md#v1positionsget) | **GET** /v1/positions | Get open positions
 
 
 <a name="v1positionsget"></a>
 # **V1PositionsGet**
 > List&lt;Position&gt; V1PositionsGet (string exchangeId = null)
 
-Get positions
+Get open positions
 
-Returns all of your positions.
+Get current open positions across all or single exchange.
 
 ### Example
 ```csharp
@@ -32,11 +32,11 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "http://localhost:8080";
             var apiInstance = new PositionsApi(config);
-            var exchangeId = KRAKEN;  // string | Exchange name (optional) 
+            var exchangeId = KRAKEN;  // string | Filter the balances to the specific exchange. (optional) 
 
             try
             {
-                // Get positions
+                // Get open positions
                 List<Position> result = apiInstance.V1PositionsGet(exchangeId);
                 Debug.WriteLine(result);
             }
@@ -55,7 +55,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **exchangeId** | **string**| Exchange name | [optional] 
+ **exchangeId** | **string**| Filter the balances to the specific exchange. | [optional] 
 
 ### Return type
 
@@ -73,7 +73,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Result |  -  |
+| **200** | Collection of positons. |  -  |
 | **490** | Exchange is unreachable. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

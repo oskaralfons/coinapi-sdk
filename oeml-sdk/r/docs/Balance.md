@@ -3,8 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **character** | Result type. | [optional] 
-**exchange_name** | **character** | Exchange name. | [optional] 
+**exchange_id** | **character** | Exchange identifier. | [optional] 
 **data** | [**array[BalanceData]**](Balance_data.md) |  | [optional] 
 
 

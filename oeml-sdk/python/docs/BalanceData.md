@@ -3,7 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | Exchange identifier. | [optional] 
 **symbol_exchange** | **str** | Exchange currency code. | [optional] 
 **symbol_coinapi** | **str** | CoinAPI currency code. | [optional] 
 **balance** | **float** | Value of the current total currency balance on the exchange. | [optional] 

@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Get balances
 
-Returns all of your balances, including available balance.
+Get current currency balance from all or single exchange.
 
 ### Example 
 ```perl
@@ -26,7 +26,7 @@ use WWW::OpenAPIClient::BalancesApi;
 my $api_instance = WWW::OpenAPIClient::BalancesApi->new(
 );
 
-my $exchange_id = KRAKEN; # string | Exchange name
+my $exchange_id = KRAKEN; # string | Filter the balances to the specific exchange.
 
 eval { 
     my $result = $api_instance->v1_balances_get(exchange_id => $exchange_id);
@@ -41,7 +41,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **exchange_id** | **string**| Exchange name | [optional] 
+ **exchange_id** | **string**| Filter the balances to the specific exchange. | [optional] 
 
 ### Return type
 

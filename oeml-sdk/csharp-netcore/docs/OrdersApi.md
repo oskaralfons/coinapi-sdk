@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**V1OrdersCancelAllPost**](OrdersApi.md#v1orderscancelallpost) | **POST** /v1/orders/cancel/all | Cancel all orders request
 [**V1OrdersCancelPost**](OrdersApi.md#v1orderscancelpost) | **POST** /v1/orders/cancel | Cancel order request
-[**V1OrdersGet**](OrdersApi.md#v1ordersget) | **GET** /v1/orders | Get all orders
+[**V1OrdersGet**](OrdersApi.md#v1ordersget) | **GET** /v1/orders | Get open orders
 [**V1OrdersPost**](OrdersApi.md#v1orderspost) | **POST** /v1/orders | Send new order
 [**V1OrdersStatusClientOrderIdGet**](OrdersApi.md#v1ordersstatusclientorderidget) | **GET** /v1/orders/status/{client_order_id} | Get order execution report
 
@@ -159,7 +159,7 @@ No authorization required
 # **V1OrdersGet**
 > List&lt;OrderExecutionReport&gt; V1OrdersGet (string exchangeId = null)
 
-Get all orders
+Get open orders
 
 Get last execution reports for open orders across all or single exchange.
 
@@ -184,7 +184,7 @@ namespace Example
 
             try
             {
-                // Get all orders
+                // Get open orders
                 List<OrderExecutionReport> result = apiInstance.V1OrdersGet(exchangeId);
                 Debug.WriteLine(result);
             }

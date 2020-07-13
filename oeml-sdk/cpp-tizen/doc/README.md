@@ -51,8 +51,8 @@ Method | HTTP request | Description
 *v1OrdersCancelAllPostASync* | *POST* /v1/orders/cancel/all | Cancel all orders request.
 *v1OrdersCancelPostSync* | *POST* /v1/orders/cancel | Cancel order request.
 *v1OrdersCancelPostASync* | *POST* /v1/orders/cancel | Cancel order request.
-*v1OrdersGetSync* | *GET* /v1/orders | Get all orders.
-*v1OrdersGetASync* | *GET* /v1/orders | Get all orders.
+*v1OrdersGetSync* | *GET* /v1/orders | Get open orders.
+*v1OrdersGetASync* | *GET* /v1/orders | Get open orders.
 *v1OrdersPostSync* | *POST* /v1/orders | Send new order.
 *v1OrdersPostASync* | *POST* /v1/orders | Send new order.
 *v1OrdersStatusClientOrderIdGetSync* | *GET* /v1/orders/status/{client_order_id} | Get order execution report.
@@ -61,8 +61,8 @@ Method | HTTP request | Description
 ### PositionsManager
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-*v1PositionsGetSync* | *GET* /v1/positions | Get positions.
-*v1PositionsGetASync* | *GET* /v1/positions | Get positions.
+*v1PositionsGetSync* | *GET* /v1/positions | Get open positions.
+*v1PositionsGetASync* | *GET* /v1/positions | Get open positions.
 
 
 ## What are the Model files for the data structures/objects?

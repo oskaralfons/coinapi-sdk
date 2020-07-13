@@ -65,7 +65,7 @@ private class OASOrdersApiTest {
     }
 
     /**
-     * Get all orders
+     * Get open orders
      *
      * Get last execution reports for open orders across all or single exchange.
      */

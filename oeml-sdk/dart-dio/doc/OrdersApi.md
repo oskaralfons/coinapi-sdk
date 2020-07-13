@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**v1OrdersCancelAllPost**](OrdersApi.md#v1OrdersCancelAllPost) | **post** /v1/orders/cancel/all | Cancel all orders request
 [**v1OrdersCancelPost**](OrdersApi.md#v1OrdersCancelPost) | **post** /v1/orders/cancel | Cancel order request
-[**v1OrdersGet**](OrdersApi.md#v1OrdersGet) | **get** /v1/orders | Get all orders
+[**v1OrdersGet**](OrdersApi.md#v1OrdersGet) | **get** /v1/orders | Get open orders
 [**v1OrdersPost**](OrdersApi.md#v1OrdersPost) | **post** /v1/orders | Send new order
 [**v1OrdersStatusClientOrderIdGet**](OrdersApi.md#v1OrdersStatusClientOrderIdGet) | **get** /v1/orders/status/{client_order_id} | Get order execution report
 
@@ -105,7 +105,7 @@ No authorization required
 # **v1OrdersGet**
 > List<OrderExecutionReport> v1OrdersGet(exchangeId)
 
-Get all orders
+Get open orders
 
 Get last execution reports for open orders across all or single exchange.
 

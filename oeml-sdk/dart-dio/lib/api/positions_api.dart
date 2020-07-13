@@ -14,9 +14,9 @@ class PositionsApi {
 
     PositionsApi(this._dio, this._serializers);
 
-        /// Get positions
+        /// Get open positions
         ///
-        /// Returns all of your positions.
+        /// Get current open positions across all or single exchange.
         Future<Response<List<Position>>>v1PositionsGet({ String exchangeId,CancelToken cancelToken, Map<String, String> headers,}) async {
 
         String _path = "/v1/positions";

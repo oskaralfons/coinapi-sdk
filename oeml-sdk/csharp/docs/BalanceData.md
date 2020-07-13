@@ -5,7 +5,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Exchange identifier. | [optional] 
 **SymbolExchange** | **string** | Exchange currency code. | [optional] 
 **SymbolCoinapi** | **string** | CoinAPI currency code. | [optional] 
 **Balance** | **float** | Value of the current total currency balance on the exchange. | [optional] 

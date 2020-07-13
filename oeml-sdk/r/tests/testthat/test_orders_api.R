@@ -32,7 +32,7 @@ test_that("V1OrdersCancelPost", {
 test_that("V1OrdersGet", {
   # tests for V1OrdersGet
   # base path: http://localhost:8080
-  # Get all orders
+  # Get open orders
   # Get last execution reports for open orders across all or single exchange.
   # @param character  exchange.id  Filter the open orders to the specific exchange.  (optional)
   # @return [array[OrderExecutionReport]]

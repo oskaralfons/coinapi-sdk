@@ -24,8 +24,8 @@
 
 
 (defn-spec v1-positions-get-with-http-info any?
-  "Get positions
-  Returns all of your positions."
+  "Get open positions
+  Get current open positions across all or single exchange."
   ([] (v1-positions-get-with-http-info nil))
   ([{:keys [exchange_id]} (s/map-of keyword? any?)]
    (call-api "/v1/positions" :get
@@ -38,8 +38,8 @@
               :auth-names    []})))
 
 (defn-spec v1-positions-get (s/coll-of position-spec)
-  "Get positions
-  Returns all of your positions."
+  "Get open positions
+  Get current open positions across all or single exchange."
   ([] (v1-positions-get nil))
   ([optional-params any?]
    (let [res (:data (v1-positions-get-with-http-info optional-params))]

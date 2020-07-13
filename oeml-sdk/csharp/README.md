@@ -81,7 +81,7 @@ namespace Example
 
             Configuration.Default.BasePath = "http://localhost:8080";
             var apiInstance = new BalancesApi(Configuration.Default);
-            var exchangeId = KRAKEN;  // string | Exchange name (optional) 
+            var exchangeId = KRAKEN;  // string | Filter the balances to the specific exchange. (optional) 
 
             try
             {
@@ -110,10 +110,10 @@ Class | Method | HTTP request | Description
 *BalancesApi* | [**V1BalancesGet**](docs/BalancesApi.md#v1balancesget) | **GET** /v1/balances | Get balances
 *OrdersApi* | [**V1OrdersCancelAllPost**](docs/OrdersApi.md#v1orderscancelallpost) | **POST** /v1/orders/cancel/all | Cancel all orders request
 *OrdersApi* | [**V1OrdersCancelPost**](docs/OrdersApi.md#v1orderscancelpost) | **POST** /v1/orders/cancel | Cancel order request
-*OrdersApi* | [**V1OrdersGet**](docs/OrdersApi.md#v1ordersget) | **GET** /v1/orders | Get all orders
+*OrdersApi* | [**V1OrdersGet**](docs/OrdersApi.md#v1ordersget) | **GET** /v1/orders | Get open orders
 *OrdersApi* | [**V1OrdersPost**](docs/OrdersApi.md#v1orderspost) | **POST** /v1/orders | Send new order
 *OrdersApi* | [**V1OrdersStatusClientOrderIdGet**](docs/OrdersApi.md#v1ordersstatusclientorderidget) | **GET** /v1/orders/status/{client_order_id} | Get order execution report
-*PositionsApi* | [**V1PositionsGet**](docs/PositionsApi.md#v1positionsget) | **GET** /v1/positions | Get positions
+*PositionsApi* | [**V1PositionsGet**](docs/PositionsApi.md#v1positionsget) | **GET** /v1/positions | Get open positions
 
 
 ## Documentation for Models

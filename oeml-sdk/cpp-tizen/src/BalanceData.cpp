@@ -23,7 +23,6 @@ Balance_data::~Balance_data()
 void
 Balance_data::__init()
 {
-	//id = std::string();
 	//symbol_exchange = std::string();
 	//symbol_coinapi = std::string();
 	//balance = float(0);
@@ -35,11 +34,6 @@ Balance_data::__init()
 void
 Balance_data::__cleanup()
 {
-	//if(id != NULL) {
-	//
-	//delete id;
-	//id = NULL;
-	//}
 	//if(symbol_exchange != NULL) {
 	//
 	//delete symbol_exchange;
@@ -78,17 +72,6 @@ Balance_data::fromJson(char* jsonStr)
 {
 	JsonObject *pJsonObject = json_node_get_object(json_from_string(jsonStr,NULL));
 	JsonNode *node;
-	const gchar *idKey = "id";
-	node = json_object_get_member(pJsonObject, idKey);
-	if (node !=NULL) {
-	
-
-		if (isprimitive("std::string")) {
-			jsonToValue(&id, node, "std::string", "");
-		} else {
-			
-		}
-	}
 	const gchar *symbol_exchangeKey = "symbol_exchange";
 	node = json_object_get_member(pJsonObject, symbol_exchangeKey);
 	if (node !=NULL) {
@@ -168,15 +151,6 @@ Balance_data::toJson()
 	JsonObject *pJsonObject = json_object_new();
 	JsonNode *node;
 	if (isprimitive("std::string")) {
-		std::string obj = getId();
-		node = converttoJson(&obj, "std::string", "");
-	}
-	else {
-		
-	}
-	const gchar *idKey = "id";
-	json_object_set_member(pJsonObject, idKey, node);
-	if (isprimitive("std::string")) {
 		std::string obj = getSymbolExchange();
 		node = converttoJson(&obj, "std::string", "");
 	}
@@ -236,18 +210,6 @@ Balance_data::toJson()
 	char * ret = json_to_string(node, false);
 	json_node_free(node);
 	return ret;
-}
-
-std::string
-Balance_data::getId()
-{
-	return id;
-}
-
-void
-Balance_data::setId(std::string  id)
-{
-	this->id = id;
 }
 
 std::string

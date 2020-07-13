@@ -4,9 +4,6 @@ import 'package:jaguar_serializer/jaguar_serializer.dart';
 part 'balance_data.jser.dart';
 
 class BalanceData {
-   /* Exchange identifier. */
-  @Alias('id', isNullable: false,  )
-  final String id;
    /* Exchange currency code. */
   @Alias('symbol_exchange', isNullable: false,  )
   final String symbolExchange;
@@ -33,7 +30,6 @@ class BalanceData {
       
 
 {
-     this.id = null,  
      this.symbolExchange = null,  
      this.symbolCoinapi = null,  
      this.balance = null,  
@@ -46,7 +42,7 @@ class BalanceData {
 
   @override
   String toString() {
-    return 'BalanceData[id=$id, symbolExchange=$symbolExchange, symbolCoinapi=$symbolCoinapi, balance=$balance, available=$available, locked=$locked, updateOrigin=$updateOrigin, ]';
+    return 'BalanceData[symbolExchange=$symbolExchange, symbolCoinapi=$symbolCoinapi, balance=$balance, available=$available, locked=$locked, updateOrigin=$updateOrigin, ]';
   }
 }
 

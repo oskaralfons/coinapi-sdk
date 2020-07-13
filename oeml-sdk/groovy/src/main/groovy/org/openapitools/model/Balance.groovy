@@ -9,10 +9,8 @@ import org.openapitools.model.BalanceData;
 
 @Canonical
 class Balance {
-    /* Result type. */
-    String type
-    /* Exchange name. */
-    String exchangeName
+    /* Exchange identifier. */
+    String exchangeId
     
     List<BalanceData> data = new ArrayList<BalanceData>()
 }

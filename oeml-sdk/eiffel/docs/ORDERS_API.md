@@ -6,7 +6,7 @@ Feature | HTTP request | Description
 ------------- | ------------- | -------------
 [**v1_orders_cancel_all_post**](ORDERS_API.md#v1_orders_cancel_all_post) | **Post** /v1/orders/cancel/all | Cancel all orders request
 [**v1_orders_cancel_post**](ORDERS_API.md#v1_orders_cancel_post) | **Post** /v1/orders/cancel | Cancel order request
-[**v1_orders_get**](ORDERS_API.md#v1_orders_get) | **Get** /v1/orders | Get all orders
+[**v1_orders_get**](ORDERS_API.md#v1_orders_get) | **Get** /v1/orders | Get open orders
 [**v1_orders_post**](ORDERS_API.md#v1_orders_post) | **Post** /v1/orders | Send new order
 [**v1_orders_status_client_order_id_get**](ORDERS_API.md#v1_orders_status_client_order_id_get) | **Get** /v1/orders/status/{client_order_id} | Get order execution report
 
@@ -75,7 +75,7 @@ No authorization required
 > v1_orders_get (exchange_id:  detachable STRING_32 ): detachable LIST [ORDER_EXECUTION_REPORT]
 	
 
-Get all orders
+Get open orders
 
 Get last execution reports for open orders across all or single exchange.
 

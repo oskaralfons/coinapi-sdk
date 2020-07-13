@@ -5,10 +5,6 @@ part 'balance_data.g.dart';
 
 abstract class BalanceData implements Built<BalanceData, BalanceDataBuilder> {
 
-    /* Exchange identifier. */
-        @nullable
-    @BuiltValueField(wireName: r'id')
-    String get id;
     /* Exchange currency code. */
         @nullable
     @BuiltValueField(wireName: r'symbol_exchange')

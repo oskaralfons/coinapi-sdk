@@ -11,7 +11,7 @@
 
 // Get balances
 //
-// Returns all of your balances, including available balance.
+// Get current currency balance from all or single exchange.
 //
 list_t*
 BalancesAPI_v1BalancesGet(apiClient_t *apiClient, char * exchange_id );

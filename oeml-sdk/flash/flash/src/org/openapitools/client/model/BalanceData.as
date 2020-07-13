@@ -3,9 +3,6 @@ package org.openapitools.client.model {
 
     [XmlRootNode(name="BalanceData")]
     public class BalanceData {
-        /* Exchange identifier. */
-        [XmlElement(name="id")]
-        public var id: String = null;
         /* Exchange currency code. */
         [XmlElement(name="symbol_exchange")]
         public var symbolExchange: String = null;
@@ -27,7 +24,6 @@ package org.openapitools.client.model {
 
     public function toString(): String {
         var str: String = "BalanceData: ";
-        str += " (id: " + id + ")";
         str += " (symbolExchange: " + symbolExchange + ")";
         str += " (symbolCoinapi: " + symbolCoinapi + ")";
         str += " (balance: " + balance + ")";

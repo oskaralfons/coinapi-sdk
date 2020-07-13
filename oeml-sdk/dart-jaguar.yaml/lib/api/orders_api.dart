@@ -51,7 +51,7 @@ class OrdersApi extends ApiClient with _$OrdersApiClient {
         ).timeout(timeout);
     }
 
-    /// Get all orders
+    /// Get open orders
     ///
     /// Get last execution reports for open orders across all or single exchange.
     @GetReq(path: "/v1/orders")

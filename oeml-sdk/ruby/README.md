@@ -60,7 +60,7 @@ require 'openapi_client'
 
 api_instance = OpenapiClient::BalancesApi.new
 opts = {
-  exchange_id: 'KRAKEN' # String | Exchange name
+  exchange_id: 'KRAKEN' # String | Filter the balances to the specific exchange.
 }
 
 begin
@@ -82,10 +82,10 @@ Class | Method | HTTP request | Description
 *OpenapiClient::BalancesApi* | [**v1_balances_get**](docs/BalancesApi.md#v1_balances_get) | **GET** /v1/balances | Get balances
 *OpenapiClient::OrdersApi* | [**v1_orders_cancel_all_post**](docs/OrdersApi.md#v1_orders_cancel_all_post) | **POST** /v1/orders/cancel/all | Cancel all orders request
 *OpenapiClient::OrdersApi* | [**v1_orders_cancel_post**](docs/OrdersApi.md#v1_orders_cancel_post) | **POST** /v1/orders/cancel | Cancel order request
-*OpenapiClient::OrdersApi* | [**v1_orders_get**](docs/OrdersApi.md#v1_orders_get) | **GET** /v1/orders | Get all orders
+*OpenapiClient::OrdersApi* | [**v1_orders_get**](docs/OrdersApi.md#v1_orders_get) | **GET** /v1/orders | Get open orders
 *OpenapiClient::OrdersApi* | [**v1_orders_post**](docs/OrdersApi.md#v1_orders_post) | **POST** /v1/orders | Send new order
 *OpenapiClient::OrdersApi* | [**v1_orders_status_client_order_id_get**](docs/OrdersApi.md#v1_orders_status_client_order_id_get) | **GET** /v1/orders/status/{client_order_id} | Get order execution report
-*OpenapiClient::PositionsApi* | [**v1_positions_get**](docs/PositionsApi.md#v1_positions_get) | **GET** /v1/positions | Get positions
+*OpenapiClient::PositionsApi* | [**v1_positions_get**](docs/PositionsApi.md#v1_positions_get) | **GET** /v1/positions | Get open positions
 
 
 ## Documentation for Models

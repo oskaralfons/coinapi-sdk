@@ -12,14 +12,14 @@ defmodule OEML-RESTAPI.Api.Positions do
 
 
   @doc """
-  Get positions
-  Returns all of your positions.
+  Get open positions
+  Get current open positions across all or single exchange.
 
   ## Parameters
 
   - connection (OEML-RESTAPI.Connection): Connection to server
   - opts (KeywordList): [optional] Optional parameters
-    - :exchange_id (String.t): Exchange name
+    - :exchange_id (String.t): Filter the balances to the specific exchange.
   ## Returns
 
   {:ok, [%Position{}, ...]} on success

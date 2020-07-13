@@ -8,7 +8,6 @@ use WWW::OpenAPIClient::Object::BalanceData;
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** | Exchange identifier. | [optional] 
 **symbol_exchange** | **string** | Exchange currency code. | [optional] 
 **symbol_coinapi** | **string** | CoinAPI currency code. | [optional] 
 **balance** | **double** | Value of the current total currency balance on the exchange. | [optional] 

@@ -17,14 +17,14 @@ Method | HTTP request | Description
 
 Get balances
 
-Returns all of your balances, including available balance.
+Get current currency balance from all or single exchange.
 
 ### Example 
 ```dart
 import 'package:openapi/api.dart';
 
 var api_instance = new BalancesApi();
-var exchangeId = KRAKEN; // String | Exchange name
+var exchangeId = KRAKEN; // String | Filter the balances to the specific exchange.
 
 try { 
     var result = api_instance.v1BalancesGet(exchangeId);
@@ -38,7 +38,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **exchangeId** | **String**| Exchange name | [optional] [default to null]
+ **exchangeId** | **String**| Filter the balances to the specific exchange. | [optional] [default to null]
 
 ### Return type
 

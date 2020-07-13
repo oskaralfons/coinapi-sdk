@@ -4,7 +4,7 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**V1PositionsGet**](PositionsApi.md#V1PositionsGet) | **Get** /v1/positions | Get positions
+[**V1PositionsGet**](PositionsApi.md#V1PositionsGet) | **Get** /v1/positions | Get open positions
 
 
 
@@ -12,9 +12,9 @@ Method | HTTP request | Description
 
 > []Position V1PositionsGet(ctx, optional)
 
-Get positions
+Get open positions
 
-Returns all of your positions.
+Get current open positions across all or single exchange.
 
 ### Required Parameters
 
@@ -31,7 +31,7 @@ Optional parameters are passed through a pointer to a V1PositionsGetOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **exchangeId** | **optional.String**| Exchange name | 
+ **exchangeId** | **optional.String**| Filter the balances to the specific exchange. | 
 
 ### Return type
 

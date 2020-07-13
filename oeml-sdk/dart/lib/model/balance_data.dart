@@ -1,8 +1,6 @@
 part of openapi.api;
 
 class BalanceData {
-  /* Exchange identifier. */
-  String id = null;
   /* Exchange currency code. */
   String symbolExchange = null;
   /* CoinAPI currency code. */
@@ -20,12 +18,11 @@ class BalanceData {
 
   @override
   String toString() {
-    return 'BalanceData[id=$id, symbolExchange=$symbolExchange, symbolCoinapi=$symbolCoinapi, balance=$balance, available=$available, locked=$locked, updateOrigin=$updateOrigin, ]';
+    return 'BalanceData[symbolExchange=$symbolExchange, symbolCoinapi=$symbolCoinapi, balance=$balance, available=$available, locked=$locked, updateOrigin=$updateOrigin, ]';
   }
 
   BalanceData.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    id = json['id'];
     symbolExchange = json['symbol_exchange'];
     symbolCoinapi = json['symbol_coinapi'];
     balance = json['balance'];
@@ -36,8 +33,6 @@ class BalanceData {
 
   Map<String, dynamic> toJson() {
     Map <String, dynamic> json = {};
-    if (id != null)
-      json['id'] = id;
     if (symbolExchange != null)
       json['symbol_exchange'] = symbolExchange;
     if (symbolCoinapi != null)

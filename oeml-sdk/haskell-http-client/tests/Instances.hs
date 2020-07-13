@@ -110,8 +110,7 @@ instance Arbitrary Balance where
 genBalance :: Int -> Gen Balance
 genBalance n =
   Balance
-    <$> arbitraryReducedMaybe n -- balanceType :: Maybe Text
-    <*> arbitraryReducedMaybe n -- balanceExchangeName :: Maybe Text
+    <$> arbitraryReducedMaybe n -- balanceExchangeId :: Maybe Text
     <*> arbitraryReducedMaybe n -- balanceData :: Maybe [BalanceData]
   
 instance Arbitrary BalanceData where
@@ -120,8 +119,7 @@ instance Arbitrary BalanceData where
 genBalanceData :: Int -> Gen BalanceData
 genBalanceData n =
   BalanceData
-    <$> arbitraryReducedMaybe n -- balanceDataId :: Maybe Text
-    <*> arbitraryReducedMaybe n -- balanceDataSymbolExchange :: Maybe Text
+    <$> arbitraryReducedMaybe n -- balanceDataSymbolExchange :: Maybe Text
     <*> arbitraryReducedMaybe n -- balanceDataSymbolCoinapi :: Maybe Text
     <*> arbitraryReducedMaybe n -- balanceDataBalance :: Maybe Float
     <*> arbitraryReducedMaybe n -- balanceDataAvailable :: Maybe Float
@@ -220,8 +218,7 @@ instance Arbitrary Position where
 genPosition :: Int -> Gen Position
 genPosition n =
   Position
-    <$> arbitraryReducedMaybe n -- positionType :: Maybe Text
-    <*> arbitraryReducedMaybe n -- positionExchangeName :: Maybe Text
+    <$> arbitraryReducedMaybe n -- positionExchangeId :: Maybe Text
     <*> arbitraryReducedMaybe n -- positionData :: Maybe [PositionData]
   
 instance Arbitrary PositionData where
@@ -230,17 +227,16 @@ instance Arbitrary PositionData where
 genPositionData :: Int -> Gen PositionData
 genPositionData n =
   PositionData
-    <$> arbitraryReducedMaybe n -- positionDataId :: Maybe Text
-    <*> arbitraryReducedMaybe n -- positionDataSymbolExchange :: Maybe Text
+    <$> arbitraryReducedMaybe n -- positionDataSymbolExchange :: Maybe Text
     <*> arbitraryReducedMaybe n -- positionDataSymbolCoinapi :: Maybe Text
     <*> arbitraryReducedMaybe n -- positionDataAvgEntryPrice :: Maybe Double
     <*> arbitraryReducedMaybe n -- positionDataQuantity :: Maybe Double
-    <*> arbitraryReducedMaybe n -- positionDataIsBuy :: Maybe Bool
-    <*> arbitraryReducedMaybe n -- positionDataUnrealisedPnL :: Maybe Double
+    <*> arbitraryReducedMaybe n -- positionDataSide :: Maybe OrdSide
+    <*> arbitraryReducedMaybe n -- positionDataUnrealizedPnl :: Maybe Double
     <*> arbitraryReducedMaybe n -- positionDataLeverage :: Maybe Double
     <*> arbitraryReducedMaybe n -- positionDataCrossMargin :: Maybe Bool
     <*> arbitraryReducedMaybe n -- positionDataLiquidationPrice :: Maybe Double
-    <*> arbitraryReducedMaybe n -- positionDataRawData :: Maybe Text
+    <*> arbitraryReducedMaybeValue n -- positionDataRawData :: Maybe A.Value
   
 instance Arbitrary ValidationError where
   arbitrary = sized genValidationError

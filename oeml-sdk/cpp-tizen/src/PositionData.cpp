@@ -23,27 +23,21 @@ Position_data::~Position_data()
 void
 Position_data::__init()
 {
-	//id = std::string();
 	//symbol_exchange = std::string();
 	//symbol_coinapi = std::string();
 	//avg_entry_price = double(0);
 	//quantity = double(0);
-	//is_buy = bool(false);
-	//unrealised_pn_l = double(0);
+	//side = new OrdSide();
+	//unrealized_pnl = double(0);
 	//leverage = double(0);
 	//cross_margin = bool(false);
 	//liquidation_price = double(0);
-	//raw_data = std::string();
+	//raw_data = null;
 }
 
 void
 Position_data::__cleanup()
 {
-	//if(id != NULL) {
-	//
-	//delete id;
-	//id = NULL;
-	//}
 	//if(symbol_exchange != NULL) {
 	//
 	//delete symbol_exchange;
@@ -64,15 +58,15 @@ Position_data::__cleanup()
 	//delete quantity;
 	//quantity = NULL;
 	//}
-	//if(is_buy != NULL) {
+	//if(side != NULL) {
 	//
-	//delete is_buy;
-	//is_buy = NULL;
+	//delete side;
+	//side = NULL;
 	//}
-	//if(unrealised_pn_l != NULL) {
+	//if(unrealized_pnl != NULL) {
 	//
-	//delete unrealised_pn_l;
-	//unrealised_pn_l = NULL;
+	//delete unrealized_pnl;
+	//unrealized_pnl = NULL;
 	//}
 	//if(leverage != NULL) {
 	//
@@ -102,17 +96,6 @@ Position_data::fromJson(char* jsonStr)
 {
 	JsonObject *pJsonObject = json_node_get_object(json_from_string(jsonStr,NULL));
 	JsonNode *node;
-	const gchar *idKey = "id";
-	node = json_object_get_member(pJsonObject, idKey);
-	if (node !=NULL) {
-	
-
-		if (isprimitive("std::string")) {
-			jsonToValue(&id, node, "std::string", "");
-		} else {
-			
-		}
-	}
 	const gchar *symbol_exchangeKey = "symbol_exchange";
 	node = json_object_get_member(pJsonObject, symbol_exchangeKey);
 	if (node !=NULL) {
@@ -163,27 +146,30 @@ Position_data::fromJson(char* jsonStr)
 			
 		}
 	}
-	const gchar *is_buyKey = "is_buy";
-	node = json_object_get_member(pJsonObject, is_buyKey);
+	const gchar *sideKey = "side";
+	node = json_object_get_member(pJsonObject, sideKey);
 	if (node !=NULL) {
 	
 
-		if (isprimitive("bool")) {
-			jsonToValue(&is_buy, node, "bool", "");
+		if (isprimitive("OrdSide")) {
+			jsonToValue(&side, node, "OrdSide", "OrdSide");
 		} else {
+			
+			OrdSide* obj = static_cast<OrdSide*> (&side);
+			obj->fromJson(json_to_string(node, false));
 			
 		}
 	}
-	const gchar *unrealised_pn_lKey = "unrealised_pn_l";
-	node = json_object_get_member(pJsonObject, unrealised_pn_lKey);
+	const gchar *unrealized_pnlKey = "unrealized_pnl";
+	node = json_object_get_member(pJsonObject, unrealized_pnlKey);
 	if (node !=NULL) {
 	
 
 		if (isprimitive("long long")) {
-			jsonToValue(&unrealised_pn_l, node, "long long", "");
+			jsonToValue(&unrealized_pnl, node, "long long", "");
 		} else {
 			
-			long long* obj = static_cast<long long*> (&unrealised_pn_l);
+			long long* obj = static_cast<long long*> (&unrealized_pnl);
 			obj->fromJson(json_to_string(node, false));
 			
 		}
@@ -236,6 +222,9 @@ Position_data::fromJson(char* jsonStr)
 			jsonToValue(&raw_data, node, "std::string", "");
 		} else {
 			
+			std::string* obj = static_cast<std::string*> (&raw_data);
+			obj->fromJson(json_to_string(node, false));
+			
 		}
 	}
 }
@@ -250,15 +239,6 @@ Position_data::toJson()
 {
 	JsonObject *pJsonObject = json_object_new();
 	JsonNode *node;
-	if (isprimitive("std::string")) {
-		std::string obj = getId();
-		node = converttoJson(&obj, "std::string", "");
-	}
-	else {
-		
-	}
-	const gchar *idKey = "id";
-	json_object_set_member(pJsonObject, idKey, node);
 	if (isprimitive("std::string")) {
 		std::string obj = getSymbolExchange();
 		node = converttoJson(&obj, "std::string", "");
@@ -305,29 +285,34 @@ Position_data::toJson()
 	}
 	const gchar *quantityKey = "quantity";
 	json_object_set_member(pJsonObject, quantityKey, node);
-	if (isprimitive("bool")) {
-		bool obj = getIsBuy();
-		node = converttoJson(&obj, "bool", "");
+	if (isprimitive("OrdSide")) {
+		OrdSide obj = getSide();
+		node = converttoJson(&obj, "OrdSide", "");
 	}
 	else {
 		
-	}
-	const gchar *is_buyKey = "is_buy";
-	json_object_set_member(pJsonObject, is_buyKey, node);
-	if (isprimitive("long long")) {
-		long long obj = getUnrealisedPnL();
-		node = converttoJson(&obj, "long long", "");
-	}
-	else {
-		
-		long long obj = static_cast<long long> (getUnrealisedPnL());
+		OrdSide obj = static_cast<OrdSide> (getSide());
 		GError *mygerror;
 		mygerror = NULL;
 		node = json_from_string(obj.toJson(), &mygerror);
 		
 	}
-	const gchar *unrealised_pn_lKey = "unrealised_pn_l";
-	json_object_set_member(pJsonObject, unrealised_pn_lKey, node);
+	const gchar *sideKey = "side";
+	json_object_set_member(pJsonObject, sideKey, node);
+	if (isprimitive("long long")) {
+		long long obj = getUnrealizedPnl();
+		node = converttoJson(&obj, "long long", "");
+	}
+	else {
+		
+		long long obj = static_cast<long long> (getUnrealizedPnl());
+		GError *mygerror;
+		mygerror = NULL;
+		node = json_from_string(obj.toJson(), &mygerror);
+		
+	}
+	const gchar *unrealized_pnlKey = "unrealized_pnl";
+	json_object_set_member(pJsonObject, unrealized_pnlKey, node);
 	if (isprimitive("long long")) {
 		long long obj = getLeverage();
 		node = converttoJson(&obj, "long long", "");
@@ -371,6 +356,11 @@ Position_data::toJson()
 	}
 	else {
 		
+		std::string obj = static_cast<std::string> (getRawData());
+		GError *mygerror;
+		mygerror = NULL;
+		node = json_from_string(obj.toJson(), &mygerror);
+		
 	}
 	const gchar *raw_dataKey = "raw_data";
 	json_object_set_member(pJsonObject, raw_dataKey, node);
@@ -380,18 +370,6 @@ Position_data::toJson()
 	char * ret = json_to_string(node, false);
 	json_node_free(node);
 	return ret;
-}
-
-std::string
-Position_data::getId()
-{
-	return id;
-}
-
-void
-Position_data::setId(std::string  id)
-{
-	this->id = id;
 }
 
 std::string
@@ -442,28 +420,28 @@ Position_data::setQuantity(long long  quantity)
 	this->quantity = quantity;
 }
 
-bool
-Position_data::getIsBuy()
+OrdSide
+Position_data::getSide()
 {
-	return is_buy;
+	return side;
 }
 
 void
-Position_data::setIsBuy(bool  is_buy)
+Position_data::setSide(OrdSide  side)
 {
-	this->is_buy = is_buy;
+	this->side = side;
 }
 
 long long
-Position_data::getUnrealisedPnL()
+Position_data::getUnrealizedPnl()
 {
-	return unrealised_pn_l;
+	return unrealized_pnl;
 }
 
 void
-Position_data::setUnrealisedPnL(long long  unrealised_pn_l)
+Position_data::setUnrealizedPnl(long long  unrealized_pnl)
 {
-	this->unrealised_pn_l = unrealised_pn_l;
+	this->unrealized_pnl = unrealized_pnl;
 }
 
 long long

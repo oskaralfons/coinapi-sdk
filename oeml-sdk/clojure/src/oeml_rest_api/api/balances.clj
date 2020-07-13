@@ -25,7 +25,7 @@
 
 (defn-spec v1-balances-get-with-http-info any?
   "Get balances
-  Returns all of your balances, including available balance."
+  Get current currency balance from all or single exchange."
   ([] (v1-balances-get-with-http-info nil))
   ([{:keys [exchange_id]} (s/map-of keyword? any?)]
    (call-api "/v1/balances" :get
@@ -39,7 +39,7 @@
 
 (defn-spec v1-balances-get (s/coll-of balance-spec)
   "Get balances
-  Returns all of your balances, including available balance."
+  Get current currency balance from all or single exchange."
   ([] (v1-balances-get nil))
   ([optional-params any?]
    (let [res (:data (v1-balances-get-with-http-info optional-params))]

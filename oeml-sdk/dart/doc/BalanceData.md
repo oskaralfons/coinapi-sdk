@@ -8,7 +8,6 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | Exchange identifier. | [optional] [default to null]
 **symbolExchange** | **String** | Exchange currency code. | [optional] [default to null]
 **symbolCoinapi** | **String** | CoinAPI currency code. | [optional] [default to null]
 **balance** | **double** | Value of the current total currency balance on the exchange. | [optional] [default to null]

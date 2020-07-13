@@ -70,10 +70,10 @@ Class | Method | HTTP request | Description
 *BalancesApi* | **v1BalancesGet** | **GET** /v1/balances | Get balances
 *OrdersApi* | **v1OrdersCancelAllPost** | **POST** /v1/orders/cancel/all | Cancel all orders request
 *OrdersApi* | **v1OrdersCancelPost** | **POST** /v1/orders/cancel | Cancel order request
-*OrdersApi* | **v1OrdersGet** | **GET** /v1/orders | Get all orders
+*OrdersApi* | **v1OrdersGet** | **GET** /v1/orders | Get open orders
 *OrdersApi* | **v1OrdersPost** | **POST** /v1/orders | Send new order
 *OrdersApi* | **v1OrdersStatusClientOrderIdGet** | **GET** /v1/orders/status/{client_order_id} | Get order execution report
-*PositionsApi* | **v1PositionsGet** | **GET** /v1/positions | Get positions
+*PositionsApi* | **v1PositionsGet** | **GET** /v1/positions | Get open positions
 
 
 ## Documentation for Models
@@ -103,5 +103,5 @@ Authentication schemes defined for the API:
 
 ## Author
 
-
+support@coinapi.io
 

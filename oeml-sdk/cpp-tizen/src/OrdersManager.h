@@ -83,7 +83,7 @@ bool v1OrdersCancelPostAsync(char * accessToken,
 	, void* userData);
 
 
-/*! \brief Get all orders. *Synchronous*
+/*! \brief Get open orders. *Synchronous*
  *
  * Get last execution reports for open orders across all or single exchange.
  * \param exchangeId Filter the open orders to the specific exchange.
@@ -96,7 +96,7 @@ bool v1OrdersGetSync(char * accessToken,
 	void(* handler)(std::list<OrderExecutionReport>, Error, void* )
 	, void* userData);
 
-/*! \brief Get all orders. *Asynchronous*
+/*! \brief Get open orders. *Asynchronous*
  *
  * Get last execution reports for open orders across all or single exchange.
  * \param exchangeId Filter the open orders to the specific exchange.

@@ -24,8 +24,8 @@ order_execution_report_t* instantiate_order_execution_report(int include_optiona
     order_execution_report = order_execution_report_create(
       "KRAKEN",
       "6ab36bc1-344d-432e-ac6d-0bf44ee64c2b",
-      "BTCUSD",
-      "KRAKEN_SPOT_BTC_USD",
+      "XBT/USDT",
+      "KRAKEN_SPOT_BTC_USDT",
       0.045,
       0.0783,
       oeml___rest_api_order_execution_report__"BUY",
@@ -45,8 +45,8 @@ order_execution_report_t* instantiate_order_execution_report(int include_optiona
     order_execution_report = order_execution_report_create(
       "KRAKEN",
       "6ab36bc1-344d-432e-ac6d-0bf44ee64c2b",
-      "BTCUSD",
-      "KRAKEN_SPOT_BTC_USD",
+      "XBT/USDT",
+      "KRAKEN_SPOT_BTC_USDT",
       0.045,
       0.0783,
       oeml___rest_api_order_execution_report__"BUY",

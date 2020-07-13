@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 Get balances
 
-Returns all of your balances, including available balance.
+Get current currency balance from all or single exchange.
 
 ### Example
 
@@ -25,7 +25,7 @@ Returns all of your balances, including available balance.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **exchangeId** | **string** | Exchange name | [optional] [default to null]
+ **exchangeId** | **string** | Filter the balances to the specific exchange. | [optional] [default to null]
 
 ### Return type
 

@@ -23,7 +23,6 @@ oeml___rest_api_balance_data_UPDATEORIGIN_e update_originbalance_data_FromString
 }
 
 balance_data_t *balance_data_create(
-    char *id,
     char *symbol_exchange,
     char *symbol_coinapi,
     float balance,
@@ -35,7 +34,6 @@ balance_data_t *balance_data_create(
     if (!balance_data_local_var) {
         return NULL;
     }
-    balance_data_local_var->id = id;
     balance_data_local_var->symbol_exchange = symbol_exchange;
     balance_data_local_var->symbol_coinapi = symbol_coinapi;
     balance_data_local_var->balance = balance;
@@ -52,7 +50,6 @@ void balance_data_free(balance_data_t *balance_data) {
         return ;
     }
     listEntry_t *listEntry;
-    free(balance_data->id);
     free(balance_data->symbol_exchange);
     free(balance_data->symbol_coinapi);
     free(balance_data);
@@ -60,14 +57,6 @@ void balance_data_free(balance_data_t *balance_data) {
 
 cJSON *balance_data_convertToJSON(balance_data_t *balance_data) {
     cJSON *item = cJSON_CreateObject();
-
-    // balance_data->id
-    if(balance_data->id) { 
-    if(cJSON_AddStringToObject(item, "id", balance_data->id) == NULL) {
-    goto fail; //String
-    }
-     } 
-
 
     // balance_data->symbol_exchange
     if(balance_data->symbol_exchange) { 
@@ -129,15 +118,6 @@ balance_data_t *balance_data_parseFromJSON(cJSON *balance_dataJSON){
 
     balance_data_t *balance_data_local_var = NULL;
 
-    // balance_data->id
-    cJSON *id = cJSON_GetObjectItemCaseSensitive(balance_dataJSON, "id");
-    if (id) { 
-    if(!cJSON_IsString(id))
-    {
-    goto end; //String
-    }
-    }
-
     // balance_data->symbol_exchange
     cJSON *symbol_exchange = cJSON_GetObjectItemCaseSensitive(balance_dataJSON, "symbol_exchange");
     if (symbol_exchange) { 
@@ -196,7 +176,6 @@ balance_data_t *balance_data_parseFromJSON(cJSON *balance_dataJSON){
 
 
     balance_data_local_var = balance_data_create (
-        id ? strdup(id->valuestring) : NULL,
         symbol_exchange ? strdup(symbol_exchange->valuestring) : NULL,
         symbol_coinapi ? strdup(symbol_coinapi->valuestring) : NULL,
         balance ? balance->valuedouble : 0,

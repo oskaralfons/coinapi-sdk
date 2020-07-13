@@ -22,8 +22,7 @@ balance_data_t* instantiate_balance_data(int include_optional) {
   balance_data_t* balance_data = NULL;
   if (include_optional) {
     balance_data = balance_data_create(
-      "BTC",
-      "BTC",
+      "XBT",
       "BTC",
       0.00134444,
       0.00134444,
@@ -32,8 +31,7 @@ balance_data_t* instantiate_balance_data(int include_optional) {
     );
   } else {
     balance_data = balance_data_create(
-      "BTC",
-      "BTC",
+      "XBT",
       "BTC",
       0.00134444,
       0.00134444,

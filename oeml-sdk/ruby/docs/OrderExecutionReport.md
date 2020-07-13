@@ -30,8 +30,8 @@ require 'OpenapiClient'
 
 instance = OpenapiClient::OrderExecutionReport.new(exchange_id: KRAKEN,
                                  client_order_id: 6ab36bc1-344d-432e-ac6d-0bf44ee64c2b,
-                                 symbol_exchange: BTCUSD,
-                                 symbol_coinapi: KRAKEN_SPOT_BTC_USD,
+                                 symbol_exchange: XBT/USDT,
+                                 symbol_coinapi: KRAKEN_SPOT_BTC_USDT,
                                  amount_order: 0.045,
                                  price: 0.0783,
                                  side: null,

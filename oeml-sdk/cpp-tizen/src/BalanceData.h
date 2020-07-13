@@ -45,13 +45,6 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get Exchange identifier.
-	 */
-	std::string getId();
-
-	/*! \brief Set Exchange identifier.
-	 */
-	void setId(std::string  id);
 	/*! \brief Get Exchange currency code.
 	 */
 	std::string getSymbolExchange();
@@ -96,7 +89,6 @@ public:
 	void setUpdateOrigin(std::string  update_origin);
 
 private:
-	std::string id;
 	std::string symbol_exchange;
 	std::string symbol_coinapi;
 	float balance;

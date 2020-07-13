@@ -6,13 +6,6 @@ goog.provide('API.Client.Balance_data');
 API.Client.BalanceData = function() {}
 
 /**
- * Exchange identifier.
- * @type {!string}
- * @export
- */
-API.Client.BalanceData.prototype.id;
-
-/**
  * Exchange currency code.
  * @type {!string}
  * @export

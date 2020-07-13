@@ -24,8 +24,8 @@ new_order_single_t* instantiate_new_order_single(int include_optional) {
     new_order_single = new_order_single_create(
       "KRAKEN",
       "6ab36bc1-344d-432e-ac6d-0bf44ee64c2b",
-      "BTCUSD",
-      "KRAKEN_SPOT_BTC_USD",
+      "XBT/USDT",
+      "KRAKEN_SPOT_BTC_USDT",
       0.045,
       0.0783,
       oeml___rest_api_new_order_single__"BUY",
@@ -38,8 +38,8 @@ new_order_single_t* instantiate_new_order_single(int include_optional) {
     new_order_single = new_order_single_create(
       "KRAKEN",
       "6ab36bc1-344d-432e-ac6d-0bf44ee64c2b",
-      "BTCUSD",
-      "KRAKEN_SPOT_BTC_USD",
+      "XBT/USDT",
+      "KRAKEN_SPOT_BTC_USDT",
       0.045,
       0.0783,
       oeml___rest_api_new_order_single__"BUY",

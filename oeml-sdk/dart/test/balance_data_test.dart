@@ -6,12 +6,6 @@ void main() {
     var instance = new BalanceData();
 
   group('test BalanceData', () {
-    // Exchange identifier.
-    // String id (default value: null)
-    test('to test the property `id`', () async {
-      // TODO
-    });
-
     // Exchange currency code.
     // String symbolExchange (default value: null)
     test('to test the property `symbolExchange`', () async {

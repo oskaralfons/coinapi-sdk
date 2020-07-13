@@ -48,5 +48,5 @@ Also be sure to review the CMakeLists.txt file. Edits are likely required.*
 
 ## Author
 
-
+support@coinapi.io
 

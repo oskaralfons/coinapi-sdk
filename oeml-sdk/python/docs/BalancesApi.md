@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 Get balances
 
-Returns all of your balances, including available balance.
+Get current currency balance from all or single exchange.
 
 ### Example
 
@@ -33,7 +33,7 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.BalancesApi(api_client)
-    exchange_id = 'KRAKEN' # str | Exchange name (optional)
+    exchange_id = 'KRAKEN' # str | Filter the balances to the specific exchange. (optional)
 
     try:
         # Get balances
@@ -47,7 +47,7 @@ with openapi_client.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **exchange_id** | **str**| Exchange name | [optional] 
+ **exchange_id** | **str**| Filter the balances to the specific exchange. | [optional] 
 
 ### Return type
 
@@ -65,7 +65,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Result |  -  |
+**200** | Collection of balances. |  -  |
 **490** | Exchange is unreachable. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

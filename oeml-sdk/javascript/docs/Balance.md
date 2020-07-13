@@ -4,8 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **String** | Result type. | [optional] 
-**exchangeName** | **String** | Exchange name. | [optional] 
+**exchangeId** | **String** | Exchange identifier. | [optional] 
 **data** | [**[BalanceData]**](BalanceData.md) |  | [optional] 
 
 

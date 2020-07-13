@@ -4,7 +4,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **kotlin.String** | Exchange identifier. |  [optional]
 **symbolExchange** | **kotlin.String** | Exchange currency code. |  [optional]
 **symbolCoinapi** | **kotlin.String** | CoinAPI currency code. |  [optional]
 **balance** | **kotlin.Float** | Value of the current total currency balance on the exchange. |  [optional]

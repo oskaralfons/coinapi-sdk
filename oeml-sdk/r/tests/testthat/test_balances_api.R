@@ -9,8 +9,8 @@ test_that("V1BalancesGet", {
   # tests for V1BalancesGet
   # base path: http://localhost:8080
   # Get balances
-  # Returns all of your balances, including available balance.
-  # @param character  exchange.id  Exchange name  (optional)
+  # Get current currency balance from all or single exchange.
+  # @param character  exchange.id  Filter the balances to the specific exchange.  (optional)
   # @return [array[Balance]]
 
   # uncomment below to test the operation

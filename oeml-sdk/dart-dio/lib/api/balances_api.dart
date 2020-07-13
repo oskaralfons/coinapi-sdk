@@ -16,7 +16,7 @@ class BalancesApi {
 
         /// Get balances
         ///
-        /// Returns all of your balances, including available balance.
+        /// Get current currency balance from all or single exchange.
         Future<Response<List<Balance>>>v1BalancesGet({ String exchangeId,CancelToken cancelToken, Map<String, String> headers,}) async {
 
         String _path = "/v1/balances";

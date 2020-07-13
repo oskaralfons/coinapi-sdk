@@ -118,7 +118,7 @@ class OrdersApi {
             );
             });
             }
-        /// Get all orders
+        /// Get open orders
         ///
         /// Get last execution reports for open orders across all or single exchange.
         Future<Response<List<OrderExecutionReport>>>v1OrdersGet({ String exchangeId,CancelToken cancelToken, Map<String, String> headers,}) async {

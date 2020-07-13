@@ -70,7 +70,7 @@ defmodule OEML-RESTAPI.Api.Orders do
   end
 
   @doc """
-  Get all orders
+  Get open orders
   Get last execution reports for open orders across all or single exchange.
 
   ## Parameters

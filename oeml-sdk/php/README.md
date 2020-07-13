@@ -67,7 +67,7 @@ $apiInstance = new OpenAPI\Client\Api\BalancesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$exchange_id = KRAKEN; // string | Exchange name
+$exchange_id = KRAKEN; // string | Filter the balances to the specific exchange.
 
 try {
     $result = $apiInstance->v1BalancesGet($exchange_id);
@@ -88,10 +88,10 @@ Class | Method | HTTP request | Description
 *BalancesApi* | [**v1BalancesGet**](docs/Api/BalancesApi.md#v1balancesget) | **GET** /v1/balances | Get balances
 *OrdersApi* | [**v1OrdersCancelAllPost**](docs/Api/OrdersApi.md#v1orderscancelallpost) | **POST** /v1/orders/cancel/all | Cancel all orders request
 *OrdersApi* | [**v1OrdersCancelPost**](docs/Api/OrdersApi.md#v1orderscancelpost) | **POST** /v1/orders/cancel | Cancel order request
-*OrdersApi* | [**v1OrdersGet**](docs/Api/OrdersApi.md#v1ordersget) | **GET** /v1/orders | Get all orders
+*OrdersApi* | [**v1OrdersGet**](docs/Api/OrdersApi.md#v1ordersget) | **GET** /v1/orders | Get open orders
 *OrdersApi* | [**v1OrdersPost**](docs/Api/OrdersApi.md#v1orderspost) | **POST** /v1/orders | Send new order
 *OrdersApi* | [**v1OrdersStatusClientOrderIdGet**](docs/Api/OrdersApi.md#v1ordersstatusclientorderidget) | **GET** /v1/orders/status/{client_order_id} | Get order execution report
-*PositionsApi* | [**v1PositionsGet**](docs/Api/PositionsApi.md#v1positionsget) | **GET** /v1/positions | Get positions
+*PositionsApi* | [**v1PositionsGet**](docs/Api/PositionsApi.md#v1positionsget) | **GET** /v1/positions | Get open positions
 
 
 ## Documentation For Models
@@ -120,5 +120,5 @@ All endpoints do not require authorization.
 
 ## Author
 
-
+support@coinapi.io
 

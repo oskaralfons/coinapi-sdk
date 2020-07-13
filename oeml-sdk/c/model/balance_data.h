@@ -27,7 +27,6 @@ oeml___rest_api_balance_data_UPDATEORIGIN_e balance_data_update_origin_FromStrin
 
 
 typedef struct balance_data_t {
-    char *id; // string
     char *symbol_exchange; // string
     char *symbol_coinapi; // string
     float balance; //numeric
@@ -38,7 +37,6 @@ typedef struct balance_data_t {
 } balance_data_t;
 
 balance_data_t *balance_data_create(
-    char *id,
     char *symbol_exchange,
     char *symbol_coinapi,
     float balance,

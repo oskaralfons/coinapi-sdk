@@ -61,5 +61,5 @@ Note: You don't need to specify includes for models and include folder seperatel
 
 ## Author
 
-
+support@coinapi.io
 

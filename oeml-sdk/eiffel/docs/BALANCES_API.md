@@ -13,14 +13,14 @@ Feature | HTTP request | Description
 
 Get balances
 
-Returns all of your balances, including available balance.
+Get current currency balance from all or single exchange.
 
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **exchange_id** | **STRING_32**| Exchange name | [optional] [default to null]
+ **exchange_id** | **STRING_32**| Filter the balances to the specific exchange. | [optional] [default to null]
 
 ### Return type
 

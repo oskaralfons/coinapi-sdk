@@ -23,14 +23,14 @@ message_t* instantiate_message(int include_optional) {
   if (include_optional) {
     message = message_create(
       "message",
-      oeml___rest_api_message__"ERROR",
+      oeml___rest_api_message__"INFO",
       "KRAKEN",
       "Ok"
     );
   } else {
     message = message_create(
       "message",
-      oeml___rest_api_message__"ERROR",
+      oeml___rest_api_message__"INFO",
       "KRAKEN",
       "Ok"
     );

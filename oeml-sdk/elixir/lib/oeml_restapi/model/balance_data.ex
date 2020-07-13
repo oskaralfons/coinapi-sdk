@@ -9,7 +9,6 @@ defmodule OEML-RESTAPI.Model.BalanceData do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"id",
     :"symbol_exchange",
     :"symbol_coinapi",
     :"balance",
@@ -19,7 +18,6 @@ defmodule OEML-RESTAPI.Model.BalanceData do
   ]
 
   @type t :: %__MODULE__{
-    :"id" => String.t | nil,
     :"symbol_exchange" => String.t | nil,
     :"symbol_coinapi" => String.t | nil,
     :"balance" => float() | nil,

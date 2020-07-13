@@ -4,15 +4,15 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v1_positions_get**](PositionsApi.md#v1_positions_get) | **GET** /v1/positions | Get positions
+[**v1_positions_get**](PositionsApi.md#v1_positions_get) | **GET** /v1/positions | Get open positions
 
 
 # **v1_positions_get**
 > list[Position] v1_positions_get(exchange_id=exchange_id)
 
-Get positions
+Get open positions
 
-Returns all of your positions.
+Get current open positions across all or single exchange.
 
 ### Example
 
@@ -33,10 +33,10 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.PositionsApi(api_client)
-    exchange_id = 'KRAKEN' # str | Exchange name (optional)
+    exchange_id = 'KRAKEN' # str | Filter the balances to the specific exchange. (optional)
 
     try:
-        # Get positions
+        # Get open positions
         api_response = api_instance.v1_positions_get(exchange_id=exchange_id)
         pprint(api_response)
     except ApiException as e:
@@ -47,7 +47,7 @@ with openapi_client.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **exchange_id** | **str**| Exchange name | [optional] 
+ **exchange_id** | **str**| Filter the balances to the specific exchange. | [optional] 
 
 ### Return type
 
@@ -65,7 +65,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Result |  -  |
+**200** | Collection of positons. |  -  |
 **490** | Exchange is unreachable. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

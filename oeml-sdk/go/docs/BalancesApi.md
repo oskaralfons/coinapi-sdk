@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Get balances
 
-Returns all of your balances, including available balance.
+Get current currency balance from all or single exchange.
 
 ### Required Parameters
 
@@ -31,7 +31,7 @@ Optional parameters are passed through a pointer to a V1BalancesGetOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **exchangeId** | **optional.String**| Exchange name | 
+ **exchangeId** | **optional.String**| Filter the balances to the specific exchange. | 
 
 ### Return type
 

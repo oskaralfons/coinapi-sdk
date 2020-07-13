@@ -12,9 +12,9 @@
 }while(0)
 
 
-// Get positions
+// Get open positions
 //
-// Returns all of your positions.
+// Get current open positions across all or single exchange.
 //
 list_t*
 PositionsAPI_v1PositionsGet(apiClient_t *apiClient, char * exchange_id )
@@ -58,7 +58,7 @@ PositionsAPI_v1PositionsGet(apiClient_t *apiClient, char * exchange_id )
                     "GET");
 
     if (apiClient->response_code == 200) {
-        printf("%s\n","Result");
+        printf("%s\n","Collection of positons.");
     }
     if (apiClient->response_code == 490) {
         printf("%s\n","Exchange is unreachable.");

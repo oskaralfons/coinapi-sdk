@@ -50,7 +50,7 @@ v1_orders_cancel_post(Ctx, OpenapiCancelOrderSingleRequest, Optional) ->
 
     openapi_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
-%% @doc Get all orders
+%% @doc Get open orders
 %% Get last execution reports for open orders across all or single exchange.
 -spec v1_orders_get(ctx:ctx()) -> {ok, [openapi_order_execution_report:openapi_order_execution_report()], openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
 v1_orders_get(Ctx) ->

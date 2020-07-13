@@ -123,7 +123,7 @@ class OrdersApi {
     }
   }
 
-  /// Get all orders with HTTP info returned
+  /// Get open orders with HTTP info returned
   ///
   /// Get last execution reports for open orders across all or single exchange.
   Future<Response> v1OrdersGetWithHttpInfo({ String exchangeId }) async {
@@ -167,7 +167,7 @@ class OrdersApi {
     return response;
   }
 
-  /// Get all orders
+  /// Get open orders
   ///
   /// Get last execution reports for open orders across all or single exchange.
   Future<List<OrderExecutionReport>> v1OrdersGet({ String exchangeId }) async {
