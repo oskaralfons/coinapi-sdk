@@ -378,6 +378,7 @@ components:
       - $ref: '#/components/schemas/OrderExecutionReport_allOf'
       description: The order execution report object.
     Balances:
+      description: Collection of the balances.
       items:
         $ref: '#/components/schemas/Balance'
       type: array
@@ -408,6 +409,7 @@ components:
           type: array
       type: object
     Positions:
+      description: Collection of the positions.
       items:
         $ref: '#/components/schemas/Position'
       type: array
