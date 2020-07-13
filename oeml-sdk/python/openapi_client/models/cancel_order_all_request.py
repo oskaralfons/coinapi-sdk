@@ -55,7 +55,7 @@ class CancelOrderAllRequest(object):
     def exchange_id(self):
         """Gets the exchange_id of this CancelOrderAllRequest.  # noqa: E501
 
-        Exchange identifier from which active orders should be canceled.  # noqa: E501
+        Identifier of the exchange from which active orders should be canceled.  # noqa: E501
 
         :return: The exchange_id of this CancelOrderAllRequest.  # noqa: E501
         :rtype: str
@@ -66,7 +66,7 @@ class CancelOrderAllRequest(object):
     def exchange_id(self, exchange_id):
         """Sets the exchange_id of this CancelOrderAllRequest.
 
-        Exchange identifier from which active orders should be canceled.  # noqa: E501
+        Identifier of the exchange from which active orders should be canceled.  # noqa: E501
 
         :param exchange_id: The exchange_id of this CancelOrderAllRequest.  # noqa: E501
         :type: str

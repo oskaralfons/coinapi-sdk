@@ -36,6 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * CancelOrderSingleRequest Class Doc Comment
  *
  * @category Class
+ * @description Cancel single order request object.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -201,6 +202,9 @@ class CancelOrderSingleRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['exchange_id'] === null) {
+            $invalidProperties[] = "'exchange_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -219,7 +223,7 @@ class CancelOrderSingleRequest implements ModelInterface, ArrayAccess
     /**
      * Gets exchange_id
      *
-     * @return string|null
+     * @return string
      */
     public function getExchangeId()
     {
@@ -229,7 +233,7 @@ class CancelOrderSingleRequest implements ModelInterface, ArrayAccess
     /**
      * Sets exchange_id
      *
-     * @param string|null $exchange_id Exchange identifier.
+     * @param string $exchange_id Exchange identifier.
      *
      * @return $this
      */
@@ -253,7 +257,7 @@ class CancelOrderSingleRequest implements ModelInterface, ArrayAccess
     /**
      * Sets exchange_order_id
      *
-     * @param string|null $exchange_order_id The unique identifier of the order assigned by the exchange.
+     * @param string|null $exchange_order_id The unique identifier of the order assigned by the exchange. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
      *
      * @return $this
      */
@@ -277,7 +281,7 @@ class CancelOrderSingleRequest implements ModelInterface, ArrayAccess
     /**
      * Sets client_order_id
      *
-     * @param string|null $client_order_id The unique identifier of the order assigned by the client.
+     * @param string|null $client_order_id The unique identifier of the order assigned by the client. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
      *
      * @return $this
      */

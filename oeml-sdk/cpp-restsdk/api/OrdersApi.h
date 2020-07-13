@@ -50,20 +50,20 @@ public:
     virtual ~OrdersApi();
 
     /// <summary>
-    /// Cancel all orders
+    /// Cancel all orders request
     /// </summary>
     /// <remarks>
-    /// This request cancels all open orders across all or single specified exchange.
+    /// This request cancels all open orders on single specified exchange.
     /// </remarks>
     /// <param name="cancelOrderAllRequest"></param>
     pplx::task<std::shared_ptr<Message>> v1OrdersCancelAllPost(
         std::shared_ptr<CancelOrderAllRequest> cancelOrderAllRequest
     ) const;
     /// <summary>
-    /// Cancel order
+    /// Cancel order request
     /// </summary>
     /// <remarks>
-    /// This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+    /// Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
     /// </remarks>
     /// <param name="cancelOrderSingleRequest"></param>
     pplx::task<std::shared_ptr<OrderExecutionReport>> v1OrdersCancelPost(
@@ -73,14 +73,14 @@ public:
     /// Get all orders
     /// </summary>
     /// <remarks>
-    /// Get last execution reports for all open orders across all or single exchange.
+    /// Get last execution reports for open orders across all or single exchange.
     /// </remarks>
-    /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
+    /// <param name="exchangeId">Filter the open orders to the specific exchange. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::vector<std::shared_ptr<OrderExecutionReport>>> v1OrdersGet(
         boost::optional<utility::string_t> exchangeId
     ) const;
     /// <summary>
-    /// Create new order
+    /// Send new order
     /// </summary>
     /// <remarks>
     /// This request creating new order for the specific exchange.
@@ -90,10 +90,10 @@ public:
         std::shared_ptr<NewOrderSingle> newOrderSingle
     ) const;
     /// <summary>
-    /// Get order status
+    /// Get order execution report
     /// </summary>
     /// <remarks>
-    /// Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+    /// Get the last order execution report for the specified order. The requested order does not need to be active or opened.
     /// </remarks>
     /// <param name="clientOrderId">The unique identifier of the order assigned by the client.</param>
     pplx::task<std::shared_ptr<OrderExecutionReport>> v1OrdersStatusClientOrderIdGet(

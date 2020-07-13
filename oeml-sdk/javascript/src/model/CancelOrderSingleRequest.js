@@ -21,11 +21,13 @@ import ApiClient from '../ApiClient';
 class CancelOrderSingleRequest {
     /**
      * Constructs a new <code>CancelOrderSingleRequest</code>.
+     * Cancel single order request object.
      * @alias module:model/CancelOrderSingleRequest
+     * @param exchangeId {String} Exchange identifier.
      */
-    constructor() { 
+    constructor(exchangeId) { 
         
-        CancelOrderSingleRequest.initialize(this);
+        CancelOrderSingleRequest.initialize(this, exchangeId);
     }
 
     /**
@@ -33,7 +35,8 @@ class CancelOrderSingleRequest {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, exchangeId) { 
+        obj['exchange_id'] = exchangeId;
     }
 
     /**
@@ -70,13 +73,13 @@ class CancelOrderSingleRequest {
 CancelOrderSingleRequest.prototype['exchange_id'] = undefined;
 
 /**
- * The unique identifier of the order assigned by the exchange.
+ * The unique identifier of the order assigned by the exchange. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
  * @member {String} exchange_order_id
  */
 CancelOrderSingleRequest.prototype['exchange_order_id'] = undefined;
 
 /**
- * The unique identifier of the order assigned by the client.
+ * The unique identifier of the order assigned by the client. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
  * @member {String} client_order_id
  */
 CancelOrderSingleRequest.prototype['client_order_id'] = undefined;

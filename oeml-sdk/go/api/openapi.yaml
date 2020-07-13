@@ -21,10 +21,10 @@ tags:
 paths:
   /v1/orders:
     get:
-      description: Get last execution reports for all open orders across all or single
+      description: Get last execution reports for open orders across all or single
         exchange.
       parameters:
-      - description: Filter the output to the orders from the specific exchange.
+      - description: Filter the open orders to the specific exchange.
         explode: true
         in: query
         name: exchange_id
@@ -69,20 +69,26 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ValidationError'
-          description: Validation errors
+          description: Input model validation errors.
         "490":
           content:
             appliction/json:
               schema:
                 $ref: '#/components/schemas/Message'
           description: Exchange is unreachable.
-      summary: Create new order
+        "504":
+          content:
+            appliction/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+          description: Exchange didn't responded in the defined timeout.
+      summary: Send new order
       tags:
       - Orders
   /v1/orders/status/{client_order_id}:
     get:
       description: Get the last order execution report for the specified order. The
-        requested order does not need to be active/opened.
+        requested order does not need to be active or opened.
       parameters:
       - description: The unique identifier of the order assigned by the client.
         explode: false
@@ -99,20 +105,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OrderExecutionReport'
-          description: The last xecution report of the requested order.
+          description: The last execution report of the requested order.
         "404":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Message'
           description: The requested order was not found.
-      summary: Get order status
+      summary: Get order execution report
       tags:
       - Orders
   /v1/orders/cancel:
     post:
-      description: This request cancels an existing order. The order can be canceled
-        by the client order ID or exchange order ID.
+      description: Request cancel for an existing order. The order can be canceled
+        using the `client_order_id` or `exchange_order_id`.
       requestBody:
         content:
           application/json:
@@ -125,26 +131,26 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OrderExecutionReport'
-          description: Canceled order
+          description: The last execution report for the order for which cancelation
+            was requested.
         "400":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ValidationError'
-          description: Validation errors
+          description: Input model validation errors.
         "490":
           content:
             appliction/json:
               schema:
                 $ref: '#/components/schemas/Message'
           description: Exchange is unreachable.
-      summary: Cancel order
+      summary: Cancel order request
       tags:
       - Orders
   /v1/orders/cancel/all:
     post:
-      description: This request cancels all open orders across all or single specified
-        exchange.
+      description: This request cancels all open orders on single specified exchange.
       requestBody:
         content:
           application/json:
@@ -158,13 +164,19 @@ paths:
               schema:
                 $ref: '#/components/schemas/Message'
           description: Result
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+          description: Input model validation errors.
         "490":
           content:
             appliction/json:
               schema:
                 $ref: '#/components/schemas/Message'
           description: Exchange is unreachable.
-      summary: Cancel all orders
+      summary: Cancel all orders request
       tags:
       - Orders
   /v1/balances:
@@ -253,12 +265,12 @@ components:
           type: string
         symbol_exchange:
           description: Exchange symbol. One of the properties (`symbol_exchange`,
-            `symbol_coinapi`) are required to identify the market for the new order.
+            `symbol_coinapi`) is required to identify the market for the new order.
           example: BTCUSD
           type: string
         symbol_coinapi:
           description: CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`)
-            are required to identify the market for the new order.
+            is required to identify the market for the new order.
           example: KRAKEN_SPOT_BTC_USD
           type: string
         amount_order:
@@ -302,6 +314,7 @@ components:
       - time_in_force
       type: object
     CancelOrderSingleRequest:
+      description: Cancel single order request object.
       example:
         exchange_id: KRAKEN
         client_order_id: 6ab36bc1-344d-432e-ac6d-0bf44ee64c2b
@@ -313,19 +326,27 @@ components:
           type: string
         exchange_order_id:
           description: The unique identifier of the order assigned by the exchange.
+            One of the properties (`exchange_order_id`, `client_order_id`) is required
+            to identify the new order.
           example: "3456456754"
           type: string
         client_order_id:
           description: The unique identifier of the order assigned by the client.
+            One of the properties (`exchange_order_id`, `client_order_id`) is required
+            to identify the new order.
           example: 6ab36bc1-344d-432e-ac6d-0bf44ee64c2b
           type: string
+      required:
+      - exchange_id
       type: object
     CancelOrderAllRequest:
+      description: Cancel all orders request object.
       example:
         exchange_id: KRAKEN
       properties:
         exchange_id:
-          description: Exchange identifier from which active orders should be canceled.
+          description: Identifier of the exchange from which active orders should
+            be canceled.
           example: KRAKEN
           type: string
       required:

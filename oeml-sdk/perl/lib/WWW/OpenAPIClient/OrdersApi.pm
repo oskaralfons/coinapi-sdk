@@ -51,7 +51,7 @@ sub new {
 #
 # v1_orders_cancel_all_post
 #
-# Cancel all orders
+# Cancel all orders request
 # 
 # @param CancelOrderAllRequest $cancel_order_all_request  (required)
 {
@@ -63,7 +63,7 @@ sub new {
     },
     };
     __PACKAGE__->method_documentation->{ 'v1_orders_cancel_all_post' } = { 
-        summary => 'Cancel all orders',
+        summary => 'Cancel all orders request',
         params => $params,
         returns => 'Message',
         };
@@ -116,7 +116,7 @@ sub v1_orders_cancel_all_post {
 #
 # v1_orders_cancel_post
 #
-# Cancel order
+# Cancel order request
 # 
 # @param CancelOrderSingleRequest $cancel_order_single_request  (required)
 {
@@ -128,7 +128,7 @@ sub v1_orders_cancel_all_post {
     },
     };
     __PACKAGE__->method_documentation->{ 'v1_orders_cancel_post' } = { 
-        summary => 'Cancel order',
+        summary => 'Cancel order request',
         params => $params,
         returns => 'OrderExecutionReport',
         };
@@ -183,12 +183,12 @@ sub v1_orders_cancel_post {
 #
 # Get all orders
 # 
-# @param string $exchange_id Filter the output to the orders from the specific exchange. (optional)
+# @param string $exchange_id Filter the open orders to the specific exchange. (optional)
 {
     my $params = {
     'exchange_id' => {
         data_type => 'string',
-        description => 'Filter the output to the orders from the specific exchange.',
+        description => 'Filter the open orders to the specific exchange.',
         required => '0',
     },
     };
@@ -241,7 +241,7 @@ sub v1_orders_get {
 #
 # v1_orders_post
 #
-# Create new order
+# Send new order
 # 
 # @param NewOrderSingle $new_order_single  (required)
 {
@@ -253,7 +253,7 @@ sub v1_orders_get {
     },
     };
     __PACKAGE__->method_documentation->{ 'v1_orders_post' } = { 
-        summary => 'Create new order',
+        summary => 'Send new order',
         params => $params,
         returns => 'OrderExecutionReport',
         };
@@ -306,7 +306,7 @@ sub v1_orders_post {
 #
 # v1_orders_status_client_order_id_get
 #
-# Get order status
+# Get order execution report
 # 
 # @param string $client_order_id The unique identifier of the order assigned by the client. (required)
 {
@@ -318,7 +318,7 @@ sub v1_orders_post {
     },
     };
     __PACKAGE__->method_documentation->{ 'v1_orders_status_client_order_id_get' } = { 
-        summary => 'Get order status',
+        summary => 'Get order execution report',
         params => $params,
         returns => 'OrderExecutionReport',
         };

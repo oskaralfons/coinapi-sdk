@@ -1,7 +1,7 @@
 function New-CancelOrderSingleRequest {
     [CmdletBinding()]
     Param (
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [String]
         ${exchangeUnderscoreid},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]

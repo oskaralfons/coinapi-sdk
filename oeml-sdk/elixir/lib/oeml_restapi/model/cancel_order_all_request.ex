@@ -4,7 +4,7 @@
 
 defmodule OEML-RESTAPI.Model.CancelOrderAllRequest do
   @moduledoc """
-  
+  Cancel all orders request object.
   """
 
   @derive [Poison.Encoder]

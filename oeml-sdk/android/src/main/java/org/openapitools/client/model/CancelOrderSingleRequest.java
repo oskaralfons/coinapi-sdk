@@ -15,7 +15,10 @@ package org.openapitools.client.model;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
 
-@ApiModel(description = "")
+/**
+ * Cancel single order request object.
+ **/
+@ApiModel(description = "Cancel single order request object.")
 public class CancelOrderSingleRequest {
   
   @SerializedName("exchange_id")
@@ -28,7 +31,7 @@ public class CancelOrderSingleRequest {
   /**
    * Exchange identifier.
    **/
-  @ApiModelProperty(value = "Exchange identifier.")
+  @ApiModelProperty(required = true, value = "Exchange identifier.")
   public String getExchangeId() {
     return exchangeId;
   }
@@ -37,9 +40,9 @@ public class CancelOrderSingleRequest {
   }
 
   /**
-   * The unique identifier of the order assigned by the exchange.
+   * The unique identifier of the order assigned by the exchange. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
    **/
-  @ApiModelProperty(value = "The unique identifier of the order assigned by the exchange.")
+  @ApiModelProperty(value = "The unique identifier of the order assigned by the exchange. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.")
   public String getExchangeOrderId() {
     return exchangeOrderId;
   }
@@ -48,9 +51,9 @@ public class CancelOrderSingleRequest {
   }
 
   /**
-   * The unique identifier of the order assigned by the client.
+   * The unique identifier of the order assigned by the client. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
    **/
-  @ApiModelProperty(value = "The unique identifier of the order assigned by the client.")
+  @ApiModelProperty(value = "The unique identifier of the order assigned by the client. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.")
   public String getClientOrderId() {
     return clientOrderId;
   }

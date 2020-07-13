@@ -4,20 +4,20 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v1OrdersCancelAllPost**](OrdersApi.md#v1OrdersCancelAllPost) | **POST** /v1/orders/cancel/all | Cancel all orders
-[**v1OrdersCancelPost**](OrdersApi.md#v1OrdersCancelPost) | **POST** /v1/orders/cancel | Cancel order
+[**v1OrdersCancelAllPost**](OrdersApi.md#v1OrdersCancelAllPost) | **POST** /v1/orders/cancel/all | Cancel all orders request
+[**v1OrdersCancelPost**](OrdersApi.md#v1OrdersCancelPost) | **POST** /v1/orders/cancel | Cancel order request
 [**v1OrdersGet**](OrdersApi.md#v1OrdersGet) | **GET** /v1/orders | Get all orders
-[**v1OrdersPost**](OrdersApi.md#v1OrdersPost) | **POST** /v1/orders | Create new order
-[**v1OrdersStatusClientOrderIdGet**](OrdersApi.md#v1OrdersStatusClientOrderIdGet) | **GET** /v1/orders/status/{client_order_id} | Get order status
+[**v1OrdersPost**](OrdersApi.md#v1OrdersPost) | **POST** /v1/orders | Send new order
+[**v1OrdersStatusClientOrderIdGet**](OrdersApi.md#v1OrdersStatusClientOrderIdGet) | **GET** /v1/orders/status/{client_order_id} | Get order execution report
 
 
 <a name="v1OrdersCancelAllPost"></a>
 # **v1OrdersCancelAllPost**
 > Message v1OrdersCancelAllPost(cancelOrderAllRequest)
 
-Cancel all orders
+Cancel all orders request
 
-This request cancels all open orders across all or single specified exchange.
+This request cancels all open orders on single specified exchange.
 
 ### Example
 ```kotlin
@@ -62,9 +62,9 @@ No authorization required
 # **v1OrdersCancelPost**
 > OrderExecutionReport v1OrdersCancelPost(cancelOrderSingleRequest)
 
-Cancel order
+Cancel order request
 
-This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
 
 ### Example
 ```kotlin
@@ -111,7 +111,7 @@ No authorization required
 
 Get all orders
 
-Get last execution reports for all open orders across all or single exchange.
+Get last execution reports for open orders across all or single exchange.
 
 ### Example
 ```kotlin
@@ -120,7 +120,7 @@ Get last execution reports for all open orders across all or single exchange.
 //import org.openapitools.client.models.*
 
 val apiInstance = OrdersApi()
-val exchangeId : kotlin.String = KRAKEN // kotlin.String | Filter the output to the orders from the specific exchange.
+val exchangeId : kotlin.String = KRAKEN // kotlin.String | Filter the open orders to the specific exchange.
 try {
     val result : kotlin.Array<OrderExecutionReport> = apiInstance.v1OrdersGet(exchangeId)
     println(result)
@@ -137,7 +137,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **exchangeId** | **kotlin.String**| Filter the output to the orders from the specific exchange. | [optional]
+ **exchangeId** | **kotlin.String**| Filter the open orders to the specific exchange. | [optional]
 
 ### Return type
 
@@ -156,7 +156,7 @@ No authorization required
 # **v1OrdersPost**
 > OrderExecutionReport v1OrdersPost(newOrderSingle)
 
-Create new order
+Send new order
 
 This request creating new order for the specific exchange.
 
@@ -203,9 +203,9 @@ No authorization required
 # **v1OrdersStatusClientOrderIdGet**
 > OrderExecutionReport v1OrdersStatusClientOrderIdGet(clientOrderId)
 
-Get order status
+Get order execution report
 
-Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+Get the last order execution report for the specified order. The requested order does not need to be active or opened.
 
 ### Example
 ```kotlin

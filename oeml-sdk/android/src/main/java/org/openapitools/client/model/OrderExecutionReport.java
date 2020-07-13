@@ -90,9 +90,9 @@ public class OrderExecutionReport {
   }
 
   /**
-   * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
+   * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
    **/
-  @ApiModelProperty(value = "Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.")
+  @ApiModelProperty(value = "Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.")
   public String getSymbolExchange() {
     return symbolExchange;
   }
@@ -101,9 +101,9 @@ public class OrderExecutionReport {
   }
 
   /**
-   * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
+   * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
    **/
-  @ApiModelProperty(value = "CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.")
+  @ApiModelProperty(value = "CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.")
   public String getSymbolCoinapi() {
     return symbolCoinapi;
   }

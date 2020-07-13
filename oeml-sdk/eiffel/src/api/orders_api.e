@@ -25,8 +25,8 @@ feature -- API Access
 
 
 	v1_orders_cancel_all_post (cancel_order_all_request: CANCEL_ORDER_ALL_REQUEST): detachable MESSAGE
-			-- Cancel all orders
-			-- This request cancels all open orders across all or single specified exchange.
+			-- Cancel all orders request
+			-- This request cancels all open orders on single specified exchange.
 			-- 
 			-- argument: cancel_order_all_request  (required)
 			-- 
@@ -60,8 +60,8 @@ feature -- API Access
 		end	
 
 	v1_orders_cancel_post (cancel_order_single_request: CANCEL_ORDER_SINGLE_REQUEST): detachable ORDER_EXECUTION_REPORT
-			-- Cancel order
-			-- This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+			-- Cancel order request
+			-- Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
 			-- 
 			-- argument: cancel_order_single_request  (required)
 			-- 
@@ -96,9 +96,9 @@ feature -- API Access
 
 	v1_orders_get (exchange_id: STRING_32): detachable LIST [ORDER_EXECUTION_REPORT]
 			-- Get all orders
-			-- Get last execution reports for all open orders across all or single exchange.
+			-- Get last execution reports for open orders across all or single exchange.
 			-- 
-			-- argument: exchange_id Filter the output to the orders from the specific exchange. (optional, default to null)
+			-- argument: exchange_id Filter the open orders to the specific exchange. (optional, default to null)
 			-- 
 			-- 
 			-- Result LIST [ORDER_EXECUTION_REPORT]
@@ -131,7 +131,7 @@ feature -- API Access
 		end	
 
 	v1_orders_post (new_order_single: NEW_ORDER_SINGLE): detachable ORDER_EXECUTION_REPORT
-			-- Create new order
+			-- Send new order
 			-- This request creating new order for the specific exchange.
 			-- 
 			-- argument: new_order_single  (required)
@@ -166,8 +166,8 @@ feature -- API Access
 		end	
 
 	v1_orders_status_client_order_id_get (client_order_id: STRING_32): detachable ORDER_EXECUTION_REPORT
-			-- Get order status
-			-- Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+			-- Get order execution report
+			-- Get the last order execution report for the specified order. The requested order does not need to be active or opened.
 			-- 
 			-- argument: client_order_id The unique identifier of the order assigned by the client. (required)
 			-- 

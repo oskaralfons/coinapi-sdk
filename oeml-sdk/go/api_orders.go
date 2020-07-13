@@ -27,8 +27,8 @@ var (
 type OrdersApiService service
 
 /*
-V1OrdersCancelAllPost Cancel all orders
-This request cancels all open orders across all or single specified exchange.
+V1OrdersCancelAllPost Cancel all orders request
+This request cancels all open orders on single specified exchange.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param cancelOrderAllRequest
 @return Message
@@ -89,6 +89,16 @@ func (a *OrdersApiService) V1OrdersCancelAllPost(ctx _context.Context, cancelOrd
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ValidationError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 490 {
 			var v Message
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -114,8 +124,8 @@ func (a *OrdersApiService) V1OrdersCancelAllPost(ctx _context.Context, cancelOrd
 }
 
 /*
-V1OrdersCancelPost Cancel order
-This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+V1OrdersCancelPost Cancel order request
+Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param cancelOrderSingleRequest
 @return OrderExecutionReport
@@ -217,10 +227,10 @@ type V1OrdersGetOpts struct {
 
 /*
 V1OrdersGet Get all orders
-Get last execution reports for all open orders across all or single exchange.
+Get last execution reports for open orders across all or single exchange.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *V1OrdersGetOpts - Optional Parameters:
- * @param "ExchangeId" (optional.String) -  Filter the output to the orders from the specific exchange.
+ * @param "ExchangeId" (optional.String) -  Filter the open orders to the specific exchange.
 @return []OrderExecutionReport
 */
 func (a *OrdersApiService) V1OrdersGet(ctx _context.Context, localVarOptionals *V1OrdersGetOpts) ([]OrderExecutionReport, *_nethttp.Response, error) {
@@ -305,7 +315,7 @@ func (a *OrdersApiService) V1OrdersGet(ctx _context.Context, localVarOptionals *
 }
 
 /*
-V1OrdersPost Create new order
+V1OrdersPost Send new order
 This request creating new order for the specific exchange.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param newOrderSingle
@@ -385,6 +395,16 @@ func (a *OrdersApiService) V1OrdersPost(ctx _context.Context, newOrderSingle New
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
 			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 504 {
+			var v Message
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -402,8 +422,8 @@ func (a *OrdersApiService) V1OrdersPost(ctx _context.Context, newOrderSingle New
 }
 
 /*
-V1OrdersStatusClientOrderIdGet Get order status
-Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+V1OrdersStatusClientOrderIdGet Get order execution report
+Get the last order execution report for the specified order. The requested order does not need to be active or opened.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param clientOrderId The unique identifier of the order assigned by the client.
 @return OrderExecutionReport

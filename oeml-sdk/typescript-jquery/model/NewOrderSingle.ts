@@ -27,12 +27,12 @@ export interface NewOrderSingle {
     client_order_id: string;
 
     /**
-     * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
+     * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
      */
     symbol_exchange?: string;
 
     /**
-     * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
+     * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
      */
     symbol_coinapi?: string;
 

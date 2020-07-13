@@ -2,11 +2,12 @@
 
 # CancelOrderAllRequest
 
+Cancel all orders request object.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**exchangeId** | **String** | Exchange identifier from which active orders should be canceled. | 
+**exchangeId** | **String** | Identifier of the exchange from which active orders should be canceled. | 
 
 
 

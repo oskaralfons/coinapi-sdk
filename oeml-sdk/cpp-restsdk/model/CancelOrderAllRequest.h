@@ -12,7 +12,7 @@
 /*
  * CancelOrderAllRequest.h
  *
- * 
+ * Cancel all orders request object.
  */
 
 #ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_CancelOrderAllRequest_H_
@@ -30,7 +30,7 @@ namespace model {
 
 
 /// <summary>
-/// 
+/// Cancel all orders request object.
 /// </summary>
 class  CancelOrderAllRequest
     : public ModelBase
@@ -54,7 +54,7 @@ public:
     /// CancelOrderAllRequest members
 
     /// <summary>
-    /// Exchange identifier from which active orders should be canceled.
+    /// Identifier of the exchange from which active orders should be canceled.
     /// </summary>
     utility::string_t getExchangeId() const;
     bool exchangeIdIsSet() const;

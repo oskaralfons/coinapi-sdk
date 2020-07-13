@@ -12,8 +12,8 @@ defmodule OEML-RESTAPI.Api.Orders do
 
 
   @doc """
-  Cancel all orders
-  This request cancels all open orders across all or single specified exchange.
+  Cancel all orders request
+  This request cancels all open orders on single specified exchange.
 
   ## Parameters
 
@@ -35,13 +35,14 @@ defmodule OEML-RESTAPI.Api.Orders do
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
       { 200, %OEML-RESTAPI.Model.Message{}},
+      { 400, %OEML-RESTAPI.Model.ValidationError{}},
       { 490, %OEML-RESTAPI.Model.Message{}}
     ])
   end
 
   @doc """
-  Cancel order
-  This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+  Cancel order request
+  Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`.
 
   ## Parameters
 
@@ -70,13 +71,13 @@ defmodule OEML-RESTAPI.Api.Orders do
 
   @doc """
   Get all orders
-  Get last execution reports for all open orders across all or single exchange.
+  Get last execution reports for open orders across all or single exchange.
 
   ## Parameters
 
   - connection (OEML-RESTAPI.Connection): Connection to server
   - opts (KeywordList): [optional] Optional parameters
-    - :exchange_id (String.t): Filter the output to the orders from the specific exchange.
+    - :exchange_id (String.t): Filter the open orders to the specific exchange.
   ## Returns
 
   {:ok, [%OrderExecutionReport{}, ...]} on success
@@ -100,7 +101,7 @@ defmodule OEML-RESTAPI.Api.Orders do
   end
 
   @doc """
-  Create new order
+  Send new order
   This request creating new order for the specific exchange.
 
   ## Parameters
@@ -124,13 +125,14 @@ defmodule OEML-RESTAPI.Api.Orders do
     |> evaluate_response([
       { 200, %OEML-RESTAPI.Model.OrderExecutionReport{}},
       { 400, %OEML-RESTAPI.Model.ValidationError{}},
-      { 490, %OEML-RESTAPI.Model.Message{}}
+      { 490, %OEML-RESTAPI.Model.Message{}},
+      { 504, %OEML-RESTAPI.Model.Message{}}
     ])
   end
 
   @doc """
-  Get order status
-  Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+  Get order execution report
+  Get the last order execution report for the specified order. The requested order does not need to be active or opened.
 
   ## Parameters
 

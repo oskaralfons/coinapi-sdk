@@ -31,14 +31,14 @@ class TestOrdersApi(unittest.TestCase):
     def test_v1_orders_cancel_all_post(self):
         """Test case for v1_orders_cancel_all_post
 
-        Cancel all orders  # noqa: E501
+        Cancel all orders request  # noqa: E501
         """
         pass
 
     def test_v1_orders_cancel_post(self):
         """Test case for v1_orders_cancel_post
 
-        Cancel order  # noqa: E501
+        Cancel order request  # noqa: E501
         """
         pass
 
@@ -52,14 +52,14 @@ class TestOrdersApi(unittest.TestCase):
     def test_v1_orders_post(self):
         """Test case for v1_orders_post
 
-        Create new order  # noqa: E501
+        Send new order  # noqa: E501
         """
         pass
 
     def test_v1_orders_status_client_order_id_get(self):
         """Test case for v1_orders_status_client_order_id_get
 
-        Get order status  # noqa: E501
+        Get order execution report  # noqa: E501
         """
         pass
 

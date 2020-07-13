@@ -18,9 +18,9 @@ class OrdersApi {
 
     OrdersApi(this._dio, this._serializers);
 
-        /// Cancel all orders
+        /// Cancel all orders request
         ///
-        /// This request cancels all open orders across all or single specified exchange.
+        /// This request cancels all open orders on single specified exchange.
         Future<Response<Message>>v1OrdersCancelAllPost(CancelOrderAllRequest cancelOrderAllRequest,{ CancelToken cancelToken, Map<String, String> headers,}) async {
 
         String _path = "/v1/orders/cancel/all";
@@ -68,9 +68,9 @@ class OrdersApi {
             );
             });
             }
-        /// Cancel order
+        /// Cancel order request
         ///
-        /// This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+        /// Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
         Future<Response<OrderExecutionReport>>v1OrdersCancelPost(CancelOrderSingleRequest cancelOrderSingleRequest,{ CancelToken cancelToken, Map<String, String> headers,}) async {
 
         String _path = "/v1/orders/cancel";
@@ -120,7 +120,7 @@ class OrdersApi {
             }
         /// Get all orders
         ///
-        /// Get last execution reports for all open orders across all or single exchange.
+        /// Get last execution reports for open orders across all or single exchange.
         Future<Response<List<OrderExecutionReport>>>v1OrdersGet({ String exchangeId,CancelToken cancelToken, Map<String, String> headers,}) async {
 
         String _path = "/v1/orders";
@@ -167,7 +167,7 @@ class OrdersApi {
             );
             });
             }
-        /// Create new order
+        /// Send new order
         ///
         /// This request creating new order for the specific exchange.
         Future<Response<OrderExecutionReport>>v1OrdersPost(NewOrderSingle newOrderSingle,{ CancelToken cancelToken, Map<String, String> headers,}) async {
@@ -217,9 +217,9 @@ class OrdersApi {
             );
             });
             }
-        /// Get order status
+        /// Get order execution report
         ///
-        /// Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+        /// Get the last order execution report for the specified order. The requested order does not need to be active or opened.
         Future<Response<OrderExecutionReport>>v1OrdersStatusClientOrderIdGet(String clientOrderId,{ CancelToken cancelToken, Map<String, String> headers,}) async {
 
         String _path = "/v1/orders/status/{client_order_id}".replaceAll("{" r'client_order_id' "}", clientOrderId.toString());

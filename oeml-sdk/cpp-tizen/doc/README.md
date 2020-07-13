@@ -47,16 +47,16 @@ Method | HTTP request | Description
 ### OrdersManager
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-*v1OrdersCancelAllPostSync* | *POST* /v1/orders/cancel/all | Cancel all orders.
-*v1OrdersCancelAllPostASync* | *POST* /v1/orders/cancel/all | Cancel all orders.
-*v1OrdersCancelPostSync* | *POST* /v1/orders/cancel | Cancel order.
-*v1OrdersCancelPostASync* | *POST* /v1/orders/cancel | Cancel order.
+*v1OrdersCancelAllPostSync* | *POST* /v1/orders/cancel/all | Cancel all orders request.
+*v1OrdersCancelAllPostASync* | *POST* /v1/orders/cancel/all | Cancel all orders request.
+*v1OrdersCancelPostSync* | *POST* /v1/orders/cancel | Cancel order request.
+*v1OrdersCancelPostASync* | *POST* /v1/orders/cancel | Cancel order request.
 *v1OrdersGetSync* | *GET* /v1/orders | Get all orders.
 *v1OrdersGetASync* | *GET* /v1/orders | Get all orders.
-*v1OrdersPostSync* | *POST* /v1/orders | Create new order.
-*v1OrdersPostASync* | *POST* /v1/orders | Create new order.
-*v1OrdersStatusClientOrderIdGetSync* | *GET* /v1/orders/status/{client_order_id} | Get order status.
-*v1OrdersStatusClientOrderIdGetASync* | *GET* /v1/orders/status/{client_order_id} | Get order status.
+*v1OrdersPostSync* | *POST* /v1/orders | Send new order.
+*v1OrdersPostASync* | *POST* /v1/orders | Send new order.
+*v1OrdersStatusClientOrderIdGetSync* | *GET* /v1/orders/status/{client_order_id} | Get order execution report.
+*v1OrdersStatusClientOrderIdGetASync* | *GET* /v1/orders/status/{client_order_id} | Get order execution report.
 
 ### PositionsManager
 Method | HTTP request | Description
@@ -70,8 +70,8 @@ Class | Description
 ------------- | -------------
  *Balance* | 
  *Balance_data* | 
- *CancelOrderAllRequest* | 
- *CancelOrderSingleRequest* | 
+ *CancelOrderAllRequest* | Cancel all orders request object.
+ *CancelOrderSingleRequest* | Cancel single order request object.
  *Message* | 
  *NewOrderSingle* | The new order message.
  *OrdSide* | Side of order. 

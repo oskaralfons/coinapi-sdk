@@ -18,13 +18,13 @@ void main() {
       // TODO
     });
 
-    // Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
+    // Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
     // String symbolExchange (default value: null)
     test('to test the property `symbolExchange`', () async {
       // TODO
     });
 
-    // CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
+    // CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
     // String symbolCoinapi (default value: null)
     test('to test the property `symbolCoinapi`', () async {
       // TODO

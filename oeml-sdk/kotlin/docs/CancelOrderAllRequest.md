@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**exchangeId** | **kotlin.String** | Exchange identifier from which active orders should be canceled. | 
+**exchangeId** | **kotlin.String** | Identifier of the exchange from which active orders should be canceled. | 
 
 
 

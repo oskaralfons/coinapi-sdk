@@ -148,12 +148,12 @@ export type BalanceData = {
 
 
 /**
- * 
+ * Cancel all orders request object.
  * @export
  */
 export type CancelOrderAllRequest = {
     /**
-     * Exchange identifier from which active orders should be canceled.
+     * Identifier of the exchange from which active orders should be canceled.
      * @type {string}
      * @memberof CancelOrderAllRequest
      */
@@ -162,7 +162,7 @@ export type CancelOrderAllRequest = {
 
 
 /**
- * 
+ * Cancel single order request object.
  * @export
  */
 export type CancelOrderSingleRequest = {
@@ -171,15 +171,15 @@ export type CancelOrderSingleRequest = {
      * @type {string}
      * @memberof CancelOrderSingleRequest
      */
-    exchange_id?: string;
+    exchange_id: string;
     /**
-     * The unique identifier of the order assigned by the exchange.
+     * The unique identifier of the order assigned by the exchange. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
      * @type {string}
      * @memberof CancelOrderSingleRequest
      */
     exchange_order_id?: string;
     /**
-     * The unique identifier of the order assigned by the client.
+     * The unique identifier of the order assigned by the client. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
      * @type {string}
      * @memberof CancelOrderSingleRequest
      */
@@ -239,13 +239,13 @@ export type NewOrderSingle = {
      */
     client_order_id: string;
     /**
-     * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
+     * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
      * @type {string}
      * @memberof NewOrderSingle
      */
     symbol_exchange?: string;
     /**
-     * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
+     * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
      * @type {string}
      * @memberof NewOrderSingle
      */
@@ -336,13 +336,13 @@ export type OrderExecutionReport = {
      */
     client_order_id: string;
     /**
-     * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
+     * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
      * @type {string}
      * @memberof OrderExecutionReport
      */
     symbol_exchange?: string;
     /**
-     * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
+     * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
      * @type {string}
      * @memberof OrderExecutionReport
      */
@@ -709,8 +709,8 @@ export const BalancesApi = function(configuration?: Configuration, fetch: FetchA
 export const OrdersApiFetchParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This request cancels all open orders across all or single specified exchange.
-         * @summary Cancel all orders
+         * This request cancels all open orders on single specified exchange.
+         * @summary Cancel all orders request
          * @throws {RequiredError}
          */
         v1OrdersCancelAllPost(cancelOrderAllRequest: CancelOrderAllRequest, options: RequestOptions): FetchArgs {
@@ -739,8 +739,8 @@ export const OrdersApiFetchParamCreator = function (configuration?: Configuratio
             };
         },
         /**
-         * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
-         * @summary Cancel order
+         * Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`.
+         * @summary Cancel order request
          * @throws {RequiredError}
          */
         v1OrdersCancelPost(cancelOrderSingleRequest: CancelOrderSingleRequest, options: RequestOptions): FetchArgs {
@@ -769,7 +769,7 @@ export const OrdersApiFetchParamCreator = function (configuration?: Configuratio
             };
         },
         /**
-         * Get last execution reports for all open orders across all or single exchange.
+         * Get last execution reports for open orders across all or single exchange.
          * @summary Get all orders
          * @throws {RequiredError}
          */
@@ -796,7 +796,7 @@ export const OrdersApiFetchParamCreator = function (configuration?: Configuratio
         },
         /**
          * This request creating new order for the specific exchange.
-         * @summary Create new order
+         * @summary Send new order
          * @throws {RequiredError}
          */
         v1OrdersPost(newOrderSingle: NewOrderSingle, options: RequestOptions): FetchArgs {
@@ -825,8 +825,8 @@ export const OrdersApiFetchParamCreator = function (configuration?: Configuratio
             };
         },
         /**
-         * Get the last order execution report for the specified order. The requested order does not need to be active/opened.
-         * @summary Get order status
+         * Get the last order execution report for the specified order. The requested order does not need to be active or opened.
+         * @summary Get order execution report
          * @throws {RequiredError}
          */
         v1OrdersStatusClientOrderIdGet(clientOrderId: string, options: RequestOptions): FetchArgs {
@@ -874,8 +874,8 @@ export const OrdersApi = function(configuration?: Configuration, fetch: FetchAPI
     const basePath: string = (configuration && configuration.basePath) || BASE_PATH;
     return {
         /**
-         * This request cancels all open orders across all or single specified exchange.
-         * @summary Cancel all orders
+         * This request cancels all open orders on single specified exchange.
+         * @summary Cancel all orders request
          * @throws {RequiredError}
          */
         v1OrdersCancelAllPost(cancelOrderAllRequest: CancelOrderAllRequest, options?: RequestOptions = {}): Promise<Message> {
@@ -889,8 +889,8 @@ export const OrdersApi = function(configuration?: Configuration, fetch: FetchAPI
             });
         },
         /**
-         * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
-         * @summary Cancel order
+         * Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`.
+         * @summary Cancel order request
          * @throws {RequiredError}
          */
         v1OrdersCancelPost(cancelOrderSingleRequest: CancelOrderSingleRequest, options?: RequestOptions = {}): Promise<OrderExecutionReport> {
@@ -904,7 +904,7 @@ export const OrdersApi = function(configuration?: Configuration, fetch: FetchAPI
             });
         },
         /**
-         * Get last execution reports for all open orders across all or single exchange.
+         * Get last execution reports for open orders across all or single exchange.
          * @summary Get all orders
          * @throws {RequiredError}
          */
@@ -920,7 +920,7 @@ export const OrdersApi = function(configuration?: Configuration, fetch: FetchAPI
         },
         /**
          * This request creating new order for the specific exchange.
-         * @summary Create new order
+         * @summary Send new order
          * @throws {RequiredError}
          */
         v1OrdersPost(newOrderSingle: NewOrderSingle, options?: RequestOptions = {}): Promise<OrderExecutionReport> {
@@ -934,8 +934,8 @@ export const OrdersApi = function(configuration?: Configuration, fetch: FetchAPI
             });
         },
         /**
-         * Get the last order execution report for the specified order. The requested order does not need to be active/opened.
-         * @summary Get order status
+         * Get the last order execution report for the specified order. The requested order does not need to be active or opened.
+         * @summary Get order execution report
          * @throws {RequiredError}
          */
         v1OrdersStatusClientOrderIdGet(clientOrderId: string, options?: RequestOptions = {}): Promise<OrderExecutionReport> {

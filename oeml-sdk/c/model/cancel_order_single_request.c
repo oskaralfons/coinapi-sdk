@@ -37,11 +37,13 @@ cJSON *cancel_order_single_request_convertToJSON(cancel_order_single_request_t *
     cJSON *item = cJSON_CreateObject();
 
     // cancel_order_single_request->exchange_id
-    if(cancel_order_single_request->exchange_id) { 
+    if (!cancel_order_single_request->exchange_id) {
+        goto fail;
+    }
+    
     if(cJSON_AddStringToObject(item, "exchange_id", cancel_order_single_request->exchange_id) == NULL) {
     goto fail; //String
     }
-     } 
 
 
     // cancel_order_single_request->exchange_order_id
@@ -73,11 +75,14 @@ cancel_order_single_request_t *cancel_order_single_request_parseFromJSON(cJSON *
 
     // cancel_order_single_request->exchange_id
     cJSON *exchange_id = cJSON_GetObjectItemCaseSensitive(cancel_order_single_requestJSON, "exchange_id");
-    if (exchange_id) { 
+    if (!exchange_id) {
+        goto end;
+    }
+
+    
     if(!cJSON_IsString(exchange_id))
     {
     goto end; //String
-    }
     }
 
     // cancel_order_single_request->exchange_order_id
@@ -100,7 +105,7 @@ cancel_order_single_request_t *cancel_order_single_request_parseFromJSON(cJSON *
 
 
     cancel_order_single_request_local_var = cancel_order_single_request_create (
-        exchange_id ? strdup(exchange_id->valuestring) : NULL,
+        strdup(exchange_id->valuestring),
         exchange_order_id ? strdup(exchange_order_id->valuestring) : NULL,
         client_order_id ? strdup(client_order_id->valuestring) : NULL
         );

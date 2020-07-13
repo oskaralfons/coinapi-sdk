@@ -14,8 +14,8 @@
 #'
 #' @section Methods:
 #' \describe{
-#' \strong{ V1OrdersCancelAllPost } \emph{ Cancel all orders }
-#' This request cancels all open orders across all or single specified exchange.
+#' \strong{ V1OrdersCancelAllPost } \emph{ Cancel all orders request }
+#' This request cancels all open orders on single specified exchange.
 #'
 #' \itemize{
 #' \item \emph{ @param } cancel.order.all.request \link{CancelOrderAllRequest}
@@ -29,6 +29,13 @@
 #'
 #' \tabular{ll}{
 #' }
+#' \item status code : 400 | Input model validation errors.
+#'
+#' \item return type : ValidationError 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
 #' \item status code : 490 | Exchange is unreachable.
 #'
 #' \item return type : Message 
@@ -38,22 +45,22 @@
 #' }
 #' }
 #'
-#' \strong{ V1OrdersCancelPost } \emph{ Cancel order }
-#' This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+#' \strong{ V1OrdersCancelPost } \emph{ Cancel order request }
+#' Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
 #'
 #' \itemize{
 #' \item \emph{ @param } cancel.order.single.request \link{CancelOrderSingleRequest}
 #' \item \emph{ @returnType } \link{OrderExecutionReport} \cr
 #'
 #'
-#' \item status code : 200 | Canceled order
+#' \item status code : 200 | The last execution report for the order for which cancelation was requested.
 #'
 #' \item return type : OrderExecutionReport 
 #' \item response headers :
 #'
 #' \tabular{ll}{
 #' }
-#' \item status code : 400 | Validation errors
+#' \item status code : 400 | Input model validation errors.
 #'
 #' \item return type : ValidationError 
 #' \item response headers :
@@ -70,7 +77,7 @@
 #' }
 #'
 #' \strong{ V1OrdersGet } \emph{ Get all orders }
-#' Get last execution reports for all open orders across all or single exchange.
+#' Get last execution reports for open orders across all or single exchange.
 #'
 #' \itemize{
 #' \item \emph{ @param } exchange.id character
@@ -93,7 +100,7 @@
 #' }
 #' }
 #'
-#' \strong{ V1OrdersPost } \emph{ Create new order }
+#' \strong{ V1OrdersPost } \emph{ Send new order }
 #' This request creating new order for the specific exchange.
 #'
 #' \itemize{
@@ -108,7 +115,7 @@
 #'
 #' \tabular{ll}{
 #' }
-#' \item status code : 400 | Validation errors
+#' \item status code : 400 | Input model validation errors.
 #'
 #' \item return type : ValidationError 
 #' \item response headers :
@@ -122,17 +129,24 @@
 #'
 #' \tabular{ll}{
 #' }
+#' \item status code : 504 | Exchange didn&#39;t responded in the defined timeout.
+#'
+#' \item return type : Message 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
 #' }
 #'
-#' \strong{ V1OrdersStatusClientOrderIdGet } \emph{ Get order status }
-#' Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+#' \strong{ V1OrdersStatusClientOrderIdGet } \emph{ Get order execution report }
+#' Get the last order execution report for the specified order. The requested order does not need to be active or opened.
 #'
 #' \itemize{
 #' \item \emph{ @param } client.order.id character
 #' \item \emph{ @returnType } \link{OrderExecutionReport} \cr
 #'
 #'
-#' \item status code : 200 | The last xecution report of the requested order.
+#' \item status code : 200 | The last execution report of the requested order.
 #'
 #' \item return type : OrderExecutionReport 
 #' \item response headers :
@@ -158,7 +172,7 @@
 #' library(openapi)
 #' var.cancel.order.all.request <- CancelOrderAllRequest$new() # CancelOrderAllRequest | 
 #'
-#' #Cancel all orders
+#' #Cancel all orders request
 #' api.instance <- OrdersApi$new()
 #'
 #' result <- api.instance$V1OrdersCancelAllPost(var.cancel.order.all.request)
@@ -169,7 +183,7 @@
 #' library(openapi)
 #' var.cancel.order.single.request <- CancelOrderSingleRequest$new() # CancelOrderSingleRequest | 
 #'
-#' #Cancel order
+#' #Cancel order request
 #' api.instance <- OrdersApi$new()
 #'
 #' result <- api.instance$V1OrdersCancelPost(var.cancel.order.single.request)
@@ -178,7 +192,7 @@
 #' ####################  V1OrdersGet  ####################
 #'
 #' library(openapi)
-#' var.exchange.id <- 'KRAKEN' # character | Filter the output to the orders from the specific exchange.
+#' var.exchange.id <- 'KRAKEN' # character | Filter the open orders to the specific exchange.
 #'
 #' #Get all orders
 #' api.instance <- OrdersApi$new()
@@ -191,7 +205,7 @@
 #' library(openapi)
 #' var.new.order.single <- NewOrderSingle$new() # NewOrderSingle | 
 #'
-#' #Create new order
+#' #Send new order
 #' api.instance <- OrdersApi$new()
 #'
 #' result <- api.instance$V1OrdersPost(var.new.order.single)
@@ -202,7 +216,7 @@
 #' library(openapi)
 #' var.client.order.id <- '6ab36bc1-344d-432e-ac6d-0bf44ee64c2b' # character | The unique identifier of the order assigned by the client.
 #'
-#' #Get order status
+#' #Get order execution report
 #' api.instance <- OrdersApi$new()
 #'
 #' result <- api.instance$V1OrdersStatusClientOrderIdGet(var.client.order.id)

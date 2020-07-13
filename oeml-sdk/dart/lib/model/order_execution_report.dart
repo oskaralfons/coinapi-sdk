@@ -5,9 +5,9 @@ class OrderExecutionReport {
   String exchangeId = null;
   /* The unique identifier of the order assigned by the client. */
   String clientOrderId = null;
-  /* Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order. */
+  /* Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order. */
   String symbolExchange = null;
-  /* CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order. */
+  /* CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order. */
   String symbolCoinapi = null;
   /* Order quantity. */
   num amountOrder = null;

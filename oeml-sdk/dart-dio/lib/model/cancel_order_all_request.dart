@@ -5,7 +5,7 @@ part 'cancel_order_all_request.g.dart';
 
 abstract class CancelOrderAllRequest implements Built<CancelOrderAllRequest, CancelOrderAllRequestBuilder> {
 
-    /* Exchange identifier from which active orders should be canceled. */
+    /* Identifier of the exchange from which active orders should be canceled. */
         @nullable
     @BuiltValueField(wireName: r'exchange_id')
     String get exchangeId;

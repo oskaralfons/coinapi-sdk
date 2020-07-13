@@ -154,7 +154,7 @@ bool OAICancelOrderSingleRequest::isSet() const {
 
 bool OAICancelOrderSingleRequest::isValid() const {
     // only required properties are required for the object to be considered valid
-    return true;
+    return m_exchange_id_isValid && true;
 }
 
 } // namespace OpenAPI

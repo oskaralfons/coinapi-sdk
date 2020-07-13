@@ -6,6 +6,6 @@ import io.swagger.annotations.ApiModelProperty;
 
 @Canonical
 class CancelOrderAllRequest {
-    /* Exchange identifier from which active orders should be canceled. */
+    /* Identifier of the exchange from which active orders should be canceled. */
     String exchangeId
 }

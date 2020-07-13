@@ -11,11 +11,11 @@
  */
 
 /**
- * OASCancelOrderAllRequest
+ * Cancel all orders request object.
  */
 public class OASCancelOrderAllRequest implements OAS.MappedProperties {
     /**
-     * Exchange identifier from which active orders should be canceled.
+     * Identifier of the exchange from which active orders should be canceled.
      * @return exchangeId
      */
     public String exchangeId { get; set; }

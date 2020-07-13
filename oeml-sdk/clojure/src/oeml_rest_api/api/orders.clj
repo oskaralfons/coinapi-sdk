@@ -24,8 +24,8 @@
 
 
 (defn-spec v1-orders-cancel-all-post-with-http-info any?
-  "Cancel all orders
-  This request cancels all open orders across all or single specified exchange."
+  "Cancel all orders request
+  This request cancels all open orders on single specified exchange."
   [cancel-order-all-request cancel-order-all-request]
   (check-required-params cancel-order-all-request)
   (call-api "/v1/orders/cancel/all" :post
@@ -39,8 +39,8 @@
              :auth-names    []}))
 
 (defn-spec v1-orders-cancel-all-post message-spec
-  "Cancel all orders
-  This request cancels all open orders across all or single specified exchange."
+  "Cancel all orders request
+  This request cancels all open orders on single specified exchange."
   [cancel-order-all-request cancel-order-all-request]
   (let [res (:data (v1-orders-cancel-all-post-with-http-info cancel-order-all-request))]
     (if (:decode-models *api-context*)
@@ -49,8 +49,8 @@
 
 
 (defn-spec v1-orders-cancel-post-with-http-info any?
-  "Cancel order
-  This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID."
+  "Cancel order request
+  Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`."
   [cancel-order-single-request cancel-order-single-request]
   (check-required-params cancel-order-single-request)
   (call-api "/v1/orders/cancel" :post
@@ -64,8 +64,8 @@
              :auth-names    []}))
 
 (defn-spec v1-orders-cancel-post order-execution-report-spec
-  "Cancel order
-  This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID."
+  "Cancel order request
+  Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`."
   [cancel-order-single-request cancel-order-single-request]
   (let [res (:data (v1-orders-cancel-post-with-http-info cancel-order-single-request))]
     (if (:decode-models *api-context*)
@@ -75,7 +75,7 @@
 
 (defn-spec v1-orders-get-with-http-info any?
   "Get all orders
-  Get last execution reports for all open orders across all or single exchange."
+  Get last execution reports for open orders across all or single exchange."
   ([] (v1-orders-get-with-http-info nil))
   ([{:keys [exchange_id]} (s/map-of keyword? any?)]
    (call-api "/v1/orders" :get
@@ -89,7 +89,7 @@
 
 (defn-spec v1-orders-get (s/coll-of order-execution-report-spec)
   "Get all orders
-  Get last execution reports for all open orders across all or single exchange."
+  Get last execution reports for open orders across all or single exchange."
   ([] (v1-orders-get nil))
   ([optional-params any?]
    (let [res (:data (v1-orders-get-with-http-info optional-params))]
@@ -99,7 +99,7 @@
 
 
 (defn-spec v1-orders-post-with-http-info any?
-  "Create new order
+  "Send new order
   This request creating new order for the specific exchange."
   [new-order-single new-order-single]
   (check-required-params new-order-single)
@@ -114,7 +114,7 @@
              :auth-names    []}))
 
 (defn-spec v1-orders-post order-execution-report-spec
-  "Create new order
+  "Send new order
   This request creating new order for the specific exchange."
   [new-order-single new-order-single]
   (let [res (:data (v1-orders-post-with-http-info new-order-single))]
@@ -124,8 +124,8 @@
 
 
 (defn-spec v1-orders-status-client-order-id-get-with-http-info any?
-  "Get order status
-  Get the last order execution report for the specified order. The requested order does not need to be active/opened."
+  "Get order execution report
+  Get the last order execution report for the specified order. The requested order does not need to be active or opened."
   [client_order_id string?]
   (check-required-params client_order_id)
   (call-api "/v1/orders/status/{client_order_id}" :get
@@ -138,8 +138,8 @@
              :auth-names    []}))
 
 (defn-spec v1-orders-status-client-order-id-get order-execution-report-spec
-  "Get order status
-  Get the last order execution report for the specified order. The requested order does not need to be active/opened."
+  "Get order execution report
+  Get the last order execution report for the specified order. The requested order does not need to be active or opened."
   [client_order_id string?]
   (let [res (:data (v1-orders-status-client-order-id-get-with-http-info client_order_id))]
     (if (:decode-models *api-context*)

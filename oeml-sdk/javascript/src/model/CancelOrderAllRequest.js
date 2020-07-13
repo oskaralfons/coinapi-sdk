@@ -21,8 +21,9 @@ import ApiClient from '../ApiClient';
 class CancelOrderAllRequest {
     /**
      * Constructs a new <code>CancelOrderAllRequest</code>.
+     * Cancel all orders request object.
      * @alias module:model/CancelOrderAllRequest
-     * @param exchangeId {String} Exchange identifier from which active orders should be canceled.
+     * @param exchangeId {String} Identifier of the exchange from which active orders should be canceled.
      */
     constructor(exchangeId) { 
         
@@ -60,7 +61,7 @@ class CancelOrderAllRequest {
 }
 
 /**
- * Exchange identifier from which active orders should be canceled.
+ * Identifier of the exchange from which active orders should be canceled.
  * @member {String} exchange_id
  */
 CancelOrderAllRequest.prototype['exchange_id'] = undefined;

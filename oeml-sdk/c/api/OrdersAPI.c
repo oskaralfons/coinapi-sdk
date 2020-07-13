@@ -12,9 +12,9 @@
 }while(0)
 
 
-// Cancel all orders
+// Cancel all orders request
 //
-// This request cancels all open orders across all or single specified exchange.
+// This request cancels all open orders on single specified exchange.
 //
 message_t*
 OrdersAPI_v1OrdersCancelAllPost(apiClient_t *apiClient, cancel_order_all_request_t * cancel_order_all_request )
@@ -58,6 +58,9 @@ OrdersAPI_v1OrdersCancelAllPost(apiClient_t *apiClient, cancel_order_all_request
     if (apiClient->response_code == 200) {
         printf("%s\n","Result");
     }
+    if (apiClient->response_code == 400) {
+        printf("%s\n","Input model validation errors.");
+    }
     if (apiClient->response_code == 490) {
         printf("%s\n","Exchange is unreachable.");
     }
@@ -89,9 +92,9 @@ end:
 
 }
 
-// Cancel order
+// Cancel order request
 //
-// This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+// Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`.
 //
 order_execution_report_t*
 OrdersAPI_v1OrdersCancelPost(apiClient_t *apiClient, cancel_order_single_request_t * cancel_order_single_request )
@@ -133,10 +136,10 @@ OrdersAPI_v1OrdersCancelPost(apiClient_t *apiClient, cancel_order_single_request
                     "POST");
 
     if (apiClient->response_code == 200) {
-        printf("%s\n","Canceled order");
+        printf("%s\n","The last execution report for the order for which cancelation was requested.");
     }
     if (apiClient->response_code == 400) {
-        printf("%s\n","Validation errors");
+        printf("%s\n","Input model validation errors.");
     }
     if (apiClient->response_code == 490) {
         printf("%s\n","Exchange is unreachable.");
@@ -171,7 +174,7 @@ end:
 
 // Get all orders
 //
-// Get last execution reports for all open orders across all or single exchange.
+// Get last execution reports for open orders across all or single exchange.
 //
 list_t*
 OrdersAPI_v1OrdersGet(apiClient_t *apiClient, char * exchange_id )
@@ -268,7 +271,7 @@ end:
 
 }
 
-// Create new order
+// Send new order
 //
 // This request creating new order for the specific exchange.
 //
@@ -315,10 +318,13 @@ OrdersAPI_v1OrdersPost(apiClient_t *apiClient, new_order_single_t * new_order_si
         printf("%s\n","Created");
     }
     if (apiClient->response_code == 400) {
-        printf("%s\n","Validation errors");
+        printf("%s\n","Input model validation errors.");
     }
     if (apiClient->response_code == 490) {
         printf("%s\n","Exchange is unreachable.");
+    }
+    if (apiClient->response_code == 504) {
+        printf("%s\n","Exchange didn&#39;t responded in the defined timeout.");
     }
     //nonprimitive not container
     cJSON *OrdersAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
@@ -348,9 +354,9 @@ end:
 
 }
 
-// Get order status
+// Get order execution report
 //
-// Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+// Get the last order execution report for the specified order. The requested order does not need to be active or opened.
 //
 order_execution_report_t*
 OrdersAPI_v1OrdersStatusClientOrderIdGet(apiClient_t *apiClient, char * client_order_id )
@@ -391,7 +397,7 @@ OrdersAPI_v1OrdersStatusClientOrderIdGet(apiClient_t *apiClient, char * client_o
                     "GET");
 
     if (apiClient->response_code == 200) {
-        printf("%s\n","The last xecution report of the requested order.");
+        printf("%s\n","The last execution report of the requested order.");
     }
     if (apiClient->response_code == 404) {
         printf("%s\n","The requested order was not found.");

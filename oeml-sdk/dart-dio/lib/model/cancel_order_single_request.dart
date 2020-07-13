@@ -9,11 +9,11 @@ abstract class CancelOrderSingleRequest implements Built<CancelOrderSingleReques
         @nullable
     @BuiltValueField(wireName: r'exchange_id')
     String get exchangeId;
-    /* The unique identifier of the order assigned by the exchange. */
+    /* The unique identifier of the order assigned by the exchange. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order. */
         @nullable
     @BuiltValueField(wireName: r'exchange_order_id')
     String get exchangeOrderId;
-    /* The unique identifier of the order assigned by the client. */
+    /* The unique identifier of the order assigned by the client. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order. */
         @nullable
     @BuiltValueField(wireName: r'client_order_id')
     String get clientOrderId;

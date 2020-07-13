@@ -11,17 +11,20 @@
  */
 
 
+/**
+ * Cancel single order request object.
+ */
 export interface CancelOrderSingleRequest { 
     /**
      * Exchange identifier.
      */
-    exchange_id?: string;
+    exchange_id: string;
     /**
-     * The unique identifier of the order assigned by the exchange.
+     * The unique identifier of the order assigned by the exchange. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
      */
     exchange_order_id?: string;
     /**
-     * The unique identifier of the order assigned by the client.
+     * The unique identifier of the order assigned by the client. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
      */
     client_order_id?: string;
 }

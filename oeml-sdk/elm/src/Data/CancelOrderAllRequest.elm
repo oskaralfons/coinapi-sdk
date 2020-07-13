@@ -18,6 +18,8 @@ import Json.Decode.Pipeline exposing (optional, required)
 import Json.Encode as Encode
 
 
+{-| Cancel all orders request object.
+-}
 type alias CancelOrderAllRequest =
     { exchangeId : String
     }

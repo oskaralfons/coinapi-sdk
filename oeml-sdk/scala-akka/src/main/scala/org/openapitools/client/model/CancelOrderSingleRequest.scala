@@ -15,10 +15,10 @@ import org.openapitools.client.core.ApiModel
 
 case class CancelOrderSingleRequest (
   /* Exchange identifier. */
-  exchangeId: Option[String] = None,
-  /* The unique identifier of the order assigned by the exchange. */
+  exchangeId: String,
+  /* The unique identifier of the order assigned by the exchange. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order. */
   exchangeOrderId: Option[String] = None,
-  /* The unique identifier of the order assigned by the client. */
+  /* The unique identifier of the order assigned by the client. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order. */
   clientOrderId: Option[String] = None
 ) extends ApiModel
 

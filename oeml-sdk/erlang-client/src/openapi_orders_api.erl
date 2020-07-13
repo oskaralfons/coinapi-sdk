@@ -8,8 +8,8 @@
 
 -define(BASE_URL, "").
 
-%% @doc Cancel all orders
-%% This request cancels all open orders across all or single specified exchange.
+%% @doc Cancel all orders request
+%% This request cancels all open orders on single specified exchange.
 -spec v1_orders_cancel_all_post(ctx:ctx(), openapi_cancel_order_all_request:openapi_cancel_order_all_request()) -> {ok, openapi_message:openapi_message(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
 v1_orders_cancel_all_post(Ctx, OpenapiCancelOrderAllRequest) ->
     v1_orders_cancel_all_post(Ctx, OpenapiCancelOrderAllRequest, #{}).
@@ -29,8 +29,8 @@ v1_orders_cancel_all_post(Ctx, OpenapiCancelOrderAllRequest, Optional) ->
 
     openapi_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
-%% @doc Cancel order
-%% This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+%% @doc Cancel order request
+%% Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`.
 -spec v1_orders_cancel_post(ctx:ctx(), openapi_cancel_order_single_request:openapi_cancel_order_single_request()) -> {ok, openapi_order_execution_report:openapi_order_execution_report(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
 v1_orders_cancel_post(Ctx, OpenapiCancelOrderSingleRequest) ->
     v1_orders_cancel_post(Ctx, OpenapiCancelOrderSingleRequest, #{}).
@@ -51,7 +51,7 @@ v1_orders_cancel_post(Ctx, OpenapiCancelOrderSingleRequest, Optional) ->
     openapi_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
 %% @doc Get all orders
-%% Get last execution reports for all open orders across all or single exchange.
+%% Get last execution reports for open orders across all or single exchange.
 -spec v1_orders_get(ctx:ctx()) -> {ok, [openapi_order_execution_report:openapi_order_execution_report()], openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
 v1_orders_get(Ctx) ->
     v1_orders_get(Ctx, #{}).
@@ -71,7 +71,7 @@ v1_orders_get(Ctx, Optional) ->
 
     openapi_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
-%% @doc Create new order
+%% @doc Send new order
 %% This request creating new order for the specific exchange.
 -spec v1_orders_post(ctx:ctx(), openapi_new_order_single:openapi_new_order_single()) -> {ok, openapi_order_execution_report:openapi_order_execution_report(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
 v1_orders_post(Ctx, OpenapiNewOrderSingle) ->
@@ -92,8 +92,8 @@ v1_orders_post(Ctx, OpenapiNewOrderSingle, Optional) ->
 
     openapi_utils:request(Ctx, Method, [?BASE_URL, Path], QS, ContentTypeHeader++Headers, Body1, Opts, Cfg).
 
-%% @doc Get order status
-%% Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+%% @doc Get order execution report
+%% Get the last order execution report for the specified order. The requested order does not need to be active or opened.
 -spec v1_orders_status_client_order_id_get(ctx:ctx(), binary()) -> {ok, openapi_order_execution_report:openapi_order_execution_report(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
 v1_orders_status_client_order_id_get(Ctx, ClientOrderId) ->
     v1_orders_status_client_order_id_get(Ctx, ClientOrderId, #{}).

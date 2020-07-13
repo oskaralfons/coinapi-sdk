@@ -89,6 +89,11 @@ static bool v1OrdersCancelAllPostProcessor(MemoryStruct_s p_chunk, long code, ch
 			printf("\n%s\n", jsonStr);
 			g_free(static_cast<gpointer>(jsonStr));
 			
+			out.fromJson(data);
+			char *jsonStr =  out.toJson();
+			printf("\n%s\n", jsonStr);
+			g_free(static_cast<gpointer>(jsonStr));
+			
 		}
 		handler(out, error, userData);
 		return true;
@@ -556,6 +561,11 @@ static bool v1OrdersPostProcessor(MemoryStruct_s p_chunk, long code, char* error
 				}
 			}
 		} else {
+			
+			out.fromJson(data);
+			char *jsonStr =  out.toJson();
+			printf("\n%s\n", jsonStr);
+			g_free(static_cast<gpointer>(jsonStr));
 			
 			out.fromJson(data);
 			char *jsonStr =  out.toJson();

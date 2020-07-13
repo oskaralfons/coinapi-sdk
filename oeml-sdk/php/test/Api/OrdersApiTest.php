@@ -75,7 +75,7 @@ class OrdersApiTest extends TestCase
     /**
      * Test case for v1OrdersCancelAllPost
      *
-     * Cancel all orders.
+     * Cancel all orders request.
      *
      */
     public function testV1OrdersCancelAllPost()
@@ -85,7 +85,7 @@ class OrdersApiTest extends TestCase
     /**
      * Test case for v1OrdersCancelPost
      *
-     * Cancel order.
+     * Cancel order request.
      *
      */
     public function testV1OrdersCancelPost()
@@ -105,7 +105,7 @@ class OrdersApiTest extends TestCase
     /**
      * Test case for v1OrdersPost
      *
-     * Create new order.
+     * Send new order.
      *
      */
     public function testV1OrdersPost()
@@ -115,7 +115,7 @@ class OrdersApiTest extends TestCase
     /**
      * Test case for v1OrdersStatusClientOrderIdGet
      *
-     * Get order status.
+     * Get order execution report.
      *
      */
     public function testV1OrdersStatusClientOrderIdGet()

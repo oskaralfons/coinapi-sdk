@@ -14,9 +14,9 @@ feature -- Test routines
 
     
     test_v1_orders_cancel_all_post
-            -- Cancel all orders
+            -- Cancel all orders request
             -- 
-            -- This request cancels all open orders across all or single specified exchange. 
+            -- This request cancels all open orders on single specified exchange. 
         local
             l_response: MESSAGE
             l_cancel_order_all_request: CANCEL_ORDER_ALL_REQUEST
@@ -29,9 +29,9 @@ feature -- Test routines
         end
     
     test_v1_orders_cancel_post
-            -- Cancel order
+            -- Cancel order request
             -- 
-            -- This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID. 
+            -- Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;. 
         local
             l_response: ORDER_EXECUTION_REPORT
             l_cancel_order_single_request: CANCEL_ORDER_SINGLE_REQUEST
@@ -46,7 +46,7 @@ feature -- Test routines
     test_v1_orders_get
             -- Get all orders
             -- 
-            -- Get last execution reports for all open orders across all or single exchange. 
+            -- Get last execution reports for open orders across all or single exchange. 
         local
             l_response: LIST [ORDER_EXECUTION_REPORT]
             l_exchange_id: STRING_32
@@ -58,7 +58,7 @@ feature -- Test routines
         end
     
     test_v1_orders_post
-            -- Create new order
+            -- Send new order
             -- 
             -- This request creating new order for the specific exchange. 
         local
@@ -73,9 +73,9 @@ feature -- Test routines
         end
     
     test_v1_orders_status_client_order_id_get
-            -- Get order status
+            -- Get order execution report
             -- 
-            -- Get the last order execution report for the specified order. The requested order does not need to be active/opened. 
+            -- Get the last order execution report for the specified order. The requested order does not need to be active or opened. 
         local
             l_response: ORDER_EXECUTION_REPORT
             l_client_order_id: STRING_32

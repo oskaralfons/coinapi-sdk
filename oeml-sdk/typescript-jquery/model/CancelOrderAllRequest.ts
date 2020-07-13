@@ -12,9 +12,12 @@
 
 import * as models from './models';
 
+/**
+ * Cancel all orders request object.
+ */
 export interface CancelOrderAllRequest {
     /**
-     * Exchange identifier from which active orders should be canceled.
+     * Identifier of the exchange from which active orders should be canceled.
      */
     exchange_id: string;
 

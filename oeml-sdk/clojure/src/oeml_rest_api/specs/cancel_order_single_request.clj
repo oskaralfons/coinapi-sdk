@@ -7,7 +7,7 @@
 
 (def cancel-order-single-request-data
   {
-   (ds/opt :exchange_id) string?
+   (ds/req :exchange_id) string?
    (ds/opt :exchange_order_id) string?
    (ds/opt :client_order_id) string?
    })

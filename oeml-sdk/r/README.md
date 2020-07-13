@@ -59,11 +59,11 @@ All URIs are relative to *http://localhost:8080*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *BalancesApi* | [**V1BalancesGet**](docs/BalancesApi.md#V1BalancesGet) | **GET** /v1/balances | Get balances
-*OrdersApi* | [**V1OrdersCancelAllPost**](docs/OrdersApi.md#V1OrdersCancelAllPost) | **POST** /v1/orders/cancel/all | Cancel all orders
-*OrdersApi* | [**V1OrdersCancelPost**](docs/OrdersApi.md#V1OrdersCancelPost) | **POST** /v1/orders/cancel | Cancel order
+*OrdersApi* | [**V1OrdersCancelAllPost**](docs/OrdersApi.md#V1OrdersCancelAllPost) | **POST** /v1/orders/cancel/all | Cancel all orders request
+*OrdersApi* | [**V1OrdersCancelPost**](docs/OrdersApi.md#V1OrdersCancelPost) | **POST** /v1/orders/cancel | Cancel order request
 *OrdersApi* | [**V1OrdersGet**](docs/OrdersApi.md#V1OrdersGet) | **GET** /v1/orders | Get all orders
-*OrdersApi* | [**V1OrdersPost**](docs/OrdersApi.md#V1OrdersPost) | **POST** /v1/orders | Create new order
-*OrdersApi* | [**V1OrdersStatusClientOrderIdGet**](docs/OrdersApi.md#V1OrdersStatusClientOrderIdGet) | **GET** /v1/orders/status/{client_order_id} | Get order status
+*OrdersApi* | [**V1OrdersPost**](docs/OrdersApi.md#V1OrdersPost) | **POST** /v1/orders | Send new order
+*OrdersApi* | [**V1OrdersStatusClientOrderIdGet**](docs/OrdersApi.md#V1OrdersStatusClientOrderIdGet) | **GET** /v1/orders/status/{client_order_id} | Get order execution report
 *PositionsApi* | [**V1PositionsGet**](docs/PositionsApi.md#V1PositionsGet) | **GET** /v1/positions | Get positions
 
 

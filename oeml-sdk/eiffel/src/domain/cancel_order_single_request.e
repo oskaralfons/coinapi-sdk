@@ -27,9 +27,9 @@ feature --Access
     exchange_id: detachable STRING_32 
       -- Exchange identifier.
     exchange_order_id: detachable STRING_32 
-      -- The unique identifier of the order assigned by the exchange.
+      -- The unique identifier of the order assigned by the exchange. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
     client_order_id: detachable STRING_32 
-      -- The unique identifier of the order assigned by the client.
+      -- The unique identifier of the order assigned by the client. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
 
 feature -- Change Element  
  

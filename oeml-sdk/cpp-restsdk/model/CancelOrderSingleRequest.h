@@ -12,7 +12,7 @@
 /*
  * CancelOrderSingleRequest.h
  *
- * 
+ * Cancel single order request object.
  */
 
 #ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_CancelOrderSingleRequest_H_
@@ -30,7 +30,7 @@ namespace model {
 
 
 /// <summary>
-/// 
+/// Cancel single order request object.
 /// </summary>
 class  CancelOrderSingleRequest
     : public ModelBase
@@ -63,7 +63,7 @@ public:
     void setExchangeId(const utility::string_t& value);
 
     /// <summary>
-    /// The unique identifier of the order assigned by the exchange.
+    /// The unique identifier of the order assigned by the exchange. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order.
     /// </summary>
     utility::string_t getExchangeOrderId() const;
     bool exchangeOrderIdIsSet() const;
@@ -72,7 +72,7 @@ public:
     void setExchangeOrderId(const utility::string_t& value);
 
     /// <summary>
-    /// The unique identifier of the order assigned by the client.
+    /// The unique identifier of the order assigned by the client. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order.
     /// </summary>
     utility::string_t getClientOrderId() const;
     bool clientOrderIdIsSet() const;

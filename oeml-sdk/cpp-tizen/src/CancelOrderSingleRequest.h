@@ -1,7 +1,7 @@
 /*
  * CancelOrderSingleRequest.h
  *
- * 
+ * Cancel single order request object.
  */
 
 #ifndef _CancelOrderSingleRequest_H_
@@ -20,7 +20,7 @@ namespace Tizen {
 namespace ArtikCloud {
 
 
-/*! \brief 
+/*! \brief Cancel single order request object.
  *
  *  \ingroup Models
  *
@@ -52,18 +52,18 @@ public:
 	/*! \brief Set Exchange identifier.
 	 */
 	void setExchangeId(std::string  exchange_id);
-	/*! \brief Get The unique identifier of the order assigned by the exchange.
+	/*! \brief Get The unique identifier of the order assigned by the exchange. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
 	 */
 	std::string getExchangeOrderId();
 
-	/*! \brief Set The unique identifier of the order assigned by the exchange.
+	/*! \brief Set The unique identifier of the order assigned by the exchange. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
 	 */
 	void setExchangeOrderId(std::string  exchange_order_id);
-	/*! \brief Get The unique identifier of the order assigned by the client.
+	/*! \brief Get The unique identifier of the order assigned by the client. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
 	 */
 	std::string getClientOrderId();
 
-	/*! \brief Set The unique identifier of the order assigned by the client.
+	/*! \brief Set The unique identifier of the order assigned by the client. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
 	 */
 	void setClientOrderId(std::string  client_order_id);
 

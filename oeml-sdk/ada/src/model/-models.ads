@@ -70,7 +70,7 @@ package .Models is
 
    type CancelOrderSingleRequest_Type is
      record
-       Exchange_Id : Swagger.Nullable_UString;
+       Exchange_Id : Swagger.UString;
        Exchange_Order_Id : Swagger.Nullable_UString;
        Client_Order_Id : Swagger.Nullable_UString;
      end record;

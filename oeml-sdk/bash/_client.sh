@@ -296,11 +296,11 @@ case $state in
   ops)
     # Operations
     _values "Operations" \
-            "v1BalancesGet[Get balances]"             "v1OrdersCancelAllPost[Cancel all orders]" \
-            "v1OrdersCancelPost[Cancel order]" \
+            "v1BalancesGet[Get balances]"             "v1OrdersCancelAllPost[Cancel all orders request]" \
+            "v1OrdersCancelPost[Cancel order request]" \
             "v1OrdersGet[Get all orders]" \
-            "v1OrdersPost[Create new order]" \
-            "v1OrdersStatusClientOrderIdGet[Get order status]"             "v1PositionsGet[Get positions]" 
+            "v1OrdersPost[Send new order]" \
+            "v1OrdersStatusClientOrderIdGet[Get order execution report]"             "v1PositionsGet[Get positions]" 
     _arguments "(--help)--help[Print information about operation]"
 
     ret=0
@@ -329,7 +329,7 @@ case $state in
       v1OrdersGet)
         local -a _op_arguments
         _op_arguments=(
-                    "exchange_id=:[QUERY] Filter the output to the orders from the specific exchange."
+                    "exchange_id=:[QUERY] Filter the open orders to the specific exchange."
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;

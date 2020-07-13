@@ -165,8 +165,9 @@ mkBalanceData =
 
 -- ** CancelOrderAllRequest
 -- | CancelOrderAllRequest
+-- Cancel all orders request object.
 data CancelOrderAllRequest = CancelOrderAllRequest
-  { cancelOrderAllRequestExchangeId :: !(Text) -- ^ /Required/ "exchange_id" - Exchange identifier from which active orders should be canceled.
+  { cancelOrderAllRequestExchangeId :: !(Text) -- ^ /Required/ "exchange_id" - Identifier of the exchange from which active orders should be canceled.
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON CancelOrderAllRequest
@@ -185,7 +186,7 @@ instance A.ToJSON CancelOrderAllRequest where
 
 -- | Construct a value of type 'CancelOrderAllRequest' (by applying it's required fields, if any)
 mkCancelOrderAllRequest
-  :: Text -- ^ 'cancelOrderAllRequestExchangeId': Exchange identifier from which active orders should be canceled.
+  :: Text -- ^ 'cancelOrderAllRequestExchangeId': Identifier of the exchange from which active orders should be canceled.
   -> CancelOrderAllRequest
 mkCancelOrderAllRequest cancelOrderAllRequestExchangeId =
   CancelOrderAllRequest
@@ -194,17 +195,18 @@ mkCancelOrderAllRequest cancelOrderAllRequestExchangeId =
 
 -- ** CancelOrderSingleRequest
 -- | CancelOrderSingleRequest
+-- Cancel single order request object.
 data CancelOrderSingleRequest = CancelOrderSingleRequest
-  { cancelOrderSingleRequestExchangeId :: !(Maybe Text) -- ^ "exchange_id" - Exchange identifier.
-  , cancelOrderSingleRequestExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - The unique identifier of the order assigned by the exchange.
-  , cancelOrderSingleRequestClientOrderId :: !(Maybe Text) -- ^ "client_order_id" - The unique identifier of the order assigned by the client.
+  { cancelOrderSingleRequestExchangeId :: !(Text) -- ^ /Required/ "exchange_id" - Exchange identifier.
+  , cancelOrderSingleRequestExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - The unique identifier of the order assigned by the exchange. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order.
+  , cancelOrderSingleRequestClientOrderId :: !(Maybe Text) -- ^ "client_order_id" - The unique identifier of the order assigned by the client. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order.
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON CancelOrderSingleRequest
 instance A.FromJSON CancelOrderSingleRequest where
   parseJSON = A.withObject "CancelOrderSingleRequest" $ \o ->
     CancelOrderSingleRequest
-      <$> (o .:? "exchange_id")
+      <$> (o .:  "exchange_id")
       <*> (o .:? "exchange_order_id")
       <*> (o .:? "client_order_id")
 
@@ -220,10 +222,11 @@ instance A.ToJSON CancelOrderSingleRequest where
 
 -- | Construct a value of type 'CancelOrderSingleRequest' (by applying it's required fields, if any)
 mkCancelOrderSingleRequest
-  :: CancelOrderSingleRequest
-mkCancelOrderSingleRequest =
+  :: Text -- ^ 'cancelOrderSingleRequestExchangeId': Exchange identifier.
+  -> CancelOrderSingleRequest
+mkCancelOrderSingleRequest cancelOrderSingleRequestExchangeId =
   CancelOrderSingleRequest
-  { cancelOrderSingleRequestExchangeId = Nothing
+  { cancelOrderSingleRequestExchangeId
   , cancelOrderSingleRequestExchangeOrderId = Nothing
   , cancelOrderSingleRequestClientOrderId = Nothing
   }
@@ -276,8 +279,8 @@ mkMessage =
 data NewOrderSingle = NewOrderSingle
   { newOrderSingleExchangeId :: !(Text) -- ^ /Required/ "exchange_id" - Exchange identifier.
   , newOrderSingleClientOrderId :: !(Text) -- ^ /Required/ "client_order_id" - The unique identifier of the order assigned by the client.
-  , newOrderSingleSymbolExchange :: !(Maybe Text) -- ^ "symbol_exchange" - Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order.
-  , newOrderSingleSymbolCoinapi :: !(Maybe Text) -- ^ "symbol_coinapi" - CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order.
+  , newOrderSingleSymbolExchange :: !(Maybe Text) -- ^ "symbol_exchange" - Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order.
+  , newOrderSingleSymbolCoinapi :: !(Maybe Text) -- ^ "symbol_coinapi" - CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order.
   , newOrderSingleAmountOrder :: !(Double) -- ^ /Required/ "amount_order" - Order quantity.
   , newOrderSinglePrice :: !(Double) -- ^ /Required/ "price" - Order price.
   , newOrderSingleSide :: !(OrdSide) -- ^ /Required/ "side"
@@ -351,8 +354,8 @@ mkNewOrderSingle newOrderSingleExchangeId newOrderSingleClientOrderId newOrderSi
 data OrderExecutionReport = OrderExecutionReport
   { orderExecutionReportExchangeId :: !(Text) -- ^ /Required/ "exchange_id" - Exchange identifier.
   , orderExecutionReportClientOrderId :: !(Text) -- ^ /Required/ "client_order_id" - The unique identifier of the order assigned by the client.
-  , orderExecutionReportSymbolExchange :: !(Maybe Text) -- ^ "symbol_exchange" - Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order.
-  , orderExecutionReportSymbolCoinapi :: !(Maybe Text) -- ^ "symbol_coinapi" - CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order.
+  , orderExecutionReportSymbolExchange :: !(Maybe Text) -- ^ "symbol_exchange" - Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order.
+  , orderExecutionReportSymbolCoinapi :: !(Maybe Text) -- ^ "symbol_coinapi" - CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order.
   , orderExecutionReportAmountOrder :: !(Double) -- ^ /Required/ "amount_order" - Order quantity.
   , orderExecutionReportPrice :: !(Double) -- ^ /Required/ "price" - Order price.
   , orderExecutionReportSide :: !(OrdSide) -- ^ /Required/ "side"

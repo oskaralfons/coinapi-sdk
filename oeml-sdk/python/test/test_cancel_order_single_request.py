@@ -42,6 +42,7 @@ class TestCancelOrderSingleRequest(unittest.TestCase):
             )
         else :
             return CancelOrderSingleRequest(
+                exchange_id = 'KRAKEN',
         )
 
     def testCancelOrderSingleRequest(self):

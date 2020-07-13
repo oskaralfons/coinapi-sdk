@@ -91,8 +91,8 @@ export class OrdersService {
     }
 
     /**
-     * Cancel all orders
-     * This request cancels all open orders across all or single specified exchange.
+     * Cancel all orders request
+     * This request cancels all open orders on single specified exchange.
      * @param cancelOrderAllRequest 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -148,8 +148,8 @@ export class OrdersService {
     }
 
     /**
-     * Cancel order
-     * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+     * Cancel order request
+     * Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
      * @param cancelOrderSingleRequest 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
@@ -206,8 +206,8 @@ export class OrdersService {
 
     /**
      * Get all orders
-     * Get last execution reports for all open orders across all or single exchange.
-     * @param exchangeId Filter the output to the orders from the specific exchange.
+     * Get last execution reports for open orders across all or single exchange.
+     * @param exchangeId Filter the open orders to the specific exchange.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
@@ -256,7 +256,7 @@ export class OrdersService {
     }
 
     /**
-     * Create new order
+     * Send new order
      * This request creating new order for the specific exchange.
      * @param newOrderSingle 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
@@ -313,8 +313,8 @@ export class OrdersService {
     }
 
     /**
-     * Get order status
-     * Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+     * Get order execution report
+     * Get the last order execution report for the specified order. The requested order does not need to be active or opened.
      * @param clientOrderId The unique identifier of the order assigned by the client.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.

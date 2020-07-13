@@ -61,8 +61,8 @@ public class OrdersApi {
   }
 
   /**
-  * Cancel all orders
-  * This request cancels all open orders across all or single specified exchange.
+  * Cancel all orders request
+  * This request cancels all open orders on single specified exchange.
    * @param cancelOrderAllRequest 
    * @return Message
   */
@@ -124,8 +124,8 @@ public class OrdersApi {
   }
 
       /**
-   * Cancel all orders
-   * This request cancels all open orders across all or single specified exchange.
+   * Cancel all orders request
+   * This request cancels all open orders on single specified exchange.
    * @param cancelOrderAllRequest 
   */
   public void v1OrdersCancelAllPost (CancelOrderAllRequest cancelOrderAllRequest, final Response.Listener<Message> responseListener, final Response.ErrorListener errorListener) {
@@ -189,8 +189,8 @@ public class OrdersApi {
     }
   }
   /**
-  * Cancel order
-  * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+  * Cancel order request
+  * Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
    * @param cancelOrderSingleRequest 
    * @return OrderExecutionReport
   */
@@ -252,8 +252,8 @@ public class OrdersApi {
   }
 
       /**
-   * Cancel order
-   * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+   * Cancel order request
+   * Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
    * @param cancelOrderSingleRequest 
   */
   public void v1OrdersCancelPost (CancelOrderSingleRequest cancelOrderSingleRequest, final Response.Listener<OrderExecutionReport> responseListener, final Response.ErrorListener errorListener) {
@@ -318,8 +318,8 @@ public class OrdersApi {
   }
   /**
   * Get all orders
-  * Get last execution reports for all open orders across all or single exchange.
-   * @param exchangeId Filter the output to the orders from the specific exchange.
+  * Get last execution reports for open orders across all or single exchange.
+   * @param exchangeId Filter the open orders to the specific exchange.
    * @return List<OrderExecutionReport>
   */
   public List<OrderExecutionReport> v1OrdersGet (String exchangeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
@@ -376,8 +376,8 @@ public class OrdersApi {
 
       /**
    * Get all orders
-   * Get last execution reports for all open orders across all or single exchange.
-   * @param exchangeId Filter the output to the orders from the specific exchange.
+   * Get last execution reports for open orders across all or single exchange.
+   * @param exchangeId Filter the open orders to the specific exchange.
   */
   public void v1OrdersGet (String exchangeId, final Response.Listener<List<OrderExecutionReport>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
@@ -436,7 +436,7 @@ public class OrdersApi {
     }
   }
   /**
-  * Create new order
+  * Send new order
   * This request creating new order for the specific exchange.
    * @param newOrderSingle 
    * @return OrderExecutionReport
@@ -499,7 +499,7 @@ public class OrdersApi {
   }
 
       /**
-   * Create new order
+   * Send new order
    * This request creating new order for the specific exchange.
    * @param newOrderSingle 
   */
@@ -564,8 +564,8 @@ public class OrdersApi {
     }
   }
   /**
-  * Get order status
-  * Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+  * Get order execution report
+  * Get the last order execution report for the specified order. The requested order does not need to be active or opened.
    * @param clientOrderId The unique identifier of the order assigned by the client.
    * @return OrderExecutionReport
   */
@@ -626,8 +626,8 @@ public class OrdersApi {
   }
 
       /**
-   * Get order status
-   * Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+   * Get order execution report
+   * Get the last order execution report for the specified order. The requested order does not need to be active or opened.
    * @param clientOrderId The unique identifier of the order assigned by the client.
   */
   public void v1OrdersStatusClientOrderIdGet (String clientOrderId, final Response.Listener<OrderExecutionReport> responseListener, final Response.ErrorListener errorListener) {

@@ -4,7 +4,7 @@
 
 defmodule OEML-RESTAPI.Model.CancelOrderSingleRequest do
   @moduledoc """
-  
+  Cancel single order request object.
   """
 
   @derive [Poison.Encoder]
@@ -15,7 +15,7 @@ defmodule OEML-RESTAPI.Model.CancelOrderSingleRequest do
   ]
 
   @type t :: %__MODULE__{
-    :"exchange_id" => String.t | nil,
+    :"exchange_id" => String.t,
     :"exchange_order_id" => String.t | nil,
     :"client_order_id" => String.t | nil
   }

@@ -36,6 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * CancelOrderAllRequest Class Doc Comment
  *
  * @category Class
+ * @description Cancel all orders request object.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -220,7 +221,7 @@ class CancelOrderAllRequest implements ModelInterface, ArrayAccess
     /**
      * Sets exchange_id
      *
-     * @param string $exchange_id Exchange identifier from which active orders should be canceled.
+     * @param string $exchange_id Identifier of the exchange from which active orders should be canceled.
      *
      * @return $this
      */

@@ -19,8 +19,8 @@ module OpenapiClient
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Cancel all orders
-    # This request cancels all open orders across all or single specified exchange.
+    # Cancel all orders request
+    # This request cancels all open orders on single specified exchange.
     # @param cancel_order_all_request [CancelOrderAllRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Message]
@@ -29,8 +29,8 @@ module OpenapiClient
       data
     end
 
-    # Cancel all orders
-    # This request cancels all open orders across all or single specified exchange.
+    # Cancel all orders request
+    # This request cancels all open orders on single specified exchange.
     # @param cancel_order_all_request [CancelOrderAllRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(Message, Integer, Hash)>] Message data, response status code and response headers
@@ -83,8 +83,8 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Cancel order
-    # This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+    # Cancel order request
+    # Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`.
     # @param cancel_order_single_request [CancelOrderSingleRequest] 
     # @param [Hash] opts the optional parameters
     # @return [OrderExecutionReport]
@@ -93,8 +93,8 @@ module OpenapiClient
       data
     end
 
-    # Cancel order
-    # This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+    # Cancel order request
+    # Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
     # @param cancel_order_single_request [CancelOrderSingleRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(OrderExecutionReport, Integer, Hash)>] OrderExecutionReport data, response status code and response headers
@@ -148,9 +148,9 @@ module OpenapiClient
     end
 
     # Get all orders
-    # Get last execution reports for all open orders across all or single exchange.
+    # Get last execution reports for open orders across all or single exchange.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :exchange_id Filter the output to the orders from the specific exchange.
+    # @option opts [String] :exchange_id Filter the open orders to the specific exchange.
     # @return [Array<OrderExecutionReport>]
     def v1_orders_get(opts = {})
       data, _status_code, _headers = v1_orders_get_with_http_info(opts)
@@ -158,9 +158,9 @@ module OpenapiClient
     end
 
     # Get all orders
-    # Get last execution reports for all open orders across all or single exchange.
+    # Get last execution reports for open orders across all or single exchange.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :exchange_id Filter the output to the orders from the specific exchange.
+    # @option opts [String] :exchange_id Filter the open orders to the specific exchange.
     # @return [Array<(Array<OrderExecutionReport>, Integer, Hash)>] Array<OrderExecutionReport> data, response status code and response headers
     def v1_orders_get_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -206,7 +206,7 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Create new order
+    # Send new order
     # This request creating new order for the specific exchange.
     # @param new_order_single [NewOrderSingle] 
     # @param [Hash] opts the optional parameters
@@ -216,7 +216,7 @@ module OpenapiClient
       data
     end
 
-    # Create new order
+    # Send new order
     # This request creating new order for the specific exchange.
     # @param new_order_single [NewOrderSingle] 
     # @param [Hash] opts the optional parameters
@@ -270,8 +270,8 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Get order status
-    # Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+    # Get order execution report
+    # Get the last order execution report for the specified order. The requested order does not need to be active or opened.
     # @param client_order_id [String] The unique identifier of the order assigned by the client.
     # @param [Hash] opts the optional parameters
     # @return [OrderExecutionReport]
@@ -280,8 +280,8 @@ module OpenapiClient
       data
     end
 
-    # Get order status
-    # Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+    # Get order execution report
+    # Get the last order execution report for the specified order. The requested order does not need to be active or opened.
     # @param client_order_id [String] The unique identifier of the order assigned by the client.
     # @param [Hash] opts the optional parameters
     # @return [Array<(OrderExecutionReport, Integer, Hash)>] OrderExecutionReport data, response status code and response headers

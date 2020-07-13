@@ -25,7 +25,7 @@ inherit
 feature --Access
 
     exchange_id: detachable STRING_32 
-      -- Exchange identifier from which active orders should be canceled.
+      -- Identifier of the exchange from which active orders should be canceled.
 
 feature -- Change Element  
  

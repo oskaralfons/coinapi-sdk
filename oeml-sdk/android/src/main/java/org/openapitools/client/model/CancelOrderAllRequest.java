@@ -15,16 +15,19 @@ package org.openapitools.client.model;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
 
-@ApiModel(description = "")
+/**
+ * Cancel all orders request object.
+ **/
+@ApiModel(description = "Cancel all orders request object.")
 public class CancelOrderAllRequest {
   
   @SerializedName("exchange_id")
   private String exchangeId = null;
 
   /**
-   * Exchange identifier from which active orders should be canceled.
+   * Identifier of the exchange from which active orders should be canceled.
    **/
-  @ApiModelProperty(required = true, value = "Exchange identifier from which active orders should be canceled.")
+  @ApiModelProperty(required = true, value = "Identifier of the exchange from which active orders should be canceled.")
   public String getExchangeId() {
     return exchangeId;
   }

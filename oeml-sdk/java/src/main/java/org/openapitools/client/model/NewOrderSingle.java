@@ -35,7 +35,7 @@ import org.threeten.bp.LocalDate;
  * The new order message.
  */
 @ApiModel(description = "The new order message.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T12:29:32.389Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T12:54:28.032Z[Etc/UTC]")
 public class NewOrderSingle {
   public static final String SERIALIZED_NAME_EXCHANGE_ID = "exchange_id";
   @SerializedName(SERIALIZED_NAME_EXCHANGE_ID)
@@ -182,11 +182,11 @@ public class NewOrderSingle {
   }
 
    /**
-   * Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order.
+   * Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order.
    * @return symbolExchange
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "BTCUSD", value = "Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.")
+  @ApiModelProperty(example = "BTCUSD", value = "Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.")
 
   public String getSymbolExchange() {
     return symbolExchange;
@@ -205,11 +205,11 @@ public class NewOrderSingle {
   }
 
    /**
-   * CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order.
+   * CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order.
    * @return symbolCoinapi
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "KRAKEN_SPOT_BTC_USD", value = "CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.")
+  @ApiModelProperty(example = "KRAKEN_SPOT_BTC_USD", value = "CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.")
 
   public String getSymbolCoinapi() {
     return symbolCoinapi;

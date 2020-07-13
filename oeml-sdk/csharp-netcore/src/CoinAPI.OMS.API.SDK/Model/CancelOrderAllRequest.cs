@@ -26,7 +26,7 @@ using OpenAPIDateConverter = CoinAPI.OMS.API.SDK.Client.OpenAPIDateConverter;
 namespace CoinAPI.OMS.API.SDK.Model
 {
     /// <summary>
-    /// CancelOrderAllRequest
+    /// Cancel all orders request object.
     /// </summary>
     [DataContract]
     public partial class CancelOrderAllRequest :  IEquatable<CancelOrderAllRequest>, IValidatableObject
@@ -39,7 +39,7 @@ namespace CoinAPI.OMS.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CancelOrderAllRequest" /> class.
         /// </summary>
-        /// <param name="exchangeId">Exchange identifier from which active orders should be canceled. (required).</param>
+        /// <param name="exchangeId">Identifier of the exchange from which active orders should be canceled. (required).</param>
         public CancelOrderAllRequest(string exchangeId = default(string))
         {
             // to ensure "exchangeId" is required (not null)
@@ -47,9 +47,9 @@ namespace CoinAPI.OMS.API.SDK.Model
         }
         
         /// <summary>
-        /// Exchange identifier from which active orders should be canceled.
+        /// Identifier of the exchange from which active orders should be canceled.
         /// </summary>
-        /// <value>Exchange identifier from which active orders should be canceled.</value>
+        /// <value>Identifier of the exchange from which active orders should be canceled.</value>
         [DataMember(Name="exchange_id", EmitDefaultValue=false)]
         public string ExchangeId { get; set; }
 

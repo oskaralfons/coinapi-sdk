@@ -13,8 +13,9 @@ OpenAPI Generator version: 4.3.1
 require 'date'
 
 module OpenapiClient
+  # Cancel all orders request object.
   class CancelOrderAllRequest
-    # Exchange identifier from which active orders should be canceled.
+    # Identifier of the exchange from which active orders should be canceled.
     attr_accessor :exchange_id
 
     # Attribute mapping from ruby-style variable name to JSON key.

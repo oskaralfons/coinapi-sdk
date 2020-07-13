@@ -91,8 +91,8 @@ export class OrdersApi {
     }
 
     /**
-     * This request cancels all open orders across all or single specified exchange.
-     * @summary Cancel all orders
+     * This request cancels all open orders on single specified exchange.
+     * @summary Cancel all orders request
      * @param cancelOrderAllRequest 
      */
     public async v1OrdersCancelAllPost (cancelOrderAllRequest: CancelOrderAllRequest, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: Message;  }> {
@@ -160,8 +160,8 @@ export class OrdersApi {
         });
     }
     /**
-     * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
-     * @summary Cancel order
+     * Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`.
+     * @summary Cancel order request
      * @param cancelOrderSingleRequest 
      */
     public async v1OrdersCancelPost (cancelOrderSingleRequest: CancelOrderSingleRequest, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: OrderExecutionReport;  }> {
@@ -229,9 +229,9 @@ export class OrdersApi {
         });
     }
     /**
-     * Get last execution reports for all open orders across all or single exchange.
+     * Get last execution reports for open orders across all or single exchange.
      * @summary Get all orders
-     * @param exchangeId Filter the output to the orders from the specific exchange.
+     * @param exchangeId Filter the open orders to the specific exchange.
      */
     public async v1OrdersGet (exchangeId?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: Array<OrderExecutionReport>;  }> {
         const localVarPath = this.basePath + '/v1/orders';
@@ -297,7 +297,7 @@ export class OrdersApi {
     }
     /**
      * This request creating new order for the specific exchange.
-     * @summary Create new order
+     * @summary Send new order
      * @param newOrderSingle 
      */
     public async v1OrdersPost (newOrderSingle: NewOrderSingle, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: OrderExecutionReport;  }> {
@@ -365,8 +365,8 @@ export class OrdersApi {
         });
     }
     /**
-     * Get the last order execution report for the specified order. The requested order does not need to be active/opened.
-     * @summary Get order status
+     * Get the last order execution report for the specified order. The requested order does not need to be active or opened.
+     * @summary Get order execution report
      * @param clientOrderId The unique identifier of the order assigned by the client.
      */
     public async v1OrdersStatusClientOrderIdGet (clientOrderId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: OrderExecutionReport;  }> {

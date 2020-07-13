@@ -49,8 +49,8 @@ API.Client.OrdersApi = function($http, $httpParamSerializer, $injector) {
 API.Client.OrdersApi.$inject = ['$http', '$httpParamSerializer', '$injector'];
 
 /**
- * Cancel all orders
- * This request cancels all open orders across all or single specified exchange.
+ * Cancel all orders request
+ * This request cancels all open orders on single specified exchange.
  * @param {!CancelOrderAllRequest} cancelOrderAllRequest 
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
  * @return {!angular.$q.Promise<!API.Client.Message>}
@@ -86,8 +86,8 @@ API.Client.OrdersApi.prototype.v1OrdersCancelAllPost = function(cancelOrderAllRe
 }
 
 /**
- * Cancel order
- * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+ * Cancel order request
+ * Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
  * @param {!CancelOrderSingleRequest} cancelOrderSingleRequest 
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
  * @return {!angular.$q.Promise<!API.Client.OrderExecutionReport>}
@@ -124,8 +124,8 @@ API.Client.OrdersApi.prototype.v1OrdersCancelPost = function(cancelOrderSingleRe
 
 /**
  * Get all orders
- * Get last execution reports for all open orders across all or single exchange.
- * @param {!string=} opt_exchangeId Filter the output to the orders from the specific exchange.
+ * Get last execution reports for open orders across all or single exchange.
+ * @param {!string=} opt_exchangeId Filter the open orders to the specific exchange.
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
  * @return {!angular.$q.Promise<!Array<!API.Client.OrderExecutionReport>>}
  */
@@ -159,7 +159,7 @@ API.Client.OrdersApi.prototype.v1OrdersGet = function(opt_exchangeId, opt_extraH
 }
 
 /**
- * Create new order
+ * Send new order
  * This request creating new order for the specific exchange.
  * @param {!NewOrderSingle} newOrderSingle 
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
@@ -196,8 +196,8 @@ API.Client.OrdersApi.prototype.v1OrdersPost = function(newOrderSingle, opt_extra
 }
 
 /**
- * Get order status
- * Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+ * Get order execution report
+ * Get the last order execution report for the specified order. The requested order does not need to be active or opened.
  * @param {!string} clientOrderId The unique identifier of the order assigned by the client.
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
  * @return {!angular.$q.Promise<!API.Client.OrderExecutionReport>}

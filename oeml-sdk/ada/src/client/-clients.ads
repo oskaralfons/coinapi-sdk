@@ -21,36 +21,36 @@ package .Clients is
        Exchange_Id : in Swagger.Nullable_UString;
        Result : out .Models.Balance_Type_Vectors.Vector);
 
-   --  Cancel all orders
-   --  This request cancels all open orders across all or single specified exchange.
+   --  Cancel all orders request
+   --  This request cancels all open orders on single specified exchange.
    procedure V1_Orders_Cancel_All_Post
       (Client : in out Client_Type;
        Cancel_Order_All_Request_Type : in .Models.CancelOrderAllRequest_Type;
        Result : out .Models.Message_Type);
 
-   --  Cancel order
-   --  This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+   --  Cancel order request
+   --  Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`.
    procedure V1_Orders_Cancel_Post
       (Client : in out Client_Type;
        Cancel_Order_Single_Request_Type : in .Models.CancelOrderSingleRequest_Type;
        Result : out .Models.OrderExecutionReport_Type);
 
    --  Get all orders
-   --  Get last execution reports for all open orders across all or single exchange.
+   --  Get last execution reports for open orders across all or single exchange.
    procedure V1_Orders_Get
       (Client : in out Client_Type;
        Exchange_Id : in Swagger.Nullable_UString;
        Result : out .Models.OrderExecutionReport_Type_Vectors.Vector);
 
-   --  Create new order
+   --  Send new order
    --  This request creating new order for the specific exchange.
    procedure V1_Orders_Post
       (Client : in out Client_Type;
        New_Order_Single_Type : in .Models.NewOrderSingle_Type;
        Result : out .Models.OrderExecutionReport_Type);
 
-   --  Get order status
-   --  Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+   --  Get order execution report
+   --  Get the last order execution report for the specified order. The requested order does not need to be active or opened.
    procedure V1_Orders_Status_Client_Order_Id_Get
       (Client : in out Client_Type;
        Client_Order_Id : in Swagger.UString;

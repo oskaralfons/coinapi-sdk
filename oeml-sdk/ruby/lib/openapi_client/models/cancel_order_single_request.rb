@@ -13,14 +13,15 @@ OpenAPI Generator version: 4.3.1
 require 'date'
 
 module OpenapiClient
+  # Cancel single order request object.
   class CancelOrderSingleRequest
     # Exchange identifier.
     attr_accessor :exchange_id
 
-    # The unique identifier of the order assigned by the exchange.
+    # The unique identifier of the order assigned by the exchange. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
     attr_accessor :exchange_order_id
 
-    # The unique identifier of the order assigned by the client.
+    # The unique identifier of the order assigned by the client. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
     attr_accessor :client_order_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -79,12 +80,17 @@ module OpenapiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @exchange_id.nil?
+        invalid_properties.push('invalid value for "exchange_id", exchange_id cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @exchange_id.nil?
       true
     end
 

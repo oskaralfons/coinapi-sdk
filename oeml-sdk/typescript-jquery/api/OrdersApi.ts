@@ -47,8 +47,8 @@ export class OrdersApi {
     }
 
     /**
-     * This request cancels all open orders across all or single specified exchange.
-     * @summary Cancel all orders
+     * This request cancels all open orders on single specified exchange.
+     * @summary Cancel all orders request
      * @param cancelOrderAllRequest 
      */
     public v1OrdersCancelAllPost(cancelOrderAllRequest: models.CancelOrderAllRequest, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
@@ -114,8 +114,8 @@ export class OrdersApi {
     }
 
     /**
-     * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
-     * @summary Cancel order
+     * Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`.
+     * @summary Cancel order request
      * @param cancelOrderSingleRequest 
      */
     public v1OrdersCancelPost(cancelOrderSingleRequest: models.CancelOrderSingleRequest, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
@@ -181,9 +181,9 @@ export class OrdersApi {
     }
 
     /**
-     * Get last execution reports for all open orders across all or single exchange.
+     * Get last execution reports for open orders across all or single exchange.
      * @summary Get all orders
-     * @param exchangeId Filter the output to the orders from the specific exchange.
+     * @param exchangeId Filter the open orders to the specific exchange.
      */
     public v1OrdersGet(exchangeId?: string, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
     { response: JQueryXHR; body: Array<models.OrderExecutionReport>;  },
@@ -243,7 +243,7 @@ export class OrdersApi {
 
     /**
      * This request creating new order for the specific exchange.
-     * @summary Create new order
+     * @summary Send new order
      * @param newOrderSingle 
      */
     public v1OrdersPost(newOrderSingle: models.NewOrderSingle, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
@@ -309,8 +309,8 @@ export class OrdersApi {
     }
 
     /**
-     * Get the last order execution report for the specified order. The requested order does not need to be active/opened.
-     * @summary Get order status
+     * Get the last order execution report for the specified order. The requested order does not need to be active or opened.
+     * @summary Get order execution report
      * @param clientOrderId The unique identifier of the order assigned by the client.
      */
     public v1OrdersStatusClientOrderIdGet(clientOrderId: string, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<

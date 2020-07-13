@@ -55,8 +55,7 @@ class CancelOrderSingleRequest(object):
         self._client_order_id = None
         self.discriminator = None
 
-        if exchange_id is not None:
-            self.exchange_id = exchange_id
+        self.exchange_id = exchange_id
         if exchange_order_id is not None:
             self.exchange_order_id = exchange_order_id
         if client_order_id is not None:
@@ -82,6 +81,8 @@ class CancelOrderSingleRequest(object):
         :param exchange_id: The exchange_id of this CancelOrderSingleRequest.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and exchange_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `exchange_id`, must not be `None`")  # noqa: E501
 
         self._exchange_id = exchange_id
 
@@ -89,7 +90,7 @@ class CancelOrderSingleRequest(object):
     def exchange_order_id(self):
         """Gets the exchange_order_id of this CancelOrderSingleRequest.  # noqa: E501
 
-        The unique identifier of the order assigned by the exchange.  # noqa: E501
+        The unique identifier of the order assigned by the exchange. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.  # noqa: E501
 
         :return: The exchange_order_id of this CancelOrderSingleRequest.  # noqa: E501
         :rtype: str
@@ -100,7 +101,7 @@ class CancelOrderSingleRequest(object):
     def exchange_order_id(self, exchange_order_id):
         """Sets the exchange_order_id of this CancelOrderSingleRequest.
 
-        The unique identifier of the order assigned by the exchange.  # noqa: E501
+        The unique identifier of the order assigned by the exchange. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.  # noqa: E501
 
         :param exchange_order_id: The exchange_order_id of this CancelOrderSingleRequest.  # noqa: E501
         :type: str
@@ -112,7 +113,7 @@ class CancelOrderSingleRequest(object):
     def client_order_id(self):
         """Gets the client_order_id of this CancelOrderSingleRequest.  # noqa: E501
 
-        The unique identifier of the order assigned by the client.  # noqa: E501
+        The unique identifier of the order assigned by the client. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.  # noqa: E501
 
         :return: The client_order_id of this CancelOrderSingleRequest.  # noqa: E501
         :rtype: str
@@ -123,7 +124,7 @@ class CancelOrderSingleRequest(object):
     def client_order_id(self, client_order_id):
         """Sets the client_order_id of this CancelOrderSingleRequest.
 
-        The unique identifier of the order assigned by the client.  # noqa: E501
+        The unique identifier of the order assigned by the client. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.  # noqa: E501
 
         :param client_order_id: The client_order_id of this CancelOrderSingleRequest.  # noqa: E501
         :type: str

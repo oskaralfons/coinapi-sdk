@@ -27,8 +27,8 @@ export class OrdersApi {
     }
 
     /**
-     * This request cancels all open orders across all or single specified exchange.
-     * @summary Cancel all orders
+     * This request cancels all open orders on single specified exchange.
+     * @summary Cancel all orders request
      * @param cancelOrderAllRequest 
      */
     public v1OrdersCancelAllPost (cancelOrderAllRequest: models.CancelOrderAllRequest, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Message> {
@@ -56,8 +56,8 @@ export class OrdersApi {
         return this.$http(httpRequestParams);
     }
     /**
-     * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
-     * @summary Cancel order
+     * Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`.
+     * @summary Cancel order request
      * @param cancelOrderSingleRequest 
      */
     public v1OrdersCancelPost (cancelOrderSingleRequest: models.CancelOrderSingleRequest, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.OrderExecutionReport> {
@@ -85,9 +85,9 @@ export class OrdersApi {
         return this.$http(httpRequestParams);
     }
     /**
-     * Get last execution reports for all open orders across all or single exchange.
+     * Get last execution reports for open orders across all or single exchange.
      * @summary Get all orders
-     * @param exchangeId Filter the output to the orders from the specific exchange.
+     * @param exchangeId Filter the open orders to the specific exchange.
      */
     public v1OrdersGet (exchangeId?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.OrderExecutionReport>> {
         const localVarPath = this.basePath + '/v1/orders';
@@ -113,7 +113,7 @@ export class OrdersApi {
     }
     /**
      * This request creating new order for the specific exchange.
-     * @summary Create new order
+     * @summary Send new order
      * @param newOrderSingle 
      */
     public v1OrdersPost (newOrderSingle: models.NewOrderSingle, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.OrderExecutionReport> {
@@ -141,8 +141,8 @@ export class OrdersApi {
         return this.$http(httpRequestParams);
     }
     /**
-     * Get the last order execution report for the specified order. The requested order does not need to be active/opened.
-     * @summary Get order status
+     * Get the last order execution report for the specified order. The requested order does not need to be active or opened.
+     * @summary Get order execution report
      * @param clientOrderId The unique identifier of the order assigned by the client.
      */
     public v1OrdersStatusClientOrderIdGet (clientOrderId: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.OrderExecutionReport> {

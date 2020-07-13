@@ -26,7 +26,7 @@ using OpenAPIDateConverter = CoinAPI.OMS.API.SDK.Client.OpenAPIDateConverter;
 namespace CoinAPI.OMS.API.SDK.Model
 {
     /// <summary>
-    /// CancelOrderSingleRequest
+    /// Cancel single order request object.
     /// </summary>
     [DataContract]
     public partial class CancelOrderSingleRequest :  IEquatable<CancelOrderSingleRequest>, IValidatableObject
@@ -34,12 +34,18 @@ namespace CoinAPI.OMS.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CancelOrderSingleRequest" /> class.
         /// </summary>
-        /// <param name="exchangeId">Exchange identifier..</param>
-        /// <param name="exchangeOrderId">The unique identifier of the order assigned by the exchange..</param>
-        /// <param name="clientOrderId">The unique identifier of the order assigned by the client..</param>
+        [JsonConstructorAttribute]
+        protected CancelOrderSingleRequest() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CancelOrderSingleRequest" /> class.
+        /// </summary>
+        /// <param name="exchangeId">Exchange identifier. (required).</param>
+        /// <param name="exchangeOrderId">The unique identifier of the order assigned by the exchange. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order..</param>
+        /// <param name="clientOrderId">The unique identifier of the order assigned by the client. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order..</param>
         public CancelOrderSingleRequest(string exchangeId = default(string), string exchangeOrderId = default(string), string clientOrderId = default(string))
         {
-            this.ExchangeId = exchangeId;
+            // to ensure "exchangeId" is required (not null)
+            this.ExchangeId = exchangeId ?? throw new ArgumentNullException("exchangeId is a required property for CancelOrderSingleRequest and cannot be null");
             this.ExchangeOrderId = exchangeOrderId;
             this.ClientOrderId = clientOrderId;
         }
@@ -52,16 +58,16 @@ namespace CoinAPI.OMS.API.SDK.Model
         public string ExchangeId { get; set; }
 
         /// <summary>
-        /// The unique identifier of the order assigned by the exchange.
+        /// The unique identifier of the order assigned by the exchange. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order.
         /// </summary>
-        /// <value>The unique identifier of the order assigned by the exchange.</value>
+        /// <value>The unique identifier of the order assigned by the exchange. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order.</value>
         [DataMember(Name="exchange_order_id", EmitDefaultValue=false)]
         public string ExchangeOrderId { get; set; }
 
         /// <summary>
-        /// The unique identifier of the order assigned by the client.
+        /// The unique identifier of the order assigned by the client. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order.
         /// </summary>
-        /// <value>The unique identifier of the order assigned by the client.</value>
+        /// <value>The unique identifier of the order assigned by the client. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order.</value>
         [DataMember(Name="client_order_id", EmitDefaultValue=false)]
         public string ClientOrderId { get; set; }
 

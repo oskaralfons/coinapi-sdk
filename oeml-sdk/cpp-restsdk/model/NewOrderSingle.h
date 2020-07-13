@@ -76,7 +76,7 @@ public:
     void setClientOrderId(const utility::string_t& value);
 
     /// <summary>
-    /// Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order.
+    /// Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order.
     /// </summary>
     utility::string_t getSymbolExchange() const;
     bool symbolExchangeIsSet() const;
@@ -85,7 +85,7 @@ public:
     void setSymbolExchange(const utility::string_t& value);
 
     /// <summary>
-    /// CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order.
+    /// CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order.
     /// </summary>
     utility::string_t getSymbolCoinapi() const;
     bool symbolCoinapiIsSet() const;

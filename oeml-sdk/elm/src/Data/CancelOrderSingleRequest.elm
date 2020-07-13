@@ -18,8 +18,10 @@ import Json.Decode.Pipeline exposing (optional, required)
 import Json.Encode as Encode
 
 
+{-| Cancel single order request object.
+-}
 type alias CancelOrderSingleRequest =
-    { exchangeId : Maybe (String)
+    { exchangeId : String
     , exchangeOrderId : Maybe (String)
     , clientOrderId : Maybe (String)
     }
@@ -28,7 +30,7 @@ type alias CancelOrderSingleRequest =
 decoder : Decoder CancelOrderSingleRequest
 decoder =
     Decode.succeed CancelOrderSingleRequest
-        |> optional "exchange_id" (Decode.nullable Decode.string) Nothing
+        |> required "exchange_id" Decode.string
         |> optional "exchange_order_id" (Decode.nullable Decode.string) Nothing
         |> optional "client_order_id" (Decode.nullable Decode.string) Nothing
 
@@ -46,7 +48,7 @@ encodeWithTag (tagField, tag) model =
 
 encodePairs : CancelOrderSingleRequest -> List (String, Encode.Value)
 encodePairs model =
-    [ ( "exchange_id", Maybe.withDefault Encode.null (Maybe.map Encode.string model.exchangeId) )
+    [ ( "exchange_id", Encode.string model.exchangeId )
     , ( "exchange_order_id", Maybe.withDefault Encode.null (Maybe.map Encode.string model.exchangeOrderId) )
     , ( "client_order_id", Maybe.withDefault Encode.null (Maybe.map Encode.string model.clientOrderId) )
     ]

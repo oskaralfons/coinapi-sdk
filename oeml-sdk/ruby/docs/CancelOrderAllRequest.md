@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**exchange_id** | **String** | Exchange identifier from which active orders should be canceled. | 
+**exchange_id** | **String** | Identifier of the exchange from which active orders should be canceled. | 
 
 ## Code Sample
 

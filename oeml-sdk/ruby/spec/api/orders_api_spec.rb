@@ -33,8 +33,8 @@ describe 'OrdersApi' do
   end
 
   # unit tests for v1_orders_cancel_all_post
-  # Cancel all orders
-  # This request cancels all open orders across all or single specified exchange.
+  # Cancel all orders request
+  # This request cancels all open orders on single specified exchange.
   # @param cancel_order_all_request 
   # @param [Hash] opts the optional parameters
   # @return [Message]
@@ -45,8 +45,8 @@ describe 'OrdersApi' do
   end
 
   # unit tests for v1_orders_cancel_post
-  # Cancel order
-  # This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+  # Cancel order request
+  # Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
   # @param cancel_order_single_request 
   # @param [Hash] opts the optional parameters
   # @return [OrderExecutionReport]
@@ -58,9 +58,9 @@ describe 'OrdersApi' do
 
   # unit tests for v1_orders_get
   # Get all orders
-  # Get last execution reports for all open orders across all or single exchange.
+  # Get last execution reports for open orders across all or single exchange.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :exchange_id Filter the output to the orders from the specific exchange.
+  # @option opts [String] :exchange_id Filter the open orders to the specific exchange.
   # @return [Array<OrderExecutionReport>]
   describe 'v1_orders_get test' do
     it 'should work' do
@@ -69,7 +69,7 @@ describe 'OrdersApi' do
   end
 
   # unit tests for v1_orders_post
-  # Create new order
+  # Send new order
   # This request creating new order for the specific exchange.
   # @param new_order_single 
   # @param [Hash] opts the optional parameters
@@ -81,8 +81,8 @@ describe 'OrdersApi' do
   end
 
   # unit tests for v1_orders_status_client_order_id_get
-  # Get order status
-  # Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+  # Get order execution report
+  # Get the last order execution report for the specified order. The requested order does not need to be active or opened.
   # @param client_order_id The unique identifier of the order assigned by the client.
   # @param [Hash] opts the optional parameters
   # @return [OrderExecutionReport]

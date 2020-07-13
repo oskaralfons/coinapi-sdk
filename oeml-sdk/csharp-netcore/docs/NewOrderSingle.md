@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ExchangeId** | **string** | Exchange identifier. | 
 **ClientOrderId** | **string** | The unique identifier of the order assigned by the client. | 
-**SymbolExchange** | **string** | Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order. | [optional] 
-**SymbolCoinapi** | **string** | CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order. | [optional] 
+**SymbolExchange** | **string** | Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order. | [optional] 
+**SymbolCoinapi** | **string** | CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order. | [optional] 
 **AmountOrder** | **decimal** | Order quantity. | 
 **Price** | **decimal** | Order price. | 
 **Side** | **OrdSide** |  | 

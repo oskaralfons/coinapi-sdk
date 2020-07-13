@@ -25,9 +25,10 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * CancelOrderSingleRequest
+ * Cancel single order request object.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T12:29:32.389Z[Etc/UTC]")
+@ApiModel(description = "Cancel single order request object.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T12:54:28.032Z[Etc/UTC]")
 public class CancelOrderSingleRequest {
   public static final String SERIALIZED_NAME_EXCHANGE_ID = "exchange_id";
   @SerializedName(SERIALIZED_NAME_EXCHANGE_ID)
@@ -52,8 +53,7 @@ public class CancelOrderSingleRequest {
    * Exchange identifier.
    * @return exchangeId
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "KRAKEN", value = "Exchange identifier.")
+  @ApiModelProperty(example = "KRAKEN", required = true, value = "Exchange identifier.")
 
   public String getExchangeId() {
     return exchangeId;
@@ -72,11 +72,11 @@ public class CancelOrderSingleRequest {
   }
 
    /**
-   * The unique identifier of the order assigned by the exchange.
+   * The unique identifier of the order assigned by the exchange. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order.
    * @return exchangeOrderId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "3456456754", value = "The unique identifier of the order assigned by the exchange.")
+  @ApiModelProperty(example = "3456456754", value = "The unique identifier of the order assigned by the exchange. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.")
 
   public String getExchangeOrderId() {
     return exchangeOrderId;
@@ -95,11 +95,11 @@ public class CancelOrderSingleRequest {
   }
 
    /**
-   * The unique identifier of the order assigned by the client.
+   * The unique identifier of the order assigned by the client. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order.
    * @return clientOrderId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "6ab36bc1-344d-432e-ac6d-0bf44ee64c2b", value = "The unique identifier of the order assigned by the client.")
+  @ApiModelProperty(example = "6ab36bc1-344d-432e-ac6d-0bf44ee64c2b", value = "The unique identifier of the order assigned by the client. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.")
 
   public String getClientOrderId() {
     return clientOrderId;

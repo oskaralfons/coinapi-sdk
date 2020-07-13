@@ -5,7 +5,7 @@
 -export_type([openapi_cancel_order_single_request/0]).
 
 -type openapi_cancel_order_single_request() ::
-    #{ 'exchange_id' => binary(),
+    #{ 'exchange_id' := binary(),
        'exchange_order_id' => binary(),
        'client_order_id' => binary()
      }.

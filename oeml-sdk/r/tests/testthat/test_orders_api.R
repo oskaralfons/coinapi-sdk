@@ -8,8 +8,8 @@ api.instance <- OrdersApi$new()
 test_that("V1OrdersCancelAllPost", {
   # tests for V1OrdersCancelAllPost
   # base path: http://localhost:8080
-  # Cancel all orders
-  # This request cancels all open orders across all or single specified exchange.
+  # Cancel all orders request
+  # This request cancels all open orders on single specified exchange.
   # @param CancelOrderAllRequest  cancel.order.all.request   
   # @return [Message]
 
@@ -20,8 +20,8 @@ test_that("V1OrdersCancelAllPost", {
 test_that("V1OrdersCancelPost", {
   # tests for V1OrdersCancelPost
   # base path: http://localhost:8080
-  # Cancel order
-  # This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+  # Cancel order request
+  # Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
   # @param CancelOrderSingleRequest  cancel.order.single.request   
   # @return [OrderExecutionReport]
 
@@ -33,8 +33,8 @@ test_that("V1OrdersGet", {
   # tests for V1OrdersGet
   # base path: http://localhost:8080
   # Get all orders
-  # Get last execution reports for all open orders across all or single exchange.
-  # @param character  exchange.id  Filter the output to the orders from the specific exchange.  (optional)
+  # Get last execution reports for open orders across all or single exchange.
+  # @param character  exchange.id  Filter the open orders to the specific exchange.  (optional)
   # @return [array[OrderExecutionReport]]
 
   # uncomment below to test the operation
@@ -44,7 +44,7 @@ test_that("V1OrdersGet", {
 test_that("V1OrdersPost", {
   # tests for V1OrdersPost
   # base path: http://localhost:8080
-  # Create new order
+  # Send new order
   # This request creating new order for the specific exchange.
   # @param NewOrderSingle  new.order.single   
   # @return [OrderExecutionReport]
@@ -56,8 +56,8 @@ test_that("V1OrdersPost", {
 test_that("V1OrdersStatusClientOrderIdGet", {
   # tests for V1OrdersStatusClientOrderIdGet
   # base path: http://localhost:8080
-  # Get order status
-  # Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+  # Get order execution report
+  # Get the last order execution report for the specified order. The requested order does not need to be active or opened.
   # @param character  client.order.id  The unique identifier of the order assigned by the client. 
   # @return [OrderExecutionReport]
 

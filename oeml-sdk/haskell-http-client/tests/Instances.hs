@@ -142,7 +142,7 @@ instance Arbitrary CancelOrderSingleRequest where
 genCancelOrderSingleRequest :: Int -> Gen CancelOrderSingleRequest
 genCancelOrderSingleRequest n =
   CancelOrderSingleRequest
-    <$> arbitraryReducedMaybe n -- cancelOrderSingleRequestExchangeId :: Maybe Text
+    <$> arbitrary -- cancelOrderSingleRequestExchangeId :: Text
     <*> arbitraryReducedMaybe n -- cancelOrderSingleRequestExchangeOrderId :: Maybe Text
     <*> arbitraryReducedMaybe n -- cancelOrderSingleRequestClientOrderId :: Maybe Text
   

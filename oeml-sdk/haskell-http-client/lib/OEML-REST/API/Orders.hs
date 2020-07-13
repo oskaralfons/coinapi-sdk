@@ -61,9 +61,9 @@ import qualified Prelude as P
 
 -- | @POST \/v1\/orders\/cancel\/all@
 -- 
--- Cancel all orders
+-- Cancel all orders request
 -- 
--- This request cancels all open orders across all or single specified exchange.
+-- This request cancels all open orders on single specified exchange.
 -- 
 v1OrdersCancelAllPost 
   :: (Consumes V1OrdersCancelAllPost MimeJSON, MimeRender MimeJSON CancelOrderAllRequest)
@@ -90,9 +90,9 @@ instance Produces V1OrdersCancelAllPost MimeApplictionJson
 
 -- | @POST \/v1\/orders\/cancel@
 -- 
--- Cancel order
+-- Cancel order request
 -- 
--- This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+-- Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`.
 -- 
 v1OrdersCancelPost 
   :: (Consumes V1OrdersCancelPost MimeJSON, MimeRender MimeJSON CancelOrderSingleRequest)
@@ -121,7 +121,7 @@ instance Produces V1OrdersCancelPost MimeApplictionJson
 -- 
 -- Get all orders
 -- 
--- Get last execution reports for all open orders across all or single exchange.
+-- Get last execution reports for open orders across all or single exchange.
 -- 
 v1OrdersGet 
   :: Accept accept -- ^ request accept ('MimeType')
@@ -131,7 +131,7 @@ v1OrdersGet  _ =
 
 data V1OrdersGet  
 
--- | /Optional Param/ "exchange_id" - Filter the output to the orders from the specific exchange.
+-- | /Optional Param/ "exchange_id" - Filter the open orders to the specific exchange.
 instance HasOptionalParam V1OrdersGet ExchangeId where
   applyOptionalParam req (ExchangeId xs) =
     req `setQuery` toQuery ("exchange_id", Just xs)
@@ -145,7 +145,7 @@ instance Produces V1OrdersGet MimeApplictionJson
 
 -- | @POST \/v1\/orders@
 -- 
--- Create new order
+-- Send new order
 -- 
 -- This request creating new order for the specific exchange.
 -- 
@@ -174,9 +174,9 @@ instance Produces V1OrdersPost MimeApplictionJson
 
 -- | @GET \/v1\/orders\/status\/{client_order_id}@
 -- 
--- Get order status
+-- Get order execution report
 -- 
--- Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+-- Get the last order execution report for the specified order. The requested order does not need to be active or opened.
 -- 
 v1OrdersStatusClientOrderIdGet 
   :: ClientOrderId -- ^ "clientOrderId" -  The unique identifier of the order assigned by the client.

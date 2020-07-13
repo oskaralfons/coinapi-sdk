@@ -10,7 +10,7 @@
 #' @title CancelOrderSingleRequest
 #' @description CancelOrderSingleRequest Class
 #' @format An \code{R6Class} generator object
-#' @field exchange_id  character [optional]
+#' @field exchange_id  character 
 #'
 #' @field exchange_order_id  character [optional]
 #'
@@ -26,9 +26,9 @@ CancelOrderSingleRequest <- R6::R6Class(
     `exchange_id` = NULL,
     `exchange_order_id` = NULL,
     `client_order_id` = NULL,
-    initialize = function(`exchange_id`=NULL, `exchange_order_id`=NULL, `client_order_id`=NULL, ...){
+    initialize = function(`exchange_id`, `exchange_order_id`=NULL, `client_order_id`=NULL, ...){
       local.optional.var <- list(...)
-      if (!is.null(`exchange_id`)) {
+      if (!missing(`exchange_id`)) {
         stopifnot(is.character(`exchange_id`), length(`exchange_id`) == 1)
         self$`exchange_id` <- `exchange_id`
       }

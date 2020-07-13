@@ -12,7 +12,7 @@
 /*
  * OAICancelOrderAllRequest.h
  *
- * 
+ * Cancel all orders request object.
  */
 
 #ifndef OAICancelOrderAllRequest_H

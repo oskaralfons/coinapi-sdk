@@ -118,13 +118,13 @@ class OrdersApi
     /**
      * Operation v1OrdersCancelAllPost
      *
-     * Cancel all orders
+     * Cancel all orders request
      *
      * @param  \OpenAPI\Client\Model\CancelOrderAllRequest $cancel_order_all_request cancel_order_all_request (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\Message|\OpenAPI\Client\Model\Message
+     * @return \OpenAPI\Client\Model\Message|\OpenAPI\Client\Model\ValidationError|\OpenAPI\Client\Model\Message
      */
     public function v1OrdersCancelAllPost($cancel_order_all_request)
     {
@@ -135,13 +135,13 @@ class OrdersApi
     /**
      * Operation v1OrdersCancelAllPostWithHttpInfo
      *
-     * Cancel all orders
+     * Cancel all orders request
      *
      * @param  \OpenAPI\Client\Model\CancelOrderAllRequest $cancel_order_all_request (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\Message|\OpenAPI\Client\Model\Message, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\Message|\OpenAPI\Client\Model\ValidationError|\OpenAPI\Client\Model\Message, HTTP status code, HTTP response headers (array of strings)
      */
     public function v1OrdersCancelAllPostWithHttpInfo($cancel_order_all_request)
     {
@@ -189,6 +189,18 @@ class OrdersApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 400:
+                    if ('\OpenAPI\Client\Model\ValidationError' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ValidationError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 case 490:
                     if ('\OpenAPI\Client\Model\Message' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
@@ -227,6 +239,14 @@ class OrdersApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ValidationError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 490:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -243,7 +263,7 @@ class OrdersApi
     /**
      * Operation v1OrdersCancelAllPostAsync
      *
-     * Cancel all orders
+     * Cancel all orders request
      *
      * @param  \OpenAPI\Client\Model\CancelOrderAllRequest $cancel_order_all_request (required)
      *
@@ -263,7 +283,7 @@ class OrdersApi
     /**
      * Operation v1OrdersCancelAllPostAsyncWithHttpInfo
      *
-     * Cancel all orders
+     * Cancel all orders request
      *
      * @param  \OpenAPI\Client\Model\CancelOrderAllRequest $cancel_order_all_request (required)
      *
@@ -406,7 +426,7 @@ class OrdersApi
     /**
      * Operation v1OrdersCancelPost
      *
-     * Cancel order
+     * Cancel order request
      *
      * @param  \OpenAPI\Client\Model\CancelOrderSingleRequest $cancel_order_single_request cancel_order_single_request (required)
      *
@@ -423,7 +443,7 @@ class OrdersApi
     /**
      * Operation v1OrdersCancelPostWithHttpInfo
      *
-     * Cancel order
+     * Cancel order request
      *
      * @param  \OpenAPI\Client\Model\CancelOrderSingleRequest $cancel_order_single_request (required)
      *
@@ -551,7 +571,7 @@ class OrdersApi
     /**
      * Operation v1OrdersCancelPostAsync
      *
-     * Cancel order
+     * Cancel order request
      *
      * @param  \OpenAPI\Client\Model\CancelOrderSingleRequest $cancel_order_single_request (required)
      *
@@ -571,7 +591,7 @@ class OrdersApi
     /**
      * Operation v1OrdersCancelPostAsyncWithHttpInfo
      *
-     * Cancel order
+     * Cancel order request
      *
      * @param  \OpenAPI\Client\Model\CancelOrderSingleRequest $cancel_order_single_request (required)
      *
@@ -716,7 +736,7 @@ class OrdersApi
      *
      * Get all orders
      *
-     * @param  string $exchange_id Filter the output to the orders from the specific exchange. (optional)
+     * @param  string $exchange_id Filter the open orders to the specific exchange. (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -733,7 +753,7 @@ class OrdersApi
      *
      * Get all orders
      *
-     * @param  string $exchange_id Filter the output to the orders from the specific exchange. (optional)
+     * @param  string $exchange_id Filter the open orders to the specific exchange. (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -841,7 +861,7 @@ class OrdersApi
      *
      * Get all orders
      *
-     * @param  string $exchange_id Filter the output to the orders from the specific exchange. (optional)
+     * @param  string $exchange_id Filter the open orders to the specific exchange. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -861,7 +881,7 @@ class OrdersApi
      *
      * Get all orders
      *
-     * @param  string $exchange_id Filter the output to the orders from the specific exchange. (optional)
+     * @param  string $exchange_id Filter the open orders to the specific exchange. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -908,7 +928,7 @@ class OrdersApi
     /**
      * Create request for operation 'v1OrdersGet'
      *
-     * @param  string $exchange_id Filter the output to the orders from the specific exchange. (optional)
+     * @param  string $exchange_id Filter the open orders to the specific exchange. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1004,13 +1024,13 @@ class OrdersApi
     /**
      * Operation v1OrdersPost
      *
-     * Create new order
+     * Send new order
      *
      * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single new_order_single (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\OrderExecutionReport|\OpenAPI\Client\Model\ValidationError|\OpenAPI\Client\Model\Message
+     * @return \OpenAPI\Client\Model\OrderExecutionReport|\OpenAPI\Client\Model\ValidationError|\OpenAPI\Client\Model\Message|\OpenAPI\Client\Model\Message
      */
     public function v1OrdersPost($new_order_single)
     {
@@ -1021,13 +1041,13 @@ class OrdersApi
     /**
      * Operation v1OrdersPostWithHttpInfo
      *
-     * Create new order
+     * Send new order
      *
      * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\OrderExecutionReport|\OpenAPI\Client\Model\ValidationError|\OpenAPI\Client\Model\Message, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\OrderExecutionReport|\OpenAPI\Client\Model\ValidationError|\OpenAPI\Client\Model\Message|\OpenAPI\Client\Model\Message, HTTP status code, HTTP response headers (array of strings)
      */
     public function v1OrdersPostWithHttpInfo($new_order_single)
     {
@@ -1099,6 +1119,18 @@ class OrdersApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 504:
+                    if ('\OpenAPI\Client\Model\Message' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Message', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\OpenAPI\Client\Model\OrderExecutionReport';
@@ -1141,6 +1173,14 @@ class OrdersApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 504:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\Message',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -1149,7 +1189,7 @@ class OrdersApi
     /**
      * Operation v1OrdersPostAsync
      *
-     * Create new order
+     * Send new order
      *
      * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single (required)
      *
@@ -1169,7 +1209,7 @@ class OrdersApi
     /**
      * Operation v1OrdersPostAsyncWithHttpInfo
      *
-     * Create new order
+     * Send new order
      *
      * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single (required)
      *
@@ -1312,7 +1352,7 @@ class OrdersApi
     /**
      * Operation v1OrdersStatusClientOrderIdGet
      *
-     * Get order status
+     * Get order execution report
      *
      * @param  string $client_order_id The unique identifier of the order assigned by the client. (required)
      *
@@ -1329,7 +1369,7 @@ class OrdersApi
     /**
      * Operation v1OrdersStatusClientOrderIdGetWithHttpInfo
      *
-     * Get order status
+     * Get order execution report
      *
      * @param  string $client_order_id The unique identifier of the order assigned by the client. (required)
      *
@@ -1437,7 +1477,7 @@ class OrdersApi
     /**
      * Operation v1OrdersStatusClientOrderIdGetAsync
      *
-     * Get order status
+     * Get order execution report
      *
      * @param  string $client_order_id The unique identifier of the order assigned by the client. (required)
      *
@@ -1457,7 +1497,7 @@ class OrdersApi
     /**
      * Operation v1OrdersStatusClientOrderIdGetAsyncWithHttpInfo
      *
-     * Get order status
+     * Get order execution report
      *
      * @param  string $client_order_id The unique identifier of the order assigned by the client. (required)
      *

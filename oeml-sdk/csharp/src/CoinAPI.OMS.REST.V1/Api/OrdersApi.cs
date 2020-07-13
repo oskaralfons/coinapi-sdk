@@ -25,10 +25,10 @@ namespace CoinAPI.OMS.REST.V1.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Cancel all orders
+        /// Cancel all orders request
         /// </summary>
         /// <remarks>
-        /// This request cancels all open orders across all or single specified exchange.
+        /// This request cancels all open orders on single specified exchange.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancelOrderAllRequest"></param>
@@ -36,20 +36,20 @@ namespace CoinAPI.OMS.REST.V1.Api
         Message V1OrdersCancelAllPost (CancelOrderAllRequest cancelOrderAllRequest);
 
         /// <summary>
-        /// Cancel all orders
+        /// Cancel all orders request
         /// </summary>
         /// <remarks>
-        /// This request cancels all open orders across all or single specified exchange.
+        /// This request cancels all open orders on single specified exchange.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancelOrderAllRequest"></param>
         /// <returns>ApiResponse of Message</returns>
         ApiResponse<Message> V1OrdersCancelAllPostWithHttpInfo (CancelOrderAllRequest cancelOrderAllRequest);
         /// <summary>
-        /// Cancel order
+        /// Cancel order request
         /// </summary>
         /// <remarks>
-        /// This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+        /// Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancelOrderSingleRequest"></param>
@@ -57,10 +57,10 @@ namespace CoinAPI.OMS.REST.V1.Api
         OrderExecutionReport V1OrdersCancelPost (CancelOrderSingleRequest cancelOrderSingleRequest);
 
         /// <summary>
-        /// Cancel order
+        /// Cancel order request
         /// </summary>
         /// <remarks>
-        /// This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+        /// Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancelOrderSingleRequest"></param>
@@ -70,10 +70,10 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// Get all orders
         /// </summary>
         /// <remarks>
-        /// Get last execution reports for all open orders across all or single exchange.
+        /// Get last execution reports for open orders across all or single exchange.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional)</param>
+        /// <param name="exchangeId">Filter the open orders to the specific exchange. (optional)</param>
         /// <returns>List&lt;OrderExecutionReport&gt;</returns>
         List<OrderExecutionReport> V1OrdersGet (string exchangeId = default(string));
 
@@ -81,14 +81,14 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// Get all orders
         /// </summary>
         /// <remarks>
-        /// Get last execution reports for all open orders across all or single exchange.
+        /// Get last execution reports for open orders across all or single exchange.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional)</param>
+        /// <param name="exchangeId">Filter the open orders to the specific exchange. (optional)</param>
         /// <returns>ApiResponse of List&lt;OrderExecutionReport&gt;</returns>
         ApiResponse<List<OrderExecutionReport>> V1OrdersGetWithHttpInfo (string exchangeId = default(string));
         /// <summary>
-        /// Create new order
+        /// Send new order
         /// </summary>
         /// <remarks>
         /// This request creating new order for the specific exchange.
@@ -99,7 +99,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         OrderExecutionReport V1OrdersPost (NewOrderSingle newOrderSingle);
 
         /// <summary>
-        /// Create new order
+        /// Send new order
         /// </summary>
         /// <remarks>
         /// This request creating new order for the specific exchange.
@@ -109,10 +109,10 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// <returns>ApiResponse of OrderExecutionReport</returns>
         ApiResponse<OrderExecutionReport> V1OrdersPostWithHttpInfo (NewOrderSingle newOrderSingle);
         /// <summary>
-        /// Get order status
+        /// Get order execution report
         /// </summary>
         /// <remarks>
-        /// Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+        /// Get the last order execution report for the specified order. The requested order does not need to be active or opened.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientOrderId">The unique identifier of the order assigned by the client.</param>
@@ -120,10 +120,10 @@ namespace CoinAPI.OMS.REST.V1.Api
         OrderExecutionReport V1OrdersStatusClientOrderIdGet (string clientOrderId);
 
         /// <summary>
-        /// Get order status
+        /// Get order execution report
         /// </summary>
         /// <remarks>
-        /// Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+        /// Get the last order execution report for the specified order. The requested order does not need to be active or opened.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientOrderId">The unique identifier of the order assigned by the client.</param>
@@ -132,10 +132,10 @@ namespace CoinAPI.OMS.REST.V1.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Cancel all orders
+        /// Cancel all orders request
         /// </summary>
         /// <remarks>
-        /// This request cancels all open orders across all or single specified exchange.
+        /// This request cancels all open orders on single specified exchange.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancelOrderAllRequest"></param>
@@ -143,20 +143,20 @@ namespace CoinAPI.OMS.REST.V1.Api
         System.Threading.Tasks.Task<Message> V1OrdersCancelAllPostAsync (CancelOrderAllRequest cancelOrderAllRequest);
 
         /// <summary>
-        /// Cancel all orders
+        /// Cancel all orders request
         /// </summary>
         /// <remarks>
-        /// This request cancels all open orders across all or single specified exchange.
+        /// This request cancels all open orders on single specified exchange.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancelOrderAllRequest"></param>
         /// <returns>Task of ApiResponse (Message)</returns>
         System.Threading.Tasks.Task<ApiResponse<Message>> V1OrdersCancelAllPostAsyncWithHttpInfo (CancelOrderAllRequest cancelOrderAllRequest);
         /// <summary>
-        /// Cancel order
+        /// Cancel order request
         /// </summary>
         /// <remarks>
-        /// This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+        /// Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancelOrderSingleRequest"></param>
@@ -164,10 +164,10 @@ namespace CoinAPI.OMS.REST.V1.Api
         System.Threading.Tasks.Task<OrderExecutionReport> V1OrdersCancelPostAsync (CancelOrderSingleRequest cancelOrderSingleRequest);
 
         /// <summary>
-        /// Cancel order
+        /// Cancel order request
         /// </summary>
         /// <remarks>
-        /// This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+        /// Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancelOrderSingleRequest"></param>
@@ -177,10 +177,10 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// Get all orders
         /// </summary>
         /// <remarks>
-        /// Get last execution reports for all open orders across all or single exchange.
+        /// Get last execution reports for open orders across all or single exchange.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional)</param>
+        /// <param name="exchangeId">Filter the open orders to the specific exchange. (optional)</param>
         /// <returns>Task of List&lt;OrderExecutionReport&gt;</returns>
         System.Threading.Tasks.Task<List<OrderExecutionReport>> V1OrdersGetAsync (string exchangeId = default(string));
 
@@ -188,14 +188,14 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// Get all orders
         /// </summary>
         /// <remarks>
-        /// Get last execution reports for all open orders across all or single exchange.
+        /// Get last execution reports for open orders across all or single exchange.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional)</param>
+        /// <param name="exchangeId">Filter the open orders to the specific exchange. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;OrderExecutionReport&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<OrderExecutionReport>>> V1OrdersGetAsyncWithHttpInfo (string exchangeId = default(string));
         /// <summary>
-        /// Create new order
+        /// Send new order
         /// </summary>
         /// <remarks>
         /// This request creating new order for the specific exchange.
@@ -206,7 +206,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         System.Threading.Tasks.Task<OrderExecutionReport> V1OrdersPostAsync (NewOrderSingle newOrderSingle);
 
         /// <summary>
-        /// Create new order
+        /// Send new order
         /// </summary>
         /// <remarks>
         /// This request creating new order for the specific exchange.
@@ -216,10 +216,10 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// <returns>Task of ApiResponse (OrderExecutionReport)</returns>
         System.Threading.Tasks.Task<ApiResponse<OrderExecutionReport>> V1OrdersPostAsyncWithHttpInfo (NewOrderSingle newOrderSingle);
         /// <summary>
-        /// Get order status
+        /// Get order execution report
         /// </summary>
         /// <remarks>
-        /// Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+        /// Get the last order execution report for the specified order. The requested order does not need to be active or opened.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientOrderId">The unique identifier of the order assigned by the client.</param>
@@ -227,10 +227,10 @@ namespace CoinAPI.OMS.REST.V1.Api
         System.Threading.Tasks.Task<OrderExecutionReport> V1OrdersStatusClientOrderIdGetAsync (string clientOrderId);
 
         /// <summary>
-        /// Get order status
+        /// Get order execution report
         /// </summary>
         /// <remarks>
-        /// Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+        /// Get the last order execution report for the specified order. The requested order does not need to be active or opened.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientOrderId">The unique identifier of the order assigned by the client.</param>
@@ -348,7 +348,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         }
 
         /// <summary>
-        /// Cancel all orders This request cancels all open orders across all or single specified exchange.
+        /// Cancel all orders request This request cancels all open orders on single specified exchange.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancelOrderAllRequest"></param>
@@ -360,7 +360,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         }
 
         /// <summary>
-        /// Cancel all orders This request cancels all open orders across all or single specified exchange.
+        /// Cancel all orders request This request cancels all open orders on single specified exchange.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancelOrderAllRequest"></param>
@@ -423,7 +423,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         }
 
         /// <summary>
-        /// Cancel all orders This request cancels all open orders across all or single specified exchange.
+        /// Cancel all orders request This request cancels all open orders on single specified exchange.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancelOrderAllRequest"></param>
@@ -436,7 +436,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         }
 
         /// <summary>
-        /// Cancel all orders This request cancels all open orders across all or single specified exchange.
+        /// Cancel all orders request This request cancels all open orders on single specified exchange.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancelOrderAllRequest"></param>
@@ -499,7 +499,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         }
 
         /// <summary>
-        /// Cancel order This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+        /// Cancel order request Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancelOrderSingleRequest"></param>
@@ -511,7 +511,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         }
 
         /// <summary>
-        /// Cancel order This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+        /// Cancel order request Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancelOrderSingleRequest"></param>
@@ -574,7 +574,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         }
 
         /// <summary>
-        /// Cancel order This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+        /// Cancel order request Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancelOrderSingleRequest"></param>
@@ -587,7 +587,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         }
 
         /// <summary>
-        /// Cancel order This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+        /// Cancel order request Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancelOrderSingleRequest"></param>
@@ -650,10 +650,10 @@ namespace CoinAPI.OMS.REST.V1.Api
         }
 
         /// <summary>
-        /// Get all orders Get last execution reports for all open orders across all or single exchange.
+        /// Get all orders Get last execution reports for open orders across all or single exchange.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional)</param>
+        /// <param name="exchangeId">Filter the open orders to the specific exchange. (optional)</param>
         /// <returns>List&lt;OrderExecutionReport&gt;</returns>
         public List<OrderExecutionReport> V1OrdersGet (string exchangeId = default(string))
         {
@@ -662,10 +662,10 @@ namespace CoinAPI.OMS.REST.V1.Api
         }
 
         /// <summary>
-        /// Get all orders Get last execution reports for all open orders across all or single exchange.
+        /// Get all orders Get last execution reports for open orders across all or single exchange.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional)</param>
+        /// <param name="exchangeId">Filter the open orders to the specific exchange. (optional)</param>
         /// <returns>ApiResponse of List&lt;OrderExecutionReport&gt;</returns>
         public ApiResponse<List<OrderExecutionReport>> V1OrdersGetWithHttpInfo (string exchangeId = default(string))
         {
@@ -714,10 +714,10 @@ namespace CoinAPI.OMS.REST.V1.Api
         }
 
         /// <summary>
-        /// Get all orders Get last execution reports for all open orders across all or single exchange.
+        /// Get all orders Get last execution reports for open orders across all or single exchange.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional)</param>
+        /// <param name="exchangeId">Filter the open orders to the specific exchange. (optional)</param>
         /// <returns>Task of List&lt;OrderExecutionReport&gt;</returns>
         public async System.Threading.Tasks.Task<List<OrderExecutionReport>> V1OrdersGetAsync (string exchangeId = default(string))
         {
@@ -727,10 +727,10 @@ namespace CoinAPI.OMS.REST.V1.Api
         }
 
         /// <summary>
-        /// Get all orders Get last execution reports for all open orders across all or single exchange.
+        /// Get all orders Get last execution reports for open orders across all or single exchange.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional)</param>
+        /// <param name="exchangeId">Filter the open orders to the specific exchange. (optional)</param>
         /// <returns>Task of ApiResponse (List&lt;OrderExecutionReport&gt;)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<List<OrderExecutionReport>>> V1OrdersGetAsyncWithHttpInfo (string exchangeId = default(string))
         {
@@ -779,7 +779,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         }
 
         /// <summary>
-        /// Create new order This request creating new order for the specific exchange.
+        /// Send new order This request creating new order for the specific exchange.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="newOrderSingle"></param>
@@ -791,7 +791,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         }
 
         /// <summary>
-        /// Create new order This request creating new order for the specific exchange.
+        /// Send new order This request creating new order for the specific exchange.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="newOrderSingle"></param>
@@ -854,7 +854,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         }
 
         /// <summary>
-        /// Create new order This request creating new order for the specific exchange.
+        /// Send new order This request creating new order for the specific exchange.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="newOrderSingle"></param>
@@ -867,7 +867,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         }
 
         /// <summary>
-        /// Create new order This request creating new order for the specific exchange.
+        /// Send new order This request creating new order for the specific exchange.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="newOrderSingle"></param>
@@ -930,7 +930,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         }
 
         /// <summary>
-        /// Get order status Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+        /// Get order execution report Get the last order execution report for the specified order. The requested order does not need to be active or opened.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientOrderId">The unique identifier of the order assigned by the client.</param>
@@ -942,7 +942,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         }
 
         /// <summary>
-        /// Get order status Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+        /// Get order execution report Get the last order execution report for the specified order. The requested order does not need to be active or opened.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientOrderId">The unique identifier of the order assigned by the client.</param>
@@ -996,7 +996,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         }
 
         /// <summary>
-        /// Get order status Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+        /// Get order execution report Get the last order execution report for the specified order. The requested order does not need to be active or opened.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientOrderId">The unique identifier of the order assigned by the client.</param>
@@ -1009,7 +1009,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         }
 
         /// <summary>
-        /// Get order status Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+        /// Get order execution report Get the last order execution report for the specified order. The requested order does not need to be active or opened.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientOrderId">The unique identifier of the order assigned by the client.</param>

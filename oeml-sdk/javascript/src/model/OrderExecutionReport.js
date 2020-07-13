@@ -155,13 +155,13 @@ OrderExecutionReport.prototype['exchange_id'] = undefined;
 OrderExecutionReport.prototype['client_order_id'] = undefined;
 
 /**
- * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
+ * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
  * @member {String} symbol_exchange
  */
 OrderExecutionReport.prototype['symbol_exchange'] = undefined;
 
 /**
- * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
+ * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
  * @member {String} symbol_coinapi
  */
 OrderExecutionReport.prototype['symbol_coinapi'] = undefined;
@@ -259,12 +259,12 @@ NewOrderSingle.prototype['exchange_id'] = undefined;
  */
 NewOrderSingle.prototype['client_order_id'] = undefined;
 /**
- * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
+ * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
  * @member {String} symbol_exchange
  */
 NewOrderSingle.prototype['symbol_exchange'] = undefined;
 /**
- * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
+ * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
  * @member {String} symbol_coinapi
  */
 NewOrderSingle.prototype['symbol_coinapi'] = undefined;

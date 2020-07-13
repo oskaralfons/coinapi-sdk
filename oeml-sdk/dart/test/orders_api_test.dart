@@ -7,18 +7,18 @@ void main() {
   var instance = OrdersApi();
 
   group('tests for OrdersApi', () {
-    // Cancel all orders
+    // Cancel all orders request
     //
-    // This request cancels all open orders across all or single specified exchange.
+    // This request cancels all open orders on single specified exchange.
     //
     //Future<Message> v1OrdersCancelAllPost(CancelOrderAllRequest cancelOrderAllRequest) async 
     test('test v1OrdersCancelAllPost', () async {
       // TODO
     });
 
-    // Cancel order
+    // Cancel order request
     //
-    // This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+    // Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`.
     //
     //Future<OrderExecutionReport> v1OrdersCancelPost(CancelOrderSingleRequest cancelOrderSingleRequest) async 
     test('test v1OrdersCancelPost', () async {
@@ -27,14 +27,14 @@ void main() {
 
     // Get all orders
     //
-    // Get last execution reports for all open orders across all or single exchange.
+    // Get last execution reports for open orders across all or single exchange.
     //
     //Future<List<OrderExecutionReport>> v1OrdersGet({ String exchangeId }) async 
     test('test v1OrdersGet', () async {
       // TODO
     });
 
-    // Create new order
+    // Send new order
     //
     // This request creating new order for the specific exchange.
     //
@@ -43,9 +43,9 @@ void main() {
       // TODO
     });
 
-    // Get order status
+    // Get order execution report
     //
-    // Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+    // Get the last order execution report for the specified order. The requested order does not need to be active or opened.
     //
     //Future<OrderExecutionReport> v1OrdersStatusClientOrderIdGet(String clientOrderId) async 
     test('test v1OrdersStatusClientOrderIdGet', () async {

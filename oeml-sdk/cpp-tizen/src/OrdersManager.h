@@ -29,9 +29,9 @@ public:
 	OrdersManager();
 	virtual ~OrdersManager();
 
-/*! \brief Cancel all orders. *Synchronous*
+/*! \brief Cancel all orders request. *Synchronous*
  *
- * This request cancels all open orders across all or single specified exchange.
+ * This request cancels all open orders on single specified exchange.
  * \param cancelOrderAllRequest  *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
@@ -42,9 +42,9 @@ bool v1OrdersCancelAllPostSync(char * accessToken,
 	void(* handler)(Message, Error, void* )
 	, void* userData);
 
-/*! \brief Cancel all orders. *Asynchronous*
+/*! \brief Cancel all orders request. *Asynchronous*
  *
- * This request cancels all open orders across all or single specified exchange.
+ * This request cancels all open orders on single specified exchange.
  * \param cancelOrderAllRequest  *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
@@ -56,9 +56,9 @@ bool v1OrdersCancelAllPostAsync(char * accessToken,
 	, void* userData);
 
 
-/*! \brief Cancel order. *Synchronous*
+/*! \brief Cancel order request. *Synchronous*
  *
- * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+ * Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`.
  * \param cancelOrderSingleRequest  *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
@@ -69,9 +69,9 @@ bool v1OrdersCancelPostSync(char * accessToken,
 	void(* handler)(OrderExecutionReport, Error, void* )
 	, void* userData);
 
-/*! \brief Cancel order. *Asynchronous*
+/*! \brief Cancel order request. *Asynchronous*
  *
- * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+ * Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`.
  * \param cancelOrderSingleRequest  *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
@@ -85,8 +85,8 @@ bool v1OrdersCancelPostAsync(char * accessToken,
 
 /*! \brief Get all orders. *Synchronous*
  *
- * Get last execution reports for all open orders across all or single exchange.
- * \param exchangeId Filter the output to the orders from the specific exchange.
+ * Get last execution reports for open orders across all or single exchange.
+ * \param exchangeId Filter the open orders to the specific exchange.
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
@@ -98,8 +98,8 @@ bool v1OrdersGetSync(char * accessToken,
 
 /*! \brief Get all orders. *Asynchronous*
  *
- * Get last execution reports for all open orders across all or single exchange.
- * \param exchangeId Filter the output to the orders from the specific exchange.
+ * Get last execution reports for open orders across all or single exchange.
+ * \param exchangeId Filter the open orders to the specific exchange.
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
@@ -110,7 +110,7 @@ bool v1OrdersGetAsync(char * accessToken,
 	, void* userData);
 
 
-/*! \brief Create new order. *Synchronous*
+/*! \brief Send new order. *Synchronous*
  *
  * This request creating new order for the specific exchange.
  * \param newOrderSingle  *Required*
@@ -123,7 +123,7 @@ bool v1OrdersPostSync(char * accessToken,
 	void(* handler)(OrderExecutionReport, Error, void* )
 	, void* userData);
 
-/*! \brief Create new order. *Asynchronous*
+/*! \brief Send new order. *Asynchronous*
  *
  * This request creating new order for the specific exchange.
  * \param newOrderSingle  *Required*
@@ -137,9 +137,9 @@ bool v1OrdersPostAsync(char * accessToken,
 	, void* userData);
 
 
-/*! \brief Get order status. *Synchronous*
+/*! \brief Get order execution report. *Synchronous*
  *
- * Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+ * Get the last order execution report for the specified order. The requested order does not need to be active or opened.
  * \param clientOrderId The unique identifier of the order assigned by the client. *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
@@ -150,9 +150,9 @@ bool v1OrdersStatusClientOrderIdGetSync(char * accessToken,
 	void(* handler)(OrderExecutionReport, Error, void* )
 	, void* userData);
 
-/*! \brief Get order status. *Asynchronous*
+/*! \brief Get order execution report. *Asynchronous*
  *
- * Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+ * Get the last order execution report for the specified order. The requested order does not need to be active or opened.
  * \param clientOrderId The unique identifier of the order assigned by the client. *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*

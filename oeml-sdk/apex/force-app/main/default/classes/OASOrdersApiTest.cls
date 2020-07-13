@@ -1,9 +1,9 @@
 @isTest
 private class OASOrdersApiTest {
     /**
-     * Cancel all orders
+     * Cancel all orders request
      *
-     * This request cancels all open orders across all or single specified exchange.
+     * This request cancels all open orders on single specified exchange.
      */
     @isTest
     private static void v1OrdersCancelAllPostTest() {
@@ -33,9 +33,9 @@ private class OASOrdersApiTest {
     }
 
     /**
-     * Cancel order
+     * Cancel order request
      *
-     * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+     * Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
      */
     @isTest
     private static void v1OrdersCancelPostTest() {
@@ -67,7 +67,7 @@ private class OASOrdersApiTest {
     /**
      * Get all orders
      *
-     * Get last execution reports for all open orders across all or single exchange.
+     * Get last execution reports for open orders across all or single exchange.
      */
     @isTest
     private static void v1OrdersGetTest() {
@@ -97,7 +97,7 @@ private class OASOrdersApiTest {
     }
 
     /**
-     * Create new order
+     * Send new order
      *
      * This request creating new order for the specific exchange.
      */
@@ -129,9 +129,9 @@ private class OASOrdersApiTest {
     }
 
     /**
-     * Get order status
+     * Get order execution report
      *
-     * Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+     * Get the last order execution report for the specified order. The requested order does not need to be active or opened.
      */
     @isTest
     private static void v1OrdersStatusClientOrderIdGetTest() {

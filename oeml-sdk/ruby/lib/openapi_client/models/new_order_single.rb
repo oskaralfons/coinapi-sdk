@@ -21,10 +21,10 @@ module OpenapiClient
     # The unique identifier of the order assigned by the client.
     attr_accessor :client_order_id
 
-    # Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
+    # Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
     attr_accessor :symbol_exchange
 
-    # CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
+    # CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
     attr_accessor :symbol_coinapi
 
     # Order quantity.

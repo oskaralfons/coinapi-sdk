@@ -31,7 +31,7 @@ basePath =
     "http://localhost:8080"
 
 
-{-| This request cancels all open orders across all or single specified exchange.
+{-| This request cancels all open orders on single specified exchange.
 -}
 v1OrdersCancelAllPost :
     { onSend : Result Http.Error Message -> msg
@@ -56,7 +56,7 @@ v1OrdersCancelAllPost params =
         }
 
 
-{-| This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+{-| Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`.
 -}
 v1OrdersCancelPost :
     { onSend : Result Http.Error OrderExecutionReport -> msg
@@ -81,7 +81,7 @@ v1OrdersCancelPost params =
         }
 
 
-{-| Get last execution reports for all open orders across all or single exchange.
+{-| Get last execution reports for open orders across all or single exchange.
 -}
 v1OrdersGet :
     { onSend : Result Http.Error (List OrderExecutionReport) -> msg
@@ -131,7 +131,7 @@ v1OrdersPost params =
         }
 
 
-{-| Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+{-| Get the last order execution report for the specified order. The requested order does not need to be active or opened.
 -}
 v1OrdersStatusClientOrderIdGet :
     { onSend : Result Http.Error OrderExecutionReport -> msg

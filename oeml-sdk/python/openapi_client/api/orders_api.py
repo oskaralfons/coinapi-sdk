@@ -37,9 +37,9 @@ class OrdersApi(object):
         self.api_client = api_client
 
     def v1_orders_cancel_all_post(self, cancel_order_all_request, **kwargs):  # noqa: E501
-        """Cancel all orders  # noqa: E501
+        """Cancel all orders request  # noqa: E501
 
-        This request cancels all open orders across all or single specified exchange.  # noqa: E501
+        This request cancels all open orders on single specified exchange.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.v1_orders_cancel_all_post(cancel_order_all_request, async_req=True)
@@ -62,9 +62,9 @@ class OrdersApi(object):
         return self.v1_orders_cancel_all_post_with_http_info(cancel_order_all_request, **kwargs)  # noqa: E501
 
     def v1_orders_cancel_all_post_with_http_info(self, cancel_order_all_request, **kwargs):  # noqa: E501
-        """Cancel all orders  # noqa: E501
+        """Cancel all orders request  # noqa: E501
 
-        This request cancels all open orders across all or single specified exchange.  # noqa: E501
+        This request cancels all open orders on single specified exchange.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.v1_orders_cancel_all_post_with_http_info(cancel_order_all_request, async_req=True)
@@ -155,9 +155,9 @@ class OrdersApi(object):
             collection_formats=collection_formats)
 
     def v1_orders_cancel_post(self, cancel_order_single_request, **kwargs):  # noqa: E501
-        """Cancel order  # noqa: E501
+        """Cancel order request  # noqa: E501
 
-        This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.  # noqa: E501
+        Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.v1_orders_cancel_post(cancel_order_single_request, async_req=True)
@@ -180,9 +180,9 @@ class OrdersApi(object):
         return self.v1_orders_cancel_post_with_http_info(cancel_order_single_request, **kwargs)  # noqa: E501
 
     def v1_orders_cancel_post_with_http_info(self, cancel_order_single_request, **kwargs):  # noqa: E501
-        """Cancel order  # noqa: E501
+        """Cancel order request  # noqa: E501
 
-        This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.  # noqa: E501
+        Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.v1_orders_cancel_post_with_http_info(cancel_order_single_request, async_req=True)
@@ -275,14 +275,14 @@ class OrdersApi(object):
     def v1_orders_get(self, **kwargs):  # noqa: E501
         """Get all orders  # noqa: E501
 
-        Get last execution reports for all open orders across all or single exchange.  # noqa: E501
+        Get last execution reports for open orders across all or single exchange.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.v1_orders_get(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str exchange_id: Filter the output to the orders from the specific exchange.
+        :param str exchange_id: Filter the open orders to the specific exchange.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -300,14 +300,14 @@ class OrdersApi(object):
     def v1_orders_get_with_http_info(self, **kwargs):  # noqa: E501
         """Get all orders  # noqa: E501
 
-        Get last execution reports for all open orders across all or single exchange.  # noqa: E501
+        Get last execution reports for open orders across all or single exchange.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.v1_orders_get_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str exchange_id: Filter the output to the orders from the specific exchange.
+        :param str exchange_id: Filter the open orders to the specific exchange.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -383,7 +383,7 @@ class OrdersApi(object):
             collection_formats=collection_formats)
 
     def v1_orders_post(self, new_order_single, **kwargs):  # noqa: E501
-        """Create new order  # noqa: E501
+        """Send new order  # noqa: E501
 
         This request creating new order for the specific exchange.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -408,7 +408,7 @@ class OrdersApi(object):
         return self.v1_orders_post_with_http_info(new_order_single, **kwargs)  # noqa: E501
 
     def v1_orders_post_with_http_info(self, new_order_single, **kwargs):  # noqa: E501
-        """Create new order  # noqa: E501
+        """Send new order  # noqa: E501
 
         This request creating new order for the specific exchange.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -501,9 +501,9 @@ class OrdersApi(object):
             collection_formats=collection_formats)
 
     def v1_orders_status_client_order_id_get(self, client_order_id, **kwargs):  # noqa: E501
-        """Get order status  # noqa: E501
+        """Get order execution report  # noqa: E501
 
-        Get the last order execution report for the specified order. The requested order does not need to be active/opened.  # noqa: E501
+        Get the last order execution report for the specified order. The requested order does not need to be active or opened.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.v1_orders_status_client_order_id_get(client_order_id, async_req=True)
@@ -526,9 +526,9 @@ class OrdersApi(object):
         return self.v1_orders_status_client_order_id_get_with_http_info(client_order_id, **kwargs)  # noqa: E501
 
     def v1_orders_status_client_order_id_get_with_http_info(self, client_order_id, **kwargs):  # noqa: E501
-        """Get order status  # noqa: E501
+        """Get order execution report  # noqa: E501
 
-        Get the last order execution report for the specified order. The requested order does not need to be active/opened.  # noqa: E501
+        Get the last order execution report for the specified order. The requested order does not need to be active or opened.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.v1_orders_status_client_order_id_get_with_http_info(client_order_id, async_req=True)

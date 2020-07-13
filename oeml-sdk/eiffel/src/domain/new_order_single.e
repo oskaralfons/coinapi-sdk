@@ -29,9 +29,9 @@ feature --Access
     client_order_id: detachable STRING_32 
       -- The unique identifier of the order assigned by the client.
     symbol_exchange: detachable STRING_32 
-      -- Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
+      -- Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
     symbol_coinapi: detachable STRING_32 
-      -- CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
+      -- CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
     amount_order: REAL_32 
       -- Order quantity.
     price: REAL_32 

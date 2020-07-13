@@ -69,6 +69,7 @@ public class OrdersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Result </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Input model validation errors. </td><td>  -  </td></tr>
         <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
@@ -116,8 +117,8 @@ public class OrdersApi {
     }
 
     /**
-     * Cancel all orders
-     * This request cancels all open orders across all or single specified exchange.
+     * Cancel all orders request
+     * This request cancels all open orders on single specified exchange.
      * @param cancelOrderAllRequest  (required)
      * @return Message
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -125,6 +126,7 @@ public class OrdersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Result </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Input model validation errors. </td><td>  -  </td></tr>
         <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
@@ -134,8 +136,8 @@ public class OrdersApi {
     }
 
     /**
-     * Cancel all orders
-     * This request cancels all open orders across all or single specified exchange.
+     * Cancel all orders request
+     * This request cancels all open orders on single specified exchange.
      * @param cancelOrderAllRequest  (required)
      * @return ApiResponse&lt;Message&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -143,6 +145,7 @@ public class OrdersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Result </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Input model validation errors. </td><td>  -  </td></tr>
         <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
@@ -153,8 +156,8 @@ public class OrdersApi {
     }
 
     /**
-     * Cancel all orders (asynchronously)
-     * This request cancels all open orders across all or single specified exchange.
+     * Cancel all orders request (asynchronously)
+     * This request cancels all open orders on single specified exchange.
      * @param cancelOrderAllRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -163,6 +166,7 @@ public class OrdersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Result </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Input model validation errors. </td><td>  -  </td></tr>
         <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
@@ -182,8 +186,8 @@ public class OrdersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Canceled order </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Validation errors </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The last execution report for the order for which cancelation was requested. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Input model validation errors. </td><td>  -  </td></tr>
         <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
@@ -231,16 +235,16 @@ public class OrdersApi {
     }
 
     /**
-     * Cancel order
-     * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+     * Cancel order request
+     * Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
      * @param cancelOrderSingleRequest  (required)
      * @return OrderExecutionReport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Canceled order </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Validation errors </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The last execution report for the order for which cancelation was requested. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Input model validation errors. </td><td>  -  </td></tr>
         <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
@@ -250,16 +254,16 @@ public class OrdersApi {
     }
 
     /**
-     * Cancel order
-     * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+     * Cancel order request
+     * Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
      * @param cancelOrderSingleRequest  (required)
      * @return ApiResponse&lt;OrderExecutionReport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Canceled order </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Validation errors </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The last execution report for the order for which cancelation was requested. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Input model validation errors. </td><td>  -  </td></tr>
         <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
@@ -270,8 +274,8 @@ public class OrdersApi {
     }
 
     /**
-     * Cancel order (asynchronously)
-     * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+     * Cancel order request (asynchronously)
+     * Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
      * @param cancelOrderSingleRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -279,8 +283,8 @@ public class OrdersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Canceled order </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Validation errors </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The last execution report for the order for which cancelation was requested. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Input model validation errors. </td><td>  -  </td></tr>
         <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
      </table>
      */
@@ -293,7 +297,7 @@ public class OrdersApi {
     }
     /**
      * Build call for v1OrdersGet
-     * @param exchangeId Filter the output to the orders from the specific exchange. (optional)
+     * @param exchangeId Filter the open orders to the specific exchange. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -348,8 +352,8 @@ public class OrdersApi {
 
     /**
      * Get all orders
-     * Get last execution reports for all open orders across all or single exchange.
-     * @param exchangeId Filter the output to the orders from the specific exchange. (optional)
+     * Get last execution reports for open orders across all or single exchange.
+     * @param exchangeId Filter the open orders to the specific exchange. (optional)
      * @return List&lt;OrderExecutionReport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -366,8 +370,8 @@ public class OrdersApi {
 
     /**
      * Get all orders
-     * Get last execution reports for all open orders across all or single exchange.
-     * @param exchangeId Filter the output to the orders from the specific exchange. (optional)
+     * Get last execution reports for open orders across all or single exchange.
+     * @param exchangeId Filter the open orders to the specific exchange. (optional)
      * @return ApiResponse&lt;List&lt;OrderExecutionReport&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -385,8 +389,8 @@ public class OrdersApi {
 
     /**
      * Get all orders (asynchronously)
-     * Get last execution reports for all open orders across all or single exchange.
-     * @param exchangeId Filter the output to the orders from the specific exchange. (optional)
+     * Get last execution reports for open orders across all or single exchange.
+     * @param exchangeId Filter the open orders to the specific exchange. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -414,8 +418,9 @@ public class OrdersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Created </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Validation errors </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Input model validation errors. </td><td>  -  </td></tr>
         <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
+        <tr><td> 504 </td><td> Exchange didn&#39;t responded in the defined timeout. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call v1OrdersPostCall(NewOrderSingle newOrderSingle, final ApiCallback _callback) throws ApiException {
@@ -462,7 +467,7 @@ public class OrdersApi {
     }
 
     /**
-     * Create new order
+     * Send new order
      * This request creating new order for the specific exchange.
      * @param newOrderSingle  (required)
      * @return OrderExecutionReport
@@ -471,8 +476,9 @@ public class OrdersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Created </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Validation errors </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Input model validation errors. </td><td>  -  </td></tr>
         <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
+        <tr><td> 504 </td><td> Exchange didn&#39;t responded in the defined timeout. </td><td>  -  </td></tr>
      </table>
      */
     public OrderExecutionReport v1OrdersPost(NewOrderSingle newOrderSingle) throws ApiException {
@@ -481,7 +487,7 @@ public class OrdersApi {
     }
 
     /**
-     * Create new order
+     * Send new order
      * This request creating new order for the specific exchange.
      * @param newOrderSingle  (required)
      * @return ApiResponse&lt;OrderExecutionReport&gt;
@@ -490,8 +496,9 @@ public class OrdersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Created </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Validation errors </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Input model validation errors. </td><td>  -  </td></tr>
         <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
+        <tr><td> 504 </td><td> Exchange didn&#39;t responded in the defined timeout. </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<OrderExecutionReport> v1OrdersPostWithHttpInfo(NewOrderSingle newOrderSingle) throws ApiException {
@@ -501,7 +508,7 @@ public class OrdersApi {
     }
 
     /**
-     * Create new order (asynchronously)
+     * Send new order (asynchronously)
      * This request creating new order for the specific exchange.
      * @param newOrderSingle  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -511,8 +518,9 @@ public class OrdersApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Created </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Validation errors </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Input model validation errors. </td><td>  -  </td></tr>
         <tr><td> 490 </td><td> Exchange is unreachable. </td><td>  -  </td></tr>
+        <tr><td> 504 </td><td> Exchange didn&#39;t responded in the defined timeout. </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call v1OrdersPostAsync(NewOrderSingle newOrderSingle, final ApiCallback<OrderExecutionReport> _callback) throws ApiException {
@@ -531,7 +539,7 @@ public class OrdersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The last xecution report of the requested order. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The last execution report of the requested order. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested order was not found. </td><td>  -  </td></tr>
      </table>
      */
@@ -580,15 +588,15 @@ public class OrdersApi {
     }
 
     /**
-     * Get order status
-     * Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+     * Get order execution report
+     * Get the last order execution report for the specified order. The requested order does not need to be active or opened.
      * @param clientOrderId The unique identifier of the order assigned by the client. (required)
      * @return OrderExecutionReport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The last xecution report of the requested order. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The last execution report of the requested order. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested order was not found. </td><td>  -  </td></tr>
      </table>
      */
@@ -598,15 +606,15 @@ public class OrdersApi {
     }
 
     /**
-     * Get order status
-     * Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+     * Get order execution report
+     * Get the last order execution report for the specified order. The requested order does not need to be active or opened.
      * @param clientOrderId The unique identifier of the order assigned by the client. (required)
      * @return ApiResponse&lt;OrderExecutionReport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The last xecution report of the requested order. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The last execution report of the requested order. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested order was not found. </td><td>  -  </td></tr>
      </table>
      */
@@ -617,8 +625,8 @@ public class OrdersApi {
     }
 
     /**
-     * Get order status (asynchronously)
-     * Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+     * Get order execution report (asynchronously)
+     * Get the last order execution report for the specified order. The requested order does not need to be active or opened.
      * @param clientOrderId The unique identifier of the order assigned by the client. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -626,7 +634,7 @@ public class OrdersApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> The last xecution report of the requested order. </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> The last execution report of the requested order. </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> The requested order was not found. </td><td>  -  </td></tr>
      </table>
      */

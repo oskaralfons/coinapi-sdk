@@ -39,8 +39,8 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
     }
 
     /**
-    * Cancel all orders
-    * This request cancels all open orders across all or single specified exchange.
+    * Cancel all orders request
+    * This request cancels all open orders on single specified exchange.
     * @param cancelOrderAllRequest  
     * @return Message
     * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -80,8 +80,8 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
     }
 
     /**
-    * Cancel order
-    * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+    * Cancel order request
+    * Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
     * @param cancelOrderSingleRequest  
     * @return OrderExecutionReport
     * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -122,8 +122,8 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
 
     /**
     * Get all orders
-    * Get last execution reports for all open orders across all or single exchange.
-    * @param exchangeId Filter the output to the orders from the specific exchange. (optional)
+    * Get last execution reports for open orders across all or single exchange.
+    * @param exchangeId Filter the open orders to the specific exchange. (optional)
     * @return kotlin.Array<OrderExecutionReport>
     * @throws UnsupportedOperationException If the API returns an informational or redirection response
     * @throws ClientException If the API returns a client error response
@@ -167,7 +167,7 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
     }
 
     /**
-    * Create new order
+    * Send new order
     * This request creating new order for the specific exchange.
     * @param newOrderSingle  
     * @return OrderExecutionReport
@@ -208,8 +208,8 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
     }
 
     /**
-    * Get order status
-    * Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+    * Get order execution report
+    * Get the last order execution report for the specified order. The requested order does not need to be active or opened.
     * @param clientOrderId The unique identifier of the order assigned by the client. 
     * @return OrderExecutionReport
     * @throws UnsupportedOperationException If the API returns an informational or redirection response

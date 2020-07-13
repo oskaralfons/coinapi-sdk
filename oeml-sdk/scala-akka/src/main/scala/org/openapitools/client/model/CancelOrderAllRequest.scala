@@ -14,7 +14,7 @@ package org.openapitools.client.model
 import org.openapitools.client.core.ApiModel
 
 case class CancelOrderAllRequest (
-  /* Exchange identifier from which active orders should be canceled. */
+  /* Identifier of the exchange from which active orders should be canceled. */
   exchangeId: String
 ) extends ApiModel
 

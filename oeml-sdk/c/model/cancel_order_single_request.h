@@ -1,7 +1,7 @@
 /*
  * cancel_order_single_request.h
  *
- * 
+ * Cancel single order request object.
  */
 
 #ifndef _cancel_order_single_request_H_

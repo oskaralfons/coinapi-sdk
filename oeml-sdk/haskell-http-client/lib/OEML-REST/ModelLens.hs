@@ -106,7 +106,7 @@ cancelOrderAllRequestExchangeIdL f CancelOrderAllRequest{..} = (\cancelOrderAllR
 -- * CancelOrderSingleRequest
 
 -- | 'cancelOrderSingleRequestExchangeId' Lens
-cancelOrderSingleRequestExchangeIdL :: Lens_' CancelOrderSingleRequest (Maybe Text)
+cancelOrderSingleRequestExchangeIdL :: Lens_' CancelOrderSingleRequest (Text)
 cancelOrderSingleRequestExchangeIdL f CancelOrderSingleRequest{..} = (\cancelOrderSingleRequestExchangeId -> CancelOrderSingleRequest { cancelOrderSingleRequestExchangeId, ..} ) <$> f cancelOrderSingleRequestExchangeId
 {-# INLINE cancelOrderSingleRequestExchangeIdL #-}
 

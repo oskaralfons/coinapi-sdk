@@ -29,10 +29,11 @@ object OrdersApi {
 class OrdersApi(baseUrl: String) {
   
   /**
-   * This request cancels all open orders across all or single specified exchange.
+   * This request cancels all open orders on single specified exchange.
    * 
    * Expected answers:
    *   code 200 : Message (Result)
+   *   code 400 : ValidationError (Input model validation errors.)
    *   code 490 : Message (Exchange is unreachable.)
    * 
    * @param cancelOrderAllRequest 
@@ -41,15 +42,16 @@ class OrdersApi(baseUrl: String) {
     ApiRequest[Message](ApiMethods.POST, baseUrl, "/v1/orders/cancel/all", "application/json")
       .withBody(cancelOrderAllRequest)
       .withSuccessResponse[Message](200)
+      .withErrorResponse[ValidationError](400)
       .withErrorResponse[Message](490)
       
 
   /**
-   * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+   * Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`.
    * 
    * Expected answers:
-   *   code 200 : OrderExecutionReport (Canceled order)
-   *   code 400 : ValidationError (Validation errors)
+   *   code 200 : OrderExecutionReport (The last execution report for the order for which cancelation was requested.)
+   *   code 400 : ValidationError (Input model validation errors.)
    *   code 490 : Message (Exchange is unreachable.)
    * 
    * @param cancelOrderSingleRequest 
@@ -63,13 +65,13 @@ class OrdersApi(baseUrl: String) {
       
 
   /**
-   * Get last execution reports for all open orders across all or single exchange.
+   * Get last execution reports for open orders across all or single exchange.
    * 
    * Expected answers:
    *   code 200 : Seq[OrderExecutionReport] (Collection of order execution reports.)
    *   code 490 : Message (Filtered exchange is unreachable.)
    * 
-   * @param exchangeId Filter the output to the orders from the specific exchange.
+   * @param exchangeId Filter the open orders to the specific exchange.
    */
   def v1OrdersGet(exchangeId: Option[String] = None): ApiRequest[Seq[OrderExecutionReport]] =
     ApiRequest[Seq[OrderExecutionReport]](ApiMethods.GET, baseUrl, "/v1/orders", "application/json")
@@ -83,8 +85,9 @@ class OrdersApi(baseUrl: String) {
    * 
    * Expected answers:
    *   code 200 : OrderExecutionReport (Created)
-   *   code 400 : ValidationError (Validation errors)
+   *   code 400 : ValidationError (Input model validation errors.)
    *   code 490 : Message (Exchange is unreachable.)
+   *   code 504 : Message (Exchange didn't responded in the defined timeout.)
    * 
    * @param newOrderSingle 
    */
@@ -94,13 +97,14 @@ class OrdersApi(baseUrl: String) {
       .withSuccessResponse[OrderExecutionReport](200)
       .withErrorResponse[ValidationError](400)
       .withErrorResponse[Message](490)
+      .withErrorResponse[Message](504)
       
 
   /**
-   * Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+   * Get the last order execution report for the specified order. The requested order does not need to be active or opened.
    * 
    * Expected answers:
-   *   code 200 : OrderExecutionReport (The last xecution report of the requested order.)
+   *   code 200 : OrderExecutionReport (The last execution report of the requested order.)
    *   code 404 : Message (The requested order was not found.)
    * 
    * @param clientOrderId The unique identifier of the order assigned by the client.

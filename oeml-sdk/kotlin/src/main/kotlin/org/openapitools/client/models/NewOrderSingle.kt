@@ -25,8 +25,8 @@ import com.squareup.moshi.Json
  * @param side 
  * @param orderType 
  * @param timeInForce 
- * @param symbolExchange Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
- * @param symbolCoinapi CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
+ * @param symbolExchange Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
+ * @param symbolCoinapi CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order.
  * @param expireTime Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
  * @param execInst Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> 
  */
@@ -50,10 +50,10 @@ data class NewOrderSingle (
     val orderType: OrdType,
     @Json(name = "time_in_force")
     val timeInForce: TimeInForce,
-    /* Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order. */
+    /* Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order. */
     @Json(name = "symbol_exchange")
     val symbolExchange: kotlin.String? = null,
-    /* CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order. */
+    /* CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order. */
     @Json(name = "symbol_coinapi")
     val symbolCoinapi: kotlin.String? = null,
     /* Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`. */

@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * CancelOrderSingleRequestTest Class Doc Comment
  *
  * @category    Class
- * @description CancelOrderSingleRequest
+ * @description Cancel single order request object.
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

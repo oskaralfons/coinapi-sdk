@@ -7,9 +7,9 @@ class OrdersApi {
 
   OrdersApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
-  /// Cancel all orders with HTTP info returned
+  /// Cancel all orders request with HTTP info returned
   ///
-  /// This request cancels all open orders across all or single specified exchange.
+  /// This request cancels all open orders on single specified exchange.
   Future<Response> v1OrdersCancelAllPostWithHttpInfo(CancelOrderAllRequest cancelOrderAllRequest) async {
     Object postBody = cancelOrderAllRequest;
 
@@ -51,9 +51,9 @@ class OrdersApi {
     return response;
   }
 
-  /// Cancel all orders
+  /// Cancel all orders request
   ///
-  /// This request cancels all open orders across all or single specified exchange.
+  /// This request cancels all open orders on single specified exchange.
   Future<Message> v1OrdersCancelAllPost(CancelOrderAllRequest cancelOrderAllRequest) async {
     Response response = await v1OrdersCancelAllPostWithHttpInfo(cancelOrderAllRequest);
     if(response.statusCode >= 400) {
@@ -65,9 +65,9 @@ class OrdersApi {
     }
   }
 
-  /// Cancel order with HTTP info returned
+  /// Cancel order request with HTTP info returned
   ///
-  /// This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+  /// Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
   Future<Response> v1OrdersCancelPostWithHttpInfo(CancelOrderSingleRequest cancelOrderSingleRequest) async {
     Object postBody = cancelOrderSingleRequest;
 
@@ -109,9 +109,9 @@ class OrdersApi {
     return response;
   }
 
-  /// Cancel order
+  /// Cancel order request
   ///
-  /// This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+  /// Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
   Future<OrderExecutionReport> v1OrdersCancelPost(CancelOrderSingleRequest cancelOrderSingleRequest) async {
     Response response = await v1OrdersCancelPostWithHttpInfo(cancelOrderSingleRequest);
     if(response.statusCode >= 400) {
@@ -125,7 +125,7 @@ class OrdersApi {
 
   /// Get all orders with HTTP info returned
   ///
-  /// Get last execution reports for all open orders across all or single exchange.
+  /// Get last execution reports for open orders across all or single exchange.
   Future<Response> v1OrdersGetWithHttpInfo({ String exchangeId }) async {
     Object postBody;
 
@@ -169,7 +169,7 @@ class OrdersApi {
 
   /// Get all orders
   ///
-  /// Get last execution reports for all open orders across all or single exchange.
+  /// Get last execution reports for open orders across all or single exchange.
   Future<List<OrderExecutionReport>> v1OrdersGet({ String exchangeId }) async {
     Response response = await v1OrdersGetWithHttpInfo( exchangeId: exchangeId );
     if(response.statusCode >= 400) {
@@ -181,7 +181,7 @@ class OrdersApi {
     }
   }
 
-  /// Create new order with HTTP info returned
+  /// Send new order with HTTP info returned
   ///
   /// This request creating new order for the specific exchange.
   Future<Response> v1OrdersPostWithHttpInfo(NewOrderSingle newOrderSingle) async {
@@ -225,7 +225,7 @@ class OrdersApi {
     return response;
   }
 
-  /// Create new order
+  /// Send new order
   ///
   /// This request creating new order for the specific exchange.
   Future<OrderExecutionReport> v1OrdersPost(NewOrderSingle newOrderSingle) async {
@@ -239,9 +239,9 @@ class OrdersApi {
     }
   }
 
-  /// Get order status with HTTP info returned
+  /// Get order execution report with HTTP info returned
   ///
-  /// Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+  /// Get the last order execution report for the specified order. The requested order does not need to be active or opened.
   Future<Response> v1OrdersStatusClientOrderIdGetWithHttpInfo(String clientOrderId) async {
     Object postBody;
 
@@ -283,9 +283,9 @@ class OrdersApi {
     return response;
   }
 
-  /// Get order status
+  /// Get order execution report
   ///
-  /// Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+  /// Get the last order execution report for the specified order. The requested order does not need to be active or opened.
   Future<OrderExecutionReport> v1OrdersStatusClientOrderIdGet(String clientOrderId) async {
     Response response = await v1OrdersStatusClientOrderIdGetWithHttpInfo(clientOrderId);
     if(response.statusCode >= 400) {

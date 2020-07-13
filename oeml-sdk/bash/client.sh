@@ -496,11 +496,11 @@ echo "  $ops" | column -t -s ';'
     echo ""
     echo -e "${BOLD}${WHITE}[orders]${OFF}"
 read -r -d '' ops <<EOF
-  ${CYAN}v1OrdersCancelAllPost${OFF};Cancel all orders
-  ${CYAN}v1OrdersCancelPost${OFF};Cancel order
+  ${CYAN}v1OrdersCancelAllPost${OFF};Cancel all orders request
+  ${CYAN}v1OrdersCancelPost${OFF};Cancel order request
   ${CYAN}v1OrdersGet${OFF};Get all orders
-  ${CYAN}v1OrdersPost${OFF};Create new order
-  ${CYAN}v1OrdersStatusClientOrderIdGet${OFF};Get order status
+  ${CYAN}v1OrdersPost${OFF};Send new order
+  ${CYAN}v1OrdersStatusClientOrderIdGet${OFF};Get order execution report
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
@@ -588,9 +588,9 @@ print_v1BalancesGet_help() {
 ##############################################################################
 print_v1OrdersCancelAllPost_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}v1OrdersCancelAllPost - Cancel all orders${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}v1OrdersCancelAllPost - Cancel all orders request${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
-    echo -e "This request cancels all open orders across all or single specified exchange." | paste -sd' ' | fold -sw 80
+    echo -e "This request cancels all open orders on single specified exchange." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF} ${RED}(required)${OFF}${OFF} - " | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
@@ -599,6 +599,8 @@ print_v1OrdersCancelAllPost_help() {
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
     echo -e "${result_color_table[${code:0:1}]}  200;Result${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=400
+    echo -e "${result_color_table[${code:0:1}]}  400;Input model validation errors.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=490
     echo -e "${result_color_table[${code:0:1}]}  490;Exchange is unreachable.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
@@ -609,9 +611,9 @@ print_v1OrdersCancelAllPost_help() {
 ##############################################################################
 print_v1OrdersCancelPost_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}v1OrdersCancelPost - Cancel order${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}v1OrdersCancelPost - Cancel order request${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
-    echo -e "This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID." | paste -sd' ' | fold -sw 80
+    echo -e "Request cancel for an existing order. The order can be canceled using the 'client_order_id' or 'exchange_order_id'." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF} ${RED}(required)${OFF}${OFF} - " | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
@@ -619,9 +621,9 @@ print_v1OrdersCancelPost_help() {
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Canceled order${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  200;The last execution report for the order for which cancelation was requested.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=400
-    echo -e "${result_color_table[${code:0:1}]}  400;Validation errors${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  400;Input model validation errors.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=490
     echo -e "${result_color_table[${code:0:1}]}  490;Exchange is unreachable.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
@@ -634,10 +636,10 @@ print_v1OrdersGet_help() {
     echo ""
     echo -e "${BOLD}${WHITE}v1OrdersGet - Get all orders${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
-    echo -e "Get last execution reports for all open orders across all or single exchange." | paste -sd' ' | fold -sw 80
+    echo -e "Get last execution reports for open orders across all or single exchange." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}exchange_id${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Filter the output to the orders from the specific exchange.${YELLOW} Specify as: exchange_id=value${OFF}" \
+    echo -e "  * ${GREEN}exchange_id${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Filter the open orders to the specific exchange.${YELLOW} Specify as: exchange_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -653,7 +655,7 @@ print_v1OrdersGet_help() {
 ##############################################################################
 print_v1OrdersPost_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}v1OrdersPost - Create new order${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}v1OrdersPost - Send new order${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "This request creating new order for the specific exchange." | paste -sd' ' | fold -sw 80
     echo -e ""
@@ -665,9 +667,11 @@ print_v1OrdersPost_help() {
     code=200
     echo -e "${result_color_table[${code:0:1}]}  200;Created${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=400
-    echo -e "${result_color_table[${code:0:1}]}  400;Validation errors${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  400;Input model validation errors.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=490
     echo -e "${result_color_table[${code:0:1}]}  490;Exchange is unreachable.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=504
+    echo -e "${result_color_table[${code:0:1}]}  504;Exchange didn't responded in the defined timeout.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
@@ -676,16 +680,16 @@ print_v1OrdersPost_help() {
 ##############################################################################
 print_v1OrdersStatusClientOrderIdGet_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}v1OrdersStatusClientOrderIdGet - Get order status${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}v1OrdersStatusClientOrderIdGet - Get order execution report${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
-    echo -e "Get the last order execution report for the specified order. The requested order does not need to be active/opened." | paste -sd' ' | fold -sw 80
+    echo -e "Get the last order execution report for the specified order. The requested order does not need to be active or opened." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}client_order_id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - The unique identifier of the order assigned by the client. ${YELLOW}Specify as: client_order_id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;The last xecution report of the requested order.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  200;The last execution report of the requested order.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=404
     echo -e "${result_color_table[${code:0:1}]}  404;The requested order was not found.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }

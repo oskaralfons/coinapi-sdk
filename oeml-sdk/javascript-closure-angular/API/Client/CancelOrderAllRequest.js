@@ -1,12 +1,13 @@
 goog.provide('API.Client.CancelOrderAllRequest');
 
 /**
+ * Cancel all orders request object.
  * @record
  */
 API.Client.CancelOrderAllRequest = function() {}
 
 /**
- * Exchange identifier from which active orders should be canceled.
+ * Identifier of the exchange from which active orders should be canceled.
  * @type {!string}
  * @export
  */

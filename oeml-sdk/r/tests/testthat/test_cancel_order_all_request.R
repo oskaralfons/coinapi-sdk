@@ -7,7 +7,7 @@ model.instance <- CancelOrderAllRequest$new()
 
 test_that("exchange_id", {
   # tests for the property `exchange_id` (character)
-  # Exchange identifier from which active orders should be canceled.
+  # Identifier of the exchange from which active orders should be canceled.
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`exchange_id`, "EXPECTED_RESULT")

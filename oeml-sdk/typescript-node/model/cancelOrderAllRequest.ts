@@ -12,9 +12,12 @@
 
 import { RequestFile } from '../api';
 
+/**
+* Cancel all orders request object.
+*/
 export class CancelOrderAllRequest {
     /**
-    * Exchange identifier from which active orders should be canceled.
+    * Identifier of the exchange from which active orders should be canceled.
     */
     'exchangeId': string;
 

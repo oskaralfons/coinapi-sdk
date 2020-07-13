@@ -12,13 +12,13 @@ void main() {
       // TODO
     });
 
-    // The unique identifier of the order assigned by the exchange.
+    // The unique identifier of the order assigned by the exchange. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
     // String exchangeOrderId (default value: null)
     test('to test the property `exchangeOrderId`', () async {
       // TODO
     });
 
-    // The unique identifier of the order assigned by the client.
+    // The unique identifier of the order assigned by the client. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
     // String clientOrderId (default value: null)
     test('to test the property `clientOrderId`', () async {
       // TODO

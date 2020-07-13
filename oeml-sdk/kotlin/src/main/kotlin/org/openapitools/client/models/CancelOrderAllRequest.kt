@@ -14,12 +14,12 @@ package org.openapitools.client.models
 
 import com.squareup.moshi.Json
 /**
- * 
- * @param exchangeId Exchange identifier from which active orders should be canceled.
+ * Cancel all orders request object.
+ * @param exchangeId Identifier of the exchange from which active orders should be canceled.
  */
 
 data class CancelOrderAllRequest (
-    /* Exchange identifier from which active orders should be canceled. */
+    /* Identifier of the exchange from which active orders should be canceled. */
     @Json(name = "exchange_id")
     val exchangeId: kotlin.String
 )

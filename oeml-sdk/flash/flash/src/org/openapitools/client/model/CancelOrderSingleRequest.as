@@ -6,10 +6,10 @@ package org.openapitools.client.model {
         /* Exchange identifier. */
         [XmlElement(name="exchange_id")]
         public var exchangeId: String = null;
-        /* The unique identifier of the order assigned by the exchange. */
+        /* The unique identifier of the order assigned by the exchange. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order. */
         [XmlElement(name="exchange_order_id")]
         public var exchangeOrderId: String = null;
-        /* The unique identifier of the order assigned by the client. */
+        /* The unique identifier of the order assigned by the client. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order. */
         [XmlElement(name="client_order_id")]
         public var clientOrderId: String = null;
 

@@ -21,9 +21,9 @@ class OrdersApi extends ApiClient with _$OrdersApiClient {
 
     OrdersApi({this.base, this.converters, this.timeout = const Duration(minutes: 2)});
 
-    /// Cancel all orders
+    /// Cancel all orders request
     ///
-    /// This request cancels all open orders across all or single specified exchange.
+    /// This request cancels all open orders on single specified exchange.
     @PostReq(path: "/v1/orders/cancel/all")
     Future<Message> v1OrdersCancelAllPost(
             
@@ -36,9 +36,9 @@ class OrdersApi extends ApiClient with _$OrdersApiClient {
         ).timeout(timeout);
     }
 
-    /// Cancel order
+    /// Cancel order request
     ///
-    /// This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+    /// Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
     @PostReq(path: "/v1/orders/cancel")
     Future<OrderExecutionReport> v1OrdersCancelPost(
             
@@ -53,7 +53,7 @@ class OrdersApi extends ApiClient with _$OrdersApiClient {
 
     /// Get all orders
     ///
-    /// Get last execution reports for all open orders across all or single exchange.
+    /// Get last execution reports for open orders across all or single exchange.
     @GetReq(path: "/v1/orders")
     Future<List<OrderExecutionReport>> v1OrdersGet(
         
@@ -66,7 +66,7 @@ class OrdersApi extends ApiClient with _$OrdersApiClient {
         ).timeout(timeout);
     }
 
-    /// Create new order
+    /// Send new order
     ///
     /// This request creating new order for the specific exchange.
     @PostReq(path: "/v1/orders")
@@ -81,9 +81,9 @@ class OrdersApi extends ApiClient with _$OrdersApiClient {
         ).timeout(timeout);
     }
 
-    /// Get order status
+    /// Get order execution report
     ///
-    /// Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+    /// Get the last order execution report for the specified order. The requested order does not need to be active or opened.
     @GetReq(path: "/v1/orders/status/:client_order_id")
     Future<OrderExecutionReport> v1OrdersStatusClientOrderIdGet(
             @PathParam("client_order_id") String clientOrderId

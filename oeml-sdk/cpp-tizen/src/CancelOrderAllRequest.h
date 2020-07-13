@@ -1,7 +1,7 @@
 /*
  * CancelOrderAllRequest.h
  *
- * 
+ * Cancel all orders request object.
  */
 
 #ifndef _CancelOrderAllRequest_H_
@@ -20,7 +20,7 @@ namespace Tizen {
 namespace ArtikCloud {
 
 
-/*! \brief 
+/*! \brief Cancel all orders request object.
  *
  *  \ingroup Models
  *
@@ -45,11 +45,11 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get Exchange identifier from which active orders should be canceled.
+	/*! \brief Get Identifier of the exchange from which active orders should be canceled.
 	 */
 	std::string getExchangeId();
 
-	/*! \brief Set Exchange identifier from which active orders should be canceled.
+	/*! \brief Set Identifier of the exchange from which active orders should be canceled.
 	 */
 	void setExchangeId(std::string  exchange_id);
 

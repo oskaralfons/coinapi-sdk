@@ -22,10 +22,10 @@ class OrderExecutionReport {
    /* The unique identifier of the order assigned by the client. */
   @Alias('client_order_id', isNullable: false,  )
   final String clientOrderId;
-   /* Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order. */
+   /* Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order. */
   @Alias('symbol_exchange', isNullable: false,  )
   final String symbolExchange;
-   /* CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order. */
+   /* CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the new order. */
   @Alias('symbol_coinapi', isNullable: false,  )
   final String symbolCoinapi;
    /* Order quantity. */

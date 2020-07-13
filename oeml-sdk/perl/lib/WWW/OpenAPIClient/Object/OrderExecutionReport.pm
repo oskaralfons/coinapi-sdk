@@ -184,14 +184,14 @@ __PACKAGE__->method_documentation({
     'symbol_exchange' => {
         datatype => 'string',
         base_name => 'symbol_exchange',
-        description => 'Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order.',
+        description => 'Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order.',
         format => '',
         read_only => '',
             },
     'symbol_coinapi' => {
         datatype => 'string',
         base_name => 'symbol_coinapi',
-        description => 'CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order.',
+        description => 'CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the new order.',
         format => '',
         read_only => '',
             },

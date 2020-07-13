@@ -11,7 +11,7 @@
  */
 
 /**
- * OASCancelOrderSingleRequest
+ * Cancel single order request object.
  */
 public class OASCancelOrderSingleRequest implements OAS.MappedProperties {
     /**
@@ -21,13 +21,13 @@ public class OASCancelOrderSingleRequest implements OAS.MappedProperties {
     public String exchangeId { get; set; }
 
     /**
-     * The unique identifier of the order assigned by the exchange.
+     * The unique identifier of the order assigned by the exchange. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
      * @return exchangeOrderId
      */
     public String exchangeOrderId { get; set; }
 
     /**
-     * The unique identifier of the order assigned by the client.
+     * The unique identifier of the order assigned by the client. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
      * @return clientOrderId
      */
     public String clientOrderId { get; set; }

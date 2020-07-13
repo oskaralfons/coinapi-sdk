@@ -48,8 +48,8 @@ export default class OrdersApi {
      */
 
     /**
-     * Cancel all orders
-     * This request cancels all open orders across all or single specified exchange.
+     * Cancel all orders request
+     * This request cancels all open orders on single specified exchange.
      * @param {module:model/CancelOrderAllRequest} cancelOrderAllRequest 
      * @param {module:api/OrdersApi~v1OrdersCancelAllPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Message}
@@ -90,8 +90,8 @@ export default class OrdersApi {
      */
 
     /**
-     * Cancel order
-     * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+     * Cancel order request
+     * Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`.
      * @param {module:model/CancelOrderSingleRequest} cancelOrderSingleRequest 
      * @param {module:api/OrdersApi~v1OrdersCancelPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrderExecutionReport}
@@ -133,9 +133,9 @@ export default class OrdersApi {
 
     /**
      * Get all orders
-     * Get last execution reports for all open orders across all or single exchange.
+     * Get last execution reports for open orders across all or single exchange.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.exchangeId Filter the output to the orders from the specific exchange.
+     * @param {String} opts.exchangeId Filter the open orders to the specific exchange.
      * @param {module:api/OrdersApi~v1OrdersGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/OrderExecutionReport>}
      */
@@ -173,7 +173,7 @@ export default class OrdersApi {
      */
 
     /**
-     * Create new order
+     * Send new order
      * This request creating new order for the specific exchange.
      * @param {module:model/NewOrderSingle} newOrderSingle 
      * @param {module:api/OrdersApi~v1OrdersPostCallback} callback The callback function, accepting three arguments: error, data, response
@@ -215,8 +215,8 @@ export default class OrdersApi {
      */
 
     /**
-     * Get order status
-     * Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+     * Get order execution report
+     * Get the last order execution report for the specified order. The requested order does not need to be active or opened.
      * @param {String} clientOrderId The unique identifier of the order assigned by the client.
      * @param {module:api/OrdersApi~v1OrdersStatusClientOrderIdGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrderExecutionReport}

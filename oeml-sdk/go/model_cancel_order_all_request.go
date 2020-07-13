@@ -8,8 +8,8 @@
  */
 
 package openapi
-// CancelOrderAllRequest struct for CancelOrderAllRequest
+// CancelOrderAllRequest Cancel all orders request object.
 type CancelOrderAllRequest struct {
-	// Exchange identifier from which active orders should be canceled.
+	// Identifier of the exchange from which active orders should be canceled.
 	ExchangeId string `json:"exchange_id"`
 }

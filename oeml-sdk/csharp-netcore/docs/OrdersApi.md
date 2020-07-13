@@ -4,20 +4,20 @@ All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**V1OrdersCancelAllPost**](OrdersApi.md#v1orderscancelallpost) | **POST** /v1/orders/cancel/all | Cancel all orders
-[**V1OrdersCancelPost**](OrdersApi.md#v1orderscancelpost) | **POST** /v1/orders/cancel | Cancel order
+[**V1OrdersCancelAllPost**](OrdersApi.md#v1orderscancelallpost) | **POST** /v1/orders/cancel/all | Cancel all orders request
+[**V1OrdersCancelPost**](OrdersApi.md#v1orderscancelpost) | **POST** /v1/orders/cancel | Cancel order request
 [**V1OrdersGet**](OrdersApi.md#v1ordersget) | **GET** /v1/orders | Get all orders
-[**V1OrdersPost**](OrdersApi.md#v1orderspost) | **POST** /v1/orders | Create new order
-[**V1OrdersStatusClientOrderIdGet**](OrdersApi.md#v1ordersstatusclientorderidget) | **GET** /v1/orders/status/{client_order_id} | Get order status
+[**V1OrdersPost**](OrdersApi.md#v1orderspost) | **POST** /v1/orders | Send new order
+[**V1OrdersStatusClientOrderIdGet**](OrdersApi.md#v1ordersstatusclientorderidget) | **GET** /v1/orders/status/{client_order_id} | Get order execution report
 
 
 <a name="v1orderscancelallpost"></a>
 # **V1OrdersCancelAllPost**
 > Message V1OrdersCancelAllPost (CancelOrderAllRequest cancelOrderAllRequest)
 
-Cancel all orders
+Cancel all orders request
 
-This request cancels all open orders across all or single specified exchange.
+This request cancels all open orders on single specified exchange.
 
 ### Example
 ```csharp
@@ -40,7 +40,7 @@ namespace Example
 
             try
             {
-                // Cancel all orders
+                // Cancel all orders request
                 Message result = apiInstance.V1OrdersCancelAllPost(cancelOrderAllRequest);
                 Debug.WriteLine(result);
             }
@@ -78,6 +78,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Result |  -  |
+| **400** | Input model validation errors. |  -  |
 | **490** | Exchange is unreachable. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -86,9 +87,9 @@ No authorization required
 # **V1OrdersCancelPost**
 > OrderExecutionReport V1OrdersCancelPost (CancelOrderSingleRequest cancelOrderSingleRequest)
 
-Cancel order
+Cancel order request
 
-This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`.
 
 ### Example
 ```csharp
@@ -111,7 +112,7 @@ namespace Example
 
             try
             {
-                // Cancel order
+                // Cancel order request
                 OrderExecutionReport result = apiInstance.V1OrdersCancelPost(cancelOrderSingleRequest);
                 Debug.WriteLine(result);
             }
@@ -148,8 +149,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Canceled order |  -  |
-| **400** | Validation errors |  -  |
+| **200** | The last execution report for the order for which cancelation was requested. |  -  |
+| **400** | Input model validation errors. |  -  |
 | **490** | Exchange is unreachable. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -160,7 +161,7 @@ No authorization required
 
 Get all orders
 
-Get last execution reports for all open orders across all or single exchange.
+Get last execution reports for open orders across all or single exchange.
 
 ### Example
 ```csharp
@@ -179,7 +180,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "http://localhost:8080";
             var apiInstance = new OrdersApi(config);
-            var exchangeId = KRAKEN;  // string | Filter the output to the orders from the specific exchange. (optional) 
+            var exchangeId = KRAKEN;  // string | Filter the open orders to the specific exchange. (optional) 
 
             try
             {
@@ -202,7 +203,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **exchangeId** | **string**| Filter the output to the orders from the specific exchange. | [optional] 
+ **exchangeId** | **string**| Filter the open orders to the specific exchange. | [optional] 
 
 ### Return type
 
@@ -229,7 +230,7 @@ No authorization required
 # **V1OrdersPost**
 > OrderExecutionReport V1OrdersPost (NewOrderSingle newOrderSingle)
 
-Create new order
+Send new order
 
 This request creating new order for the specific exchange.
 
@@ -254,7 +255,7 @@ namespace Example
 
             try
             {
-                // Create new order
+                // Send new order
                 OrderExecutionReport result = apiInstance.V1OrdersPost(newOrderSingle);
                 Debug.WriteLine(result);
             }
@@ -292,8 +293,9 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Created |  -  |
-| **400** | Validation errors |  -  |
+| **400** | Input model validation errors. |  -  |
 | **490** | Exchange is unreachable. |  -  |
+| **504** | Exchange didn&#39;t responded in the defined timeout. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -301,9 +303,9 @@ No authorization required
 # **V1OrdersStatusClientOrderIdGet**
 > OrderExecutionReport V1OrdersStatusClientOrderIdGet (string clientOrderId)
 
-Get order status
+Get order execution report
 
-Get the last order execution report for the specified order. The requested order does not need to be active/opened.
+Get the last order execution report for the specified order. The requested order does not need to be active or opened.
 
 ### Example
 ```csharp
@@ -326,7 +328,7 @@ namespace Example
 
             try
             {
-                // Get order status
+                // Get order execution report
                 OrderExecutionReport result = apiInstance.V1OrdersStatusClientOrderIdGet(clientOrderId);
                 Debug.WriteLine(result);
             }
@@ -363,7 +365,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The last xecution report of the requested order. |  -  |
+| **200** | The last execution report of the requested order. |  -  |
 | **404** | The requested order was not found. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

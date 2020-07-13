@@ -12,7 +12,7 @@
 /*
  * OAICancelOrderSingleRequest.h
  *
- * 
+ * Cancel single order request object.
  */
 
 #ifndef OAICancelOrderSingleRequest_H

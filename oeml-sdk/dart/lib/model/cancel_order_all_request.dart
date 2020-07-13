@@ -1,7 +1,7 @@
 part of openapi.api;
 
 class CancelOrderAllRequest {
-  /* Exchange identifier from which active orders should be canceled. */
+  /* Identifier of the exchange from which active orders should be canceled. */
   String exchangeId = null;
   CancelOrderAllRequest();
 
