@@ -6,13 +6,13 @@ void main() {
   var instance = new OrderExecutionReportAllOf();
 
   group('test OrderExecutionReportAllOf', () {
-    // Hash client id
+    // The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
     // String clientOrderIdFormatExchange (default value: null)
     test('to test the property `clientOrderIdFormatExchange`', () async {
       // TODO
     });
 
-    // Exchange order id
+    // The unique identifier of the order assigned by the exchange.
     // String exchangeOrderId (default value: null)
     test('to test the property `exchangeOrderId`', () async {
       // TODO

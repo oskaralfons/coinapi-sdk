@@ -12,7 +12,7 @@
 /*
  * Severity.h
  *
- * 
+ * Severity of the message.
  */
 
 #ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_Severity_H_

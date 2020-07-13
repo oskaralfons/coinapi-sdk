@@ -37,7 +37,7 @@ class TestMessage(unittest.TestCase):
         if include_optional :
             return Message(
                 type = 'message', 
-                severity = 'INFO', 
+                severity = 'ERROR', 
                 exchange_id = 'KRAKEN', 
                 message = 'Ok'
             )

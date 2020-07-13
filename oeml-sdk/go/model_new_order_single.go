@@ -12,11 +12,11 @@ package openapi
 type NewOrderSingle struct {
 	// Exchange identifier.
 	ExchangeId string `json:"exchange_id"`
-	// Unique identifier for the order assigned by the `OEML API` client.
+	// The unique identifier of the order assigned by the client.
 	ClientOrderId string `json:"client_order_id"`
-	// Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+	// Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
 	SymbolExchange string `json:"symbol_exchange,omitempty"`
-	// CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+	// CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
 	SymbolCoinapi string `json:"symbol_coinapi,omitempty"`
 	// Order quantity.
 	AmountOrder float32 `json:"amount_order"`

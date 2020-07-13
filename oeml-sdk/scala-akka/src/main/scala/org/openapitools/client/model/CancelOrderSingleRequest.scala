@@ -14,11 +14,11 @@ package org.openapitools.client.model
 import org.openapitools.client.core.ApiModel
 
 case class CancelOrderSingleRequest (
-  /* Exchange name */
+  /* Exchange identifier. */
   exchangeId: Option[String] = None,
-  /* Order Id */
+  /* The unique identifier of the order assigned by the exchange. */
   exchangeOrderId: Option[String] = None,
-  /* Client order Id */
+  /* The unique identifier of the order assigned by the client. */
   clientOrderId: Option[String] = None
 ) extends ApiModel
 

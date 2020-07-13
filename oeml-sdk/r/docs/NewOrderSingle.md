@@ -5,9 +5,9 @@ The new order message.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **exchange_id** | **character** | Exchange identifier. | 
-**client_order_id** | **character** | Unique identifier for the order assigned by the &#x60;OEML API&#x60; client. | 
-**symbol_exchange** | **character** | Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order. | [optional] 
-**symbol_coinapi** | **character** | CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order. | [optional] 
+**client_order_id** | **character** | The unique identifier of the order assigned by the client. | 
+**symbol_exchange** | **character** | Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order. | [optional] 
+**symbol_coinapi** | **character** | CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order. | [optional] 
 **amount_order** | **numeric** | Order quantity. | 
 **price** | **numeric** | Order price. | 
 **side** | [**OrdSide**](OrdSide.md) |  | 

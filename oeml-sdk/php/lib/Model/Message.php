@@ -307,7 +307,7 @@ class Message implements ModelInterface, ArrayAccess
     /**
      * Sets message
      *
-     * @param string|null $message Sucess message
+     * @param string|null $message Message text.
      *
      * @return $this
      */

@@ -12,6 +12,9 @@
 
 import * as models from './models';
 
+/**
+ * Severity of the message.
+ */
 export interface Severity {
 }
 

@@ -12,7 +12,7 @@
 /*
  * OAISeverity.h
  *
- * 
+ * Severity of the message.
  */
 
 #ifndef OAISeverity_H

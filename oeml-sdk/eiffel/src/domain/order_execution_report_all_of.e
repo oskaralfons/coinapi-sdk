@@ -25,9 +25,9 @@ inherit
 feature --Access
 
     client_order_id_format_exchange: detachable STRING_32 
-      -- Hash client id
+      -- The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
     exchange_order_id: detachable STRING_32 
-      -- Exchange order id
+      -- The unique identifier of the order assigned by the exchange.
     amount_open: REAL_32 
       -- Amount open
     amount_filled: REAL_32 

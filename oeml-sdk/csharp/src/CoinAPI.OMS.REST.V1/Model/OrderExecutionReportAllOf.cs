@@ -43,8 +43,8 @@ namespace CoinAPI.OMS.REST.V1.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderExecutionReportAllOf" /> class.
         /// </summary>
-        /// <param name="clientOrderIdFormatExchange">Hash client id (required).</param>
-        /// <param name="exchangeOrderId">Exchange order id.</param>
+        /// <param name="clientOrderIdFormatExchange">The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. (required).</param>
+        /// <param name="exchangeOrderId">The unique identifier of the order assigned by the exchange..</param>
         /// <param name="amountOpen">Amount open (required).</param>
         /// <param name="amountFilled">Amount filled (required).</param>
         /// <param name="status">status (required).</param>
@@ -107,16 +107,16 @@ namespace CoinAPI.OMS.REST.V1.Model
         }
         
         /// <summary>
-        /// Hash client id
+        /// The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
         /// </summary>
-        /// <value>Hash client id</value>
+        /// <value>The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.</value>
         [DataMember(Name="client_order_id_format_exchange", EmitDefaultValue=true)]
         public string ClientOrderIdFormatExchange { get; set; }
 
         /// <summary>
-        /// Exchange order id
+        /// The unique identifier of the order assigned by the exchange.
         /// </summary>
-        /// <value>Exchange order id</value>
+        /// <value>The unique identifier of the order assigned by the exchange.</value>
         [DataMember(Name="exchange_order_id", EmitDefaultValue=false)]
         public string ExchangeOrderId { get; set; }
 

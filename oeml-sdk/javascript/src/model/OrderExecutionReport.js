@@ -31,13 +31,13 @@ class OrderExecutionReport {
      * @implements module:model/NewOrderSingle
      * @implements module:model/OrderExecutionReportAllOf
      * @param exchangeId {String} Exchange identifier.
-     * @param clientOrderId {String} Unique identifier for the order assigned by the `OEML API` client.
+     * @param clientOrderId {String} The unique identifier of the order assigned by the client.
      * @param amountOrder {Number} Order quantity.
      * @param price {Number} Order price.
      * @param side {module:model/OrdSide} 
      * @param orderType {module:model/OrdType} 
      * @param timeInForce {module:model/TimeInForce} 
-     * @param clientOrderIdFormatExchange {String} Hash client id
+     * @param clientOrderIdFormatExchange {String} The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
      * @param amountOpen {Number} Amount open
      * @param amountFilled {Number} Amount filled
      * @param status {module:model/OrdStatus} 
@@ -149,19 +149,19 @@ class OrderExecutionReport {
 OrderExecutionReport.prototype['exchange_id'] = undefined;
 
 /**
- * Unique identifier for the order assigned by the `OEML API` client.
+ * The unique identifier of the order assigned by the client.
  * @member {String} client_order_id
  */
 OrderExecutionReport.prototype['client_order_id'] = undefined;
 
 /**
- * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+ * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
  * @member {String} symbol_exchange
  */
 OrderExecutionReport.prototype['symbol_exchange'] = undefined;
 
 /**
- * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+ * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
  * @member {String} symbol_coinapi
  */
 OrderExecutionReport.prototype['symbol_coinapi'] = undefined;
@@ -206,13 +206,13 @@ OrderExecutionReport.prototype['expire_time'] = undefined;
 OrderExecutionReport.prototype['exec_inst'] = undefined;
 
 /**
- * Hash client id
+ * The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
  * @member {String} client_order_id_format_exchange
  */
 OrderExecutionReport.prototype['client_order_id_format_exchange'] = undefined;
 
 /**
- * Exchange order id
+ * The unique identifier of the order assigned by the exchange.
  * @member {String} exchange_order_id
  */
 OrderExecutionReport.prototype['exchange_order_id'] = undefined;
@@ -254,17 +254,17 @@ OrderExecutionReport.prototype['error_message'] = undefined;
  */
 NewOrderSingle.prototype['exchange_id'] = undefined;
 /**
- * Unique identifier for the order assigned by the `OEML API` client.
+ * The unique identifier of the order assigned by the client.
  * @member {String} client_order_id
  */
 NewOrderSingle.prototype['client_order_id'] = undefined;
 /**
- * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+ * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
  * @member {String} symbol_exchange
  */
 NewOrderSingle.prototype['symbol_exchange'] = undefined;
 /**
- * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+ * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
  * @member {String} symbol_coinapi
  */
 NewOrderSingle.prototype['symbol_coinapi'] = undefined;
@@ -302,12 +302,12 @@ NewOrderSingle.prototype['expire_time'] = undefined;
 NewOrderSingle.prototype['exec_inst'] = undefined;
 // Implement OrderExecutionReportAllOf interface:
 /**
- * Hash client id
+ * The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
  * @member {String} client_order_id_format_exchange
  */
 OrderExecutionReportAllOf.prototype['client_order_id_format_exchange'] = undefined;
 /**
- * Exchange order id
+ * The unique identifier of the order assigned by the exchange.
  * @member {String} exchange_order_id
  */
 OrderExecutionReportAllOf.prototype['exchange_order_id'] = undefined;

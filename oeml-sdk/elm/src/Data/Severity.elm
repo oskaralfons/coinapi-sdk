@@ -18,6 +18,8 @@ import Json.Decode.Pipeline exposing (optional, required)
 import Json.Encode as Encode
 
 
+{-| Severity of the message.
+-}
 type Severity
     = INFO
     | WARNING

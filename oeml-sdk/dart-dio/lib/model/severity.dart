@@ -6,10 +6,13 @@ part 'severity.g.dart';
 
 class Severity extends EnumClass {
 
+  /// Severity of the message.
   @BuiltValueEnumConst(wireName: "INFO")
   static const Severity iNFO = _$iNFO;
+  /// Severity of the message.
   @BuiltValueEnumConst(wireName: "WARNING")
   static const Severity wARNING = _$wARNING;
+  /// Severity of the message.
   @BuiltValueEnumConst(wireName: "ERROR")
   static const Severity eRROR = _$eRROR;
 

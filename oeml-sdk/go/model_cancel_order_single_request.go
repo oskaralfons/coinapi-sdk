@@ -10,10 +10,10 @@
 package openapi
 // CancelOrderSingleRequest struct for CancelOrderSingleRequest
 type CancelOrderSingleRequest struct {
-	// Exchange name
+	// Exchange identifier.
 	ExchangeId string `json:"exchange_id,omitempty"`
-	// Order Id
+	// The unique identifier of the order assigned by the exchange.
 	ExchangeOrderId string `json:"exchange_order_id,omitempty"`
-	// Client order Id
+	// The unique identifier of the order assigned by the client.
 	ClientOrderId string `json:"client_order_id,omitempty"`
 }

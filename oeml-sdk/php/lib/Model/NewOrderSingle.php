@@ -340,7 +340,7 @@ class NewOrderSingle implements ModelInterface, ArrayAccess
     /**
      * Sets client_order_id
      *
-     * @param string $client_order_id Unique identifier for the order assigned by the `OEML API` client.
+     * @param string $client_order_id The unique identifier of the order assigned by the client.
      *
      * @return $this
      */
@@ -364,7 +364,7 @@ class NewOrderSingle implements ModelInterface, ArrayAccess
     /**
      * Sets symbol_exchange
      *
-     * @param string|null $symbol_exchange Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+     * @param string|null $symbol_exchange Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
      *
      * @return $this
      */
@@ -388,7 +388,7 @@ class NewOrderSingle implements ModelInterface, ArrayAccess
     /**
      * Sets symbol_coinapi
      *
-     * @param string|null $symbol_coinapi CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+     * @param string|null $symbol_coinapi CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
      *
      * @return $this
      */

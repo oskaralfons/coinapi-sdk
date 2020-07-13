@@ -138,7 +138,7 @@ class Message(object):
     def message(self):
         """Gets the message of this Message.  # noqa: E501
 
-        Sucess message  # noqa: E501
+        Message text.  # noqa: E501
 
         :return: The message of this Message.  # noqa: E501
         :rtype: str
@@ -149,7 +149,7 @@ class Message(object):
     def message(self, message):
         """Sets the message of this Message.
 
-        Sucess message  # noqa: E501
+        Message text.  # noqa: E501
 
         :param message: The message of this Message.  # noqa: E501
         :type: str

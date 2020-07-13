@@ -19,13 +19,13 @@ class OrderExecutionReport {
    /* Exchange identifier. */
   @Alias('exchange_id', isNullable: false,  )
   final String exchangeId;
-   /* Unique identifier for the order assigned by the `OEML API` client. */
+   /* The unique identifier of the order assigned by the client. */
   @Alias('client_order_id', isNullable: false,  )
   final String clientOrderId;
-   /* Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order. */
+   /* Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order. */
   @Alias('symbol_exchange', isNullable: false,  )
   final String symbolExchange;
-   /* CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order. */
+   /* CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order. */
   @Alias('symbol_coinapi', isNullable: false,  )
   final String symbolCoinapi;
    /* Order quantity. */
@@ -65,10 +65,10 @@ class OrderExecutionReport {
           
   )
   final List<String> execInst;
-  //enum execInstEnum {  MAKER_OR_CANCEL,  AUCTION_ONLY,  INDICATION_OF_INTEREST,  }; /* Hash client id */
+  //enum execInstEnum {  MAKER_OR_CANCEL,  AUCTION_ONLY,  INDICATION_OF_INTEREST,  }; /* The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. */
   @Alias('client_order_id_format_exchange', isNullable: false,  )
   final String clientOrderIdFormatExchange;
-   /* Exchange order id */
+   /* The unique identifier of the order assigned by the exchange. */
   @Alias('exchange_order_id', isNullable: false,  )
   final String exchangeOrderId;
    /* Amount open */

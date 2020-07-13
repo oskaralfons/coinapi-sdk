@@ -169,7 +169,7 @@ feature -- API Access
 			-- Get order status
 			-- Get the current order status for the specified order. The requested order can no longer be active.
 			-- 
-			-- argument: client_order_id Order Client Id of the order for which the status is requested. (required)
+			-- argument: client_order_id The unique identifier of the order assigned by the client. (required)
 			-- 
 			-- 
 			-- Result ORDER_EXECUTION_REPORT

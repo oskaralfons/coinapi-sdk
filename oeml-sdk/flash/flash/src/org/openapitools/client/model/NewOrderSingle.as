@@ -9,13 +9,13 @@ import org.openapitools.client.model.TimeInForce;
         /* Exchange identifier. */
         [XmlElement(name="exchange_id")]
         public var exchangeId: String = null;
-        /* Unique identifier for the order assigned by the &#x60;OEML API&#x60; client. */
+        /* The unique identifier of the order assigned by the client. */
         [XmlElement(name="client_order_id")]
         public var clientOrderId: String = null;
-        /* Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order. */
+        /* Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order. */
         [XmlElement(name="symbol_exchange")]
         public var symbolExchange: String = null;
-        /* CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order. */
+        /* CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order. */
         [XmlElement(name="symbol_coinapi")]
         public var symbolCoinapi: String = null;
         /* Order quantity. */

@@ -23,7 +23,7 @@ void main() {
       // TODO
     });
 
-    // Sucess message
+    // Message text.
     // String message (default value: null)
     test('to test the property `message`', () async {
       // TODO

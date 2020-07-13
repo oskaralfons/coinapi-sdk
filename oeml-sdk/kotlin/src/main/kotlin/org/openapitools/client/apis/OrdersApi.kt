@@ -210,7 +210,7 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
     /**
     * Get order status
     * Get the current order status for the specified order. The requested order can no longer be active.
-    * @param clientOrderId Order Client Id of the order for which the status is requested. 
+    * @param clientOrderId The unique identifier of the order assigned by the client. 
     * @return OrderExecutionReport
     * @throws UnsupportedOperationException If the API returns an informational or redirection response
     * @throws ClientException If the API returns a client error response

@@ -5,15 +5,15 @@ part 'cancel_order_single_request.g.dart';
 
 abstract class CancelOrderSingleRequest implements Built<CancelOrderSingleRequest, CancelOrderSingleRequestBuilder> {
 
-    /* Exchange name */
+    /* Exchange identifier. */
         @nullable
     @BuiltValueField(wireName: r'exchange_id')
     String get exchangeId;
-    /* Order Id */
+    /* The unique identifier of the order assigned by the exchange. */
         @nullable
     @BuiltValueField(wireName: r'exchange_order_id')
     String get exchangeOrderId;
-    /* Client order Id */
+    /* The unique identifier of the order assigned by the client. */
         @nullable
     @BuiltValueField(wireName: r'client_order_id')
     String get clientOrderId;

@@ -15,13 +15,13 @@
  */
 public class OASOrderExecutionReportAllOf implements OAS.MappedProperties {
     /**
-     * Hash client id
+     * The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
      * @return clientOrderIdFormatExchange
      */
     public String clientOrderIdFormatExchange { get; set; }
 
     /**
-     * Exchange order id
+     * The unique identifier of the order assigned by the exchange.
      * @return exchangeOrderId
      */
     public String exchangeOrderId { get; set; }
@@ -76,7 +76,7 @@ public class OASOrderExecutionReportAllOf implements OAS.MappedProperties {
     public static OASOrderExecutionReportAllOf getExample() {
         OASOrderExecutionReportAllOf orderExecutionReportAllOf = new OASOrderExecutionReportAllOf();
           orderExecutionReportAllOf.clientOrderIdFormatExchange = 'f81211e2-27c4-b86a-8143-01088ba9222c';
-          orderExecutionReportAllOf.exchangeOrderId = '90832ASASAS89789-1112';
+          orderExecutionReportAllOf.exchangeOrderId = '3456456754';
           orderExecutionReportAllOf.amountOpen = 0.22;
           orderExecutionReportAllOf.amountFilled = 0.0;
           orderExecutionReportAllOf.status = OASOrdStatus.getExample();

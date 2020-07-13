@@ -14,13 +14,13 @@ require 'date'
 
 module OpenapiClient
   class CancelOrderSingleRequest
-    # Exchange name
+    # Exchange identifier.
     attr_accessor :exchange_id
 
-    # Order Id
+    # The unique identifier of the order assigned by the exchange.
     attr_accessor :exchange_order_id
 
-    # Client order Id
+    # The unique identifier of the order assigned by the client.
     attr_accessor :client_order_id
 
     # Attribute mapping from ruby-style variable name to JSON key.

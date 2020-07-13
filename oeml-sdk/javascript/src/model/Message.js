@@ -85,7 +85,7 @@ Message.prototype['severity'] = undefined;
 Message.prototype['exchange_id'] = undefined;
 
 /**
- * Sucess message
+ * Message text.
  * @member {String} message
  */
 Message.prototype['message'] = undefined;

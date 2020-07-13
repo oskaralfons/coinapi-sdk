@@ -13,21 +13,21 @@ API.Client.OrderExecutionReport = function() {}
 API.Client.OrderExecutionReport.prototype.exchangeId;
 
 /**
- * Unique identifier for the order assigned by the `OEML API` client.
+ * The unique identifier of the order assigned by the client.
  * @type {!string}
  * @export
  */
 API.Client.OrderExecutionReport.prototype.clientOrderId;
 
 /**
- * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+ * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
  * @type {!string}
  * @export
  */
 API.Client.OrderExecutionReport.prototype.symbolExchange;
 
 /**
- * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+ * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
  * @type {!string}
  * @export
  */
@@ -80,14 +80,14 @@ API.Client.OrderExecutionReport.prototype.expireTime;
 API.Client.OrderExecutionReport.prototype.execInst;
 
 /**
- * Hash client id
+ * The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
  * @type {!string}
  * @export
  */
 API.Client.OrderExecutionReport.prototype.clientOrderIdFormatExchange;
 
 /**
- * Exchange order id
+ * The unique identifier of the order assigned by the exchange.
  * @type {!string}
  * @export
  */

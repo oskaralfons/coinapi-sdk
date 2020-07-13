@@ -26,7 +26,7 @@ API.Client.Message.prototype.severity;
 API.Client.Message.prototype.exchangeId;
 
 /**
- * Sucess message
+ * Message text.
  * @type {!string}
  * @export
  */

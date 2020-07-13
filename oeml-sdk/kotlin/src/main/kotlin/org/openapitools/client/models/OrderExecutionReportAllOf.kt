@@ -16,17 +16,17 @@ import org.openapitools.client.models.OrdStatus
 import com.squareup.moshi.Json
 /**
  * The order execution report message.
- * @param clientOrderIdFormatExchange Hash client id
+ * @param clientOrderIdFormatExchange The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
  * @param amountOpen Amount open
  * @param amountFilled Amount filled
  * @param status 
  * @param timeOrder Timestamped history of order status changes.
- * @param exchangeOrderId Exchange order id
+ * @param exchangeOrderId The unique identifier of the order assigned by the exchange.
  * @param errorMessage Error message
  */
 
 data class OrderExecutionReportAllOf (
-    /* Hash client id */
+    /* The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. */
     @Json(name = "client_order_id_format_exchange")
     val clientOrderIdFormatExchange: kotlin.String,
     /* Amount open */
@@ -40,7 +40,7 @@ data class OrderExecutionReportAllOf (
     /* Timestamped history of order status changes. */
     @Json(name = "time_order")
     val timeOrder: kotlin.Array<kotlin.Array<kotlin.String>>,
-    /* Exchange order id */
+    /* The unique identifier of the order assigned by the exchange. */
     @Json(name = "exchange_order_id")
     val exchangeOrderId: kotlin.String? = null,
     /* Error message */

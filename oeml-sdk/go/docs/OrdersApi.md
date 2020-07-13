@@ -171,7 +171,7 @@ Get the current order status for the specified order. The requested order can no
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**clientOrderId** | **string**| Order Client Id of the order for which the status is requested. | 
+**clientOrderId** | **string**| The unique identifier of the order assigned by the client. | 
 
 ### Return type
 

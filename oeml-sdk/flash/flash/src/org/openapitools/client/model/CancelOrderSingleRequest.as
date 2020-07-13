@@ -3,13 +3,13 @@ package org.openapitools.client.model {
 
     [XmlRootNode(name="CancelOrderSingleRequest")]
     public class CancelOrderSingleRequest {
-        /* Exchange name */
+        /* Exchange identifier. */
         [XmlElement(name="exchange_id")]
         public var exchangeId: String = null;
-        /* Order Id */
+        /* The unique identifier of the order assigned by the exchange. */
         [XmlElement(name="exchange_order_id")]
         public var exchangeOrderId: String = null;
-        /* Client order Id */
+        /* The unique identifier of the order assigned by the client. */
         [XmlElement(name="client_order_id")]
         public var clientOrderId: String = null;
 

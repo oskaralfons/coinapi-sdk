@@ -6,10 +6,10 @@ import 'package:openapi/model/ord_status.dart';
 part 'order_execution_report_all_of.jser.dart';
 
 class OrderExecutionReportAllOf {
-   /* Hash client id */
+   /* The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. */
   @Alias('client_order_id_format_exchange', isNullable: false,  )
   final String clientOrderIdFormatExchange;
-   /* Exchange order id */
+   /* The unique identifier of the order assigned by the exchange. */
   @Alias('exchange_order_id', isNullable: false,  )
   final String exchangeOrderId;
    /* Amount open */

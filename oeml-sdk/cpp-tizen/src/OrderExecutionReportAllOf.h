@@ -47,18 +47,18 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get Hash client id
+	/*! \brief Get The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
 	 */
 	std::string getClientOrderIdFormatExchange();
 
-	/*! \brief Set Hash client id
+	/*! \brief Set The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
 	 */
 	void setClientOrderIdFormatExchange(std::string  client_order_id_format_exchange);
-	/*! \brief Get Exchange order id
+	/*! \brief Get The unique identifier of the order assigned by the exchange.
 	 */
 	std::string getExchangeOrderId();
 
-	/*! \brief Set Exchange order id
+	/*! \brief Set The unique identifier of the order assigned by the exchange.
 	 */
 	void setExchangeOrderId(std::string  exchange_order_id);
 	/*! \brief Get Amount open

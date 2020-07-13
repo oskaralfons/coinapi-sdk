@@ -214,7 +214,7 @@ Get the current order status for the specified order. The requested order can no
 //import org.openapitools.client.models.*
 
 val apiInstance = OrdersApi()
-val clientOrderId : kotlin.String = 6ab36bc1-344d-432e-ac6d-0bf44ee64c2b // kotlin.String | Order Client Id of the order for which the status is requested.
+val clientOrderId : kotlin.String = 6ab36bc1-344d-432e-ac6d-0bf44ee64c2b // kotlin.String | The unique identifier of the order assigned by the client.
 try {
     val result : OrderExecutionReport = apiInstance.v1OrdersStatusClientOrderIdGet(clientOrderId)
     println(result)
@@ -231,7 +231,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientOrderId** | **kotlin.String**| Order Client Id of the order for which the status is requested. |
+ **clientOrderId** | **kotlin.String**| The unique identifier of the order assigned by the client. |
 
 ### Return type
 

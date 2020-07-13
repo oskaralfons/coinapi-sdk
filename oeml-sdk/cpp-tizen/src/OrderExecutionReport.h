@@ -60,25 +60,25 @@ public:
 	/*! \brief Set Exchange identifier.
 	 */
 	void setExchangeId(std::string  exchange_id);
-	/*! \brief Get Unique identifier for the order assigned by the `OEML API` client.
+	/*! \brief Get The unique identifier of the order assigned by the client.
 	 */
 	std::string getClientOrderId();
 
-	/*! \brief Set Unique identifier for the order assigned by the `OEML API` client.
+	/*! \brief Set The unique identifier of the order assigned by the client.
 	 */
 	void setClientOrderId(std::string  client_order_id);
-	/*! \brief Get Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+	/*! \brief Get Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
 	 */
 	std::string getSymbolExchange();
 
-	/*! \brief Set Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+	/*! \brief Set Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
 	 */
 	void setSymbolExchange(std::string  symbol_exchange);
-	/*! \brief Get CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+	/*! \brief Get CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
 	 */
 	std::string getSymbolCoinapi();
 
-	/*! \brief Set CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+	/*! \brief Set CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
 	 */
 	void setSymbolCoinapi(std::string  symbol_coinapi);
 	/*! \brief Get Order quantity.
@@ -130,18 +130,18 @@ public:
 	/*! \brief Set Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> 
 	 */
 	void setExecInst(std::list <std::string> exec_inst);
-	/*! \brief Get Hash client id
+	/*! \brief Get The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
 	 */
 	std::string getClientOrderIdFormatExchange();
 
-	/*! \brief Set Hash client id
+	/*! \brief Set The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
 	 */
 	void setClientOrderIdFormatExchange(std::string  client_order_id_format_exchange);
-	/*! \brief Get Exchange order id
+	/*! \brief Get The unique identifier of the order assigned by the exchange.
 	 */
 	std::string getExchangeOrderId();
 
-	/*! \brief Set Exchange order id
+	/*! \brief Set The unique identifier of the order assigned by the exchange.
 	 */
 	void setExchangeOrderId(std::string  exchange_order_id);
 	/*! \brief Get Amount open

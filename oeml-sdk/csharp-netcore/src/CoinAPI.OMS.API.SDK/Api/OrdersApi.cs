@@ -118,7 +118,7 @@ namespace CoinAPI.OMS.API.SDK.Api
         /// Get the current order status for the specified order. The requested order can no longer be active.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientOrderId">Order Client Id of the order for which the status is requested.</param>
+        /// <param name="clientOrderId">The unique identifier of the order assigned by the client.</param>
         /// <returns>OrderExecutionReport</returns>
         OrderExecutionReport V1OrdersStatusClientOrderIdGet (string clientOrderId);
 
@@ -129,7 +129,7 @@ namespace CoinAPI.OMS.API.SDK.Api
         /// Get the current order status for the specified order. The requested order can no longer be active.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientOrderId">Order Client Id of the order for which the status is requested.</param>
+        /// <param name="clientOrderId">The unique identifier of the order assigned by the client.</param>
         /// <returns>ApiResponse of OrderExecutionReport</returns>
         ApiResponse<OrderExecutionReport> V1OrdersStatusClientOrderIdGetWithHttpInfo (string clientOrderId);
         #endregion Synchronous Operations
@@ -232,7 +232,7 @@ namespace CoinAPI.OMS.API.SDK.Api
         /// Get the current order status for the specified order. The requested order can no longer be active.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientOrderId">Order Client Id of the order for which the status is requested.</param>
+        /// <param name="clientOrderId">The unique identifier of the order assigned by the client.</param>
         /// <returns>Task of OrderExecutionReport</returns>
         System.Threading.Tasks.Task<OrderExecutionReport> V1OrdersStatusClientOrderIdGetAsync (string clientOrderId);
 
@@ -243,7 +243,7 @@ namespace CoinAPI.OMS.API.SDK.Api
         /// Get the current order status for the specified order. The requested order can no longer be active.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientOrderId">Order Client Id of the order for which the status is requested.</param>
+        /// <param name="clientOrderId">The unique identifier of the order assigned by the client.</param>
         /// <returns>Task of ApiResponse (OrderExecutionReport)</returns>
         System.Threading.Tasks.Task<ApiResponse<OrderExecutionReport>> V1OrdersStatusClientOrderIdGetAsyncWithHttpInfo (string clientOrderId);
         #endregion Asynchronous Operations
@@ -830,7 +830,7 @@ namespace CoinAPI.OMS.API.SDK.Api
         /// Get order status Get the current order status for the specified order. The requested order can no longer be active.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientOrderId">Order Client Id of the order for which the status is requested.</param>
+        /// <param name="clientOrderId">The unique identifier of the order assigned by the client.</param>
         /// <returns>OrderExecutionReport</returns>
         public OrderExecutionReport V1OrdersStatusClientOrderIdGet (string clientOrderId)
         {
@@ -842,7 +842,7 @@ namespace CoinAPI.OMS.API.SDK.Api
         /// Get order status Get the current order status for the specified order. The requested order can no longer be active.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientOrderId">Order Client Id of the order for which the status is requested.</param>
+        /// <param name="clientOrderId">The unique identifier of the order assigned by the client.</param>
         /// <returns>ApiResponse of OrderExecutionReport</returns>
         public CoinAPI.OMS.API.SDK.Client.ApiResponse< OrderExecutionReport > V1OrdersStatusClientOrderIdGetWithHttpInfo (string clientOrderId)
         {
@@ -885,7 +885,7 @@ namespace CoinAPI.OMS.API.SDK.Api
         /// Get order status Get the current order status for the specified order. The requested order can no longer be active.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientOrderId">Order Client Id of the order for which the status is requested.</param>
+        /// <param name="clientOrderId">The unique identifier of the order assigned by the client.</param>
         /// <returns>Task of OrderExecutionReport</returns>
         public async System.Threading.Tasks.Task<OrderExecutionReport> V1OrdersStatusClientOrderIdGetAsync (string clientOrderId)
         {
@@ -898,7 +898,7 @@ namespace CoinAPI.OMS.API.SDK.Api
         /// Get order status Get the current order status for the specified order. The requested order can no longer be active.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientOrderId">Order Client Id of the order for which the status is requested.</param>
+        /// <param name="clientOrderId">The unique identifier of the order assigned by the client.</param>
         /// <returns>Task of ApiResponse (OrderExecutionReport)</returns>
         public async System.Threading.Tasks.Task<CoinAPI.OMS.API.SDK.Client.ApiResponse<OrderExecutionReport>> V1OrdersStatusClientOrderIdGetAsyncWithHttpInfo (string clientOrderId)
         {

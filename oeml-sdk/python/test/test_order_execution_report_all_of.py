@@ -37,7 +37,7 @@ class TestOrderExecutionReportAllOf(unittest.TestCase):
         if include_optional :
             return OrderExecutionReportAllOf(
                 client_order_id_format_exchange = 'f81211e2-27c4-b86a-8143-01088ba9222c', 
-                exchange_order_id = '90832ASASAS89789-1112', 
+                exchange_order_id = '3456456754', 
                 amount_open = 0.22, 
                 amount_filled = 0.0, 
                 status = 'RECEIVED', 

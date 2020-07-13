@@ -19,7 +19,7 @@ abstract class Message implements Built<Message, MessageBuilder> {
         @nullable
     @BuiltValueField(wireName: r'exchange_id')
     String get exchangeId;
-    /* Sucess message */
+    /* Message text. */
         @nullable
     @BuiltValueField(wireName: r'message')
     String get message;

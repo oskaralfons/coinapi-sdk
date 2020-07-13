@@ -37,7 +37,7 @@ class TestOrderExecutionReport(unittest.TestCase):
         if include_optional :
             return OrderExecutionReport(
                 exchange_id = 'KRAKEN', 
-                client_order_id = 'KPP-222389382-AQ', 
+                client_order_id = '6ab36bc1-344d-432e-ac6d-0bf44ee64c2b', 
                 symbol_exchange = 'BTCUSD', 
                 symbol_coinapi = 'KRAKEN_SPOT_BTC_USD', 
                 amount_order = 0.045, 
@@ -45,10 +45,10 @@ class TestOrderExecutionReport(unittest.TestCase):
                 side = 'BUY', 
                 order_type = 'LIMIT', 
                 time_in_force = 'GOOD_TILL_CANCEL', 
-                expire_time = null, 
-                exec_inst = MAKER_OR_CANCEL, 
+                expire_time = 2020-01-01T10:45:20.1677709Z, 
+                exec_inst = ["MAKER_OR_CANCEL"], 
                 client_order_id_format_exchange = 'f81211e2-27c4-b86a-8143-01088ba9222c', 
-                exchange_order_id = '90832ASASAS89789-1112', 
+                exchange_order_id = '3456456754', 
                 amount_open = 0.22, 
                 amount_filled = 0.0, 
                 status = 'RECEIVED', 
@@ -62,7 +62,7 @@ class TestOrderExecutionReport(unittest.TestCase):
         else :
             return OrderExecutionReport(
                 exchange_id = 'KRAKEN',
-                client_order_id = 'KPP-222389382-AQ',
+                client_order_id = '6ab36bc1-344d-432e-ac6d-0bf44ee64c2b',
                 amount_order = 0.045,
                 price = 0.0783,
                 side = 'BUY',

@@ -12,19 +12,19 @@ void main() {
       // TODO
     });
 
-    // Unique identifier for the order assigned by the `OEML API` client.
+    // The unique identifier of the order assigned by the client.
     // String clientOrderId (default value: null)
     test('to test the property `clientOrderId`', () async {
       // TODO
     });
 
-    // Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+    // Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
     // String symbolExchange (default value: null)
     test('to test the property `symbolExchange`', () async {
       // TODO
     });
 
-    // CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+    // CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
     // String symbolCoinapi (default value: null)
     test('to test the property `symbolCoinapi`', () async {
       // TODO
@@ -69,13 +69,13 @@ void main() {
       // TODO
     });
 
-    // Hash client id
+    // The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
     // String clientOrderIdFormatExchange (default value: null)
     test('to test the property `clientOrderIdFormatExchange`', () async {
       // TODO
     });
 
-    // Exchange order id
+    // The unique identifier of the order assigned by the exchange.
     // String exchangeOrderId (default value: null)
     test('to test the property `exchangeOrderId`', () async {
       // TODO

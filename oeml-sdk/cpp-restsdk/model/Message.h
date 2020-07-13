@@ -82,7 +82,7 @@ public:
     void setExchangeId(const utility::string_t& value);
 
     /// <summary>
-    /// Sucess message
+    /// Message text.
     /// </summary>
     utility::string_t getMessage() const;
     bool messageIsSet() const;

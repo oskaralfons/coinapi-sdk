@@ -320,7 +320,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "http://localhost:8080";
             var apiInstance = new OrdersApi(config);
-            var clientOrderId = 6ab36bc1-344d-432e-ac6d-0bf44ee64c2b;  // string | Order Client Id of the order for which the status is requested.
+            var clientOrderId = 6ab36bc1-344d-432e-ac6d-0bf44ee64c2b;  // string | The unique identifier of the order assigned by the client.
 
             try
             {
@@ -343,7 +343,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientOrderId** | **string**| Order Client Id of the order for which the status is requested. | 
+ **clientOrderId** | **string**| The unique identifier of the order assigned by the client. | 
 
 ### Return type
 

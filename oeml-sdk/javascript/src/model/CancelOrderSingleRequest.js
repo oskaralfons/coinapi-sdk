@@ -64,19 +64,19 @@ class CancelOrderSingleRequest {
 }
 
 /**
- * Exchange name
+ * Exchange identifier.
  * @member {String} exchange_id
  */
 CancelOrderSingleRequest.prototype['exchange_id'] = undefined;
 
 /**
- * Order Id
+ * The unique identifier of the order assigned by the exchange.
  * @member {String} exchange_order_id
  */
 CancelOrderSingleRequest.prototype['exchange_order_id'] = undefined;
 
 /**
- * Client order Id
+ * The unique identifier of the order assigned by the client.
  * @member {String} client_order_id
  */
 CancelOrderSingleRequest.prototype['client_order_id'] = undefined;

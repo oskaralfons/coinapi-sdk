@@ -124,7 +124,7 @@ class NewOrderSingle(object):
     def client_order_id(self):
         """Gets the client_order_id of this NewOrderSingle.  # noqa: E501
 
-        Unique identifier for the order assigned by the `OEML API` client.  # noqa: E501
+        The unique identifier of the order assigned by the client.  # noqa: E501
 
         :return: The client_order_id of this NewOrderSingle.  # noqa: E501
         :rtype: str
@@ -135,7 +135,7 @@ class NewOrderSingle(object):
     def client_order_id(self, client_order_id):
         """Sets the client_order_id of this NewOrderSingle.
 
-        Unique identifier for the order assigned by the `OEML API` client.  # noqa: E501
+        The unique identifier of the order assigned by the client.  # noqa: E501
 
         :param client_order_id: The client_order_id of this NewOrderSingle.  # noqa: E501
         :type: str
@@ -149,7 +149,7 @@ class NewOrderSingle(object):
     def symbol_exchange(self):
         """Gets the symbol_exchange of this NewOrderSingle.  # noqa: E501
 
-        Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.  # noqa: E501
+        Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.  # noqa: E501
 
         :return: The symbol_exchange of this NewOrderSingle.  # noqa: E501
         :rtype: str
@@ -160,7 +160,7 @@ class NewOrderSingle(object):
     def symbol_exchange(self, symbol_exchange):
         """Sets the symbol_exchange of this NewOrderSingle.
 
-        Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.  # noqa: E501
+        Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.  # noqa: E501
 
         :param symbol_exchange: The symbol_exchange of this NewOrderSingle.  # noqa: E501
         :type: str
@@ -172,7 +172,7 @@ class NewOrderSingle(object):
     def symbol_coinapi(self):
         """Gets the symbol_coinapi of this NewOrderSingle.  # noqa: E501
 
-        CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.  # noqa: E501
+        CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.  # noqa: E501
 
         :return: The symbol_coinapi of this NewOrderSingle.  # noqa: E501
         :rtype: str
@@ -183,7 +183,7 @@ class NewOrderSingle(object):
     def symbol_coinapi(self, symbol_coinapi):
         """Sets the symbol_coinapi of this NewOrderSingle.
 
-        CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.  # noqa: E501
+        CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.  # noqa: E501
 
         :param symbol_coinapi: The symbol_coinapi of this NewOrderSingle.  # noqa: E501
         :type: str

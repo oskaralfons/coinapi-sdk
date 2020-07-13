@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**client_order_id_format_exchange** | **String** | Hash client id | 
-**exchange_order_id** | **String** | Exchange order id | [optional] 
+**client_order_id_format_exchange** | **String** | The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. | 
+**exchange_order_id** | **String** | The unique identifier of the order assigned by the exchange. | [optional] 
 **amount_open** | **Float** | Amount open | 
 **amount_filled** | **Float** | Amount filled | 
 **status** | [**OrdStatus**](OrdStatus.md) |  | 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 require 'OpenapiClient'
 
 instance = OpenapiClient::OrderExecutionReportAllOf.new(client_order_id_format_exchange: f81211e2-27c4-b86a-8143-01088ba9222c,
-                                 exchange_order_id: 90832ASASAS89789-1112,
+                                 exchange_order_id: 3456456754,
                                  amount_open: 0.22,
                                  amount_filled: 0.0,
                                  status: null,

@@ -396,7 +396,7 @@ class OrderExecutionReport implements ModelInterface, ArrayAccess
     /**
      * Sets client_order_id
      *
-     * @param string $client_order_id Unique identifier for the order assigned by the `OEML API` client.
+     * @param string $client_order_id The unique identifier of the order assigned by the client.
      *
      * @return $this
      */
@@ -420,7 +420,7 @@ class OrderExecutionReport implements ModelInterface, ArrayAccess
     /**
      * Sets symbol_exchange
      *
-     * @param string|null $symbol_exchange Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+     * @param string|null $symbol_exchange Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
      *
      * @return $this
      */
@@ -444,7 +444,7 @@ class OrderExecutionReport implements ModelInterface, ArrayAccess
     /**
      * Sets symbol_coinapi
      *
-     * @param string|null $symbol_coinapi CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+     * @param string|null $symbol_coinapi CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
      *
      * @return $this
      */
@@ -645,7 +645,7 @@ class OrderExecutionReport implements ModelInterface, ArrayAccess
     /**
      * Sets client_order_id_format_exchange
      *
-     * @param string $client_order_id_format_exchange Hash client id
+     * @param string $client_order_id_format_exchange The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
      *
      * @return $this
      */
@@ -669,7 +669,7 @@ class OrderExecutionReport implements ModelInterface, ArrayAccess
     /**
      * Sets exchange_order_id
      *
-     * @param string|null $exchange_order_id Exchange order id
+     * @param string|null $exchange_order_id The unique identifier of the order assigned by the exchange.
      *
      * @return $this
      */

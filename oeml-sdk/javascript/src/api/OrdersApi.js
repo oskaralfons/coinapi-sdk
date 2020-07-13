@@ -217,7 +217,7 @@ export default class OrdersApi {
     /**
      * Get order status
      * Get the current order status for the specified order. The requested order can no longer be active.
-     * @param {String} clientOrderId Order Client Id of the order for which the status is requested.
+     * @param {String} clientOrderId The unique identifier of the order assigned by the client.
      * @param {module:api/OrdersApi~v1OrdersStatusClientOrderIdGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrderExecutionReport}
      */

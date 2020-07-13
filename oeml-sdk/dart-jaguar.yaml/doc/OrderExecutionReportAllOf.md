@@ -8,8 +8,8 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**clientOrderIdFormatExchange** | **String** | Hash client id | [default to null]
-**exchangeOrderId** | **String** | Exchange order id | [optional] [default to null]
+**clientOrderIdFormatExchange** | **String** | The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. | [default to null]
+**exchangeOrderId** | **String** | The unique identifier of the order assigned by the exchange. | [optional] [default to null]
 **amountOpen** | **num** | Amount open | [default to null]
 **amountFilled** | **num** | Amount filled | [default to null]
 **status** | [**OrdStatus**](OrdStatus.md) |  | [default to null]

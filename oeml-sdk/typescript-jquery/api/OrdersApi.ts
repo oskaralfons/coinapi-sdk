@@ -309,7 +309,7 @@ export class OrdersApi {
     /**
      * Get the current order status for the specified order. The requested order can no longer be active.
      * @summary Get order status
-     * @param clientOrderId Order Client Id of the order for which the status is requested.
+     * @param clientOrderId The unique identifier of the order assigned by the client.
      */
     public v1OrdersStatusClientOrderIdGet(clientOrderId: string, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
     { response: JQueryXHR; body: models.OrderExecutionReport;  },

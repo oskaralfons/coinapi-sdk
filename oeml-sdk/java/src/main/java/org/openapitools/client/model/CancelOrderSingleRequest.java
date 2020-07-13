@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * CancelOrderSingleRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T11:53:12.756Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T12:06:05.587Z[Etc/UTC]")
 public class CancelOrderSingleRequest {
   public static final String SERIALIZED_NAME_EXCHANGE_ID = "exchange_id";
   @SerializedName(SERIALIZED_NAME_EXCHANGE_ID)
@@ -49,11 +49,11 @@ public class CancelOrderSingleRequest {
   }
 
    /**
-   * Exchange name
+   * Exchange identifier.
    * @return exchangeId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "KRAKEN", value = "Exchange name")
+  @ApiModelProperty(example = "KRAKEN", value = "Exchange identifier.")
 
   public String getExchangeId() {
     return exchangeId;
@@ -72,11 +72,11 @@ public class CancelOrderSingleRequest {
   }
 
    /**
-   * Order Id
+   * The unique identifier of the order assigned by the exchange.
    * @return exchangeOrderId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "d8574207d9e3b16a4a5511753eeef1751", value = "Order Id")
+  @ApiModelProperty(example = "3456456754", value = "The unique identifier of the order assigned by the exchange.")
 
   public String getExchangeOrderId() {
     return exchangeOrderId;
@@ -95,11 +95,11 @@ public class CancelOrderSingleRequest {
   }
 
    /**
-   * Client order Id
+   * The unique identifier of the order assigned by the client.
    * @return clientOrderId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "A12345", value = "Client order Id")
+  @ApiModelProperty(example = "6ab36bc1-344d-432e-ac6d-0bf44ee64c2b", value = "The unique identifier of the order assigned by the client.")
 
   public String getClientOrderId() {
     return clientOrderId;

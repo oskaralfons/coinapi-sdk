@@ -169,7 +169,7 @@ Get the current order status for the specified order. The requested order can no
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientOrderId** | **string** | Order Client Id of the order for which the status is requested. | [default to null]
+ **clientOrderId** | **string** | The unique identifier of the order assigned by the client. | [default to null]
 
 ### Return type
 

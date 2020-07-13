@@ -19,7 +19,7 @@ case class Message (
   severity: Option[Severity] = None,
   /* If message related exchange then identifier of this exchange. */
   exchangeId: Option[String] = None,
-  /* Sucess message */
+  /* Message text. */
   message: Option[String] = None
 ) extends ApiModel
 

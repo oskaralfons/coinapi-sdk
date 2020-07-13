@@ -7,11 +7,11 @@ part 'order_execution_report_all_of.g.dart';
 
 abstract class OrderExecutionReportAllOf implements Built<OrderExecutionReportAllOf, OrderExecutionReportAllOfBuilder> {
 
-    /* Hash client id */
+    /* The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. */
         @nullable
     @BuiltValueField(wireName: r'client_order_id_format_exchange')
     String get clientOrderIdFormatExchange;
-    /* Exchange order id */
+    /* The unique identifier of the order assigned by the exchange. */
         @nullable
     @BuiltValueField(wireName: r'exchange_order_id')
     String get exchangeOrderId;

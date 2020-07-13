@@ -269,7 +269,7 @@ class OrderExecutionReportAllOf implements ModelInterface, ArrayAccess
     /**
      * Sets client_order_id_format_exchange
      *
-     * @param string $client_order_id_format_exchange Hash client id
+     * @param string $client_order_id_format_exchange The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
      *
      * @return $this
      */
@@ -293,7 +293,7 @@ class OrderExecutionReportAllOf implements ModelInterface, ArrayAccess
     /**
      * Sets exchange_order_id
      *
-     * @param string|null $exchange_order_id Exchange order id
+     * @param string|null $exchange_order_id The unique identifier of the order assigned by the exchange.
      *
      * @return $this
      */

@@ -77,7 +77,7 @@ paths:
       description: Get the current order status for the specified order. The requested
         order can no longer be active.
       parameters:
-      - description: Order Client Id of the order for which the status is requested.
+      - description: The unique identifier of the order assigned by the client.
         explode: false
         in: path
         name: client_order_id
@@ -207,13 +207,14 @@ components:
       example:
         symbol_coinapi: KRAKEN_SPOT_BTC_USD
         exchange_id: KRAKEN
-        client_order_id: KPP-222389382-AQ
+        client_order_id: 6ab36bc1-344d-432e-ac6d-0bf44ee64c2b
         side: BUY
         time_in_force: GOOD_TILL_CANCEL
         price: 0.0783
         amount_order: 0.045
-        expire_time: ""
-        exec_inst: MAKER_OR_CANCEL
+        expire_time: 2020-01-01T10:45:20.1677709Z
+        exec_inst:
+        - MAKER_OR_CANCEL
         order_type: LIMIT
         symbol_exchange: BTCUSD
       properties:
@@ -222,18 +223,17 @@ components:
           example: KRAKEN
           type: string
         client_order_id:
-          description: Unique identifier for the order assigned by the `OEML API`
-            client.
-          example: KPP-222389382-AQ
+          description: The unique identifier of the order assigned by the client.
+          example: 6ab36bc1-344d-432e-ac6d-0bf44ee64c2b
           type: string
         symbol_exchange:
           description: Exchange symbol. One of the properties (`symbol_exchange`,
-            `symbol_coinapi`) is required to identify the market for the order.
+            `symbol_coinapi`) are required to identify the market for the new order.
           example: BTCUSD
           type: string
         symbol_coinapi:
           description: CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`)
-            is required to identify the market for the order.
+            are required to identify the market for the new order.
           example: KRAKEN_SPOT_BTC_USD
           type: string
         amount_order:
@@ -253,11 +253,13 @@ components:
         expire_time:
           description: Expiration time. Conditionaly required for orders with time_in_force
             = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
+          example: 2020-01-01T10:45:20.1677709Z
           type: date
         exec_inst:
           description: |
             Order execution instructions are documented in the separate section: <a href="#oeml-order-params-exec">OEML / Starter Guide / Order parameters / Execution instructions</a>
-          example: MAKER_OR_CANCEL
+          example:
+          - MAKER_OR_CANCEL
           items:
             enum:
             - MAKER_OR_CANCEL
@@ -277,20 +279,20 @@ components:
     CancelOrderSingleRequest:
       example:
         exchange_id: KRAKEN
-        client_order_id: A12345
-        exchange_order_id: d8574207d9e3b16a4a5511753eeef1751
+        client_order_id: 6ab36bc1-344d-432e-ac6d-0bf44ee64c2b
+        exchange_order_id: "3456456754"
       properties:
         exchange_id:
-          description: Exchange name
+          description: Exchange identifier.
           example: KRAKEN
           type: string
         exchange_order_id:
-          description: Order Id
-          example: d8574207d9e3b16a4a5511753eeef1751
+          description: The unique identifier of the order assigned by the exchange.
+          example: "3456456754"
           type: string
         client_order_id:
-          description: Client order Id
-          example: A12345
+          description: The unique identifier of the order assigned by the client.
+          example: 6ab36bc1-344d-432e-ac6d-0bf44ee64c2b
           type: string
       type: object
     CancelOrderAllRequest:
@@ -305,7 +307,7 @@ components:
       - exchange_id
       type: object
     OrderExecutionReports:
-      description: Collection of execution reports for currently opened orders.
+      description: Collection of order execution reports for currently opened orders.
       items:
         $ref: '#/components/schemas/OrderExecutionReport'
       type: array
@@ -438,7 +440,8 @@ components:
     ExecInst:
       description: |
         Order execution instructions are documented in the separate section: <a href="#oeml-order-params-exec">OEML / Starter Guide / Order parameters / Execution instructions</a>
-      example: MAKER_OR_CANCEL
+      example:
+      - MAKER_OR_CANCEL
       items:
         enum:
         - MAKER_OR_CANCEL
@@ -466,6 +469,7 @@ components:
       type: object
     Message:
       example:
+        severity: ERROR
         exchange_id: KRAKEN
         type: message
         message: Ok
@@ -481,27 +485,30 @@ components:
           example: KRAKEN
           type: string
         message:
-          description: Sucess message
+          description: Message text.
           example: Ok
           type: string
-      title: Success or error message carrier.
+      title: Message object.
       type: object
     Severity:
+      description: Severity of the message.
       enum:
       - INFO
       - WARNING
       - ERROR
+      example: ERROR
       type: string
     OrderExecutionReport_allOf:
       description: The order execution report message.
       properties:
         client_order_id_format_exchange:
-          description: Hash client id
+          description: The unique identifier of the order assigned by the client converted
+            to the exchange order tag format for the purpose of tracking it.
           example: f81211e2-27c4-b86a-8143-01088ba9222c
           type: string
         exchange_order_id:
-          description: Exchange order id
-          example: 90832ASASAS89789-1112
+          description: The unique identifier of the order assigned by the exchange.
+          example: "3456456754"
           type: string
         amount_open:
           description: Amount open

@@ -31,7 +31,7 @@ feature --Access
     exchange_id: detachable STRING_32 
       -- If message related exchange then identifier of this exchange.
     message: detachable STRING_32 
-      -- Sucess message
+      -- Message text.
 
 feature -- Change Element  
  

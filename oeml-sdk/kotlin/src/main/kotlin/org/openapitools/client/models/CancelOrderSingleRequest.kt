@@ -15,19 +15,19 @@ package org.openapitools.client.models
 import com.squareup.moshi.Json
 /**
  * 
- * @param exchangeId Exchange name
- * @param exchangeOrderId Order Id
- * @param clientOrderId Client order Id
+ * @param exchangeId Exchange identifier.
+ * @param exchangeOrderId The unique identifier of the order assigned by the exchange.
+ * @param clientOrderId The unique identifier of the order assigned by the client.
  */
 
 data class CancelOrderSingleRequest (
-    /* Exchange name */
+    /* Exchange identifier. */
     @Json(name = "exchange_id")
     val exchangeId: kotlin.String? = null,
-    /* Order Id */
+    /* The unique identifier of the order assigned by the exchange. */
     @Json(name = "exchange_order_id")
     val exchangeOrderId: kotlin.String? = null,
-    /* Client order Id */
+    /* The unique identifier of the order assigned by the client. */
     @Json(name = "client_order_id")
     val clientOrderId: kotlin.String? = null
 )

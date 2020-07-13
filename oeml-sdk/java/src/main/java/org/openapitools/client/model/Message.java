@@ -28,7 +28,7 @@ import org.openapitools.client.model.Severity;
 /**
  * Message
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T11:53:12.756Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T12:06:05.587Z[Etc/UTC]")
 public class Message {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -123,11 +123,11 @@ public class Message {
   }
 
    /**
-   * Sucess message
+   * Message text.
    * @return message
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Ok", value = "Sucess message")
+  @ApiModelProperty(example = "Ok", value = "Message text.")
 
   public String getMessage() {
     return message;

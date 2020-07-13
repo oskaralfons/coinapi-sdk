@@ -186,7 +186,7 @@ __PACKAGE__->method_documentation({
     'message' => {
         datatype => 'string',
         base_name => 'message',
-        description => 'Sucess message',
+        description => 'Message text.',
         format => '',
         read_only => '',
             },

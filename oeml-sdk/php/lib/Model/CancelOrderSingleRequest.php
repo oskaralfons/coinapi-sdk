@@ -229,7 +229,7 @@ class CancelOrderSingleRequest implements ModelInterface, ArrayAccess
     /**
      * Sets exchange_id
      *
-     * @param string|null $exchange_id Exchange name
+     * @param string|null $exchange_id Exchange identifier.
      *
      * @return $this
      */
@@ -253,7 +253,7 @@ class CancelOrderSingleRequest implements ModelInterface, ArrayAccess
     /**
      * Sets exchange_order_id
      *
-     * @param string|null $exchange_order_id Order Id
+     * @param string|null $exchange_order_id The unique identifier of the order assigned by the exchange.
      *
      * @return $this
      */
@@ -277,7 +277,7 @@ class CancelOrderSingleRequest implements ModelInterface, ArrayAccess
     /**
      * Sets client_order_id
      *
-     * @param string|null $client_order_id Client order Id
+     * @param string|null $client_order_id The unique identifier of the order assigned by the client.
      *
      * @return $this
      */

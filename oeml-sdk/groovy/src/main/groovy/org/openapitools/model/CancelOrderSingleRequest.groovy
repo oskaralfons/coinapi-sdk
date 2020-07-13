@@ -6,10 +6,10 @@ import io.swagger.annotations.ApiModelProperty;
 
 @Canonical
 class CancelOrderSingleRequest {
-    /* Exchange name */
+    /* Exchange identifier. */
     String exchangeId
-    /* Order Id */
+    /* The unique identifier of the order assigned by the exchange. */
     String exchangeOrderId
-    /* Client order Id */
+    /* The unique identifier of the order assigned by the client. */
     String clientOrderId
 }

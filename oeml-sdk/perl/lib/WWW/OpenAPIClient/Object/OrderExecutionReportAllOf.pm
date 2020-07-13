@@ -165,14 +165,14 @@ __PACKAGE__->method_documentation({
     'client_order_id_format_exchange' => {
         datatype => 'string',
         base_name => 'client_order_id_format_exchange',
-        description => 'Hash client id',
+        description => 'The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.',
         format => '',
         read_only => '',
             },
     'exchange_order_id' => {
         datatype => 'string',
         base_name => 'exchange_order_id',
-        description => 'Exchange order id',
+        description => 'The unique identifier of the order assigned by the exchange.',
         format => '',
         read_only => '',
             },

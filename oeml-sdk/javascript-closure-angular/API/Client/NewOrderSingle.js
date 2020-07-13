@@ -14,21 +14,21 @@ API.Client.NewOrderSingle = function() {}
 API.Client.NewOrderSingle.prototype.exchangeId;
 
 /**
- * Unique identifier for the order assigned by the `OEML API` client.
+ * The unique identifier of the order assigned by the client.
  * @type {!string}
  * @export
  */
 API.Client.NewOrderSingle.prototype.clientOrderId;
 
 /**
- * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+ * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
  * @type {!string}
  * @export
  */
 API.Client.NewOrderSingle.prototype.symbolExchange;
 
 /**
- * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+ * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
  * @type {!string}
  * @export
  */

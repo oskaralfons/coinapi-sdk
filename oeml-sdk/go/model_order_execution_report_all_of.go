@@ -10,9 +10,9 @@
 package openapi
 // OrderExecutionReportAllOf The order execution report message.
 type OrderExecutionReportAllOf struct {
-	// Hash client id
+	// The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
 	ClientOrderIdFormatExchange string `json:"client_order_id_format_exchange"`
-	// Exchange order id
+	// The unique identifier of the order assigned by the exchange.
 	ExchangeOrderId string `json:"exchange_order_id,omitempty"`
 	// Amount open
 	AmountOpen float32 `json:"amount_open"`

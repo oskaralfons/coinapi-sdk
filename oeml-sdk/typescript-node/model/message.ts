@@ -24,7 +24,7 @@ export class Message {
     */
     'exchangeId'?: string;
     /**
-    * Sucess message
+    * Message text.
     */
     'message'?: string;
 

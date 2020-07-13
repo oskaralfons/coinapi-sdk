@@ -12,11 +12,11 @@ package openapi
 type OrderExecutionReport struct {
 	// Exchange identifier.
 	ExchangeId string `json:"exchange_id"`
-	// Unique identifier for the order assigned by the `OEML API` client.
+	// The unique identifier of the order assigned by the client.
 	ClientOrderId string `json:"client_order_id"`
-	// Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+	// Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
 	SymbolExchange string `json:"symbol_exchange,omitempty"`
-	// CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+	// CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
 	SymbolCoinapi string `json:"symbol_coinapi,omitempty"`
 	// Order quantity.
 	AmountOrder float32 `json:"amount_order"`
@@ -29,9 +29,9 @@ type OrderExecutionReport struct {
 	ExpireTime string `json:"expire_time,omitempty"`
 	// Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> 
 	ExecInst []string `json:"exec_inst,omitempty"`
-	// Hash client id
+	// The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
 	ClientOrderIdFormatExchange string `json:"client_order_id_format_exchange"`
-	// Exchange order id
+	// The unique identifier of the order assigned by the exchange.
 	ExchangeOrderId string `json:"exchange_order_id,omitempty"`
 	// Amount open
 	AmountOpen float32 `json:"amount_open"`

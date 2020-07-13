@@ -8,7 +8,7 @@
  */
 
 package openapi
-// Severity the model 'Severity'
+// Severity Severity of the message.
 type Severity string
 
 // List of Severity

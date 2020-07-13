@@ -256,7 +256,7 @@ $apiInstance = new OpenAPI\Client\Api\OrdersApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$client_order_id = 6ab36bc1-344d-432e-ac6d-0bf44ee64c2b; // string | Order Client Id of the order for which the status is requested.
+$client_order_id = 6ab36bc1-344d-432e-ac6d-0bf44ee64c2b; // string | The unique identifier of the order assigned by the client.
 
 try {
     $result = $apiInstance->v1OrdersStatusClientOrderIdGet($client_order_id);
@@ -272,7 +272,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **client_order_id** | **string**| Order Client Id of the order for which the status is requested. |
+ **client_order_id** | **string**| The unique identifier of the order assigned by the client. |
 
 ### Return type
 

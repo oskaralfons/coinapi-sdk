@@ -99,7 +99,7 @@ class OrdersApi(baseUrl: String) {
    *   code 200 : OrderExecutionReport (The order was found.)
    *   code 400 : Message (The order was not found.)
    * 
-   * @param clientOrderId Order Client Id of the order for which the status is requested.
+   * @param clientOrderId The unique identifier of the order assigned by the client.
    */
   def v1OrdersStatusClientOrderIdGet(clientOrderId: String): ApiRequest[OrderExecutionReport] =
     ApiRequest[OrderExecutionReport](ApiMethods.GET, baseUrl, "/v1/orders/status/{client_order_id}", "application/json")

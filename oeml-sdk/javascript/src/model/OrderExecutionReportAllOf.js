@@ -24,7 +24,7 @@ class OrderExecutionReportAllOf {
      * Constructs a new <code>OrderExecutionReportAllOf</code>.
      * The order execution report message.
      * @alias module:model/OrderExecutionReportAllOf
-     * @param clientOrderIdFormatExchange {String} Hash client id
+     * @param clientOrderIdFormatExchange {String} The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
      * @param amountOpen {Number} Amount open
      * @param amountFilled {Number} Amount filled
      * @param status {module:model/OrdStatus} 
@@ -88,13 +88,13 @@ class OrderExecutionReportAllOf {
 }
 
 /**
- * Hash client id
+ * The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
  * @member {String} client_order_id_format_exchange
  */
 OrderExecutionReportAllOf.prototype['client_order_id_format_exchange'] = undefined;
 
 /**
- * Exchange order id
+ * The unique identifier of the order assigned by the exchange.
  * @member {String} exchange_order_id
  */
 OrderExecutionReportAllOf.prototype['exchange_order_id'] = undefined;

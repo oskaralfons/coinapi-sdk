@@ -7,7 +7,7 @@ model.instance <- CancelOrderSingleRequest$new()
 
 test_that("exchange_id", {
   # tests for the property `exchange_id` (character)
-  # Exchange name
+  # Exchange identifier.
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`exchange_id`, "EXPECTED_RESULT")
@@ -15,7 +15,7 @@ test_that("exchange_id", {
 
 test_that("exchange_order_id", {
   # tests for the property `exchange_order_id` (character)
-  # Order Id
+  # The unique identifier of the order assigned by the exchange.
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`exchange_order_id`, "EXPECTED_RESULT")
@@ -23,7 +23,7 @@ test_that("exchange_order_id", {
 
 test_that("client_order_id", {
   # tests for the property `client_order_id` (character)
-  # Client order Id
+  # The unique identifier of the order assigned by the client.
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`client_order_id`, "EXPECTED_RESULT")

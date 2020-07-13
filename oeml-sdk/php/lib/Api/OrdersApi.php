@@ -1274,7 +1274,7 @@ class OrdersApi
      *
      * Get order status
      *
-     * @param  string $client_order_id Order Client Id of the order for which the status is requested. (required)
+     * @param  string $client_order_id The unique identifier of the order assigned by the client. (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1291,7 +1291,7 @@ class OrdersApi
      *
      * Get order status
      *
-     * @param  string $client_order_id Order Client Id of the order for which the status is requested. (required)
+     * @param  string $client_order_id The unique identifier of the order assigned by the client. (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1399,7 +1399,7 @@ class OrdersApi
      *
      * Get order status
      *
-     * @param  string $client_order_id Order Client Id of the order for which the status is requested. (required)
+     * @param  string $client_order_id The unique identifier of the order assigned by the client. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1419,7 +1419,7 @@ class OrdersApi
      *
      * Get order status
      *
-     * @param  string $client_order_id Order Client Id of the order for which the status is requested. (required)
+     * @param  string $client_order_id The unique identifier of the order assigned by the client. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1466,7 +1466,7 @@ class OrdersApi
     /**
      * Create request for operation 'v1OrdersStatusClientOrderIdGet'
      *
-     * @param  string $client_order_id Order Client Id of the order for which the status is requested. (required)
+     * @param  string $client_order_id The unique identifier of the order assigned by the client. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

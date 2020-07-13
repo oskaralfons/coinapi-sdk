@@ -186,7 +186,7 @@
 #' ####################  V1OrdersStatusClientOrderIdGet  ####################
 #'
 #' library(openapi)
-#' var.client.order.id <- '6ab36bc1-344d-432e-ac6d-0bf44ee64c2b' # character | Order Client Id of the order for which the status is requested.
+#' var.client.order.id <- '6ab36bc1-344d-432e-ac6d-0bf44ee64c2b' # character | The unique identifier of the order assigned by the client.
 #'
 #' #Get order status
 #' api.instance <- OrdersApi$new()

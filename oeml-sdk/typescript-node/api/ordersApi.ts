@@ -367,7 +367,7 @@ export class OrdersApi {
     /**
      * Get the current order status for the specified order. The requested order can no longer be active.
      * @summary Get order status
-     * @param clientOrderId Order Client Id of the order for which the status is requested.
+     * @param clientOrderId The unique identifier of the order assigned by the client.
      */
     public async v1OrdersStatusClientOrderIdGet (clientOrderId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: OrderExecutionReport;  }> {
         const localVarPath = this.basePath + '/v1/orders/status/{client_order_id}'

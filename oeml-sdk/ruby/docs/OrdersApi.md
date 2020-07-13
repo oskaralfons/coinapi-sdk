@@ -217,7 +217,7 @@ Get the current order status for the specified order. The requested order can no
 require 'openapi_client'
 
 api_instance = OpenapiClient::OrdersApi.new
-client_order_id = '6ab36bc1-344d-432e-ac6d-0bf44ee64c2b' # String | Order Client Id of the order for which the status is requested.
+client_order_id = '6ab36bc1-344d-432e-ac6d-0bf44ee64c2b' # String | The unique identifier of the order assigned by the client.
 
 begin
   #Get order status
@@ -233,7 +233,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **client_order_id** | **String**| Order Client Id of the order for which the status is requested. | 
+ **client_order_id** | **String**| The unique identifier of the order assigned by the client. | 
 
 ### Return type
 

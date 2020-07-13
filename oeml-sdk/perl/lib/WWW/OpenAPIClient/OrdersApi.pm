@@ -308,12 +308,12 @@ sub v1_orders_post {
 #
 # Get order status
 # 
-# @param string $client_order_id Order Client Id of the order for which the status is requested. (required)
+# @param string $client_order_id The unique identifier of the order assigned by the client. (required)
 {
     my $params = {
     'client_order_id' => {
         data_type => 'string',
-        description => 'Order Client Id of the order for which the status is requested.',
+        description => 'The unique identifier of the order assigned by the client.',
         required => '1',
     },
     };

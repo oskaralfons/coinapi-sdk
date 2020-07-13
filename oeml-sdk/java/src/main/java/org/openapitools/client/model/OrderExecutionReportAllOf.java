@@ -32,7 +32,7 @@ import org.openapitools.client.model.OrdStatus;
  * The order execution report message.
  */
 @ApiModel(description = "The order execution report message.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T11:53:12.756Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T12:06:05.587Z[Etc/UTC]")
 public class OrderExecutionReportAllOf {
   public static final String SERIALIZED_NAME_CLIENT_ORDER_ID_FORMAT_EXCHANGE = "client_order_id_format_exchange";
   @SerializedName(SERIALIZED_NAME_CLIENT_ORDER_ID_FORMAT_EXCHANGE)
@@ -70,10 +70,10 @@ public class OrderExecutionReportAllOf {
   }
 
    /**
-   * Hash client id
+   * The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
    * @return clientOrderIdFormatExchange
   **/
-  @ApiModelProperty(example = "f81211e2-27c4-b86a-8143-01088ba9222c", required = true, value = "Hash client id")
+  @ApiModelProperty(example = "f81211e2-27c4-b86a-8143-01088ba9222c", required = true, value = "The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.")
 
   public String getClientOrderIdFormatExchange() {
     return clientOrderIdFormatExchange;
@@ -92,11 +92,11 @@ public class OrderExecutionReportAllOf {
   }
 
    /**
-   * Exchange order id
+   * The unique identifier of the order assigned by the exchange.
    * @return exchangeOrderId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "90832ASASAS89789-1112", value = "Exchange order id")
+  @ApiModelProperty(example = "3456456754", value = "The unique identifier of the order assigned by the exchange.")
 
   public String getExchangeOrderId() {
     return exchangeOrderId;

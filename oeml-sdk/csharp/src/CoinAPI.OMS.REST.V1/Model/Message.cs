@@ -41,7 +41,7 @@ namespace CoinAPI.OMS.REST.V1.Model
         /// <param name="type">Type of message..</param>
         /// <param name="severity">severity.</param>
         /// <param name="exchangeId">If message related exchange then identifier of this exchange..</param>
-        /// <param name="message">Sucess message.</param>
+        /// <param name="message">Message text..</param>
         public Message(string type = default(string), Severity? severity = default(Severity?), string exchangeId = default(string), string message = default(string))
         {
             this.Type = type;
@@ -66,9 +66,9 @@ namespace CoinAPI.OMS.REST.V1.Model
         public string ExchangeId { get; set; }
 
         /// <summary>
-        /// Sucess message
+        /// Message text.
         /// </summary>
-        /// <value>Sucess message</value>
+        /// <value>Message text.</value>
         [DataMember(Name="message", EmitDefaultValue=false)]
         public string _Message { get; set; }
 

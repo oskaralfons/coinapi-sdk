@@ -3,11 +3,11 @@ part of openapi.api;
 class OrderExecutionReport {
   /* Exchange identifier. */
   String exchangeId = null;
-  /* Unique identifier for the order assigned by the `OEML API` client. */
+  /* The unique identifier of the order assigned by the client. */
   String clientOrderId = null;
-  /* Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order. */
+  /* Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order. */
   String symbolExchange = null;
-  /* CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order. */
+  /* CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order. */
   String symbolCoinapi = null;
   /* Order quantity. */
   num amountOrder = null;
@@ -27,9 +27,9 @@ class OrderExecutionReport {
   /* Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>  */
   List<String> execInst = [];
   //enum execInstEnum {  MAKER_OR_CANCEL,  AUCTION_ONLY,  INDICATION_OF_INTEREST,  };{
-  /* Hash client id */
+  /* The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. */
   String clientOrderIdFormatExchange = null;
-  /* Exchange order id */
+  /* The unique identifier of the order assigned by the exchange. */
   String exchangeOrderId = null;
   /* Amount open */
   num amountOpen = null;

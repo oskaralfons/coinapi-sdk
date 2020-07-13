@@ -61,9 +61,9 @@ public class Message {
   }
 
   /**
-   * Sucess message
+   * Message text.
    **/
-  @ApiModelProperty(value = "Sucess message")
+  @ApiModelProperty(value = "Message text.")
   public String getMessage() {
     return message;
   }

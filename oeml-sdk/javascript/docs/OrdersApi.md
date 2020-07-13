@@ -208,7 +208,7 @@ Get the current order status for the specified order. The requested order can no
 import OemlRestApi from 'oeml_rest_api';
 
 let apiInstance = new OemlRestApi.OrdersApi();
-let clientOrderId = 6ab36bc1-344d-432e-ac6d-0bf44ee64c2b; // String | Order Client Id of the order for which the status is requested.
+let clientOrderId = 6ab36bc1-344d-432e-ac6d-0bf44ee64c2b; // String | The unique identifier of the order assigned by the client.
 apiInstance.v1OrdersStatusClientOrderIdGet(clientOrderId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -223,7 +223,7 @@ apiInstance.v1OrdersStatusClientOrderIdGet(clientOrderId, (error, data, response
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientOrderId** | **String**| Order Client Id of the order for which the status is requested. | 
+ **clientOrderId** | **String**| The unique identifier of the order assigned by the client. | 
 
 ### Return type
 

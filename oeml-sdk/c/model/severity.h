@@ -1,7 +1,7 @@
 /*
  * severity.h
  *
- * 
+ * Severity of the message.
  */
 
 #ifndef _severity_H_

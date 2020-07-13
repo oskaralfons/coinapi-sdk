@@ -19,7 +19,7 @@ class Message {
   //enum severityEnum {  INFO,  WARNING,  ERROR,  }; /* If message related exchange then identifier of this exchange. */
   @Alias('exchange_id', isNullable: false,  )
   final String exchangeId;
-   /* Sucess message */
+   /* Message text. */
   @Alias('message', isNullable: false,  )
   final String message;
   

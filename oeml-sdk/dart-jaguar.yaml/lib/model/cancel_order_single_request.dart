@@ -4,13 +4,13 @@ import 'package:jaguar_serializer/jaguar_serializer.dart';
 part 'cancel_order_single_request.jser.dart';
 
 class CancelOrderSingleRequest {
-   /* Exchange name */
+   /* Exchange identifier. */
   @Alias('exchange_id', isNullable: false,  )
   final String exchangeId;
-   /* Order Id */
+   /* The unique identifier of the order assigned by the exchange. */
   @Alias('exchange_order_id', isNullable: false,  )
   final String exchangeOrderId;
-   /* Client order Id */
+   /* The unique identifier of the order assigned by the client. */
   @Alias('client_order_id', isNullable: false,  )
   final String clientOrderId;
   

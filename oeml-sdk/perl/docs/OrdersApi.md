@@ -214,7 +214,7 @@ use WWW::OpenAPIClient::OrdersApi;
 my $api_instance = WWW::OpenAPIClient::OrdersApi->new(
 );
 
-my $client_order_id = 6ab36bc1-344d-432e-ac6d-0bf44ee64c2b; # string | Order Client Id of the order for which the status is requested.
+my $client_order_id = 6ab36bc1-344d-432e-ac6d-0bf44ee64c2b; # string | The unique identifier of the order assigned by the client.
 
 eval { 
     my $result = $api_instance->v1_orders_status_client_order_id_get(client_order_id => $client_order_id);
@@ -229,7 +229,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **client_order_id** | **string**| Order Client Id of the order for which the status is requested. | 
+ **client_order_id** | **string**| The unique identifier of the order assigned by the client. | 
 
 ### Return type
 

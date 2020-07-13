@@ -4,7 +4,7 @@
 
 defmodule OEML-RESTAPI.Model.Severity do
   @moduledoc """
-  
+  Severity of the message.
   """
 
   @derive [Poison.Encoder]

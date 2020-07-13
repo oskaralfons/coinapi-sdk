@@ -16,15 +16,15 @@ abstract class OrderExecutionReport implements Built<OrderExecutionReport, Order
         @nullable
     @BuiltValueField(wireName: r'exchange_id')
     String get exchangeId;
-    /* Unique identifier for the order assigned by the `OEML API` client. */
+    /* The unique identifier of the order assigned by the client. */
         @nullable
     @BuiltValueField(wireName: r'client_order_id')
     String get clientOrderId;
-    /* Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order. */
+    /* Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order. */
         @nullable
     @BuiltValueField(wireName: r'symbol_exchange')
     String get symbolExchange;
-    /* CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order. */
+    /* CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order. */
         @nullable
     @BuiltValueField(wireName: r'symbol_coinapi')
     String get symbolCoinapi;
@@ -60,11 +60,11 @@ abstract class OrderExecutionReport implements Built<OrderExecutionReport, Order
     @BuiltValueField(wireName: r'exec_inst')
     BuiltList<String> get execInst;
         //enum execInstEnum {  MAKER_OR_CANCEL,  AUCTION_ONLY,  INDICATION_OF_INTEREST,  };
-    /* Hash client id */
+    /* The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. */
         @nullable
     @BuiltValueField(wireName: r'client_order_id_format_exchange')
     String get clientOrderIdFormatExchange;
-    /* Exchange order id */
+    /* The unique identifier of the order assigned by the exchange. */
         @nullable
     @BuiltValueField(wireName: r'exchange_order_id')
     String get exchangeOrderId;

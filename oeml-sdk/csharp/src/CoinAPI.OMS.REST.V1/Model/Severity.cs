@@ -25,8 +25,9 @@ using OpenAPIDateConverter = CoinAPI.OMS.REST.V1.Client.OpenAPIDateConverter;
 namespace CoinAPI.OMS.REST.V1.Model
 {
     /// <summary>
-    /// Defines Severity
+    /// Severity of the message.
     /// </summary>
+    /// <value>Severity of the message.</value>
     
     [JsonConverter(typeof(StringEnumConverter))]
     

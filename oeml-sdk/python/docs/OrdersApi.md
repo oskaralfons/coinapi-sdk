@@ -289,7 +289,7 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.OrdersApi(api_client)
-    client_order_id = '6ab36bc1-344d-432e-ac6d-0bf44ee64c2b' # str | Order Client Id of the order for which the status is requested.
+    client_order_id = '6ab36bc1-344d-432e-ac6d-0bf44ee64c2b' # str | The unique identifier of the order assigned by the client.
 
     try:
         # Get order status
@@ -303,7 +303,7 @@ with openapi_client.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **client_order_id** | **str**| Order Client Id of the order for which the status is requested. | 
+ **client_order_id** | **str**| The unique identifier of the order assigned by the client. | 
 
 ### Return type
 

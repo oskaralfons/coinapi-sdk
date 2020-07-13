@@ -6,21 +6,21 @@ goog.provide('API.Client.CancelOrderSingleRequest');
 API.Client.CancelOrderSingleRequest = function() {}
 
 /**
- * Exchange name
+ * Exchange identifier.
  * @type {!string}
  * @export
  */
 API.Client.CancelOrderSingleRequest.prototype.exchangeId;
 
 /**
- * Order Id
+ * The unique identifier of the order assigned by the exchange.
  * @type {!string}
  * @export
  */
 API.Client.CancelOrderSingleRequest.prototype.exchangeOrderId;
 
 /**
- * Client order Id
+ * The unique identifier of the order assigned by the client.
  * @type {!string}
  * @export
  */

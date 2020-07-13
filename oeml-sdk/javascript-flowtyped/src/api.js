@@ -167,19 +167,19 @@ export type CancelOrderAllRequest = {
  */
 export type CancelOrderSingleRequest = {
     /**
-     * Exchange name
+     * Exchange identifier.
      * @type {string}
      * @memberof CancelOrderSingleRequest
      */
     exchange_id?: string;
     /**
-     * Order Id
+     * The unique identifier of the order assigned by the exchange.
      * @type {string}
      * @memberof CancelOrderSingleRequest
      */
     exchange_order_id?: string;
     /**
-     * Client order Id
+     * The unique identifier of the order assigned by the client.
      * @type {string}
      * @memberof CancelOrderSingleRequest
      */
@@ -211,7 +211,7 @@ export type Message = {
      */
     exchange_id?: string;
     /**
-     * Sucess message
+     * Message text.
      * @type {string}
      * @memberof Message
      */
@@ -233,19 +233,19 @@ export type NewOrderSingle = {
      */
     exchange_id: string;
     /**
-     * Unique identifier for the order assigned by the `OEML API` client.
+     * The unique identifier of the order assigned by the client.
      * @type {string}
      * @memberof NewOrderSingle
      */
     client_order_id: string;
     /**
-     * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+     * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
      * @type {string}
      * @memberof NewOrderSingle
      */
     symbol_exchange?: string;
     /**
-     * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+     * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
      * @type {string}
      * @memberof NewOrderSingle
      */
@@ -330,19 +330,19 @@ export type OrderExecutionReport = {
      */
     exchange_id: string;
     /**
-     * Unique identifier for the order assigned by the `OEML API` client.
+     * The unique identifier of the order assigned by the client.
      * @type {string}
      * @memberof OrderExecutionReport
      */
     client_order_id: string;
     /**
-     * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+     * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
      * @type {string}
      * @memberof OrderExecutionReport
      */
     symbol_exchange?: string;
     /**
-     * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+     * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
      * @type {string}
      * @memberof OrderExecutionReport
      */
@@ -390,13 +390,13 @@ export type OrderExecutionReport = {
      */
     exec_inst?: Array<OrderExecutionReportExecInstEnum>;
     /**
-     * Hash client id
+     * The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
      * @type {string}
      * @memberof OrderExecutionReport
      */
     client_order_id_format_exchange: string;
     /**
-     * Exchange order id
+     * The unique identifier of the order assigned by the exchange.
      * @type {string}
      * @memberof OrderExecutionReport
      */
@@ -440,13 +440,13 @@ export type OrderExecutionReport = {
  */
 export type OrderExecutionReportAllOf = {
     /**
-     * Hash client id
+     * The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
      * @type {string}
      * @memberof OrderExecutionReportAllOf
      */
     client_order_id_format_exchange: string;
     /**
-     * Exchange order id
+     * The unique identifier of the order assigned by the exchange.
      * @type {string}
      * @memberof OrderExecutionReportAllOf
      */
@@ -585,7 +585,7 @@ export type PositionData = {
 
 
 /**
- * 
+ * Severity of the message.
  * @export
  * @enum {string}
  */

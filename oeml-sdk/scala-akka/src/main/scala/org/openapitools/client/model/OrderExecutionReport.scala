@@ -17,11 +17,11 @@ import org.openapitools.client.core.ApiModel
 case class OrderExecutionReport (
   /* Exchange identifier. */
   exchangeId: String,
-  /* Unique identifier for the order assigned by the `OEML API` client. */
+  /* The unique identifier of the order assigned by the client. */
   clientOrderId: String,
-  /* Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order. */
+  /* Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order. */
   symbolExchange: Option[String] = None,
-  /* CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order. */
+  /* CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order. */
   symbolCoinapi: Option[String] = None,
   /* Order quantity. */
   amountOrder: Double,
@@ -34,9 +34,9 @@ case class OrderExecutionReport (
   expireTime: Option[LocalDate] = None,
   /* Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>  */
   execInst: Option[OrderExecutionReportEnums.Seq[ExecInst]] = None,
-  /* Hash client id */
+  /* The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. */
   clientOrderIdFormatExchange: String,
-  /* Exchange order id */
+  /* The unique identifier of the order assigned by the exchange. */
   exchangeOrderId: Option[String] = None,
   /* Amount open */
   amountOpen: Double,

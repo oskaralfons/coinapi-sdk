@@ -22,7 +22,7 @@ module OpenapiClient
     # If message related exchange then identifier of this exchange.
     attr_accessor :exchange_id
 
-    # Sucess message
+    # Message text.
     attr_accessor :message
 
     # Attribute mapping from ruby-style variable name to JSON key.

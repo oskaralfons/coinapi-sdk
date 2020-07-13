@@ -17,11 +17,11 @@ import org.openapitools.model.TimeInForce;
 class OrderExecutionReport {
     /* Exchange identifier. */
     String exchangeId
-    /* Unique identifier for the order assigned by the `OEML API` client. */
+    /* The unique identifier of the order assigned by the client. */
     String clientOrderId
-    /* Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order. */
+    /* Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order. */
     String symbolExchange
-    /* CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order. */
+    /* CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order. */
     String symbolCoinapi
     /* Order quantity. */
     BigDecimal amountOrder
@@ -37,9 +37,9 @@ class OrderExecutionReport {
     Date expireTime = null
     /* Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>  */
     List<String> execInst = new ArrayList<ExecInstEnum>()
-    /* Hash client id */
+    /* The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. */
     String clientOrderIdFormatExchange
-    /* Exchange order id */
+    /* The unique identifier of the order assigned by the exchange. */
     String exchangeOrderId
     /* Amount open */
     BigDecimal amountOpen

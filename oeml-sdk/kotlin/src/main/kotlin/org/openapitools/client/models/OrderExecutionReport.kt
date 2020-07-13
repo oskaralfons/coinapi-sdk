@@ -22,22 +22,22 @@ import com.squareup.moshi.Json
 /**
  * 
  * @param exchangeId Exchange identifier.
- * @param clientOrderId Unique identifier for the order assigned by the `OEML API` client.
+ * @param clientOrderId The unique identifier of the order assigned by the client.
  * @param amountOrder Order quantity.
  * @param price Order price.
  * @param side 
  * @param orderType 
  * @param timeInForce 
- * @param clientOrderIdFormatExchange Hash client id
+ * @param clientOrderIdFormatExchange The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
  * @param amountOpen Amount open
  * @param amountFilled Amount filled
  * @param status 
  * @param timeOrder Timestamped history of order status changes.
- * @param symbolExchange Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
- * @param symbolCoinapi CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+ * @param symbolExchange Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
+ * @param symbolCoinapi CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
  * @param expireTime Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
  * @param execInst Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> 
- * @param exchangeOrderId Exchange order id
+ * @param exchangeOrderId The unique identifier of the order assigned by the exchange.
  * @param errorMessage Error message
  */
 
@@ -45,7 +45,7 @@ data class OrderExecutionReport (
     /* Exchange identifier. */
     @Json(name = "exchange_id")
     val exchangeId: kotlin.String,
-    /* Unique identifier for the order assigned by the `OEML API` client. */
+    /* The unique identifier of the order assigned by the client. */
     @Json(name = "client_order_id")
     val clientOrderId: kotlin.String,
     /* Order quantity. */
@@ -60,7 +60,7 @@ data class OrderExecutionReport (
     val orderType: OrdType,
     @Json(name = "time_in_force")
     val timeInForce: TimeInForce,
-    /* Hash client id */
+    /* The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. */
     @Json(name = "client_order_id_format_exchange")
     val clientOrderIdFormatExchange: kotlin.String,
     /* Amount open */
@@ -74,10 +74,10 @@ data class OrderExecutionReport (
     /* Timestamped history of order status changes. */
     @Json(name = "time_order")
     val timeOrder: kotlin.Array<kotlin.Array<kotlin.String>>,
-    /* Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order. */
+    /* Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order. */
     @Json(name = "symbol_exchange")
     val symbolExchange: kotlin.String? = null,
-    /* CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order. */
+    /* CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order. */
     @Json(name = "symbol_coinapi")
     val symbolCoinapi: kotlin.String? = null,
     /* Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`. */
@@ -86,7 +86,7 @@ data class OrderExecutionReport (
     /* Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>  */
     @Json(name = "exec_inst")
     val execInst: kotlin.Array<OrderExecutionReport.ExecInst>? = null,
-    /* Exchange order id */
+    /* The unique identifier of the order assigned by the exchange. */
     @Json(name = "exchange_order_id")
     val exchangeOrderId: kotlin.String? = null,
     /* Error message */

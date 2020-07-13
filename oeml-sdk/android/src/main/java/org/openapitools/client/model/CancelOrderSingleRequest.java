@@ -26,9 +26,9 @@ public class CancelOrderSingleRequest {
   private String clientOrderId = null;
 
   /**
-   * Exchange name
+   * Exchange identifier.
    **/
-  @ApiModelProperty(value = "Exchange name")
+  @ApiModelProperty(value = "Exchange identifier.")
   public String getExchangeId() {
     return exchangeId;
   }
@@ -37,9 +37,9 @@ public class CancelOrderSingleRequest {
   }
 
   /**
-   * Order Id
+   * The unique identifier of the order assigned by the exchange.
    **/
-  @ApiModelProperty(value = "Order Id")
+  @ApiModelProperty(value = "The unique identifier of the order assigned by the exchange.")
   public String getExchangeOrderId() {
     return exchangeOrderId;
   }
@@ -48,9 +48,9 @@ public class CancelOrderSingleRequest {
   }
 
   /**
-   * Client order Id
+   * The unique identifier of the order assigned by the client.
    **/
-  @ApiModelProperty(value = "Client order Id")
+  @ApiModelProperty(value = "The unique identifier of the order assigned by the client.")
   public String getClientOrderId() {
     return clientOrderId;
   }

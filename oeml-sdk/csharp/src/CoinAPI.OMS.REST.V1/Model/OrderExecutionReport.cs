@@ -92,9 +92,9 @@ namespace CoinAPI.OMS.REST.V1.Model
         /// Initializes a new instance of the <see cref="OrderExecutionReport" /> class.
         /// </summary>
         /// <param name="exchangeId">Exchange identifier. (required).</param>
-        /// <param name="clientOrderId">Unique identifier for the order assigned by the &#x60;OEML API&#x60; client. (required).</param>
-        /// <param name="symbolExchange">Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order..</param>
-        /// <param name="symbolCoinapi">CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order..</param>
+        /// <param name="clientOrderId">The unique identifier of the order assigned by the client. (required).</param>
+        /// <param name="symbolExchange">Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order..</param>
+        /// <param name="symbolCoinapi">CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order..</param>
         /// <param name="amountOrder">Order quantity. (required).</param>
         /// <param name="price">Order price. (required).</param>
         /// <param name="side">side (required).</param>
@@ -102,8 +102,8 @@ namespace CoinAPI.OMS.REST.V1.Model
         /// <param name="timeInForce">timeInForce (required).</param>
         /// <param name="expireTime">Expiration time. Conditionaly required for orders with time_in_force &#x3D; &#x60;GOOD_TILL_TIME_EXCHANGE&#x60; or &#x60;GOOD_TILL_TIME_OEML&#x60;..</param>
         /// <param name="execInst">Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; .</param>
-        /// <param name="clientOrderIdFormatExchange">Hash client id (required).</param>
-        /// <param name="exchangeOrderId">Exchange order id.</param>
+        /// <param name="clientOrderIdFormatExchange">The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. (required).</param>
+        /// <param name="exchangeOrderId">The unique identifier of the order assigned by the exchange..</param>
         /// <param name="amountOpen">Amount open (required).</param>
         /// <param name="amountFilled">Amount filled (required).</param>
         /// <param name="status">status (required).</param>
@@ -247,23 +247,23 @@ namespace CoinAPI.OMS.REST.V1.Model
         public string ExchangeId { get; set; }
 
         /// <summary>
-        /// Unique identifier for the order assigned by the &#x60;OEML API&#x60; client.
+        /// The unique identifier of the order assigned by the client.
         /// </summary>
-        /// <value>Unique identifier for the order assigned by the &#x60;OEML API&#x60; client.</value>
+        /// <value>The unique identifier of the order assigned by the client.</value>
         [DataMember(Name="client_order_id", EmitDefaultValue=true)]
         public string ClientOrderId { get; set; }
 
         /// <summary>
-        /// Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.
+        /// Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order.
         /// </summary>
-        /// <value>Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.</value>
+        /// <value>Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order.</value>
         [DataMember(Name="symbol_exchange", EmitDefaultValue=false)]
         public string SymbolExchange { get; set; }
 
         /// <summary>
-        /// CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.
+        /// CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order.
         /// </summary>
-        /// <value>CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.</value>
+        /// <value>CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order.</value>
         [DataMember(Name="symbol_coinapi", EmitDefaultValue=false)]
         public string SymbolCoinapi { get; set; }
 
@@ -293,16 +293,16 @@ namespace CoinAPI.OMS.REST.V1.Model
 
 
         /// <summary>
-        /// Hash client id
+        /// The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
         /// </summary>
-        /// <value>Hash client id</value>
+        /// <value>The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.</value>
         [DataMember(Name="client_order_id_format_exchange", EmitDefaultValue=true)]
         public string ClientOrderIdFormatExchange { get; set; }
 
         /// <summary>
-        /// Exchange order id
+        /// The unique identifier of the order assigned by the exchange.
         /// </summary>
-        /// <value>Exchange order id</value>
+        /// <value>The unique identifier of the order assigned by the exchange.</value>
         [DataMember(Name="exchange_order_id", EmitDefaultValue=false)]
         public string ExchangeOrderId { get; set; }
 

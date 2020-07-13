@@ -12,7 +12,7 @@ import org.openapitools.client.model.Severity;
         /* If message related exchange then identifier of this exchange. */
         [XmlElement(name="exchange_id")]
         public var exchangeId: String = null;
-        /* Sucess message */
+        /* Message text. */
         [XmlElement(name="message")]
         public var message: String = null;
 

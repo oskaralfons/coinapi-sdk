@@ -13,6 +13,6 @@ class Message {
     Severity severity
     /* If message related exchange then identifier of this exchange. */
     String exchangeId
-    /* Sucess message */
+    /* Message text. */
     String message
 }

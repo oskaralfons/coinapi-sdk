@@ -286,7 +286,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost:8080");
 
     OrdersApi apiInstance = new OrdersApi(defaultClient);
-    String clientOrderId = 6ab36bc1-344d-432e-ac6d-0bf44ee64c2b; // String | Order Client Id of the order for which the status is requested.
+    String clientOrderId = 6ab36bc1-344d-432e-ac6d-0bf44ee64c2b; // String | The unique identifier of the order assigned by the client.
     try {
       OrderExecutionReport result = apiInstance.v1OrdersStatusClientOrderIdGet(clientOrderId);
       System.out.println(result);
@@ -305,7 +305,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientOrderId** | **String**| Order Client Id of the order for which the status is requested. |
+ **clientOrderId** | **String**| The unique identifier of the order assigned by the client. |
 
 ### Return type
 

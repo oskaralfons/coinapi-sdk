@@ -272,7 +272,7 @@ module OpenapiClient
 
     # Get order status
     # Get the current order status for the specified order. The requested order can no longer be active.
-    # @param client_order_id [String] Order Client Id of the order for which the status is requested.
+    # @param client_order_id [String] The unique identifier of the order assigned by the client.
     # @param [Hash] opts the optional parameters
     # @return [OrderExecutionReport]
     def v1_orders_status_client_order_id_get(client_order_id, opts = {})
@@ -282,7 +282,7 @@ module OpenapiClient
 
     # Get order status
     # Get the current order status for the specified order. The requested order can no longer be active.
-    # @param client_order_id [String] Order Client Id of the order for which the status is requested.
+    # @param client_order_id [String] The unique identifier of the order assigned by the client.
     # @param [Hash] opts the optional parameters
     # @return [Array<(OrderExecutionReport, Integer, Hash)>] OrderExecutionReport data, response status code and response headers
     def v1_orders_status_client_order_id_get_with_http_info(client_order_id, opts = {})

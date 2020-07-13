@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **exchange_id** | **String** | Exchange identifier. | 
-**client_order_id** | **String** | Unique identifier for the order assigned by the &#x60;OEML API&#x60; client. | 
-**symbol_exchange** | **String** | Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order. | [optional] 
-**symbol_coinapi** | **String** | CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order. | [optional] 
+**client_order_id** | **String** | The unique identifier of the order assigned by the client. | 
+**symbol_exchange** | **String** | Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order. | [optional] 
+**symbol_coinapi** | **String** | CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order. | [optional] 
 **amount_order** | **Float** | Order quantity. | 
 **price** | **Float** | Order price. | 
 **side** | [**OrdSide**](OrdSide.md) |  | 
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 require 'OpenapiClient'
 
 instance = OpenapiClient::NewOrderSingle.new(exchange_id: KRAKEN,
-                                 client_order_id: KPP-222389382-AQ,
+                                 client_order_id: 6ab36bc1-344d-432e-ac6d-0bf44ee64c2b,
                                  symbol_exchange: BTCUSD,
                                  symbol_coinapi: KRAKEN_SPOT_BTC_USD,
                                  amount_order: 0.045,
@@ -30,8 +30,8 @@ instance = OpenapiClient::NewOrderSingle.new(exchange_id: KRAKEN,
                                  side: null,
                                  order_type: null,
                                  time_in_force: null,
-                                 expire_time: null,
-                                 exec_inst: MAKER_OR_CANCEL)
+                                 expire_time: 2020-01-01T10:45:20.1677709Z,
+                                 exec_inst: [&quot;MAKER_OR_CANCEL&quot;])
 ```
 
 

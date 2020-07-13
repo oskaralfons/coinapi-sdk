@@ -54,7 +54,7 @@ public:
     /// CancelOrderSingleRequest members
 
     /// <summary>
-    /// Exchange name
+    /// Exchange identifier.
     /// </summary>
     utility::string_t getExchangeId() const;
     bool exchangeIdIsSet() const;
@@ -63,7 +63,7 @@ public:
     void setExchangeId(const utility::string_t& value);
 
     /// <summary>
-    /// Order Id
+    /// The unique identifier of the order assigned by the exchange.
     /// </summary>
     utility::string_t getExchangeOrderId() const;
     bool exchangeOrderIdIsSet() const;
@@ -72,7 +72,7 @@ public:
     void setExchangeOrderId(const utility::string_t& value);
 
     /// <summary>
-    /// Client order Id
+    /// The unique identifier of the order assigned by the client.
     /// </summary>
     utility::string_t getClientOrderId() const;
     bool clientOrderIdIsSet() const;

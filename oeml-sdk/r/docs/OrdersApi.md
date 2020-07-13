@@ -198,7 +198,7 @@ Get the current order status for the specified order. The requested order can no
 ```R
 library(openapi)
 
-var.client.order.id <- '6ab36bc1-344d-432e-ac6d-0bf44ee64c2b' # character | Order Client Id of the order for which the status is requested.
+var.client.order.id <- '6ab36bc1-344d-432e-ac6d-0bf44ee64c2b' # character | The unique identifier of the order assigned by the client.
 
 #Get order status
 api.instance <- OrdersApi$new()
@@ -210,7 +210,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **client.order.id** | **character**| Order Client Id of the order for which the status is requested. | 
+ **client.order.id** | **character**| The unique identifier of the order assigned by the client. | 
 
 ### Return type
 

@@ -15,19 +15,19 @@
  */
 public class OASCancelOrderSingleRequest implements OAS.MappedProperties {
     /**
-     * Exchange name
+     * Exchange identifier.
      * @return exchangeId
      */
     public String exchangeId { get; set; }
 
     /**
-     * Order Id
+     * The unique identifier of the order assigned by the exchange.
      * @return exchangeOrderId
      */
     public String exchangeOrderId { get; set; }
 
     /**
-     * Client order Id
+     * The unique identifier of the order assigned by the client.
      * @return clientOrderId
      */
     public String clientOrderId { get; set; }
@@ -45,8 +45,8 @@ public class OASCancelOrderSingleRequest implements OAS.MappedProperties {
     public static OASCancelOrderSingleRequest getExample() {
         OASCancelOrderSingleRequest cancelOrderSingleRequest = new OASCancelOrderSingleRequest();
           cancelOrderSingleRequest.exchangeId = 'KRAKEN';
-          cancelOrderSingleRequest.exchangeOrderId = 'd8574207d9e3b16a4a5511753eeef1751';
-          cancelOrderSingleRequest.clientOrderId = 'A12345';
+          cancelOrderSingleRequest.exchangeOrderId = '3456456754';
+          cancelOrderSingleRequest.clientOrderId = '6ab36bc1-344d-432e-ac6d-0bf44ee64c2b';
         return cancelOrderSingleRequest;
     }
 

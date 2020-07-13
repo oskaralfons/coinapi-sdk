@@ -17,11 +17,11 @@ import org.openapitools.client.core.ApiModel
 case class NewOrderSingle (
   /* Exchange identifier. */
   exchangeId: String,
-  /* Unique identifier for the order assigned by the `OEML API` client. */
+  /* The unique identifier of the order assigned by the client. */
   clientOrderId: String,
-  /* Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order. */
+  /* Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order. */
   symbolExchange: Option[String] = None,
-  /* CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order. */
+  /* CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order. */
   symbolCoinapi: Option[String] = None,
   /* Order quantity. */
   amountOrder: Double,

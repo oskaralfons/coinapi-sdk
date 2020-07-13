@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **exchange_id** | **String** | Exchange identifier. | 
-**client_order_id** | **String** | Unique identifier for the order assigned by the &#x60;OEML API&#x60; client. | 
-**symbol_exchange** | **String** | Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order. | [optional] 
-**symbol_coinapi** | **String** | CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order. | [optional] 
+**client_order_id** | **String** | The unique identifier of the order assigned by the client. | 
+**symbol_exchange** | **String** | Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order. | [optional] 
+**symbol_coinapi** | **String** | CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order. | [optional] 
 **amount_order** | **Float** | Order quantity. | 
 **price** | **Float** | Order price. | 
 **side** | [**OrdSide**](OrdSide.md) |  | 
@@ -15,8 +15,8 @@ Name | Type | Description | Notes
 **time_in_force** | [**TimeInForce**](TimeInForce.md) |  | 
 **expire_time** | **Date** | Expiration time. Conditionaly required for orders with time_in_force &#x3D; &#x60;GOOD_TILL_TIME_EXCHANGE&#x60; or &#x60;GOOD_TILL_TIME_OEML&#x60;. | [optional] 
 **exec_inst** | **Array&lt;String&gt;** | Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt;  | [optional] 
-**client_order_id_format_exchange** | **String** | Hash client id | 
-**exchange_order_id** | **String** | Exchange order id | [optional] 
+**client_order_id_format_exchange** | **String** | The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. | 
+**exchange_order_id** | **String** | The unique identifier of the order assigned by the exchange. | [optional] 
 **amount_open** | **Float** | Amount open | 
 **amount_filled** | **Float** | Amount filled | 
 **status** | [**OrdStatus**](OrdStatus.md) |  | 
@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 require 'OpenapiClient'
 
 instance = OpenapiClient::OrderExecutionReport.new(exchange_id: KRAKEN,
-                                 client_order_id: KPP-222389382-AQ,
+                                 client_order_id: 6ab36bc1-344d-432e-ac6d-0bf44ee64c2b,
                                  symbol_exchange: BTCUSD,
                                  symbol_coinapi: KRAKEN_SPOT_BTC_USD,
                                  amount_order: 0.045,
@@ -37,10 +37,10 @@ instance = OpenapiClient::OrderExecutionReport.new(exchange_id: KRAKEN,
                                  side: null,
                                  order_type: null,
                                  time_in_force: null,
-                                 expire_time: null,
-                                 exec_inst: MAKER_OR_CANCEL,
+                                 expire_time: 2020-01-01T10:45:20.1677709Z,
+                                 exec_inst: [&quot;MAKER_OR_CANCEL&quot;],
                                  client_order_id_format_exchange: f81211e2-27c4-b86a-8143-01088ba9222c,
-                                 exchange_order_id: 90832ASASAS89789-1112,
+                                 exchange_order_id: 3456456754,
                                  amount_open: 0.22,
                                  amount_filled: 0.0,
                                  status: null,

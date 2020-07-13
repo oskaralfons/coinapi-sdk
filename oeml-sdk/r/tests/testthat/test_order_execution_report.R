@@ -15,7 +15,7 @@ test_that("exchange_id", {
 
 test_that("client_order_id", {
   # tests for the property `client_order_id` (character)
-  # Unique identifier for the order assigned by the &#x60;OEML API&#x60; client.
+  # The unique identifier of the order assigned by the client.
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`client_order_id`, "EXPECTED_RESULT")
@@ -23,7 +23,7 @@ test_that("client_order_id", {
 
 test_that("symbol_exchange", {
   # tests for the property `symbol_exchange` (character)
-  # Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.
+  # Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order.
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`symbol_exchange`, "EXPECTED_RESULT")
@@ -31,7 +31,7 @@ test_that("symbol_exchange", {
 
 test_that("symbol_coinapi", {
   # tests for the property `symbol_coinapi` (character)
-  # CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.
+  # CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order.
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`symbol_coinapi`, "EXPECTED_RESULT")
@@ -92,7 +92,7 @@ test_that("exec_inst", {
 
 test_that("client_order_id_format_exchange", {
   # tests for the property `client_order_id_format_exchange` (character)
-  # Hash client id
+  # The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`client_order_id_format_exchange`, "EXPECTED_RESULT")
@@ -100,7 +100,7 @@ test_that("client_order_id_format_exchange", {
 
 test_that("exchange_order_id", {
   # tests for the property `exchange_order_id` (character)
-  # Exchange order id
+  # The unique identifier of the order assigned by the exchange.
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`exchange_order_id`, "EXPECTED_RESULT")

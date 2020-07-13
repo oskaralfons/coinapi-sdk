@@ -30,7 +30,7 @@ test_that("exchange_id", {
 
 test_that("message", {
   # tests for the property `message` (character)
-  # Sucess message
+  # Message text.
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`message`, "EXPECTED_RESULT")

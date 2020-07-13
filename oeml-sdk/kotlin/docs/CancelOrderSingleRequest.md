@@ -4,9 +4,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**exchangeId** | **kotlin.String** | Exchange name |  [optional]
-**exchangeOrderId** | **kotlin.String** | Order Id |  [optional]
-**clientOrderId** | **kotlin.String** | Client order Id |  [optional]
+**exchangeId** | **kotlin.String** | Exchange identifier. |  [optional]
+**exchangeOrderId** | **kotlin.String** | The unique identifier of the order assigned by the exchange. |  [optional]
+**clientOrderId** | **kotlin.String** | The unique identifier of the order assigned by the client. |  [optional]
 
 
 

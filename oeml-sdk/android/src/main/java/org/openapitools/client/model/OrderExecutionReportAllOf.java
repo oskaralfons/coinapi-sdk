@@ -40,9 +40,9 @@ public class OrderExecutionReportAllOf {
   private String errorMessage = null;
 
   /**
-   * Hash client id
+   * The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
    **/
-  @ApiModelProperty(required = true, value = "Hash client id")
+  @ApiModelProperty(required = true, value = "The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.")
   public String getClientOrderIdFormatExchange() {
     return clientOrderIdFormatExchange;
   }
@@ -51,9 +51,9 @@ public class OrderExecutionReportAllOf {
   }
 
   /**
-   * Exchange order id
+   * The unique identifier of the order assigned by the exchange.
    **/
-  @ApiModelProperty(value = "Exchange order id")
+  @ApiModelProperty(value = "The unique identifier of the order assigned by the exchange.")
   public String getExchangeOrderId() {
     return exchangeOrderId;
   }

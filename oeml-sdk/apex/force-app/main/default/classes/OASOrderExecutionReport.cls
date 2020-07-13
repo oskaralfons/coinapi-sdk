@@ -21,19 +21,19 @@ public class OASOrderExecutionReport implements OASNewOrderSingle, OASOrderExecu
     public String exchangeId { get; set; }
 
     /**
-     * Unique identifier for the order assigned by the `OEML API` client.
+     * The unique identifier of the order assigned by the client.
      * @return clientOrderId
      */
     public String clientOrderId { get; set; }
 
     /**
-     * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+     * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
      * @return symbolExchange
      */
     public String symbolExchange { get; set; }
 
     /**
-     * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+     * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
      * @return symbolCoinapi
      */
     public String symbolCoinapi { get; set; }
@@ -90,13 +90,13 @@ public class OASOrderExecutionReport implements OASNewOrderSingle, OASOrderExecu
     public List<ExecInstEnum> execInst { get; set; }
 
     /**
-     * Hash client id
+     * The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
      * @return clientOrderIdFormatExchange
      */
     public String clientOrderIdFormatExchange { get; set; }
 
     /**
-     * Exchange order id
+     * The unique identifier of the order assigned by the exchange.
      * @return exchangeOrderId
      */
     public String exchangeOrderId { get; set; }
@@ -161,7 +161,7 @@ public class OASOrderExecutionReport implements OASNewOrderSingle, OASOrderExecu
     public static OASOrderExecutionReport getExample() {
         OASOrderExecutionReport orderExecutionReport = new OASOrderExecutionReport();
           orderExecutionReport.exchangeId = 'KRAKEN';
-          orderExecutionReport.clientOrderId = 'KPP-222389382-AQ';
+          orderExecutionReport.clientOrderId = '6ab36bc1-344d-432e-ac6d-0bf44ee64c2b';
           orderExecutionReport.symbolExchange = 'BTCUSD';
           orderExecutionReport.symbolCoinapi = 'KRAKEN_SPOT_BTC_USD';
           orderExecutionReport.amountOrder = 0.045;
@@ -172,7 +172,7 @@ public class OASOrderExecutionReport implements OASNewOrderSingle, OASOrderExecu
           orderExecutionReport.expireTime = Date.getExample();
           orderExecutionReport.execInst = List<ExecInstEnum>.LIST_EXECINSTENUM_NEW_LIST_STRING_MAKER_OR_CANCEL_;
           orderExecutionReport.clientOrderIdFormatExchange = 'f81211e2-27c4-b86a-8143-01088ba9222c';
-          orderExecutionReport.exchangeOrderId = '90832ASASAS89789-1112';
+          orderExecutionReport.exchangeOrderId = '3456456754';
           orderExecutionReport.amountOpen = 0.22;
           orderExecutionReport.amountFilled = 0.0;
           orderExecutionReport.status = OASOrdStatus.getExample();

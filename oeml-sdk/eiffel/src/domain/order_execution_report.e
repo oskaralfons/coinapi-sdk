@@ -27,11 +27,11 @@ feature --Access
     exchange_id: detachable STRING_32 
       -- Exchange identifier.
     client_order_id: detachable STRING_32 
-      -- Unique identifier for the order assigned by the `OEML API` client.
+      -- The unique identifier of the order assigned by the client.
     symbol_exchange: detachable STRING_32 
-      -- Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+      -- Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
     symbol_coinapi: detachable STRING_32 
-      -- CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+      -- CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
     amount_order: REAL_32 
       -- Order quantity.
     price: REAL_32 
@@ -47,9 +47,9 @@ feature --Access
     exec_inst: detachable LIST [STRING_32] 
       -- Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> 
     client_order_id_format_exchange: detachable STRING_32 
-      -- Hash client id
+      -- The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
     exchange_order_id: detachable STRING_32 
-      -- Exchange order id
+      -- The unique identifier of the order assigned by the exchange.
     amount_open: REAL_32 
       -- Amount open
     amount_filled: REAL_32 

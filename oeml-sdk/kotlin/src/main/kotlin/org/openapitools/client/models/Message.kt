@@ -19,7 +19,7 @@ import com.squareup.moshi.Json
  * @param type Type of message.
  * @param severity 
  * @param exchangeId If message related exchange then identifier of this exchange.
- * @param message Sucess message
+ * @param message Message text.
  */
 
 data class Message (
@@ -31,7 +31,7 @@ data class Message (
     /* If message related exchange then identifier of this exchange. */
     @Json(name = "exchange_id")
     val exchangeId: kotlin.String? = null,
-    /* Sucess message */
+    /* Message text. */
     @Json(name = "message")
     val message: kotlin.String? = null
 )

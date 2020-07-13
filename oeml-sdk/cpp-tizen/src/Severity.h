@@ -1,7 +1,7 @@
 /*
  * Severity.h
  *
- * 
+ * Severity of the message.
  */
 
 #ifndef _Severity_H_
@@ -20,7 +20,7 @@ namespace Tizen {
 namespace ArtikCloud {
 
 
-/*! \brief 
+/*! \brief Severity of the message.
  *
  *  \ingroup Models
  *

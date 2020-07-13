@@ -510,7 +510,7 @@ class OrdersApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str client_order_id: Order Client Id of the order for which the status is requested. (required)
+        :param str client_order_id: The unique identifier of the order assigned by the client. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -535,7 +535,7 @@ class OrdersApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str client_order_id: Order Client Id of the order for which the status is requested. (required)
+        :param str client_order_id: The unique identifier of the order assigned by the client. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will

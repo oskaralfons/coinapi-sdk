@@ -15,6 +15,6 @@ type Message struct {
 	Severity Severity `json:"severity,omitempty"`
 	// If message related exchange then identifier of this exchange.
 	ExchangeId string `json:"exchange_id,omitempty"`
-	// Sucess message
+	// Message text.
 	Message string `json:"message,omitempty"`
 }

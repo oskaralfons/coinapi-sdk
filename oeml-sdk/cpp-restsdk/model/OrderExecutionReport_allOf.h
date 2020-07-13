@@ -56,7 +56,7 @@ public:
     /// OrderExecutionReport_allOf members
 
     /// <summary>
-    /// Hash client id
+    /// The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
     /// </summary>
     utility::string_t getClientOrderIdFormatExchange() const;
     bool clientOrderIdFormatExchangeIsSet() const;
@@ -65,7 +65,7 @@ public:
     void setClientOrderIdFormatExchange(const utility::string_t& value);
 
     /// <summary>
-    /// Exchange order id
+    /// The unique identifier of the order assigned by the exchange.
     /// </summary>
     utility::string_t getExchangeOrderId() const;
     bool exchangeOrderIdIsSet() const;

@@ -13,15 +13,15 @@
 
 export interface CancelOrderSingleRequest { 
     /**
-     * Exchange name
+     * Exchange identifier.
      */
     exchange_id?: string;
     /**
-     * Order Id
+     * The unique identifier of the order assigned by the exchange.
      */
     exchange_order_id?: string;
     /**
-     * Client order Id
+     * The unique identifier of the order assigned by the client.
      */
     client_order_id?: string;
 }

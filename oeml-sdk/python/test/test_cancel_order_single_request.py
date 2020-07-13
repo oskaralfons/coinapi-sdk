@@ -37,8 +37,8 @@ class TestCancelOrderSingleRequest(unittest.TestCase):
         if include_optional :
             return CancelOrderSingleRequest(
                 exchange_id = 'KRAKEN', 
-                exchange_order_id = 'd8574207d9e3b16a4a5511753eeef1751', 
-                client_order_id = 'A12345'
+                exchange_order_id = '3456456754', 
+                client_order_id = '6ab36bc1-344d-432e-ac6d-0bf44ee64c2b'
             )
         else :
             return CancelOrderSingleRequest(

@@ -15,10 +15,10 @@ require 'date'
 module OpenapiClient
   # The order execution report message.
   class OrderExecutionReportAllOf
-    # Hash client id
+    # The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
     attr_accessor :client_order_id_format_exchange
 
-    # Exchange order id
+    # The unique identifier of the order assigned by the exchange.
     attr_accessor :exchange_order_id
 
     # Amount open

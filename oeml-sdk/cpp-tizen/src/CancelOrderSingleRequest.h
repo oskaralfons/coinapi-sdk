@@ -45,25 +45,25 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get Exchange name
+	/*! \brief Get Exchange identifier.
 	 */
 	std::string getExchangeId();
 
-	/*! \brief Set Exchange name
+	/*! \brief Set Exchange identifier.
 	 */
 	void setExchangeId(std::string  exchange_id);
-	/*! \brief Get Order Id
+	/*! \brief Get The unique identifier of the order assigned by the exchange.
 	 */
 	std::string getExchangeOrderId();
 
-	/*! \brief Set Order Id
+	/*! \brief Set The unique identifier of the order assigned by the exchange.
 	 */
 	void setExchangeOrderId(std::string  exchange_order_id);
-	/*! \brief Get Client order Id
+	/*! \brief Get The unique identifier of the order assigned by the client.
 	 */
 	std::string getClientOrderId();
 
-	/*! \brief Set Client order Id
+	/*! \brief Set The unique identifier of the order assigned by the client.
 	 */
 	void setClientOrderId(std::string  client_order_id);
 

@@ -198,7 +198,7 @@ API.Client.OrdersApi.prototype.v1OrdersPost = function(newOrderSingle, opt_extra
 /**
  * Get order status
  * Get the current order status for the specified order. The requested order can no longer be active.
- * @param {!string} clientOrderId Order Client Id of the order for which the status is requested.
+ * @param {!string} clientOrderId The unique identifier of the order assigned by the client.
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
  * @return {!angular.$q.Promise<!API.Client.OrderExecutionReport>}
  */

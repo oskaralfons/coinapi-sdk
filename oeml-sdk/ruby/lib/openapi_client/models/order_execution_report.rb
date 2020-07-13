@@ -17,13 +17,13 @@ module OpenapiClient
     # Exchange identifier.
     attr_accessor :exchange_id
 
-    # Unique identifier for the order assigned by the `OEML API` client.
+    # The unique identifier of the order assigned by the client.
     attr_accessor :client_order_id
 
-    # Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+    # Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
     attr_accessor :symbol_exchange
 
-    # CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+    # CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
     attr_accessor :symbol_coinapi
 
     # Order quantity.
@@ -44,10 +44,10 @@ module OpenapiClient
     # Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> 
     attr_accessor :exec_inst
 
-    # Hash client id
+    # The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
     attr_accessor :client_order_id_format_exchange
 
-    # Exchange order id
+    # The unique identifier of the order assigned by the exchange.
     attr_accessor :exchange_order_id
 
     # Amount open

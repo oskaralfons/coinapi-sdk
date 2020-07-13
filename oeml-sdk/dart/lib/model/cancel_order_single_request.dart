@@ -1,11 +1,11 @@
 part of openapi.api;
 
 class CancelOrderSingleRequest {
-  /* Exchange name */
+  /* Exchange identifier. */
   String exchangeId = null;
-  /* Order Id */
+  /* The unique identifier of the order assigned by the exchange. */
   String exchangeOrderId = null;
-  /* Client order Id */
+  /* The unique identifier of the order assigned by the client. */
   String clientOrderId = null;
   CancelOrderSingleRequest();
 

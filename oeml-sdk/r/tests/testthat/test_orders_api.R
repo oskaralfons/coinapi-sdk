@@ -58,7 +58,7 @@ test_that("V1OrdersStatusClientOrderIdGet", {
   # base path: http://localhost:8080
   # Get order status
   # Get the current order status for the specified order. The requested order can no longer be active.
-  # @param character  client.order.id  Order Client Id of the order for which the status is requested. 
+  # @param character  client.order.id  The unique identifier of the order assigned by the client. 
   # @return [OrderExecutionReport]
 
   # uncomment below to test the operation

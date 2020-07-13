@@ -81,7 +81,7 @@ class OrderExecutionReportAllOf(object):
     def client_order_id_format_exchange(self):
         """Gets the client_order_id_format_exchange of this OrderExecutionReportAllOf.  # noqa: E501
 
-        Hash client id  # noqa: E501
+        The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.  # noqa: E501
 
         :return: The client_order_id_format_exchange of this OrderExecutionReportAllOf.  # noqa: E501
         :rtype: str
@@ -92,7 +92,7 @@ class OrderExecutionReportAllOf(object):
     def client_order_id_format_exchange(self, client_order_id_format_exchange):
         """Sets the client_order_id_format_exchange of this OrderExecutionReportAllOf.
 
-        Hash client id  # noqa: E501
+        The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.  # noqa: E501
 
         :param client_order_id_format_exchange: The client_order_id_format_exchange of this OrderExecutionReportAllOf.  # noqa: E501
         :type: str
@@ -106,7 +106,7 @@ class OrderExecutionReportAllOf(object):
     def exchange_order_id(self):
         """Gets the exchange_order_id of this OrderExecutionReportAllOf.  # noqa: E501
 
-        Exchange order id  # noqa: E501
+        The unique identifier of the order assigned by the exchange.  # noqa: E501
 
         :return: The exchange_order_id of this OrderExecutionReportAllOf.  # noqa: E501
         :rtype: str
@@ -117,7 +117,7 @@ class OrderExecutionReportAllOf(object):
     def exchange_order_id(self, exchange_order_id):
         """Sets the exchange_order_id of this OrderExecutionReportAllOf.
 
-        Exchange order id  # noqa: E501
+        The unique identifier of the order assigned by the exchange.  # noqa: E501
 
         :param exchange_order_id: The exchange_order_id of this OrderExecutionReportAllOf.  # noqa: E501
         :type: str

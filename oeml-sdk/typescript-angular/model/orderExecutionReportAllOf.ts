@@ -17,11 +17,11 @@ import { OrdStatus } from './ordStatus';
  */
 export interface OrderExecutionReportAllOf { 
     /**
-     * Hash client id
+     * The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
      */
     client_order_id_format_exchange: string;
     /**
-     * Exchange order id
+     * The unique identifier of the order assigned by the exchange.
      */
     exchange_order_id?: string;
     /**

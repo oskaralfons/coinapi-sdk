@@ -143,7 +143,7 @@ export class OrdersApi {
     /**
      * Get the current order status for the specified order. The requested order can no longer be active.
      * @summary Get order status
-     * @param clientOrderId Order Client Id of the order for which the status is requested.
+     * @param clientOrderId The unique identifier of the order assigned by the client.
      */
     public v1OrdersStatusClientOrderIdGet (clientOrderId: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.OrderExecutionReport> {
         const localVarPath = this.basePath + '/v1/orders/status/{client_order_id}'

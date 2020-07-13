@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**client_order_id_format_exchange** | [**STRING_32**](STRING_32.md) | Hash client id | [default to null]
-**exchange_order_id** | [**STRING_32**](STRING_32.md) | Exchange order id | [optional] [default to null]
+**client_order_id_format_exchange** | [**STRING_32**](STRING_32.md) | The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. | [default to null]
+**exchange_order_id** | [**STRING_32**](STRING_32.md) | The unique identifier of the order assigned by the exchange. | [optional] [default to null]
 **amount_open** | **REAL_32** | Amount open | [default to null]
 **amount_filled** | **REAL_32** | Amount filled | [default to null]
 **status** | [**ORD_STATUS**](OrdStatus.md) |  | [default to null]

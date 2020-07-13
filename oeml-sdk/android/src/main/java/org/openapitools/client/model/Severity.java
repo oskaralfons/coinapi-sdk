@@ -15,7 +15,10 @@ package org.openapitools.client.model;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
 
-@ApiModel(description = "")
+/**
+ * Severity of the message.
+ **/
+@ApiModel(description = "Severity of the message.")
 public class Severity {
   
 

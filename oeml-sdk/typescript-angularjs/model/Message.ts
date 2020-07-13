@@ -23,7 +23,7 @@ export interface Message {
      */
     "exchange_id"?: string;
     /**
-     * Sucess message
+     * Message text.
      */
     "message"?: string;
 }

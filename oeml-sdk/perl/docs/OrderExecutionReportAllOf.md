@@ -8,8 +8,8 @@ use WWW::OpenAPIClient::Object::OrderExecutionReportAllOf;
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**client_order_id_format_exchange** | **string** | Hash client id | 
-**exchange_order_id** | **string** | Exchange order id | [optional] 
+**client_order_id_format_exchange** | **string** | The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. | 
+**exchange_order_id** | **string** | The unique identifier of the order assigned by the exchange. | [optional] 
 **amount_open** | **double** | Amount open | 
 **amount_filled** | **double** | Amount filled | 
 **status** | [**OrdStatus**](OrdStatus.md) |  | 

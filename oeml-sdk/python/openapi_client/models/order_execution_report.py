@@ -154,7 +154,7 @@ class OrderExecutionReport(object):
     def client_order_id(self):
         """Gets the client_order_id of this OrderExecutionReport.  # noqa: E501
 
-        Unique identifier for the order assigned by the `OEML API` client.  # noqa: E501
+        The unique identifier of the order assigned by the client.  # noqa: E501
 
         :return: The client_order_id of this OrderExecutionReport.  # noqa: E501
         :rtype: str
@@ -165,7 +165,7 @@ class OrderExecutionReport(object):
     def client_order_id(self, client_order_id):
         """Sets the client_order_id of this OrderExecutionReport.
 
-        Unique identifier for the order assigned by the `OEML API` client.  # noqa: E501
+        The unique identifier of the order assigned by the client.  # noqa: E501
 
         :param client_order_id: The client_order_id of this OrderExecutionReport.  # noqa: E501
         :type: str
@@ -179,7 +179,7 @@ class OrderExecutionReport(object):
     def symbol_exchange(self):
         """Gets the symbol_exchange of this OrderExecutionReport.  # noqa: E501
 
-        Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.  # noqa: E501
+        Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.  # noqa: E501
 
         :return: The symbol_exchange of this OrderExecutionReport.  # noqa: E501
         :rtype: str
@@ -190,7 +190,7 @@ class OrderExecutionReport(object):
     def symbol_exchange(self, symbol_exchange):
         """Sets the symbol_exchange of this OrderExecutionReport.
 
-        Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.  # noqa: E501
+        Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.  # noqa: E501
 
         :param symbol_exchange: The symbol_exchange of this OrderExecutionReport.  # noqa: E501
         :type: str
@@ -202,7 +202,7 @@ class OrderExecutionReport(object):
     def symbol_coinapi(self):
         """Gets the symbol_coinapi of this OrderExecutionReport.  # noqa: E501
 
-        CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.  # noqa: E501
+        CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.  # noqa: E501
 
         :return: The symbol_coinapi of this OrderExecutionReport.  # noqa: E501
         :rtype: str
@@ -213,7 +213,7 @@ class OrderExecutionReport(object):
     def symbol_coinapi(self, symbol_coinapi):
         """Sets the symbol_coinapi of this OrderExecutionReport.
 
-        CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.  # noqa: E501
+        CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.  # noqa: E501
 
         :param symbol_coinapi: The symbol_coinapi of this OrderExecutionReport.  # noqa: E501
         :type: str
@@ -398,7 +398,7 @@ class OrderExecutionReport(object):
     def client_order_id_format_exchange(self):
         """Gets the client_order_id_format_exchange of this OrderExecutionReport.  # noqa: E501
 
-        Hash client id  # noqa: E501
+        The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.  # noqa: E501
 
         :return: The client_order_id_format_exchange of this OrderExecutionReport.  # noqa: E501
         :rtype: str
@@ -409,7 +409,7 @@ class OrderExecutionReport(object):
     def client_order_id_format_exchange(self, client_order_id_format_exchange):
         """Sets the client_order_id_format_exchange of this OrderExecutionReport.
 
-        Hash client id  # noqa: E501
+        The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.  # noqa: E501
 
         :param client_order_id_format_exchange: The client_order_id_format_exchange of this OrderExecutionReport.  # noqa: E501
         :type: str
@@ -423,7 +423,7 @@ class OrderExecutionReport(object):
     def exchange_order_id(self):
         """Gets the exchange_order_id of this OrderExecutionReport.  # noqa: E501
 
-        Exchange order id  # noqa: E501
+        The unique identifier of the order assigned by the exchange.  # noqa: E501
 
         :return: The exchange_order_id of this OrderExecutionReport.  # noqa: E501
         :rtype: str
@@ -434,7 +434,7 @@ class OrderExecutionReport(object):
     def exchange_order_id(self, exchange_order_id):
         """Sets the exchange_order_id of this OrderExecutionReport.
 
-        Exchange order id  # noqa: E501
+        The unique identifier of the order assigned by the exchange.  # noqa: E501
 
         :param exchange_order_id: The exchange_order_id of this OrderExecutionReport.  # noqa: E501
         :type: str

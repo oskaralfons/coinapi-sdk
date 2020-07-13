@@ -10,9 +10,9 @@ import org.openapitools.model.OrdStatus;
 
 @Canonical
 class OrderExecutionReportAllOf {
-    /* Hash client id */
+    /* The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. */
     String clientOrderIdFormatExchange
-    /* Exchange order id */
+    /* The unique identifier of the order assigned by the exchange. */
     String exchangeOrderId
     /* Amount open */
     BigDecimal amountOpen

@@ -195,9 +195,9 @@ mkCancelOrderAllRequest cancelOrderAllRequestExchangeId =
 -- ** CancelOrderSingleRequest
 -- | CancelOrderSingleRequest
 data CancelOrderSingleRequest = CancelOrderSingleRequest
-  { cancelOrderSingleRequestExchangeId :: !(Maybe Text) -- ^ "exchange_id" - Exchange name
-  , cancelOrderSingleRequestExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - Order Id
-  , cancelOrderSingleRequestClientOrderId :: !(Maybe Text) -- ^ "client_order_id" - Client order Id
+  { cancelOrderSingleRequestExchangeId :: !(Maybe Text) -- ^ "exchange_id" - Exchange identifier.
+  , cancelOrderSingleRequestExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - The unique identifier of the order assigned by the exchange.
+  , cancelOrderSingleRequestClientOrderId :: !(Maybe Text) -- ^ "client_order_id" - The unique identifier of the order assigned by the client.
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON CancelOrderSingleRequest
@@ -230,13 +230,13 @@ mkCancelOrderSingleRequest =
 
 -- ** Message
 -- | Message
--- Success or error message carrier.
+-- Message object.
 -- 
 data Message = Message
   { messageType :: !(Maybe Text) -- ^ "type" - Type of message.
   , messageSeverity :: !(Maybe Severity) -- ^ "severity"
   , messageExchangeId :: !(Maybe Text) -- ^ "exchange_id" - If message related exchange then identifier of this exchange.
-  , messageMessage :: !(Maybe Text) -- ^ "message" - Sucess message
+  , messageMessage :: !(Maybe Text) -- ^ "message" - Message text.
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON Message
@@ -275,9 +275,9 @@ mkMessage =
 -- The new order message.
 data NewOrderSingle = NewOrderSingle
   { newOrderSingleExchangeId :: !(Text) -- ^ /Required/ "exchange_id" - Exchange identifier.
-  , newOrderSingleClientOrderId :: !(Text) -- ^ /Required/ "client_order_id" - Unique identifier for the order assigned by the &#x60;OEML API&#x60; client.
-  , newOrderSingleSymbolExchange :: !(Maybe Text) -- ^ "symbol_exchange" - Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.
-  , newOrderSingleSymbolCoinapi :: !(Maybe Text) -- ^ "symbol_coinapi" - CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.
+  , newOrderSingleClientOrderId :: !(Text) -- ^ /Required/ "client_order_id" - The unique identifier of the order assigned by the client.
+  , newOrderSingleSymbolExchange :: !(Maybe Text) -- ^ "symbol_exchange" - Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order.
+  , newOrderSingleSymbolCoinapi :: !(Maybe Text) -- ^ "symbol_coinapi" - CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order.
   , newOrderSingleAmountOrder :: !(Double) -- ^ /Required/ "amount_order" - Order quantity.
   , newOrderSinglePrice :: !(Double) -- ^ /Required/ "price" - Order price.
   , newOrderSingleSide :: !(OrdSide) -- ^ /Required/ "side"
@@ -324,7 +324,7 @@ instance A.ToJSON NewOrderSingle where
 -- | Construct a value of type 'NewOrderSingle' (by applying it's required fields, if any)
 mkNewOrderSingle
   :: Text -- ^ 'newOrderSingleExchangeId': Exchange identifier.
-  -> Text -- ^ 'newOrderSingleClientOrderId': Unique identifier for the order assigned by the `OEML API` client.
+  -> Text -- ^ 'newOrderSingleClientOrderId': The unique identifier of the order assigned by the client.
   -> Double -- ^ 'newOrderSingleAmountOrder': Order quantity.
   -> Double -- ^ 'newOrderSinglePrice': Order price.
   -> OrdSide -- ^ 'newOrderSingleSide' 
@@ -350,9 +350,9 @@ mkNewOrderSingle newOrderSingleExchangeId newOrderSingleClientOrderId newOrderSi
 -- | OrderExecutionReport
 data OrderExecutionReport = OrderExecutionReport
   { orderExecutionReportExchangeId :: !(Text) -- ^ /Required/ "exchange_id" - Exchange identifier.
-  , orderExecutionReportClientOrderId :: !(Text) -- ^ /Required/ "client_order_id" - Unique identifier for the order assigned by the &#x60;OEML API&#x60; client.
-  , orderExecutionReportSymbolExchange :: !(Maybe Text) -- ^ "symbol_exchange" - Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.
-  , orderExecutionReportSymbolCoinapi :: !(Maybe Text) -- ^ "symbol_coinapi" - CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.
+  , orderExecutionReportClientOrderId :: !(Text) -- ^ /Required/ "client_order_id" - The unique identifier of the order assigned by the client.
+  , orderExecutionReportSymbolExchange :: !(Maybe Text) -- ^ "symbol_exchange" - Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order.
+  , orderExecutionReportSymbolCoinapi :: !(Maybe Text) -- ^ "symbol_coinapi" - CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order.
   , orderExecutionReportAmountOrder :: !(Double) -- ^ /Required/ "amount_order" - Order quantity.
   , orderExecutionReportPrice :: !(Double) -- ^ /Required/ "price" - Order price.
   , orderExecutionReportSide :: !(OrdSide) -- ^ /Required/ "side"
@@ -360,8 +360,8 @@ data OrderExecutionReport = OrderExecutionReport
   , orderExecutionReportTimeInForce :: !(TimeInForce) -- ^ /Required/ "time_in_force"
   , orderExecutionReportExpireTime :: !(Maybe Date) -- ^ "expire_time" - Expiration time. Conditionaly required for orders with time_in_force &#x3D; &#x60;GOOD_TILL_TIME_EXCHANGE&#x60; or &#x60;GOOD_TILL_TIME_OEML&#x60;.
   , orderExecutionReportExecInst :: !(Maybe [E'ExecInst]) -- ^ "exec_inst" - Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; 
-  , orderExecutionReportClientOrderIdFormatExchange :: !(Text) -- ^ /Required/ "client_order_id_format_exchange" - Hash client id
-  , orderExecutionReportExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - Exchange order id
+  , orderExecutionReportClientOrderIdFormatExchange :: !(Text) -- ^ /Required/ "client_order_id_format_exchange" - The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
+  , orderExecutionReportExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - The unique identifier of the order assigned by the exchange.
   , orderExecutionReportAmountOpen :: !(Double) -- ^ /Required/ "amount_open" - Amount open
   , orderExecutionReportAmountFilled :: !(Double) -- ^ /Required/ "amount_filled" - Amount filled
   , orderExecutionReportStatus :: !(OrdStatus) -- ^ /Required/ "status"
@@ -420,13 +420,13 @@ instance A.ToJSON OrderExecutionReport where
 -- | Construct a value of type 'OrderExecutionReport' (by applying it's required fields, if any)
 mkOrderExecutionReport
   :: Text -- ^ 'orderExecutionReportExchangeId': Exchange identifier.
-  -> Text -- ^ 'orderExecutionReportClientOrderId': Unique identifier for the order assigned by the `OEML API` client.
+  -> Text -- ^ 'orderExecutionReportClientOrderId': The unique identifier of the order assigned by the client.
   -> Double -- ^ 'orderExecutionReportAmountOrder': Order quantity.
   -> Double -- ^ 'orderExecutionReportPrice': Order price.
   -> OrdSide -- ^ 'orderExecutionReportSide' 
   -> OrdType -- ^ 'orderExecutionReportOrderType' 
   -> TimeInForce -- ^ 'orderExecutionReportTimeInForce' 
-  -> Text -- ^ 'orderExecutionReportClientOrderIdFormatExchange': Hash client id
+  -> Text -- ^ 'orderExecutionReportClientOrderIdFormatExchange': The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
   -> Double -- ^ 'orderExecutionReportAmountOpen': Amount open
   -> Double -- ^ 'orderExecutionReportAmountFilled': Amount filled
   -> OrdStatus -- ^ 'orderExecutionReportStatus' 
@@ -458,8 +458,8 @@ mkOrderExecutionReport orderExecutionReportExchangeId orderExecutionReportClient
 -- | OrderExecutionReportAllOf
 -- The order execution report message.
 data OrderExecutionReportAllOf = OrderExecutionReportAllOf
-  { orderExecutionReportAllOfClientOrderIdFormatExchange :: !(Text) -- ^ /Required/ "client_order_id_format_exchange" - Hash client id
-  , orderExecutionReportAllOfExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - Exchange order id
+  { orderExecutionReportAllOfClientOrderIdFormatExchange :: !(Text) -- ^ /Required/ "client_order_id_format_exchange" - The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
+  , orderExecutionReportAllOfExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - The unique identifier of the order assigned by the exchange.
   , orderExecutionReportAllOfAmountOpen :: !(Double) -- ^ /Required/ "amount_open" - Amount open
   , orderExecutionReportAllOfAmountFilled :: !(Double) -- ^ /Required/ "amount_filled" - Amount filled
   , orderExecutionReportAllOfStatus :: !(OrdStatus) -- ^ /Required/ "status"
@@ -495,7 +495,7 @@ instance A.ToJSON OrderExecutionReportAllOf where
 
 -- | Construct a value of type 'OrderExecutionReportAllOf' (by applying it's required fields, if any)
 mkOrderExecutionReportAllOf
-  :: Text -- ^ 'orderExecutionReportAllOfClientOrderIdFormatExchange': Hash client id
+  :: Text -- ^ 'orderExecutionReportAllOfClientOrderIdFormatExchange': The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
   -> Double -- ^ 'orderExecutionReportAllOfAmountOpen': Amount open
   -> Double -- ^ 'orderExecutionReportAllOfAmountFilled': Amount filled
   -> OrdStatus -- ^ 'orderExecutionReportAllOfStatus' 
@@ -836,7 +836,8 @@ toOrdType = \case
 
 -- ** Severity
 
--- | Enum of 'Text'
+-- | Enum of 'Text' . 
+-- Severity of the message.
 data Severity
   = Severity'INFO -- ^ @"INFO"@
   | Severity'WARNING -- ^ @"WARNING"@

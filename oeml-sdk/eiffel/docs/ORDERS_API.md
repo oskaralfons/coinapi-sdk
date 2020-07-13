@@ -144,7 +144,7 @@ Get the current order status for the specified order. The requested order can no
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **client_order_id** | **STRING_32**| Order Client Id of the order for which the status is requested. | [default to null]
+ **client_order_id** | **STRING_32**| The unique identifier of the order assigned by the client. | [default to null]
 
 ### Return type
 

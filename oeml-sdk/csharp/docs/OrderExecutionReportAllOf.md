@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClientOrderIdFormatExchange** | **string** | Hash client id | 
-**ExchangeOrderId** | **string** | Exchange order id | [optional] 
+**ClientOrderIdFormatExchange** | **string** | The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. | 
+**ExchangeOrderId** | **string** | The unique identifier of the order assigned by the exchange. | [optional] 
 **AmountOpen** | **decimal** | Amount open | 
 **AmountFilled** | **decimal** | Amount filled | 
 **Status** | **OrdStatus** |  | 

@@ -11,7 +11,7 @@
  */
 
 /**
- * Gets or Sets Severity
+ * Severity of the message.
  */
 public enum OASSeverity {
     INFO,

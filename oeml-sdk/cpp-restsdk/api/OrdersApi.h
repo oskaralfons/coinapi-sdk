@@ -95,7 +95,7 @@ public:
     /// <remarks>
     /// Get the current order status for the specified order. The requested order can no longer be active.
     /// </remarks>
-    /// <param name="clientOrderId">Order Client Id of the order for which the status is requested.</param>
+    /// <param name="clientOrderId">The unique identifier of the order assigned by the client.</param>
     pplx::task<std::shared_ptr<OrderExecutionReport>> v1OrdersStatusClientOrderIdGet(
         utility::string_t clientOrderId
     ) const;

@@ -207,7 +207,7 @@ package .Models is
 
 
    --  ------------------------------
-   --  Success or error message carrier.
+   --  Message object.
    --  ------------------------------
    type Message_Type is
      record

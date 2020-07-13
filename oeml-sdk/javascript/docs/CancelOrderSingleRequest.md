@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**exchangeId** | **String** | Exchange name | [optional] 
-**exchangeOrderId** | **String** | Order Id | [optional] 
-**clientOrderId** | **String** | Client order Id | [optional] 
+**exchangeId** | **String** | Exchange identifier. | [optional] 
+**exchangeOrderId** | **String** | The unique identifier of the order assigned by the exchange. | [optional] 
+**clientOrderId** | **String** | The unique identifier of the order assigned by the client. | [optional] 
 
 

@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * SeverityTest Class Doc Comment
  *
  * @category    Class
- * @description Severity
+ * @description Severity of the message.
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

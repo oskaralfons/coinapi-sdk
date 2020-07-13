@@ -4,8 +4,8 @@ The order execution report message.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**client_order_id_format_exchange** | **str** | Hash client id | 
-**exchange_order_id** | **str** | Exchange order id | [optional] 
+**client_order_id_format_exchange** | **str** | The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. | 
+**exchange_order_id** | **str** | The unique identifier of the order assigned by the exchange. | [optional] 
 **amount_open** | **float** | Amount open | 
 **amount_filled** | **float** | Amount filled | 
 **status** | [**OrdStatus**](OrdStatus.md) |  | 

@@ -7,14 +7,14 @@ goog.provide('API.Client.OrderExecutionReport_allOf');
 API.Client.OrderExecutionReportAllOf = function() {}
 
 /**
- * Hash client id
+ * The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
  * @type {!string}
  * @export
  */
 API.Client.OrderExecutionReportAllOf.prototype.clientOrderIdFormatExchange;
 
 /**
- * Exchange order id
+ * The unique identifier of the order assigned by the exchange.
  * @type {!string}
  * @export
  */

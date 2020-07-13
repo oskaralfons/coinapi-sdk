@@ -81,7 +81,7 @@ Class | Description
  *OrderExecutionReport_allOf* | The order execution report message.
  *Position* | 
  *Position_data* | 
- *Severity* | 
+ *Severity* | Severity of the message.
  *TimeInForce* | Order time in force options are documented in the separate section: <a href=\"#oeml-order-params-tif\">OEML / Starter Guide / Order parameters / Time in force</a> 
  *ValidationError* | 
 

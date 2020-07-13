@@ -8,7 +8,7 @@ class Message {
   //enum severityEnum {  INFO,  WARNING,  ERROR,  };{
   /* If message related exchange then identifier of this exchange. */
   String exchangeId = null;
-  /* Sucess message */
+  /* Message text. */
   String message = null;
   Message();
 

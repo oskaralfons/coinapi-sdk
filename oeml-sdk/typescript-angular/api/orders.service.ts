@@ -313,7 +313,7 @@ export class OrdersService {
     /**
      * Get order status
      * Get the current order status for the specified order. The requested order can no longer be active.
-     * @param clientOrderId Order Client Id of the order for which the status is requested.
+     * @param clientOrderId The unique identifier of the order assigned by the client.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */

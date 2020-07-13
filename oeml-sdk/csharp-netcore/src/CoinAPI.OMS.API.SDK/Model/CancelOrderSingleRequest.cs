@@ -34,9 +34,9 @@ namespace CoinAPI.OMS.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CancelOrderSingleRequest" /> class.
         /// </summary>
-        /// <param name="exchangeId">Exchange name.</param>
-        /// <param name="exchangeOrderId">Order Id.</param>
-        /// <param name="clientOrderId">Client order Id.</param>
+        /// <param name="exchangeId">Exchange identifier..</param>
+        /// <param name="exchangeOrderId">The unique identifier of the order assigned by the exchange..</param>
+        /// <param name="clientOrderId">The unique identifier of the order assigned by the client..</param>
         public CancelOrderSingleRequest(string exchangeId = default(string), string exchangeOrderId = default(string), string clientOrderId = default(string))
         {
             this.ExchangeId = exchangeId;
@@ -45,23 +45,23 @@ namespace CoinAPI.OMS.API.SDK.Model
         }
         
         /// <summary>
-        /// Exchange name
+        /// Exchange identifier.
         /// </summary>
-        /// <value>Exchange name</value>
+        /// <value>Exchange identifier.</value>
         [DataMember(Name="exchange_id", EmitDefaultValue=false)]
         public string ExchangeId { get; set; }
 
         /// <summary>
-        /// Order Id
+        /// The unique identifier of the order assigned by the exchange.
         /// </summary>
-        /// <value>Order Id</value>
+        /// <value>The unique identifier of the order assigned by the exchange.</value>
         [DataMember(Name="exchange_order_id", EmitDefaultValue=false)]
         public string ExchangeOrderId { get; set; }
 
         /// <summary>
-        /// Client order Id
+        /// The unique identifier of the order assigned by the client.
         /// </summary>
-        /// <value>Client order Id</value>
+        /// <value>The unique identifier of the order assigned by the client.</value>
         [DataMember(Name="client_order_id", EmitDefaultValue=false)]
         public string ClientOrderId { get; set; }
 

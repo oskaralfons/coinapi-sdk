@@ -173,7 +173,7 @@ instance Produces V1OrdersPost MimeApplictionJson
 -- Get the current order status for the specified order. The requested order can no longer be active.
 -- 
 v1OrdersStatusClientOrderIdGet 
-  :: ClientOrderId -- ^ "clientOrderId" -  Order Client Id of the order for which the status is requested.
+  :: ClientOrderId -- ^ "clientOrderId" -  The unique identifier of the order assigned by the client.
   -> OEML-RESTRequest V1OrdersStatusClientOrderIdGet MimeNoContent OrderExecutionReport MimeJSON
 v1OrdersStatusClientOrderIdGet (ClientOrderId clientOrderId) =
   _mkRequest "GET" ["/v1/orders/status/",toPath clientOrderId]

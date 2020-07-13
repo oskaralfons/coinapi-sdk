@@ -23,7 +23,7 @@ new_order_single_t* instantiate_new_order_single(int include_optional) {
   if (include_optional) {
     new_order_single = new_order_single_create(
       "KRAKEN",
-      "KPP-222389382-AQ",
+      "6ab36bc1-344d-432e-ac6d-0bf44ee64c2b",
       "BTCUSD",
       "KRAKEN_SPOT_BTC_USD",
       0.045,
@@ -31,13 +31,13 @@ new_order_single_t* instantiate_new_order_single(int include_optional) {
       oeml___rest_api_new_order_single__"BUY",
       oeml___rest_api_new_order_single__"LIMIT",
       oeml___rest_api_new_order_single__"GOOD_TILL_CANCEL",
-      null,
-      MAKER_OR_CANCEL
+      2020-01-01T10:45:20.1677709Z,
+      ["MAKER_OR_CANCEL"]
     );
   } else {
     new_order_single = new_order_single_create(
       "KRAKEN",
-      "KPP-222389382-AQ",
+      "6ab36bc1-344d-432e-ac6d-0bf44ee64c2b",
       "BTCUSD",
       "KRAKEN_SPOT_BTC_USD",
       0.045,
@@ -45,8 +45,8 @@ new_order_single_t* instantiate_new_order_single(int include_optional) {
       oeml___rest_api_new_order_single__"BUY",
       oeml___rest_api_new_order_single__"LIMIT",
       oeml___rest_api_new_order_single__"GOOD_TILL_CANCEL",
-      null,
-      MAKER_OR_CANCEL
+      2020-01-01T10:45:20.1677709Z,
+      ["MAKER_OR_CANCEL"]
     );
   }
 

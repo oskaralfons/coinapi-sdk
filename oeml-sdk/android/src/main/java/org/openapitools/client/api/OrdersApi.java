@@ -566,7 +566,7 @@ public class OrdersApi {
   /**
   * Get order status
   * Get the current order status for the specified order. The requested order can no longer be active.
-   * @param clientOrderId Order Client Id of the order for which the status is requested.
+   * @param clientOrderId The unique identifier of the order assigned by the client.
    * @return OrderExecutionReport
   */
   public OrderExecutionReport v1OrdersStatusClientOrderIdGet (String clientOrderId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
@@ -628,7 +628,7 @@ public class OrdersApi {
       /**
    * Get order status
    * Get the current order status for the specified order. The requested order can no longer be active.
-   * @param clientOrderId Order Client Id of the order for which the status is requested.
+   * @param clientOrderId The unique identifier of the order assigned by the client.
   */
   public void v1OrdersStatusClientOrderIdGet (String clientOrderId, final Response.Listener<OrderExecutionReport> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;

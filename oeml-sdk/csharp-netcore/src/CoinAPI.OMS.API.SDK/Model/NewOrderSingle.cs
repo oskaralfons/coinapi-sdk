@@ -88,9 +88,9 @@ namespace CoinAPI.OMS.API.SDK.Model
         /// Initializes a new instance of the <see cref="NewOrderSingle" /> class.
         /// </summary>
         /// <param name="exchangeId">Exchange identifier. (required).</param>
-        /// <param name="clientOrderId">Unique identifier for the order assigned by the &#x60;OEML API&#x60; client. (required).</param>
-        /// <param name="symbolExchange">Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order..</param>
-        /// <param name="symbolCoinapi">CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order..</param>
+        /// <param name="clientOrderId">The unique identifier of the order assigned by the client. (required).</param>
+        /// <param name="symbolExchange">Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order..</param>
+        /// <param name="symbolCoinapi">CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order..</param>
         /// <param name="amountOrder">Order quantity. (required).</param>
         /// <param name="price">Order price. (required).</param>
         /// <param name="side">side (required).</param>
@@ -123,23 +123,23 @@ namespace CoinAPI.OMS.API.SDK.Model
         public string ExchangeId { get; set; }
 
         /// <summary>
-        /// Unique identifier for the order assigned by the &#x60;OEML API&#x60; client.
+        /// The unique identifier of the order assigned by the client.
         /// </summary>
-        /// <value>Unique identifier for the order assigned by the &#x60;OEML API&#x60; client.</value>
+        /// <value>The unique identifier of the order assigned by the client.</value>
         [DataMember(Name="client_order_id", EmitDefaultValue=false)]
         public string ClientOrderId { get; set; }
 
         /// <summary>
-        /// Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.
+        /// Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order.
         /// </summary>
-        /// <value>Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.</value>
+        /// <value>Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order.</value>
         [DataMember(Name="symbol_exchange", EmitDefaultValue=false)]
         public string SymbolExchange { get; set; }
 
         /// <summary>
-        /// CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.
+        /// CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order.
         /// </summary>
-        /// <value>CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.</value>
+        /// <value>CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order.</value>
         [DataMember(Name="symbol_coinapi", EmitDefaultValue=false)]
         public string SymbolCoinapi { get; set; }
 

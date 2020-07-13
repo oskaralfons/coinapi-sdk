@@ -33,7 +33,7 @@ public class OASMessage implements OAS.MappedProperties {
     public String exchangeId { get; set; }
 
     /**
-     * Sucess message
+     * Message text.
      * @return message
      */
     public String message { get; set; }

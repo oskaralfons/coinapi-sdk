@@ -11,6 +11,9 @@
  */
 
 
+/**
+ * Severity of the message.
+ */
 export type Severity = 'INFO' | 'WARNING' | 'ERROR';
 
 export const Severity = {

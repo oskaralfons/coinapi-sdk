@@ -37,7 +37,7 @@ import org.threeten.bp.LocalDate;
 /**
  * OrderExecutionReport
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T11:53:12.756Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T12:06:05.587Z[Etc/UTC]")
 public class OrderExecutionReport {
   public static final String SERIALIZED_NAME_EXCHANGE_ID = "exchange_id";
   @SerializedName(SERIALIZED_NAME_EXCHANGE_ID)
@@ -190,10 +190,10 @@ public class OrderExecutionReport {
   }
 
    /**
-   * Unique identifier for the order assigned by the &#x60;OEML API&#x60; client.
+   * The unique identifier of the order assigned by the client.
    * @return clientOrderId
   **/
-  @ApiModelProperty(example = "KPP-222389382-AQ", required = true, value = "Unique identifier for the order assigned by the `OEML API` client.")
+  @ApiModelProperty(example = "6ab36bc1-344d-432e-ac6d-0bf44ee64c2b", required = true, value = "The unique identifier of the order assigned by the client.")
 
   public String getClientOrderId() {
     return clientOrderId;
@@ -212,11 +212,11 @@ public class OrderExecutionReport {
   }
 
    /**
-   * Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.
+   * Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order.
    * @return symbolExchange
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "BTCUSD", value = "Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.")
+  @ApiModelProperty(example = "BTCUSD", value = "Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.")
 
   public String getSymbolExchange() {
     return symbolExchange;
@@ -235,11 +235,11 @@ public class OrderExecutionReport {
   }
 
    /**
-   * CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.
+   * CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order.
    * @return symbolCoinapi
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "KRAKEN_SPOT_BTC_USD", value = "CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.")
+  @ApiModelProperty(example = "KRAKEN_SPOT_BTC_USD", value = "CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.")
 
   public String getSymbolCoinapi() {
     return symbolCoinapi;
@@ -372,7 +372,7 @@ public class OrderExecutionReport {
    * @return expireTime
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.")
+  @ApiModelProperty(example = "2020-01-01T10:45:20.1677709Z", value = "Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.")
 
   public LocalDate getExpireTime() {
     return expireTime;
@@ -403,7 +403,7 @@ public class OrderExecutionReport {
    * @return execInst
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "MAKER_OR_CANCEL", value = "Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> ")
+  @ApiModelProperty(example = "[\"MAKER_OR_CANCEL\"]", value = "Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> ")
 
   public List<ExecInstEnum> getExecInst() {
     return execInst;
@@ -422,10 +422,10 @@ public class OrderExecutionReport {
   }
 
    /**
-   * Hash client id
+   * The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
    * @return clientOrderIdFormatExchange
   **/
-  @ApiModelProperty(example = "f81211e2-27c4-b86a-8143-01088ba9222c", required = true, value = "Hash client id")
+  @ApiModelProperty(example = "f81211e2-27c4-b86a-8143-01088ba9222c", required = true, value = "The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.")
 
   public String getClientOrderIdFormatExchange() {
     return clientOrderIdFormatExchange;
@@ -444,11 +444,11 @@ public class OrderExecutionReport {
   }
 
    /**
-   * Exchange order id
+   * The unique identifier of the order assigned by the exchange.
    * @return exchangeOrderId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "90832ASASAS89789-1112", value = "Exchange order id")
+  @ApiModelProperty(example = "3456456754", value = "The unique identifier of the order assigned by the exchange.")
 
   public String getExchangeOrderId() {
     return exchangeOrderId;

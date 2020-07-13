@@ -133,7 +133,7 @@ defmodule OEML-RESTAPI.Api.Orders do
   ## Parameters
 
   - connection (OEML-RESTAPI.Connection): Connection to server
-  - client_order_id (String.t): Order Client Id of the order for which the status is requested.
+  - client_order_id (String.t): The unique identifier of the order assigned by the client.
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 

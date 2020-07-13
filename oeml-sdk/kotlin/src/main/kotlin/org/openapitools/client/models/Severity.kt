@@ -15,7 +15,7 @@ package org.openapitools.client.models
 import com.squareup.moshi.Json
 
 /**
-* 
+* Severity of the message.
 * Values: iNFO,wARNING,eRROR
 */
 

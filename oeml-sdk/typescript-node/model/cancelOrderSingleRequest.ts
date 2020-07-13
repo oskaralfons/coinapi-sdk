@@ -14,15 +14,15 @@ import { RequestFile } from '../api';
 
 export class CancelOrderSingleRequest {
     /**
-    * Exchange name
+    * Exchange identifier.
     */
     'exchangeId'?: string;
     /**
-    * Order Id
+    * The unique identifier of the order assigned by the exchange.
     */
     'exchangeOrderId'?: string;
     /**
-    * Client order Id
+    * The unique identifier of the order assigned by the client.
     */
     'clientOrderId'?: string;
 

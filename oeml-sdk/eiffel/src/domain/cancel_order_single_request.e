@@ -25,11 +25,11 @@ inherit
 feature --Access
 
     exchange_id: detachable STRING_32 
-      -- Exchange name
+      -- Exchange identifier.
     exchange_order_id: detachable STRING_32 
-      -- Order Id
+      -- The unique identifier of the order assigned by the exchange.
     client_order_id: detachable STRING_32 
-      -- Client order Id
+      -- The unique identifier of the order assigned by the client.
 
 feature -- Change Element  
  

@@ -67,11 +67,11 @@ public:
 	/*! \brief Set If message related exchange then identifier of this exchange.
 	 */
 	void setExchangeId(std::string  exchange_id);
-	/*! \brief Get Sucess message
+	/*! \brief Get Message text.
 	 */
 	std::string getMessage();
 
-	/*! \brief Set Sucess message
+	/*! \brief Set Message text.
 	 */
 	void setMessage(std::string  message);
 

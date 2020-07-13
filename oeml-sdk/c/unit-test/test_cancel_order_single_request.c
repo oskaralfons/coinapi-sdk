@@ -23,14 +23,14 @@ cancel_order_single_request_t* instantiate_cancel_order_single_request(int inclu
   if (include_optional) {
     cancel_order_single_request = cancel_order_single_request_create(
       "KRAKEN",
-      "d8574207d9e3b16a4a5511753eeef1751",
-      "A12345"
+      "3456456754",
+      "6ab36bc1-344d-432e-ac6d-0bf44ee64c2b"
     );
   } else {
     cancel_order_single_request = cancel_order_single_request_create(
       "KRAKEN",
-      "d8574207d9e3b16a4a5511753eeef1751",
-      "A12345"
+      "3456456754",
+      "6ab36bc1-344d-432e-ac6d-0bf44ee64c2b"
     );
   }
 

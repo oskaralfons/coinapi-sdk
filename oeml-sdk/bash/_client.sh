@@ -342,7 +342,7 @@ case $state in
       v1OrdersStatusClientOrderIdGet)
         local -a _op_arguments
         _op_arguments=(
-          "client_order_id=:[PATH] Order Client Id of the order for which the status is requested."
+          "client_order_id=:[PATH] The unique identifier of the order assigned by the client."
                     )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;

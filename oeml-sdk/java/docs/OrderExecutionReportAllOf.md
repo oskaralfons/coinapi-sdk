@@ -7,8 +7,8 @@ The order execution report message.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**clientOrderIdFormatExchange** | **String** | Hash client id | 
-**exchangeOrderId** | **String** | Exchange order id |  [optional]
+**clientOrderIdFormatExchange** | **String** | The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. | 
+**exchangeOrderId** | **String** | The unique identifier of the order assigned by the exchange. |  [optional]
 **amountOpen** | [**BigDecimal**](BigDecimal.md) | Amount open | 
 **amountFilled** | [**BigDecimal**](BigDecimal.md) | Amount filled | 
 **status** | [**OrdStatus**](OrdStatus.md) |  | 

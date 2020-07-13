@@ -12,6 +12,9 @@
 
 import { RequestFile } from '../api';
 
+/**
+* Severity of the message.
+*/
 export enum Severity {
     INFO = <any> 'INFO',
     WARNING = <any> 'WARNING',

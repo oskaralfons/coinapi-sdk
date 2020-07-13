@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **type** | **String** | Type of message. | [optional] 
 **severity** | [**Severity**](Severity.md) |  | [optional] 
 **exchange_id** | **String** | If message related exchange then identifier of this exchange. | [optional] 
-**message** | **String** | Sucess message | [optional] 
+**message** | **String** | Message text. | [optional] 
 
 ## Code Sample
 

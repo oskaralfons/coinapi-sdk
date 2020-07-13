@@ -12,6 +12,12 @@
 
 import * as models from './models';
 
+/**
+ * Severity of the message.
+ */
+    /**
+    * Severity of the message.
+    */
 export enum Severity {
     INFO = <any> 'INFO',
     WARNING = <any> 'WARNING',

@@ -65,9 +65,9 @@ public class NewOrderSingle {
   }
 
   /**
-   * Unique identifier for the order assigned by the `OEML API` client.
+   * The unique identifier of the order assigned by the client.
    **/
-  @ApiModelProperty(required = true, value = "Unique identifier for the order assigned by the `OEML API` client.")
+  @ApiModelProperty(required = true, value = "The unique identifier of the order assigned by the client.")
   public String getClientOrderId() {
     return clientOrderId;
   }
@@ -76,9 +76,9 @@ public class NewOrderSingle {
   }
 
   /**
-   * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+   * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
    **/
-  @ApiModelProperty(value = "Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.")
+  @ApiModelProperty(value = "Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.")
   public String getSymbolExchange() {
     return symbolExchange;
   }
@@ -87,9 +87,9 @@ public class NewOrderSingle {
   }
 
   /**
-   * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+   * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
    **/
-  @ApiModelProperty(value = "CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.")
+  @ApiModelProperty(value = "CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.")
   public String getSymbolCoinapi() {
     return symbolCoinapi;
   }

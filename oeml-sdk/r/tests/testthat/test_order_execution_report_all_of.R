@@ -7,7 +7,7 @@ model.instance <- OrderExecutionReportAllOf$new()
 
 test_that("client_order_id_format_exchange", {
   # tests for the property `client_order_id_format_exchange` (character)
-  # Hash client id
+  # The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`client_order_id_format_exchange`, "EXPECTED_RESULT")
@@ -15,7 +15,7 @@ test_that("client_order_id_format_exchange", {
 
 test_that("exchange_order_id", {
   # tests for the property `exchange_order_id` (character)
-  # Exchange order id
+  # The unique identifier of the order assigned by the exchange.
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`exchange_order_id`, "EXPECTED_RESULT")

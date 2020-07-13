@@ -200,7 +200,7 @@ Get the current order status for the specified order. The requested order can no
 import 'package:openapi/api.dart';
 
 var api_instance = OrdersApi();
-var clientOrderId = 6ab36bc1-344d-432e-ac6d-0bf44ee64c2b; // String | Order Client Id of the order for which the status is requested.
+var clientOrderId = 6ab36bc1-344d-432e-ac6d-0bf44ee64c2b; // String | The unique identifier of the order assigned by the client.
 
 try { 
     var result = api_instance.v1OrdersStatusClientOrderIdGet(clientOrderId);
@@ -214,7 +214,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clientOrderId** | **String**| Order Client Id of the order for which the status is requested. | [default to null]
+ **clientOrderId** | **String**| The unique identifier of the order assigned by the client. | [default to null]
 
 ### Return type
 

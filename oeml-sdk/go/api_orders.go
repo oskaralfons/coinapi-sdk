@@ -387,7 +387,7 @@ func (a *OrdersApiService) V1OrdersPost(ctx _context.Context, newOrderSingle New
 V1OrdersStatusClientOrderIdGet Get order status
 Get the current order status for the specified order. The requested order can no longer be active.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param clientOrderId Order Client Id of the order for which the status is requested.
+ * @param clientOrderId The unique identifier of the order assigned by the client.
 @return OrderExecutionReport
 */
 func (a *OrdersApiService) V1OrdersStatusClientOrderIdGet(ctx _context.Context, clientOrderId string) (OrderExecutionReport, *_nethttp.Response, error) {

@@ -67,7 +67,7 @@ public:
     void setExchangeId(const utility::string_t& value);
 
     /// <summary>
-    /// Unique identifier for the order assigned by the &#x60;OEML API&#x60; client.
+    /// The unique identifier of the order assigned by the client.
     /// </summary>
     utility::string_t getClientOrderId() const;
     bool clientOrderIdIsSet() const;
@@ -76,7 +76,7 @@ public:
     void setClientOrderId(const utility::string_t& value);
 
     /// <summary>
-    /// Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.
+    /// Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order.
     /// </summary>
     utility::string_t getSymbolExchange() const;
     bool symbolExchangeIsSet() const;
@@ -85,7 +85,7 @@ public:
     void setSymbolExchange(const utility::string_t& value);
 
     /// <summary>
-    /// CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.
+    /// CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) are required to identify the market for the new order.
     /// </summary>
     utility::string_t getSymbolCoinapi() const;
     bool symbolCoinapiIsSet() const;

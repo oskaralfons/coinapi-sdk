@@ -14,9 +14,9 @@ package org.openapitools.client.model
 import org.openapitools.client.core.ApiModel
 
 case class OrderExecutionReportAllOf (
-  /* Hash client id */
+  /* The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. */
   clientOrderIdFormatExchange: String,
-  /* Exchange order id */
+  /* The unique identifier of the order assigned by the exchange. */
   exchangeOrderId: Option[String] = None,
   /* Amount open */
   amountOpen: Double,

@@ -24,15 +24,15 @@ export class OrderExecutionReport {
     */
     'exchangeId': string;
     /**
-    * Unique identifier for the order assigned by the `OEML API` client.
+    * The unique identifier of the order assigned by the client.
     */
     'clientOrderId': string;
     /**
-    * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+    * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
     */
     'symbolExchange'?: string;
     /**
-    * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+    * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) are required to identify the market for the new order.
     */
     'symbolCoinapi'?: string;
     /**
@@ -55,11 +55,11 @@ export class OrderExecutionReport {
     */
     'execInst'?: Array<OrderExecutionReport.ExecInstEnum>;
     /**
-    * Hash client id
+    * The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
     */
     'clientOrderIdFormatExchange': string;
     /**
-    * Exchange order id
+    * The unique identifier of the order assigned by the exchange.
     */
     'exchangeOrderId'?: string;
     /**
