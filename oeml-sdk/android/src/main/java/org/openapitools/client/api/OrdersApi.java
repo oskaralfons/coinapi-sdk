@@ -23,12 +23,12 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import org.openapitools.client.model.CreateOrderValidationError;
 import org.openapitools.client.model.ExecutionReport;
 import org.openapitools.client.model.Message;
 import org.openapitools.client.model.NewOrderSingle;
 import org.openapitools.client.model.OrderCancelAllRequest;
 import org.openapitools.client.model.OrderCancelSingleRequest;
+import org.openapitools.client.model.ValidationError;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;

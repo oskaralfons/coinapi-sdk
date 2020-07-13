@@ -6,12 +6,12 @@ import org.openapitools.exception.ApiError;
 import org.openapitools.common.ApiUserCredentials;
 import org.openapitools.event.Response;
 import org.openapitools.common.OpenApi;
-import org.openapitools.client.model.CreateOrderValidationError;
 import org.openapitools.client.model.ExecutionReport;
 import org.openapitools.client.model.Message;
 import org.openapitools.client.model.NewOrderSingle;
 import org.openapitools.client.model.OrderCancelAllRequest;
 import org.openapitools.client.model.OrderCancelSingleRequest;
+import org.openapitools.client.model.ValidationError;
 
 import mx.rpc.AsyncToken;
 import mx.utils.UIDUtil;

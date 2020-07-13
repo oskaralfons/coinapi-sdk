@@ -15,7 +15,6 @@
 import ApiClient from './ApiClient';
 import Balance from './model/Balance';
 import BalanceData from './model/BalanceData';
-import CreateOrderValidationError from './model/CreateOrderValidationError';
 import ExecutionReport from './model/ExecutionReport';
 import ExecutionReportAllOf from './model/ExecutionReportAllOf';
 import Message from './model/Message';
@@ -29,6 +28,7 @@ import Position from './model/Position';
 import PositionData from './model/PositionData';
 import Severity from './model/Severity';
 import TimeInForce from './model/TimeInForce';
+import ValidationError from './model/ValidationError';
 import BalancesApi from './api/BalancesApi';
 import OrdersApi from './api/OrdersApi';
 import PositionsApi from './api/PositionsApi';
@@ -83,12 +83,6 @@ export {
      * @property {module:model/BalanceData}
      */
     BalanceData,
-
-    /**
-     * The CreateOrderValidationError model constructor.
-     * @property {module:model/CreateOrderValidationError}
-     */
-    CreateOrderValidationError,
 
     /**
      * The ExecutionReport model constructor.
@@ -167,6 +161,12 @@ export {
      * @property {module:model/TimeInForce}
      */
     TimeInForce,
+
+    /**
+     * The ValidationError model constructor.
+     * @property {module:model/ValidationError}
+     */
+    ValidationError,
 
     /**
     * The BalancesApi service constructor.

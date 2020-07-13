@@ -14,12 +14,12 @@ import localVarRequest = require('request');
 import http = require('http');
 
 /* tslint:disable:no-unused-locals */
-import { CreateOrderValidationError } from '../model/createOrderValidationError';
 import { ExecutionReport } from '../model/executionReport';
 import { Message } from '../model/message';
 import { NewOrderSingle } from '../model/newOrderSingle';
 import { OrderCancelAllRequest } from '../model/orderCancelAllRequest';
 import { OrderCancelSingleRequest } from '../model/orderCancelSingleRequest';
+import { ValidationError } from '../model/validationError';
 
 import { ObjectSerializer, Authentication, VoidAuth, Interceptor } from '../model/models';
 

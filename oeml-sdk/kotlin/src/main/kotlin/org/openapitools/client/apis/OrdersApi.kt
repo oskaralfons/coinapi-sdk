@@ -11,12 +11,12 @@
 */
 package org.openapitools.client.apis
 
-import org.openapitools.client.models.CreateOrderValidationError
 import org.openapitools.client.models.ExecutionReport
 import org.openapitools.client.models.Message
 import org.openapitools.client.models.NewOrderSingle
 import org.openapitools.client.models.OrderCancelAllRequest
 import org.openapitools.client.models.OrderCancelSingleRequest
+import org.openapitools.client.models.ValidationError
 
 import org.openapitools.client.infrastructure.ApiClient
 import org.openapitools.client.infrastructure.ClientException

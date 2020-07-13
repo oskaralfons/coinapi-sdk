@@ -165,11 +165,11 @@ public:
 	/*! \brief Set 
 	 */
 	void setStatus(OrdStatus  status);
-	/*! \brief Get History of order status changes
+	/*! \brief Get Timestamped history of order status changes.
 	 */
 	std::list<std::list> getTimeOrder();
 
-	/*! \brief Set History of order status changes
+	/*! \brief Set Timestamped history of order status changes.
 	 */
 	void setTimeOrder(std::list <std::list> time_order);
 	/*! \brief Get Error message

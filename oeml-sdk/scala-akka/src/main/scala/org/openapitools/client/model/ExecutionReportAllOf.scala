@@ -23,7 +23,7 @@ case class ExecutionReportAllOf (
   /* Amount filled */
   amountFilled: Double,
   status: OrdStatus,
-  /* History of order status changes */
+  /* Timestamped history of order status changes. */
   timeOrder: Seq[Seq[String]],
   /* Error message */
   errorMessage: Option[String] = None

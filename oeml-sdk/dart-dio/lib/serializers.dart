@@ -8,7 +8,6 @@ import 'package:built_value/standard_json_plugin.dart';
 
 import 'package:openapi/model/balance.dart';
 import 'package:openapi/model/balance_data.dart';
-import 'package:openapi/model/create_order_validation_error.dart';
 import 'package:openapi/model/execution_report.dart';
 import 'package:openapi/model/execution_report_all_of.dart';
 import 'package:openapi/model/message.dart';
@@ -22,6 +21,7 @@ import 'package:openapi/model/position.dart';
 import 'package:openapi/model/position_data.dart';
 import 'package:openapi/model/severity.dart';
 import 'package:openapi/model/time_in_force.dart';
+import 'package:openapi/model/validation_error.dart';
 
 
 part 'serializers.g.dart';
@@ -29,7 +29,6 @@ part 'serializers.g.dart';
 @SerializersFor(const [
 Balance,
 BalanceData,
-CreateOrderValidationError,
 ExecutionReport,
 ExecutionReportAllOf,
 Message,
@@ -43,6 +42,7 @@ Position,
 PositionData,
 Severity,
 TimeInForce,
+ValidationError,
 
 ])
 
@@ -54,9 +54,6 @@ const FullType(BuiltList, const [const FullType(Balance)]),
 ..addBuilderFactory(
 const FullType(BuiltList, const [const FullType(BalanceData)]),
 () => new ListBuilder<BalanceData>())
-..addBuilderFactory(
-const FullType(BuiltList, const [const FullType(CreateOrderValidationError)]),
-() => new ListBuilder<CreateOrderValidationError>())
 ..addBuilderFactory(
 const FullType(BuiltList, const [const FullType(ExecutionReport)]),
 () => new ListBuilder<ExecutionReport>())
@@ -96,6 +93,9 @@ const FullType(BuiltList, const [const FullType(Severity)]),
 ..addBuilderFactory(
 const FullType(BuiltList, const [const FullType(TimeInForce)]),
 () => new ListBuilder<TimeInForce>())
+..addBuilderFactory(
+const FullType(BuiltList, const [const FullType(ValidationError)]),
+() => new ListBuilder<ValidationError>())
 
 ..add(Iso8601DateTimeSerializer())
 ).build();

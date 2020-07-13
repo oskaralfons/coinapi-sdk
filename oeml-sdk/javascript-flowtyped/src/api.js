@@ -147,44 +147,6 @@ export type BalanceData = {
 }
 
 
-/**
- * 
- * @export
- */
-export type CreateOrderValidationError = {
-    /**
-     * 
-     * @type {string}
-     * @memberof CreateOrderValidationError
-     */
-    type?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CreateOrderValidationError
-     */
-    title?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof CreateOrderValidationError
-     */
-    status?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof CreateOrderValidationError
-     */
-    traceId?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CreateOrderValidationError
-     */
-    errors?: string;
-}
-
-
 
             export type ExecutionReportExecInstEnum = 'MAKER_OR_CANCEL' | 'AUCTION_ONLY' | 'INDICATION_OF_INTEREST';
 /**
@@ -289,7 +251,7 @@ export type ExecutionReport = {
      */
     status: OrdStatus;
     /**
-     * History of order status changes
+     * Timestamped history of order status changes.
      * @type {Array<Array<string>>}
      * @memberof ExecutionReport
      */
@@ -339,7 +301,7 @@ export type ExecutionReportAllOf = {
      */
     status: OrdStatus;
     /**
-     * History of order status changes
+     * Timestamped history of order status changes.
      * @type {Array<Array<string>>}
      * @memberof ExecutionReportAllOf
      */
@@ -635,6 +597,44 @@ export type Severity = 'INFO' | 'WARNING' | 'ERROR';
  * @enum {string}
  */
 export type TimeInForce = 'GOOD_TILL_CANCEL' | 'GOOD_TILL_TIME_EXCHANGE' | 'GOOD_TILL_TIME_OMS' | 'FILL_OR_KILL' | 'IMMEDIATE_OR_CANCEL';
+
+/**
+ * 
+ * @export
+ */
+export type ValidationError = {
+    /**
+     * 
+     * @type {string}
+     * @memberof ValidationError
+     */
+    type?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ValidationError
+     */
+    title?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof ValidationError
+     */
+    status?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof ValidationError
+     */
+    traceId?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ValidationError
+     */
+    errors?: string;
+}
+
 
 
 

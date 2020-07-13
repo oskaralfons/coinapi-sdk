@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **amount_open** | **Float** | Amount open | 
 **amount_filled** | **Float** | Amount filled | 
 **status** | [**OrdStatus**](OrdStatus.md) |  | 
-**time_order** | **Array&lt;Array&lt;String&gt;&gt;** | History of order status changes | 
+**time_order** | **Array&lt;Array&lt;String&gt;&gt;** | Timestamped history of order status changes. | 
 **error_message** | **String** | Error message | [optional] 
 
 ## Code Sample

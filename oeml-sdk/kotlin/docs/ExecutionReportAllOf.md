@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **amountOpen** | [**java.math.BigDecimal**](java.math.BigDecimal.md) | Amount open | 
 **amountFilled** | [**java.math.BigDecimal**](java.math.BigDecimal.md) | Amount filled | 
 **status** | [**OrdStatus**](OrdStatus.md) |  | 
-**timeOrder** | **kotlin.Array&lt;kotlin.Array&lt;kotlin.String&gt;&gt;** | History of order status changes | 
+**timeOrder** | **kotlin.Array&lt;kotlin.Array&lt;kotlin.String&gt;&gt;** | Timestamped history of order status changes. | 
 **exchangeOrderId** | **kotlin.String** | Exchange order id |  [optional]
 **errorMessage** | **kotlin.String** | Error message |  [optional]
 

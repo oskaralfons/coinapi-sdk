@@ -28,7 +28,7 @@ class ExecutionReportAllOf {
      * @param amountOpen {Number} Amount open
      * @param amountFilled {Number} Amount filled
      * @param status {module:model/OrdStatus} 
-     * @param timeOrder {Array.<Array.<String>>} History of order status changes
+     * @param timeOrder {Array.<Array.<String>>} Timestamped history of order status changes.
      */
     constructor(clientOrderIdFormatExchange, amountOpen, amountFilled, status, timeOrder) { 
         
@@ -117,7 +117,7 @@ ExecutionReportAllOf.prototype['amount_filled'] = undefined;
 ExecutionReportAllOf.prototype['status'] = undefined;
 
 /**
- * History of order status changes
+ * Timestamped history of order status changes.
  * @member {Array.<Array.<String>>} time_order
  */
 ExecutionReportAllOf.prototype['time_order'] = undefined;

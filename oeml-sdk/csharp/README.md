@@ -120,7 +120,6 @@ Class | Method | HTTP request | Description
 
  - [Model.Balance](docs/Balance.md)
  - [Model.BalanceData](docs/BalanceData.md)
- - [Model.CreateOrderValidationError](docs/CreateOrderValidationError.md)
  - [Model.ExecutionReport](docs/ExecutionReport.md)
  - [Model.ExecutionReportAllOf](docs/ExecutionReportAllOf.md)
  - [Model.Message](docs/Message.md)
@@ -134,6 +133,7 @@ Class | Method | HTTP request | Description
  - [Model.PositionData](docs/PositionData.md)
  - [Model.Severity](docs/Severity.md)
  - [Model.TimeInForce](docs/TimeInForce.md)
+ - [Model.ValidationError](docs/ValidationError.md)
 
 
 ## Documentation for Authorization

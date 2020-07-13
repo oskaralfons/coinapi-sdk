@@ -94,35 +94,6 @@ balanceDataUpdateOriginL f BalanceData{..} = (\balanceDataUpdateOrigin -> Balanc
 
 
 
--- * CreateOrderValidationError
-
--- | 'createOrderValidationErrorType' Lens
-createOrderValidationErrorTypeL :: Lens_' CreateOrderValidationError (Maybe Text)
-createOrderValidationErrorTypeL f CreateOrderValidationError{..} = (\createOrderValidationErrorType -> CreateOrderValidationError { createOrderValidationErrorType, ..} ) <$> f createOrderValidationErrorType
-{-# INLINE createOrderValidationErrorTypeL #-}
-
--- | 'createOrderValidationErrorTitle' Lens
-createOrderValidationErrorTitleL :: Lens_' CreateOrderValidationError (Maybe Text)
-createOrderValidationErrorTitleL f CreateOrderValidationError{..} = (\createOrderValidationErrorTitle -> CreateOrderValidationError { createOrderValidationErrorTitle, ..} ) <$> f createOrderValidationErrorTitle
-{-# INLINE createOrderValidationErrorTitleL #-}
-
--- | 'createOrderValidationErrorStatus' Lens
-createOrderValidationErrorStatusL :: Lens_' CreateOrderValidationError (Maybe Double)
-createOrderValidationErrorStatusL f CreateOrderValidationError{..} = (\createOrderValidationErrorStatus -> CreateOrderValidationError { createOrderValidationErrorStatus, ..} ) <$> f createOrderValidationErrorStatus
-{-# INLINE createOrderValidationErrorStatusL #-}
-
--- | 'createOrderValidationErrorTraceId' Lens
-createOrderValidationErrorTraceIdL :: Lens_' CreateOrderValidationError (Maybe Text)
-createOrderValidationErrorTraceIdL f CreateOrderValidationError{..} = (\createOrderValidationErrorTraceId -> CreateOrderValidationError { createOrderValidationErrorTraceId, ..} ) <$> f createOrderValidationErrorTraceId
-{-# INLINE createOrderValidationErrorTraceIdL #-}
-
--- | 'createOrderValidationErrorErrors' Lens
-createOrderValidationErrorErrorsL :: Lens_' CreateOrderValidationError (Maybe Text)
-createOrderValidationErrorErrorsL f CreateOrderValidationError{..} = (\createOrderValidationErrorErrors -> CreateOrderValidationError { createOrderValidationErrorErrors, ..} ) <$> f createOrderValidationErrorErrors
-{-# INLINE createOrderValidationErrorErrorsL #-}
-
-
-
 -- * ExecutionReport
 
 -- | 'executionReportExchangeId' Lens
@@ -462,5 +433,34 @@ positionDataRawDataL f PositionData{..} = (\positionDataRawData -> PositionData 
 
 
 -- * TimeInForce
+
+
+
+-- * ValidationError
+
+-- | 'validationErrorType' Lens
+validationErrorTypeL :: Lens_' ValidationError (Maybe Text)
+validationErrorTypeL f ValidationError{..} = (\validationErrorType -> ValidationError { validationErrorType, ..} ) <$> f validationErrorType
+{-# INLINE validationErrorTypeL #-}
+
+-- | 'validationErrorTitle' Lens
+validationErrorTitleL :: Lens_' ValidationError (Maybe Text)
+validationErrorTitleL f ValidationError{..} = (\validationErrorTitle -> ValidationError { validationErrorTitle, ..} ) <$> f validationErrorTitle
+{-# INLINE validationErrorTitleL #-}
+
+-- | 'validationErrorStatus' Lens
+validationErrorStatusL :: Lens_' ValidationError (Maybe Double)
+validationErrorStatusL f ValidationError{..} = (\validationErrorStatus -> ValidationError { validationErrorStatus, ..} ) <$> f validationErrorStatus
+{-# INLINE validationErrorStatusL #-}
+
+-- | 'validationErrorTraceId' Lens
+validationErrorTraceIdL :: Lens_' ValidationError (Maybe Text)
+validationErrorTraceIdL f ValidationError{..} = (\validationErrorTraceId -> ValidationError { validationErrorTraceId, ..} ) <$> f validationErrorTraceId
+{-# INLINE validationErrorTraceIdL #-}
+
+-- | 'validationErrorErrors' Lens
+validationErrorErrorsL :: Lens_' ValidationError (Maybe Text)
+validationErrorErrorsL f ValidationError{..} = (\validationErrorErrors -> ValidationError { validationErrorErrors, ..} ) <$> f validationErrorErrors
+{-# INLINE validationErrorErrorsL #-}
 
 

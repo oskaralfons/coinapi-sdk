@@ -16,9 +16,9 @@ local dkjson = require "dkjson"
 local basexx = require "basexx"
 
 -- model import
-local openapiclient_create_order_validation_error = require "openapiclient.model.create_order_validation_error"
 local openapiclient_execution_report = require "openapiclient.model.execution_report"
 local openapiclient_message = require "openapiclient.model.message"
+local openapiclient_validation_error = require "openapiclient.model.validation_error"
 local openapiclient_new_order_single = require "openapiclient.model.new_order_single"
 local openapiclient_order_cancel_all_request = require "openapiclient.model.order_cancel_all_request"
 local openapiclient_order_cancel_single_request = require "openapiclient.model.order_cancel_single_request"

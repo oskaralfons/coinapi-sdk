@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **amount_open** | **double** | Amount open | 
 **amount_filled** | **double** | Amount filled | 
 **status** | [**OrdStatus**](OrdStatus.md) |  | 
-**time_order** | **ARRAY[ARRAY[string]]** | History of order status changes | 
+**time_order** | **ARRAY[ARRAY[string]]** | Timestamped history of order status changes. | 
 **error_message** | **string** | Error message | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

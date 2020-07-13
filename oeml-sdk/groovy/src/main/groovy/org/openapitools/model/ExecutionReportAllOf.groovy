@@ -20,7 +20,7 @@ class ExecutionReportAllOf {
     BigDecimal amountFilled
     
     OrdStatus status
-    /* History of order status changes */
+    /* Timestamped history of order status changes. */
     List<List<String>> timeOrder = new ArrayList<List<String>>()
     /* Error message */
     String errorMessage

@@ -1,12 +1,12 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import org.openapitools.model.CreateOrderValidationError
 import org.openapitools.model.ExecutionReport
 import org.openapitools.model.Message
 import org.openapitools.model.NewOrderSingle
 import org.openapitools.model.OrderCancelAllRequest
 import org.openapitools.model.OrderCancelSingleRequest
+import org.openapitools.model.ValidationError
 
 class OrdersApi {
     String basePath = "http://localhost:8080"

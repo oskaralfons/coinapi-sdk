@@ -80,7 +80,6 @@ Class | Method | HTTP request | Description
 
  - [Balance](Balance.md)
  - [BalanceData](BalanceData.md)
- - [CreateOrderValidationError](CreateOrderValidationError.md)
  - [ExecutionReport](ExecutionReport.md)
  - [ExecutionReportAllOf](ExecutionReportAllOf.md)
  - [Message](Message.md)
@@ -94,6 +93,7 @@ Class | Method | HTTP request | Description
  - [PositionData](PositionData.md)
  - [Severity](Severity.md)
  - [TimeInForce](TimeInForce.md)
+ - [ValidationError](ValidationError.md)
 
 
 ## Documentation for Authorization

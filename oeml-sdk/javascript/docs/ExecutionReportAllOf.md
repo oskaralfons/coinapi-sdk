@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **amountOpen** | **Number** | Amount open | 
 **amountFilled** | **Number** | Amount filled | 
 **status** | [**OrdStatus**](OrdStatus.md) |  | 
-**timeOrder** | **[[String]]** | History of order status changes | 
+**timeOrder** | **[[String]]** | Timestamped history of order status changes. | 
 **errorMessage** | **String** | Error message | [optional] 
 
 

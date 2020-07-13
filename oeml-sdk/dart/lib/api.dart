@@ -19,7 +19,6 @@ part 'api/positions_api.dart';
 
 part 'model/balance.dart';
 part 'model/balance_data.dart';
-part 'model/create_order_validation_error.dart';
 part 'model/execution_report.dart';
 part 'model/execution_report_all_of.dart';
 part 'model/message.dart';
@@ -33,6 +32,7 @@ part 'model/position.dart';
 part 'model/position_data.dart';
 part 'model/severity.dart';
 part 'model/time_in_force.dart';
+part 'model/validation_error.dart';
 
 
 ApiClient defaultApiClient = ApiClient();

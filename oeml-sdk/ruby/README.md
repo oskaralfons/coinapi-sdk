@@ -92,7 +92,6 @@ Class | Method | HTTP request | Description
 
  - [OpenapiClient::Balance](docs/Balance.md)
  - [OpenapiClient::BalanceData](docs/BalanceData.md)
- - [OpenapiClient::CreateOrderValidationError](docs/CreateOrderValidationError.md)
  - [OpenapiClient::ExecutionReport](docs/ExecutionReport.md)
  - [OpenapiClient::ExecutionReportAllOf](docs/ExecutionReportAllOf.md)
  - [OpenapiClient::Message](docs/Message.md)
@@ -106,6 +105,7 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::PositionData](docs/PositionData.md)
  - [OpenapiClient::Severity](docs/Severity.md)
  - [OpenapiClient::TimeInForce](docs/TimeInForce.md)
+ - [OpenapiClient::ValidationError](docs/ValidationError.md)
 
 
 ## Documentation for Authorization

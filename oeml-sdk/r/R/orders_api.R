@@ -48,7 +48,7 @@
 #' }
 #' \item status code : 400 | Validation errors
 #'
-#' \item return type : CreateOrderValidationError 
+#' \item return type : ValidationError 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -96,7 +96,7 @@
 #' }
 #' \item status code : 400 | Validation errors
 #'
-#' \item return type : CreateOrderValidationError 
+#' \item return type : ValidationError 
 #' \item response headers :
 #'
 #' \tabular{ll}{

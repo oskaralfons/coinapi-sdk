@@ -29,7 +29,7 @@ module OpenapiClient
 
     attr_accessor :status
 
-    # History of order status changes
+    # Timestamped history of order status changes.
     attr_accessor :time_order
 
     # Error message

@@ -131,7 +131,7 @@ test_that("status", {
 
 test_that("time_order", {
   # tests for the property `time_order` (array[array[character]])
-  # History of order status changes
+  # Timestamped history of order status changes.
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`time_order`, "EXPECTED_RESULT")

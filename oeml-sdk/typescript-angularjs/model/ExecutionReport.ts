@@ -66,7 +66,7 @@ export interface ExecutionReport {
     "amount_filled": number;
     "status": models.OrdStatus;
     /**
-     * History of order status changes
+     * Timestamped history of order status changes.
      */
     "time_order": Array<Array<string>>;
     /**

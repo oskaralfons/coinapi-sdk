@@ -49,7 +49,7 @@ namespace CoinAPI.OMS.API.SDK.Model
         /// <param name="amountOpen">Amount open (required).</param>
         /// <param name="amountFilled">Amount filled (required).</param>
         /// <param name="status">status (required).</param>
-        /// <param name="timeOrder">History of order status changes (required).</param>
+        /// <param name="timeOrder">Timestamped history of order status changes. (required).</param>
         /// <param name="errorMessage">Error message.</param>
         public ExecutionReportAllOf(string clientOrderIdFormatExchange = default(string), string exchangeOrderId = default(string), decimal amountOpen = default(decimal), decimal amountFilled = default(decimal), OrdStatus status = default(OrdStatus), List<List<string>> timeOrder = default(List<List<string>>), string errorMessage = default(string))
         {
@@ -93,9 +93,9 @@ namespace CoinAPI.OMS.API.SDK.Model
         public decimal AmountFilled { get; set; }
 
         /// <summary>
-        /// History of order status changes
+        /// Timestamped history of order status changes.
         /// </summary>
-        /// <value>History of order status changes</value>
+        /// <value>Timestamped history of order status changes.</value>
         [DataMember(Name="time_order", EmitDefaultValue=false)]
         public List<List<string>> TimeOrder { get; set; }
 

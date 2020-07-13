@@ -32,7 +32,7 @@ import com.squareup.moshi.Json
  * @param amountOpen Amount open
  * @param amountFilled Amount filled
  * @param status 
- * @param timeOrder History of order status changes
+ * @param timeOrder Timestamped history of order status changes.
  * @param symbolExchange Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
  * @param symbolCoinapi CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
  * @param expireTime Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
@@ -71,7 +71,7 @@ data class ExecutionReport (
     val amountFilled: java.math.BigDecimal,
     @Json(name = "status")
     val status: OrdStatus,
-    /* History of order status changes */
+    /* Timestamped history of order status changes. */
     @Json(name = "time_order")
     val timeOrder: kotlin.Array<kotlin.Array<kotlin.String>>,
     /* Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order. */

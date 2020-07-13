@@ -37,7 +37,7 @@ import org.threeten.bp.LocalDate;
 /**
  * ExecutionReport
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T11:27:23.651Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T11:30:16.341Z[Etc/UTC]")
 public class ExecutionReport {
   public static final String SERIALIZED_NAME_EXCHANGE_ID = "exchange_id";
   @SerializedName(SERIALIZED_NAME_EXCHANGE_ID)
@@ -538,10 +538,10 @@ public class ExecutionReport {
   }
 
    /**
-   * History of order status changes
+   * Timestamped history of order status changes.
    * @return timeOrder
   **/
-  @ApiModelProperty(required = true, value = "History of order status changes")
+  @ApiModelProperty(required = true, value = "Timestamped history of order status changes.")
 
   public List<List<String>> getTimeOrder() {
     return timeOrder;

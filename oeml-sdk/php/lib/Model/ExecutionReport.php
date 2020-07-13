@@ -765,7 +765,7 @@ class ExecutionReport implements ModelInterface, ArrayAccess
     /**
      * Sets time_order
      *
-     * @param string[][] $time_order History of order status changes
+     * @param string[][] $time_order Timestamped history of order status changes.
      *
      * @return $this
      */

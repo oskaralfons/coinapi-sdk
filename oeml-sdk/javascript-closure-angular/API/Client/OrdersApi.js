@@ -14,12 +14,12 @@
 
 goog.provide('API.Client.OrdersApi');
 
-goog.require('API.Client.CreateOrderValidationError');
 goog.require('API.Client.ExecutionReport');
 goog.require('API.Client.Message');
 goog.require('API.Client.NewOrderSingle');
 goog.require('API.Client.OrderCancelAllRequest');
 goog.require('API.Client.OrderCancelSingleRequest');
+goog.require('API.Client.ValidationError');
 
 /**
  * @constructor

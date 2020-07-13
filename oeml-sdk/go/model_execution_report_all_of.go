@@ -19,7 +19,7 @@ type ExecutionReportAllOf struct {
 	// Amount filled
 	AmountFilled float32 `json:"amount_filled"`
 	Status OrdStatus `json:"status"`
-	// History of order status changes
+	// Timestamped history of order status changes.
 	TimeOrder [][]string `json:"time_order"`
 	// Error message
 	ErrorMessage string `json:"error_message,omitempty"`

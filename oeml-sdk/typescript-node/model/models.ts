@@ -1,6 +1,5 @@
 export * from './balance';
 export * from './balanceData';
-export * from './createOrderValidationError';
 export * from './executionReport';
 export * from './executionReportAllOf';
 export * from './message';
@@ -14,12 +13,12 @@ export * from './position';
 export * from './positionData';
 export * from './severity';
 export * from './timeInForce';
+export * from './validationError';
 
 import localVarRequest = require('request');
 
 import { Balance } from './balance';
 import { BalanceData } from './balanceData';
-import { CreateOrderValidationError } from './createOrderValidationError';
 import { ExecutionReport } from './executionReport';
 import { ExecutionReportAllOf } from './executionReportAllOf';
 import { Message } from './message';
@@ -33,6 +32,7 @@ import { Position } from './position';
 import { PositionData } from './positionData';
 import { Severity } from './severity';
 import { TimeInForce } from './timeInForce';
+import { ValidationError } from './validationError';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -60,7 +60,6 @@ let enumsMap: {[index: string]: any} = {
 let typeMap: {[index: string]: any} = {
     "Balance": Balance,
     "BalanceData": BalanceData,
-    "CreateOrderValidationError": CreateOrderValidationError,
     "ExecutionReport": ExecutionReport,
     "ExecutionReportAllOf": ExecutionReportAllOf,
     "Message": Message,
@@ -69,6 +68,7 @@ let typeMap: {[index: string]: any} = {
     "OrderCancelSingleRequest": OrderCancelSingleRequest,
     "Position": Position,
     "PositionData": PositionData,
+    "ValidationError": ValidationError,
 }
 
 export class ObjectSerializer {

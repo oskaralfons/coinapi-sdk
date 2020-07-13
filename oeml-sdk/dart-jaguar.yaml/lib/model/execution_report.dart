@@ -84,7 +84,7 @@ class ExecutionReport {
           
   )
   final OrdStatus status;
-  //enum statusEnum {  RECEIVED,  ROUTING,  ROUTED,  NEW,  PENDING_CANCEL,  PARTIALLY_FILLED,  FILLED,  CANCELED,  REJECTED,  }; /* History of order status changes */
+  //enum statusEnum {  RECEIVED,  ROUTING,  ROUTED,  NEW,  PENDING_CANCEL,  PARTIALLY_FILLED,  FILLED,  CANCELED,  REJECTED,  }; /* Timestamped history of order status changes. */
   @Alias('time_order', isNullable: false,  )
   final List<List<String>> timeOrder;
    /* Error message */

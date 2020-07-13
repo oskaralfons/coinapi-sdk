@@ -81,7 +81,7 @@ abstract class ExecutionReport implements Built<ExecutionReport, ExecutionReport
     @BuiltValueField(wireName: r'status')
     OrdStatus get status;
         //enum statusEnum {  RECEIVED,  ROUTING,  ROUTED,  NEW,  PENDING_CANCEL,  PARTIALLY_FILLED,  FILLED,  CANCELED,  REJECTED,  };
-    /* History of order status changes */
+    /* Timestamped history of order status changes. */
         @nullable
     @BuiltValueField(wireName: r'time_order')
     BuiltList<BuiltList<String>> get timeOrder;

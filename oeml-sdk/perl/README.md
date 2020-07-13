@@ -233,7 +233,6 @@ To load the models:
 ```perl
 use WWW::OpenAPIClient::Object::Balance;
 use WWW::OpenAPIClient::Object::BalanceData;
-use WWW::OpenAPIClient::Object::CreateOrderValidationError;
 use WWW::OpenAPIClient::Object::ExecutionReport;
 use WWW::OpenAPIClient::Object::ExecutionReportAllOf;
 use WWW::OpenAPIClient::Object::Message;
@@ -247,6 +246,7 @@ use WWW::OpenAPIClient::Object::Position;
 use WWW::OpenAPIClient::Object::PositionData;
 use WWW::OpenAPIClient::Object::Severity;
 use WWW::OpenAPIClient::Object::TimeInForce;
+use WWW::OpenAPIClient::Object::ValidationError;
 
 ````
 
@@ -265,7 +265,6 @@ use WWW::OpenAPIClient::PositionsApi;
 # load the models
 use WWW::OpenAPIClient::Object::Balance;
 use WWW::OpenAPIClient::Object::BalanceData;
-use WWW::OpenAPIClient::Object::CreateOrderValidationError;
 use WWW::OpenAPIClient::Object::ExecutionReport;
 use WWW::OpenAPIClient::Object::ExecutionReportAllOf;
 use WWW::OpenAPIClient::Object::Message;
@@ -279,6 +278,7 @@ use WWW::OpenAPIClient::Object::Position;
 use WWW::OpenAPIClient::Object::PositionData;
 use WWW::OpenAPIClient::Object::Severity;
 use WWW::OpenAPIClient::Object::TimeInForce;
+use WWW::OpenAPIClient::Object::ValidationError;
 
 # for displaying the API response data
 use Data::Dumper;
@@ -317,7 +317,6 @@ Class | Method | HTTP request | Description
 # DOCUMENTATION FOR MODELS
  - [WWW::OpenAPIClient::Object::Balance](docs/Balance.md)
  - [WWW::OpenAPIClient::Object::BalanceData](docs/BalanceData.md)
- - [WWW::OpenAPIClient::Object::CreateOrderValidationError](docs/CreateOrderValidationError.md)
  - [WWW::OpenAPIClient::Object::ExecutionReport](docs/ExecutionReport.md)
  - [WWW::OpenAPIClient::Object::ExecutionReportAllOf](docs/ExecutionReportAllOf.md)
  - [WWW::OpenAPIClient::Object::Message](docs/Message.md)
@@ -331,6 +330,7 @@ Class | Method | HTTP request | Description
  - [WWW::OpenAPIClient::Object::PositionData](docs/PositionData.md)
  - [WWW::OpenAPIClient::Object::Severity](docs/Severity.md)
  - [WWW::OpenAPIClient::Object::TimeInForce](docs/TimeInForce.md)
+ - [WWW::OpenAPIClient::Object::ValidationError](docs/ValidationError.md)
 
 
 # DOCUMENTATION FOR AUTHORIZATION

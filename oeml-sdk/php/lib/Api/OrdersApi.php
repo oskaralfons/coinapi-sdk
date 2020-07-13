@@ -392,7 +392,7 @@ class OrdersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ExecutionReport|\OpenAPI\Client\Model\CreateOrderValidationError|\OpenAPI\Client\Model\Message
+     * @return \OpenAPI\Client\Model\ExecutionReport|\OpenAPI\Client\Model\ValidationError|\OpenAPI\Client\Model\Message
      */
     public function v1OrdersCancelPost($order_cancel_single_request)
     {
@@ -409,7 +409,7 @@ class OrdersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ExecutionReport|\OpenAPI\Client\Model\CreateOrderValidationError|\OpenAPI\Client\Model\Message, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ExecutionReport|\OpenAPI\Client\Model\ValidationError|\OpenAPI\Client\Model\Message, HTTP status code, HTTP response headers (array of strings)
      */
     public function v1OrdersCancelPostWithHttpInfo($order_cancel_single_request)
     {
@@ -458,14 +458,14 @@ class OrdersApi
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\CreateOrderValidationError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ValidationError' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateOrderValidationError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -510,7 +510,7 @@ class OrdersApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateOrderValidationError',
+                        '\OpenAPI\Client\Model\ValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -970,7 +970,7 @@ class OrdersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\ExecutionReport|\OpenAPI\Client\Model\CreateOrderValidationError|\OpenAPI\Client\Model\Message
+     * @return \OpenAPI\Client\Model\ExecutionReport|\OpenAPI\Client\Model\ValidationError|\OpenAPI\Client\Model\Message
      */
     public function v1OrdersPost($new_order_single)
     {
@@ -987,7 +987,7 @@ class OrdersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\ExecutionReport|\OpenAPI\Client\Model\CreateOrderValidationError|\OpenAPI\Client\Model\Message, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ExecutionReport|\OpenAPI\Client\Model\ValidationError|\OpenAPI\Client\Model\Message, HTTP status code, HTTP response headers (array of strings)
      */
     public function v1OrdersPostWithHttpInfo($new_order_single)
     {
@@ -1036,14 +1036,14 @@ class OrdersApi
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\CreateOrderValidationError' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ValidationError' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateOrderValidationError', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1088,7 +1088,7 @@ class OrdersApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateOrderValidationError',
+                        '\OpenAPI\Client\Model\ValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

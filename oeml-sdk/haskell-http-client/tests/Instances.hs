@@ -128,18 +128,6 @@ genBalanceData n =
     <*> arbitraryReducedMaybe n -- balanceDataLocked :: Maybe Float
     <*> arbitraryReducedMaybe n -- balanceDataUpdateOrigin :: Maybe E'UpdateOrigin
   
-instance Arbitrary CreateOrderValidationError where
-  arbitrary = sized genCreateOrderValidationError
-
-genCreateOrderValidationError :: Int -> Gen CreateOrderValidationError
-genCreateOrderValidationError n =
-  CreateOrderValidationError
-    <$> arbitraryReducedMaybe n -- createOrderValidationErrorType :: Maybe Text
-    <*> arbitraryReducedMaybe n -- createOrderValidationErrorTitle :: Maybe Text
-    <*> arbitraryReducedMaybe n -- createOrderValidationErrorStatus :: Maybe Double
-    <*> arbitraryReducedMaybe n -- createOrderValidationErrorTraceId :: Maybe Text
-    <*> arbitraryReducedMaybe n -- createOrderValidationErrorErrors :: Maybe Text
-  
 instance Arbitrary ExecutionReport where
   arbitrary = sized genExecutionReport
 
@@ -253,6 +241,18 @@ genPositionData n =
     <*> arbitraryReducedMaybe n -- positionDataCrossMargin :: Maybe Bool
     <*> arbitraryReducedMaybe n -- positionDataLiquidationPrice :: Maybe Double
     <*> arbitraryReducedMaybe n -- positionDataRawData :: Maybe Text
+  
+instance Arbitrary ValidationError where
+  arbitrary = sized genValidationError
+
+genValidationError :: Int -> Gen ValidationError
+genValidationError n =
+  ValidationError
+    <$> arbitraryReducedMaybe n -- validationErrorType :: Maybe Text
+    <*> arbitraryReducedMaybe n -- validationErrorTitle :: Maybe Text
+    <*> arbitraryReducedMaybe n -- validationErrorStatus :: Maybe Double
+    <*> arbitraryReducedMaybe n -- validationErrorTraceId :: Maybe Text
+    <*> arbitraryReducedMaybe n -- validationErrorErrors :: Maybe Text
   
 
 

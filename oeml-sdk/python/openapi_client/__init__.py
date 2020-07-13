@@ -32,7 +32,6 @@ from openapi_client.exceptions import ApiException
 # import models into sdk package
 from openapi_client.models.balance import Balance
 from openapi_client.models.balance_data import BalanceData
-from openapi_client.models.create_order_validation_error import CreateOrderValidationError
 from openapi_client.models.execution_report import ExecutionReport
 from openapi_client.models.execution_report_all_of import ExecutionReportAllOf
 from openapi_client.models.message import Message
@@ -46,4 +45,5 @@ from openapi_client.models.position import Position
 from openapi_client.models.position_data import PositionData
 from openapi_client.models.severity import Severity
 from openapi_client.models.time_in_force import TimeInForce
+from openapi_client.models.validation_error import ValidationError
 

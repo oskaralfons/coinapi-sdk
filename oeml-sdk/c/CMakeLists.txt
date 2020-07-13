@@ -40,7 +40,6 @@ set(SRCS
     model/object.c
     model/balance.c
     model/balance_data.c
-    model/create_order_validation_error.c
     model/execution_report.c
     model/execution_report_all_of.c
     model/message.c
@@ -54,6 +53,7 @@ set(SRCS
     model/position_data.c
     model/severity.c
     model/time_in_force.c
+    model/validation_error.c
     api/BalancesAPI.c
     api/OrdersAPI.c
     api/PositionsAPI.c
@@ -69,7 +69,6 @@ set(HDRS
     model/object.h
     model/balance.h
     model/balance_data.h
-    model/create_order_validation_error.h
     model/execution_report.h
     model/execution_report_all_of.h
     model/message.h
@@ -83,6 +82,7 @@ set(HDRS
     model/position_data.h
     model/severity.h
     model/time_in_force.h
+    model/validation_error.h
     api/BalancesAPI.h
     api/OrdersAPI.h
     api/PositionsAPI.h

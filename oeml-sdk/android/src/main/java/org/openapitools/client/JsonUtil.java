@@ -65,10 +65,6 @@ public class JsonUtil {
       return new TypeToken<List<BalanceData>>(){}.getType();
     }
     
-    if ("CreateOrderValidationError".equalsIgnoreCase(className)) {
-      return new TypeToken<List<CreateOrderValidationError>>(){}.getType();
-    }
-    
     if ("ExecutionReport".equalsIgnoreCase(className)) {
       return new TypeToken<List<ExecutionReport>>(){}.getType();
     }
@@ -121,6 +117,10 @@ public class JsonUtil {
       return new TypeToken<List<TimeInForce>>(){}.getType();
     }
     
+    if ("ValidationError".equalsIgnoreCase(className)) {
+      return new TypeToken<List<ValidationError>>(){}.getType();
+    }
+    
     return new TypeToken<List<Object>>(){}.getType();
   }
 
@@ -133,10 +133,6 @@ public class JsonUtil {
     
     if ("BalanceData".equalsIgnoreCase(className)) {
       return new TypeToken<BalanceData>(){}.getType();
-    }
-    
-    if ("CreateOrderValidationError".equalsIgnoreCase(className)) {
-      return new TypeToken<CreateOrderValidationError>(){}.getType();
     }
     
     if ("ExecutionReport".equalsIgnoreCase(className)) {
@@ -189,6 +185,10 @@ public class JsonUtil {
     
     if ("TimeInForce".equalsIgnoreCase(className)) {
       return new TypeToken<TimeInForce>(){}.getType();
+    }
+    
+    if ("ValidationError".equalsIgnoreCase(className)) {
+      return new TypeToken<ValidationError>(){}.getType();
     }
     
     return new TypeToken<Object>(){}.getType();

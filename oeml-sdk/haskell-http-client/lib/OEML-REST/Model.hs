@@ -163,52 +163,6 @@ mkBalanceData =
   , balanceDataUpdateOrigin = Nothing
   }
 
--- ** CreateOrderValidationError
--- | CreateOrderValidationError
--- Create order validation error (response)
--- 
-data CreateOrderValidationError = CreateOrderValidationError
-  { createOrderValidationErrorType :: !(Maybe Text) -- ^ "type"
-  , createOrderValidationErrorTitle :: !(Maybe Text) -- ^ "title"
-  , createOrderValidationErrorStatus :: !(Maybe Double) -- ^ "status"
-  , createOrderValidationErrorTraceId :: !(Maybe Text) -- ^ "traceId"
-  , createOrderValidationErrorErrors :: !(Maybe Text) -- ^ "errors"
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON CreateOrderValidationError
-instance A.FromJSON CreateOrderValidationError where
-  parseJSON = A.withObject "CreateOrderValidationError" $ \o ->
-    CreateOrderValidationError
-      <$> (o .:? "type")
-      <*> (o .:? "title")
-      <*> (o .:? "status")
-      <*> (o .:? "traceId")
-      <*> (o .:? "errors")
-
--- | ToJSON CreateOrderValidationError
-instance A.ToJSON CreateOrderValidationError where
-  toJSON CreateOrderValidationError {..} =
-   _omitNulls
-      [ "type" .= createOrderValidationErrorType
-      , "title" .= createOrderValidationErrorTitle
-      , "status" .= createOrderValidationErrorStatus
-      , "traceId" .= createOrderValidationErrorTraceId
-      , "errors" .= createOrderValidationErrorErrors
-      ]
-
-
--- | Construct a value of type 'CreateOrderValidationError' (by applying it's required fields, if any)
-mkCreateOrderValidationError
-  :: CreateOrderValidationError
-mkCreateOrderValidationError =
-  CreateOrderValidationError
-  { createOrderValidationErrorType = Nothing
-  , createOrderValidationErrorTitle = Nothing
-  , createOrderValidationErrorStatus = Nothing
-  , createOrderValidationErrorTraceId = Nothing
-  , createOrderValidationErrorErrors = Nothing
-  }
-
 -- ** ExecutionReport
 -- | ExecutionReport
 data ExecutionReport = ExecutionReport
@@ -228,7 +182,7 @@ data ExecutionReport = ExecutionReport
   , executionReportAmountOpen :: !(Double) -- ^ /Required/ "amount_open" - Amount open
   , executionReportAmountFilled :: !(Double) -- ^ /Required/ "amount_filled" - Amount filled
   , executionReportStatus :: !(OrdStatus) -- ^ /Required/ "status"
-  , executionReportTimeOrder :: !([[Text]]) -- ^ /Required/ "time_order" - History of order status changes
+  , executionReportTimeOrder :: !([[Text]]) -- ^ /Required/ "time_order" - Timestamped history of order status changes.
   , executionReportErrorMessage :: !(Maybe Text) -- ^ "error_message" - Error message
   } deriving (P.Show, P.Eq, P.Typeable)
 
@@ -293,7 +247,7 @@ mkExecutionReport
   -> Double -- ^ 'executionReportAmountOpen': Amount open
   -> Double -- ^ 'executionReportAmountFilled': Amount filled
   -> OrdStatus -- ^ 'executionReportStatus' 
-  -> [[Text]] -- ^ 'executionReportTimeOrder': History of order status changes
+  -> [[Text]] -- ^ 'executionReportTimeOrder': Timestamped history of order status changes.
   -> ExecutionReport
 mkExecutionReport executionReportExchangeId executionReportClientOrderId executionReportAmountOrder executionReportPrice executionReportSide executionReportOrderType executionReportTimeInForce executionReportClientOrderIdFormatExchange executionReportAmountOpen executionReportAmountFilled executionReportStatus executionReportTimeOrder =
   ExecutionReport
@@ -326,7 +280,7 @@ data ExecutionReportAllOf = ExecutionReportAllOf
   , executionReportAllOfAmountOpen :: !(Double) -- ^ /Required/ "amount_open" - Amount open
   , executionReportAllOfAmountFilled :: !(Double) -- ^ /Required/ "amount_filled" - Amount filled
   , executionReportAllOfStatus :: !(OrdStatus) -- ^ /Required/ "status"
-  , executionReportAllOfTimeOrder :: !([[Text]]) -- ^ /Required/ "time_order" - History of order status changes
+  , executionReportAllOfTimeOrder :: !([[Text]]) -- ^ /Required/ "time_order" - Timestamped history of order status changes.
   , executionReportAllOfErrorMessage :: !(Maybe Text) -- ^ "error_message" - Error message
   } deriving (P.Show, P.Eq, P.Typeable)
 
@@ -362,7 +316,7 @@ mkExecutionReportAllOf
   -> Double -- ^ 'executionReportAllOfAmountOpen': Amount open
   -> Double -- ^ 'executionReportAllOfAmountFilled': Amount filled
   -> OrdStatus -- ^ 'executionReportAllOfStatus' 
-  -> [[Text]] -- ^ 'executionReportAllOfTimeOrder': History of order status changes
+  -> [[Text]] -- ^ 'executionReportAllOfTimeOrder': Timestamped history of order status changes.
   -> ExecutionReportAllOf
 mkExecutionReportAllOf executionReportAllOfClientOrderIdFormatExchange executionReportAllOfAmountOpen executionReportAllOfAmountFilled executionReportAllOfStatus executionReportAllOfTimeOrder =
   ExecutionReportAllOf
@@ -660,6 +614,52 @@ mkPositionData =
   , positionDataCrossMargin = Nothing
   , positionDataLiquidationPrice = Nothing
   , positionDataRawData = Nothing
+  }
+
+-- ** ValidationError
+-- | ValidationError
+-- JSON validation error.
+-- 
+data ValidationError = ValidationError
+  { validationErrorType :: !(Maybe Text) -- ^ "type"
+  , validationErrorTitle :: !(Maybe Text) -- ^ "title"
+  , validationErrorStatus :: !(Maybe Double) -- ^ "status"
+  , validationErrorTraceId :: !(Maybe Text) -- ^ "traceId"
+  , validationErrorErrors :: !(Maybe Text) -- ^ "errors"
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON ValidationError
+instance A.FromJSON ValidationError where
+  parseJSON = A.withObject "ValidationError" $ \o ->
+    ValidationError
+      <$> (o .:? "type")
+      <*> (o .:? "title")
+      <*> (o .:? "status")
+      <*> (o .:? "traceId")
+      <*> (o .:? "errors")
+
+-- | ToJSON ValidationError
+instance A.ToJSON ValidationError where
+  toJSON ValidationError {..} =
+   _omitNulls
+      [ "type" .= validationErrorType
+      , "title" .= validationErrorTitle
+      , "status" .= validationErrorStatus
+      , "traceId" .= validationErrorTraceId
+      , "errors" .= validationErrorErrors
+      ]
+
+
+-- | Construct a value of type 'ValidationError' (by applying it's required fields, if any)
+mkValidationError
+  :: ValidationError
+mkValidationError =
+  ValidationError
+  { validationErrorType = Nothing
+  , validationErrorTitle = Nothing
+  , validationErrorStatus = Nothing
+  , validationErrorTraceId = Nothing
+  , validationErrorErrors = Nothing
   }
 
 

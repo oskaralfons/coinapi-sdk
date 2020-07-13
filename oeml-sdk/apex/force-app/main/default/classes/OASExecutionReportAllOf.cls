@@ -45,7 +45,7 @@ public class OASExecutionReportAllOf implements OAS.MappedProperties {
     public OASOrdStatus status { get; set; }
 
     /**
-     * History of order status changes
+     * Timestamped history of order status changes.
      * @return timeOrder
      */
     public List<List<String>> timeOrder { get; set; }
@@ -80,7 +80,7 @@ public class OASExecutionReportAllOf implements OAS.MappedProperties {
           executionReportAllOf.amountOpen = 0.22;
           executionReportAllOf.amountFilled = 0.0;
           executionReportAllOf.status = OASOrdStatus.getExample();
-          executionReportAllOf.timeOrder = new List<List<String>>{new List<String>{'["RECEIVED","2020-05-27T11:16:20.1677709Z"]'}};
+          executionReportAllOf.timeOrder = new List<List<String>>{new List<String>{'[["RECEIVED","2020-05-27T11:16:20.1677709Z"],["REJECTED","2020-05-27T11:16:20.1677710Z"]]'}};
           executionReportAllOf.errorMessage = '{"result":"error","reason":"InsufficientFunds","message":"Failed to place buy order on symbol \\\'BTCUSD\\\' for price $7,000.00 and quantity 0.22 BTC due to insufficient funds"}';
         return executionReportAllOf;
     }

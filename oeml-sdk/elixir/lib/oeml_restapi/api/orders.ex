@@ -62,7 +62,7 @@ defmodule OEML-RESTAPI.Api.Orders do
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
       { 200, %OEML-RESTAPI.Model.ExecutionReport{}},
-      { 400, %OEML-RESTAPI.Model.CreateOrderValidationError{}},
+      { 400, %OEML-RESTAPI.Model.ValidationError{}},
       { 490, %OEML-RESTAPI.Model.Message{}}
     ])
   end
@@ -121,7 +121,7 @@ defmodule OEML-RESTAPI.Api.Orders do
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
       { 200, %OEML-RESTAPI.Model.ExecutionReport{}},
-      { 400, %OEML-RESTAPI.Model.CreateOrderValidationError{}},
+      { 400, %OEML-RESTAPI.Model.ValidationError{}},
       { 490, %OEML-RESTAPI.Model.Message{}}
     ])
   end

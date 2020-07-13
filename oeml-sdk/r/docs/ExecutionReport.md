@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **amount_open** | **numeric** | Amount open | 
 **amount_filled** | **numeric** | Amount filled | 
 **status** | [**OrdStatus**](OrdStatus.md) |  | 
-**time_order** | [**array[array[character]]**](array.md) | History of order status changes | 
+**time_order** | [**array[array[character]]**](array.md) | Timestamped history of order status changes. | 
 **error_message** | **character** | Error message | [optional] 
 
 

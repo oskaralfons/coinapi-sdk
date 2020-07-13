@@ -35,7 +35,7 @@ export class ExecutionReportAllOf {
     'amountFilled': number;
     'status': OrdStatus;
     /**
-    * History of order status changes
+    * Timestamped history of order status changes.
     */
     'timeOrder': Array<Array<string>>;
     /**

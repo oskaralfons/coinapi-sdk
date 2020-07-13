@@ -15,8 +15,8 @@ module Request.Orders exposing (v1OrdersCancelAllPost, v1OrdersCancelPost, v1Ord
 import Data.NewOrderSingle as NewOrderSingle exposing (NewOrderSingle)
 import Data.ExecutionReport as ExecutionReport exposing (ExecutionReport)
 import Data.Message as Message exposing (Message)
-import Data.CreateOrderValidationError as CreateOrderValidationError exposing (CreateOrderValidationError)
 import Data.OrderCancelSingleRequest as OrderCancelSingleRequest exposing (OrderCancelSingleRequest)
+import Data.ValidationError as ValidationError exposing (ValidationError)
 import Data.OrderCancelAllRequest as OrderCancelAllRequest exposing (OrderCancelAllRequest)
 import Dict
 import Http

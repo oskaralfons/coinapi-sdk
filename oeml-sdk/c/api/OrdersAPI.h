@@ -5,12 +5,12 @@
 #include "../external/cJSON.h"
 #include "../include/keyValuePair.h"
 #include "../include/binary.h"
-#include "../model/create_order_validation_error.h"
 #include "../model/execution_report.h"
 #include "../model/message.h"
 #include "../model/new_order_single.h"
 #include "../model/order_cancel_all_request.h"
 #include "../model/order_cancel_single_request.h"
+#include "../model/validation_error.h"
 
 
 // Cancel all orders

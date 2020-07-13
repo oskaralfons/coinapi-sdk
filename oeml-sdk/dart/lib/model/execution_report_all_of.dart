@@ -12,7 +12,7 @@ class ExecutionReportAllOf {
   
   OrdStatus status = null;
   //enum statusEnum {  RECEIVED,  ROUTING,  ROUTED,  NEW,  PENDING_CANCEL,  PARTIALLY_FILLED,  FILLED,  CANCELED,  REJECTED,  };{
-  /* History of order status changes */
+  /* Timestamped history of order status changes. */
   List<List<String>> timeOrder = [];
   /* Error message */
   String errorMessage = null;

@@ -28,7 +28,6 @@ build = {
 		["openapiclient.api.positions_api"] = "openapiclient/api/positions_api.lua";
 		["openapiclient.model.balance"] = "openapiclient/model/balance.lua";
 		["openapiclient.model.balance_data"] = "openapiclient/model/balance_data.lua";
-		["openapiclient.model.create_order_validation_error"] = "openapiclient/model/create_order_validation_error.lua";
 		["openapiclient.model.execution_report"] = "openapiclient/model/execution_report.lua";
 		["openapiclient.model.execution_report_all_of"] = "openapiclient/model/execution_report_all_of.lua";
 		["openapiclient.model.message"] = "openapiclient/model/message.lua";
@@ -42,5 +41,6 @@ build = {
 		["openapiclient.model.position_data"] = "openapiclient/model/position_data.lua";
 		["openapiclient.model.severity"] = "openapiclient/model/severity.lua";
 		["openapiclient.model.time_in_force"] = "openapiclient/model/time_in_force.lua";
+		["openapiclient.model.validation_error"] = "openapiclient/model/validation_error.lua";
 	}
 }

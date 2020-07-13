@@ -49,7 +49,6 @@ Class | Method | HTTP request | Description
 
  - [org.openapitools.client.models.Balance](docs/Balance.md)
  - [org.openapitools.client.models.BalanceData](docs/BalanceData.md)
- - [org.openapitools.client.models.CreateOrderValidationError](docs/CreateOrderValidationError.md)
  - [org.openapitools.client.models.ExecutionReport](docs/ExecutionReport.md)
  - [org.openapitools.client.models.ExecutionReportAllOf](docs/ExecutionReportAllOf.md)
  - [org.openapitools.client.models.Message](docs/Message.md)
@@ -63,6 +62,7 @@ Class | Method | HTTP request | Description
  - [org.openapitools.client.models.PositionData](docs/PositionData.md)
  - [org.openapitools.client.models.Severity](docs/Severity.md)
  - [org.openapitools.client.models.TimeInForce](docs/TimeInForce.md)
+ - [org.openapitools.client.models.ValidationError](docs/ValidationError.md)
 
 
 <a name="documentation-for-authorization"></a>

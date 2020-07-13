@@ -1,6 +1,5 @@
 export * from './balance';
 export * from './balanceData';
-export * from './createOrderValidationError';
 export * from './executionReport';
 export * from './executionReportAllOf';
 export * from './message';
@@ -14,3 +13,4 @@ export * from './position';
 export * from './positionData';
 export * from './severity';
 export * from './timeInForce';
+export * from './validationError';

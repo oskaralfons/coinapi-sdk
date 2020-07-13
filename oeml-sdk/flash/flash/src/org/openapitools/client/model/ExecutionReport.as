@@ -56,7 +56,7 @@ import org.openapitools.client.model.TimeInForce;
         public var amountFilled: Number = 0.0;
                 [XmlElement(name="status")]
         public var status: OrdStatus = NaN;
-        /* History of order status changes */
+        /* Timestamped history of order status changes. */
         // This declaration below of _timeOrder_obj_class is to force flash compiler to include this class
         private var _timeOrder_obj_class: Array = null;
         [XmlElementWrapper(name="time_order")]

@@ -4,7 +4,6 @@ HEADERS += \
 # Models
     $${PWD}/OAIBalance.h \
     $${PWD}/OAIBalance_data.h \
-    $${PWD}/OAICreateOrderValidationError.h \
     $${PWD}/OAIExecutionReport.h \
     $${PWD}/OAIExecutionReport_allOf.h \
     $${PWD}/OAIMessage.h \
@@ -18,6 +17,7 @@ HEADERS += \
     $${PWD}/OAIPosition_data.h \
     $${PWD}/OAISeverity.h \
     $${PWD}/OAITimeInForce.h \
+    $${PWD}/OAIValidationError.h \
 # APIs
     $${PWD}/OAIBalancesApi.h \
     $${PWD}/OAIOrdersApi.h \
@@ -33,7 +33,6 @@ SOURCES += \
 # Models
     $${PWD}/OAIBalance.cpp \
     $${PWD}/OAIBalance_data.cpp \
-    $${PWD}/OAICreateOrderValidationError.cpp \
     $${PWD}/OAIExecutionReport.cpp \
     $${PWD}/OAIExecutionReport_allOf.cpp \
     $${PWD}/OAIMessage.cpp \
@@ -47,6 +46,7 @@ SOURCES += \
     $${PWD}/OAIPosition_data.cpp \
     $${PWD}/OAISeverity.cpp \
     $${PWD}/OAITimeInForce.cpp \
+    $${PWD}/OAIValidationError.cpp \
 # APIs
     $${PWD}/OAIBalancesApi.cpp \
     $${PWD}/OAIOrdersApi.cpp \

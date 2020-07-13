@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **AmountOpen** | **decimal** | Amount open | 
 **AmountFilled** | **decimal** | Amount filled | 
 **Status** | **OrdStatus** |  | 
-**TimeOrder** | **List&lt;List&lt;string&gt;&gt;** | History of order status changes | 
+**TimeOrder** | **List&lt;List&lt;string&gt;&gt;** | Timestamped history of order status changes. | 
 **ErrorMessage** | **string** | Error message | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

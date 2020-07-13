@@ -114,7 +114,7 @@ API.Client.ExecutionReport.prototype.amountFilled;
 API.Client.ExecutionReport.prototype.status;
 
 /**
- * History of order status changes
+ * Timestamped history of order status changes.
  * @type {!Array<!Array<!string>>}
  * @export
  */

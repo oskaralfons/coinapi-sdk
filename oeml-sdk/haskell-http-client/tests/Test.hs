@@ -22,7 +22,6 @@ main =
       pure ()
       propMimeEq MimeJSON (Proxy :: Proxy Balance)
       propMimeEq MimeJSON (Proxy :: Proxy BalanceData)
-      propMimeEq MimeJSON (Proxy :: Proxy CreateOrderValidationError)
       propMimeEq MimeJSON (Proxy :: Proxy ExecutionReport)
       propMimeEq MimeJSON (Proxy :: Proxy ExecutionReportAllOf)
       propMimeEq MimeJSON (Proxy :: Proxy Message)
@@ -36,4 +35,5 @@ main =
       propMimeEq MimeJSON (Proxy :: Proxy PositionData)
       propMimeEq MimeJSON (Proxy :: Proxy Severity)
       propMimeEq MimeJSON (Proxy :: Proxy TimeInForce)
+      propMimeEq MimeJSON (Proxy :: Proxy ValidationError)
       

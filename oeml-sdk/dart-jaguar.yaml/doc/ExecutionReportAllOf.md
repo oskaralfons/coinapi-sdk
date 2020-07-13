@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **amountOpen** | **num** | Amount open | [default to null]
 **amountFilled** | **num** | Amount filled | [default to null]
 **status** | [**OrdStatus**](OrdStatus.md) |  | [default to null]
-**timeOrder** | [**List&lt;List&lt;String&gt;&gt;**](List.md) | History of order status changes | [default to const []]
+**timeOrder** | [**List&lt;List&lt;String&gt;&gt;**](List.md) | Timestamped history of order status changes. | [default to const []]
 **errorMessage** | **String** | Error message | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

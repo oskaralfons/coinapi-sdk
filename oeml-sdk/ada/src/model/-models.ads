@@ -417,9 +417,9 @@ package .Models is
 
 
    --  ------------------------------
-   --  Create order validation error (response)
+   --  JSON validation error.
    --  ------------------------------
-   type CreateOrderValidationError_Type is
+   type ValidationError_Type is
      record
        P_Type : Swagger.Nullable_UString;
        Title : Swagger.Nullable_UString;
@@ -428,25 +428,25 @@ package .Models is
        Errors : Swagger.Nullable_UString;
      end record;
 
-   package CreateOrderValidationError_Type_Vectors is
+   package ValidationError_Type_Vectors is
       new Ada.Containers.Vectors (Index_Type   => Positive,
-                                  Element_Type => CreateOrderValidationError_Type);
+                                  Element_Type => ValidationError_Type);
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in CreateOrderValidationError_Type);
+                        Value : in ValidationError_Type);
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in CreateOrderValidationError_Type_Vectors.Vector);
+                        Value : in ValidationError_Type_Vectors.Vector);
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out CreateOrderValidationError_Type);
+                          Value : out ValidationError_Type);
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out CreateOrderValidationError_Type_Vectors.Vector);
+                          Value : out ValidationError_Type_Vectors.Vector);
 
 
 

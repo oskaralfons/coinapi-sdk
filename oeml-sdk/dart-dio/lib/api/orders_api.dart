@@ -5,9 +5,9 @@ import 'package:dio/dio.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/serializer.dart';
 
-import 'package:openapi/model/create_order_validation_error.dart';
 import 'package:openapi/model/order_cancel_all_request.dart';
 import 'package:openapi/model/execution_report.dart';
+import 'package:openapi/model/validation_error.dart';
 import 'package:openapi/model/order_cancel_single_request.dart';
 import 'package:openapi/model/new_order_single.dart';
 import 'package:openapi/model/message.dart';

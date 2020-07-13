@@ -57,7 +57,7 @@ feature --Access
     status: detachable ORD_STATUS 
       
     time_order: detachable LIST [LIST [STRING_32]] 
-      -- History of order status changes
+      -- Timestamped history of order status changes.
     error_message: detachable STRING_32 
       -- Error message
 

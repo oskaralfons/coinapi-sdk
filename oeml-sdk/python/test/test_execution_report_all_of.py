@@ -43,7 +43,7 @@ class TestExecutionReportAllOf(unittest.TestCase):
                 status = 'RECEIVED', 
                 time_order = [
                     [
-                        '["RECEIVED","2020-05-27T11:16:20.1677709Z"]'
+                        '[["RECEIVED","2020-05-27T11:16:20.1677709Z"],["REJECTED","2020-05-27T11:16:20.1677710Z"]]'
                         ]
                     ], 
                 error_message = '{"result":"error","reason":"InsufficientFunds","message":"Failed to place buy order on symbol 'BTCUSD' for price $7,000.00 and quantity 0.22 BTC due to insufficient funds"}'
@@ -56,7 +56,7 @@ class TestExecutionReportAllOf(unittest.TestCase):
                 status = 'RECEIVED',
                 time_order = [
                     [
-                        '["RECEIVED","2020-05-27T11:16:20.1677709Z"]'
+                        '[["RECEIVED","2020-05-27T11:16:20.1677709Z"],["REJECTED","2020-05-27T11:16:20.1677710Z"]]'
                         ]
                     ],
         )

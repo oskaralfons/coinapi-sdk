@@ -689,7 +689,7 @@ package body .Models is
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in CreateOrderValidationError_Type) is
+                        Value : in ValidationError_Type) is
    begin
       Into.Start_Entity (Name);
       Into.Write_Entity ("type", Value.P_Type);
@@ -702,7 +702,7 @@ package body .Models is
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in CreateOrderValidationError_Type_Vectors.Vector) is
+                        Value : in ValidationError_Type_Vectors.Vector) is
    begin
       Into.Start_Array (Name);
       for Item of Value loop
@@ -713,7 +713,7 @@ package body .Models is
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out CreateOrderValidationError_Type) is
+                          Value : out ValidationError_Type) is
       Object : Swagger.Value_Type;
    begin
       Swagger.Streams.Deserialize (From, Name, Object);
@@ -726,9 +726,9 @@ package body .Models is
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out CreateOrderValidationError_Type_Vectors.Vector) is
+                          Value : out ValidationError_Type_Vectors.Vector) is
       List : Swagger.Value_Array_Type;
-      Item : CreateOrderValidationError_Type;
+      Item : ValidationError_Type;
    begin
       Value.Clear;
       Swagger.Streams.Deserialize (From, Name, List);

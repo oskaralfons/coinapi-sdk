@@ -168,7 +168,7 @@ func (a *OrdersApiService) V1OrdersCancelPost(ctx _context.Context, orderCancelS
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v CreateOrderValidationError
+			var v ValidationError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -350,7 +350,7 @@ func (a *OrdersApiService) V1OrdersPost(ctx _context.Context, newOrderSingle New
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v CreateOrderValidationError
+			var v ValidationError
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

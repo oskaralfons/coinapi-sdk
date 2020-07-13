@@ -205,7 +205,7 @@ public:
     void setStatus(const std::shared_ptr<OrdStatus>& value);
 
     /// <summary>
-    /// History of order status changes
+    /// Timestamped history of order status changes.
     /// </summary>
     std::vector<std::vector<utility::string_t>>& getTimeOrder();
     bool timeOrderIsSet() const;

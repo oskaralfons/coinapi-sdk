@@ -137,7 +137,6 @@ Class | Method | HTTP request | Description
 
  - [OemlRestApi.Balance](docs/Balance.md)
  - [OemlRestApi.BalanceData](docs/BalanceData.md)
- - [OemlRestApi.CreateOrderValidationError](docs/CreateOrderValidationError.md)
  - [OemlRestApi.ExecutionReport](docs/ExecutionReport.md)
  - [OemlRestApi.ExecutionReportAllOf](docs/ExecutionReportAllOf.md)
  - [OemlRestApi.Message](docs/Message.md)
@@ -151,6 +150,7 @@ Class | Method | HTTP request | Description
  - [OemlRestApi.PositionData](docs/PositionData.md)
  - [OemlRestApi.Severity](docs/Severity.md)
  - [OemlRestApi.TimeInForce](docs/TimeInForce.md)
+ - [OemlRestApi.ValidationError](docs/ValidationError.md)
 
 
 ## Documentation for Authorization

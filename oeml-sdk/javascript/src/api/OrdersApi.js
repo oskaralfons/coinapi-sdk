@@ -13,12 +13,12 @@
 
 
 import ApiClient from "../ApiClient";
-import CreateOrderValidationError from '../model/CreateOrderValidationError';
 import ExecutionReport from '../model/ExecutionReport';
 import Message from '../model/Message';
 import NewOrderSingle from '../model/NewOrderSingle';
 import OrderCancelAllRequest from '../model/OrderCancelAllRequest';
 import OrderCancelSingleRequest from '../model/OrderCancelSingleRequest';
+import ValidationError from '../model/ValidationError';
 
 /**
 * Orders service.

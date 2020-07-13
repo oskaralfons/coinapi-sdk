@@ -200,7 +200,7 @@ __PACKAGE__->method_documentation({
     'time_order' => {
         datatype => 'ARRAY[ARRAY[string]]',
         base_name => 'time_order',
-        description => 'History of order status changes',
+        description => 'Timestamped history of order status changes.',
         format => '',
         read_only => '',
             },

@@ -11,12 +11,12 @@
  */
 package org.openapitools.client.api
 
-import org.openapitools.client.model.CreateOrderValidationError
 import org.openapitools.client.model.ExecutionReport
 import org.openapitools.client.model.Message
 import org.openapitools.client.model.NewOrderSingle
 import org.openapitools.client.model.OrderCancelAllRequest
 import org.openapitools.client.model.OrderCancelSingleRequest
+import org.openapitools.client.model.ValidationError
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
 import org.openapitools.client.core.ApiKeyLocations._
@@ -47,7 +47,7 @@ class OrdersApi(baseUrl: String) {
    * 
    * Expected answers:
    *   code 200 : ExecutionReport (Canceled order)
-   *   code 400 : CreateOrderValidationError (Validation errors)
+   *   code 400 : ValidationError (Validation errors)
    *   code 490 : Message (Exchange not registered)
    * 
    * @param orderCancelSingleRequest 
@@ -56,7 +56,7 @@ class OrdersApi(baseUrl: String) {
     ApiRequest[ExecutionReport](ApiMethods.POST, baseUrl, "/v1/orders/cancel", "application/json")
       .withBody(orderCancelSingleRequest)
       .withSuccessResponse[ExecutionReport](200)
-      .withErrorResponse[CreateOrderValidationError](400)
+      .withErrorResponse[ValidationError](400)
       .withErrorResponse[Message](490)
       
 
@@ -79,7 +79,7 @@ class OrdersApi(baseUrl: String) {
    * 
    * Expected answers:
    *   code 200 : ExecutionReport (Created)
-   *   code 400 : CreateOrderValidationError (Validation errors)
+   *   code 400 : ValidationError (Validation errors)
    *   code 490 : Message (Exchange not registered)
    * 
    * @param newOrderSingle 
@@ -88,7 +88,7 @@ class OrdersApi(baseUrl: String) {
     ApiRequest[ExecutionReport](ApiMethods.POST, baseUrl, "/v1/orders", "application/json")
       .withBody(newOrderSingle)
       .withSuccessResponse[ExecutionReport](200)
-      .withErrorResponse[CreateOrderValidationError](400)
+      .withErrorResponse[ValidationError](400)
       .withErrorResponse[Message](490)
       
 

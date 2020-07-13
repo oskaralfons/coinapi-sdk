@@ -61,7 +61,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CreateOrderValidationError'
+                $ref: '#/components/schemas/ValidationError'
           description: Validation errors
         "490":
           content:
@@ -123,7 +123,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CreateOrderValidationError'
+                $ref: '#/components/schemas/ValidationError'
           description: Validation errors
         "490":
           content:
@@ -396,7 +396,7 @@ components:
             $ref: '#/components/schemas/Position_data'
           type: array
       type: object
-    CreateOrderValidationError:
+    ValidationError:
       properties:
         type:
           example: https://tools.ietf.org/html/rfc7231#section-6.5.1
@@ -412,7 +412,7 @@ components:
           type: string
         errors:
           type: string
-      title: Create order validation error (response)
+      title: JSON validation error.
       type: object
     Message:
       example:
@@ -516,10 +516,10 @@ components:
         status:
           $ref: '#/components/schemas/OrdStatus'
         time_order:
-          description: History of order status changes
+          description: Timestamped history of order status changes.
           items:
             items:
-              example: '["RECEIVED","2020-05-27T11:16:20.1677709Z"]'
+              example: '[["RECEIVED","2020-05-27T11:16:20.1677709Z"],["REJECTED","2020-05-27T11:16:20.1677710Z"]]'
               type: string
             type: array
           type: array

@@ -36,7 +36,6 @@ Class | Method | HTTP request | Description
 
  - [BALANCE](docs/BALANCE.md)
  - [BALANCE_DATA](docs/BALANCE_DATA.md)
- - [CREATE_ORDER_VALIDATION_ERROR](docs/CREATE_ORDER_VALIDATION_ERROR.md)
  - [EXECUTION_REPORT](docs/EXECUTION_REPORT.md)
  - [EXECUTION_REPORT_ALL_OF](docs/EXECUTION_REPORT_ALL_OF.md)
  - [MESSAGE](docs/MESSAGE.md)
@@ -50,6 +49,7 @@ Class | Method | HTTP request | Description
  - [POSITION_DATA](docs/POSITION_DATA.md)
  - [SEVERITY](docs/SEVERITY.md)
  - [TIME_IN_FORCE](docs/TIME_IN_FORCE.md)
+ - [VALIDATION_ERROR](docs/VALIDATION_ERROR.md)
 
 
 ## Documentation For Authorization

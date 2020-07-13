@@ -120,7 +120,7 @@ public class OASExecutionReport implements OASNewOrderSingle, OASExecutionReport
     public OASOrdStatus status { get; set; }
 
     /**
-     * History of order status changes
+     * Timestamped history of order status changes.
      * @return timeOrder
      */
     public List<List<String>> timeOrder { get; set; }
@@ -176,7 +176,7 @@ public class OASExecutionReport implements OASNewOrderSingle, OASExecutionReport
           executionReport.amountOpen = 0.22;
           executionReport.amountFilled = 0.0;
           executionReport.status = OASOrdStatus.getExample();
-          executionReport.timeOrder = new List<List<String>>{new List<String>{'["RECEIVED","2020-05-27T11:16:20.1677709Z"]'}};
+          executionReport.timeOrder = new List<List<String>>{new List<String>{'[["RECEIVED","2020-05-27T11:16:20.1677709Z"],["REJECTED","2020-05-27T11:16:20.1677710Z"]]'}};
           executionReport.errorMessage = '{"result":"error","reason":"InsufficientFunds","message":"Failed to place buy order on symbol \'BTCUSD\' for price $7,000.00 and quantity 0.22 BTC due to insufficient funds"}';
         return executionReport;
     }

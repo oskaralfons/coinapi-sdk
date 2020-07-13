@@ -240,9 +240,9 @@ public class ExecutionReport {
   }
 
   /**
-   * History of order status changes
+   * Timestamped history of order status changes.
    **/
-  @ApiModelProperty(required = true, value = "History of order status changes")
+  @ApiModelProperty(required = true, value = "Timestamped history of order status changes.")
   public List<List<String>> getTimeOrder() {
     return timeOrder;
   }

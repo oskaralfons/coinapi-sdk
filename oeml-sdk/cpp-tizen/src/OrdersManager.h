@@ -5,12 +5,12 @@
 #include <cstring>
 #include <list>
 #include <glib.h>
-#include "CreateOrderValidationError.h"
 #include "ExecutionReport.h"
 #include "Message.h"
 #include "NewOrderSingle.h"
 #include "OrderCancelAllRequest.h"
 #include "OrderCancelSingleRequest.h"
+#include "ValidationError.h"
 #include "Error.h"
 
 /** \defgroup Operations API Endpoints

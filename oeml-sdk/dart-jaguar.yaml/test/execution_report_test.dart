@@ -98,7 +98,7 @@ void main() {
       // TODO
     });
 
-    // History of order status changes
+    // Timestamped history of order status changes.
     // List<List<String>> timeOrder (default value: const [])
     test('to test the property `timeOrder`', () async {
       // TODO

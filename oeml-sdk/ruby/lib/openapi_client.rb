@@ -19,7 +19,6 @@ require 'openapi_client/configuration'
 # Models
 require 'openapi_client/models/balance'
 require 'openapi_client/models/balance_data'
-require 'openapi_client/models/create_order_validation_error'
 require 'openapi_client/models/execution_report'
 require 'openapi_client/models/execution_report_all_of'
 require 'openapi_client/models/message'
@@ -33,6 +32,7 @@ require 'openapi_client/models/position'
 require 'openapi_client/models/position_data'
 require 'openapi_client/models/severity'
 require 'openapi_client/models/time_in_force'
+require 'openapi_client/models/validation_error'
 
 # APIs
 require 'openapi_client/api/balances_api'

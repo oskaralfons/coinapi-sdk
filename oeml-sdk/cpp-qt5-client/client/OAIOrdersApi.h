@@ -14,12 +14,12 @@
 
 #include "OAIHttpRequest.h"
 
-#include "OAICreateOrderValidationError.h"
 #include "OAIExecutionReport.h"
 #include "OAIMessage.h"
 #include "OAINewOrderSingle.h"
 #include "OAIOrderCancelAllRequest.h"
 #include "OAIOrderCancelSingleRequest.h"
+#include "OAIValidationError.h"
 #include <QString>
 
 #include <QObject>

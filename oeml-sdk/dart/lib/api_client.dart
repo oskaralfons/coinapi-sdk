@@ -40,8 +40,6 @@ class ApiClient {
           return Balance.fromJson(value);
         case 'BalanceData':
           return BalanceData.fromJson(value);
-        case 'CreateOrderValidationError':
-          return CreateOrderValidationError.fromJson(value);
         case 'ExecutionReport':
           return ExecutionReport.fromJson(value);
         case 'ExecutionReportAllOf':
@@ -68,6 +66,8 @@ class ApiClient {
           return new SeverityTypeTransformer().decode(value);
         case 'TimeInForce':
           return new TimeInForceTypeTransformer().decode(value);
+        case 'ValidationError':
+          return ValidationError.fromJson(value);
         default:
           {
             Match match;

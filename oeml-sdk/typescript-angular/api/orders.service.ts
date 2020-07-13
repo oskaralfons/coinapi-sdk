@@ -17,12 +17,12 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
-import { CreateOrderValidationError } from '../model/models';
 import { ExecutionReport } from '../model/models';
 import { Message } from '../model/models';
 import { NewOrderSingle } from '../model/models';
 import { OrderCancelAllRequest } from '../model/models';
 import { OrderCancelSingleRequest } from '../model/models';
+import { ValidationError } from '../model/models';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';

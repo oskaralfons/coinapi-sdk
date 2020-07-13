@@ -20,7 +20,7 @@ import com.squareup.moshi.Json
  * @param amountOpen Amount open
  * @param amountFilled Amount filled
  * @param status 
- * @param timeOrder History of order status changes
+ * @param timeOrder Timestamped history of order status changes.
  * @param exchangeOrderId Exchange order id
  * @param errorMessage Error message
  */
@@ -37,7 +37,7 @@ data class ExecutionReportAllOf (
     val amountFilled: java.math.BigDecimal,
     @Json(name = "status")
     val status: OrdStatus,
-    /* History of order status changes */
+    /* Timestamped history of order status changes. */
     @Json(name = "time_order")
     val timeOrder: kotlin.Array<kotlin.Array<kotlin.String>>,
     /* Exchange order id */

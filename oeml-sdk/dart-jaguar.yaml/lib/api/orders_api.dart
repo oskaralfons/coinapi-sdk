@@ -4,9 +4,9 @@ import 'package:jaguar_serializer/jaguar_serializer.dart';
 import 'package:jaguar_mimetype/jaguar_mimetype.dart';
 import 'dart:async';
 
-import 'package:openapi/model/create_order_validation_error.dart';
 import 'package:openapi/model/order_cancel_all_request.dart';
 import 'package:openapi/model/execution_report.dart';
+import 'package:openapi/model/validation_error.dart';
 import 'package:openapi/model/order_cancel_single_request.dart';
 import 'package:openapi/model/new_order_single.dart';
 import 'package:openapi/model/message.dart';

@@ -202,7 +202,7 @@ class ExecutionReportAllOf(object):
     def time_order(self):
         """Gets the time_order of this ExecutionReportAllOf.  # noqa: E501
 
-        History of order status changes  # noqa: E501
+        Timestamped history of order status changes.  # noqa: E501
 
         :return: The time_order of this ExecutionReportAllOf.  # noqa: E501
         :rtype: list[list[str]]
@@ -213,7 +213,7 @@ class ExecutionReportAllOf(object):
     def time_order(self, time_order):
         """Sets the time_order of this ExecutionReportAllOf.
 
-        History of order status changes  # noqa: E501
+        Timestamped history of order status changes.  # noqa: E501
 
         :param time_order: The time_order of this ExecutionReportAllOf.  # noqa: E501
         :type: list[list[str]]

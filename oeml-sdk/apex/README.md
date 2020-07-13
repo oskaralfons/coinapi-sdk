@@ -76,7 +76,6 @@ Class | Method | HTTP request | Description
 
  - [OASBalance](OASBalance.md)
  - [OASBalanceData](OASBalanceData.md)
- - [OASCreateOrderValidationError](OASCreateOrderValidationError.md)
  - [OASExecutionReport](OASExecutionReport.md)
  - [OASExecutionReportAllOf](OASExecutionReportAllOf.md)
  - [OASMessage](OASMessage.md)
@@ -90,6 +89,7 @@ Class | Method | HTTP request | Description
  - [OASPositionData](OASPositionData.md)
  - [OASSeverity](OASSeverity.md)
  - [OASTimeInForce](OASTimeInForce.md)
+ - [OASValidationError](OASValidationError.md)
 
 
 ## Documentation for Authorization
