@@ -29,9 +29,9 @@ import java.io.IOException;
 
 import org.openapitools.client.model.CancelOrderAllRequest;
 import org.openapitools.client.model.CancelOrderSingleRequest;
-import org.openapitools.client.model.ExecutionReport;
 import org.openapitools.client.model.Message;
 import org.openapitools.client.model.NewOrderSingle;
+import org.openapitools.client.model.OrderExecutionReport;
 import org.openapitools.client.model.ValidationError;
 
 import java.lang.reflect.Type;
@@ -230,7 +230,7 @@ public class OrdersApi {
      * Cancel order
      * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
      * @param cancelOrderSingleRequest  (required)
-     * @return ExecutionReport
+     * @return OrderExecutionReport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -240,8 +240,8 @@ public class OrdersApi {
         <tr><td> 490 </td><td> Exchange not registered </td><td>  -  </td></tr>
      </table>
      */
-    public ExecutionReport v1OrdersCancelPost(CancelOrderSingleRequest cancelOrderSingleRequest) throws ApiException {
-        ApiResponse<ExecutionReport> localVarResp = v1OrdersCancelPostWithHttpInfo(cancelOrderSingleRequest);
+    public OrderExecutionReport v1OrdersCancelPost(CancelOrderSingleRequest cancelOrderSingleRequest) throws ApiException {
+        ApiResponse<OrderExecutionReport> localVarResp = v1OrdersCancelPostWithHttpInfo(cancelOrderSingleRequest);
         return localVarResp.getData();
     }
 
@@ -249,7 +249,7 @@ public class OrdersApi {
      * Cancel order
      * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
      * @param cancelOrderSingleRequest  (required)
-     * @return ApiResponse&lt;ExecutionReport&gt;
+     * @return ApiResponse&lt;OrderExecutionReport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -259,9 +259,9 @@ public class OrdersApi {
         <tr><td> 490 </td><td> Exchange not registered </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ExecutionReport> v1OrdersCancelPostWithHttpInfo(CancelOrderSingleRequest cancelOrderSingleRequest) throws ApiException {
+    public ApiResponse<OrderExecutionReport> v1OrdersCancelPostWithHttpInfo(CancelOrderSingleRequest cancelOrderSingleRequest) throws ApiException {
         okhttp3.Call localVarCall = v1OrdersCancelPostValidateBeforeCall(cancelOrderSingleRequest, null);
-        Type localVarReturnType = new TypeToken<ExecutionReport>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrderExecutionReport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -280,10 +280,10 @@ public class OrdersApi {
         <tr><td> 490 </td><td> Exchange not registered </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v1OrdersCancelPostAsync(CancelOrderSingleRequest cancelOrderSingleRequest, final ApiCallback<ExecutionReport> _callback) throws ApiException {
+    public okhttp3.Call v1OrdersCancelPostAsync(CancelOrderSingleRequest cancelOrderSingleRequest, final ApiCallback<OrderExecutionReport> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = v1OrdersCancelPostValidateBeforeCall(cancelOrderSingleRequest, _callback);
-        Type localVarReturnType = new TypeToken<ExecutionReport>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrderExecutionReport>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -345,7 +345,7 @@ public class OrdersApi {
      * Get all orders
      * Get all current open orders across all or single specified exchange.
      * @param exchangeId Filter the output to the orders from the specific exchange. (optional)
-     * @return List&lt;ExecutionReport&gt;
+     * @return List&lt;OrderExecutionReport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -353,8 +353,8 @@ public class OrdersApi {
         <tr><td> 200 </td><td> Collection of requested open orders. </td><td>  -  </td></tr>
      </table>
      */
-    public List<ExecutionReport> v1OrdersGet(String exchangeId) throws ApiException {
-        ApiResponse<List<ExecutionReport>> localVarResp = v1OrdersGetWithHttpInfo(exchangeId);
+    public List<OrderExecutionReport> v1OrdersGet(String exchangeId) throws ApiException {
+        ApiResponse<List<OrderExecutionReport>> localVarResp = v1OrdersGetWithHttpInfo(exchangeId);
         return localVarResp.getData();
     }
 
@@ -362,7 +362,7 @@ public class OrdersApi {
      * Get all orders
      * Get all current open orders across all or single specified exchange.
      * @param exchangeId Filter the output to the orders from the specific exchange. (optional)
-     * @return ApiResponse&lt;List&lt;ExecutionReport&gt;&gt;
+     * @return ApiResponse&lt;List&lt;OrderExecutionReport&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -370,9 +370,9 @@ public class OrdersApi {
         <tr><td> 200 </td><td> Collection of requested open orders. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ExecutionReport>> v1OrdersGetWithHttpInfo(String exchangeId) throws ApiException {
+    public ApiResponse<List<OrderExecutionReport>> v1OrdersGetWithHttpInfo(String exchangeId) throws ApiException {
         okhttp3.Call localVarCall = v1OrdersGetValidateBeforeCall(exchangeId, null);
-        Type localVarReturnType = new TypeToken<List<ExecutionReport>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<OrderExecutionReport>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -389,10 +389,10 @@ public class OrdersApi {
         <tr><td> 200 </td><td> Collection of requested open orders. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v1OrdersGetAsync(String exchangeId, final ApiCallback<List<ExecutionReport>> _callback) throws ApiException {
+    public okhttp3.Call v1OrdersGetAsync(String exchangeId, final ApiCallback<List<OrderExecutionReport>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = v1OrdersGetValidateBeforeCall(exchangeId, _callback);
-        Type localVarReturnType = new TypeToken<List<ExecutionReport>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<OrderExecutionReport>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -457,7 +457,7 @@ public class OrdersApi {
      * Create new order
      * This request creating new order for the specific exchange.
      * @param newOrderSingle  (required)
-     * @return ExecutionReport
+     * @return OrderExecutionReport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -467,8 +467,8 @@ public class OrdersApi {
         <tr><td> 490 </td><td> Exchange not registered </td><td>  -  </td></tr>
      </table>
      */
-    public ExecutionReport v1OrdersPost(NewOrderSingle newOrderSingle) throws ApiException {
-        ApiResponse<ExecutionReport> localVarResp = v1OrdersPostWithHttpInfo(newOrderSingle);
+    public OrderExecutionReport v1OrdersPost(NewOrderSingle newOrderSingle) throws ApiException {
+        ApiResponse<OrderExecutionReport> localVarResp = v1OrdersPostWithHttpInfo(newOrderSingle);
         return localVarResp.getData();
     }
 
@@ -476,7 +476,7 @@ public class OrdersApi {
      * Create new order
      * This request creating new order for the specific exchange.
      * @param newOrderSingle  (required)
-     * @return ApiResponse&lt;ExecutionReport&gt;
+     * @return ApiResponse&lt;OrderExecutionReport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -486,9 +486,9 @@ public class OrdersApi {
         <tr><td> 490 </td><td> Exchange not registered </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ExecutionReport> v1OrdersPostWithHttpInfo(NewOrderSingle newOrderSingle) throws ApiException {
+    public ApiResponse<OrderExecutionReport> v1OrdersPostWithHttpInfo(NewOrderSingle newOrderSingle) throws ApiException {
         okhttp3.Call localVarCall = v1OrdersPostValidateBeforeCall(newOrderSingle, null);
-        Type localVarReturnType = new TypeToken<ExecutionReport>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrderExecutionReport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -507,10 +507,10 @@ public class OrdersApi {
         <tr><td> 490 </td><td> Exchange not registered </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v1OrdersPostAsync(NewOrderSingle newOrderSingle, final ApiCallback<ExecutionReport> _callback) throws ApiException {
+    public okhttp3.Call v1OrdersPostAsync(NewOrderSingle newOrderSingle, final ApiCallback<OrderExecutionReport> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = v1OrdersPostValidateBeforeCall(newOrderSingle, _callback);
-        Type localVarReturnType = new TypeToken<ExecutionReport>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrderExecutionReport>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -575,7 +575,7 @@ public class OrdersApi {
      * Get order status
      * Get the current order status for the specified order. The requested order can no longer be active.
      * @param clientOrderId Order Client Id of the order for which the status is requested. (required)
-     * @return ExecutionReport
+     * @return OrderExecutionReport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -584,8 +584,8 @@ public class OrdersApi {
         <tr><td> 400 </td><td> The order was not found. </td><td>  -  </td></tr>
      </table>
      */
-    public ExecutionReport v1OrdersStatusClientOrderIdGet(String clientOrderId) throws ApiException {
-        ApiResponse<ExecutionReport> localVarResp = v1OrdersStatusClientOrderIdGetWithHttpInfo(clientOrderId);
+    public OrderExecutionReport v1OrdersStatusClientOrderIdGet(String clientOrderId) throws ApiException {
+        ApiResponse<OrderExecutionReport> localVarResp = v1OrdersStatusClientOrderIdGetWithHttpInfo(clientOrderId);
         return localVarResp.getData();
     }
 
@@ -593,7 +593,7 @@ public class OrdersApi {
      * Get order status
      * Get the current order status for the specified order. The requested order can no longer be active.
      * @param clientOrderId Order Client Id of the order for which the status is requested. (required)
-     * @return ApiResponse&lt;ExecutionReport&gt;
+     * @return ApiResponse&lt;OrderExecutionReport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -602,9 +602,9 @@ public class OrdersApi {
         <tr><td> 400 </td><td> The order was not found. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ExecutionReport> v1OrdersStatusClientOrderIdGetWithHttpInfo(String clientOrderId) throws ApiException {
+    public ApiResponse<OrderExecutionReport> v1OrdersStatusClientOrderIdGetWithHttpInfo(String clientOrderId) throws ApiException {
         okhttp3.Call localVarCall = v1OrdersStatusClientOrderIdGetValidateBeforeCall(clientOrderId, null);
-        Type localVarReturnType = new TypeToken<ExecutionReport>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrderExecutionReport>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -622,10 +622,10 @@ public class OrdersApi {
         <tr><td> 400 </td><td> The order was not found. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call v1OrdersStatusClientOrderIdGetAsync(String clientOrderId, final ApiCallback<ExecutionReport> _callback) throws ApiException {
+    public okhttp3.Call v1OrdersStatusClientOrderIdGetAsync(String clientOrderId, final ApiCallback<OrderExecutionReport> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = v1OrdersStatusClientOrderIdGetValidateBeforeCall(clientOrderId, _callback);
-        Type localVarReturnType = new TypeToken<ExecutionReport>(){}.getType();
+        Type localVarReturnType = new TypeToken<OrderExecutionReport>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

@@ -13,9 +13,9 @@ package org.openapitools.client.api
 
 import org.openapitools.client.model.CancelOrderAllRequest
 import org.openapitools.client.model.CancelOrderSingleRequest
-import org.openapitools.client.model.ExecutionReport
 import org.openapitools.client.model.Message
 import org.openapitools.client.model.NewOrderSingle
+import org.openapitools.client.model.OrderExecutionReport
 import org.openapitools.client.model.ValidationError
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
@@ -46,16 +46,16 @@ class OrdersApi(baseUrl: String) {
    * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
    * 
    * Expected answers:
-   *   code 200 : ExecutionReport (Canceled order)
+   *   code 200 : OrderExecutionReport (Canceled order)
    *   code 400 : ValidationError (Validation errors)
    *   code 490 : Message (Exchange not registered)
    * 
    * @param cancelOrderSingleRequest 
    */
-  def v1OrdersCancelPost(cancelOrderSingleRequest: CancelOrderSingleRequest): ApiRequest[ExecutionReport] =
-    ApiRequest[ExecutionReport](ApiMethods.POST, baseUrl, "/v1/orders/cancel", "application/json")
+  def v1OrdersCancelPost(cancelOrderSingleRequest: CancelOrderSingleRequest): ApiRequest[OrderExecutionReport] =
+    ApiRequest[OrderExecutionReport](ApiMethods.POST, baseUrl, "/v1/orders/cancel", "application/json")
       .withBody(cancelOrderSingleRequest)
-      .withSuccessResponse[ExecutionReport](200)
+      .withSuccessResponse[OrderExecutionReport](200)
       .withErrorResponse[ValidationError](400)
       .withErrorResponse[Message](490)
       
@@ -64,30 +64,30 @@ class OrdersApi(baseUrl: String) {
    * Get all current open orders across all or single specified exchange.
    * 
    * Expected answers:
-   *   code 200 : Seq[ExecutionReport] (Collection of requested open orders.)
+   *   code 200 : Seq[OrderExecutionReport] (Collection of requested open orders.)
    * 
    * @param exchangeId Filter the output to the orders from the specific exchange.
    */
-  def v1OrdersGet(exchangeId: Option[String] = None): ApiRequest[Seq[ExecutionReport]] =
-    ApiRequest[Seq[ExecutionReport]](ApiMethods.GET, baseUrl, "/v1/orders", "application/json")
+  def v1OrdersGet(exchangeId: Option[String] = None): ApiRequest[Seq[OrderExecutionReport]] =
+    ApiRequest[Seq[OrderExecutionReport]](ApiMethods.GET, baseUrl, "/v1/orders", "application/json")
       .withQueryParam("exchange_id", exchangeId)
-      .withSuccessResponse[Seq[ExecutionReport]](200)
+      .withSuccessResponse[Seq[OrderExecutionReport]](200)
       
 
   /**
    * This request creating new order for the specific exchange.
    * 
    * Expected answers:
-   *   code 200 : ExecutionReport (Created)
+   *   code 200 : OrderExecutionReport (Created)
    *   code 400 : ValidationError (Validation errors)
    *   code 490 : Message (Exchange not registered)
    * 
    * @param newOrderSingle 
    */
-  def v1OrdersPost(newOrderSingle: NewOrderSingle): ApiRequest[ExecutionReport] =
-    ApiRequest[ExecutionReport](ApiMethods.POST, baseUrl, "/v1/orders", "application/json")
+  def v1OrdersPost(newOrderSingle: NewOrderSingle): ApiRequest[OrderExecutionReport] =
+    ApiRequest[OrderExecutionReport](ApiMethods.POST, baseUrl, "/v1/orders", "application/json")
       .withBody(newOrderSingle)
-      .withSuccessResponse[ExecutionReport](200)
+      .withSuccessResponse[OrderExecutionReport](200)
       .withErrorResponse[ValidationError](400)
       .withErrorResponse[Message](490)
       
@@ -96,15 +96,15 @@ class OrdersApi(baseUrl: String) {
    * Get the current order status for the specified order. The requested order can no longer be active.
    * 
    * Expected answers:
-   *   code 200 : ExecutionReport (The order was found.)
+   *   code 200 : OrderExecutionReport (The order was found.)
    *   code 400 : Message (The order was not found.)
    * 
    * @param clientOrderId Order Client Id of the order for which the status is requested.
    */
-  def v1OrdersStatusClientOrderIdGet(clientOrderId: String): ApiRequest[ExecutionReport] =
-    ApiRequest[ExecutionReport](ApiMethods.GET, baseUrl, "/v1/orders/status/{client_order_id}", "application/json")
+  def v1OrdersStatusClientOrderIdGet(clientOrderId: String): ApiRequest[OrderExecutionReport] =
+    ApiRequest[OrderExecutionReport](ApiMethods.GET, baseUrl, "/v1/orders/status/{client_order_id}", "application/json")
       .withPathParam("client_order_id", clientOrderId)
-      .withSuccessResponse[ExecutionReport](200)
+      .withSuccessResponse[OrderExecutionReport](200)
       .withErrorResponse[Message](400)
       
 

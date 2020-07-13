@@ -44,10 +44,6 @@ class ApiClient {
           return CancelOrderAllRequest.fromJson(value);
         case 'CancelOrderSingleRequest':
           return CancelOrderSingleRequest.fromJson(value);
-        case 'ExecutionReport':
-          return ExecutionReport.fromJson(value);
-        case 'ExecutionReportAllOf':
-          return ExecutionReportAllOf.fromJson(value);
         case 'Message':
           return Message.fromJson(value);
         case 'NewOrderSingle':
@@ -58,6 +54,10 @@ class ApiClient {
           return new OrdStatusTypeTransformer().decode(value);
         case 'OrdType':
           return new OrdTypeTypeTransformer().decode(value);
+        case 'OrderExecutionReport':
+          return OrderExecutionReport.fromJson(value);
+        case 'OrderExecutionReportAllOf':
+          return OrderExecutionReportAllOf.fromJson(value);
         case 'Position':
           return Position.fromJson(value);
         case 'PositionData':

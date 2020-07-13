@@ -34,13 +34,13 @@ from openapi_client.models.balance import Balance
 from openapi_client.models.balance_data import BalanceData
 from openapi_client.models.cancel_order_all_request import CancelOrderAllRequest
 from openapi_client.models.cancel_order_single_request import CancelOrderSingleRequest
-from openapi_client.models.execution_report import ExecutionReport
-from openapi_client.models.execution_report_all_of import ExecutionReportAllOf
 from openapi_client.models.message import Message
 from openapi_client.models.new_order_single import NewOrderSingle
 from openapi_client.models.ord_side import OrdSide
 from openapi_client.models.ord_status import OrdStatus
 from openapi_client.models.ord_type import OrdType
+from openapi_client.models.order_execution_report import OrderExecutionReport
+from openapi_client.models.order_execution_report_all_of import OrderExecutionReportAllOf
 from openapi_client.models.position import Position
 from openapi_client.models.position_data import PositionData
 from openapi_client.models.severity import Severity

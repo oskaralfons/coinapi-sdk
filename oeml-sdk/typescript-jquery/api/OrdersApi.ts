@@ -118,7 +118,7 @@ export class OrdersApi {
      * @param cancelOrderSingleRequest 
      */
     public v1OrdersCancelPost(cancelOrderSingleRequest: models.CancelOrderSingleRequest, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
-    { response: JQueryXHR; body: models.ExecutionReport;  },
+    { response: JQueryXHR; body: models.OrderExecutionReport;  },
     { response: JQueryXHR; errorThrown: string }
     > {
         let localVarPath = this.basePath + '/v1/orders/cancel';
@@ -167,11 +167,11 @@ export class OrdersApi {
         }
 
         let dfd = $.Deferred<
-            { response: JQueryXHR; body: models.ExecutionReport;  },
+            { response: JQueryXHR; body: models.OrderExecutionReport;  },
             { response: JQueryXHR; errorThrown: string }
         >();
         $.ajax(requestOptions).then(
-            (data: models.ExecutionReport, textStatus: string, jqXHR: JQueryXHR) =>
+            (data: models.OrderExecutionReport, textStatus: string, jqXHR: JQueryXHR) =>
                 dfd.resolve({response: jqXHR, body: data}),
             (xhr: JQueryXHR, textStatus: string, errorThrown: string) =>
                 dfd.reject({response: xhr, errorThrown: errorThrown})
@@ -185,7 +185,7 @@ export class OrdersApi {
      * @param exchangeId Filter the output to the orders from the specific exchange.
      */
     public v1OrdersGet(exchangeId?: string, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
-    { response: JQueryXHR; body: Array<models.ExecutionReport>;  },
+    { response: JQueryXHR; body: Array<models.OrderExecutionReport>;  },
     { response: JQueryXHR; errorThrown: string }
     > {
         let localVarPath = this.basePath + '/v1/orders';
@@ -227,11 +227,11 @@ export class OrdersApi {
         }
 
         let dfd = $.Deferred<
-            { response: JQueryXHR; body: Array<models.ExecutionReport>;  },
+            { response: JQueryXHR; body: Array<models.OrderExecutionReport>;  },
             { response: JQueryXHR; errorThrown: string }
         >();
         $.ajax(requestOptions).then(
-            (data: Array<models.ExecutionReport>, textStatus: string, jqXHR: JQueryXHR) =>
+            (data: Array<models.OrderExecutionReport>, textStatus: string, jqXHR: JQueryXHR) =>
                 dfd.resolve({response: jqXHR, body: data}),
             (xhr: JQueryXHR, textStatus: string, errorThrown: string) =>
                 dfd.reject({response: xhr, errorThrown: errorThrown})
@@ -245,7 +245,7 @@ export class OrdersApi {
      * @param newOrderSingle 
      */
     public v1OrdersPost(newOrderSingle: models.NewOrderSingle, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
-    { response: JQueryXHR; body: models.ExecutionReport;  },
+    { response: JQueryXHR; body: models.OrderExecutionReport;  },
     { response: JQueryXHR; errorThrown: string }
     > {
         let localVarPath = this.basePath + '/v1/orders';
@@ -294,11 +294,11 @@ export class OrdersApi {
         }
 
         let dfd = $.Deferred<
-            { response: JQueryXHR; body: models.ExecutionReport;  },
+            { response: JQueryXHR; body: models.OrderExecutionReport;  },
             { response: JQueryXHR; errorThrown: string }
         >();
         $.ajax(requestOptions).then(
-            (data: models.ExecutionReport, textStatus: string, jqXHR: JQueryXHR) =>
+            (data: models.OrderExecutionReport, textStatus: string, jqXHR: JQueryXHR) =>
                 dfd.resolve({response: jqXHR, body: data}),
             (xhr: JQueryXHR, textStatus: string, errorThrown: string) =>
                 dfd.reject({response: xhr, errorThrown: errorThrown})
@@ -312,7 +312,7 @@ export class OrdersApi {
      * @param clientOrderId Order Client Id of the order for which the status is requested.
      */
     public v1OrdersStatusClientOrderIdGet(clientOrderId: string, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
-    { response: JQueryXHR; body: models.ExecutionReport;  },
+    { response: JQueryXHR; body: models.OrderExecutionReport;  },
     { response: JQueryXHR; errorThrown: string }
     > {
         let localVarPath = this.basePath + '/v1/orders/status/{client_order_id}'.replace('{' + 'client_order_id' + '}', encodeURIComponent(String(clientOrderId)));
@@ -356,11 +356,11 @@ export class OrdersApi {
         }
 
         let dfd = $.Deferred<
-            { response: JQueryXHR; body: models.ExecutionReport;  },
+            { response: JQueryXHR; body: models.OrderExecutionReport;  },
             { response: JQueryXHR; errorThrown: string }
         >();
         $.ajax(requestOptions).then(
-            (data: models.ExecutionReport, textStatus: string, jqXHR: JQueryXHR) =>
+            (data: models.OrderExecutionReport, textStatus: string, jqXHR: JQueryXHR) =>
                 dfd.resolve({response: jqXHR, body: data}),
             (xhr: JQueryXHR, textStatus: string, errorThrown: string) =>
                 dfd.reject({response: xhr, errorThrown: errorThrown})

@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExecutionReport**](ExecutionReport.md)
+[**OrderExecutionReport**](OrderExecutionReport.md)
 
 ### Authorization
 
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**array[ExecutionReport]**](ExecutionReport.md)
+[**array[OrderExecutionReport]**](OrderExecutionReport.md)
 
 ### Authorization
 
@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExecutionReport**](ExecutionReport.md)
+[**OrderExecutionReport**](OrderExecutionReport.md)
 
 ### Authorization
 
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExecutionReport**](ExecutionReport.md)
+[**OrderExecutionReport**](OrderExecutionReport.md)
 
 ### Authorization
 

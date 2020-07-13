@@ -3,9 +3,9 @@ package org.openapitools.api;
 import org.openapitools.api.ApiUtils
 import org.openapitools.model.CancelOrderAllRequest
 import org.openapitools.model.CancelOrderSingleRequest
-import org.openapitools.model.ExecutionReport
 import org.openapitools.model.Message
 import org.openapitools.model.NewOrderSingle
+import org.openapitools.model.OrderExecutionReport
 import org.openapitools.model.ValidationError
 
 class OrdersApi {
@@ -61,7 +61,7 @@ class OrdersApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "POST", "",
-                    ExecutionReport.class )
+                    OrderExecutionReport.class )
 
     }
 
@@ -84,7 +84,7 @@ class OrdersApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "array",
-                    ExecutionReport.class )
+                    OrderExecutionReport.class )
 
     }
 
@@ -110,7 +110,7 @@ class OrdersApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "POST", "",
-                    ExecutionReport.class )
+                    OrderExecutionReport.class )
 
     }
 
@@ -134,7 +134,7 @@ class OrdersApi {
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
-                    ExecutionReport.class )
+                    OrderExecutionReport.class )
 
     }
 

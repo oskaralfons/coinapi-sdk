@@ -6,13 +6,13 @@ HEADERS += \
     $${PWD}/OAIBalance_data.h \
     $${PWD}/OAICancelOrderAllRequest.h \
     $${PWD}/OAICancelOrderSingleRequest.h \
-    $${PWD}/OAIExecutionReport.h \
-    $${PWD}/OAIExecutionReport_allOf.h \
     $${PWD}/OAIMessage.h \
     $${PWD}/OAINewOrderSingle.h \
     $${PWD}/OAIOrdSide.h \
     $${PWD}/OAIOrdStatus.h \
     $${PWD}/OAIOrdType.h \
+    $${PWD}/OAIOrderExecutionReport.h \
+    $${PWD}/OAIOrderExecutionReport_allOf.h \
     $${PWD}/OAIPosition.h \
     $${PWD}/OAIPosition_data.h \
     $${PWD}/OAISeverity.h \
@@ -35,13 +35,13 @@ SOURCES += \
     $${PWD}/OAIBalance_data.cpp \
     $${PWD}/OAICancelOrderAllRequest.cpp \
     $${PWD}/OAICancelOrderSingleRequest.cpp \
-    $${PWD}/OAIExecutionReport.cpp \
-    $${PWD}/OAIExecutionReport_allOf.cpp \
     $${PWD}/OAIMessage.cpp \
     $${PWD}/OAINewOrderSingle.cpp \
     $${PWD}/OAIOrdSide.cpp \
     $${PWD}/OAIOrdStatus.cpp \
     $${PWD}/OAIOrdType.cpp \
+    $${PWD}/OAIOrderExecutionReport.cpp \
+    $${PWD}/OAIOrderExecutionReport_allOf.cpp \
     $${PWD}/OAIPosition.cpp \
     $${PWD}/OAIPosition_data.cpp \
     $${PWD}/OAISeverity.cpp \

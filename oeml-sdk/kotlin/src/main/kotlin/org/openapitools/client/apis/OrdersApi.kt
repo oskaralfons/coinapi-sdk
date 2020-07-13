@@ -13,9 +13,9 @@ package org.openapitools.client.apis
 
 import org.openapitools.client.models.CancelOrderAllRequest
 import org.openapitools.client.models.CancelOrderSingleRequest
-import org.openapitools.client.models.ExecutionReport
 import org.openapitools.client.models.Message
 import org.openapitools.client.models.NewOrderSingle
+import org.openapitools.client.models.OrderExecutionReport
 import org.openapitools.client.models.ValidationError
 
 import org.openapitools.client.infrastructure.ApiClient
@@ -83,14 +83,14 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
     * Cancel order
     * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
     * @param cancelOrderSingleRequest  
-    * @return ExecutionReport
+    * @return OrderExecutionReport
     * @throws UnsupportedOperationException If the API returns an informational or redirection response
     * @throws ClientException If the API returns a client error response
     * @throws ServerException If the API returns a server error response
     */
     @Suppress("UNCHECKED_CAST")
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun v1OrdersCancelPost(cancelOrderSingleRequest: CancelOrderSingleRequest) : ExecutionReport {
+    fun v1OrdersCancelPost(cancelOrderSingleRequest: CancelOrderSingleRequest) : OrderExecutionReport {
         val localVariableBody: kotlin.Any? = cancelOrderSingleRequest
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -100,13 +100,13 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
             query = localVariableQuery,
             headers = localVariableHeaders
         )
-        val localVarResponse = request<ExecutionReport>(
+        val localVarResponse = request<OrderExecutionReport>(
             localVariableConfig,
             localVariableBody
         )
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as ExecutionReport
+            ResponseType.Success -> (localVarResponse as Success<*>).data as OrderExecutionReport
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -124,14 +124,14 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
     * Get all orders
     * Get all current open orders across all or single specified exchange.
     * @param exchangeId Filter the output to the orders from the specific exchange. (optional)
-    * @return kotlin.Array<ExecutionReport>
+    * @return kotlin.Array<OrderExecutionReport>
     * @throws UnsupportedOperationException If the API returns an informational or redirection response
     * @throws ClientException If the API returns a client error response
     * @throws ServerException If the API returns a server error response
     */
     @Suppress("UNCHECKED_CAST")
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun v1OrdersGet(exchangeId: kotlin.String?) : kotlin.Array<ExecutionReport> {
+    fun v1OrdersGet(exchangeId: kotlin.String?) : kotlin.Array<OrderExecutionReport> {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, List<kotlin.String>>()
             .apply {
@@ -146,13 +146,13 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
             query = localVariableQuery,
             headers = localVariableHeaders
         )
-        val localVarResponse = request<kotlin.Array<ExecutionReport>>(
+        val localVarResponse = request<kotlin.Array<OrderExecutionReport>>(
             localVariableConfig,
             localVariableBody
         )
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Array<ExecutionReport>
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.Array<OrderExecutionReport>
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -170,14 +170,14 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
     * Create new order
     * This request creating new order for the specific exchange.
     * @param newOrderSingle  
-    * @return ExecutionReport
+    * @return OrderExecutionReport
     * @throws UnsupportedOperationException If the API returns an informational or redirection response
     * @throws ClientException If the API returns a client error response
     * @throws ServerException If the API returns a server error response
     */
     @Suppress("UNCHECKED_CAST")
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun v1OrdersPost(newOrderSingle: NewOrderSingle) : ExecutionReport {
+    fun v1OrdersPost(newOrderSingle: NewOrderSingle) : OrderExecutionReport {
         val localVariableBody: kotlin.Any? = newOrderSingle
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -187,13 +187,13 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
             query = localVariableQuery,
             headers = localVariableHeaders
         )
-        val localVarResponse = request<ExecutionReport>(
+        val localVarResponse = request<OrderExecutionReport>(
             localVariableConfig,
             localVariableBody
         )
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as ExecutionReport
+            ResponseType.Success -> (localVarResponse as Success<*>).data as OrderExecutionReport
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -211,14 +211,14 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
     * Get order status
     * Get the current order status for the specified order. The requested order can no longer be active.
     * @param clientOrderId Order Client Id of the order for which the status is requested. 
-    * @return ExecutionReport
+    * @return OrderExecutionReport
     * @throws UnsupportedOperationException If the API returns an informational or redirection response
     * @throws ClientException If the API returns a client error response
     * @throws ServerException If the API returns a server error response
     */
     @Suppress("UNCHECKED_CAST")
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun v1OrdersStatusClientOrderIdGet(clientOrderId: kotlin.String) : ExecutionReport {
+    fun v1OrdersStatusClientOrderIdGet(clientOrderId: kotlin.String) : OrderExecutionReport {
         val localVariableBody: kotlin.Any? = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -228,13 +228,13 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
             query = localVariableQuery,
             headers = localVariableHeaders
         )
-        val localVarResponse = request<ExecutionReport>(
+        val localVarResponse = request<OrderExecutionReport>(
             localVariableConfig,
             localVariableBody
         )
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as ExecutionReport
+            ResponseType.Success -> (localVarResponse as Success<*>).data as OrderExecutionReport
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {

@@ -12,12 +12,12 @@
             [oeml-rest-api.specs.message :refer :all]
             [oeml-rest-api.specs.new-order-single :refer :all]
             [oeml-rest-api.specs.ord-status :refer :all]
+            [oeml-rest-api.specs.order-execution-report-all-of :refer :all]
             [oeml-rest-api.specs.balance :refer :all]
-            [oeml-rest-api.specs.execution-report-all-of :refer :all]
             [oeml-rest-api.specs.ord-type :refer :all]
+            [oeml-rest-api.specs.order-execution-report :refer :all]
             [oeml-rest-api.specs.position :refer :all]
             [oeml-rest-api.specs.cancel-order-all-request :refer :all]
-            [oeml-rest-api.specs.execution-report :refer :all]
             [oeml-rest-api.specs.ord-side :refer :all]
             )
   (:import (java.io File)))
@@ -63,13 +63,13 @@
              :accepts       ["application/json" "appliction/json"]
              :auth-names    []}))
 
-(defn-spec v1-orders-cancel-post execution-report-spec
+(defn-spec v1-orders-cancel-post order-execution-report-spec
   "Cancel order
   This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID."
   [cancel-order-single-request cancel-order-single-request]
   (let [res (:data (v1-orders-cancel-post-with-http-info cancel-order-single-request))]
     (if (:decode-models *api-context*)
-       (st/decode execution-report-spec res st/string-transformer)
+       (st/decode order-execution-report-spec res st/string-transformer)
        res)))
 
 
@@ -87,14 +87,14 @@
               :accepts       ["application/json"]
               :auth-names    []})))
 
-(defn-spec v1-orders-get (s/coll-of execution-report-spec)
+(defn-spec v1-orders-get (s/coll-of order-execution-report-spec)
   "Get all orders
   Get all current open orders across all or single specified exchange."
   ([] (v1-orders-get nil))
   ([optional-params any?]
    (let [res (:data (v1-orders-get-with-http-info optional-params))]
      (if (:decode-models *api-context*)
-        (st/decode (s/coll-of execution-report-spec) res st/string-transformer)
+        (st/decode (s/coll-of order-execution-report-spec) res st/string-transformer)
         res))))
 
 
@@ -113,13 +113,13 @@
              :accepts       ["application/json" "appliction/json"]
              :auth-names    []}))
 
-(defn-spec v1-orders-post execution-report-spec
+(defn-spec v1-orders-post order-execution-report-spec
   "Create new order
   This request creating new order for the specific exchange."
   [new-order-single new-order-single]
   (let [res (:data (v1-orders-post-with-http-info new-order-single))]
     (if (:decode-models *api-context*)
-       (st/decode execution-report-spec res st/string-transformer)
+       (st/decode order-execution-report-spec res st/string-transformer)
        res)))
 
 
@@ -137,13 +137,13 @@
              :accepts       ["application/json"]
              :auth-names    []}))
 
-(defn-spec v1-orders-status-client-order-id-get execution-report-spec
+(defn-spec v1-orders-status-client-order-id-get order-execution-report-spec
   "Get order status
   Get the current order status for the specified order. The requested order can no longer be active."
   [client_order_id string?]
   (let [res (:data (v1-orders-status-client-order-id-get-with-http-info client_order_id))]
     (if (:decode-models *api-context*)
-       (st/decode execution-report-spec res st/string-transformer)
+       (st/decode order-execution-report-spec res st/string-transformer)
        res)))
 
 

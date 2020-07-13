@@ -235,13 +235,13 @@ use WWW::OpenAPIClient::Object::Balance;
 use WWW::OpenAPIClient::Object::BalanceData;
 use WWW::OpenAPIClient::Object::CancelOrderAllRequest;
 use WWW::OpenAPIClient::Object::CancelOrderSingleRequest;
-use WWW::OpenAPIClient::Object::ExecutionReport;
-use WWW::OpenAPIClient::Object::ExecutionReportAllOf;
 use WWW::OpenAPIClient::Object::Message;
 use WWW::OpenAPIClient::Object::NewOrderSingle;
 use WWW::OpenAPIClient::Object::OrdSide;
 use WWW::OpenAPIClient::Object::OrdStatus;
 use WWW::OpenAPIClient::Object::OrdType;
+use WWW::OpenAPIClient::Object::OrderExecutionReport;
+use WWW::OpenAPIClient::Object::OrderExecutionReportAllOf;
 use WWW::OpenAPIClient::Object::Position;
 use WWW::OpenAPIClient::Object::PositionData;
 use WWW::OpenAPIClient::Object::Severity;
@@ -267,13 +267,13 @@ use WWW::OpenAPIClient::Object::Balance;
 use WWW::OpenAPIClient::Object::BalanceData;
 use WWW::OpenAPIClient::Object::CancelOrderAllRequest;
 use WWW::OpenAPIClient::Object::CancelOrderSingleRequest;
-use WWW::OpenAPIClient::Object::ExecutionReport;
-use WWW::OpenAPIClient::Object::ExecutionReportAllOf;
 use WWW::OpenAPIClient::Object::Message;
 use WWW::OpenAPIClient::Object::NewOrderSingle;
 use WWW::OpenAPIClient::Object::OrdSide;
 use WWW::OpenAPIClient::Object::OrdStatus;
 use WWW::OpenAPIClient::Object::OrdType;
+use WWW::OpenAPIClient::Object::OrderExecutionReport;
+use WWW::OpenAPIClient::Object::OrderExecutionReportAllOf;
 use WWW::OpenAPIClient::Object::Position;
 use WWW::OpenAPIClient::Object::PositionData;
 use WWW::OpenAPIClient::Object::Severity;
@@ -319,13 +319,13 @@ Class | Method | HTTP request | Description
  - [WWW::OpenAPIClient::Object::BalanceData](docs/BalanceData.md)
  - [WWW::OpenAPIClient::Object::CancelOrderAllRequest](docs/CancelOrderAllRequest.md)
  - [WWW::OpenAPIClient::Object::CancelOrderSingleRequest](docs/CancelOrderSingleRequest.md)
- - [WWW::OpenAPIClient::Object::ExecutionReport](docs/ExecutionReport.md)
- - [WWW::OpenAPIClient::Object::ExecutionReportAllOf](docs/ExecutionReportAllOf.md)
  - [WWW::OpenAPIClient::Object::Message](docs/Message.md)
  - [WWW::OpenAPIClient::Object::NewOrderSingle](docs/NewOrderSingle.md)
  - [WWW::OpenAPIClient::Object::OrdSide](docs/OrdSide.md)
  - [WWW::OpenAPIClient::Object::OrdStatus](docs/OrdStatus.md)
  - [WWW::OpenAPIClient::Object::OrdType](docs/OrdType.md)
+ - [WWW::OpenAPIClient::Object::OrderExecutionReport](docs/OrderExecutionReport.md)
+ - [WWW::OpenAPIClient::Object::OrderExecutionReportAllOf](docs/OrderExecutionReportAllOf.md)
  - [WWW::OpenAPIClient::Object::Position](docs/Position.md)
  - [WWW::OpenAPIClient::Object::PositionData](docs/PositionData.md)
  - [WWW::OpenAPIClient::Object::Severity](docs/Severity.md)

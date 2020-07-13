@@ -70,7 +70,7 @@ No authorization required
 
 ## v1OrdersCancelPost
 
-> \OpenAPI\Client\Model\ExecutionReport v1OrdersCancelPost($cancel_order_single_request)
+> \OpenAPI\Client\Model\OrderExecutionReport v1OrdersCancelPost($cancel_order_single_request)
 
 Cancel order
 
@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ExecutionReport**](../Model/ExecutionReport.md)
+[**\OpenAPI\Client\Model\OrderExecutionReport**](../Model/OrderExecutionReport.md)
 
 ### Authorization
 
@@ -126,7 +126,7 @@ No authorization required
 
 ## v1OrdersGet
 
-> \OpenAPI\Client\Model\ExecutionReport[] v1OrdersGet($exchange_id)
+> \OpenAPI\Client\Model\OrderExecutionReport[] v1OrdersGet($exchange_id)
 
 Get all orders
 
@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ExecutionReport[]**](../Model/ExecutionReport.md)
+[**\OpenAPI\Client\Model\OrderExecutionReport[]**](../Model/OrderExecutionReport.md)
 
 ### Authorization
 
@@ -182,7 +182,7 @@ No authorization required
 
 ## v1OrdersPost
 
-> \OpenAPI\Client\Model\ExecutionReport v1OrdersPost($new_order_single)
+> \OpenAPI\Client\Model\OrderExecutionReport v1OrdersPost($new_order_single)
 
 Create new order
 
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ExecutionReport**](../Model/ExecutionReport.md)
+[**\OpenAPI\Client\Model\OrderExecutionReport**](../Model/OrderExecutionReport.md)
 
 ### Authorization
 
@@ -238,7 +238,7 @@ No authorization required
 
 ## v1OrdersStatusClientOrderIdGet
 
-> \OpenAPI\Client\Model\ExecutionReport v1OrdersStatusClientOrderIdGet($client_order_id)
+> \OpenAPI\Client\Model\OrderExecutionReport v1OrdersStatusClientOrderIdGet($client_order_id)
 
 Get order status
 
@@ -276,7 +276,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ExecutionReport**](../Model/ExecutionReport.md)
+[**\OpenAPI\Client\Model\OrderExecutionReport**](../Model/OrderExecutionReport.md)
 
 ### Authorization
 

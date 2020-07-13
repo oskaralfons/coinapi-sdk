@@ -13,10 +13,10 @@
 module Request.Orders exposing (v1OrdersCancelAllPost, v1OrdersCancelPost, v1OrdersGet, v1OrdersPost, v1OrdersStatusClientOrderIdGet)
 
 import Data.NewOrderSingle as NewOrderSingle exposing (NewOrderSingle)
-import Data.ExecutionReport as ExecutionReport exposing (ExecutionReport)
 import Data.Message as Message exposing (Message)
 import Data.CancelOrderAllRequest as CancelOrderAllRequest exposing (CancelOrderAllRequest)
 import Data.CancelOrderSingleRequest as CancelOrderSingleRequest exposing (CancelOrderSingleRequest)
+import Data.OrderExecutionReport as OrderExecutionReport exposing (OrderExecutionReport)
 import Data.ValidationError as ValidationError exposing (ValidationError)
 import Dict
 import Http
@@ -59,7 +59,7 @@ v1OrdersCancelAllPost params =
 {-| This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
 -}
 v1OrdersCancelPost :
-    { onSend : Result Http.Error ExecutionReport -> msg
+    { onSend : Result Http.Error OrderExecutionReport -> msg
 
 
     , body : CancelOrderSingleRequest
@@ -75,7 +75,7 @@ v1OrdersCancelPost params =
             ["v1", "orders", "cancel"]
             (List.filterMap identity [])
         , body = Http.jsonBody <| CancelOrderSingleRequest.encode params.body
-        , expect = Http.expectJson params.onSend ExecutionReport.decoder
+        , expect = Http.expectJson params.onSend OrderExecutionReport.decoder
         , timeout = Just 30000
         , tracker = Nothing
         }
@@ -84,7 +84,7 @@ v1OrdersCancelPost params =
 {-| Get all current open orders across all or single specified exchange.
 -}
 v1OrdersGet :
-    { onSend : Result Http.Error (List ExecutionReport) -> msg
+    { onSend : Result Http.Error (List OrderExecutionReport) -> msg
 
 
 
@@ -100,7 +100,7 @@ v1OrdersGet params =
             ["v1", "orders"]
             (List.filterMap identity [Maybe.map (Url.string "exchange_id" << identity) params.exchangeId])
         , body = Http.emptyBody
-        , expect = Http.expectJson params.onSend (Decode.list ExecutionReport.decoder)
+        , expect = Http.expectJson params.onSend (Decode.list OrderExecutionReport.decoder)
         , timeout = Just 30000
         , tracker = Nothing
         }
@@ -109,7 +109,7 @@ v1OrdersGet params =
 {-| This request creating new order for the specific exchange.
 -}
 v1OrdersPost :
-    { onSend : Result Http.Error ExecutionReport -> msg
+    { onSend : Result Http.Error OrderExecutionReport -> msg
 
 
     , body : NewOrderSingle
@@ -125,7 +125,7 @@ v1OrdersPost params =
             ["v1", "orders"]
             (List.filterMap identity [])
         , body = Http.jsonBody <| NewOrderSingle.encode params.body
-        , expect = Http.expectJson params.onSend ExecutionReport.decoder
+        , expect = Http.expectJson params.onSend OrderExecutionReport.decoder
         , timeout = Just 30000
         , tracker = Nothing
         }
@@ -134,7 +134,7 @@ v1OrdersPost params =
 {-| Get the current order status for the specified order. The requested order can no longer be active.
 -}
 v1OrdersStatusClientOrderIdGet :
-    { onSend : Result Http.Error ExecutionReport -> msg
+    { onSend : Result Http.Error OrderExecutionReport -> msg
 
 
 
@@ -150,7 +150,7 @@ v1OrdersStatusClientOrderIdGet params =
             ["v1", "orders", "status", identity params.clientOrderId]
             (List.filterMap identity [])
         , body = Http.emptyBody
-        , expect = Http.expectJson params.onSend ExecutionReport.decoder
+        , expect = Http.expectJson params.onSend OrderExecutionReport.decoder
         , timeout = Just 30000
         , tracker = Nothing
         }

@@ -60,7 +60,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1OrdersCancelPost**
-> ExecutionReport v1OrdersCancelPost(cancelOrderSingleRequest)
+> OrderExecutionReport v1OrdersCancelPost(cancelOrderSingleRequest)
 
 Cancel order
 
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExecutionReport**](ExecutionReport.md)
+[**OrderExecutionReport**](OrderExecutionReport.md)
 
 ### Authorization
 
@@ -103,7 +103,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1OrdersGet**
-> List<ExecutionReport> v1OrdersGet(exchangeId)
+> List<OrderExecutionReport> v1OrdersGet(exchangeId)
 
 Get all orders
 
@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<ExecutionReport>**](ExecutionReport.md)
+[**List<OrderExecutionReport>**](OrderExecutionReport.md)
 
 ### Authorization
 
@@ -146,7 +146,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1OrdersPost**
-> ExecutionReport v1OrdersPost(newOrderSingle)
+> OrderExecutionReport v1OrdersPost(newOrderSingle)
 
 Create new order
 
@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExecutionReport**](ExecutionReport.md)
+[**OrderExecutionReport**](OrderExecutionReport.md)
 
 ### Authorization
 
@@ -189,7 +189,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1OrdersStatusClientOrderIdGet**
-> ExecutionReport v1OrdersStatusClientOrderIdGet(clientOrderId)
+> OrderExecutionReport v1OrdersStatusClientOrderIdGet(clientOrderId)
 
 Get order status
 
@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExecutionReport**](ExecutionReport.md)
+[**OrderExecutionReport**](OrderExecutionReport.md)
 
 ### Authorization
 

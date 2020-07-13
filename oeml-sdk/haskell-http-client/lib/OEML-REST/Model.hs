@@ -228,172 +228,6 @@ mkCancelOrderSingleRequest =
   , cancelOrderSingleRequestClientOrderId = Nothing
   }
 
--- ** ExecutionReport
--- | ExecutionReport
-data ExecutionReport = ExecutionReport
-  { executionReportExchangeId :: !(Text) -- ^ /Required/ "exchange_id" - Exchange identifier.
-  , executionReportClientOrderId :: !(Text) -- ^ /Required/ "client_order_id" - Unique identifier for the order assigned by the &#x60;OEML API&#x60; client.
-  , executionReportSymbolExchange :: !(Maybe Text) -- ^ "symbol_exchange" - Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.
-  , executionReportSymbolCoinapi :: !(Maybe Text) -- ^ "symbol_coinapi" - CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.
-  , executionReportAmountOrder :: !(Double) -- ^ /Required/ "amount_order" - Order quantity.
-  , executionReportPrice :: !(Double) -- ^ /Required/ "price" - Order price.
-  , executionReportSide :: !(OrdSide) -- ^ /Required/ "side"
-  , executionReportOrderType :: !(OrdType) -- ^ /Required/ "order_type"
-  , executionReportTimeInForce :: !(TimeInForce) -- ^ /Required/ "time_in_force"
-  , executionReportExpireTime :: !(Maybe Date) -- ^ "expire_time" - Expiration time. Conditionaly required for orders with time_in_force &#x3D; &#x60;GOOD_TILL_TIME_EXCHANGE&#x60; or &#x60;GOOD_TILL_TIME_OEML&#x60;.
-  , executionReportExecInst :: !(Maybe [E'ExecInst]) -- ^ "exec_inst" - Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; 
-  , executionReportClientOrderIdFormatExchange :: !(Text) -- ^ /Required/ "client_order_id_format_exchange" - Hash client id
-  , executionReportExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - Exchange order id
-  , executionReportAmountOpen :: !(Double) -- ^ /Required/ "amount_open" - Amount open
-  , executionReportAmountFilled :: !(Double) -- ^ /Required/ "amount_filled" - Amount filled
-  , executionReportStatus :: !(OrdStatus) -- ^ /Required/ "status"
-  , executionReportTimeOrder :: !([[Text]]) -- ^ /Required/ "time_order" - Timestamped history of order status changes.
-  , executionReportErrorMessage :: !(Maybe Text) -- ^ "error_message" - Error message
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON ExecutionReport
-instance A.FromJSON ExecutionReport where
-  parseJSON = A.withObject "ExecutionReport" $ \o ->
-    ExecutionReport
-      <$> (o .:  "exchange_id")
-      <*> (o .:  "client_order_id")
-      <*> (o .:? "symbol_exchange")
-      <*> (o .:? "symbol_coinapi")
-      <*> (o .:  "amount_order")
-      <*> (o .:  "price")
-      <*> (o .:  "side")
-      <*> (o .:  "order_type")
-      <*> (o .:  "time_in_force")
-      <*> (o .:? "expire_time")
-      <*> (o .:? "exec_inst")
-      <*> (o .:  "client_order_id_format_exchange")
-      <*> (o .:? "exchange_order_id")
-      <*> (o .:  "amount_open")
-      <*> (o .:  "amount_filled")
-      <*> (o .:  "status")
-      <*> (o .:  "time_order")
-      <*> (o .:? "error_message")
-
--- | ToJSON ExecutionReport
-instance A.ToJSON ExecutionReport where
-  toJSON ExecutionReport {..} =
-   _omitNulls
-      [ "exchange_id" .= executionReportExchangeId
-      , "client_order_id" .= executionReportClientOrderId
-      , "symbol_exchange" .= executionReportSymbolExchange
-      , "symbol_coinapi" .= executionReportSymbolCoinapi
-      , "amount_order" .= executionReportAmountOrder
-      , "price" .= executionReportPrice
-      , "side" .= executionReportSide
-      , "order_type" .= executionReportOrderType
-      , "time_in_force" .= executionReportTimeInForce
-      , "expire_time" .= executionReportExpireTime
-      , "exec_inst" .= executionReportExecInst
-      , "client_order_id_format_exchange" .= executionReportClientOrderIdFormatExchange
-      , "exchange_order_id" .= executionReportExchangeOrderId
-      , "amount_open" .= executionReportAmountOpen
-      , "amount_filled" .= executionReportAmountFilled
-      , "status" .= executionReportStatus
-      , "time_order" .= executionReportTimeOrder
-      , "error_message" .= executionReportErrorMessage
-      ]
-
-
--- | Construct a value of type 'ExecutionReport' (by applying it's required fields, if any)
-mkExecutionReport
-  :: Text -- ^ 'executionReportExchangeId': Exchange identifier.
-  -> Text -- ^ 'executionReportClientOrderId': Unique identifier for the order assigned by the `OEML API` client.
-  -> Double -- ^ 'executionReportAmountOrder': Order quantity.
-  -> Double -- ^ 'executionReportPrice': Order price.
-  -> OrdSide -- ^ 'executionReportSide' 
-  -> OrdType -- ^ 'executionReportOrderType' 
-  -> TimeInForce -- ^ 'executionReportTimeInForce' 
-  -> Text -- ^ 'executionReportClientOrderIdFormatExchange': Hash client id
-  -> Double -- ^ 'executionReportAmountOpen': Amount open
-  -> Double -- ^ 'executionReportAmountFilled': Amount filled
-  -> OrdStatus -- ^ 'executionReportStatus' 
-  -> [[Text]] -- ^ 'executionReportTimeOrder': Timestamped history of order status changes.
-  -> ExecutionReport
-mkExecutionReport executionReportExchangeId executionReportClientOrderId executionReportAmountOrder executionReportPrice executionReportSide executionReportOrderType executionReportTimeInForce executionReportClientOrderIdFormatExchange executionReportAmountOpen executionReportAmountFilled executionReportStatus executionReportTimeOrder =
-  ExecutionReport
-  { executionReportExchangeId
-  , executionReportClientOrderId
-  , executionReportSymbolExchange = Nothing
-  , executionReportSymbolCoinapi = Nothing
-  , executionReportAmountOrder
-  , executionReportPrice
-  , executionReportSide
-  , executionReportOrderType
-  , executionReportTimeInForce
-  , executionReportExpireTime = Nothing
-  , executionReportExecInst = Nothing
-  , executionReportClientOrderIdFormatExchange
-  , executionReportExchangeOrderId = Nothing
-  , executionReportAmountOpen
-  , executionReportAmountFilled
-  , executionReportStatus
-  , executionReportTimeOrder
-  , executionReportErrorMessage = Nothing
-  }
-
--- ** ExecutionReportAllOf
--- | ExecutionReportAllOf
--- The order execution report message.
-data ExecutionReportAllOf = ExecutionReportAllOf
-  { executionReportAllOfClientOrderIdFormatExchange :: !(Text) -- ^ /Required/ "client_order_id_format_exchange" - Hash client id
-  , executionReportAllOfExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - Exchange order id
-  , executionReportAllOfAmountOpen :: !(Double) -- ^ /Required/ "amount_open" - Amount open
-  , executionReportAllOfAmountFilled :: !(Double) -- ^ /Required/ "amount_filled" - Amount filled
-  , executionReportAllOfStatus :: !(OrdStatus) -- ^ /Required/ "status"
-  , executionReportAllOfTimeOrder :: !([[Text]]) -- ^ /Required/ "time_order" - Timestamped history of order status changes.
-  , executionReportAllOfErrorMessage :: !(Maybe Text) -- ^ "error_message" - Error message
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON ExecutionReportAllOf
-instance A.FromJSON ExecutionReportAllOf where
-  parseJSON = A.withObject "ExecutionReportAllOf" $ \o ->
-    ExecutionReportAllOf
-      <$> (o .:  "client_order_id_format_exchange")
-      <*> (o .:? "exchange_order_id")
-      <*> (o .:  "amount_open")
-      <*> (o .:  "amount_filled")
-      <*> (o .:  "status")
-      <*> (o .:  "time_order")
-      <*> (o .:? "error_message")
-
--- | ToJSON ExecutionReportAllOf
-instance A.ToJSON ExecutionReportAllOf where
-  toJSON ExecutionReportAllOf {..} =
-   _omitNulls
-      [ "client_order_id_format_exchange" .= executionReportAllOfClientOrderIdFormatExchange
-      , "exchange_order_id" .= executionReportAllOfExchangeOrderId
-      , "amount_open" .= executionReportAllOfAmountOpen
-      , "amount_filled" .= executionReportAllOfAmountFilled
-      , "status" .= executionReportAllOfStatus
-      , "time_order" .= executionReportAllOfTimeOrder
-      , "error_message" .= executionReportAllOfErrorMessage
-      ]
-
-
--- | Construct a value of type 'ExecutionReportAllOf' (by applying it's required fields, if any)
-mkExecutionReportAllOf
-  :: Text -- ^ 'executionReportAllOfClientOrderIdFormatExchange': Hash client id
-  -> Double -- ^ 'executionReportAllOfAmountOpen': Amount open
-  -> Double -- ^ 'executionReportAllOfAmountFilled': Amount filled
-  -> OrdStatus -- ^ 'executionReportAllOfStatus' 
-  -> [[Text]] -- ^ 'executionReportAllOfTimeOrder': Timestamped history of order status changes.
-  -> ExecutionReportAllOf
-mkExecutionReportAllOf executionReportAllOfClientOrderIdFormatExchange executionReportAllOfAmountOpen executionReportAllOfAmountFilled executionReportAllOfStatus executionReportAllOfTimeOrder =
-  ExecutionReportAllOf
-  { executionReportAllOfClientOrderIdFormatExchange
-  , executionReportAllOfExchangeOrderId = Nothing
-  , executionReportAllOfAmountOpen
-  , executionReportAllOfAmountFilled
-  , executionReportAllOfStatus
-  , executionReportAllOfTimeOrder
-  , executionReportAllOfErrorMessage = Nothing
-  }
-
 -- ** Message
 -- | Message
 -- Success or error message carrier.
@@ -510,6 +344,172 @@ mkNewOrderSingle newOrderSingleExchangeId newOrderSingleClientOrderId newOrderSi
   , newOrderSingleTimeInForce
   , newOrderSingleExpireTime = Nothing
   , newOrderSingleExecInst = Nothing
+  }
+
+-- ** OrderExecutionReport
+-- | OrderExecutionReport
+data OrderExecutionReport = OrderExecutionReport
+  { orderExecutionReportExchangeId :: !(Text) -- ^ /Required/ "exchange_id" - Exchange identifier.
+  , orderExecutionReportClientOrderId :: !(Text) -- ^ /Required/ "client_order_id" - Unique identifier for the order assigned by the &#x60;OEML API&#x60; client.
+  , orderExecutionReportSymbolExchange :: !(Maybe Text) -- ^ "symbol_exchange" - Exchange symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.
+  , orderExecutionReportSymbolCoinapi :: !(Maybe Text) -- ^ "symbol_coinapi" - CoinAPI symbol. One of the properties (&#x60;symbol_exchange&#x60;, &#x60;symbol_coinapi&#x60;) is required to identify the market for the order.
+  , orderExecutionReportAmountOrder :: !(Double) -- ^ /Required/ "amount_order" - Order quantity.
+  , orderExecutionReportPrice :: !(Double) -- ^ /Required/ "price" - Order price.
+  , orderExecutionReportSide :: !(OrdSide) -- ^ /Required/ "side"
+  , orderExecutionReportOrderType :: !(OrdType) -- ^ /Required/ "order_type"
+  , orderExecutionReportTimeInForce :: !(TimeInForce) -- ^ /Required/ "time_in_force"
+  , orderExecutionReportExpireTime :: !(Maybe Date) -- ^ "expire_time" - Expiration time. Conditionaly required for orders with time_in_force &#x3D; &#x60;GOOD_TILL_TIME_EXCHANGE&#x60; or &#x60;GOOD_TILL_TIME_OEML&#x60;.
+  , orderExecutionReportExecInst :: !(Maybe [E'ExecInst]) -- ^ "exec_inst" - Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; 
+  , orderExecutionReportClientOrderIdFormatExchange :: !(Text) -- ^ /Required/ "client_order_id_format_exchange" - Hash client id
+  , orderExecutionReportExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - Exchange order id
+  , orderExecutionReportAmountOpen :: !(Double) -- ^ /Required/ "amount_open" - Amount open
+  , orderExecutionReportAmountFilled :: !(Double) -- ^ /Required/ "amount_filled" - Amount filled
+  , orderExecutionReportStatus :: !(OrdStatus) -- ^ /Required/ "status"
+  , orderExecutionReportTimeOrder :: !([[Text]]) -- ^ /Required/ "time_order" - Timestamped history of order status changes.
+  , orderExecutionReportErrorMessage :: !(Maybe Text) -- ^ "error_message" - Error message
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON OrderExecutionReport
+instance A.FromJSON OrderExecutionReport where
+  parseJSON = A.withObject "OrderExecutionReport" $ \o ->
+    OrderExecutionReport
+      <$> (o .:  "exchange_id")
+      <*> (o .:  "client_order_id")
+      <*> (o .:? "symbol_exchange")
+      <*> (o .:? "symbol_coinapi")
+      <*> (o .:  "amount_order")
+      <*> (o .:  "price")
+      <*> (o .:  "side")
+      <*> (o .:  "order_type")
+      <*> (o .:  "time_in_force")
+      <*> (o .:? "expire_time")
+      <*> (o .:? "exec_inst")
+      <*> (o .:  "client_order_id_format_exchange")
+      <*> (o .:? "exchange_order_id")
+      <*> (o .:  "amount_open")
+      <*> (o .:  "amount_filled")
+      <*> (o .:  "status")
+      <*> (o .:  "time_order")
+      <*> (o .:? "error_message")
+
+-- | ToJSON OrderExecutionReport
+instance A.ToJSON OrderExecutionReport where
+  toJSON OrderExecutionReport {..} =
+   _omitNulls
+      [ "exchange_id" .= orderExecutionReportExchangeId
+      , "client_order_id" .= orderExecutionReportClientOrderId
+      , "symbol_exchange" .= orderExecutionReportSymbolExchange
+      , "symbol_coinapi" .= orderExecutionReportSymbolCoinapi
+      , "amount_order" .= orderExecutionReportAmountOrder
+      , "price" .= orderExecutionReportPrice
+      , "side" .= orderExecutionReportSide
+      , "order_type" .= orderExecutionReportOrderType
+      , "time_in_force" .= orderExecutionReportTimeInForce
+      , "expire_time" .= orderExecutionReportExpireTime
+      , "exec_inst" .= orderExecutionReportExecInst
+      , "client_order_id_format_exchange" .= orderExecutionReportClientOrderIdFormatExchange
+      , "exchange_order_id" .= orderExecutionReportExchangeOrderId
+      , "amount_open" .= orderExecutionReportAmountOpen
+      , "amount_filled" .= orderExecutionReportAmountFilled
+      , "status" .= orderExecutionReportStatus
+      , "time_order" .= orderExecutionReportTimeOrder
+      , "error_message" .= orderExecutionReportErrorMessage
+      ]
+
+
+-- | Construct a value of type 'OrderExecutionReport' (by applying it's required fields, if any)
+mkOrderExecutionReport
+  :: Text -- ^ 'orderExecutionReportExchangeId': Exchange identifier.
+  -> Text -- ^ 'orderExecutionReportClientOrderId': Unique identifier for the order assigned by the `OEML API` client.
+  -> Double -- ^ 'orderExecutionReportAmountOrder': Order quantity.
+  -> Double -- ^ 'orderExecutionReportPrice': Order price.
+  -> OrdSide -- ^ 'orderExecutionReportSide' 
+  -> OrdType -- ^ 'orderExecutionReportOrderType' 
+  -> TimeInForce -- ^ 'orderExecutionReportTimeInForce' 
+  -> Text -- ^ 'orderExecutionReportClientOrderIdFormatExchange': Hash client id
+  -> Double -- ^ 'orderExecutionReportAmountOpen': Amount open
+  -> Double -- ^ 'orderExecutionReportAmountFilled': Amount filled
+  -> OrdStatus -- ^ 'orderExecutionReportStatus' 
+  -> [[Text]] -- ^ 'orderExecutionReportTimeOrder': Timestamped history of order status changes.
+  -> OrderExecutionReport
+mkOrderExecutionReport orderExecutionReportExchangeId orderExecutionReportClientOrderId orderExecutionReportAmountOrder orderExecutionReportPrice orderExecutionReportSide orderExecutionReportOrderType orderExecutionReportTimeInForce orderExecutionReportClientOrderIdFormatExchange orderExecutionReportAmountOpen orderExecutionReportAmountFilled orderExecutionReportStatus orderExecutionReportTimeOrder =
+  OrderExecutionReport
+  { orderExecutionReportExchangeId
+  , orderExecutionReportClientOrderId
+  , orderExecutionReportSymbolExchange = Nothing
+  , orderExecutionReportSymbolCoinapi = Nothing
+  , orderExecutionReportAmountOrder
+  , orderExecutionReportPrice
+  , orderExecutionReportSide
+  , orderExecutionReportOrderType
+  , orderExecutionReportTimeInForce
+  , orderExecutionReportExpireTime = Nothing
+  , orderExecutionReportExecInst = Nothing
+  , orderExecutionReportClientOrderIdFormatExchange
+  , orderExecutionReportExchangeOrderId = Nothing
+  , orderExecutionReportAmountOpen
+  , orderExecutionReportAmountFilled
+  , orderExecutionReportStatus
+  , orderExecutionReportTimeOrder
+  , orderExecutionReportErrorMessage = Nothing
+  }
+
+-- ** OrderExecutionReportAllOf
+-- | OrderExecutionReportAllOf
+-- The order execution report message.
+data OrderExecutionReportAllOf = OrderExecutionReportAllOf
+  { orderExecutionReportAllOfClientOrderIdFormatExchange :: !(Text) -- ^ /Required/ "client_order_id_format_exchange" - Hash client id
+  , orderExecutionReportAllOfExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - Exchange order id
+  , orderExecutionReportAllOfAmountOpen :: !(Double) -- ^ /Required/ "amount_open" - Amount open
+  , orderExecutionReportAllOfAmountFilled :: !(Double) -- ^ /Required/ "amount_filled" - Amount filled
+  , orderExecutionReportAllOfStatus :: !(OrdStatus) -- ^ /Required/ "status"
+  , orderExecutionReportAllOfTimeOrder :: !([[Text]]) -- ^ /Required/ "time_order" - Timestamped history of order status changes.
+  , orderExecutionReportAllOfErrorMessage :: !(Maybe Text) -- ^ "error_message" - Error message
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON OrderExecutionReportAllOf
+instance A.FromJSON OrderExecutionReportAllOf where
+  parseJSON = A.withObject "OrderExecutionReportAllOf" $ \o ->
+    OrderExecutionReportAllOf
+      <$> (o .:  "client_order_id_format_exchange")
+      <*> (o .:? "exchange_order_id")
+      <*> (o .:  "amount_open")
+      <*> (o .:  "amount_filled")
+      <*> (o .:  "status")
+      <*> (o .:  "time_order")
+      <*> (o .:? "error_message")
+
+-- | ToJSON OrderExecutionReportAllOf
+instance A.ToJSON OrderExecutionReportAllOf where
+  toJSON OrderExecutionReportAllOf {..} =
+   _omitNulls
+      [ "client_order_id_format_exchange" .= orderExecutionReportAllOfClientOrderIdFormatExchange
+      , "exchange_order_id" .= orderExecutionReportAllOfExchangeOrderId
+      , "amount_open" .= orderExecutionReportAllOfAmountOpen
+      , "amount_filled" .= orderExecutionReportAllOfAmountFilled
+      , "status" .= orderExecutionReportAllOfStatus
+      , "time_order" .= orderExecutionReportAllOfTimeOrder
+      , "error_message" .= orderExecutionReportAllOfErrorMessage
+      ]
+
+
+-- | Construct a value of type 'OrderExecutionReportAllOf' (by applying it's required fields, if any)
+mkOrderExecutionReportAllOf
+  :: Text -- ^ 'orderExecutionReportAllOfClientOrderIdFormatExchange': Hash client id
+  -> Double -- ^ 'orderExecutionReportAllOfAmountOpen': Amount open
+  -> Double -- ^ 'orderExecutionReportAllOfAmountFilled': Amount filled
+  -> OrdStatus -- ^ 'orderExecutionReportAllOfStatus' 
+  -> [[Text]] -- ^ 'orderExecutionReportAllOfTimeOrder': Timestamped history of order status changes.
+  -> OrderExecutionReportAllOf
+mkOrderExecutionReportAllOf orderExecutionReportAllOfClientOrderIdFormatExchange orderExecutionReportAllOfAmountOpen orderExecutionReportAllOfAmountFilled orderExecutionReportAllOfStatus orderExecutionReportAllOfTimeOrder =
+  OrderExecutionReportAllOf
+  { orderExecutionReportAllOfClientOrderIdFormatExchange
+  , orderExecutionReportAllOfExchangeOrderId = Nothing
+  , orderExecutionReportAllOfAmountOpen
+  , orderExecutionReportAllOfAmountFilled
+  , orderExecutionReportAllOfStatus
+  , orderExecutionReportAllOfTimeOrder
+  , orderExecutionReportAllOfErrorMessage = Nothing
   }
 
 -- ** Position

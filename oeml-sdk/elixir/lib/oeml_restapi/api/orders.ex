@@ -49,10 +49,10 @@ defmodule OEML-RESTAPI.Api.Orders do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %OEML-RESTAPI.Model.ExecutionReport{}} on success
+  {:ok, %OEML-RESTAPI.Model.OrderExecutionReport{}} on success
   {:error, info} on failure
   """
-  @spec v1_orders_cancel_post(Tesla.Env.client, OEML-RESTAPI.Model.CancelOrderSingleRequest.t, keyword()) :: {:ok, OEML-RESTAPI.Model.ExecutionReport.t} | {:error, Tesla.Env.t}
+  @spec v1_orders_cancel_post(Tesla.Env.client, OEML-RESTAPI.Model.CancelOrderSingleRequest.t, keyword()) :: {:ok, OEML-RESTAPI.Model.OrderExecutionReport.t} | {:error, Tesla.Env.t}
   def v1_orders_cancel_post(connection, cancel_order_single_request, _opts \\ []) do
     %{}
     |> method(:post)
@@ -61,7 +61,7 @@ defmodule OEML-RESTAPI.Api.Orders do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %OEML-RESTAPI.Model.ExecutionReport{}},
+      { 200, %OEML-RESTAPI.Model.OrderExecutionReport{}},
       { 400, %OEML-RESTAPI.Model.ValidationError{}},
       { 490, %OEML-RESTAPI.Model.Message{}}
     ])
@@ -78,10 +78,10 @@ defmodule OEML-RESTAPI.Api.Orders do
     - :exchange_id (String.t): Filter the output to the orders from the specific exchange.
   ## Returns
 
-  {:ok, [%ExecutionReport{}, ...]} on success
+  {:ok, [%OrderExecutionReport{}, ...]} on success
   {:error, info} on failure
   """
-  @spec v1_orders_get(Tesla.Env.client, keyword()) :: {:ok, list(OEML-RESTAPI.Model.ExecutionReport.t)} | {:error, Tesla.Env.t}
+  @spec v1_orders_get(Tesla.Env.client, keyword()) :: {:ok, list(OEML-RESTAPI.Model.OrderExecutionReport.t)} | {:error, Tesla.Env.t}
   def v1_orders_get(connection, opts \\ []) do
     optional_params = %{
       :"exchange_id" => :query
@@ -93,7 +93,7 @@ defmodule OEML-RESTAPI.Api.Orders do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, [%OEML-RESTAPI.Model.ExecutionReport{}]}
+      { 200, [%OEML-RESTAPI.Model.OrderExecutionReport{}]}
     ])
   end
 
@@ -108,10 +108,10 @@ defmodule OEML-RESTAPI.Api.Orders do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %OEML-RESTAPI.Model.ExecutionReport{}} on success
+  {:ok, %OEML-RESTAPI.Model.OrderExecutionReport{}} on success
   {:error, info} on failure
   """
-  @spec v1_orders_post(Tesla.Env.client, OEML-RESTAPI.Model.NewOrderSingle.t, keyword()) :: {:ok, OEML-RESTAPI.Model.ExecutionReport.t} | {:error, Tesla.Env.t}
+  @spec v1_orders_post(Tesla.Env.client, OEML-RESTAPI.Model.NewOrderSingle.t, keyword()) :: {:ok, OEML-RESTAPI.Model.OrderExecutionReport.t} | {:error, Tesla.Env.t}
   def v1_orders_post(connection, new_order_single, _opts \\ []) do
     %{}
     |> method(:post)
@@ -120,7 +120,7 @@ defmodule OEML-RESTAPI.Api.Orders do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %OEML-RESTAPI.Model.ExecutionReport{}},
+      { 200, %OEML-RESTAPI.Model.OrderExecutionReport{}},
       { 400, %OEML-RESTAPI.Model.ValidationError{}},
       { 490, %OEML-RESTAPI.Model.Message{}}
     ])
@@ -137,10 +137,10 @@ defmodule OEML-RESTAPI.Api.Orders do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %OEML-RESTAPI.Model.ExecutionReport{}} on success
+  {:ok, %OEML-RESTAPI.Model.OrderExecutionReport{}} on success
   {:error, info} on failure
   """
-  @spec v1_orders_status_client_order_id_get(Tesla.Env.client, String.t, keyword()) :: {:ok, OEML-RESTAPI.Model.ExecutionReport.t} | {:error, Tesla.Env.t}
+  @spec v1_orders_status_client_order_id_get(Tesla.Env.client, String.t, keyword()) :: {:ok, OEML-RESTAPI.Model.OrderExecutionReport.t} | {:error, Tesla.Env.t}
   def v1_orders_status_client_order_id_get(connection, client_order_id, _opts \\ []) do
     %{}
     |> method(:get)
@@ -148,7 +148,7 @@ defmodule OEML-RESTAPI.Api.Orders do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %OEML-RESTAPI.Model.ExecutionReport{}},
+      { 200, %OEML-RESTAPI.Model.OrderExecutionReport{}},
       { 400, %OEML-RESTAPI.Model.Message{}}
     ])
   end

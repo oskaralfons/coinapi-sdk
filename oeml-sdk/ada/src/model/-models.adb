@@ -559,7 +559,7 @@ package body .Models is
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in ExecutionReport_Type) is
+                        Value : in OrderExecutionReport_Type) is
    begin
       Into.Start_Entity (Name);
       Into.Write_Entity ("exchange_id", Value.Exchange_Id);
@@ -585,7 +585,7 @@ package body .Models is
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in ExecutionReport_Type_Vectors.Vector) is
+                        Value : in OrderExecutionReport_Type_Vectors.Vector) is
    begin
       Into.Start_Array (Name);
       for Item of Value loop
@@ -596,7 +596,7 @@ package body .Models is
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out ExecutionReport_Type) is
+                          Value : out OrderExecutionReport_Type) is
       Object : Swagger.Value_Type;
    begin
       Swagger.Streams.Deserialize (From, Name, Object);
@@ -622,9 +622,9 @@ package body .Models is
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out ExecutionReport_Type_Vectors.Vector) is
+                          Value : out OrderExecutionReport_Type_Vectors.Vector) is
       List : Swagger.Value_Array_Type;
-      Item : ExecutionReport_Type;
+      Item : OrderExecutionReport_Type;
    begin
       Value.Clear;
       Swagger.Streams.Deserialize (From, Name, List);
@@ -743,7 +743,7 @@ package body .Models is
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in ExecutionReportAllOf_Type) is
+                        Value : in OrderExecutionReportAllOf_Type) is
    begin
       Into.Start_Entity (Name);
       Into.Write_Entity ("client_order_id_format_exchange", Value.Client_Order_Id_Format_Exchange);
@@ -758,7 +758,7 @@ package body .Models is
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in ExecutionReportAllOf_Type_Vectors.Vector) is
+                        Value : in OrderExecutionReportAllOf_Type_Vectors.Vector) is
    begin
       Into.Start_Array (Name);
       for Item of Value loop
@@ -769,7 +769,7 @@ package body .Models is
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out ExecutionReportAllOf_Type) is
+                          Value : out OrderExecutionReportAllOf_Type) is
       Object : Swagger.Value_Type;
    begin
       Swagger.Streams.Deserialize (From, Name, Object);
@@ -784,9 +784,9 @@ package body .Models is
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out ExecutionReportAllOf_Type_Vectors.Vector) is
+                          Value : out OrderExecutionReportAllOf_Type_Vectors.Vector) is
       List : Swagger.Value_Array_Type;
-      Item : ExecutionReportAllOf_Type;
+      Item : OrderExecutionReportAllOf_Type;
    begin
       Value.Clear;
       Swagger.Streams.Deserialize (From, Name, List);

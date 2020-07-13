@@ -83,7 +83,7 @@ No authorization required
 
 <a name="v1orderscancelpost"></a>
 # **V1OrdersCancelPost**
-> ExecutionReport V1OrdersCancelPost (CancelOrderSingleRequest cancelOrderSingleRequest)
+> OrderExecutionReport V1OrdersCancelPost (CancelOrderSingleRequest cancelOrderSingleRequest)
 
 Cancel order
 
@@ -111,7 +111,7 @@ namespace Example
             try
             {
                 // Cancel order
-                ExecutionReport result = apiInstance.V1OrdersCancelPost(cancelOrderSingleRequest);
+                OrderExecutionReport result = apiInstance.V1OrdersCancelPost(cancelOrderSingleRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExecutionReport**](ExecutionReport.md)
+[**OrderExecutionReport**](OrderExecutionReport.md)
 
 ### Authorization
 
@@ -155,7 +155,7 @@ No authorization required
 
 <a name="v1ordersget"></a>
 # **V1OrdersGet**
-> List&lt;ExecutionReport&gt; V1OrdersGet (string exchangeId = null)
+> List&lt;OrderExecutionReport&gt; V1OrdersGet (string exchangeId = null)
 
 Get all orders
 
@@ -183,7 +183,7 @@ namespace Example
             try
             {
                 // Get all orders
-                List<ExecutionReport> result = apiInstance.V1OrdersGet(exchangeId);
+                List<OrderExecutionReport> result = apiInstance.V1OrdersGet(exchangeId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -205,7 +205,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;ExecutionReport&gt;**](ExecutionReport.md)
+[**List&lt;OrderExecutionReport&gt;**](OrderExecutionReport.md)
 
 ### Authorization
 
@@ -225,7 +225,7 @@ No authorization required
 
 <a name="v1orderspost"></a>
 # **V1OrdersPost**
-> ExecutionReport V1OrdersPost (NewOrderSingle newOrderSingle)
+> OrderExecutionReport V1OrdersPost (NewOrderSingle newOrderSingle)
 
 Create new order
 
@@ -253,7 +253,7 @@ namespace Example
             try
             {
                 // Create new order
-                ExecutionReport result = apiInstance.V1OrdersPost(newOrderSingle);
+                OrderExecutionReport result = apiInstance.V1OrdersPost(newOrderSingle);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -275,7 +275,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExecutionReport**](ExecutionReport.md)
+[**OrderExecutionReport**](OrderExecutionReport.md)
 
 ### Authorization
 
@@ -297,7 +297,7 @@ No authorization required
 
 <a name="v1ordersstatusclientorderidget"></a>
 # **V1OrdersStatusClientOrderIdGet**
-> ExecutionReport V1OrdersStatusClientOrderIdGet (string clientOrderId)
+> OrderExecutionReport V1OrdersStatusClientOrderIdGet (string clientOrderId)
 
 Get order status
 
@@ -325,7 +325,7 @@ namespace Example
             try
             {
                 // Get order status
-                ExecutionReport result = apiInstance.V1OrdersStatusClientOrderIdGet(clientOrderId);
+                OrderExecutionReport result = apiInstance.V1OrdersStatusClientOrderIdGet(clientOrderId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -347,7 +347,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExecutionReport**](ExecutionReport.md)
+[**OrderExecutionReport**](OrderExecutionReport.md)
 
 ### Authorization
 

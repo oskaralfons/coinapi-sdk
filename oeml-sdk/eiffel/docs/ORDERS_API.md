@@ -42,7 +42,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_orders_cancel_post**
-> v1_orders_cancel_post (cancel_order_single_request: CANCEL_ORDER_SINGLE_REQUEST ): detachable EXECUTION_REPORT
+> v1_orders_cancel_post (cancel_order_single_request: CANCEL_ORDER_SINGLE_REQUEST ): detachable ORDER_EXECUTION_REPORT
 	
 
 Cancel order
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EXECUTION_REPORT**](ExecutionReport.md)
+[**ORDER_EXECUTION_REPORT**](OrderExecutionReport.md)
 
 ### Authorization
 
@@ -72,7 +72,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_orders_get**
-> v1_orders_get (exchange_id:  detachable STRING_32 ): detachable LIST [EXECUTION_REPORT]
+> v1_orders_get (exchange_id:  detachable STRING_32 ): detachable LIST [ORDER_EXECUTION_REPORT]
 	
 
 Get all orders
@@ -88,7 +88,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LIST [EXECUTION_REPORT]**](ExecutionReport.md)
+[**LIST [ORDER_EXECUTION_REPORT]**](OrderExecutionReport.md)
 
 ### Authorization
 
@@ -102,7 +102,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_orders_post**
-> v1_orders_post (new_order_single: NEW_ORDER_SINGLE ): detachable EXECUTION_REPORT
+> v1_orders_post (new_order_single: NEW_ORDER_SINGLE ): detachable ORDER_EXECUTION_REPORT
 	
 
 Create new order
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EXECUTION_REPORT**](ExecutionReport.md)
+[**ORDER_EXECUTION_REPORT**](OrderExecutionReport.md)
 
 ### Authorization
 
@@ -132,7 +132,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_orders_status_client_order_id_get**
-> v1_orders_status_client_order_id_get (client_order_id: STRING_32 ): detachable EXECUTION_REPORT
+> v1_orders_status_client_order_id_get (client_order_id: STRING_32 ): detachable ORDER_EXECUTION_REPORT
 	
 
 Get order status
@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EXECUTION_REPORT**](ExecutionReport.md)
+[**ORDER_EXECUTION_REPORT**](OrderExecutionReport.md)
 
 ### Authorization
 

@@ -187,174 +187,6 @@ export type CancelOrderSingleRequest = {
 }
 
 
-
-            export type ExecutionReportExecInstEnum = 'MAKER_OR_CANCEL' | 'AUCTION_ONLY' | 'INDICATION_OF_INTEREST';
-/**
- * 
- * @export
- */
-export type ExecutionReport = {
-    /**
-     * Exchange identifier.
-     * @type {string}
-     * @memberof ExecutionReport
-     */
-    exchange_id: string;
-    /**
-     * Unique identifier for the order assigned by the `OEML API` client.
-     * @type {string}
-     * @memberof ExecutionReport
-     */
-    client_order_id: string;
-    /**
-     * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
-     * @type {string}
-     * @memberof ExecutionReport
-     */
-    symbol_exchange?: string;
-    /**
-     * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
-     * @type {string}
-     * @memberof ExecutionReport
-     */
-    symbol_coinapi?: string;
-    /**
-     * Order quantity.
-     * @type {number}
-     * @memberof ExecutionReport
-     */
-    amount_order: number;
-    /**
-     * Order price.
-     * @type {number}
-     * @memberof ExecutionReport
-     */
-    price: number;
-    /**
-     * 
-     * @type {OrdSide}
-     * @memberof ExecutionReport
-     */
-    side: OrdSide;
-    /**
-     * 
-     * @type {OrdType}
-     * @memberof ExecutionReport
-     */
-    order_type: OrdType;
-    /**
-     * 
-     * @type {TimeInForce}
-     * @memberof ExecutionReport
-     */
-    time_in_force: TimeInForce;
-    /**
-     * Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
-     * @type {Date}
-     * @memberof ExecutionReport
-     */
-    expire_time?: Date;
-    /**
-     * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> 
-     * @type {Array<string>}
-     * @memberof ExecutionReport
-     */
-    exec_inst?: Array<ExecutionReportExecInstEnum>;
-    /**
-     * Hash client id
-     * @type {string}
-     * @memberof ExecutionReport
-     */
-    client_order_id_format_exchange: string;
-    /**
-     * Exchange order id
-     * @type {string}
-     * @memberof ExecutionReport
-     */
-    exchange_order_id?: string;
-    /**
-     * Amount open
-     * @type {number}
-     * @memberof ExecutionReport
-     */
-    amount_open: number;
-    /**
-     * Amount filled
-     * @type {number}
-     * @memberof ExecutionReport
-     */
-    amount_filled: number;
-    /**
-     * 
-     * @type {OrdStatus}
-     * @memberof ExecutionReport
-     */
-    status: OrdStatus;
-    /**
-     * Timestamped history of order status changes.
-     * @type {Array<Array<string>>}
-     * @memberof ExecutionReport
-     */
-    time_order: Array<Array<string>>;
-    /**
-     * Error message
-     * @type {string}
-     * @memberof ExecutionReport
-     */
-    error_message?: string;
-}
-
-
-/**
- * The order execution report message.
- * @export
- */
-export type ExecutionReportAllOf = {
-    /**
-     * Hash client id
-     * @type {string}
-     * @memberof ExecutionReportAllOf
-     */
-    client_order_id_format_exchange: string;
-    /**
-     * Exchange order id
-     * @type {string}
-     * @memberof ExecutionReportAllOf
-     */
-    exchange_order_id?: string;
-    /**
-     * Amount open
-     * @type {number}
-     * @memberof ExecutionReportAllOf
-     */
-    amount_open: number;
-    /**
-     * Amount filled
-     * @type {number}
-     * @memberof ExecutionReportAllOf
-     */
-    amount_filled: number;
-    /**
-     * 
-     * @type {OrdStatus}
-     * @memberof ExecutionReportAllOf
-     */
-    status: OrdStatus;
-    /**
-     * Timestamped history of order status changes.
-     * @type {Array<Array<string>>}
-     * @memberof ExecutionReportAllOf
-     */
-    time_order: Array<Array<string>>;
-    /**
-     * Error message
-     * @type {string}
-     * @memberof ExecutionReportAllOf
-     */
-    error_message?: string;
-}
-
-
 /**
  * 
  * @export
@@ -483,6 +315,174 @@ export type OrdStatus = 'RECEIVED' | 'ROUTING' | 'ROUTED' | 'NEW' | 'PENDING_CAN
  * @enum {string}
  */
 export type OrdType = 'LIMIT';
+
+
+            export type OrderExecutionReportExecInstEnum = 'MAKER_OR_CANCEL' | 'AUCTION_ONLY' | 'INDICATION_OF_INTEREST';
+/**
+ * 
+ * @export
+ */
+export type OrderExecutionReport = {
+    /**
+     * Exchange identifier.
+     * @type {string}
+     * @memberof OrderExecutionReport
+     */
+    exchange_id: string;
+    /**
+     * Unique identifier for the order assigned by the `OEML API` client.
+     * @type {string}
+     * @memberof OrderExecutionReport
+     */
+    client_order_id: string;
+    /**
+     * Exchange symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+     * @type {string}
+     * @memberof OrderExecutionReport
+     */
+    symbol_exchange?: string;
+    /**
+     * CoinAPI symbol. One of the properties (`symbol_exchange`, `symbol_coinapi`) is required to identify the market for the order.
+     * @type {string}
+     * @memberof OrderExecutionReport
+     */
+    symbol_coinapi?: string;
+    /**
+     * Order quantity.
+     * @type {number}
+     * @memberof OrderExecutionReport
+     */
+    amount_order: number;
+    /**
+     * Order price.
+     * @type {number}
+     * @memberof OrderExecutionReport
+     */
+    price: number;
+    /**
+     * 
+     * @type {OrdSide}
+     * @memberof OrderExecutionReport
+     */
+    side: OrdSide;
+    /**
+     * 
+     * @type {OrdType}
+     * @memberof OrderExecutionReport
+     */
+    order_type: OrdType;
+    /**
+     * 
+     * @type {TimeInForce}
+     * @memberof OrderExecutionReport
+     */
+    time_in_force: TimeInForce;
+    /**
+     * Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
+     * @type {Date}
+     * @memberof OrderExecutionReport
+     */
+    expire_time?: Date;
+    /**
+     * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> 
+     * @type {Array<string>}
+     * @memberof OrderExecutionReport
+     */
+    exec_inst?: Array<OrderExecutionReportExecInstEnum>;
+    /**
+     * Hash client id
+     * @type {string}
+     * @memberof OrderExecutionReport
+     */
+    client_order_id_format_exchange: string;
+    /**
+     * Exchange order id
+     * @type {string}
+     * @memberof OrderExecutionReport
+     */
+    exchange_order_id?: string;
+    /**
+     * Amount open
+     * @type {number}
+     * @memberof OrderExecutionReport
+     */
+    amount_open: number;
+    /**
+     * Amount filled
+     * @type {number}
+     * @memberof OrderExecutionReport
+     */
+    amount_filled: number;
+    /**
+     * 
+     * @type {OrdStatus}
+     * @memberof OrderExecutionReport
+     */
+    status: OrdStatus;
+    /**
+     * Timestamped history of order status changes.
+     * @type {Array<Array<string>>}
+     * @memberof OrderExecutionReport
+     */
+    time_order: Array<Array<string>>;
+    /**
+     * Error message
+     * @type {string}
+     * @memberof OrderExecutionReport
+     */
+    error_message?: string;
+}
+
+
+/**
+ * The order execution report message.
+ * @export
+ */
+export type OrderExecutionReportAllOf = {
+    /**
+     * Hash client id
+     * @type {string}
+     * @memberof OrderExecutionReportAllOf
+     */
+    client_order_id_format_exchange: string;
+    /**
+     * Exchange order id
+     * @type {string}
+     * @memberof OrderExecutionReportAllOf
+     */
+    exchange_order_id?: string;
+    /**
+     * Amount open
+     * @type {number}
+     * @memberof OrderExecutionReportAllOf
+     */
+    amount_open: number;
+    /**
+     * Amount filled
+     * @type {number}
+     * @memberof OrderExecutionReportAllOf
+     */
+    amount_filled: number;
+    /**
+     * 
+     * @type {OrdStatus}
+     * @memberof OrderExecutionReportAllOf
+     */
+    status: OrdStatus;
+    /**
+     * Timestamped history of order status changes.
+     * @type {Array<Array<string>>}
+     * @memberof OrderExecutionReportAllOf
+     */
+    time_order: Array<Array<string>>;
+    /**
+     * Error message
+     * @type {string}
+     * @memberof OrderExecutionReportAllOf
+     */
+    error_message?: string;
+}
+
 
 /**
  * 
@@ -857,13 +857,13 @@ export const OrdersApiFetchParamCreator = function (configuration?: Configuratio
 export type OrdersApiType = { 
     v1OrdersCancelAllPost(cancelOrderAllRequest: CancelOrderAllRequest, options?: RequestOptions): Promise<Message>,
 
-    v1OrdersCancelPost(cancelOrderSingleRequest: CancelOrderSingleRequest, options?: RequestOptions): Promise<ExecutionReport>,
+    v1OrdersCancelPost(cancelOrderSingleRequest: CancelOrderSingleRequest, options?: RequestOptions): Promise<OrderExecutionReport>,
 
-    v1OrdersGet(exchangeId?: string, options?: RequestOptions): Promise<Array<ExecutionReport>>,
+    v1OrdersGet(exchangeId?: string, options?: RequestOptions): Promise<Array<OrderExecutionReport>>,
 
-    v1OrdersPost(newOrderSingle: NewOrderSingle, options?: RequestOptions): Promise<ExecutionReport>,
+    v1OrdersPost(newOrderSingle: NewOrderSingle, options?: RequestOptions): Promise<OrderExecutionReport>,
 
-    v1OrdersStatusClientOrderIdGet(clientOrderId: string, options?: RequestOptions): Promise<ExecutionReport>,
+    v1OrdersStatusClientOrderIdGet(clientOrderId: string, options?: RequestOptions): Promise<OrderExecutionReport>,
 }
 
 /**
@@ -893,7 +893,7 @@ export const OrdersApi = function(configuration?: Configuration, fetch: FetchAPI
          * @summary Cancel order
          * @throws {RequiredError}
          */
-        v1OrdersCancelPost(cancelOrderSingleRequest: CancelOrderSingleRequest, options?: RequestOptions = {}): Promise<ExecutionReport> {
+        v1OrdersCancelPost(cancelOrderSingleRequest: CancelOrderSingleRequest, options?: RequestOptions = {}): Promise<OrderExecutionReport> {
             const localVarFetchArgs = OrdersApiFetchParamCreator(configuration).v1OrdersCancelPost(cancelOrderSingleRequest, options);
             return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                 if (response.status >= 200 && response.status < 300) {
@@ -908,7 +908,7 @@ export const OrdersApi = function(configuration?: Configuration, fetch: FetchAPI
          * @summary Get all orders
          * @throws {RequiredError}
          */
-        v1OrdersGet(exchangeId?: string, options?: RequestOptions = {}): Promise<Array<ExecutionReport>> {
+        v1OrdersGet(exchangeId?: string, options?: RequestOptions = {}): Promise<Array<OrderExecutionReport>> {
             const localVarFetchArgs = OrdersApiFetchParamCreator(configuration).v1OrdersGet(exchangeId, options);
             return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                 if (response.status >= 200 && response.status < 300) {
@@ -923,7 +923,7 @@ export const OrdersApi = function(configuration?: Configuration, fetch: FetchAPI
          * @summary Create new order
          * @throws {RequiredError}
          */
-        v1OrdersPost(newOrderSingle: NewOrderSingle, options?: RequestOptions = {}): Promise<ExecutionReport> {
+        v1OrdersPost(newOrderSingle: NewOrderSingle, options?: RequestOptions = {}): Promise<OrderExecutionReport> {
             const localVarFetchArgs = OrdersApiFetchParamCreator(configuration).v1OrdersPost(newOrderSingle, options);
             return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                 if (response.status >= 200 && response.status < 300) {
@@ -938,7 +938,7 @@ export const OrdersApi = function(configuration?: Configuration, fetch: FetchAPI
          * @summary Get order status
          * @throws {RequiredError}
          */
-        v1OrdersStatusClientOrderIdGet(clientOrderId: string, options?: RequestOptions = {}): Promise<ExecutionReport> {
+        v1OrdersStatusClientOrderIdGet(clientOrderId: string, options?: RequestOptions = {}): Promise<OrderExecutionReport> {
             const localVarFetchArgs = OrdersApiFetchParamCreator(configuration).v1OrdersStatusClientOrderIdGet(clientOrderId, options);
             return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                 if (response.status >= 200 && response.status < 300) {

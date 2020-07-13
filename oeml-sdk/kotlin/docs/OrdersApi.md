@@ -60,7 +60,7 @@ No authorization required
 
 <a name="v1OrdersCancelPost"></a>
 # **v1OrdersCancelPost**
-> ExecutionReport v1OrdersCancelPost(cancelOrderSingleRequest)
+> OrderExecutionReport v1OrdersCancelPost(cancelOrderSingleRequest)
 
 Cancel order
 
@@ -75,7 +75,7 @@ This request cancels an existing order. The order can be canceled by the client 
 val apiInstance = OrdersApi()
 val cancelOrderSingleRequest : CancelOrderSingleRequest =  // CancelOrderSingleRequest | 
 try {
-    val result : ExecutionReport = apiInstance.v1OrdersCancelPost(cancelOrderSingleRequest)
+    val result : OrderExecutionReport = apiInstance.v1OrdersCancelPost(cancelOrderSingleRequest)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling OrdersApi#v1OrdersCancelPost")
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExecutionReport**](ExecutionReport.md)
+[**OrderExecutionReport**](OrderExecutionReport.md)
 
 ### Authorization
 
@@ -107,7 +107,7 @@ No authorization required
 
 <a name="v1OrdersGet"></a>
 # **v1OrdersGet**
-> kotlin.Array&lt;ExecutionReport&gt; v1OrdersGet(exchangeId)
+> kotlin.Array&lt;OrderExecutionReport&gt; v1OrdersGet(exchangeId)
 
 Get all orders
 
@@ -122,7 +122,7 @@ Get all current open orders across all or single specified exchange.
 val apiInstance = OrdersApi()
 val exchangeId : kotlin.String = KRAKEN // kotlin.String | Filter the output to the orders from the specific exchange.
 try {
-    val result : kotlin.Array<ExecutionReport> = apiInstance.v1OrdersGet(exchangeId)
+    val result : kotlin.Array<OrderExecutionReport> = apiInstance.v1OrdersGet(exchangeId)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling OrdersApi#v1OrdersGet")
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**kotlin.Array&lt;ExecutionReport&gt;**](ExecutionReport.md)
+[**kotlin.Array&lt;OrderExecutionReport&gt;**](OrderExecutionReport.md)
 
 ### Authorization
 
@@ -154,7 +154,7 @@ No authorization required
 
 <a name="v1OrdersPost"></a>
 # **v1OrdersPost**
-> ExecutionReport v1OrdersPost(newOrderSingle)
+> OrderExecutionReport v1OrdersPost(newOrderSingle)
 
 Create new order
 
@@ -169,7 +169,7 @@ This request creating new order for the specific exchange.
 val apiInstance = OrdersApi()
 val newOrderSingle : NewOrderSingle =  // NewOrderSingle | 
 try {
-    val result : ExecutionReport = apiInstance.v1OrdersPost(newOrderSingle)
+    val result : OrderExecutionReport = apiInstance.v1OrdersPost(newOrderSingle)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling OrdersApi#v1OrdersPost")
@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExecutionReport**](ExecutionReport.md)
+[**OrderExecutionReport**](OrderExecutionReport.md)
 
 ### Authorization
 
@@ -201,7 +201,7 @@ No authorization required
 
 <a name="v1OrdersStatusClientOrderIdGet"></a>
 # **v1OrdersStatusClientOrderIdGet**
-> ExecutionReport v1OrdersStatusClientOrderIdGet(clientOrderId)
+> OrderExecutionReport v1OrdersStatusClientOrderIdGet(clientOrderId)
 
 Get order status
 
@@ -216,7 +216,7 @@ Get the current order status for the specified order. The requested order can no
 val apiInstance = OrdersApi()
 val clientOrderId : kotlin.String = 6ab36bc1-344d-432e-ac6d-0bf44ee64c2b // kotlin.String | Order Client Id of the order for which the status is requested.
 try {
-    val result : ExecutionReport = apiInstance.v1OrdersStatusClientOrderIdGet(clientOrderId)
+    val result : OrderExecutionReport = apiInstance.v1OrdersStatusClientOrderIdGet(clientOrderId)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling OrdersApi#v1OrdersStatusClientOrderIdGet")
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExecutionReport**](ExecutionReport.md)
+[**OrderExecutionReport**](OrderExecutionReport.md)
 
 ### Authorization
 

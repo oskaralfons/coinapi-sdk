@@ -130,10 +130,10 @@ sub v1_orders_cancel_all_post {
     __PACKAGE__->method_documentation->{ 'v1_orders_cancel_post' } = { 
         summary => 'Cancel order',
         params => $params,
-        returns => 'ExecutionReport',
+        returns => 'OrderExecutionReport',
         };
 }
-# @return ExecutionReport
+# @return OrderExecutionReport
 #
 sub v1_orders_cancel_post {
     my ($self, %args) = @_;
@@ -174,7 +174,7 @@ sub v1_orders_cancel_post {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('ExecutionReport', $response);
+    my $_response_object = $self->{api_client}->deserialize('OrderExecutionReport', $response);
     return $_response_object;
 }
 
@@ -195,10 +195,10 @@ sub v1_orders_cancel_post {
     __PACKAGE__->method_documentation->{ 'v1_orders_get' } = { 
         summary => 'Get all orders',
         params => $params,
-        returns => 'ARRAY[ExecutionReport]',
+        returns => 'ARRAY[OrderExecutionReport]',
         };
 }
-# @return ARRAY[ExecutionReport]
+# @return ARRAY[OrderExecutionReport]
 #
 sub v1_orders_get {
     my ($self, %args) = @_;
@@ -234,7 +234,7 @@ sub v1_orders_get {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('ARRAY[ExecutionReport]', $response);
+    my $_response_object = $self->{api_client}->deserialize('ARRAY[OrderExecutionReport]', $response);
     return $_response_object;
 }
 
@@ -255,10 +255,10 @@ sub v1_orders_get {
     __PACKAGE__->method_documentation->{ 'v1_orders_post' } = { 
         summary => 'Create new order',
         params => $params,
-        returns => 'ExecutionReport',
+        returns => 'OrderExecutionReport',
         };
 }
-# @return ExecutionReport
+# @return OrderExecutionReport
 #
 sub v1_orders_post {
     my ($self, %args) = @_;
@@ -299,7 +299,7 @@ sub v1_orders_post {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('ExecutionReport', $response);
+    my $_response_object = $self->{api_client}->deserialize('OrderExecutionReport', $response);
     return $_response_object;
 }
 
@@ -320,10 +320,10 @@ sub v1_orders_post {
     __PACKAGE__->method_documentation->{ 'v1_orders_status_client_order_id_get' } = { 
         summary => 'Get order status',
         params => $params,
-        returns => 'ExecutionReport',
+        returns => 'OrderExecutionReport',
         };
 }
-# @return ExecutionReport
+# @return OrderExecutionReport
 #
 sub v1_orders_status_client_order_id_get {
     my ($self, %args) = @_;
@@ -366,7 +366,7 @@ sub v1_orders_status_client_order_id_get {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('ExecutionReport', $response);
+    my $_response_object = $self->{api_client}->deserialize('OrderExecutionReport', $response);
     return $_response_object;
 }
 

@@ -52,7 +52,7 @@ package body .Clients is
    procedure V1_Orders_Cancel_Post
       (Client : in out Client_Type;
        Cancel_Order_Single_Request_Type : in .Models.CancelOrderSingleRequest_Type;
-       Result : out .Models.ExecutionReport_Type) is
+       Result : out .Models.OrderExecutionReport_Type) is
       URI   : Swagger.Clients.URI_Type;
       Req   : Swagger.Clients.Request_Type;
       Reply : Swagger.Value_Type;
@@ -72,7 +72,7 @@ package body .Clients is
    procedure V1_Orders_Get
       (Client : in out Client_Type;
        Exchange_Id : in Swagger.Nullable_UString;
-       Result : out .Models.ExecutionReport_Type_Vectors.Vector) is
+       Result : out .Models.OrderExecutionReport_Type_Vectors.Vector) is
       URI   : Swagger.Clients.URI_Type;
       Reply : Swagger.Value_Type;
    begin
@@ -89,7 +89,7 @@ package body .Clients is
    procedure V1_Orders_Post
       (Client : in out Client_Type;
        New_Order_Single_Type : in .Models.NewOrderSingle_Type;
-       Result : out .Models.ExecutionReport_Type) is
+       Result : out .Models.OrderExecutionReport_Type) is
       URI   : Swagger.Clients.URI_Type;
       Req   : Swagger.Clients.Request_Type;
       Reply : Swagger.Value_Type;
@@ -109,7 +109,7 @@ package body .Clients is
    procedure V1_Orders_Status_Client_Order_Id_Get
       (Client : in out Client_Type;
        Client_Order_Id : in Swagger.UString;
-       Result : out .Models.ExecutionReport_Type) is
+       Result : out .Models.OrderExecutionReport_Type) is
       URI   : Swagger.Clients.URI_Type;
       Reply : Swagger.Value_Type;
    begin

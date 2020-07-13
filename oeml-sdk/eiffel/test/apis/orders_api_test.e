@@ -33,7 +33,7 @@ feature -- Test routines
             -- 
             -- This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID. 
         local
-            l_response: EXECUTION_REPORT
+            l_response: ORDER_EXECUTION_REPORT
             l_cancel_order_single_request: CANCEL_ORDER_SINGLE_REQUEST
         do
             -- TODO: Initialize required params.
@@ -48,7 +48,7 @@ feature -- Test routines
             -- 
             -- Get all current open orders across all or single specified exchange. 
         local
-            l_response: LIST [EXECUTION_REPORT]
+            l_response: LIST [ORDER_EXECUTION_REPORT]
             l_exchange_id: STRING_32
         do
             -- TODO: Initialize required params.
@@ -62,7 +62,7 @@ feature -- Test routines
             -- 
             -- This request creating new order for the specific exchange. 
         local
-            l_response: EXECUTION_REPORT
+            l_response: ORDER_EXECUTION_REPORT
             l_new_order_single: NEW_ORDER_SINGLE
         do
             -- TODO: Initialize required params.
@@ -77,7 +77,7 @@ feature -- Test routines
             -- 
             -- Get the current order status for the specified order. The requested order can no longer be active. 
         local
-            l_response: EXECUTION_REPORT
+            l_response: ORDER_EXECUTION_REPORT
             l_client_order_id: STRING_32
         do
             -- TODO: Initialize required params.

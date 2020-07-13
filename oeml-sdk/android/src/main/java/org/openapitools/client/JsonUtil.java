@@ -73,14 +73,6 @@ public class JsonUtil {
       return new TypeToken<List<CancelOrderSingleRequest>>(){}.getType();
     }
     
-    if ("ExecutionReport".equalsIgnoreCase(className)) {
-      return new TypeToken<List<ExecutionReport>>(){}.getType();
-    }
-    
-    if ("ExecutionReportAllOf".equalsIgnoreCase(className)) {
-      return new TypeToken<List<ExecutionReportAllOf>>(){}.getType();
-    }
-    
     if ("Message".equalsIgnoreCase(className)) {
       return new TypeToken<List<Message>>(){}.getType();
     }
@@ -99,6 +91,14 @@ public class JsonUtil {
     
     if ("OrdType".equalsIgnoreCase(className)) {
       return new TypeToken<List<OrdType>>(){}.getType();
+    }
+    
+    if ("OrderExecutionReport".equalsIgnoreCase(className)) {
+      return new TypeToken<List<OrderExecutionReport>>(){}.getType();
+    }
+    
+    if ("OrderExecutionReportAllOf".equalsIgnoreCase(className)) {
+      return new TypeToken<List<OrderExecutionReportAllOf>>(){}.getType();
     }
     
     if ("Position".equalsIgnoreCase(className)) {
@@ -143,14 +143,6 @@ public class JsonUtil {
       return new TypeToken<CancelOrderSingleRequest>(){}.getType();
     }
     
-    if ("ExecutionReport".equalsIgnoreCase(className)) {
-      return new TypeToken<ExecutionReport>(){}.getType();
-    }
-    
-    if ("ExecutionReportAllOf".equalsIgnoreCase(className)) {
-      return new TypeToken<ExecutionReportAllOf>(){}.getType();
-    }
-    
     if ("Message".equalsIgnoreCase(className)) {
       return new TypeToken<Message>(){}.getType();
     }
@@ -169,6 +161,14 @@ public class JsonUtil {
     
     if ("OrdType".equalsIgnoreCase(className)) {
       return new TypeToken<OrdType>(){}.getType();
+    }
+    
+    if ("OrderExecutionReport".equalsIgnoreCase(className)) {
+      return new TypeToken<OrderExecutionReport>(){}.getType();
+    }
+    
+    if ("OrderExecutionReportAllOf".equalsIgnoreCase(className)) {
+      return new TypeToken<OrderExecutionReportAllOf>(){}.getType();
     }
     
     if ("Position".equalsIgnoreCase(className)) {

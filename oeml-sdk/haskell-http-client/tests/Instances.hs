@@ -146,45 +146,6 @@ genCancelOrderSingleRequest n =
     <*> arbitraryReducedMaybe n -- cancelOrderSingleRequestExchangeOrderId :: Maybe Text
     <*> arbitraryReducedMaybe n -- cancelOrderSingleRequestClientOrderId :: Maybe Text
   
-instance Arbitrary ExecutionReport where
-  arbitrary = sized genExecutionReport
-
-genExecutionReport :: Int -> Gen ExecutionReport
-genExecutionReport n =
-  ExecutionReport
-    <$> arbitrary -- executionReportExchangeId :: Text
-    <*> arbitrary -- executionReportClientOrderId :: Text
-    <*> arbitraryReducedMaybe n -- executionReportSymbolExchange :: Maybe Text
-    <*> arbitraryReducedMaybe n -- executionReportSymbolCoinapi :: Maybe Text
-    <*> arbitrary -- executionReportAmountOrder :: Double
-    <*> arbitrary -- executionReportPrice :: Double
-    <*> arbitraryReduced n -- executionReportSide :: OrdSide
-    <*> arbitraryReduced n -- executionReportOrderType :: OrdType
-    <*> arbitraryReduced n -- executionReportTimeInForce :: TimeInForce
-    <*> arbitraryReducedMaybe n -- executionReportExpireTime :: Maybe Date
-    <*> arbitraryReducedMaybe n -- executionReportExecInst :: Maybe [E'ExecInst]
-    <*> arbitrary -- executionReportClientOrderIdFormatExchange :: Text
-    <*> arbitraryReducedMaybe n -- executionReportExchangeOrderId :: Maybe Text
-    <*> arbitrary -- executionReportAmountOpen :: Double
-    <*> arbitrary -- executionReportAmountFilled :: Double
-    <*> arbitraryReduced n -- executionReportStatus :: OrdStatus
-    <*> arbitraryReduced n -- executionReportTimeOrder :: [[Text]]
-    <*> arbitraryReducedMaybe n -- executionReportErrorMessage :: Maybe Text
-  
-instance Arbitrary ExecutionReportAllOf where
-  arbitrary = sized genExecutionReportAllOf
-
-genExecutionReportAllOf :: Int -> Gen ExecutionReportAllOf
-genExecutionReportAllOf n =
-  ExecutionReportAllOf
-    <$> arbitrary -- executionReportAllOfClientOrderIdFormatExchange :: Text
-    <*> arbitraryReducedMaybe n -- executionReportAllOfExchangeOrderId :: Maybe Text
-    <*> arbitrary -- executionReportAllOfAmountOpen :: Double
-    <*> arbitrary -- executionReportAllOfAmountFilled :: Double
-    <*> arbitraryReduced n -- executionReportAllOfStatus :: OrdStatus
-    <*> arbitraryReduced n -- executionReportAllOfTimeOrder :: [[Text]]
-    <*> arbitraryReducedMaybe n -- executionReportAllOfErrorMessage :: Maybe Text
-  
 instance Arbitrary Message where
   arbitrary = sized genMessage
 
@@ -213,6 +174,45 @@ genNewOrderSingle n =
     <*> arbitraryReduced n -- newOrderSingleTimeInForce :: TimeInForce
     <*> arbitraryReducedMaybe n -- newOrderSingleExpireTime :: Maybe Date
     <*> arbitraryReducedMaybe n -- newOrderSingleExecInst :: Maybe [E'ExecInst]
+  
+instance Arbitrary OrderExecutionReport where
+  arbitrary = sized genOrderExecutionReport
+
+genOrderExecutionReport :: Int -> Gen OrderExecutionReport
+genOrderExecutionReport n =
+  OrderExecutionReport
+    <$> arbitrary -- orderExecutionReportExchangeId :: Text
+    <*> arbitrary -- orderExecutionReportClientOrderId :: Text
+    <*> arbitraryReducedMaybe n -- orderExecutionReportSymbolExchange :: Maybe Text
+    <*> arbitraryReducedMaybe n -- orderExecutionReportSymbolCoinapi :: Maybe Text
+    <*> arbitrary -- orderExecutionReportAmountOrder :: Double
+    <*> arbitrary -- orderExecutionReportPrice :: Double
+    <*> arbitraryReduced n -- orderExecutionReportSide :: OrdSide
+    <*> arbitraryReduced n -- orderExecutionReportOrderType :: OrdType
+    <*> arbitraryReduced n -- orderExecutionReportTimeInForce :: TimeInForce
+    <*> arbitraryReducedMaybe n -- orderExecutionReportExpireTime :: Maybe Date
+    <*> arbitraryReducedMaybe n -- orderExecutionReportExecInst :: Maybe [E'ExecInst]
+    <*> arbitrary -- orderExecutionReportClientOrderIdFormatExchange :: Text
+    <*> arbitraryReducedMaybe n -- orderExecutionReportExchangeOrderId :: Maybe Text
+    <*> arbitrary -- orderExecutionReportAmountOpen :: Double
+    <*> arbitrary -- orderExecutionReportAmountFilled :: Double
+    <*> arbitraryReduced n -- orderExecutionReportStatus :: OrdStatus
+    <*> arbitraryReduced n -- orderExecutionReportTimeOrder :: [[Text]]
+    <*> arbitraryReducedMaybe n -- orderExecutionReportErrorMessage :: Maybe Text
+  
+instance Arbitrary OrderExecutionReportAllOf where
+  arbitrary = sized genOrderExecutionReportAllOf
+
+genOrderExecutionReportAllOf :: Int -> Gen OrderExecutionReportAllOf
+genOrderExecutionReportAllOf n =
+  OrderExecutionReportAllOf
+    <$> arbitrary -- orderExecutionReportAllOfClientOrderIdFormatExchange :: Text
+    <*> arbitraryReducedMaybe n -- orderExecutionReportAllOfExchangeOrderId :: Maybe Text
+    <*> arbitrary -- orderExecutionReportAllOfAmountOpen :: Double
+    <*> arbitrary -- orderExecutionReportAllOfAmountFilled :: Double
+    <*> arbitraryReduced n -- orderExecutionReportAllOfStatus :: OrdStatus
+    <*> arbitraryReduced n -- orderExecutionReportAllOfTimeOrder :: [[Text]]
+    <*> arbitraryReducedMaybe n -- orderExecutionReportAllOfErrorMessage :: Maybe Text
   
 instance Arbitrary Position where
   arbitrary = sized genPosition

@@ -17,13 +17,13 @@ import Balance from './model/Balance';
 import BalanceData from './model/BalanceData';
 import CancelOrderAllRequest from './model/CancelOrderAllRequest';
 import CancelOrderSingleRequest from './model/CancelOrderSingleRequest';
-import ExecutionReport from './model/ExecutionReport';
-import ExecutionReportAllOf from './model/ExecutionReportAllOf';
 import Message from './model/Message';
 import NewOrderSingle from './model/NewOrderSingle';
 import OrdSide from './model/OrdSide';
 import OrdStatus from './model/OrdStatus';
 import OrdType from './model/OrdType';
+import OrderExecutionReport from './model/OrderExecutionReport';
+import OrderExecutionReportAllOf from './model/OrderExecutionReportAllOf';
 import Position from './model/Position';
 import PositionData from './model/PositionData';
 import Severity from './model/Severity';
@@ -97,18 +97,6 @@ export {
     CancelOrderSingleRequest,
 
     /**
-     * The ExecutionReport model constructor.
-     * @property {module:model/ExecutionReport}
-     */
-    ExecutionReport,
-
-    /**
-     * The ExecutionReportAllOf model constructor.
-     * @property {module:model/ExecutionReportAllOf}
-     */
-    ExecutionReportAllOf,
-
-    /**
      * The Message model constructor.
      * @property {module:model/Message}
      */
@@ -137,6 +125,18 @@ export {
      * @property {module:model/OrdType}
      */
     OrdType,
+
+    /**
+     * The OrderExecutionReport model constructor.
+     * @property {module:model/OrderExecutionReport}
+     */
+    OrderExecutionReport,
+
+    /**
+     * The OrderExecutionReportAllOf model constructor.
+     * @property {module:model/OrderExecutionReportAllOf}
+     */
+    OrderExecutionReportAllOf,
 
     /**
      * The Position model constructor.

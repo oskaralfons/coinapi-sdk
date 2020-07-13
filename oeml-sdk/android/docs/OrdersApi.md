@@ -60,7 +60,7 @@ No authorization required
 
 ## v1OrdersCancelPost
 
-> ExecutionReport v1OrdersCancelPost(cancelOrderSingleRequest)
+> OrderExecutionReport v1OrdersCancelPost(cancelOrderSingleRequest)
 
 Cancel order
 
@@ -75,7 +75,7 @@ This request cancels an existing order. The order can be canceled by the client 
 OrdersApi apiInstance = new OrdersApi();
 CancelOrderSingleRequest cancelOrderSingleRequest = new CancelOrderSingleRequest(); // CancelOrderSingleRequest | 
 try {
-    ExecutionReport result = apiInstance.v1OrdersCancelPost(cancelOrderSingleRequest);
+    OrderExecutionReport result = apiInstance.v1OrdersCancelPost(cancelOrderSingleRequest);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrdersApi#v1OrdersCancelPost");
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExecutionReport**](ExecutionReport.md)
+[**OrderExecutionReport**](OrderExecutionReport.md)
 
 ### Authorization
 
@@ -106,7 +106,7 @@ No authorization required
 
 ## v1OrdersGet
 
-> List&lt;ExecutionReport&gt; v1OrdersGet(exchangeId)
+> List&lt;OrderExecutionReport&gt; v1OrdersGet(exchangeId)
 
 Get all orders
 
@@ -121,7 +121,7 @@ Get all current open orders across all or single specified exchange.
 OrdersApi apiInstance = new OrdersApi();
 String exchangeId = KRAKEN; // String | Filter the output to the orders from the specific exchange.
 try {
-    List<ExecutionReport> result = apiInstance.v1OrdersGet(exchangeId);
+    List<OrderExecutionReport> result = apiInstance.v1OrdersGet(exchangeId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrdersApi#v1OrdersGet");
@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List&lt;ExecutionReport&gt;**](ExecutionReport.md)
+[**List&lt;OrderExecutionReport&gt;**](OrderExecutionReport.md)
 
 ### Authorization
 
@@ -152,7 +152,7 @@ No authorization required
 
 ## v1OrdersPost
 
-> ExecutionReport v1OrdersPost(newOrderSingle)
+> OrderExecutionReport v1OrdersPost(newOrderSingle)
 
 Create new order
 
@@ -167,7 +167,7 @@ This request creating new order for the specific exchange.
 OrdersApi apiInstance = new OrdersApi();
 NewOrderSingle newOrderSingle = new NewOrderSingle(); // NewOrderSingle | 
 try {
-    ExecutionReport result = apiInstance.v1OrdersPost(newOrderSingle);
+    OrderExecutionReport result = apiInstance.v1OrdersPost(newOrderSingle);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrdersApi#v1OrdersPost");
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExecutionReport**](ExecutionReport.md)
+[**OrderExecutionReport**](OrderExecutionReport.md)
 
 ### Authorization
 
@@ -198,7 +198,7 @@ No authorization required
 
 ## v1OrdersStatusClientOrderIdGet
 
-> ExecutionReport v1OrdersStatusClientOrderIdGet(clientOrderId)
+> OrderExecutionReport v1OrdersStatusClientOrderIdGet(clientOrderId)
 
 Get order status
 
@@ -213,7 +213,7 @@ Get the current order status for the specified order. The requested order can no
 OrdersApi apiInstance = new OrdersApi();
 String clientOrderId = 6ab36bc1-344d-432e-ac6d-0bf44ee64c2b; // String | Order Client Id of the order for which the status is requested.
 try {
-    ExecutionReport result = apiInstance.v1OrdersStatusClientOrderIdGet(clientOrderId);
+    OrderExecutionReport result = apiInstance.v1OrdersStatusClientOrderIdGet(clientOrderId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrdersApi#v1OrdersStatusClientOrderIdGet");
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExecutionReport**](ExecutionReport.md)
+[**OrderExecutionReport**](OrderExecutionReport.md)
 
 ### Authorization
 

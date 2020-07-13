@@ -16,9 +16,9 @@ goog.provide('API.Client.OrdersApi');
 
 goog.require('API.Client.CancelOrderAllRequest');
 goog.require('API.Client.CancelOrderSingleRequest');
-goog.require('API.Client.ExecutionReport');
 goog.require('API.Client.Message');
 goog.require('API.Client.NewOrderSingle');
+goog.require('API.Client.OrderExecutionReport');
 goog.require('API.Client.ValidationError');
 
 /**
@@ -90,7 +90,7 @@ API.Client.OrdersApi.prototype.v1OrdersCancelAllPost = function(cancelOrderAllRe
  * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
  * @param {!CancelOrderSingleRequest} cancelOrderSingleRequest 
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
- * @return {!angular.$q.Promise<!API.Client.ExecutionReport>}
+ * @return {!angular.$q.Promise<!API.Client.OrderExecutionReport>}
  */
 API.Client.OrdersApi.prototype.v1OrdersCancelPost = function(cancelOrderSingleRequest, opt_extraHttpRequestParams) {
   /** @const {string} */
@@ -127,7 +127,7 @@ API.Client.OrdersApi.prototype.v1OrdersCancelPost = function(cancelOrderSingleRe
  * Get all current open orders across all or single specified exchange.
  * @param {!string=} opt_exchangeId Filter the output to the orders from the specific exchange.
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
- * @return {!angular.$q.Promise<!Array<!API.Client.ExecutionReport>>}
+ * @return {!angular.$q.Promise<!Array<!API.Client.OrderExecutionReport>>}
  */
 API.Client.OrdersApi.prototype.v1OrdersGet = function(opt_exchangeId, opt_extraHttpRequestParams) {
   /** @const {string} */
@@ -163,7 +163,7 @@ API.Client.OrdersApi.prototype.v1OrdersGet = function(opt_exchangeId, opt_extraH
  * This request creating new order for the specific exchange.
  * @param {!NewOrderSingle} newOrderSingle 
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
- * @return {!angular.$q.Promise<!API.Client.ExecutionReport>}
+ * @return {!angular.$q.Promise<!API.Client.OrderExecutionReport>}
  */
 API.Client.OrdersApi.prototype.v1OrdersPost = function(newOrderSingle, opt_extraHttpRequestParams) {
   /** @const {string} */
@@ -200,7 +200,7 @@ API.Client.OrdersApi.prototype.v1OrdersPost = function(newOrderSingle, opt_extra
  * Get the current order status for the specified order. The requested order can no longer be active.
  * @param {!string} clientOrderId Order Client Id of the order for which the status is requested.
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
- * @return {!angular.$q.Promise<!API.Client.ExecutionReport>}
+ * @return {!angular.$q.Promise<!API.Client.OrderExecutionReport>}
  */
 API.Client.OrdersApi.prototype.v1OrdersStatusClientOrderIdGet = function(clientOrderId, opt_extraHttpRequestParams) {
   /** @const {string} */

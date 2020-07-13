@@ -53,15 +53,15 @@ public class OASOrdersApi {
      * Cancel order
      * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
      * @param oaSCancelOrderSingleRequest  (required)
-     * @return OASExecutionReport
+     * @return OASOrderExecutionReport
      * @throws OAS.ApiException if fails to make API call
      */
-    public OASExecutionReport v1OrdersCancelPost(Map<String, Object> params) {
+    public OASOrderExecutionReport v1OrdersCancelPost(Map<String, Object> params) {
         client.assertNotNull(params.get('oaSCancelOrderSingleRequest'), 'oaSCancelOrderSingleRequest');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
-        return (OASExecutionReport) client.invoke(
+        return (OASOrderExecutionReport) client.invoke(
             'POST', '/v1/orders/cancel',
             (OASCancelOrderSingleRequest) params.get('oaSCancelOrderSingleRequest'),
             query, form,
@@ -70,17 +70,17 @@ public class OASOrdersApi {
             new List<String>{ 'application/json', 'appliction/json' },
             new List<String>{ 'application/json' },
             new List<String>(),
-            OASExecutionReport.class
+            OASOrderExecutionReport.class
         );
     }
     /**
      * Get all orders
      * Get all current open orders across all or single specified exchange.
      * @param exchangeId Filter the output to the orders from the specific exchange. (optional)
-     * @return List<OASExecutionReport>
+     * @return List<OASOrderExecutionReport>
      * @throws OAS.ApiException if fails to make API call
      */
-    public List<OASExecutionReport> v1OrdersGet(Map<String, Object> params) {
+    public List<OASOrderExecutionReport> v1OrdersGet(Map<String, Object> params) {
         List<OAS.Param> query = new List<OAS.Param>();
 
         // cast query params to verify their expected type
@@ -88,7 +88,7 @@ public class OASOrdersApi {
 
         List<OAS.Param> form = new List<OAS.Param>();
 
-        return (List<OASExecutionReport>) client.invoke(
+        return (List<OASOrderExecutionReport>) client.invoke(
             'GET', '/v1/orders', '',
             query, form,
             new Map<String, Object>(),
@@ -96,22 +96,22 @@ public class OASOrdersApi {
             new List<String>{ 'application/json' },
             new List<String>(),
             new List<String>(),
-            List<OASExecutionReport>.class
+            List<OASOrderExecutionReport>.class
         );
     }
     /**
      * Create new order
      * This request creating new order for the specific exchange.
      * @param oaSNewOrderSingle  (required)
-     * @return OASExecutionReport
+     * @return OASOrderExecutionReport
      * @throws OAS.ApiException if fails to make API call
      */
-    public OASExecutionReport v1OrdersPost(Map<String, Object> params) {
+    public OASOrderExecutionReport v1OrdersPost(Map<String, Object> params) {
         client.assertNotNull(params.get('oaSNewOrderSingle'), 'oaSNewOrderSingle');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
-        return (OASExecutionReport) client.invoke(
+        return (OASOrderExecutionReport) client.invoke(
             'POST', '/v1/orders',
             (OASNewOrderSingle) params.get('oaSNewOrderSingle'),
             query, form,
@@ -120,22 +120,22 @@ public class OASOrdersApi {
             new List<String>{ 'application/json', 'appliction/json' },
             new List<String>{ 'application/json' },
             new List<String>(),
-            OASExecutionReport.class
+            OASOrderExecutionReport.class
         );
     }
     /**
      * Get order status
      * Get the current order status for the specified order. The requested order can no longer be active.
      * @param clientOrderId Order Client Id of the order for which the status is requested. (required)
-     * @return OASExecutionReport
+     * @return OASOrderExecutionReport
      * @throws OAS.ApiException if fails to make API call
      */
-    public OASExecutionReport v1OrdersStatusClientOrderIdGet(Map<String, Object> params) {
+    public OASOrderExecutionReport v1OrdersStatusClientOrderIdGet(Map<String, Object> params) {
         client.assertNotNull(params.get('clientOrderId'), 'clientOrderId');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
-        return (OASExecutionReport) client.invoke(
+        return (OASOrderExecutionReport) client.invoke(
             'GET', '/v1/orders/status/{client_order_id}', '',
             query, form,
             new Map<String, Object>{
@@ -145,7 +145,7 @@ public class OASOrdersApi {
             new List<String>{ 'application/json' },
             new List<String>(),
             new List<String>(),
-            OASExecutionReport.class
+            OASOrderExecutionReport.class
         );
     }
 }

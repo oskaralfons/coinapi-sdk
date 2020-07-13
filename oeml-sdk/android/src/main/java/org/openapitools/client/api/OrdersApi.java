@@ -25,9 +25,9 @@ import com.android.volley.VolleyError;
 
 import org.openapitools.client.model.CancelOrderAllRequest;
 import org.openapitools.client.model.CancelOrderSingleRequest;
-import org.openapitools.client.model.ExecutionReport;
 import org.openapitools.client.model.Message;
 import org.openapitools.client.model.NewOrderSingle;
+import org.openapitools.client.model.OrderExecutionReport;
 import org.openapitools.client.model.ValidationError;
 
 import org.apache.http.HttpEntity;
@@ -192,9 +192,9 @@ public class OrdersApi {
   * Cancel order
   * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
    * @param cancelOrderSingleRequest 
-   * @return ExecutionReport
+   * @return OrderExecutionReport
   */
-  public ExecutionReport v1OrdersCancelPost (CancelOrderSingleRequest cancelOrderSingleRequest) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrderExecutionReport v1OrdersCancelPost (CancelOrderSingleRequest cancelOrderSingleRequest) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = cancelOrderSingleRequest;
     // verify the required parameter 'cancelOrderSingleRequest' is set
     if (cancelOrderSingleRequest == null) {
@@ -230,7 +230,7 @@ public class OrdersApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (ExecutionReport) ApiInvoker.deserialize(localVarResponse, "", ExecutionReport.class);
+         return (OrderExecutionReport) ApiInvoker.deserialize(localVarResponse, "", OrderExecutionReport.class);
       } else {
          return null;
       }
@@ -256,7 +256,7 @@ public class OrdersApi {
    * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
    * @param cancelOrderSingleRequest 
   */
-  public void v1OrdersCancelPost (CancelOrderSingleRequest cancelOrderSingleRequest, final Response.Listener<ExecutionReport> responseListener, final Response.ErrorListener errorListener) {
+  public void v1OrdersCancelPost (CancelOrderSingleRequest cancelOrderSingleRequest, final Response.Listener<OrderExecutionReport> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = cancelOrderSingleRequest;
 
     // verify the required parameter 'cancelOrderSingleRequest' is set
@@ -301,7 +301,7 @@ public class OrdersApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((ExecutionReport) ApiInvoker.deserialize(localVarResponse,  "", ExecutionReport.class));
+              responseListener.onResponse((OrderExecutionReport) ApiInvoker.deserialize(localVarResponse,  "", OrderExecutionReport.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -320,9 +320,9 @@ public class OrdersApi {
   * Get all orders
   * Get all current open orders across all or single specified exchange.
    * @param exchangeId Filter the output to the orders from the specific exchange.
-   * @return List<ExecutionReport>
+   * @return List<OrderExecutionReport>
   */
-  public List<ExecutionReport> v1OrdersGet (String exchangeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<OrderExecutionReport> v1OrdersGet (String exchangeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
 
     // create path and map variables
@@ -353,7 +353,7 @@ public class OrdersApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (List<ExecutionReport>) ApiInvoker.deserialize(localVarResponse, "array", ExecutionReport.class);
+         return (List<OrderExecutionReport>) ApiInvoker.deserialize(localVarResponse, "array", OrderExecutionReport.class);
       } else {
          return null;
       }
@@ -379,7 +379,7 @@ public class OrdersApi {
    * Get all current open orders across all or single specified exchange.
    * @param exchangeId Filter the output to the orders from the specific exchange.
   */
-  public void v1OrdersGet (String exchangeId, final Response.Listener<List<ExecutionReport>> responseListener, final Response.ErrorListener errorListener) {
+  public void v1OrdersGet (String exchangeId, final Response.Listener<List<OrderExecutionReport>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
 
@@ -420,7 +420,7 @@ public class OrdersApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((List<ExecutionReport>) ApiInvoker.deserialize(localVarResponse,  "array", ExecutionReport.class));
+              responseListener.onResponse((List<OrderExecutionReport>) ApiInvoker.deserialize(localVarResponse,  "array", OrderExecutionReport.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -439,9 +439,9 @@ public class OrdersApi {
   * Create new order
   * This request creating new order for the specific exchange.
    * @param newOrderSingle 
-   * @return ExecutionReport
+   * @return OrderExecutionReport
   */
-  public ExecutionReport v1OrdersPost (NewOrderSingle newOrderSingle) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrderExecutionReport v1OrdersPost (NewOrderSingle newOrderSingle) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = newOrderSingle;
     // verify the required parameter 'newOrderSingle' is set
     if (newOrderSingle == null) {
@@ -477,7 +477,7 @@ public class OrdersApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (ExecutionReport) ApiInvoker.deserialize(localVarResponse, "", ExecutionReport.class);
+         return (OrderExecutionReport) ApiInvoker.deserialize(localVarResponse, "", OrderExecutionReport.class);
       } else {
          return null;
       }
@@ -503,7 +503,7 @@ public class OrdersApi {
    * This request creating new order for the specific exchange.
    * @param newOrderSingle 
   */
-  public void v1OrdersPost (NewOrderSingle newOrderSingle, final Response.Listener<ExecutionReport> responseListener, final Response.ErrorListener errorListener) {
+  public void v1OrdersPost (NewOrderSingle newOrderSingle, final Response.Listener<OrderExecutionReport> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = newOrderSingle;
 
     // verify the required parameter 'newOrderSingle' is set
@@ -548,7 +548,7 @@ public class OrdersApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((ExecutionReport) ApiInvoker.deserialize(localVarResponse,  "", ExecutionReport.class));
+              responseListener.onResponse((OrderExecutionReport) ApiInvoker.deserialize(localVarResponse,  "", OrderExecutionReport.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -567,9 +567,9 @@ public class OrdersApi {
   * Get order status
   * Get the current order status for the specified order. The requested order can no longer be active.
    * @param clientOrderId Order Client Id of the order for which the status is requested.
-   * @return ExecutionReport
+   * @return OrderExecutionReport
   */
-  public ExecutionReport v1OrdersStatusClientOrderIdGet (String clientOrderId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrderExecutionReport v1OrdersStatusClientOrderIdGet (String clientOrderId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'clientOrderId' is set
     if (clientOrderId == null) {
@@ -604,7 +604,7 @@ public class OrdersApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (ExecutionReport) ApiInvoker.deserialize(localVarResponse, "", ExecutionReport.class);
+         return (OrderExecutionReport) ApiInvoker.deserialize(localVarResponse, "", OrderExecutionReport.class);
       } else {
          return null;
       }
@@ -630,7 +630,7 @@ public class OrdersApi {
    * Get the current order status for the specified order. The requested order can no longer be active.
    * @param clientOrderId Order Client Id of the order for which the status is requested.
   */
-  public void v1OrdersStatusClientOrderIdGet (String clientOrderId, final Response.Listener<ExecutionReport> responseListener, final Response.ErrorListener errorListener) {
+  public void v1OrdersStatusClientOrderIdGet (String clientOrderId, final Response.Listener<OrderExecutionReport> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'clientOrderId' is set
@@ -675,7 +675,7 @@ public class OrdersApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((ExecutionReport) ApiInvoker.deserialize(localVarResponse,  "", ExecutionReport.class));
+              responseListener.onResponse((OrderExecutionReport) ApiInvoker.deserialize(localVarResponse,  "", OrderExecutionReport.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }

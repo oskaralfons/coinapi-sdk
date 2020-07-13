@@ -74,7 +74,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_orders_cancel_post**
-> ExecutionReport v1_orders_cancel_post(cancel_order_single_request)
+> OrderExecutionReport v1_orders_cancel_post(cancel_order_single_request)
 
 Cancel order
 
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExecutionReport**](ExecutionReport.md)
+[**OrderExecutionReport**](OrderExecutionReport.md)
 
 ### Authorization
 
@@ -138,7 +138,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_orders_get**
-> list[ExecutionReport] v1_orders_get(exchange_id=exchange_id)
+> list[OrderExecutionReport] v1_orders_get(exchange_id=exchange_id)
 
 Get all orders
 
@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[ExecutionReport]**](ExecutionReport.md)
+[**list[OrderExecutionReport]**](OrderExecutionReport.md)
 
 ### Authorization
 
@@ -200,7 +200,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_orders_post**
-> ExecutionReport v1_orders_post(new_order_single)
+> OrderExecutionReport v1_orders_post(new_order_single)
 
 Create new order
 
@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExecutionReport**](ExecutionReport.md)
+[**OrderExecutionReport**](OrderExecutionReport.md)
 
 ### Authorization
 
@@ -264,7 +264,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_orders_status_client_order_id_get**
-> ExecutionReport v1_orders_status_client_order_id_get(client_order_id)
+> OrderExecutionReport v1_orders_status_client_order_id_get(client_order_id)
 
 Get order status
 
@@ -307,7 +307,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExecutionReport**](ExecutionReport.md)
+[**OrderExecutionReport**](OrderExecutionReport.md)
 
 ### Authorization
 

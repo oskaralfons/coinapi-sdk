@@ -60,7 +60,7 @@ export class OrdersApi {
      * @summary Cancel order
      * @param cancelOrderSingleRequest 
      */
-    public v1OrdersCancelPost (cancelOrderSingleRequest: models.CancelOrderSingleRequest, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.ExecutionReport> {
+    public v1OrdersCancelPost (cancelOrderSingleRequest: models.CancelOrderSingleRequest, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.OrderExecutionReport> {
         const localVarPath = this.basePath + '/v1/orders/cancel';
 
         let queryParameters: any = {};
@@ -89,7 +89,7 @@ export class OrdersApi {
      * @summary Get all orders
      * @param exchangeId Filter the output to the orders from the specific exchange.
      */
-    public v1OrdersGet (exchangeId?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.ExecutionReport>> {
+    public v1OrdersGet (exchangeId?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.OrderExecutionReport>> {
         const localVarPath = this.basePath + '/v1/orders';
 
         let queryParameters: any = {};
@@ -116,7 +116,7 @@ export class OrdersApi {
      * @summary Create new order
      * @param newOrderSingle 
      */
-    public v1OrdersPost (newOrderSingle: models.NewOrderSingle, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.ExecutionReport> {
+    public v1OrdersPost (newOrderSingle: models.NewOrderSingle, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.OrderExecutionReport> {
         const localVarPath = this.basePath + '/v1/orders';
 
         let queryParameters: any = {};
@@ -145,7 +145,7 @@ export class OrdersApi {
      * @summary Get order status
      * @param clientOrderId Order Client Id of the order for which the status is requested.
      */
-    public v1OrdersStatusClientOrderIdGet (clientOrderId: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.ExecutionReport> {
+    public v1OrdersStatusClientOrderIdGet (clientOrderId: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.OrderExecutionReport> {
         const localVarPath = this.basePath + '/v1/orders/status/{client_order_id}'
             .replace('{' + 'client_order_id' + '}', encodeURIComponent(String(clientOrderId)));
 

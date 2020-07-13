@@ -31,11 +31,11 @@ v1_orders_cancel_all_post(Ctx, OpenapiCancelOrderAllRequest, Optional) ->
 
 %% @doc Cancel order
 %% This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
--spec v1_orders_cancel_post(ctx:ctx(), openapi_cancel_order_single_request:openapi_cancel_order_single_request()) -> {ok, openapi_execution_report:openapi_execution_report(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+-spec v1_orders_cancel_post(ctx:ctx(), openapi_cancel_order_single_request:openapi_cancel_order_single_request()) -> {ok, openapi_order_execution_report:openapi_order_execution_report(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
 v1_orders_cancel_post(Ctx, OpenapiCancelOrderSingleRequest) ->
     v1_orders_cancel_post(Ctx, OpenapiCancelOrderSingleRequest, #{}).
 
--spec v1_orders_cancel_post(ctx:ctx(), openapi_cancel_order_single_request:openapi_cancel_order_single_request(), maps:map()) -> {ok, openapi_execution_report:openapi_execution_report(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+-spec v1_orders_cancel_post(ctx:ctx(), openapi_cancel_order_single_request:openapi_cancel_order_single_request(), maps:map()) -> {ok, openapi_order_execution_report:openapi_order_execution_report(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
 v1_orders_cancel_post(Ctx, OpenapiCancelOrderSingleRequest, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
@@ -52,11 +52,11 @@ v1_orders_cancel_post(Ctx, OpenapiCancelOrderSingleRequest, Optional) ->
 
 %% @doc Get all orders
 %% Get all current open orders across all or single specified exchange.
--spec v1_orders_get(ctx:ctx()) -> {ok, [openapi_execution_report:openapi_execution_report()], openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+-spec v1_orders_get(ctx:ctx()) -> {ok, [openapi_order_execution_report:openapi_order_execution_report()], openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
 v1_orders_get(Ctx) ->
     v1_orders_get(Ctx, #{}).
 
--spec v1_orders_get(ctx:ctx(), maps:map()) -> {ok, [openapi_execution_report:openapi_execution_report()], openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+-spec v1_orders_get(ctx:ctx(), maps:map()) -> {ok, [openapi_order_execution_report:openapi_order_execution_report()], openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
 v1_orders_get(Ctx, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
@@ -73,11 +73,11 @@ v1_orders_get(Ctx, Optional) ->
 
 %% @doc Create new order
 %% This request creating new order for the specific exchange.
--spec v1_orders_post(ctx:ctx(), openapi_new_order_single:openapi_new_order_single()) -> {ok, openapi_execution_report:openapi_execution_report(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+-spec v1_orders_post(ctx:ctx(), openapi_new_order_single:openapi_new_order_single()) -> {ok, openapi_order_execution_report:openapi_order_execution_report(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
 v1_orders_post(Ctx, OpenapiNewOrderSingle) ->
     v1_orders_post(Ctx, OpenapiNewOrderSingle, #{}).
 
--spec v1_orders_post(ctx:ctx(), openapi_new_order_single:openapi_new_order_single(), maps:map()) -> {ok, openapi_execution_report:openapi_execution_report(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+-spec v1_orders_post(ctx:ctx(), openapi_new_order_single:openapi_new_order_single(), maps:map()) -> {ok, openapi_order_execution_report:openapi_order_execution_report(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
 v1_orders_post(Ctx, OpenapiNewOrderSingle, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
@@ -94,11 +94,11 @@ v1_orders_post(Ctx, OpenapiNewOrderSingle, Optional) ->
 
 %% @doc Get order status
 %% Get the current order status for the specified order. The requested order can no longer be active.
--spec v1_orders_status_client_order_id_get(ctx:ctx(), binary()) -> {ok, openapi_execution_report:openapi_execution_report(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+-spec v1_orders_status_client_order_id_get(ctx:ctx(), binary()) -> {ok, openapi_order_execution_report:openapi_order_execution_report(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
 v1_orders_status_client_order_id_get(Ctx, ClientOrderId) ->
     v1_orders_status_client_order_id_get(Ctx, ClientOrderId, #{}).
 
--spec v1_orders_status_client_order_id_get(ctx:ctx(), binary(), maps:map()) -> {ok, openapi_execution_report:openapi_execution_report(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+-spec v1_orders_status_client_order_id_get(ctx:ctx(), binary(), maps:map()) -> {ok, openapi_order_execution_report:openapi_order_execution_report(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
 v1_orders_status_client_order_id_get(Ctx, ClientOrderId, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),

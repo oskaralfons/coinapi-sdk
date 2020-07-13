@@ -7,9 +7,9 @@
 #include <glib.h>
 #include "CancelOrderAllRequest.h"
 #include "CancelOrderSingleRequest.h"
-#include "ExecutionReport.h"
 #include "Message.h"
 #include "NewOrderSingle.h"
+#include "OrderExecutionReport.h"
 #include "ValidationError.h"
 #include "Error.h"
 
@@ -66,7 +66,7 @@ bool v1OrdersCancelAllPostAsync(char * accessToken,
  */
 bool v1OrdersCancelPostSync(char * accessToken,
 	CancelOrderSingleRequest cancelOrderSingleRequest, 
-	void(* handler)(ExecutionReport, Error, void* )
+	void(* handler)(OrderExecutionReport, Error, void* )
 	, void* userData);
 
 /*! \brief Cancel order. *Asynchronous*
@@ -79,7 +79,7 @@ bool v1OrdersCancelPostSync(char * accessToken,
  */
 bool v1OrdersCancelPostAsync(char * accessToken,
 	CancelOrderSingleRequest cancelOrderSingleRequest, 
-	void(* handler)(ExecutionReport, Error, void* )
+	void(* handler)(OrderExecutionReport, Error, void* )
 	, void* userData);
 
 
@@ -93,7 +93,7 @@ bool v1OrdersCancelPostAsync(char * accessToken,
  */
 bool v1OrdersGetSync(char * accessToken,
 	std::string exchangeId, 
-	void(* handler)(std::list<ExecutionReport>, Error, void* )
+	void(* handler)(std::list<OrderExecutionReport>, Error, void* )
 	, void* userData);
 
 /*! \brief Get all orders. *Asynchronous*
@@ -106,7 +106,7 @@ bool v1OrdersGetSync(char * accessToken,
  */
 bool v1OrdersGetAsync(char * accessToken,
 	std::string exchangeId, 
-	void(* handler)(std::list<ExecutionReport>, Error, void* )
+	void(* handler)(std::list<OrderExecutionReport>, Error, void* )
 	, void* userData);
 
 
@@ -120,7 +120,7 @@ bool v1OrdersGetAsync(char * accessToken,
  */
 bool v1OrdersPostSync(char * accessToken,
 	NewOrderSingle newOrderSingle, 
-	void(* handler)(ExecutionReport, Error, void* )
+	void(* handler)(OrderExecutionReport, Error, void* )
 	, void* userData);
 
 /*! \brief Create new order. *Asynchronous*
@@ -133,7 +133,7 @@ bool v1OrdersPostSync(char * accessToken,
  */
 bool v1OrdersPostAsync(char * accessToken,
 	NewOrderSingle newOrderSingle, 
-	void(* handler)(ExecutionReport, Error, void* )
+	void(* handler)(OrderExecutionReport, Error, void* )
 	, void* userData);
 
 
@@ -147,7 +147,7 @@ bool v1OrdersPostAsync(char * accessToken,
  */
 bool v1OrdersStatusClientOrderIdGetSync(char * accessToken,
 	std::string clientOrderId, 
-	void(* handler)(ExecutionReport, Error, void* )
+	void(* handler)(OrderExecutionReport, Error, void* )
 	, void* userData);
 
 /*! \brief Get order status. *Asynchronous*
@@ -160,7 +160,7 @@ bool v1OrdersStatusClientOrderIdGetSync(char * accessToken,
  */
 bool v1OrdersStatusClientOrderIdGetAsync(char * accessToken,
 	std::string clientOrderId, 
-	void(* handler)(ExecutionReport, Error, void* )
+	void(* handler)(OrderExecutionReport, Error, void* )
 	, void* userData);
 
 

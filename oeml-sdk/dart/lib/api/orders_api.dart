@@ -112,12 +112,12 @@ class OrdersApi {
   /// Cancel order
   ///
   /// This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
-  Future<ExecutionReport> v1OrdersCancelPost(CancelOrderSingleRequest cancelOrderSingleRequest) async {
+  Future<OrderExecutionReport> v1OrdersCancelPost(CancelOrderSingleRequest cancelOrderSingleRequest) async {
     Response response = await v1OrdersCancelPostWithHttpInfo(cancelOrderSingleRequest);
     if(response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'ExecutionReport') as ExecutionReport;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'OrderExecutionReport') as OrderExecutionReport;
     } else {
       return null;
     }
@@ -170,12 +170,12 @@ class OrdersApi {
   /// Get all orders
   ///
   /// Get all current open orders across all or single specified exchange.
-  Future<List<ExecutionReport>> v1OrdersGet({ String exchangeId }) async {
+  Future<List<OrderExecutionReport>> v1OrdersGet({ String exchangeId }) async {
     Response response = await v1OrdersGetWithHttpInfo( exchangeId: exchangeId );
     if(response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<ExecutionReport>') as List).map((item) => item as ExecutionReport).toList();
+      return (apiClient.deserialize(_decodeBodyBytes(response), 'List<OrderExecutionReport>') as List).map((item) => item as OrderExecutionReport).toList();
     } else {
       return null;
     }
@@ -228,12 +228,12 @@ class OrdersApi {
   /// Create new order
   ///
   /// This request creating new order for the specific exchange.
-  Future<ExecutionReport> v1OrdersPost(NewOrderSingle newOrderSingle) async {
+  Future<OrderExecutionReport> v1OrdersPost(NewOrderSingle newOrderSingle) async {
     Response response = await v1OrdersPostWithHttpInfo(newOrderSingle);
     if(response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'ExecutionReport') as ExecutionReport;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'OrderExecutionReport') as OrderExecutionReport;
     } else {
       return null;
     }
@@ -286,12 +286,12 @@ class OrdersApi {
   /// Get order status
   ///
   /// Get the current order status for the specified order. The requested order can no longer be active.
-  Future<ExecutionReport> v1OrdersStatusClientOrderIdGet(String clientOrderId) async {
+  Future<OrderExecutionReport> v1OrdersStatusClientOrderIdGet(String clientOrderId) async {
     Response response = await v1OrdersStatusClientOrderIdGetWithHttpInfo(clientOrderId);
     if(response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'ExecutionReport') as ExecutionReport;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'OrderExecutionReport') as OrderExecutionReport;
     } else {
       return null;
     }

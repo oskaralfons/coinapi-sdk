@@ -20,7 +20,7 @@ void main() {
     //
     // This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
     //
-    //Future<ExecutionReport> v1OrdersCancelPost(CancelOrderSingleRequest cancelOrderSingleRequest) async 
+    //Future<OrderExecutionReport> v1OrdersCancelPost(CancelOrderSingleRequest cancelOrderSingleRequest) async 
     test('test v1OrdersCancelPost', () async {
       // TODO
     });
@@ -29,7 +29,7 @@ void main() {
     //
     // Get all current open orders across all or single specified exchange.
     //
-    //Future<List<ExecutionReport>> v1OrdersGet({ String exchangeId }) async 
+    //Future<List<OrderExecutionReport>> v1OrdersGet({ String exchangeId }) async 
     test('test v1OrdersGet', () async {
       // TODO
     });
@@ -38,7 +38,7 @@ void main() {
     //
     // This request creating new order for the specific exchange.
     //
-    //Future<ExecutionReport> v1OrdersPost(NewOrderSingle newOrderSingle) async 
+    //Future<OrderExecutionReport> v1OrdersPost(NewOrderSingle newOrderSingle) async 
     test('test v1OrdersPost', () async {
       // TODO
     });
@@ -47,7 +47,7 @@ void main() {
     //
     // Get the current order status for the specified order. The requested order can no longer be active.
     //
-    //Future<ExecutionReport> v1OrdersStatusClientOrderIdGet(String clientOrderId) async 
+    //Future<OrderExecutionReport> v1OrdersStatusClientOrderIdGet(String clientOrderId) async 
     test('test v1OrdersStatusClientOrderIdGet', () async {
       // TODO
     });

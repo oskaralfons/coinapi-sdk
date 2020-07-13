@@ -16,8 +16,8 @@ local dkjson = require "dkjson"
 local basexx = require "basexx"
 
 -- model import
-local openapiclient_execution_report = require "openapiclient.model.execution_report"
 local openapiclient_message = require "openapiclient.model.message"
+local openapiclient_order_execution_report = require "openapiclient.model.order_execution_report"
 local openapiclient_validation_error = require "openapiclient.model.validation_error"
 local openapiclient_cancel_order_all_request = require "openapiclient.model.cancel_order_all_request"
 local openapiclient_cancel_order_single_request = require "openapiclient.model.cancel_order_single_request"
@@ -141,7 +141,7 @@ function orders_api:v1_orders_cancel_post(cancel_order_single_request)
 		if result == nil then
 			return nil, err3
 		end
-		return openapiclient_execution_report.cast(result), headers
+		return openapiclient_order_execution_report.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -188,7 +188,7 @@ function orders_api:v1_orders_get(exchange_id)
 			return nil, err3
 		end
 		for _, ob in ipairs(result) do
-			openapiclient_execution_report.cast(ob)
+			openapiclient_order_execution_report.cast(ob)
 		end
 		return result, headers
 	else
@@ -242,7 +242,7 @@ function orders_api:v1_orders_post(new_order_single)
 		if result == nil then
 			return nil, err3
 		end
-		return openapiclient_execution_report.cast(result), headers
+		return openapiclient_order_execution_report.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -288,7 +288,7 @@ function orders_api:v1_orders_status_client_order_id_get(client_order_id)
 		if result == nil then
 			return nil, err3
 		end
-		return openapiclient_execution_report.cast(result), headers
+		return openapiclient_order_execution_report.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then

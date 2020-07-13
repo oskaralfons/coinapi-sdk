@@ -6,8 +6,8 @@ import 'dart:async';
 
 import 'package:openapi/model/cancel_order_single_request.dart';
 import 'package:openapi/model/cancel_order_all_request.dart';
-import 'package:openapi/model/execution_report.dart';
 import 'package:openapi/model/validation_error.dart';
+import 'package:openapi/model/order_execution_report.dart';
 import 'package:openapi/model/new_order_single.dart';
 import 'package:openapi/model/message.dart';
 
@@ -40,7 +40,7 @@ class OrdersApi extends ApiClient with _$OrdersApiClient {
     ///
     /// This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
     @PostReq(path: "/v1/orders/cancel")
-    Future<ExecutionReport> v1OrdersCancelPost(
+    Future<OrderExecutionReport> v1OrdersCancelPost(
             
              @AsJson() CancelOrderSingleRequest cancelOrderSingleRequest
         ) {
@@ -55,7 +55,7 @@ class OrdersApi extends ApiClient with _$OrdersApiClient {
     ///
     /// Get all current open orders across all or single specified exchange.
     @GetReq(path: "/v1/orders")
-    Future<List<ExecutionReport>> v1OrdersGet(
+    Future<List<OrderExecutionReport>> v1OrdersGet(
         
             @QueryParam("exchange_id") String exchangeId
         ) {
@@ -70,7 +70,7 @@ class OrdersApi extends ApiClient with _$OrdersApiClient {
     ///
     /// This request creating new order for the specific exchange.
     @PostReq(path: "/v1/orders")
-    Future<ExecutionReport> v1OrdersPost(
+    Future<OrderExecutionReport> v1OrdersPost(
             
              @AsJson() NewOrderSingle newOrderSingle
         ) {
@@ -85,7 +85,7 @@ class OrdersApi extends ApiClient with _$OrdersApiClient {
     ///
     /// Get the current order status for the specified order. The requested order can no longer be active.
     @GetReq(path: "/v1/orders/status/:client_order_id")
-    Future<ExecutionReport> v1OrdersStatusClientOrderIdGet(
+    Future<OrderExecutionReport> v1OrdersStatusClientOrderIdGet(
             @PathParam("client_order_id") String clientOrderId
         ) {
         return super.v1OrdersStatusClientOrderIdGet(

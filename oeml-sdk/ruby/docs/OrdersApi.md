@@ -61,7 +61,7 @@ No authorization required
 
 ## v1_orders_cancel_post
 
-> ExecutionReport v1_orders_cancel_post(cancel_order_single_request)
+> OrderExecutionReport v1_orders_cancel_post(cancel_order_single_request)
 
 Cancel order
 
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExecutionReport**](ExecutionReport.md)
+[**OrderExecutionReport**](OrderExecutionReport.md)
 
 ### Authorization
 
@@ -108,7 +108,7 @@ No authorization required
 
 ## v1_orders_get
 
-> Array&lt;ExecutionReport&gt; v1_orders_get(opts)
+> Array&lt;OrderExecutionReport&gt; v1_orders_get(opts)
 
 Get all orders
 
@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array&lt;ExecutionReport&gt;**](ExecutionReport.md)
+[**Array&lt;OrderExecutionReport&gt;**](OrderExecutionReport.md)
 
 ### Authorization
 
@@ -157,7 +157,7 @@ No authorization required
 
 ## v1_orders_post
 
-> ExecutionReport v1_orders_post(new_order_single)
+> OrderExecutionReport v1_orders_post(new_order_single)
 
 Create new order
 
@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExecutionReport**](ExecutionReport.md)
+[**OrderExecutionReport**](OrderExecutionReport.md)
 
 ### Authorization
 
@@ -204,7 +204,7 @@ No authorization required
 
 ## v1_orders_status_client_order_id_get
 
-> ExecutionReport v1_orders_status_client_order_id_get(client_order_id)
+> OrderExecutionReport v1_orders_status_client_order_id_get(client_order_id)
 
 Get order status
 
@@ -237,7 +237,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExecutionReport**](ExecutionReport.md)
+[**OrderExecutionReport**](OrderExecutionReport.md)
 
 ### Authorization
 

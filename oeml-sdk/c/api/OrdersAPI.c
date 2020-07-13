@@ -89,7 +89,7 @@ end:
 //
 // This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
 //
-execution_report_t*
+order_execution_report_t*
 OrdersAPI_v1OrdersCancelPost(apiClient_t *apiClient, cancel_order_single_request_t * cancel_order_single_request )
 {
     list_t    *localVarQueryParameters = NULL;
@@ -139,7 +139,7 @@ OrdersAPI_v1OrdersCancelPost(apiClient_t *apiClient, cancel_order_single_request
     }
     //nonprimitive not container
     cJSON *OrdersAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
-    execution_report_t *elementToReturn = execution_report_parseFromJSON(OrdersAPIlocalVarJSON);
+    order_execution_report_t *elementToReturn = order_execution_report_parseFromJSON(OrdersAPIlocalVarJSON);
     cJSON_Delete(OrdersAPIlocalVarJSON);
     if(elementToReturn == NULL) {
         // return 0;
@@ -264,7 +264,7 @@ end:
 //
 // This request creating new order for the specific exchange.
 //
-execution_report_t*
+order_execution_report_t*
 OrdersAPI_v1OrdersPost(apiClient_t *apiClient, new_order_single_t * new_order_single )
 {
     list_t    *localVarQueryParameters = NULL;
@@ -314,7 +314,7 @@ OrdersAPI_v1OrdersPost(apiClient_t *apiClient, new_order_single_t * new_order_si
     }
     //nonprimitive not container
     cJSON *OrdersAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
-    execution_report_t *elementToReturn = execution_report_parseFromJSON(OrdersAPIlocalVarJSON);
+    order_execution_report_t *elementToReturn = order_execution_report_parseFromJSON(OrdersAPIlocalVarJSON);
     cJSON_Delete(OrdersAPIlocalVarJSON);
     if(elementToReturn == NULL) {
         // return 0;
@@ -344,7 +344,7 @@ end:
 //
 // Get the current order status for the specified order. The requested order can no longer be active.
 //
-execution_report_t*
+order_execution_report_t*
 OrdersAPI_v1OrdersStatusClientOrderIdGet(apiClient_t *apiClient, char * client_order_id )
 {
     list_t    *localVarQueryParameters = NULL;
@@ -390,7 +390,7 @@ OrdersAPI_v1OrdersStatusClientOrderIdGet(apiClient_t *apiClient, char * client_o
     }
     //nonprimitive not container
     cJSON *OrdersAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
-    execution_report_t *elementToReturn = execution_report_parseFromJSON(OrdersAPIlocalVarJSON);
+    order_execution_report_t *elementToReturn = order_execution_report_parseFromJSON(OrdersAPIlocalVarJSON);
     cJSON_Delete(OrdersAPIlocalVarJSON);
     if(elementToReturn == NULL) {
         // return 0;

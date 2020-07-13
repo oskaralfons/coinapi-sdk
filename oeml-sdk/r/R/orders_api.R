@@ -36,12 +36,12 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } cancel.order.single.request \link{CancelOrderSingleRequest}
-#' \item \emph{ @returnType } \link{ExecutionReport} \cr
+#' \item \emph{ @returnType } \link{OrderExecutionReport} \cr
 #'
 #'
 #' \item status code : 200 | Canceled order
 #'
-#' \item return type : ExecutionReport 
+#' \item return type : OrderExecutionReport 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -67,12 +67,12 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } exchange.id character
-#' \item \emph{ @returnType } list( \link{ExecutionReport} ) \cr
+#' \item \emph{ @returnType } list( \link{OrderExecutionReport} ) \cr
 #'
 #'
 #' \item status code : 200 | Collection of requested open orders.
 #'
-#' \item return type : array[ExecutionReport] 
+#' \item return type : array[OrderExecutionReport] 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -84,12 +84,12 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } new.order.single \link{NewOrderSingle}
-#' \item \emph{ @returnType } \link{ExecutionReport} \cr
+#' \item \emph{ @returnType } \link{OrderExecutionReport} \cr
 #'
 #'
 #' \item status code : 200 | Created
 #'
-#' \item return type : ExecutionReport 
+#' \item return type : OrderExecutionReport 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -115,12 +115,12 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } client.order.id character
-#' \item \emph{ @returnType } \link{ExecutionReport} \cr
+#' \item \emph{ @returnType } \link{OrderExecutionReport} \cr
 #'
 #'
 #' \item status code : 200 | The order was found.
 #'
-#' \item return type : ExecutionReport 
+#' \item return type : OrderExecutionReport 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -304,7 +304,7 @@ OrdersApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "ExecutionReport", loadNamespace("openapi")),
+          self$apiClient$deserialize(resp, "OrderExecutionReport", loadNamespace("openapi")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -350,7 +350,7 @@ OrdersApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "array[ExecutionReport]", loadNamespace("openapi")),
+          self$apiClient$deserialize(resp, "array[OrderExecutionReport]", loadNamespace("openapi")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -404,7 +404,7 @@ OrdersApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "ExecutionReport", loadNamespace("openapi")),
+          self$apiClient$deserialize(resp, "OrderExecutionReport", loadNamespace("openapi")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -456,7 +456,7 @@ OrdersApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "ExecutionReport", loadNamespace("openapi")),
+          self$apiClient$deserialize(resp, "OrderExecutionReport", loadNamespace("openapi")),
           error = function(e){
              stop("Failed to deserialize response")
           }

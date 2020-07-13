@@ -149,7 +149,7 @@ void OAIOrdersApi::v1OrdersCancelPostCallback(OAIHttpRequestWorker *worker) {
         msg = "Error: " + worker->error_str;
         error_str = QString("%1, %2").arg(worker->error_str).arg(QString(worker->response));
     }
-    OAIExecutionReport output(QString(worker->response));
+    OAIOrderExecutionReport output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -198,13 +198,13 @@ void OAIOrdersApi::v1OrdersGetCallback(OAIHttpRequestWorker *worker) {
         msg = "Error: " + worker->error_str;
         error_str = QString("%1, %2").arg(worker->error_str).arg(QString(worker->response));
     }
-    QList<OAIExecutionReport> output;
+    QList<OAIOrderExecutionReport> output;
     QString json(worker->response);
     QByteArray array(json.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonArray jsonArray = doc.array();
     foreach (QJsonValue obj, jsonArray) {
-        OAIExecutionReport val;
+        OAIOrderExecutionReport val;
         ::OpenAPI::fromJsonValue(val, obj);
         output.append(val);
     }
@@ -253,7 +253,7 @@ void OAIOrdersApi::v1OrdersPostCallback(OAIHttpRequestWorker *worker) {
         msg = "Error: " + worker->error_str;
         error_str = QString("%1, %2").arg(worker->error_str).arg(QString(worker->response));
     }
-    OAIExecutionReport output(QString(worker->response));
+    OAIOrderExecutionReport output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -299,7 +299,7 @@ void OAIOrdersApi::v1OrdersStatusClientOrderIdGetCallback(OAIHttpRequestWorker *
         msg = "Error: " + worker->error_str;
         error_str = QString("%1, %2").arg(worker->error_str).arg(QString(worker->response));
     }
-    OAIExecutionReport output(QString(worker->response));
+    OAIOrderExecutionReport output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {

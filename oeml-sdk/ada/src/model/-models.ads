@@ -342,7 +342,7 @@ package .Models is
 
 
 
-   type ExecutionReport_Type is
+   type OrderExecutionReport_Type is
      record
        Exchange_Id : Swagger.UString;
        Client_Order_Id : Swagger.UString;
@@ -364,25 +364,25 @@ package .Models is
        Error_Message : Swagger.Nullable_UString;
      end record;
 
-   package ExecutionReport_Type_Vectors is
+   package OrderExecutionReport_Type_Vectors is
       new Ada.Containers.Vectors (Index_Type   => Positive,
-                                  Element_Type => ExecutionReport_Type);
+                                  Element_Type => OrderExecutionReport_Type);
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in ExecutionReport_Type);
+                        Value : in OrderExecutionReport_Type);
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in ExecutionReport_Type_Vectors.Vector);
+                        Value : in OrderExecutionReport_Type_Vectors.Vector);
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out ExecutionReport_Type);
+                          Value : out OrderExecutionReport_Type);
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out ExecutionReport_Type_Vectors.Vector);
+                          Value : out OrderExecutionReport_Type_Vectors.Vector);
 
 
 
@@ -451,7 +451,7 @@ package .Models is
 
 
 
-   type ExecutionReportAllOf_Type is
+   type OrderExecutionReportAllOf_Type is
      record
        Client_Order_Id_Format_Exchange : Swagger.UString;
        Exchange_Order_Id : Swagger.Nullable_UString;
@@ -462,25 +462,25 @@ package .Models is
        Error_Message : Swagger.Nullable_UString;
      end record;
 
-   package ExecutionReportAllOf_Type_Vectors is
+   package OrderExecutionReportAllOf_Type_Vectors is
       new Ada.Containers.Vectors (Index_Type   => Positive,
-                                  Element_Type => ExecutionReportAllOf_Type);
+                                  Element_Type => OrderExecutionReportAllOf_Type);
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in ExecutionReportAllOf_Type);
+                        Value : in OrderExecutionReportAllOf_Type);
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in ExecutionReportAllOf_Type_Vectors.Vector);
+                        Value : in OrderExecutionReportAllOf_Type_Vectors.Vector);
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out ExecutionReportAllOf_Type);
+                          Value : out OrderExecutionReportAllOf_Type);
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out ExecutionReportAllOf_Type_Vectors.Vector);
+                          Value : out OrderExecutionReportAllOf_Type_Vectors.Vector);
 
 
 

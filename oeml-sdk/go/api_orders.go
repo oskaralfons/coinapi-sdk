@@ -109,16 +109,16 @@ V1OrdersCancelPost Cancel order
 This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param cancelOrderSingleRequest
-@return ExecutionReport
+@return OrderExecutionReport
 */
-func (a *OrdersApiService) V1OrdersCancelPost(ctx _context.Context, cancelOrderSingleRequest CancelOrderSingleRequest) (ExecutionReport, *_nethttp.Response, error) {
+func (a *OrdersApiService) V1OrdersCancelPost(ctx _context.Context, cancelOrderSingleRequest CancelOrderSingleRequest) (OrderExecutionReport, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ExecutionReport
+		localVarReturnValue  OrderExecutionReport
 	)
 
 	// create path and map variables
@@ -212,16 +212,16 @@ Get all current open orders across all or single specified exchange.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *V1OrdersGetOpts - Optional Parameters:
  * @param "ExchangeId" (optional.String) -  Filter the output to the orders from the specific exchange.
-@return []ExecutionReport
+@return []OrderExecutionReport
 */
-func (a *OrdersApiService) V1OrdersGet(ctx _context.Context, localVarOptionals *V1OrdersGetOpts) ([]ExecutionReport, *_nethttp.Response, error) {
+func (a *OrdersApiService) V1OrdersGet(ctx _context.Context, localVarOptionals *V1OrdersGetOpts) ([]OrderExecutionReport, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []ExecutionReport
+		localVarReturnValue  []OrderExecutionReport
 	)
 
 	// create path and map variables
@@ -291,16 +291,16 @@ V1OrdersPost Create new order
 This request creating new order for the specific exchange.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param newOrderSingle
-@return ExecutionReport
+@return OrderExecutionReport
 */
-func (a *OrdersApiService) V1OrdersPost(ctx _context.Context, newOrderSingle NewOrderSingle) (ExecutionReport, *_nethttp.Response, error) {
+func (a *OrdersApiService) V1OrdersPost(ctx _context.Context, newOrderSingle NewOrderSingle) (OrderExecutionReport, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ExecutionReport
+		localVarReturnValue  OrderExecutionReport
 	)
 
 	// create path and map variables
@@ -388,16 +388,16 @@ V1OrdersStatusClientOrderIdGet Get order status
 Get the current order status for the specified order. The requested order can no longer be active.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param clientOrderId Order Client Id of the order for which the status is requested.
-@return ExecutionReport
+@return OrderExecutionReport
 */
-func (a *OrdersApiService) V1OrdersStatusClientOrderIdGet(ctx _context.Context, clientOrderId string) (ExecutionReport, *_nethttp.Response, error) {
+func (a *OrdersApiService) V1OrdersStatusClientOrderIdGet(ctx _context.Context, clientOrderId string) (OrderExecutionReport, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ExecutionReport
+		localVarReturnValue  OrderExecutionReport
 	)
 
 	// create path and map variables

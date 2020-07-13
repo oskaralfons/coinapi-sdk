@@ -176,7 +176,7 @@ pplx::task<std::shared_ptr<Message>> OrdersApi::v1OrdersCancelAllPost(std::share
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ExecutionReport>> OrdersApi::v1OrdersCancelPost(std::shared_ptr<CancelOrderSingleRequest> cancelOrderSingleRequest) const
+pplx::task<std::shared_ptr<OrderExecutionReport>> OrdersApi::v1OrdersCancelPost(std::shared_ptr<CancelOrderSingleRequest> cancelOrderSingleRequest) const
 {
 
     // verify the required parameter 'cancelOrderSingleRequest' is set
@@ -297,7 +297,7 @@ pplx::task<std::shared_ptr<ExecutionReport>> OrdersApi::v1OrdersCancelPost(std::
     })
     .then([=](utility::string_t localVarResponse)
     {
-        std::shared_ptr<ExecutionReport> localVarResult(new ExecutionReport());
+        std::shared_ptr<OrderExecutionReport> localVarResult(new OrderExecutionReport());
 
         if(localVarResponseHttpContentType == utility::conversions::to_string_t("application/json"))
         {
@@ -318,7 +318,7 @@ pplx::task<std::shared_ptr<ExecutionReport>> OrdersApi::v1OrdersCancelPost(std::
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<ExecutionReport>>> OrdersApi::v1OrdersGet(boost::optional<utility::string_t> exchangeId) const
+pplx::task<std::vector<std::shared_ptr<OrderExecutionReport>>> OrdersApi::v1OrdersGet(boost::optional<utility::string_t> exchangeId) const
 {
 
 
@@ -419,14 +419,14 @@ pplx::task<std::vector<std::shared_ptr<ExecutionReport>>> OrdersApi::v1OrdersGet
     })
     .then([=](utility::string_t localVarResponse)
     {
-        std::vector<std::shared_ptr<ExecutionReport>> localVarResult;
+        std::vector<std::shared_ptr<OrderExecutionReport>> localVarResult;
 
         if(localVarResponseHttpContentType == utility::conversions::to_string_t("application/json"))
         {
             web::json::value localVarJson = web::json::value::parse(localVarResponse);
             for( auto& localVarItem : localVarJson.as_array() )
             {
-                std::shared_ptr<ExecutionReport> localVarItemObj;
+                std::shared_ptr<OrderExecutionReport> localVarItemObj;
                 ModelBase::fromJson(localVarItem, localVarItemObj);
                 localVarResult.push_back(localVarItemObj);
             }
@@ -444,7 +444,7 @@ pplx::task<std::vector<std::shared_ptr<ExecutionReport>>> OrdersApi::v1OrdersGet
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ExecutionReport>> OrdersApi::v1OrdersPost(std::shared_ptr<NewOrderSingle> newOrderSingle) const
+pplx::task<std::shared_ptr<OrderExecutionReport>> OrdersApi::v1OrdersPost(std::shared_ptr<NewOrderSingle> newOrderSingle) const
 {
 
     // verify the required parameter 'newOrderSingle' is set
@@ -565,7 +565,7 @@ pplx::task<std::shared_ptr<ExecutionReport>> OrdersApi::v1OrdersPost(std::shared
     })
     .then([=](utility::string_t localVarResponse)
     {
-        std::shared_ptr<ExecutionReport> localVarResult(new ExecutionReport());
+        std::shared_ptr<OrderExecutionReport> localVarResult(new OrderExecutionReport());
 
         if(localVarResponseHttpContentType == utility::conversions::to_string_t("application/json"))
         {
@@ -586,7 +586,7 @@ pplx::task<std::shared_ptr<ExecutionReport>> OrdersApi::v1OrdersPost(std::shared
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ExecutionReport>> OrdersApi::v1OrdersStatusClientOrderIdGet(utility::string_t clientOrderId) const
+pplx::task<std::shared_ptr<OrderExecutionReport>> OrdersApi::v1OrdersStatusClientOrderIdGet(utility::string_t clientOrderId) const
 {
 
 
@@ -684,7 +684,7 @@ pplx::task<std::shared_ptr<ExecutionReport>> OrdersApi::v1OrdersStatusClientOrde
     })
     .then([=](utility::string_t localVarResponse)
     {
-        std::shared_ptr<ExecutionReport> localVarResult(new ExecutionReport());
+        std::shared_ptr<OrderExecutionReport> localVarResult(new OrderExecutionReport());
 
         if(localVarResponseHttpContentType == utility::conversions::to_string_t("application/json"))
         {

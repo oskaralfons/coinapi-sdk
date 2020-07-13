@@ -33,28 +33,28 @@ package .Clients is
    procedure V1_Orders_Cancel_Post
       (Client : in out Client_Type;
        Cancel_Order_Single_Request_Type : in .Models.CancelOrderSingleRequest_Type;
-       Result : out .Models.ExecutionReport_Type);
+       Result : out .Models.OrderExecutionReport_Type);
 
    --  Get all orders
    --  Get all current open orders across all or single specified exchange.
    procedure V1_Orders_Get
       (Client : in out Client_Type;
        Exchange_Id : in Swagger.Nullable_UString;
-       Result : out .Models.ExecutionReport_Type_Vectors.Vector);
+       Result : out .Models.OrderExecutionReport_Type_Vectors.Vector);
 
    --  Create new order
    --  This request creating new order for the specific exchange.
    procedure V1_Orders_Post
       (Client : in out Client_Type;
        New_Order_Single_Type : in .Models.NewOrderSingle_Type;
-       Result : out .Models.ExecutionReport_Type);
+       Result : out .Models.OrderExecutionReport_Type);
 
    --  Get order status
    --  Get the current order status for the specified order. The requested order can no longer be active.
    procedure V1_Orders_Status_Client_Order_Id_Get
       (Client : in out Client_Type;
        Client_Order_Id : in Swagger.UString;
-       Result : out .Models.ExecutionReport_Type);
+       Result : out .Models.OrderExecutionReport_Type);
 
    --  Get positions
    --  Returns all of your positions.

@@ -23,9 +23,9 @@
 
 #include "CancelOrderAllRequest.h"
 #include "CancelOrderSingleRequest.h"
-#include "ExecutionReport.h"
 #include "Message.h"
 #include "NewOrderSingle.h"
+#include "OrderExecutionReport.h"
 #include "ValidationError.h"
 #include <cpprest/details/basic_types.h>
 
@@ -66,7 +66,7 @@ public:
     /// This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
     /// </remarks>
     /// <param name="cancelOrderSingleRequest"></param>
-    pplx::task<std::shared_ptr<ExecutionReport>> v1OrdersCancelPost(
+    pplx::task<std::shared_ptr<OrderExecutionReport>> v1OrdersCancelPost(
         std::shared_ptr<CancelOrderSingleRequest> cancelOrderSingleRequest
     ) const;
     /// <summary>
@@ -76,7 +76,7 @@ public:
     /// Get all current open orders across all or single specified exchange.
     /// </remarks>
     /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
-    pplx::task<std::vector<std::shared_ptr<ExecutionReport>>> v1OrdersGet(
+    pplx::task<std::vector<std::shared_ptr<OrderExecutionReport>>> v1OrdersGet(
         boost::optional<utility::string_t> exchangeId
     ) const;
     /// <summary>
@@ -86,7 +86,7 @@ public:
     /// This request creating new order for the specific exchange.
     /// </remarks>
     /// <param name="newOrderSingle"></param>
-    pplx::task<std::shared_ptr<ExecutionReport>> v1OrdersPost(
+    pplx::task<std::shared_ptr<OrderExecutionReport>> v1OrdersPost(
         std::shared_ptr<NewOrderSingle> newOrderSingle
     ) const;
     /// <summary>
@@ -96,7 +96,7 @@ public:
     /// Get the current order status for the specified order. The requested order can no longer be active.
     /// </remarks>
     /// <param name="clientOrderId">Order Client Id of the order for which the status is requested.</param>
-    pplx::task<std::shared_ptr<ExecutionReport>> v1OrdersStatusClientOrderIdGet(
+    pplx::task<std::shared_ptr<OrderExecutionReport>> v1OrdersStatusClientOrderIdGet(
         utility::string_t clientOrderId
     ) const;
 

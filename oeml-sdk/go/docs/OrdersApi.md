@@ -48,7 +48,7 @@ No authorization required
 
 ## V1OrdersCancelPost
 
-> ExecutionReport V1OrdersCancelPost(ctx, cancelOrderSingleRequest)
+> OrderExecutionReport V1OrdersCancelPost(ctx, cancelOrderSingleRequest)
 
 Cancel order
 
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExecutionReport**](ExecutionReport.md)
+[**OrderExecutionReport**](OrderExecutionReport.md)
 
 ### Authorization
 
@@ -82,7 +82,7 @@ No authorization required
 
 ## V1OrdersGet
 
-> []ExecutionReport V1OrdersGet(ctx, optional)
+> []OrderExecutionReport V1OrdersGet(ctx, optional)
 
 Get all orders
 
@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]ExecutionReport**](ExecutionReport.md)
+[**[]OrderExecutionReport**](OrderExecutionReport.md)
 
 ### Authorization
 
@@ -125,7 +125,7 @@ No authorization required
 
 ## V1OrdersPost
 
-> ExecutionReport V1OrdersPost(ctx, newOrderSingle)
+> OrderExecutionReport V1OrdersPost(ctx, newOrderSingle)
 
 Create new order
 
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExecutionReport**](ExecutionReport.md)
+[**OrderExecutionReport**](OrderExecutionReport.md)
 
 ### Authorization
 
@@ -159,7 +159,7 @@ No authorization required
 
 ## V1OrdersStatusClientOrderIdGet
 
-> ExecutionReport V1OrdersStatusClientOrderIdGet(ctx, clientOrderId)
+> OrderExecutionReport V1OrdersStatusClientOrderIdGet(ctx, clientOrderId)
 
 Get order status
 
@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExecutionReport**](ExecutionReport.md)
+[**OrderExecutionReport**](OrderExecutionReport.md)
 
 ### Authorization
 

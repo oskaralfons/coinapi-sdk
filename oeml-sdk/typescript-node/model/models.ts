@@ -2,13 +2,13 @@ export * from './balance';
 export * from './balanceData';
 export * from './cancelOrderAllRequest';
 export * from './cancelOrderSingleRequest';
-export * from './executionReport';
-export * from './executionReportAllOf';
 export * from './message';
 export * from './newOrderSingle';
 export * from './ordSide';
 export * from './ordStatus';
 export * from './ordType';
+export * from './orderExecutionReport';
+export * from './orderExecutionReportAllOf';
 export * from './position';
 export * from './positionData';
 export * from './severity';
@@ -21,13 +21,13 @@ import { Balance } from './balance';
 import { BalanceData } from './balanceData';
 import { CancelOrderAllRequest } from './cancelOrderAllRequest';
 import { CancelOrderSingleRequest } from './cancelOrderSingleRequest';
-import { ExecutionReport } from './executionReport';
-import { ExecutionReportAllOf } from './executionReportAllOf';
 import { Message } from './message';
 import { NewOrderSingle } from './newOrderSingle';
 import { OrdSide } from './ordSide';
 import { OrdStatus } from './ordStatus';
 import { OrdType } from './ordType';
+import { OrderExecutionReport } from './orderExecutionReport';
+import { OrderExecutionReportAllOf } from './orderExecutionReportAllOf';
 import { Position } from './position';
 import { PositionData } from './positionData';
 import { Severity } from './severity';
@@ -48,11 +48,11 @@ let primitives = [
 
 let enumsMap: {[index: string]: any} = {
         "BalanceData.UpdateOriginEnum": BalanceData.UpdateOriginEnum,
-        "ExecutionReport.ExecInstEnum": ExecutionReport.ExecInstEnum,
         "NewOrderSingle.ExecInstEnum": NewOrderSingle.ExecInstEnum,
         "OrdSide": OrdSide,
         "OrdStatus": OrdStatus,
         "OrdType": OrdType,
+        "OrderExecutionReport.ExecInstEnum": OrderExecutionReport.ExecInstEnum,
         "Severity": Severity,
         "TimeInForce": TimeInForce,
 }
@@ -62,10 +62,10 @@ let typeMap: {[index: string]: any} = {
     "BalanceData": BalanceData,
     "CancelOrderAllRequest": CancelOrderAllRequest,
     "CancelOrderSingleRequest": CancelOrderSingleRequest,
-    "ExecutionReport": ExecutionReport,
-    "ExecutionReportAllOf": ExecutionReportAllOf,
     "Message": Message,
     "NewOrderSingle": NewOrderSingle,
+    "OrderExecutionReport": OrderExecutionReport,
+    "OrderExecutionReportAllOf": OrderExecutionReportAllOf,
     "Position": Position,
     "PositionData": PositionData,
     "ValidationError": ValidationError,

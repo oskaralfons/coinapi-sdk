@@ -15,9 +15,9 @@
 import ApiClient from "../ApiClient";
 import CancelOrderAllRequest from '../model/CancelOrderAllRequest';
 import CancelOrderSingleRequest from '../model/CancelOrderSingleRequest';
-import ExecutionReport from '../model/ExecutionReport';
 import Message from '../model/Message';
 import NewOrderSingle from '../model/NewOrderSingle';
+import OrderExecutionReport from '../model/OrderExecutionReport';
 import ValidationError from '../model/ValidationError';
 
 /**
@@ -85,7 +85,7 @@ export default class OrdersApi {
      * Callback function to receive the result of the v1OrdersCancelPost operation.
      * @callback module:api/OrdersApi~v1OrdersCancelPostCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/ExecutionReport} data The data returned by the service call.
+     * @param {module:model/OrderExecutionReport} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -94,7 +94,7 @@ export default class OrdersApi {
      * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
      * @param {module:model/CancelOrderSingleRequest} cancelOrderSingleRequest 
      * @param {module:api/OrdersApi~v1OrdersCancelPostCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ExecutionReport}
+     * data is of type: {@link module:model/OrderExecutionReport}
      */
     v1OrdersCancelPost(cancelOrderSingleRequest, callback) {
       let postBody = cancelOrderSingleRequest;
@@ -115,7 +115,7 @@ export default class OrdersApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json', 'appliction/json'];
-      let returnType = ExecutionReport;
+      let returnType = OrderExecutionReport;
       return this.apiClient.callApi(
         '/v1/orders/cancel', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -127,7 +127,7 @@ export default class OrdersApi {
      * Callback function to receive the result of the v1OrdersGet operation.
      * @callback module:api/OrdersApi~v1OrdersGetCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/ExecutionReport>} data The data returned by the service call.
+     * @param {Array.<module:model/OrderExecutionReport>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -137,7 +137,7 @@ export default class OrdersApi {
      * @param {Object} opts Optional parameters
      * @param {String} opts.exchangeId Filter the output to the orders from the specific exchange.
      * @param {module:api/OrdersApi~v1OrdersGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/ExecutionReport>}
+     * data is of type: {@link Array.<module:model/OrderExecutionReport>}
      */
     v1OrdersGet(opts, callback) {
       opts = opts || {};
@@ -156,7 +156,7 @@ export default class OrdersApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = [ExecutionReport];
+      let returnType = [OrderExecutionReport];
       return this.apiClient.callApi(
         '/v1/orders', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -168,7 +168,7 @@ export default class OrdersApi {
      * Callback function to receive the result of the v1OrdersPost operation.
      * @callback module:api/OrdersApi~v1OrdersPostCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/ExecutionReport} data The data returned by the service call.
+     * @param {module:model/OrderExecutionReport} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -177,7 +177,7 @@ export default class OrdersApi {
      * This request creating new order for the specific exchange.
      * @param {module:model/NewOrderSingle} newOrderSingle 
      * @param {module:api/OrdersApi~v1OrdersPostCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ExecutionReport}
+     * data is of type: {@link module:model/OrderExecutionReport}
      */
     v1OrdersPost(newOrderSingle, callback) {
       let postBody = newOrderSingle;
@@ -198,7 +198,7 @@ export default class OrdersApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json', 'appliction/json'];
-      let returnType = ExecutionReport;
+      let returnType = OrderExecutionReport;
       return this.apiClient.callApi(
         '/v1/orders', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -210,7 +210,7 @@ export default class OrdersApi {
      * Callback function to receive the result of the v1OrdersStatusClientOrderIdGet operation.
      * @callback module:api/OrdersApi~v1OrdersStatusClientOrderIdGetCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/ExecutionReport} data The data returned by the service call.
+     * @param {module:model/OrderExecutionReport} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -219,7 +219,7 @@ export default class OrdersApi {
      * Get the current order status for the specified order. The requested order can no longer be active.
      * @param {String} clientOrderId Order Client Id of the order for which the status is requested.
      * @param {module:api/OrdersApi~v1OrdersStatusClientOrderIdGetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ExecutionReport}
+     * data is of type: {@link module:model/OrderExecutionReport}
      */
     v1OrdersStatusClientOrderIdGet(clientOrderId, callback) {
       let postBody = null;
@@ -241,7 +241,7 @@ export default class OrdersApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = ExecutionReport;
+      let returnType = OrderExecutionReport;
       return this.apiClient.callApi(
         '/v1/orders/status/{client_order_id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,

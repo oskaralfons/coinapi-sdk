@@ -84,7 +84,7 @@ namespace CoinAPI.OMS.REST.V1.Test
             // TODO uncomment below to test the method and replace null with proper value
             //CancelOrderSingleRequest cancelOrderSingleRequest = null;
             //var response = instance.V1OrdersCancelPost(cancelOrderSingleRequest);
-            //Assert.IsInstanceOf(typeof(ExecutionReport), response, "response is ExecutionReport");
+            //Assert.IsInstanceOf(typeof(OrderExecutionReport), response, "response is OrderExecutionReport");
         }
         
         /// <summary>
@@ -96,7 +96,7 @@ namespace CoinAPI.OMS.REST.V1.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string exchangeId = null;
             //var response = instance.V1OrdersGet(exchangeId);
-            //Assert.IsInstanceOf(typeof(List<ExecutionReport>), response, "response is List<ExecutionReport>");
+            //Assert.IsInstanceOf(typeof(List<OrderExecutionReport>), response, "response is List<OrderExecutionReport>");
         }
         
         /// <summary>
@@ -108,7 +108,7 @@ namespace CoinAPI.OMS.REST.V1.Test
             // TODO uncomment below to test the method and replace null with proper value
             //NewOrderSingle newOrderSingle = null;
             //var response = instance.V1OrdersPost(newOrderSingle);
-            //Assert.IsInstanceOf(typeof(ExecutionReport), response, "response is ExecutionReport");
+            //Assert.IsInstanceOf(typeof(OrderExecutionReport), response, "response is OrderExecutionReport");
         }
         
         /// <summary>
@@ -120,7 +120,7 @@ namespace CoinAPI.OMS.REST.V1.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string clientOrderId = null;
             //var response = instance.V1OrdersStatusClientOrderIdGet(clientOrderId);
-            //Assert.IsInstanceOf(typeof(ExecutionReport), response, "response is ExecutionReport");
+            //Assert.IsInstanceOf(typeof(OrderExecutionReport), response, "response is OrderExecutionReport");
         }
         
     }

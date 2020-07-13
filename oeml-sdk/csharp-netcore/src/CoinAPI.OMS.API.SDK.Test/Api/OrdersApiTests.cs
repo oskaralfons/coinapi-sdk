@@ -76,7 +76,7 @@ namespace CoinAPI.OMS.API.SDK.Test
             // TODO uncomment below to test the method and replace null with proper value
             //CancelOrderSingleRequest cancelOrderSingleRequest = null;
             //var response = instance.V1OrdersCancelPost(cancelOrderSingleRequest);
-            //Assert.IsType<ExecutionReport> (response, "response is ExecutionReport");
+            //Assert.IsType<OrderExecutionReport> (response, "response is OrderExecutionReport");
         }
         
         /// <summary>
@@ -88,7 +88,7 @@ namespace CoinAPI.OMS.API.SDK.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string exchangeId = null;
             //var response = instance.V1OrdersGet(exchangeId);
-            //Assert.IsType<List<ExecutionReport>> (response, "response is List<ExecutionReport>");
+            //Assert.IsType<List<OrderExecutionReport>> (response, "response is List<OrderExecutionReport>");
         }
         
         /// <summary>
@@ -100,7 +100,7 @@ namespace CoinAPI.OMS.API.SDK.Test
             // TODO uncomment below to test the method and replace null with proper value
             //NewOrderSingle newOrderSingle = null;
             //var response = instance.V1OrdersPost(newOrderSingle);
-            //Assert.IsType<ExecutionReport> (response, "response is ExecutionReport");
+            //Assert.IsType<OrderExecutionReport> (response, "response is OrderExecutionReport");
         }
         
         /// <summary>
@@ -112,7 +112,7 @@ namespace CoinAPI.OMS.API.SDK.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string clientOrderId = null;
             //var response = instance.V1OrdersStatusClientOrderIdGet(clientOrderId);
-            //Assert.IsType<ExecutionReport> (response, "response is ExecutionReport");
+            //Assert.IsType<OrderExecutionReport> (response, "response is OrderExecutionReport");
         }
         
     }

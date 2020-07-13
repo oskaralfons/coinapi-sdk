@@ -8,9 +8,9 @@ import org.openapitools.event.Response;
 import org.openapitools.common.OpenApi;
 import org.openapitools.client.model.CancelOrderAllRequest;
 import org.openapitools.client.model.CancelOrderSingleRequest;
-import org.openapitools.client.model.ExecutionReport;
 import org.openapitools.client.model.Message;
 import org.openapitools.client.model.NewOrderSingle;
+import org.openapitools.client.model.OrderExecutionReport;
 import org.openapitools.client.model.ValidationError;
 
 import mx.rpc.AsyncToken;
@@ -66,7 +66,7 @@ public class OrdersApi extends OpenApi {
     }
 
     /*
-     * Returns ExecutionReport 
+     * Returns OrderExecutionReport 
      */
     public function v1_orders_cancel_post (cancelOrderSingleRequest: CancelOrderSingleRequest): String {
         // create path and map variables
@@ -90,7 +90,7 @@ public class OrdersApi extends OpenApi {
         token.requestId = requestId;
         token.completionEventType = "v1_orders_cancel_post";
 
-        token.returnType = ExecutionReport;
+        token.returnType = OrderExecutionReport;
         return requestId;
 
     }
@@ -128,7 +128,7 @@ public class OrdersApi extends OpenApi {
     }
 
     /*
-     * Returns ExecutionReport 
+     * Returns OrderExecutionReport 
      */
     public function v1_orders_post (newOrderSingle: NewOrderSingle): String {
         // create path and map variables
@@ -152,13 +152,13 @@ public class OrdersApi extends OpenApi {
         token.requestId = requestId;
         token.completionEventType = "v1_orders_post";
 
-        token.returnType = ExecutionReport;
+        token.returnType = OrderExecutionReport;
         return requestId;
 
     }
 
     /*
-     * Returns ExecutionReport 
+     * Returns OrderExecutionReport 
      */
     public function v1_orders_status_client_order_id_get (clientOrderId: String): String {
         // create path and map variables
@@ -182,7 +182,7 @@ public class OrdersApi extends OpenApi {
         token.requestId = requestId;
         token.completionEventType = "v1_orders_status_client_order_id_get";
 
-        token.returnType = ExecutionReport;
+        token.returnType = OrderExecutionReport;
         return requestId;
 
     }

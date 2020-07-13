@@ -55,7 +55,7 @@ No authorization required
 | **200** | Result |  -  |
 
 # **V1OrdersCancelPost**
-> ExecutionReport V1OrdersCancelPost(cancel.order.single.request)
+> OrderExecutionReport V1OrdersCancelPost(cancel.order.single.request)
 
 Cancel order
 
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExecutionReport**](ExecutionReport.md)
+[**OrderExecutionReport**](OrderExecutionReport.md)
 
 ### Authorization
 
@@ -100,7 +100,7 @@ No authorization required
 | **490** | Exchange not registered |  -  |
 
 # **V1OrdersGet**
-> array[ExecutionReport] V1OrdersGet(exchange.id=var.exchange.id)
+> array[OrderExecutionReport] V1OrdersGet(exchange.id=var.exchange.id)
 
 Get all orders
 
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**array[ExecutionReport]**](ExecutionReport.md)
+[**array[OrderExecutionReport]**](OrderExecutionReport.md)
 
 ### Authorization
 
@@ -143,7 +143,7 @@ No authorization required
 | **200** | Collection of requested open orders. |  -  |
 
 # **V1OrdersPost**
-> ExecutionReport V1OrdersPost(new.order.single)
+> OrderExecutionReport V1OrdersPost(new.order.single)
 
 Create new order
 
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExecutionReport**](ExecutionReport.md)
+[**OrderExecutionReport**](OrderExecutionReport.md)
 
 ### Authorization
 
@@ -188,7 +188,7 @@ No authorization required
 | **490** | Exchange not registered |  -  |
 
 # **V1OrdersStatusClientOrderIdGet**
-> ExecutionReport V1OrdersStatusClientOrderIdGet(client.order.id)
+> OrderExecutionReport V1OrdersStatusClientOrderIdGet(client.order.id)
 
 Get order status
 
@@ -214,7 +214,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExecutionReport**](ExecutionReport.md)
+[**OrderExecutionReport**](OrderExecutionReport.md)
 
 ### Authorization
 

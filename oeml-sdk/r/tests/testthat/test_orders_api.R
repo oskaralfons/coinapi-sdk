@@ -23,7 +23,7 @@ test_that("V1OrdersCancelPost", {
   # Cancel order
   # This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
   # @param CancelOrderSingleRequest  cancel.order.single.request   
-  # @return [ExecutionReport]
+  # @return [OrderExecutionReport]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -35,7 +35,7 @@ test_that("V1OrdersGet", {
   # Get all orders
   # Get all current open orders across all or single specified exchange.
   # @param character  exchange.id  Filter the output to the orders from the specific exchange.  (optional)
-  # @return [array[ExecutionReport]]
+  # @return [array[OrderExecutionReport]]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -47,7 +47,7 @@ test_that("V1OrdersPost", {
   # Create new order
   # This request creating new order for the specific exchange.
   # @param NewOrderSingle  new.order.single   
-  # @return [ExecutionReport]
+  # @return [OrderExecutionReport]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -59,7 +59,7 @@ test_that("V1OrdersStatusClientOrderIdGet", {
   # Get order status
   # Get the current order status for the specified order. The requested order can no longer be active.
   # @param character  client.order.id  Order Client Id of the order for which the status is requested. 
-  # @return [ExecutionReport]
+  # @return [OrderExecutionReport]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")

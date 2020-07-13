@@ -37,7 +37,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ExecutionReports'
+                $ref: '#/components/schemas/OrderExecutionReports'
           description: Collection of requested open orders.
       summary: Get all orders
       tags:
@@ -56,7 +56,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ExecutionReport'
+                $ref: '#/components/schemas/OrderExecutionReport'
           description: Created
         "400":
           content:
@@ -94,7 +94,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ExecutionReport'
+                $ref: '#/components/schemas/OrderExecutionReport'
           description: The order was found.
         "400":
           content:
@@ -121,7 +121,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ExecutionReport'
+                $ref: '#/components/schemas/OrderExecutionReport'
           description: Canceled order
         "400":
           content:
@@ -314,15 +314,15 @@ components:
       required:
       - exchange_id
       type: object
-    ExecutionReports:
+    OrderExecutionReports:
       description: Collection of execution reports for currently opened orders.
       items:
-        $ref: '#/components/schemas/ExecutionReport'
+        $ref: '#/components/schemas/OrderExecutionReport'
       type: array
-    ExecutionReport:
+    OrderExecutionReport:
       allOf:
       - $ref: '#/components/schemas/NewOrderSingle'
-      - $ref: '#/components/schemas/ExecutionReport_allOf'
+      - $ref: '#/components/schemas/OrderExecutionReport_allOf'
     Balances:
       items:
         $ref: '#/components/schemas/Balance'
@@ -502,7 +502,7 @@ components:
       - WARNING
       - ERROR
       type: string
-    ExecutionReport_allOf:
+    OrderExecutionReport_allOf:
       description: The order execution report message.
       properties:
         client_order_id_format_exchange:

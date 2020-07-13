@@ -50,17 +50,17 @@ private class OASOrdersApiTest {
 
         OASClient client;
         OASOrdersApi api;
-        OASExecutionReport response;
-        OASExecutionReport expectedResponse;
+        OASOrderExecutionReport response;
+        OASOrderExecutionReport expectedResponse;
         String js = '';
 
         api = new OASOrdersApi(new OASClient());
 
-        js = JSON.serialize(OASExecutionReport.getExample());
+        js = JSON.serialize(OASOrderExecutionReport.getExample());
         res.setHeader('Content-Type', 'application/json');
         res.setBody(js);
-        expectedResponse = OASExecutionReport.getExample();
-        response = (OASExecutionReport) api.v1OrdersCancelPost(params);
+        expectedResponse = OASOrderExecutionReport.getExample();
+        response = (OASOrderExecutionReport) api.v1OrdersCancelPost(params);
         System.assertEquals(expectedResponse, response);
     }
 
@@ -82,8 +82,8 @@ private class OASOrdersApiTest {
 
         OASClient client;
         OASOrdersApi api;
-        List<OASExecutionReport> response;
-        List<OASExecutionReport> expectedResponse;
+        List<OASOrderExecutionReport> response;
+        List<OASOrderExecutionReport> expectedResponse;
         String js = '';
 
         api = new OASOrdersApi(new OASClient());
@@ -92,7 +92,7 @@ private class OASOrdersApiTest {
         res.setHeader('Content-Type', 'application/json');
         res.setBody(js);
         expectedResponse = List.getExample();
-        response = (List<OASExecutionReport>) api.v1OrdersGet(params);
+        response = (List<OASOrderExecutionReport>) api.v1OrdersGet(params);
         System.assertEquals(expectedResponse, response);
     }
 
@@ -114,17 +114,17 @@ private class OASOrdersApiTest {
 
         OASClient client;
         OASOrdersApi api;
-        OASExecutionReport response;
-        OASExecutionReport expectedResponse;
+        OASOrderExecutionReport response;
+        OASOrderExecutionReport expectedResponse;
         String js = '';
 
         api = new OASOrdersApi(new OASClient());
 
-        js = JSON.serialize(OASExecutionReport.getExample());
+        js = JSON.serialize(OASOrderExecutionReport.getExample());
         res.setHeader('Content-Type', 'application/json');
         res.setBody(js);
-        expectedResponse = OASExecutionReport.getExample();
-        response = (OASExecutionReport) api.v1OrdersPost(params);
+        expectedResponse = OASOrderExecutionReport.getExample();
+        response = (OASOrderExecutionReport) api.v1OrdersPost(params);
         System.assertEquals(expectedResponse, response);
     }
 
@@ -146,17 +146,17 @@ private class OASOrdersApiTest {
 
         OASClient client;
         OASOrdersApi api;
-        OASExecutionReport response;
-        OASExecutionReport expectedResponse;
+        OASOrderExecutionReport response;
+        OASOrderExecutionReport expectedResponse;
         String js = '';
 
         api = new OASOrdersApi(new OASClient());
 
-        js = JSON.serialize(OASExecutionReport.getExample());
+        js = JSON.serialize(OASOrderExecutionReport.getExample());
         res.setHeader('Content-Type', 'application/json');
         res.setBody(js);
-        expectedResponse = OASExecutionReport.getExample();
-        response = (OASExecutionReport) api.v1OrdersStatusClientOrderIdGet(params);
+        expectedResponse = OASOrderExecutionReport.getExample();
+        response = (OASOrderExecutionReport) api.v1OrdersStatusClientOrderIdGet(params);
         System.assertEquals(expectedResponse, response);
     }
 }

@@ -95,7 +95,7 @@ v1OrdersCancelPost
   :: (Consumes V1OrdersCancelPost MimeJSON, MimeRender MimeJSON CancelOrderSingleRequest)
   => Accept accept -- ^ request accept ('MimeType')
   -> CancelOrderSingleRequest -- ^ "cancelOrderSingleRequest"
-  -> OEML-RESTRequest V1OrdersCancelPost MimeJSON ExecutionReport accept
+  -> OEML-RESTRequest V1OrdersCancelPost MimeJSON OrderExecutionReport accept
 v1OrdersCancelPost  _ cancelOrderSingleRequest =
   _mkRequest "POST" ["/v1/orders/cancel"]
     `setBodyParam` cancelOrderSingleRequest
@@ -121,7 +121,7 @@ instance Produces V1OrdersCancelPost MimeApplictionJson
 -- Get all current open orders across all or single specified exchange.
 -- 
 v1OrdersGet 
-  :: OEML-RESTRequest V1OrdersGet MimeNoContent [ExecutionReport] MimeJSON
+  :: OEML-RESTRequest V1OrdersGet MimeNoContent [OrderExecutionReport] MimeJSON
 v1OrdersGet =
   _mkRequest "GET" ["/v1/orders"]
 
@@ -147,7 +147,7 @@ v1OrdersPost
   :: (Consumes V1OrdersPost MimeJSON, MimeRender MimeJSON NewOrderSingle)
   => Accept accept -- ^ request accept ('MimeType')
   -> NewOrderSingle -- ^ "newOrderSingle"
-  -> OEML-RESTRequest V1OrdersPost MimeJSON ExecutionReport accept
+  -> OEML-RESTRequest V1OrdersPost MimeJSON OrderExecutionReport accept
 v1OrdersPost  _ newOrderSingle =
   _mkRequest "POST" ["/v1/orders"]
     `setBodyParam` newOrderSingle
@@ -174,7 +174,7 @@ instance Produces V1OrdersPost MimeApplictionJson
 -- 
 v1OrdersStatusClientOrderIdGet 
   :: ClientOrderId -- ^ "clientOrderId" -  Order Client Id of the order for which the status is requested.
-  -> OEML-RESTRequest V1OrdersStatusClientOrderIdGet MimeNoContent ExecutionReport MimeJSON
+  -> OEML-RESTRequest V1OrdersStatusClientOrderIdGet MimeNoContent OrderExecutionReport MimeJSON
 v1OrdersStatusClientOrderIdGet (ClientOrderId clientOrderId) =
   _mkRequest "GET" ["/v1/orders/status/",toPath clientOrderId]
 

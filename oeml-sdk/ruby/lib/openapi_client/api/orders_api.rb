@@ -87,7 +87,7 @@ module OpenapiClient
     # This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
     # @param cancel_order_single_request [CancelOrderSingleRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [ExecutionReport]
+    # @return [OrderExecutionReport]
     def v1_orders_cancel_post(cancel_order_single_request, opts = {})
       data, _status_code, _headers = v1_orders_cancel_post_with_http_info(cancel_order_single_request, opts)
       data
@@ -97,7 +97,7 @@ module OpenapiClient
     # This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
     # @param cancel_order_single_request [CancelOrderSingleRequest] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(ExecutionReport, Integer, Hash)>] ExecutionReport data, response status code and response headers
+    # @return [Array<(OrderExecutionReport, Integer, Hash)>] OrderExecutionReport data, response status code and response headers
     def v1_orders_cancel_post_with_http_info(cancel_order_single_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrdersApi.v1_orders_cancel_post ...'
@@ -126,7 +126,7 @@ module OpenapiClient
       post_body = opts[:body] || @api_client.object_to_http_body(cancel_order_single_request) 
 
       # return_type
-      return_type = opts[:return_type] || 'ExecutionReport' 
+      return_type = opts[:return_type] || 'OrderExecutionReport' 
 
       # auth_names
       auth_names = opts[:auth_names] || []
@@ -151,7 +151,7 @@ module OpenapiClient
     # Get all current open orders across all or single specified exchange.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :exchange_id Filter the output to the orders from the specific exchange.
-    # @return [Array<ExecutionReport>]
+    # @return [Array<OrderExecutionReport>]
     def v1_orders_get(opts = {})
       data, _status_code, _headers = v1_orders_get_with_http_info(opts)
       data
@@ -161,7 +161,7 @@ module OpenapiClient
     # Get all current open orders across all or single specified exchange.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :exchange_id Filter the output to the orders from the specific exchange.
-    # @return [Array<(Array<ExecutionReport>, Integer, Hash)>] Array<ExecutionReport> data, response status code and response headers
+    # @return [Array<(Array<OrderExecutionReport>, Integer, Hash)>] Array<OrderExecutionReport> data, response status code and response headers
     def v1_orders_get_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrdersApi.v1_orders_get ...'
@@ -185,7 +185,7 @@ module OpenapiClient
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] || 'Array<ExecutionReport>' 
+      return_type = opts[:return_type] || 'Array<OrderExecutionReport>' 
 
       # auth_names
       auth_names = opts[:auth_names] || []
@@ -210,7 +210,7 @@ module OpenapiClient
     # This request creating new order for the specific exchange.
     # @param new_order_single [NewOrderSingle] 
     # @param [Hash] opts the optional parameters
-    # @return [ExecutionReport]
+    # @return [OrderExecutionReport]
     def v1_orders_post(new_order_single, opts = {})
       data, _status_code, _headers = v1_orders_post_with_http_info(new_order_single, opts)
       data
@@ -220,7 +220,7 @@ module OpenapiClient
     # This request creating new order for the specific exchange.
     # @param new_order_single [NewOrderSingle] 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(ExecutionReport, Integer, Hash)>] ExecutionReport data, response status code and response headers
+    # @return [Array<(OrderExecutionReport, Integer, Hash)>] OrderExecutionReport data, response status code and response headers
     def v1_orders_post_with_http_info(new_order_single, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrdersApi.v1_orders_post ...'
@@ -249,7 +249,7 @@ module OpenapiClient
       post_body = opts[:body] || @api_client.object_to_http_body(new_order_single) 
 
       # return_type
-      return_type = opts[:return_type] || 'ExecutionReport' 
+      return_type = opts[:return_type] || 'OrderExecutionReport' 
 
       # auth_names
       auth_names = opts[:auth_names] || []
@@ -274,7 +274,7 @@ module OpenapiClient
     # Get the current order status for the specified order. The requested order can no longer be active.
     # @param client_order_id [String] Order Client Id of the order for which the status is requested.
     # @param [Hash] opts the optional parameters
-    # @return [ExecutionReport]
+    # @return [OrderExecutionReport]
     def v1_orders_status_client_order_id_get(client_order_id, opts = {})
       data, _status_code, _headers = v1_orders_status_client_order_id_get_with_http_info(client_order_id, opts)
       data
@@ -284,7 +284,7 @@ module OpenapiClient
     # Get the current order status for the specified order. The requested order can no longer be active.
     # @param client_order_id [String] Order Client Id of the order for which the status is requested.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(ExecutionReport, Integer, Hash)>] ExecutionReport data, response status code and response headers
+    # @return [Array<(OrderExecutionReport, Integer, Hash)>] OrderExecutionReport data, response status code and response headers
     def v1_orders_status_client_order_id_get_with_http_info(client_order_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrdersApi.v1_orders_status_client_order_id_get ...'
@@ -311,7 +311,7 @@ module OpenapiClient
       post_body = opts[:body] 
 
       # return_type
-      return_type = opts[:return_type] || 'ExecutionReport' 
+      return_type = opts[:return_type] || 'OrderExecutionReport' 
 
       # auth_names
       auth_names = opts[:auth_names] || []
