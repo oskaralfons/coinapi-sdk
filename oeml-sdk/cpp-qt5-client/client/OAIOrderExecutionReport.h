@@ -12,7 +12,7 @@
 /*
  * OAIOrderExecutionReport.h
  *
- * 
+ * The order execution report object.
  */
 
 #ifndef OAIOrderExecutionReport_H

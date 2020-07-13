@@ -165,7 +165,7 @@ This request creating new order for the specific exchange.
 //import org.openapitools.client.api.OrdersApi;
 
 OrdersApi apiInstance = new OrdersApi();
-NewOrderSingle newOrderSingle = new NewOrderSingle(); // NewOrderSingle | 
+NewOrderSingle newOrderSingle = new NewOrderSingle(); // NewOrderSingle | test
 try {
     OrderExecutionReport result = apiInstance.v1OrdersPost(newOrderSingle);
     System.out.println(result);
@@ -180,7 +180,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)|  |
+ **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)| test |
 
 ### Return type
 

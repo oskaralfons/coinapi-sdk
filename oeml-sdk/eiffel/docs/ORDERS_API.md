@@ -114,7 +114,7 @@ This request creating new order for the specific exchange.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **new_order_single** | [**NEW_ORDER_SINGLE**](NEW_ORDER_SINGLE.md)|  | 
+ **new_order_single** | [**NEW_ORDER_SINGLE**](NEW_ORDER_SINGLE.md)| test | 
 
 ### Return type
 

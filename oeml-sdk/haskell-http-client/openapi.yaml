@@ -56,6 +56,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/NewOrderSingle'
+        description: test
         required: true
       responses:
         "200":
@@ -361,6 +362,7 @@ components:
       allOf:
       - $ref: '#/components/schemas/NewOrderSingle'
       - $ref: '#/components/schemas/OrderExecutionReport_allOf'
+      description: The order execution report object.
     Balances:
       items:
         $ref: '#/components/schemas/Balance'

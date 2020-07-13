@@ -107,7 +107,7 @@ defmodule OEML-RESTAPI.Api.Orders do
   ## Parameters
 
   - connection (OEML-RESTAPI.Connection): Connection to server
-  - new_order_single (NewOrderSingle): 
+  - new_order_single (NewOrderSingle): test
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 

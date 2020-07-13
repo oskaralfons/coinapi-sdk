@@ -85,7 +85,7 @@ public:
     /// <remarks>
     /// This request creating new order for the specific exchange.
     /// </remarks>
-    /// <param name="newOrderSingle"></param>
+    /// <param name="newOrderSingle">test</param>
     pplx::task<std::shared_ptr<OrderExecutionReport>> v1OrdersPost(
         std::shared_ptr<NewOrderSingle> newOrderSingle
     ) const;

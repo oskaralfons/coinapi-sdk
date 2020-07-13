@@ -438,7 +438,7 @@ public class OrdersApi {
   /**
   * Send new order
   * This request creating new order for the specific exchange.
-   * @param newOrderSingle 
+   * @param newOrderSingle test
    * @return OrderExecutionReport
   */
   public OrderExecutionReport v1OrdersPost (NewOrderSingle newOrderSingle) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
@@ -501,7 +501,7 @@ public class OrdersApi {
       /**
    * Send new order
    * This request creating new order for the specific exchange.
-   * @param newOrderSingle 
+   * @param newOrderSingle test
   */
   public void v1OrdersPost (NewOrderSingle newOrderSingle, final Response.Listener<OrderExecutionReport> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = newOrderSingle;

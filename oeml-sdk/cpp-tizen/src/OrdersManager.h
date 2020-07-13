@@ -113,7 +113,7 @@ bool v1OrdersGetAsync(char * accessToken,
 /*! \brief Send new order. *Synchronous*
  *
  * This request creating new order for the specific exchange.
- * \param newOrderSingle  *Required*
+ * \param newOrderSingle test *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
@@ -126,7 +126,7 @@ bool v1OrdersPostSync(char * accessToken,
 /*! \brief Send new order. *Asynchronous*
  *
  * This request creating new order for the specific exchange.
- * \param newOrderSingle  *Required*
+ * \param newOrderSingle test *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.

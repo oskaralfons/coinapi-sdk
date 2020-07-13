@@ -208,7 +208,7 @@ module OpenapiClient
 
     # Send new order
     # This request creating new order for the specific exchange.
-    # @param new_order_single [NewOrderSingle] 
+    # @param new_order_single [NewOrderSingle] test
     # @param [Hash] opts the optional parameters
     # @return [OrderExecutionReport]
     def v1_orders_post(new_order_single, opts = {})
@@ -218,7 +218,7 @@ module OpenapiClient
 
     # Send new order
     # This request creating new order for the specific exchange.
-    # @param new_order_single [NewOrderSingle] 
+    # @param new_order_single [NewOrderSingle] test
     # @param [Hash] opts the optional parameters
     # @return [Array<(OrderExecutionReport, Integer, Hash)>] OrderExecutionReport data, response status code and response headers
     def v1_orders_post_with_http_info(new_order_single, opts = {})

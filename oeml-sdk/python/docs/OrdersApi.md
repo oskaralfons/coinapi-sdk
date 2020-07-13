@@ -228,7 +228,7 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.OrdersApi(api_client)
-    new_order_single = openapi_client.NewOrderSingle() # NewOrderSingle | 
+    new_order_single = openapi_client.NewOrderSingle() # NewOrderSingle | test
 
     try:
         # Send new order
@@ -242,7 +242,7 @@ with openapi_client.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **new_order_single** | [**NewOrderSingle**](NewOrderSingle.md)|  | 
+ **new_order_single** | [**NewOrderSingle**](NewOrderSingle.md)| test | 
 
 ### Return type
 

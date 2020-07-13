@@ -1,6 +1,7 @@
 goog.provide('API.Client.OrderExecutionReport');
 
 /**
+ * The order execution report object.
  * @record
  */
 API.Client.OrderExecutionReport = function() {}

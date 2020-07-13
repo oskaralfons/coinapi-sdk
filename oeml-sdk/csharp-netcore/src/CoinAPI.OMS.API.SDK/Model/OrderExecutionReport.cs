@@ -26,7 +26,7 @@ using OpenAPIDateConverter = CoinAPI.OMS.API.SDK.Client.OpenAPIDateConverter;
 namespace CoinAPI.OMS.API.SDK.Model
 {
     /// <summary>
-    /// OrderExecutionReport
+    /// The order execution report object.
     /// </summary>
     [DataContract]
     public partial class OrderExecutionReport :  IEquatable<OrderExecutionReport>, IValidatableObject

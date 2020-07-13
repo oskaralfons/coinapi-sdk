@@ -1,7 +1,7 @@
 /*
  * OrderExecutionReport.h
  *
- * 
+ * The order execution report object.
  */
 
 #ifndef _OrderExecutionReport_H_
@@ -28,7 +28,7 @@ namespace Tizen {
 namespace ArtikCloud {
 
 
-/*! \brief 
+/*! \brief The order execution report object.
  *
  *  \ingroup Models
  *

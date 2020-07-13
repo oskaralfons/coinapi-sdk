@@ -12,6 +12,9 @@
 
 import * as models from './models';
 
+/**
+ * The order execution report object.
+ */
 export interface OrderExecutionReport {
     /**
      * Exchange identifier.

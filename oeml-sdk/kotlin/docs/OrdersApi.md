@@ -167,7 +167,7 @@ This request creating new order for the specific exchange.
 //import org.openapitools.client.models.*
 
 val apiInstance = OrdersApi()
-val newOrderSingle : NewOrderSingle =  // NewOrderSingle | 
+val newOrderSingle : NewOrderSingle =  // NewOrderSingle | test
 try {
     val result : OrderExecutionReport = apiInstance.v1OrdersPost(newOrderSingle)
     println(result)
@@ -184,7 +184,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)|  |
+ **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)| test |
 
 ### Return type
 

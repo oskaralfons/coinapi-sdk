@@ -20,7 +20,7 @@ import org.openapitools.client.models.TimeInForce
 
 import com.squareup.moshi.Json
 /**
- * 
+ * The order execution report object.
  * @param exchangeId Exchange identifier.
  * @param clientOrderId The unique identifier of the order assigned by the client.
  * @param amountOrder Order quantity.

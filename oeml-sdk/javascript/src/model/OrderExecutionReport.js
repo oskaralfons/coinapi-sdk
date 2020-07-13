@@ -27,6 +27,7 @@ import TimeInForce from './TimeInForce';
 class OrderExecutionReport {
     /**
      * Constructs a new <code>OrderExecutionReport</code>.
+     * The order execution report object.
      * @alias module:model/OrderExecutionReport
      * @implements module:model/NewOrderSingle
      * @implements module:model/OrderExecutionReportAllOf

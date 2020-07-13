@@ -89,7 +89,7 @@ class OrdersApi(baseUrl: String) {
    *   code 490 : Message (Exchange is unreachable.)
    *   code 504 : Message (Exchange didn't responded in the defined timeout.)
    * 
-   * @param newOrderSingle 
+   * @param newOrderSingle test
    */
   def v1OrdersPost(newOrderSingle: NewOrderSingle): ApiRequest[OrderExecutionReport] =
     ApiRequest[OrderExecutionReport](ApiMethods.POST, baseUrl, "/v1/orders", "application/json")

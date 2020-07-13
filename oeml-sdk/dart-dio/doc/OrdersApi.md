@@ -157,7 +157,7 @@ This request creating new order for the specific exchange.
 import 'package:openapi/api.dart';
 
 var api_instance = new OrdersApi();
-var newOrderSingle = new NewOrderSingle(); // NewOrderSingle | 
+var newOrderSingle = new NewOrderSingle(); // NewOrderSingle | test
 
 try { 
     var result = api_instance.v1OrdersPost(newOrderSingle);
@@ -171,7 +171,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)|  | 
+ **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)| test | 
 
 ### Return type
 

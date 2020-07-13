@@ -169,7 +169,7 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
     /**
     * Send new order
     * This request creating new order for the specific exchange.
-    * @param newOrderSingle  
+    * @param newOrderSingle test 
     * @return OrderExecutionReport
     * @throws UnsupportedOperationException If the API returns an informational or redirection response
     * @throws ClientException If the API returns a client error response

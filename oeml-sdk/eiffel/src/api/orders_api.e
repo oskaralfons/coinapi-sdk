@@ -134,7 +134,7 @@ feature -- API Access
 			-- Send new order
 			-- This request creating new order for the specific exchange.
 			-- 
-			-- argument: new_order_single  (required)
+			-- argument: new_order_single test (required)
 			-- 
 			-- 
 			-- Result ORDER_EXECUTION_REPORT

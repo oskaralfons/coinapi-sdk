@@ -46,7 +46,7 @@ test_that("V1OrdersPost", {
   # base path: http://localhost:8080
   # Send new order
   # This request creating new order for the specific exchange.
-  # @param NewOrderSingle  new.order.single   
+  # @param NewOrderSingle  new.order.single  test 
   # @return [OrderExecutionReport]
 
   # uncomment below to test the operation

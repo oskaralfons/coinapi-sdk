@@ -267,7 +267,7 @@ namespace Example
         {
             Configuration.Default.BasePath = "http://localhost:8080";
             var apiInstance = new OrdersApi(Configuration.Default);
-            var newOrderSingle = new NewOrderSingle(); // NewOrderSingle | 
+            var newOrderSingle = new NewOrderSingle(); // NewOrderSingle | test
 
             try
             {
@@ -291,7 +291,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)|  | 
+ **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)| test | 
 
 ### Return type
 

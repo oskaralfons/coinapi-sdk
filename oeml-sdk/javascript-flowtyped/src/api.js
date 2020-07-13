@@ -319,7 +319,7 @@ export type OrdType = 'LIMIT';
 
             export type OrderExecutionReportExecInstEnum = 'MAKER_OR_CANCEL' | 'AUCTION_ONLY' | 'INDICATION_OF_INTEREST';
 /**
- * 
+ * The order execution report object.
  * @export
  */
 export type OrderExecutionReport = {

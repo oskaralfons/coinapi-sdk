@@ -152,13 +152,15 @@ instance Produces V1OrdersGet MimeApplictionJson
 v1OrdersPost 
   :: (Consumes V1OrdersPost MimeJSON, MimeRender MimeJSON NewOrderSingle)
   => Accept accept -- ^ request accept ('MimeType')
-  -> NewOrderSingle -- ^ "newOrderSingle"
+  -> NewOrderSingle -- ^ "newOrderSingle" -  test
   -> OEML-RESTRequest V1OrdersPost MimeJSON OrderExecutionReport accept
 v1OrdersPost  _ newOrderSingle =
   _mkRequest "POST" ["/v1/orders"]
     `setBodyParam` newOrderSingle
 
 data V1OrdersPost 
+
+-- | /Body Param/ "NewOrderSingle" - test
 instance HasBodyParam V1OrdersPost NewOrderSingle 
 
 -- | @application/json@

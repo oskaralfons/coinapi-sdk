@@ -71,7 +71,7 @@ describe 'OrdersApi' do
   # unit tests for v1_orders_post
   # Send new order
   # This request creating new order for the specific exchange.
-  # @param new_order_single 
+  # @param new_order_single test
   # @param [Hash] opts the optional parameters
   # @return [OrderExecutionReport]
   describe 'v1_orders_post test' do

@@ -17,6 +17,9 @@ import { TimeInForce } from './timeInForce';
 import { OrderExecutionReportAllOf } from './orderExecutionReportAllOf';
 
 
+/**
+ * The order execution report object.
+ */
 export interface OrderExecutionReport { 
     /**
      * Exchange identifier.

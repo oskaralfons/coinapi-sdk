@@ -156,7 +156,7 @@ This request creating new order for the specific exchange.
 ```R
 library(openapi)
 
-var.new.order.single <- NewOrderSingle$new("exchange_id_example", "client_order_id_example", "symbol_exchange_example", "symbol_coinapi_example", 123, 123, OrdSide$new(), OrdType$new(), TimeInForce$new(), "expire_time_example", list("exec_inst_example")) # NewOrderSingle | 
+var.new.order.single <- NewOrderSingle$new("exchange_id_example", "client_order_id_example", "symbol_exchange_example", "symbol_coinapi_example", 123, 123, OrdSide$new(), OrdType$new(), TimeInForce$new(), "expire_time_example", list("exec_inst_example")) # NewOrderSingle | test
 
 #Send new order
 api.instance <- OrdersApi$new()
@@ -168,7 +168,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **new.order.single** | [**NewOrderSingle**](NewOrderSingle.md)|  | 
+ **new.order.single** | [**NewOrderSingle**](NewOrderSingle.md)| test | 
 
 ### Return type
 

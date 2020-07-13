@@ -11,7 +11,7 @@
  */
 
 /**
- * OASOrderExecutionReport
+ * The order execution report object.
  */
 public class OASOrderExecutionReport implements OASNewOrderSingle, OASOrderExecutionReportAllOf, OAS.MappedProperties {
     /**

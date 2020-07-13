@@ -351,6 +351,7 @@ mkNewOrderSingle newOrderSingleExchangeId newOrderSingleClientOrderId newOrderSi
 
 -- ** OrderExecutionReport
 -- | OrderExecutionReport
+-- The order execution report object.
 data OrderExecutionReport = OrderExecutionReport
   { orderExecutionReportExchangeId :: !(Text) -- ^ /Required/ "exchange_id" - Exchange identifier.
   , orderExecutionReportClientOrderId :: !(Text) -- ^ /Required/ "client_order_id" - The unique identifier of the order assigned by the client.

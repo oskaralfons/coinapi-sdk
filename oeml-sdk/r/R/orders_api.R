@@ -203,7 +203,7 @@
 #' ####################  V1OrdersPost  ####################
 #'
 #' library(openapi)
-#' var.new.order.single <- NewOrderSingle$new() # NewOrderSingle | 
+#' var.new.order.single <- NewOrderSingle$new() # NewOrderSingle | test
 #'
 #' #Send new order
 #' api.instance <- OrdersApi$new()

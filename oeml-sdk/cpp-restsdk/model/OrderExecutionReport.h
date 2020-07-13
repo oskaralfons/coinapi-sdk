@@ -12,7 +12,7 @@
 /*
  * OrderExecutionReport.h
  *
- * 
+ * The order execution report object.
  */
 
 #ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_OrderExecutionReport_H_
@@ -37,7 +37,7 @@ namespace model {
 
 
 /// <summary>
-/// 
+/// The order execution report object.
 /// </summary>
 class  OrderExecutionReport
     : public ModelBase

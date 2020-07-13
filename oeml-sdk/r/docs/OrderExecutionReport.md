@@ -1,5 +1,6 @@
 # openapi::OrderExecutionReport
 
+The order execution report object.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

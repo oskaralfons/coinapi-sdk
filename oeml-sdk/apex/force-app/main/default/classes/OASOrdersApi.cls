@@ -102,7 +102,7 @@ public class OASOrdersApi {
     /**
      * Send new order
      * This request creating new order for the specific exchange.
-     * @param oaSNewOrderSingle  (required)
+     * @param oaSNewOrderSingle test (required)
      * @return OASOrderExecutionReport
      * @throws OAS.ApiException if fails to make API call
      */

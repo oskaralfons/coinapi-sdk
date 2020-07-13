@@ -225,7 +225,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost:8080");
 
     OrdersApi apiInstance = new OrdersApi(defaultClient);
-    NewOrderSingle newOrderSingle = new NewOrderSingle(); // NewOrderSingle | 
+    NewOrderSingle newOrderSingle = new NewOrderSingle(); // NewOrderSingle | test
     try {
       OrderExecutionReport result = apiInstance.v1OrdersPost(newOrderSingle);
       System.out.println(result);
@@ -244,7 +244,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)|  |
+ **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)| test |
 
 ### Return type
 

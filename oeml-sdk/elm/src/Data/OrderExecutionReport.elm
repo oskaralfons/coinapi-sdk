@@ -23,6 +23,8 @@ import Json.Decode.Pipeline exposing (optional, required)
 import Json.Encode as Encode
 
 
+{-| The order execution report object.
+-}
 type alias OrderExecutionReport =
     { exchangeId : String
     , clientOrderId : String

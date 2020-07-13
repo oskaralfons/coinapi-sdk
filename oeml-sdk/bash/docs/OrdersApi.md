@@ -134,7 +134,7 @@ This request creating new order for the specific exchange.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md) |  |
+ **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md) | test |
 
 ### Return type
 

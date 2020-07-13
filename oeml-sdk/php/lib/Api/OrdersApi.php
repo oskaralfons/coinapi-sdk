@@ -1026,7 +1026,7 @@ class OrdersApi
      *
      * Send new order
      *
-     * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single new_order_single (required)
+     * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single test (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1043,7 +1043,7 @@ class OrdersApi
      *
      * Send new order
      *
-     * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single (required)
+     * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single test (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1191,7 +1191,7 @@ class OrdersApi
      *
      * Send new order
      *
-     * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single (required)
+     * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single test (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1211,7 +1211,7 @@ class OrdersApi
      *
      * Send new order
      *
-     * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single (required)
+     * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single test (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1258,7 +1258,7 @@ class OrdersApi
     /**
      * Create request for operation 'v1OrdersPost'
      *
-     * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single (required)
+     * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single test (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

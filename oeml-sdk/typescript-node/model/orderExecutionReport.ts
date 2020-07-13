@@ -18,6 +18,9 @@ import { OrdType } from './ordType';
 import { OrderExecutionReportAllOf } from './orderExecutionReportAllOf';
 import { TimeInForce } from './timeInForce';
 
+/**
+* The order execution report object.
+*/
 export class OrderExecutionReport {
     /**
     * Exchange identifier.

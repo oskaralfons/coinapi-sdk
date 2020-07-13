@@ -1,7 +1,7 @@
 /*
  * order_execution_report.h
  *
- * 
+ * The order execution report object.
  */
 
 #ifndef _order_execution_report_H_

@@ -163,7 +163,7 @@ This request creating new order for the specific exchange.
 import OemlRestApi from 'oeml_rest_api';
 
 let apiInstance = new OemlRestApi.OrdersApi();
-let newOrderSingle = new OemlRestApi.NewOrderSingle(); // NewOrderSingle | 
+let newOrderSingle = new OemlRestApi.NewOrderSingle(); // NewOrderSingle | test
 apiInstance.v1OrdersPost(newOrderSingle, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -178,7 +178,7 @@ apiInstance.v1OrdersPost(newOrderSingle, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)|  | 
+ **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)| test | 
 
 ### Return type
 

@@ -168,7 +168,7 @@ use WWW::OpenAPIClient::OrdersApi;
 my $api_instance = WWW::OpenAPIClient::OrdersApi->new(
 );
 
-my $new_order_single = WWW::OpenAPIClient::Object::NewOrderSingle->new(); # NewOrderSingle | 
+my $new_order_single = WWW::OpenAPIClient::Object::NewOrderSingle->new(); # NewOrderSingle | test
 
 eval { 
     my $result = $api_instance->v1_orders_post(new_order_single => $new_order_single);
@@ -183,7 +183,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **new_order_single** | [**NewOrderSingle**](NewOrderSingle.md)|  | 
+ **new_order_single** | [**NewOrderSingle**](NewOrderSingle.md)| test | 
 
 ### Return type
 

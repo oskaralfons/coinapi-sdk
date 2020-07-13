@@ -161,7 +161,7 @@ API.Client.OrdersApi.prototype.v1OrdersGet = function(opt_exchangeId, opt_extraH
 /**
  * Send new order
  * This request creating new order for the specific exchange.
- * @param {!NewOrderSingle} newOrderSingle 
+ * @param {!NewOrderSingle} newOrderSingle test
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
  * @return {!angular.$q.Promise<!API.Client.OrderExecutionReport>}
  */

@@ -175,7 +175,7 @@ export default class OrdersApi {
     /**
      * Send new order
      * This request creating new order for the specific exchange.
-     * @param {module:model/NewOrderSingle} newOrderSingle 
+     * @param {module:model/NewOrderSingle} newOrderSingle test
      * @param {module:api/OrdersApi~v1OrdersPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrderExecutionReport}
      */

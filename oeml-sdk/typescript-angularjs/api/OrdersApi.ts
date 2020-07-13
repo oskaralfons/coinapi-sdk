@@ -114,7 +114,7 @@ export class OrdersApi {
     /**
      * This request creating new order for the specific exchange.
      * @summary Send new order
-     * @param newOrderSingle 
+     * @param newOrderSingle test
      */
     public v1OrdersPost (newOrderSingle: models.NewOrderSingle, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.OrderExecutionReport> {
         const localVarPath = this.basePath + '/v1/orders';

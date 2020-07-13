@@ -94,7 +94,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// This request creating new order for the specific exchange.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="newOrderSingle"></param>
+        /// <param name="newOrderSingle">test</param>
         /// <returns>OrderExecutionReport</returns>
         OrderExecutionReport V1OrdersPost (NewOrderSingle newOrderSingle);
 
@@ -105,7 +105,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// This request creating new order for the specific exchange.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="newOrderSingle"></param>
+        /// <param name="newOrderSingle">test</param>
         /// <returns>ApiResponse of OrderExecutionReport</returns>
         ApiResponse<OrderExecutionReport> V1OrdersPostWithHttpInfo (NewOrderSingle newOrderSingle);
         /// <summary>
@@ -201,7 +201,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// This request creating new order for the specific exchange.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="newOrderSingle"></param>
+        /// <param name="newOrderSingle">test</param>
         /// <returns>Task of OrderExecutionReport</returns>
         System.Threading.Tasks.Task<OrderExecutionReport> V1OrdersPostAsync (NewOrderSingle newOrderSingle);
 
@@ -212,7 +212,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// This request creating new order for the specific exchange.
         /// </remarks>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="newOrderSingle"></param>
+        /// <param name="newOrderSingle">test</param>
         /// <returns>Task of ApiResponse (OrderExecutionReport)</returns>
         System.Threading.Tasks.Task<ApiResponse<OrderExecutionReport>> V1OrdersPostAsyncWithHttpInfo (NewOrderSingle newOrderSingle);
         /// <summary>
@@ -782,7 +782,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// Send new order This request creating new order for the specific exchange.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="newOrderSingle"></param>
+        /// <param name="newOrderSingle">test</param>
         /// <returns>OrderExecutionReport</returns>
         public OrderExecutionReport V1OrdersPost (NewOrderSingle newOrderSingle)
         {
@@ -794,7 +794,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// Send new order This request creating new order for the specific exchange.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="newOrderSingle"></param>
+        /// <param name="newOrderSingle">test</param>
         /// <returns>ApiResponse of OrderExecutionReport</returns>
         public ApiResponse<OrderExecutionReport> V1OrdersPostWithHttpInfo (NewOrderSingle newOrderSingle)
         {
@@ -857,7 +857,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// Send new order This request creating new order for the specific exchange.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="newOrderSingle"></param>
+        /// <param name="newOrderSingle">test</param>
         /// <returns>Task of OrderExecutionReport</returns>
         public async System.Threading.Tasks.Task<OrderExecutionReport> V1OrdersPostAsync (NewOrderSingle newOrderSingle)
         {
@@ -870,7 +870,7 @@ namespace CoinAPI.OMS.REST.V1.Api
         /// Send new order This request creating new order for the specific exchange.
         /// </summary>
         /// <exception cref="CoinAPI.OMS.REST.V1.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="newOrderSingle"></param>
+        /// <param name="newOrderSingle">test</param>
         /// <returns>Task of ApiResponse (OrderExecutionReport)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<OrderExecutionReport>> V1OrdersPostAsyncWithHttpInfo (NewOrderSingle newOrderSingle)
         {

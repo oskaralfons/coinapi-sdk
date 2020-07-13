@@ -24,7 +24,10 @@ import org.openapitools.client.model.TimeInForce;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
 
-@ApiModel(description = "")
+/**
+ * The order execution report object.
+ **/
+@ApiModel(description = "The order execution report object.")
 public class OrderExecutionReport {
   
   @SerializedName("exchange_id")

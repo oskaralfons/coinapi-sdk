@@ -8,7 +8,7 @@
  */
 
 package openapi
-// OrderExecutionReport struct for OrderExecutionReport
+// OrderExecutionReport The order execution report object.
 type OrderExecutionReport struct {
 	// Exchange identifier.
 	ExchangeId string `json:"exchange_id"`

@@ -318,7 +318,7 @@ func (a *OrdersApiService) V1OrdersGet(ctx _context.Context, localVarOptionals *
 V1OrdersPost Send new order
 This request creating new order for the specific exchange.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param newOrderSingle
+ * @param newOrderSingle test
 @return OrderExecutionReport
 */
 func (a *OrdersApiService) V1OrdersPost(ctx _context.Context, newOrderSingle NewOrderSingle) (OrderExecutionReport, *_nethttp.Response, error) {

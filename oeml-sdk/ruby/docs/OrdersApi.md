@@ -170,7 +170,7 @@ This request creating new order for the specific exchange.
 require 'openapi_client'
 
 api_instance = OpenapiClient::OrdersApi.new
-new_order_single = OpenapiClient::NewOrderSingle.new # NewOrderSingle | 
+new_order_single = OpenapiClient::NewOrderSingle.new # NewOrderSingle | test
 
 begin
   #Send new order
@@ -186,7 +186,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **new_order_single** | [**NewOrderSingle**](NewOrderSingle.md)|  | 
+ **new_order_single** | [**NewOrderSingle**](NewOrderSingle.md)| test | 
 
 ### Return type
 

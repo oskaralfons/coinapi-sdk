@@ -258,7 +258,7 @@ export class OrdersService {
     /**
      * Send new order
      * This request creating new order for the specific exchange.
-     * @param newOrderSingle 
+     * @param newOrderSingle test
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */

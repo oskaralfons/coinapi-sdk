@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * OrderExecutionReportTest Class Doc Comment
  *
  * @category    Class
- * @description OrderExecutionReport
+ * @description The order execution report object.
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

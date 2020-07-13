@@ -13,6 +13,7 @@ OpenAPI Generator version: 4.3.1
 require 'date'
 
 module OpenapiClient
+  # The order execution report object.
   class OrderExecutionReport
     # Exchange identifier.
     attr_accessor :exchange_id

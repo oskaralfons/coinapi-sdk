@@ -243,12 +243,12 @@ sub v1_orders_get {
 #
 # Send new order
 # 
-# @param NewOrderSingle $new_order_single  (required)
+# @param NewOrderSingle $new_order_single test (required)
 {
     my $params = {
     'new_order_single' => {
         data_type => 'NewOrderSingle',
-        description => '',
+        description => 'test',
         required => '1',
     },
     };
