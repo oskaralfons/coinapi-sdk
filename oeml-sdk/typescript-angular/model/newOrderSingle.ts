@@ -14,6 +14,9 @@ import { OrdType } from './ordType';
 import { TimeInForce } from './timeInForce';
 
 
+/**
+ * The new order message.
+ */
 export interface NewOrderSingle { 
     /**
      * Exchange identifier.

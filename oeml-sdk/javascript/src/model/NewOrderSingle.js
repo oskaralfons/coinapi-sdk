@@ -24,6 +24,7 @@ import TimeInForce from './TimeInForce';
 class NewOrderSingle {
     /**
      * Constructs a new <code>NewOrderSingle</code>.
+     * The new order message.
      * @alias module:model/NewOrderSingle
      * @param exchangeId {String} Exchange identifier.
      * @param clientOrderId {String} Unique identifier for the order assigned by the `OEML API` client.

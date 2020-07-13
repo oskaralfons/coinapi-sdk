@@ -1,7 +1,7 @@
 /*
  * ExecutionReport_allOf.h
  *
- * 
+ * The order execution report message.
  */
 
 #ifndef _ExecutionReport_allOf_H_
@@ -22,7 +22,7 @@ namespace Tizen {
 namespace ArtikCloud {
 
 
-/*! \brief 
+/*! \brief The order execution report message.
  *
  *  \ingroup Models
  *

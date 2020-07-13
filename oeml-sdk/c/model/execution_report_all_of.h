@@ -1,7 +1,7 @@
 /*
  * execution_report_all_of.h
  *
- * 
+ * The order execution report message.
  */
 
 #ifndef _execution_report_all_of_H_

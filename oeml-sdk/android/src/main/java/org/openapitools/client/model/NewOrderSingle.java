@@ -21,7 +21,10 @@ import org.openapitools.client.model.TimeInForce;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
 
-@ApiModel(description = "")
+/**
+ * The new order message.
+ **/
+@ApiModel(description = "The new order message.")
 public class NewOrderSingle {
   
   @SerializedName("exchange_id")

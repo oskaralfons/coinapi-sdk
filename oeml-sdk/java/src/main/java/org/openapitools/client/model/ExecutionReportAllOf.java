@@ -29,9 +29,10 @@ import java.util.List;
 import org.openapitools.client.model.OrdStatus;
 
 /**
- * ExecutionReportAllOf
+ * The order execution report message.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T11:20:42.685Z[Etc/UTC]")
+@ApiModel(description = "The order execution report message.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T11:25:52.494Z[Etc/UTC]")
 public class ExecutionReportAllOf {
   public static final String SERIALIZED_NAME_CLIENT_ORDER_ID_FORMAT_EXCHANGE = "client_order_id_format_exchange";
   @SerializedName(SERIALIZED_NAME_CLIENT_ORDER_ID_FORMAT_EXCHANGE)

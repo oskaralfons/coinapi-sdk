@@ -12,7 +12,7 @@
 /*
  * OAIExecutionReport_allOf.h
  *
- * 
+ * The order execution report message.
  */
 
 #ifndef OAIExecutionReport_allOf_H

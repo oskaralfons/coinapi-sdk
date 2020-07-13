@@ -314,6 +314,7 @@ mkExecutionReport executionReportExchangeId executionReportClientOrderId executi
 
 -- ** ExecutionReportAllOf
 -- | ExecutionReportAllOf
+-- The order execution report message.
 data ExecutionReportAllOf = ExecutionReportAllOf
   { executionReportAllOfClientOrderIdFormatExchange :: !(Maybe Text) -- ^ "client_order_id_format_exchange" - Hash client id
   , executionReportAllOfExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - Exchange order id
@@ -408,6 +409,7 @@ mkMessage =
 
 -- ** NewOrderSingle
 -- | NewOrderSingle
+-- The new order message.
 data NewOrderSingle = NewOrderSingle
   { newOrderSingleExchangeId :: !(Text) -- ^ /Required/ "exchange_id" - Exchange identifier.
   , newOrderSingleClientOrderId :: !(Text) -- ^ /Required/ "client_order_id" - Unique identifier for the order assigned by the &#x60;OEML API&#x60; client.

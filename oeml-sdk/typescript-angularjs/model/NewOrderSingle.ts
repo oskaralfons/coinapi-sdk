@@ -12,6 +12,9 @@
 
 import * as models from './models';
 
+/**
+ * The new order message.
+ */
 export interface NewOrderSingle {
     /**
      * Exchange identifier.

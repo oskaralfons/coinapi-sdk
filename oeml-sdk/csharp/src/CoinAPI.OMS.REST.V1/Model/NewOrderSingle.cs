@@ -25,7 +25,7 @@ using OpenAPIDateConverter = CoinAPI.OMS.REST.V1.Client.OpenAPIDateConverter;
 namespace CoinAPI.OMS.REST.V1.Model
 {
     /// <summary>
-    /// NewOrderSingle
+    /// The new order message.
     /// </summary>
     [DataContract]
     public partial class NewOrderSingle :  IEquatable<NewOrderSingle>, IValidatableObject

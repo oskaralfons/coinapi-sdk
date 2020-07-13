@@ -32,9 +32,10 @@ import org.openapitools.client.model.TimeInForce;
 import org.threeten.bp.LocalDate;
 
 /**
- * NewOrderSingle
+ * The new order message.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T11:20:42.685Z[Etc/UTC]")
+@ApiModel(description = "The new order message.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T11:25:52.494Z[Etc/UTC]")
 public class NewOrderSingle {
   public static final String SERIALIZED_NAME_EXCHANGE_ID = "exchange_id";
   @SerializedName(SERIALIZED_NAME_EXCHANGE_ID)

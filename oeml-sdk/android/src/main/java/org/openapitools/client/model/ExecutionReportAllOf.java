@@ -18,7 +18,10 @@ import org.openapitools.client.model.OrdStatus;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
 
-@ApiModel(description = "")
+/**
+ * The order execution report message.
+ **/
+@ApiModel(description = "The order execution report message.")
 public class ExecutionReportAllOf {
   
   @SerializedName("client_order_id_format_exchange")

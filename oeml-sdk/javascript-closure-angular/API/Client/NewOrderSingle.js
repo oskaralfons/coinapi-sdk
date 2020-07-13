@@ -1,6 +1,7 @@
 goog.provide('API.Client.NewOrderSingle');
 
 /**
+ * The new order message.
  * @record
  */
 API.Client.NewOrderSingle = function() {}

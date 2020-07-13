@@ -13,6 +13,7 @@ OpenAPI Generator version: 4.3.1
 require 'date'
 
 module OpenapiClient
+  # The new order message.
   class NewOrderSingle
     # Exchange identifier.
     attr_accessor :exchange_id

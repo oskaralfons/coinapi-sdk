@@ -304,7 +304,7 @@ export type ExecutionReport = {
 
 
 /**
- * 
+ * The order execution report message.
  * @export
  */
 export type ExecutionReportAllOf = {
@@ -388,7 +388,7 @@ export type Message = {
 
             export type NewOrderSingleExecInstEnum = 'MAKER_OR_CANCEL' | 'AUCTION_ONLY' | 'INDICATION_OF_INTEREST';
 /**
- * 
+ * The new order message.
  * @export
  */
 export type NewOrderSingle = {

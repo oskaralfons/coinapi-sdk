@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * NewOrderSingleTest Class Doc Comment
  *
  * @category    Class
- * @description NewOrderSingle
+ * @description The new order message.
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

@@ -36,6 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * NewOrderSingle Class Doc Comment
  *
  * @category Class
+ * @description The new order message.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

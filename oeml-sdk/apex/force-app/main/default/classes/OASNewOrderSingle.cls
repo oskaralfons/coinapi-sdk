@@ -11,7 +11,7 @@
  */
 
 /**
- * OASNewOrderSingle
+ * The new order message.
  */
 public class OASNewOrderSingle implements OAS.MappedProperties {
     /**

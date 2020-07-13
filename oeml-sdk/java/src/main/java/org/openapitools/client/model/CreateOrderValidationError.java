@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * CreateOrderValidationError
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T11:20:42.685Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T11:25:52.494Z[Etc/UTC]")
 public class CreateOrderValidationError {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)

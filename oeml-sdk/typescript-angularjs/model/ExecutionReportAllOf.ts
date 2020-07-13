@@ -12,6 +12,9 @@
 
 import * as models from './models';
 
+/**
+ * The order execution report message.
+ */
 export interface ExecutionReportAllOf {
     /**
      * Hash client id

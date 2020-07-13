@@ -17,7 +17,7 @@ import org.openapitools.client.models.TimeInForce
 
 import com.squareup.moshi.Json
 /**
- * 
+ * The new order message.
  * @param exchangeId Exchange identifier.
  * @param clientOrderId Unique identifier for the order assigned by the `OEML API` client.
  * @param amountOrder Order quantity.

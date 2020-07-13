@@ -1,7 +1,7 @@
 /*
  * new_order_single.h
  *
- * 
+ * The new order message.
  */
 
 #ifndef _new_order_single_H_

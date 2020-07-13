@@ -12,7 +12,7 @@
 /*
  * ExecutionReport_allOf.h
  *
- * 
+ * The order execution report message.
  */
 
 #ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_ExecutionReport_allOf_H_
@@ -32,7 +32,7 @@ namespace model {
 
 
 /// <summary>
-/// 
+/// The order execution report message.
 /// </summary>
 class  ExecutionReport_allOf
     : public ModelBase

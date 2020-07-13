@@ -12,7 +12,7 @@
 /*
  * NewOrderSingle.h
  *
- * 
+ * The new order message.
  */
 
 #ifndef ORG_OPENAPITOOLS_CLIENT_MODEL_NewOrderSingle_H_
@@ -34,7 +34,7 @@ namespace model {
 
 
 /// <summary>
-/// 
+/// The new order message.
 /// </summary>
 class  NewOrderSingle
     : public ModelBase

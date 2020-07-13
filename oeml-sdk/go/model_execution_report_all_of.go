@@ -8,7 +8,7 @@
  */
 
 package openapi
-// ExecutionReportAllOf struct for ExecutionReportAllOf
+// ExecutionReportAllOf The order execution report message.
 type ExecutionReportAllOf struct {
 	// Hash client id
 	ClientOrderIdFormatExchange string `json:"client_order_id_format_exchange,omitempty"`

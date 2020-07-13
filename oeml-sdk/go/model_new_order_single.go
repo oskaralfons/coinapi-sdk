@@ -8,7 +8,7 @@
  */
 
 package openapi
-// NewOrderSingle struct for NewOrderSingle
+// NewOrderSingle The new order message.
 type NewOrderSingle struct {
 	// Exchange identifier.
 	ExchangeId string `json:"exchange_id"`

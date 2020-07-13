@@ -1,5 +1,6 @@
 # ExecutionReportAllOf
 
+The order execution report message.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -12,7 +12,7 @@
 /*
  * OAINewOrderSingle.h
  *
- * 
+ * The new order message.
  */
 
 #ifndef OAINewOrderSingle_H

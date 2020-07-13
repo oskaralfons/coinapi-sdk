@@ -15,7 +15,7 @@ import org.openapitools.client.models.OrdStatus
 
 import com.squareup.moshi.Json
 /**
- * 
+ * The order execution report message.
  * @param clientOrderIdFormatExchange Hash client id
  * @param exchangeOrderId Exchange order id
  * @param amountOpen Amount open

@@ -15,6 +15,9 @@ import { OrdSide } from './ordSide';
 import { OrdType } from './ordType';
 import { TimeInForce } from './timeInForce';
 
+/**
+* The new order message.
+*/
 export class NewOrderSingle {
     /**
     * Exchange identifier.

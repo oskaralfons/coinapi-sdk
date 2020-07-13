@@ -11,7 +11,7 @@
  */
 
 /**
- * OASExecutionReportAllOf
+ * The order execution report message.
  */
 public class OASExecutionReportAllOf implements OAS.MappedProperties {
     /**

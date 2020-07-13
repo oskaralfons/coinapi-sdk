@@ -13,6 +13,7 @@ OpenAPI Generator version: 4.3.1
 require 'date'
 
 module OpenapiClient
+  # The order execution report message.
   class ExecutionReportAllOf
     # Hash client id
     attr_accessor :client_order_id_format_exchange

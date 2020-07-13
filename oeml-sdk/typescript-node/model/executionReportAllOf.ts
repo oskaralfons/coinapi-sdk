@@ -13,6 +13,9 @@
 import { RequestFile } from '../api';
 import { OrdStatus } from './ordStatus';
 
+/**
+* The order execution report message.
+*/
 export class ExecutionReportAllOf {
     /**
     * Hash client id

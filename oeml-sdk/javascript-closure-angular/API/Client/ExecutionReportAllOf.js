@@ -1,6 +1,7 @@
 goog.provide('API.Client.ExecutionReport_allOf');
 
 /**
+ * The order execution report message.
  * @record
  */
 API.Client.ExecutionReportAllOf = function() {}

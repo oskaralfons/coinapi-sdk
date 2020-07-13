@@ -22,6 +22,7 @@ import OrdStatus from './OrdStatus';
 class ExecutionReportAllOf {
     /**
      * Constructs a new <code>ExecutionReportAllOf</code>.
+     * The order execution report message.
      * @alias module:model/ExecutionReportAllOf
      */
     constructor() { 

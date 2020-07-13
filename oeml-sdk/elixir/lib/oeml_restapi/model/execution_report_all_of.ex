@@ -4,7 +4,7 @@
 
 defmodule OEML-RESTAPI.Model.ExecutionReportAllOf do
   @moduledoc """
-  
+  The order execution report message.
   """
 
   @derive [Poison.Encoder]

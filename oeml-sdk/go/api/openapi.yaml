@@ -208,6 +208,7 @@ components:
         $ref: '#/components/schemas/ExecutionReport'
       type: array
     NewOrderSingle:
+      description: The new order message.
       example:
         symbol_coinapi: KRAKEN_SPOT_BTC_USD
         exchange_id: KRAKEN
@@ -494,6 +495,7 @@ components:
         type: string
       type: array
     ExecutionReport_allOf:
+      description: The order execution report message.
       properties:
         client_order_id_format_exchange:
           description: Hash client id

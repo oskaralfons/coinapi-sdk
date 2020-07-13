@@ -1,7 +1,7 @@
 /*
  * NewOrderSingle.h
  *
- * 
+ * The new order message.
  */
 
 #ifndef _NewOrderSingle_H_
@@ -25,7 +25,7 @@ namespace Tizen {
 namespace ArtikCloud {
 
 
-/*! \brief 
+/*! \brief The new order message.
  *
  *  \ingroup Models
  *

@@ -22,6 +22,8 @@ import Json.Decode.Pipeline exposing (optional, required)
 import Json.Encode as Encode
 
 
+{-| The new order message.
+-}
 type alias NewOrderSingle =
     { exchangeId : String
     , clientOrderId : String

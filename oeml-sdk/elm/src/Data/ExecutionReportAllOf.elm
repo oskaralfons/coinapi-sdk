@@ -19,6 +19,8 @@ import Json.Decode.Pipeline exposing (optional, required)
 import Json.Encode as Encode
 
 
+{-| The order execution report message.
+-}
 type alias ExecutionReportAllOf =
     { clientOrderIdFormatExchange : Maybe (String)
     , exchangeOrderId : Maybe (String)

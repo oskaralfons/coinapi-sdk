@@ -4,7 +4,7 @@
 
 defmodule OEML-RESTAPI.Model.NewOrderSingle do
   @moduledoc """
-  
+  The new order message.
   """
 
   @derive [Poison.Encoder]
