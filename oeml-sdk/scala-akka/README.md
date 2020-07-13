@@ -63,15 +63,16 @@ libraryDependencies += "org.openapitools" % "openapi-client" % "1.0.0"
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost:8080/v1*
+All URIs are relative to *http://localhost:8080*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *BalancesApi* | **v1BalancesGet** | **GET** /v1/balances | Get balances
-*OrdersApi* | **v1OrdersCancelAllPost** | **POST** /v1/orders/cancel/all | Cancel all order
+*OrdersApi* | **v1OrdersCancelAllPost** | **POST** /v1/orders/cancel/all | Cancel all orders
 *OrdersApi* | **v1OrdersCancelPost** | **POST** /v1/orders/cancel | Cancel order
-*OrdersApi* | **v1OrdersGet** | **GET** /v1/orders | Get orders
+*OrdersApi* | **v1OrdersGet** | **GET** /v1/orders | Get all orders
 *OrdersApi* | **v1OrdersPost** | **POST** /v1/orders | Create new order
+*OrdersApi* | **v1OrdersStatusClientOrderIdGet** | **GET** /v1/orders/status/{client_order_id} | Get order status
 *PositionsApi* | **v1PositionsGet** | **GET** /v1/positions | Get positions
 
 
@@ -79,19 +80,18 @@ Class | Method | HTTP request | Description
 
  - [Balance](Balance.md)
  - [BalanceData](BalanceData.md)
- - [CancelAllOrder](CancelAllOrder.md)
- - [CancelOrder](CancelOrder.md)
- - [CreateOrder400](CreateOrder400.md)
- - [Messages](Messages.md)
- - [MessagesInfo](MessagesInfo.md)
- - [MessagesOk](MessagesOk.md)
+ - [CreateOrderValidationError](CreateOrderValidationError.md)
+ - [ExecutionReport](ExecutionReport.md)
+ - [Message](Message.md)
  - [NewOrder](NewOrder.md)
+ - [OrdStatus](OrdStatus.md)
  - [Order](Order.md)
+ - [OrderCancelAllRequest](OrderCancelAllRequest.md)
+ - [OrderCancelSingleRequest](OrderCancelSingleRequest.md)
  - [OrderData](OrderData.md)
- - [OrderLive](OrderLive.md)
- - [OrderStatus](OrderStatus.md)
  - [Position](Position.md)
  - [PositionData](PositionData.md)
+ - [Severity](Severity.md)
  - [TimeInForce](TimeInForce.md)
 
 

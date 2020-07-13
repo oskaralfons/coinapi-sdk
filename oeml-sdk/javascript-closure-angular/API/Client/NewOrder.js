@@ -1,4 +1,4 @@
-goog.provide('API.Client.newOrder');
+goog.provide('API.Client.NewOrder');
 
 /**
  * @record
@@ -62,7 +62,7 @@ API.Client.NewOrder.prototype.side;
 API.Client.NewOrder.prototype.orderType;
 
 /**
- * @type {!API.Client.timeInForce}
+ * @type {!API.Client.TimeInForce}
  * @export
  */
 API.Client.NewOrder.prototype.timeInForce;

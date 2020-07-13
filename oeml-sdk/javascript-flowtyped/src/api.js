@@ -16,7 +16,7 @@ import * as url from "url";
 import * as portableFetch from "portable-fetch";
 import { Configuration } from "./configuration";
 
-const BASE_PATH: string = "http://localhost:8080/v1".replace(/\/+$/, "");
+const BASE_PATH: string = "http://localhost:8080".replace(/\/+$/, "");
 
 /**
  *
@@ -103,13 +103,13 @@ export type Balance = {
  */
 export type BalanceData = {
     /**
-     * symbol_exchange
+     * Exchange identifier.
      * @type {string}
      * @memberof BalanceData
      */
     id?: string;
     /**
-     * Currency code.
+     * Exchange currency code.
      * @type {string}
      * @memberof BalanceData
      */
@@ -121,25 +121,25 @@ export type BalanceData = {
      */
     symbol_coinapi?: string;
     /**
-     * The current balance.
+     * Value of the current total currency balance on the exchange.
      * @type {number}
      * @memberof BalanceData
      */
     balance?: number;
     /**
-     * The amount that is available to trade.
+     * Value of the current available currency balance on the exchange that can be used as collateral.
      * @type {number}
      * @memberof BalanceData
      */
     available?: number;
     /**
-     * Blocked funds.
+     * Value of the current locked currency balance by the exchange.
      * @type {number}
      * @memberof BalanceData
      */
     locked?: number;
     /**
-     * Source of last modification. 
+     * Source of the last modification. 
      * @type {string}
      * @memberof BalanceData
      */
@@ -151,129 +151,171 @@ export type BalanceData = {
  * 
  * @export
  */
-export type CancelAllOrder = {
-    /**
-     * Exchange name
-     * @type {string}
-     * @memberof CancelAllOrder
-     */
-    exchange_id?: string;
-}
-
-
-/**
- * 
- * @export
- */
-export type CancelOrder = {
-    /**
-     * Exchange name
-     * @type {string}
-     * @memberof CancelOrder
-     */
-    exchange_id?: string;
-    /**
-     * Order Id
-     * @type {string}
-     * @memberof CancelOrder
-     */
-    exchange_order_id?: string;
-    /**
-     * Client order Id
-     * @type {string}
-     * @memberof CancelOrder
-     */
-    client_order_id?: string;
-}
-
-
-/**
- * 
- * @export
- */
-export type CreateOrder400 = {
+export type CreateOrderValidationError = {
     /**
      * 
      * @type {string}
-     * @memberof CreateOrder400
+     * @memberof CreateOrderValidationError
      */
     type?: string;
     /**
      * 
      * @type {string}
-     * @memberof CreateOrder400
+     * @memberof CreateOrderValidationError
      */
     title?: string;
     /**
      * 
      * @type {number}
-     * @memberof CreateOrder400
+     * @memberof CreateOrderValidationError
      */
     status?: number;
     /**
      * 
      * @type {string}
-     * @memberof CreateOrder400
+     * @memberof CreateOrderValidationError
      */
     traceId?: string;
     /**
      * 
      * @type {string}
-     * @memberof CreateOrder400
+     * @memberof CreateOrderValidationError
      */
     errors?: string;
 }
 
 
+
+            export type ExecutionReportSideEnum = 'BUY' | 'SELL';
+
+            export type ExecutionReportOrderTypeEnum = 'LIMIT';
+
+            export type ExecutionReportExecInstEnum = 'MAKER_OR_CANCEL' | 'AUCTION_ONLY' | 'INDICATION_OF_INTEREST';
 /**
  * 
  * @export
  */
-export type Messages = {
+export type ExecutionReport = {
     /**
-     * Type of message
+     * Result type name
      * @type {string}
-     * @memberof Messages
+     * @memberof ExecutionReport
      */
     type?: string;
     /**
      * Exchange name
      * @type {string}
-     * @memberof Messages
+     * @memberof ExecutionReport
      */
     exchange_id?: string;
     /**
-     * Message
+     * Client unique identifier for the trade.
      * @type {string}
-     * @memberof Messages
+     * @memberof ExecutionReport
      */
-    message?: string;
-}
-
-
-/**
- * 
- * @export
- */
-export type MessagesInfo = {
+    id?: string;
     /**
-     * Type of message
+     * Hash client id
      * @type {string}
-     * @memberof MessagesInfo
+     * @memberof ExecutionReport
      */
-    type?: string;
+    client_order_id_format_exchange?: string;
     /**
-     * Exchange name
+     * Exchange order id
      * @type {string}
-     * @memberof MessagesInfo
+     * @memberof ExecutionReport
      */
-    exchange_id?: string;
+    exchange_order_id?: string;
+    /**
+     * Amount open
+     * @type {number}
+     * @memberof ExecutionReport
+     */
+    amount_open?: number;
+    /**
+     * Amount filled
+     * @type {number}
+     * @memberof ExecutionReport
+     */
+    amount_filled?: number;
+    /**
+     * 
+     * @type {OrdStatus}
+     * @memberof ExecutionReport
+     */
+    status?: OrdStatus;
+    /**
+     * History of order status changes
+     * @type {Array<Array<string>>}
+     * @memberof ExecutionReport
+     */
+    time_order?: Array<Array<string>>;
     /**
      * Error message
      * @type {string}
-     * @memberof MessagesInfo
+     * @memberof ExecutionReport
      */
     error_message?: string;
+    /**
+     * Client unique identifier for the trade.
+     * @type {string}
+     * @memberof ExecutionReport
+     */
+    client_order_id?: string;
+    /**
+     * The symbol of the order.
+     * @type {string}
+     * @memberof ExecutionReport
+     */
+    symbol_exchange?: string;
+    /**
+     * The CoinAPI symbol of the order.
+     * @type {string}
+     * @memberof ExecutionReport
+     */
+    symbol_coinapi?: string;
+    /**
+     * Quoted decimal amount to purchase.
+     * @type {number}
+     * @memberof ExecutionReport
+     */
+    amount_order?: number;
+    /**
+     * Quoted decimal amount to spend per unit.
+     * @type {number}
+     * @memberof ExecutionReport
+     */
+    price?: number;
+    /**
+     * Buy or Sell
+     * @type {string}
+     * @memberof ExecutionReport
+     */
+    side?: ExecutionReportSideEnum;
+    /**
+     * The order type.
+     * @type {string}
+     * @memberof ExecutionReport
+     */
+    order_type?: ExecutionReportOrderTypeEnum;
+    /**
+     * 
+     * @type {TimeInForce}
+     * @memberof ExecutionReport
+     */
+    time_in_force?: TimeInForce;
+    /**
+     * Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
+     * @type {Date}
+     * @memberof ExecutionReport
+     */
+    expire_time?: Date;
+    /**
+     * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> 
+     * @type {Array<string>}
+     * @memberof ExecutionReport
+     */
+    exec_inst?: Array<ExecutionReportExecInstEnum>;
 }
 
 
@@ -281,23 +323,29 @@ export type MessagesInfo = {
  * 
  * @export
  */
-export type MessagesOk = {
+export type Message = {
     /**
-     * Type of message
+     * Type of message.
      * @type {string}
-     * @memberof MessagesOk
+     * @memberof Message
      */
     type?: string;
     /**
-     * Exchange name
+     * 
+     * @type {Severity}
+     * @memberof Message
+     */
+    severity?: Severity;
+    /**
+     * If message related exchange then identifier of this exchange.
      * @type {string}
-     * @memberof MessagesOk
+     * @memberof Message
      */
     exchange_id?: string;
     /**
-     * Message
+     * Sucess message
      * @type {string}
-     * @memberof MessagesOk
+     * @memberof Message
      */
     message?: string;
 }
@@ -384,6 +432,13 @@ export type NewOrder = {
 
 
 /**
+ * Order statuses and the lifecycle are documented in the separate section: <a href=\"#oeml-order-lifecycle\">OEML / Starter Guide / Order Lifecycle</a> 
+ * @export
+ * @enum {string}
+ */
+export type OrdStatus = 'RECEIVED' | 'ROUTING' | 'ROUTED' | 'NEW' | 'PENDING_CANCEL' | 'PARTIALLY_FILLED' | 'FILLED' | 'CANCELED' | 'REJECTED';
+
+/**
  * 
  * @export
  */
@@ -406,6 +461,46 @@ export type Order = {
      * @memberof Order
      */
     data?: Array<OrderData>;
+}
+
+
+/**
+ * 
+ * @export
+ */
+export type OrderCancelAllRequest = {
+    /**
+     * Exchange identifier from which active orders should be canceled.
+     * @type {string}
+     * @memberof OrderCancelAllRequest
+     */
+    exchange_id: string;
+}
+
+
+/**
+ * 
+ * @export
+ */
+export type OrderCancelSingleRequest = {
+    /**
+     * Exchange name
+     * @type {string}
+     * @memberof OrderCancelSingleRequest
+     */
+    exchange_id?: string;
+    /**
+     * Order Id
+     * @type {string}
+     * @memberof OrderCancelSingleRequest
+     */
+    exchange_order_id?: string;
+    /**
+     * Client order Id
+     * @type {string}
+     * @memberof OrderCancelSingleRequest
+     */
+    client_order_id?: string;
 }
 
 
@@ -458,10 +553,10 @@ export type OrderData = {
     amount_filled?: number;
     /**
      * 
-     * @type {OrderStatus}
+     * @type {OrdStatus}
      * @memberof OrderData
      */
-    status?: OrderStatus;
+    status?: OrdStatus;
     /**
      * History of order status changes
      * @type {Array<Array<string>>}
@@ -536,147 +631,6 @@ export type OrderData = {
     exec_inst?: Array<OrderDataExecInstEnum>;
 }
 
-
-
-            export type OrderLiveSideEnum = 'BUY' | 'SELL';
-
-            export type OrderLiveOrderTypeEnum = 'LIMIT';
-
-            export type OrderLiveExecInstEnum = 'MAKER_OR_CANCEL' | 'AUCTION_ONLY' | 'INDICATION_OF_INTEREST';
-/**
- * 
- * @export
- */
-export type OrderLive = {
-    /**
-     * Result type name
-     * @type {string}
-     * @memberof OrderLive
-     */
-    type?: string;
-    /**
-     * Exchange name
-     * @type {string}
-     * @memberof OrderLive
-     */
-    exchange_id?: string;
-    /**
-     * Client unique identifier for the trade.
-     * @type {string}
-     * @memberof OrderLive
-     */
-    id?: string;
-    /**
-     * Hash client id
-     * @type {string}
-     * @memberof OrderLive
-     */
-    client_order_id_format_exchange?: string;
-    /**
-     * Exchange order id
-     * @type {string}
-     * @memberof OrderLive
-     */
-    exchange_order_id?: string;
-    /**
-     * Amount open
-     * @type {number}
-     * @memberof OrderLive
-     */
-    amount_open?: number;
-    /**
-     * Amount filled
-     * @type {number}
-     * @memberof OrderLive
-     */
-    amount_filled?: number;
-    /**
-     * 
-     * @type {OrderStatus}
-     * @memberof OrderLive
-     */
-    status?: OrderStatus;
-    /**
-     * History of order status changes
-     * @type {Array<Array<string>>}
-     * @memberof OrderLive
-     */
-    time_order?: Array<Array<string>>;
-    /**
-     * Error message
-     * @type {string}
-     * @memberof OrderLive
-     */
-    error_message?: string;
-    /**
-     * Client unique identifier for the trade.
-     * @type {string}
-     * @memberof OrderLive
-     */
-    client_order_id?: string;
-    /**
-     * The symbol of the order.
-     * @type {string}
-     * @memberof OrderLive
-     */
-    symbol_exchange?: string;
-    /**
-     * The CoinAPI symbol of the order.
-     * @type {string}
-     * @memberof OrderLive
-     */
-    symbol_coinapi?: string;
-    /**
-     * Quoted decimal amount to purchase.
-     * @type {number}
-     * @memberof OrderLive
-     */
-    amount_order?: number;
-    /**
-     * Quoted decimal amount to spend per unit.
-     * @type {number}
-     * @memberof OrderLive
-     */
-    price?: number;
-    /**
-     * Buy or Sell
-     * @type {string}
-     * @memberof OrderLive
-     */
-    side?: OrderLiveSideEnum;
-    /**
-     * The order type.
-     * @type {string}
-     * @memberof OrderLive
-     */
-    order_type?: OrderLiveOrderTypeEnum;
-    /**
-     * 
-     * @type {TimeInForce}
-     * @memberof OrderLive
-     */
-    time_in_force?: TimeInForce;
-    /**
-     * Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
-     * @type {Date}
-     * @memberof OrderLive
-     */
-    expire_time?: Date;
-    /**
-     * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> 
-     * @type {Array<string>}
-     * @memberof OrderLive
-     */
-    exec_inst?: Array<OrderLiveExecInstEnum>;
-}
-
-
-/**
- * Order statuses and the lifecycle are documented in the separate section: <a href=\"#oeml-order-lifecycle\">OEML / Starter Guide / Order Lifecycle</a> 
- * @export
- * @enum {string}
- */
-export type OrderStatus = 'RECEIVED' | 'ROUTING' | 'ROUTED' | 'NEW' | 'PENDING_CANCEL' | 'PARTIALLY_FILLED' | 'FILLED' | 'CANCELED' | 'REJECTED';
 
 /**
  * 
@@ -779,6 +733,13 @@ export type PositionData = {
 
 
 /**
+ * 
+ * @export
+ * @enum {string}
+ */
+export type Severity = 'INFO' | 'WARNING' | 'ERROR';
+
+/**
  * Order time in force options are documented in the separate section: <a href=\"#oeml-order-lifecycle\">OEML / Starter Guide / Order parameters / Time in force</a> 
  * @export
  * @enum {string}
@@ -858,14 +819,14 @@ export const BalancesApi = function(configuration?: Configuration, fetch: FetchA
 export const OrdersApiFetchParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Cancel all existing order.
-         * @summary Cancel all order
+         * This request cancels all open orders across all or single specified exchange.
+         * @summary Cancel all orders
          * @throws {RequiredError}
          */
-        v1OrdersCancelAllPost(cancelAllOrder: CancelAllOrder, options: RequestOptions): FetchArgs {
-            // verify required parameter 'cancelAllOrder' is not null or undefined
-            if (cancelAllOrder === null || cancelAllOrder === undefined) {
-                throw new RequiredError('cancelAllOrder','Required parameter cancelAllOrder was null or undefined when calling v1OrdersCancelAllPost.');
+        v1OrdersCancelAllPost(orderCancelAllRequest: OrderCancelAllRequest, options: RequestOptions): FetchArgs {
+            // verify required parameter 'orderCancelAllRequest' is not null or undefined
+            if (orderCancelAllRequest === null || orderCancelAllRequest === undefined) {
+                throw new RequiredError('orderCancelAllRequest','Required parameter orderCancelAllRequest was null or undefined when calling v1OrdersCancelAllPost.');
             }
             const localVarPath = `/v1/orders/cancel/all`;
             const localVarUrlObj = url.parse(localVarPath, true);
@@ -879,8 +840,8 @@ export const OrdersApiFetchParamCreator = function (configuration?: Configuratio
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             localVarRequestOptions.headers = Object.assign({}, localVarHeaderParameter, options.headers);
-            const needsSerialization = (typeof cancelAllOrder !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.body =  needsSerialization ? JSON.stringify(cancelAllOrder != null ? cancelAllOrder : {}) : (((cancelAllOrder:any):string) || "");
+            const needsSerialization = (typeof orderCancelAllRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.body =  needsSerialization ? JSON.stringify(orderCancelAllRequest != null ? orderCancelAllRequest : {}) : (((orderCancelAllRequest:any):string) || "");
 
             return {
                 url: url.format(localVarUrlObj),
@@ -888,14 +849,14 @@ export const OrdersApiFetchParamCreator = function (configuration?: Configuratio
             };
         },
         /**
-         * Cancel an existing order, can be used to cancel margin, exchange, and derivative orders. You can cancel the order by the internal order ID or exchange order ID.
+         * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
          * @summary Cancel order
          * @throws {RequiredError}
          */
-        v1OrdersCancelPost(cancelOrder: CancelOrder, options: RequestOptions): FetchArgs {
-            // verify required parameter 'cancelOrder' is not null or undefined
-            if (cancelOrder === null || cancelOrder === undefined) {
-                throw new RequiredError('cancelOrder','Required parameter cancelOrder was null or undefined when calling v1OrdersCancelPost.');
+        v1OrdersCancelPost(orderCancelSingleRequest: OrderCancelSingleRequest, options: RequestOptions): FetchArgs {
+            // verify required parameter 'orderCancelSingleRequest' is not null or undefined
+            if (orderCancelSingleRequest === null || orderCancelSingleRequest === undefined) {
+                throw new RequiredError('orderCancelSingleRequest','Required parameter orderCancelSingleRequest was null or undefined when calling v1OrdersCancelPost.');
             }
             const localVarPath = `/v1/orders/cancel`;
             const localVarUrlObj = url.parse(localVarPath, true);
@@ -909,8 +870,8 @@ export const OrdersApiFetchParamCreator = function (configuration?: Configuratio
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             localVarRequestOptions.headers = Object.assign({}, localVarHeaderParameter, options.headers);
-            const needsSerialization = (typeof cancelOrder !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.body =  needsSerialization ? JSON.stringify(cancelOrder != null ? cancelOrder : {}) : (((cancelOrder:any):string) || "");
+            const needsSerialization = (typeof orderCancelSingleRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.body =  needsSerialization ? JSON.stringify(orderCancelSingleRequest != null ? orderCancelSingleRequest : {}) : (((orderCancelSingleRequest:any):string) || "");
 
             return {
                 url: url.format(localVarUrlObj),
@@ -918,8 +879,8 @@ export const OrdersApiFetchParamCreator = function (configuration?: Configuratio
             };
         },
         /**
-         * List your current open orders.
-         * @summary Get orders
+         * Get all current open orders across all or single specified exchange.
+         * @summary Get all orders
          * @throws {RequiredError}
          */
         v1OrdersGet(exchangeId?: string, options: RequestOptions): FetchArgs {
@@ -944,7 +905,7 @@ export const OrdersApiFetchParamCreator = function (configuration?: Configuratio
             };
         },
         /**
-         * You can place two types of orders: limit and market. Orders can only be placed if your account has sufficient funds.
+         * This request creating new order for the specific exchange.
          * @summary Create new order
          * @throws {RequiredError}
          */
@@ -973,17 +934,46 @@ export const OrdersApiFetchParamCreator = function (configuration?: Configuratio
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * Get the current order status for the specified order. The requested order can no longer be active.
+         * @summary Get order status
+         * @throws {RequiredError}
+         */
+        v1OrdersStatusClientOrderIdGet(clientOrderId: string, options: RequestOptions): FetchArgs {
+            // verify required parameter 'clientOrderId' is not null or undefined
+            if (clientOrderId === null || clientOrderId === undefined) {
+                throw new RequiredError('clientOrderId','Required parameter clientOrderId was null or undefined when calling v1OrdersStatusClientOrderIdGet.');
+            }
+            const localVarPath = `/v1/orders/status/{client_order_id}`
+                .replace(`{${"client_order_id"}}`, encodeURIComponent(String(clientOrderId)));
+            const localVarUrlObj = url.parse(localVarPath, true);
+            const localVarRequestOptions: RequestOptions = Object.assign({}, { method: 'GET' }, options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+
+            localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            localVarRequestOptions.headers = Object.assign({}, localVarHeaderParameter, options.headers);
+
+            return {
+                url: url.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
 export type OrdersApiType = { 
-    v1OrdersCancelAllPost(cancelAllOrder: CancelAllOrder, options?: RequestOptions): Promise<MessagesOk>,
+    v1OrdersCancelAllPost(orderCancelAllRequest: OrderCancelAllRequest, options?: RequestOptions): Promise<Message>,
 
-    v1OrdersCancelPost(cancelOrder: CancelOrder, options?: RequestOptions): Promise<OrderLive>,
+    v1OrdersCancelPost(orderCancelSingleRequest: OrderCancelSingleRequest, options?: RequestOptions): Promise<ExecutionReport>,
 
     v1OrdersGet(exchangeId?: string, options?: RequestOptions): Promise<Array<Order>>,
 
-    v1OrdersPost(newOrder: NewOrder, options?: RequestOptions): Promise<OrderLive>,
+    v1OrdersPost(newOrder: NewOrder, options?: RequestOptions): Promise<ExecutionReport>,
+
+    v1OrdersStatusClientOrderIdGet(clientOrderId: string, options?: RequestOptions): Promise<ExecutionReport>,
 }
 
 /**
@@ -994,12 +984,12 @@ export const OrdersApi = function(configuration?: Configuration, fetch: FetchAPI
     const basePath: string = (configuration && configuration.basePath) || BASE_PATH;
     return {
         /**
-         * Cancel all existing order.
-         * @summary Cancel all order
+         * This request cancels all open orders across all or single specified exchange.
+         * @summary Cancel all orders
          * @throws {RequiredError}
          */
-        v1OrdersCancelAllPost(cancelAllOrder: CancelAllOrder, options?: RequestOptions = {}): Promise<MessagesOk> {
-            const localVarFetchArgs = OrdersApiFetchParamCreator(configuration).v1OrdersCancelAllPost(cancelAllOrder, options);
+        v1OrdersCancelAllPost(orderCancelAllRequest: OrderCancelAllRequest, options?: RequestOptions = {}): Promise<Message> {
+            const localVarFetchArgs = OrdersApiFetchParamCreator(configuration).v1OrdersCancelAllPost(orderCancelAllRequest, options);
             return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                 if (response.status >= 200 && response.status < 300) {
                     return response.json();
@@ -1009,12 +999,12 @@ export const OrdersApi = function(configuration?: Configuration, fetch: FetchAPI
             });
         },
         /**
-         * Cancel an existing order, can be used to cancel margin, exchange, and derivative orders. You can cancel the order by the internal order ID or exchange order ID.
+         * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
          * @summary Cancel order
          * @throws {RequiredError}
          */
-        v1OrdersCancelPost(cancelOrder: CancelOrder, options?: RequestOptions = {}): Promise<OrderLive> {
-            const localVarFetchArgs = OrdersApiFetchParamCreator(configuration).v1OrdersCancelPost(cancelOrder, options);
+        v1OrdersCancelPost(orderCancelSingleRequest: OrderCancelSingleRequest, options?: RequestOptions = {}): Promise<ExecutionReport> {
+            const localVarFetchArgs = OrdersApiFetchParamCreator(configuration).v1OrdersCancelPost(orderCancelSingleRequest, options);
             return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                 if (response.status >= 200 && response.status < 300) {
                     return response.json();
@@ -1024,8 +1014,8 @@ export const OrdersApi = function(configuration?: Configuration, fetch: FetchAPI
             });
         },
         /**
-         * List your current open orders.
-         * @summary Get orders
+         * Get all current open orders across all or single specified exchange.
+         * @summary Get all orders
          * @throws {RequiredError}
          */
         v1OrdersGet(exchangeId?: string, options?: RequestOptions = {}): Promise<Array<Order>> {
@@ -1039,12 +1029,27 @@ export const OrdersApi = function(configuration?: Configuration, fetch: FetchAPI
             });
         },
         /**
-         * You can place two types of orders: limit and market. Orders can only be placed if your account has sufficient funds.
+         * This request creating new order for the specific exchange.
          * @summary Create new order
          * @throws {RequiredError}
          */
-        v1OrdersPost(newOrder: NewOrder, options?: RequestOptions = {}): Promise<OrderLive> {
+        v1OrdersPost(newOrder: NewOrder, options?: RequestOptions = {}): Promise<ExecutionReport> {
             const localVarFetchArgs = OrdersApiFetchParamCreator(configuration).v1OrdersPost(newOrder, options);
+            return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
+                if (response.status >= 200 && response.status < 300) {
+                    return response.json();
+                } else {
+                    throw response;
+                }
+            });
+        },
+        /**
+         * Get the current order status for the specified order. The requested order can no longer be active.
+         * @summary Get order status
+         * @throws {RequiredError}
+         */
+        v1OrdersStatusClientOrderIdGet(clientOrderId: string, options?: RequestOptions = {}): Promise<ExecutionReport> {
+            const localVarFetchArgs = OrdersApiFetchParamCreator(configuration).v1OrdersStatusClientOrderIdGet(clientOrderId, options);
             return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                 if (response.status >= 200 && response.status < 300) {
                     return response.json();

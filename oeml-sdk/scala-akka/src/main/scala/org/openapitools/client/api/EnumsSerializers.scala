@@ -19,15 +19,15 @@ object EnumsSerializers {
 
   def all: Seq[Serializer[_]] = Seq[Serializer[_]]() :+
     new EnumNameSerializer(BalanceDataEnums.UpdateOrigin) :+
+    new EnumNameSerializer(ExecutionReportEnums.Side) :+
+    new EnumNameSerializer(ExecutionReportEnums.OrderType) :+
+    new EnumNameSerializer(ExecutionReportEnums.Seq[ExecInst]) :+
     new EnumNameSerializer(NewOrderEnums.Side) :+
     new EnumNameSerializer(NewOrderEnums.OrderType) :+
     new EnumNameSerializer(NewOrderEnums.Seq[ExecInst]) :+
     new EnumNameSerializer(OrderDataEnums.Side) :+
     new EnumNameSerializer(OrderDataEnums.OrderType) :+
-    new EnumNameSerializer(OrderDataEnums.Seq[ExecInst]) :+
-    new EnumNameSerializer(OrderLiveEnums.Side) :+
-    new EnumNameSerializer(OrderLiveEnums.OrderType) :+
-    new EnumNameSerializer(OrderLiveEnums.Seq[ExecInst])
+    new EnumNameSerializer(OrderDataEnums.Seq[ExecInst])
 
   private class EnumNameSerializer[E <: Enumeration: ClassTag](enum: E)
     extends Serializer[E#Value] {

@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * BalanceData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-12T22:34:17.420Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T10:29:48.012Z[Etc/UTC]")
 public class BalanceData {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -54,7 +54,7 @@ public class BalanceData {
   private Float locked;
 
   /**
-   * Source of last modification. 
+   * Source of the last modification. 
    */
   @JsonAdapter(UpdateOriginEnum.Adapter.class)
   public enum UpdateOriginEnum {
@@ -114,11 +114,11 @@ public class BalanceData {
   }
 
    /**
-   * symbol_exchange
+   * Exchange identifier.
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "BTC", value = "symbol_exchange")
+  @ApiModelProperty(example = "BTC", value = "Exchange identifier.")
 
   public String getId() {
     return id;
@@ -137,11 +137,11 @@ public class BalanceData {
   }
 
    /**
-   * Currency code.
+   * Exchange currency code.
    * @return symbolExchange
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "BTC", value = "Currency code.")
+  @ApiModelProperty(example = "BTC", value = "Exchange currency code.")
 
   public String getSymbolExchange() {
     return symbolExchange;
@@ -183,11 +183,11 @@ public class BalanceData {
   }
 
    /**
-   * The current balance.
+   * Value of the current total currency balance on the exchange.
    * @return balance
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "0.00134444", value = "The current balance.")
+  @ApiModelProperty(example = "0.00134444", value = "Value of the current total currency balance on the exchange.")
 
   public Float getBalance() {
     return balance;
@@ -206,11 +206,11 @@ public class BalanceData {
   }
 
    /**
-   * The amount that is available to trade.
+   * Value of the current available currency balance on the exchange that can be used as collateral.
    * @return available
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "0.00134444", value = "The amount that is available to trade.")
+  @ApiModelProperty(example = "0.00134444", value = "Value of the current available currency balance on the exchange that can be used as collateral.")
 
   public Float getAvailable() {
     return available;
@@ -229,11 +229,11 @@ public class BalanceData {
   }
 
    /**
-   * Blocked funds.
+   * Value of the current locked currency balance by the exchange.
    * @return locked
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "0.0", value = "Blocked funds.")
+  @ApiModelProperty(example = "0.0", value = "Value of the current locked currency balance by the exchange.")
 
   public Float getLocked() {
     return locked;
@@ -252,11 +252,11 @@ public class BalanceData {
   }
 
    /**
-   * Source of last modification. 
+   * Source of the last modification. 
    * @return updateOrigin
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "EXCHANGE", value = "Source of last modification. ")
+  @ApiModelProperty(example = "EXCHANGE", value = "Source of the last modification. ")
 
   public UpdateOriginEnum getUpdateOrigin() {
     return updateOrigin;

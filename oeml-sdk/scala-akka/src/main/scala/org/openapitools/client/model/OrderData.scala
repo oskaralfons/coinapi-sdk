@@ -27,7 +27,7 @@ case class OrderData (
   amountOpen: Option[Double] = None,
   /* Amount filled */
   amountFilled: Option[Double] = None,
-  status: Option[OrderStatus] = None,
+  status: Option[OrdStatus] = None,
   /* History of order status changes */
   timeOrder: Option[Seq[Seq[String]]] = None,
   /* Error message */

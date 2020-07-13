@@ -5,6 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **character** | Result type. | [optional] 
 **exchange_name** | **character** | Exchange name. | [optional] 
-**data** | [**array[BalanceData]**](balance_data.md) |  | [optional] 
+**data** | [**array[BalanceData]**](Balance_data.md) |  | [optional] 
 
 

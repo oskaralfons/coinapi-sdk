@@ -29,7 +29,7 @@ import { Configuration }                                     from '../configurat
 })
 export class PositionsService {
 
-    protected basePath = 'http://localhost:8080/v1';
+    protected basePath = 'http://localhost:8080';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
     public encoder: HttpParameterCodec;

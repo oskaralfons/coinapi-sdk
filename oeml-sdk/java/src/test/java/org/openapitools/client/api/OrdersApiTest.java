@@ -14,14 +14,13 @@
 package org.openapitools.client.api;
 
 import org.openapitools.client.ApiException;
-import org.openapitools.client.model.CancelAllOrder;
-import org.openapitools.client.model.CancelOrder;
-import org.openapitools.client.model.CreateOrder400;
-import org.openapitools.client.model.Messages;
-import org.openapitools.client.model.MessagesOk;
+import org.openapitools.client.model.CreateOrderValidationError;
+import org.openapitools.client.model.ExecutionReport;
+import org.openapitools.client.model.Message;
 import org.openapitools.client.model.NewOrder;
 import org.openapitools.client.model.Order;
-import org.openapitools.client.model.OrderLive;
+import org.openapitools.client.model.OrderCancelAllRequest;
+import org.openapitools.client.model.OrderCancelSingleRequest;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -40,17 +39,17 @@ public class OrdersApiTest {
 
     
     /**
-     * Cancel all order
+     * Cancel all orders
      *
-     * Cancel all existing order.
+     * This request cancels all open orders across all or single specified exchange.
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
     public void v1OrdersCancelAllPostTest() throws ApiException {
-        CancelAllOrder cancelAllOrder = null;
-        MessagesOk response = api.v1OrdersCancelAllPost(cancelAllOrder);
+        OrderCancelAllRequest orderCancelAllRequest = null;
+        Message response = api.v1OrdersCancelAllPost(orderCancelAllRequest);
 
         // TODO: test validations
     }
@@ -58,23 +57,23 @@ public class OrdersApiTest {
     /**
      * Cancel order
      *
-     * Cancel an existing order, can be used to cancel margin, exchange, and derivative orders. You can cancel the order by the internal order ID or exchange order ID.
+     * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
     public void v1OrdersCancelPostTest() throws ApiException {
-        CancelOrder cancelOrder = null;
-        OrderLive response = api.v1OrdersCancelPost(cancelOrder);
+        OrderCancelSingleRequest orderCancelSingleRequest = null;
+        ExecutionReport response = api.v1OrdersCancelPost(orderCancelSingleRequest);
 
         // TODO: test validations
     }
     
     /**
-     * Get orders
+     * Get all orders
      *
-     * List your current open orders.
+     * Get all current open orders across all or single specified exchange.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -90,7 +89,7 @@ public class OrdersApiTest {
     /**
      * Create new order
      *
-     * You can place two types of orders: limit and market. Orders can only be placed if your account has sufficient funds.
+     * This request creating new order for the specific exchange.
      *
      * @throws ApiException
      *          if the Api call fails
@@ -98,7 +97,23 @@ public class OrdersApiTest {
     @Test
     public void v1OrdersPostTest() throws ApiException {
         NewOrder newOrder = null;
-        OrderLive response = api.v1OrdersPost(newOrder);
+        ExecutionReport response = api.v1OrdersPost(newOrder);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get order status
+     *
+     * Get the current order status for the specified order. The requested order can no longer be active.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void v1OrdersStatusClientOrderIdGetTest() throws ApiException {
+        String clientOrderId = null;
+        ExecutionReport response = api.v1OrdersStatusClientOrderIdGet(clientOrderId);
 
         // TODO: test validations
     }

@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { OrderStatus } from './orderStatus';
+import { OrdStatus } from './ordStatus';
 import { TimeInForce } from './timeInForce';
 
 
@@ -38,7 +38,7 @@ export interface OrderData {
      * Amount filled
      */
     amount_filled?: number;
-    status?: OrderStatus;
+    status?: OrdStatus;
     /**
      * History of order status changes
      */

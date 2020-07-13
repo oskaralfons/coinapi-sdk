@@ -15,7 +15,7 @@ package org.openapitools.client.model;
 import java.math.BigDecimal;
 import java.util.*;
 import java.util.Date;
-import org.openapitools.client.model.OrderStatus;
+import org.openapitools.client.model.OrdStatus;
 import org.openapitools.client.model.TimeInForce;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
@@ -36,7 +36,7 @@ public class OrderData {
   @SerializedName("amount_filled")
   private BigDecimal amountFilled = null;
   @SerializedName("status")
-  private OrderStatus status = null;
+  private OrdStatus status = null;
   @SerializedName("time_order")
   private List<List<String>> timeOrder = null;
   @SerializedName("error_message")
@@ -140,10 +140,10 @@ public class OrderData {
   /**
    **/
   @ApiModelProperty(value = "")
-  public OrderStatus getStatus() {
+  public OrdStatus getStatus() {
     return status;
   }
-  public void setStatus(OrderStatus status) {
+  public void setStatus(OrdStatus status) {
     this.status = status;
   }
 

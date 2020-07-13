@@ -59,15 +59,16 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost:8080/v1*
+All URIs are relative to *http://localhost:8080*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *OASBalancesApi* | [**v1BalancesGet**](OASBalancesApi.md#v1BalancesGet) | **GET** /v1/balances | Get balances
-*OASOrdersApi* | [**v1OrdersCancelAllPost**](OASOrdersApi.md#v1OrdersCancelAllPost) | **POST** /v1/orders/cancel/all | Cancel all order
+*OASOrdersApi* | [**v1OrdersCancelAllPost**](OASOrdersApi.md#v1OrdersCancelAllPost) | **POST** /v1/orders/cancel/all | Cancel all orders
 *OASOrdersApi* | [**v1OrdersCancelPost**](OASOrdersApi.md#v1OrdersCancelPost) | **POST** /v1/orders/cancel | Cancel order
-*OASOrdersApi* | [**v1OrdersGet**](OASOrdersApi.md#v1OrdersGet) | **GET** /v1/orders | Get orders
+*OASOrdersApi* | [**v1OrdersGet**](OASOrdersApi.md#v1OrdersGet) | **GET** /v1/orders | Get all orders
 *OASOrdersApi* | [**v1OrdersPost**](OASOrdersApi.md#v1OrdersPost) | **POST** /v1/orders | Create new order
+*OASOrdersApi* | [**v1OrdersStatusClientOrderIdGet**](OASOrdersApi.md#v1OrdersStatusClientOrderIdGet) | **GET** /v1/orders/status/{client_order_id} | Get order status
 *OASPositionsApi* | [**v1PositionsGet**](OASPositionsApi.md#v1PositionsGet) | **GET** /v1/positions | Get positions
 
 
@@ -75,19 +76,18 @@ Class | Method | HTTP request | Description
 
  - [OASBalance](OASBalance.md)
  - [OASBalanceData](OASBalanceData.md)
- - [OASCancelAllOrder](OASCancelAllOrder.md)
- - [OASCancelOrder](OASCancelOrder.md)
- - [OASCreateOrder400](OASCreateOrder400.md)
- - [OASMessages](OASMessages.md)
- - [OASMessagesInfo](OASMessagesInfo.md)
- - [OASMessagesOk](OASMessagesOk.md)
+ - [OASCreateOrderValidationError](OASCreateOrderValidationError.md)
+ - [OASExecutionReport](OASExecutionReport.md)
+ - [OASMessage](OASMessage.md)
  - [OASNewOrder](OASNewOrder.md)
+ - [OASOrdStatus](OASOrdStatus.md)
  - [OASOrder](OASOrder.md)
+ - [OASOrderCancelAllRequest](OASOrderCancelAllRequest.md)
+ - [OASOrderCancelSingleRequest](OASOrderCancelSingleRequest.md)
  - [OASOrderData](OASOrderData.md)
- - [OASOrderLive](OASOrderLive.md)
- - [OASOrderStatus](OASOrderStatus.md)
  - [OASPosition](OASPosition.md)
  - [OASPositionData](OASPositionData.md)
+ - [OASSeverity](OASSeverity.md)
  - [OASTimeInForce](OASTimeInForce.md)
 
 

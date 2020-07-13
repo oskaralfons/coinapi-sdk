@@ -25,19 +25,19 @@ inherit
 feature --Access
 
     id: detachable STRING_32 
-      -- symbol_exchange
+      -- Exchange identifier.
     symbol_exchange: detachable STRING_32 
-      -- Currency code.
+      -- Exchange currency code.
     symbol_coinapi: detachable STRING_32 
       -- CoinAPI currency code.
     balance: REAL_32 
-      -- The current balance.
+      -- Value of the current total currency balance on the exchange.
     available: REAL_32 
-      -- The amount that is available to trade.
+      -- Value of the current available currency balance on the exchange that can be used as collateral.
     locked: REAL_32 
-      -- Blocked funds.
+      -- Value of the current locked currency balance by the exchange.
     update_origin: detachable STRING_32 
-      -- Source of last modification. 
+      -- Source of the last modification. 
 
 feature -- Change Element  
  

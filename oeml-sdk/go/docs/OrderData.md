@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **ExchangeOrderId** | **string** | Exchange order id | [optional] 
 **AmountOpen** | **float32** | Amount open | [optional] 
 **AmountFilled** | **float32** | Amount filled | [optional] 
-**Status** | [**OrderStatus**](orderStatus.md) |  | [optional] 
+**Status** | [**OrdStatus**](OrdStatus.md) |  | [optional] 
 **TimeOrder** | [**[][]string**](array.md) | History of order status changes | [optional] 
 **ErrorMessage** | **string** | Error message | [optional] 
 **ClientOrderId** | **string** | Client unique identifier for the trade. | [optional] 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **Price** | **float32** | Quoted decimal amount to spend per unit. | [optional] 
 **Side** | **string** | Buy or Sell | [optional] 
 **OrderType** | **string** | The order type. | [optional] 
-**TimeInForce** | [**TimeInForce**](timeInForce.md) |  | [optional] 
+**TimeInForce** | [**TimeInForce**](TimeInForce.md) |  | [optional] 
 **ExpireTime** | **string** | Required for orders with time_in_force &#x3D; GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS | [optional] 
 **ExecInst** | **[]string** | Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt;  | [optional] 
 

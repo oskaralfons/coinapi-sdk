@@ -80,6 +80,11 @@ namespace CoinAPI.OMS.API.SDK.Model
         [DataMember(Name="order_type", EmitDefaultValue=false)]
         public OrderTypeEnum? OrderType { get; set; }
         /// <summary>
+        /// Gets or Sets TimeInForce
+        /// </summary>
+        [DataMember(Name="time_in_force", EmitDefaultValue=false)]
+        public TimeInForce? TimeInForce { get; set; }
+        /// <summary>
         /// Defines ExecInst
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
@@ -126,7 +131,7 @@ namespace CoinAPI.OMS.API.SDK.Model
         /// <param name="timeInForce">timeInForce.</param>
         /// <param name="expireTime">Required for orders with time_in_force &#x3D; GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS.</param>
         /// <param name="execInst">Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; .</param>
-        public NewOrder(string exchangeId = default(string), string clientOrderId = default(string), string symbolExchange = default(string), string symbolCoinapi = default(string), decimal amountOrder = default(decimal), decimal price = default(decimal), SideEnum? side = default(SideEnum?), OrderTypeEnum? orderType = default(OrderTypeEnum?), TimeInForce timeInForce = default(TimeInForce), DateTime expireTime = default(DateTime), List<ExecInstEnum> execInst = default(List<ExecInstEnum>))
+        public NewOrder(string exchangeId = default(string), string clientOrderId = default(string), string symbolExchange = default(string), string symbolCoinapi = default(string), decimal amountOrder = default(decimal), decimal price = default(decimal), SideEnum? side = default(SideEnum?), OrderTypeEnum? orderType = default(OrderTypeEnum?), TimeInForce? timeInForce = default(TimeInForce?), DateTime expireTime = default(DateTime), List<ExecInstEnum> execInst = default(List<ExecInstEnum>))
         {
             this.ExchangeId = exchangeId;
             this.ClientOrderId = clientOrderId;
@@ -182,12 +187,6 @@ namespace CoinAPI.OMS.API.SDK.Model
         /// <value>Quoted decimal amount to spend per unit.</value>
         [DataMember(Name="price", EmitDefaultValue=false)]
         public decimal Price { get; set; }
-
-        /// <summary>
-        /// Gets or Sets TimeInForce
-        /// </summary>
-        [DataMember(Name="time_in_force", EmitDefaultValue=false)]
-        public TimeInForce TimeInForce { get; set; }
 
         /// <summary>
         /// Required for orders with time_in_force &#x3D; GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
@@ -287,8 +286,7 @@ namespace CoinAPI.OMS.API.SDK.Model
                 ) && 
                 (
                     this.TimeInForce == input.TimeInForce ||
-                    (this.TimeInForce != null &&
-                    this.TimeInForce.Equals(input.TimeInForce))
+                    this.TimeInForce.Equals(input.TimeInForce)
                 ) && 
                 (
                     this.ExpireTime == input.ExpireTime ||
@@ -322,8 +320,7 @@ namespace CoinAPI.OMS.API.SDK.Model
                 hashCode = hashCode * 59 + this.Price.GetHashCode();
                 hashCode = hashCode * 59 + this.Side.GetHashCode();
                 hashCode = hashCode * 59 + this.OrderType.GetHashCode();
-                if (this.TimeInForce != null)
-                    hashCode = hashCode * 59 + this.TimeInForce.GetHashCode();
+                hashCode = hashCode * 59 + this.TimeInForce.GetHashCode();
                 if (this.ExpireTime != null)
                     hashCode = hashCode * 59 + this.ExpireTime.GetHashCode();
                 hashCode = hashCode * 59 + this.ExecInst.GetHashCode();

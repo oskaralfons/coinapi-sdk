@@ -1,19 +1,19 @@
 part of openapi.api;
 
 class BalanceData {
-  /* symbol_exchange */
+  /* Exchange identifier. */
   String id = null;
-  /* Currency code. */
+  /* Exchange currency code. */
   String symbolExchange = null;
   /* CoinAPI currency code. */
   String symbolCoinapi = null;
-  /* The current balance. */
+  /* Value of the current total currency balance on the exchange. */
   double balance = null;
-  /* The amount that is available to trade. */
+  /* Value of the current available currency balance on the exchange that can be used as collateral. */
   double available = null;
-  /* Blocked funds. */
+  /* Value of the current locked currency balance by the exchange. */
   double locked = null;
-  /* Source of last modification.  */
+  /* Source of the last modification.  */
   String updateOrigin = null;
   //enum updateOriginEnum {  INITIALIZATION,  BALANCE_MANAGER,  EXCHANGE,  };{
   BalanceData();

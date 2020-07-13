@@ -1,4 +1,4 @@
-# newOrder
+# NewOrder
 
 ## Properties
 Name | Type | Description | Notes

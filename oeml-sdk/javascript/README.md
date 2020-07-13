@@ -120,15 +120,16 @@ api.v1BalancesGet(opts, callback);
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost:8080/v1*
+All URIs are relative to *http://localhost:8080*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *OemlRestApi.BalancesApi* | [**v1BalancesGet**](docs/BalancesApi.md#v1BalancesGet) | **GET** /v1/balances | Get balances
-*OemlRestApi.OrdersApi* | [**v1OrdersCancelAllPost**](docs/OrdersApi.md#v1OrdersCancelAllPost) | **POST** /v1/orders/cancel/all | Cancel all order
+*OemlRestApi.OrdersApi* | [**v1OrdersCancelAllPost**](docs/OrdersApi.md#v1OrdersCancelAllPost) | **POST** /v1/orders/cancel/all | Cancel all orders
 *OemlRestApi.OrdersApi* | [**v1OrdersCancelPost**](docs/OrdersApi.md#v1OrdersCancelPost) | **POST** /v1/orders/cancel | Cancel order
-*OemlRestApi.OrdersApi* | [**v1OrdersGet**](docs/OrdersApi.md#v1OrdersGet) | **GET** /v1/orders | Get orders
+*OemlRestApi.OrdersApi* | [**v1OrdersGet**](docs/OrdersApi.md#v1OrdersGet) | **GET** /v1/orders | Get all orders
 *OemlRestApi.OrdersApi* | [**v1OrdersPost**](docs/OrdersApi.md#v1OrdersPost) | **POST** /v1/orders | Create new order
+*OemlRestApi.OrdersApi* | [**v1OrdersStatusClientOrderIdGet**](docs/OrdersApi.md#v1OrdersStatusClientOrderIdGet) | **GET** /v1/orders/status/{client_order_id} | Get order status
 *OemlRestApi.PositionsApi* | [**v1PositionsGet**](docs/PositionsApi.md#v1PositionsGet) | **GET** /v1/positions | Get positions
 
 
@@ -136,19 +137,18 @@ Class | Method | HTTP request | Description
 
  - [OemlRestApi.Balance](docs/Balance.md)
  - [OemlRestApi.BalanceData](docs/BalanceData.md)
- - [OemlRestApi.CancelAllOrder](docs/CancelAllOrder.md)
- - [OemlRestApi.CancelOrder](docs/CancelOrder.md)
- - [OemlRestApi.CreateOrder400](docs/CreateOrder400.md)
- - [OemlRestApi.Messages](docs/Messages.md)
- - [OemlRestApi.MessagesInfo](docs/MessagesInfo.md)
- - [OemlRestApi.MessagesOk](docs/MessagesOk.md)
+ - [OemlRestApi.CreateOrderValidationError](docs/CreateOrderValidationError.md)
+ - [OemlRestApi.ExecutionReport](docs/ExecutionReport.md)
+ - [OemlRestApi.Message](docs/Message.md)
  - [OemlRestApi.NewOrder](docs/NewOrder.md)
+ - [OemlRestApi.OrdStatus](docs/OrdStatus.md)
  - [OemlRestApi.Order](docs/Order.md)
+ - [OemlRestApi.OrderCancelAllRequest](docs/OrderCancelAllRequest.md)
+ - [OemlRestApi.OrderCancelSingleRequest](docs/OrderCancelSingleRequest.md)
  - [OemlRestApi.OrderData](docs/OrderData.md)
- - [OemlRestApi.OrderLive](docs/OrderLive.md)
- - [OemlRestApi.OrderStatus](docs/OrderStatus.md)
  - [OemlRestApi.Position](docs/Position.md)
  - [OemlRestApi.PositionData](docs/PositionData.md)
+ - [OemlRestApi.Severity](docs/Severity.md)
  - [OemlRestApi.TimeInForce](docs/TimeInForce.md)
 
 

@@ -14,39 +14,39 @@ feature -- Test routines
 
     
     test_v1_orders_cancel_all_post
-            -- Cancel all order
+            -- Cancel all orders
             -- 
-            -- Cancel all existing order. 
+            -- This request cancels all open orders across all or single specified exchange. 
         local
-            l_response: MESSAGES_OK
-            l_cancel_all_order: CANCEL_ALL_ORDER
+            l_response: MESSAGE
+            l_order_cancel_all_request: ORDER_CANCEL_ALL_REQUEST
         do
             -- TODO: Initialize required params.
-            -- l_cancel_all_order
+            -- l_order_cancel_all_request
                       
-            -- l_response := api.v1_orders_cancel_all_post(l_cancel_all_order)
+            -- l_response := api.v1_orders_cancel_all_post(l_order_cancel_all_request)
             assert ("not_implemented", False)
         end
     
     test_v1_orders_cancel_post
             -- Cancel order
             -- 
-            -- Cancel an existing order, can be used to cancel margin, exchange, and derivative orders. You can cancel the order by the internal order ID or exchange order ID. 
+            -- This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID. 
         local
-            l_response: ORDER_LIVE
-            l_cancel_order: CANCEL_ORDER
+            l_response: EXECUTION_REPORT
+            l_order_cancel_single_request: ORDER_CANCEL_SINGLE_REQUEST
         do
             -- TODO: Initialize required params.
-            -- l_cancel_order
+            -- l_order_cancel_single_request
                       
-            -- l_response := api.v1_orders_cancel_post(l_cancel_order)
+            -- l_response := api.v1_orders_cancel_post(l_order_cancel_single_request)
             assert ("not_implemented", False)
         end
     
     test_v1_orders_get
-            -- Get orders
+            -- Get all orders
             -- 
-            -- List your current open orders. 
+            -- Get all current open orders across all or single specified exchange. 
         local
             l_response: LIST [ORDER]
             l_exchange_id: STRING_32
@@ -60,15 +60,30 @@ feature -- Test routines
     test_v1_orders_post
             -- Create new order
             -- 
-            -- You can place two types of orders: limit and market. Orders can only be placed if your account has sufficient funds. 
+            -- This request creating new order for the specific exchange. 
         local
-            l_response: ORDER_LIVE
+            l_response: EXECUTION_REPORT
             l_new_order: NEW_ORDER
         do
             -- TODO: Initialize required params.
             -- l_new_order
                       
             -- l_response := api.v1_orders_post(l_new_order)
+            assert ("not_implemented", False)
+        end
+    
+    test_v1_orders_status_client_order_id_get
+            -- Get order status
+            -- 
+            -- Get the current order status for the specified order. The requested order can no longer be active. 
+        local
+            l_response: EXECUTION_REPORT
+            l_client_order_id: STRING_32
+        do
+            -- TODO: Initialize required params.
+            -- l_client_order_id
+                      
+            -- l_response := api.v1_orders_status_client_order_id_get(l_client_order_id)
             assert ("not_implemented", False)
         end
 

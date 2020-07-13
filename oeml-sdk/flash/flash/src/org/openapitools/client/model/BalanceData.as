@@ -3,25 +3,25 @@ package org.openapitools.client.model {
 
     [XmlRootNode(name="BalanceData")]
     public class BalanceData {
-        /* symbol_exchange */
+        /* Exchange identifier. */
         [XmlElement(name="id")]
         public var id: String = null;
-        /* Currency code. */
+        /* Exchange currency code. */
         [XmlElement(name="symbol_exchange")]
         public var symbolExchange: String = null;
         /* CoinAPI currency code. */
         [XmlElement(name="symbol_coinapi")]
         public var symbolCoinapi: String = null;
-        /* The current balance. */
+        /* Value of the current total currency balance on the exchange. */
         [XmlElement(name="balance")]
         public var balance: Number = 0.0;
-        /* The amount that is available to trade. */
+        /* Value of the current available currency balance on the exchange that can be used as collateral. */
         [XmlElement(name="available")]
         public var available: Number = 0.0;
-        /* Blocked funds. */
+        /* Value of the current locked currency balance by the exchange. */
         [XmlElement(name="locked")]
         public var locked: Number = 0.0;
-        /* Source of last modification.  */
+        /* Source of the last modification.  */
         [XmlElement(name="update_origin")]
         public var updateOrigin: String = null;
 

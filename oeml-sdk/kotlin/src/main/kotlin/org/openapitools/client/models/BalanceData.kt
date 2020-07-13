@@ -15,41 +15,41 @@ package org.openapitools.client.models
 import com.squareup.moshi.Json
 /**
  * 
- * @param id symbol_exchange
- * @param symbolExchange Currency code.
+ * @param id Exchange identifier.
+ * @param symbolExchange Exchange currency code.
  * @param symbolCoinapi CoinAPI currency code.
- * @param balance The current balance.
- * @param available The amount that is available to trade.
- * @param locked Blocked funds.
- * @param updateOrigin Source of last modification. 
+ * @param balance Value of the current total currency balance on the exchange.
+ * @param available Value of the current available currency balance on the exchange that can be used as collateral.
+ * @param locked Value of the current locked currency balance by the exchange.
+ * @param updateOrigin Source of the last modification. 
  */
 
 data class BalanceData (
-    /* symbol_exchange */
+    /* Exchange identifier. */
     @Json(name = "id")
     val id: kotlin.String? = null,
-    /* Currency code. */
+    /* Exchange currency code. */
     @Json(name = "symbol_exchange")
     val symbolExchange: kotlin.String? = null,
     /* CoinAPI currency code. */
     @Json(name = "symbol_coinapi")
     val symbolCoinapi: kotlin.String? = null,
-    /* The current balance. */
+    /* Value of the current total currency balance on the exchange. */
     @Json(name = "balance")
     val balance: kotlin.Float? = null,
-    /* The amount that is available to trade. */
+    /* Value of the current available currency balance on the exchange that can be used as collateral. */
     @Json(name = "available")
     val available: kotlin.Float? = null,
-    /* Blocked funds. */
+    /* Value of the current locked currency balance by the exchange. */
     @Json(name = "locked")
     val locked: kotlin.Float? = null,
-    /* Source of last modification.  */
+    /* Source of the last modification.  */
     @Json(name = "update_origin")
     val updateOrigin: BalanceData.UpdateOrigin? = null
 ) {
 
     /**
-    * Source of last modification. 
+    * Source of the last modification. 
     * Values: iNITIALIZATION,bALANCEMANAGER,eXCHANGE
     */
     

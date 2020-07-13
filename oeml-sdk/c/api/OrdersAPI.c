@@ -12,12 +12,12 @@
 }while(0)
 
 
-// Cancel all order
+// Cancel all orders
 //
-// Cancel all existing order.
+// This request cancels all open orders across all or single specified exchange.
 //
-messages_ok_t*
-OrdersAPI_v1OrdersCancelAllPost(apiClient_t *apiClient, cancel_all_order_t * cancel_all_order )
+message_t*
+OrdersAPI_v1OrdersCancelAllPost(apiClient_t *apiClient, order_cancel_all_request_t * order_cancel_all_request )
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -35,12 +35,12 @@ OrdersAPI_v1OrdersCancelAllPost(apiClient_t *apiClient, cancel_all_order_t * can
 
 
     // Body Param
-    cJSON *localVarSingleItemJSON_cancel_all_order;
-    if (cancel_all_order != NULL)
+    cJSON *localVarSingleItemJSON_order_cancel_all_request;
+    if (order_cancel_all_request != NULL)
     {
         //string
-        localVarSingleItemJSON_cancel_all_order = cancel_all_order_convertToJSON(cancel_all_order);
-        localVarBodyParameters = cJSON_Print(localVarSingleItemJSON_cancel_all_order);
+        localVarSingleItemJSON_order_cancel_all_request = order_cancel_all_request_convertToJSON(order_cancel_all_request);
+        localVarBodyParameters = cJSON_Print(localVarSingleItemJSON_order_cancel_all_request);
     }
     list_addElement(localVarHeaderType,"application/json"); //produces
     list_addElement(localVarContentType,"application/json"); //consumes
@@ -59,7 +59,7 @@ OrdersAPI_v1OrdersCancelAllPost(apiClient_t *apiClient, cancel_all_order_t * can
     }
     //nonprimitive not container
     cJSON *OrdersAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
-    messages_ok_t *elementToReturn = messages_ok_parseFromJSON(OrdersAPIlocalVarJSON);
+    message_t *elementToReturn = message_parseFromJSON(OrdersAPIlocalVarJSON);
     cJSON_Delete(OrdersAPIlocalVarJSON);
     if(elementToReturn == NULL) {
         // return 0;
@@ -77,7 +77,7 @@ OrdersAPI_v1OrdersCancelAllPost(apiClient_t *apiClient, cancel_all_order_t * can
     list_free(localVarHeaderType);
     list_free(localVarContentType);
     free(localVarPath);
-    cJSON_Delete(localVarSingleItemJSON_cancel_all_order);
+    cJSON_Delete(localVarSingleItemJSON_order_cancel_all_request);
     free(localVarBodyParameters);
     return elementToReturn;
 end:
@@ -87,10 +87,10 @@ end:
 
 // Cancel order
 //
-// Cancel an existing order, can be used to cancel margin, exchange, and derivative orders. You can cancel the order by the internal order ID or exchange order ID.
+// This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
 //
-order_live_t*
-OrdersAPI_v1OrdersCancelPost(apiClient_t *apiClient, cancel_order_t * cancel_order )
+execution_report_t*
+OrdersAPI_v1OrdersCancelPost(apiClient_t *apiClient, order_cancel_single_request_t * order_cancel_single_request )
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -108,12 +108,12 @@ OrdersAPI_v1OrdersCancelPost(apiClient_t *apiClient, cancel_order_t * cancel_ord
 
 
     // Body Param
-    cJSON *localVarSingleItemJSON_cancel_order;
-    if (cancel_order != NULL)
+    cJSON *localVarSingleItemJSON_order_cancel_single_request;
+    if (order_cancel_single_request != NULL)
     {
         //string
-        localVarSingleItemJSON_cancel_order = cancel_order_convertToJSON(cancel_order);
-        localVarBodyParameters = cJSON_Print(localVarSingleItemJSON_cancel_order);
+        localVarSingleItemJSON_order_cancel_single_request = order_cancel_single_request_convertToJSON(order_cancel_single_request);
+        localVarBodyParameters = cJSON_Print(localVarSingleItemJSON_order_cancel_single_request);
     }
     list_addElement(localVarHeaderType,"application/json"); //produces
     list_addElement(localVarHeaderType,"appliction/json"); //produces
@@ -139,7 +139,7 @@ OrdersAPI_v1OrdersCancelPost(apiClient_t *apiClient, cancel_order_t * cancel_ord
     }
     //nonprimitive not container
     cJSON *OrdersAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
-    order_live_t *elementToReturn = order_live_parseFromJSON(OrdersAPIlocalVarJSON);
+    execution_report_t *elementToReturn = execution_report_parseFromJSON(OrdersAPIlocalVarJSON);
     cJSON_Delete(OrdersAPIlocalVarJSON);
     if(elementToReturn == NULL) {
         // return 0;
@@ -157,7 +157,7 @@ OrdersAPI_v1OrdersCancelPost(apiClient_t *apiClient, cancel_order_t * cancel_ord
     list_free(localVarHeaderType);
     list_free(localVarContentType);
     free(localVarPath);
-    cJSON_Delete(localVarSingleItemJSON_cancel_order);
+    cJSON_Delete(localVarSingleItemJSON_order_cancel_single_request);
     free(localVarBodyParameters);
     return elementToReturn;
 end:
@@ -165,9 +165,9 @@ end:
 
 }
 
-// Get orders
+// Get all orders
 //
-// List your current open orders.
+// Get all current open orders across all or single specified exchange.
 //
 list_t*
 OrdersAPI_v1OrdersGet(apiClient_t *apiClient, char * exchange_id )
@@ -210,7 +210,7 @@ OrdersAPI_v1OrdersGet(apiClient_t *apiClient, char * exchange_id )
                     "GET");
 
     if (apiClient->response_code == 200) {
-        printf("%s\n","Ok");
+        printf("%s\n","Collection of requested open orders.");
     }
     cJSON *OrdersAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
     if(!cJSON_IsArray(OrdersAPIlocalVarJSON)) {
@@ -262,9 +262,9 @@ end:
 
 // Create new order
 //
-// You can place two types of orders: limit and market. Orders can only be placed if your account has sufficient funds.
+// This request creating new order for the specific exchange.
 //
-order_live_t*
+execution_report_t*
 OrdersAPI_v1OrdersPost(apiClient_t *apiClient, new_order_t * new_order )
 {
     list_t    *localVarQueryParameters = NULL;
@@ -314,7 +314,7 @@ OrdersAPI_v1OrdersPost(apiClient_t *apiClient, new_order_t * new_order )
     }
     //nonprimitive not container
     cJSON *OrdersAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
-    order_live_t *elementToReturn = order_live_parseFromJSON(OrdersAPIlocalVarJSON);
+    execution_report_t *elementToReturn = execution_report_parseFromJSON(OrdersAPIlocalVarJSON);
     cJSON_Delete(OrdersAPIlocalVarJSON);
     if(elementToReturn == NULL) {
         // return 0;
@@ -334,6 +334,81 @@ OrdersAPI_v1OrdersPost(apiClient_t *apiClient, new_order_t * new_order )
     free(localVarPath);
     cJSON_Delete(localVarSingleItemJSON_new_order);
     free(localVarBodyParameters);
+    return elementToReturn;
+end:
+    return NULL;
+
+}
+
+// Get order status
+//
+// Get the current order status for the specified order. The requested order can no longer be active.
+//
+execution_report_t*
+OrdersAPI_v1OrdersStatusClientOrderIdGet(apiClient_t *apiClient, char * client_order_id )
+{
+    list_t    *localVarQueryParameters = NULL;
+    list_t    *localVarHeaderParameters = NULL;
+    list_t    *localVarFormParameters = NULL;
+    list_t *localVarHeaderType = list_create();
+    list_t *localVarContentType = NULL;
+    char      *localVarBodyParameters = NULL;
+
+    // create the path
+    long sizeOfPath = strlen("/v1/orders/status/{client_order_id}")+1;
+    char *localVarPath = malloc(sizeOfPath);
+    snprintf(localVarPath, sizeOfPath, "/v1/orders/status/{client_order_id}");
+
+
+    // Path Params
+    long sizeOfPathParams_client_order_id = strlen(client_order_id)+3 + strlen("{ client_order_id }");
+    if(client_order_id == NULL) {
+        goto end;
+    }
+    char* localVarToReplace_client_order_id = malloc(sizeOfPathParams_client_order_id);
+    sprintf(localVarToReplace_client_order_id, "{%s}", "client_order_id");
+
+    localVarPath = strReplace(localVarPath, localVarToReplace_client_order_id, client_order_id);
+
+
+    list_addElement(localVarHeaderType,"application/json"); //produces
+    apiClient_invoke(apiClient,
+                    localVarPath,
+                    localVarQueryParameters,
+                    localVarHeaderParameters,
+                    localVarFormParameters,
+                    localVarHeaderType,
+                    localVarContentType,
+                    localVarBodyParameters,
+                    "GET");
+
+    if (apiClient->response_code == 200) {
+        printf("%s\n","The order was found.");
+    }
+    if (apiClient->response_code == 400) {
+        printf("%s\n","The order was not found.");
+    }
+    //nonprimitive not container
+    cJSON *OrdersAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
+    execution_report_t *elementToReturn = execution_report_parseFromJSON(OrdersAPIlocalVarJSON);
+    cJSON_Delete(OrdersAPIlocalVarJSON);
+    if(elementToReturn == NULL) {
+        // return 0;
+    }
+
+    //return type
+    if (apiClient->dataReceived) {
+        free(apiClient->dataReceived);
+        apiClient->dataReceived = NULL;
+        apiClient->dataReceivedLen = 0;
+    }
+    
+    
+    
+    list_free(localVarHeaderType);
+    
+    free(localVarPath);
+    free(localVarToReplace_client_order_id);
     return elementToReturn;
 end:
     return NULL;

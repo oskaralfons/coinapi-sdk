@@ -16,14 +16,13 @@ local dkjson = require "dkjson"
 local basexx = require "basexx"
 
 -- model import
-local openapiclient_cancel_all_order = require "openapiclient.model.cancel_all_order"
-local openapiclient_cancel_order = require "openapiclient.model.cancel_order"
-local openapiclient_create_order400 = require "openapiclient.model.create_order400"
-local openapiclient_messages = require "openapiclient.model.messages"
-local openapiclient_messages_ok = require "openapiclient.model.messages_ok"
-local openapiclient_new_order = require "openapiclient.model.new_order"
+local openapiclient_create_order_validation_error = require "openapiclient.model.create_order_validation_error"
+local openapiclient_execution_report = require "openapiclient.model.execution_report"
+local openapiclient_message = require "openapiclient.model.message"
 local openapiclient_order = require "openapiclient.model.order"
-local openapiclient_order_live = require "openapiclient.model.order_live"
+local openapiclient_new_order = require "openapiclient.model.new_order"
+local openapiclient_order_cancel_all_request = require "openapiclient.model.order_cancel_all_request"
+local openapiclient_order_cancel_single_request = require "openapiclient.model.order_cancel_single_request"
 
 local orders_api = {}
 local orders_api_mt = {
@@ -41,7 +40,7 @@ local function new_orders_api(authority, basePath, schemes)
 	return setmetatable({
 		host = host;
 		port = port;
-		basePath = basePath or "http://localhost:8080/v1";
+		basePath = basePath or "http://localhost:8080";
 		schemes = schemes_map;
 		default_scheme = default_scheme;
 		http_username = nil;
@@ -51,7 +50,7 @@ local function new_orders_api(authority, basePath, schemes)
 	}, orders_api_mt)
 end
 
-function orders_api:v1_orders_cancel_all_post(cancel_all_order)
+function orders_api:v1_orders_cancel_all_post(order_cancel_all_request)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -70,7 +69,7 @@ function orders_api:v1_orders_cancel_all_post(cancel_all_order)
 	--local var_accept = { "application/json" }
 	req.headers:upsert("content-type", "application/json")
 
-	req:set_body(dkjson.encode(cancel_all_order))
+	req:set_body(dkjson.encode(order_cancel_all_request))
 
 
 	-- make the HTTP call
@@ -91,7 +90,7 @@ function orders_api:v1_orders_cancel_all_post(cancel_all_order)
 		if result == nil then
 			return nil, err3
 		end
-		return openapiclient_messages_ok.cast(result), headers
+		return openapiclient_message.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -103,7 +102,7 @@ function orders_api:v1_orders_cancel_all_post(cancel_all_order)
 	end
 end
 
-function orders_api:v1_orders_cancel_post(cancel_order)
+function orders_api:v1_orders_cancel_post(order_cancel_single_request)
 	local req = http_request.new_from_uri({
 		scheme = self.default_scheme;
 		host = self.host;
@@ -122,7 +121,7 @@ function orders_api:v1_orders_cancel_post(cancel_order)
 	--local var_accept = { "application/json", "appliction/json" }
 	req.headers:upsert("content-type", "application/json")
 
-	req:set_body(dkjson.encode(cancel_order))
+	req:set_body(dkjson.encode(order_cancel_single_request))
 
 
 	-- make the HTTP call
@@ -143,7 +142,7 @@ function orders_api:v1_orders_cancel_post(cancel_order)
 		if result == nil then
 			return nil, err3
 		end
-		return openapiclient_order_live.cast(result), headers
+		return openapiclient_execution_report.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then
@@ -244,7 +243,53 @@ function orders_api:v1_orders_post(new_order)
 		if result == nil then
 			return nil, err3
 		end
-		return openapiclient_order_live.cast(result), headers
+		return openapiclient_execution_report.cast(result), headers
+	else
+		local body, err, errno2 = stream:get_body_as_string()
+		if not body then
+			return nil, err, errno2
+		end
+		stream:shutdown()
+		-- return the error message (http body)
+		return nil, http_status, body
+	end
+end
+
+function orders_api:v1_orders_status_client_order_id_get(client_order_id)
+	local req = http_request.new_from_uri({
+		scheme = self.default_scheme;
+		host = self.host;
+		port = self.port;
+		path = string.format("%s/v1/orders/status/%s",
+			self.basePath, client_order_id);
+	})
+
+	-- set HTTP verb
+	req.headers:upsert(":method", "GET")
+	-- TODO: create a function to select proper content-type
+	--local var_accept = { "application/json" }
+	req.headers:upsert("content-type", "application/json")
+
+
+	-- make the HTTP call
+	local headers, stream, errno = req:go()
+	if not headers then
+		return nil, stream, errno
+	end
+	local http_status = headers:get(":status")
+	if http_status:sub(1,1) == "2" then
+		local body, err, errno2 = stream:get_body_as_string()
+		-- exception when getting the HTTP body
+		if not body then
+			return nil, err, errno2
+		end
+		stream:shutdown()
+		local result, _, err3 = dkjson.decode(body)
+		-- exception when decoding the HTTP body
+		if result == nil then
+			return nil, err3
+		end
+		return openapiclient_execution_report.cast(result), headers
 	else
 		local body, err, errno2 = stream:get_body_as_string()
 		if not body then

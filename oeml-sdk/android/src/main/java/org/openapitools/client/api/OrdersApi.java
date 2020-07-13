@@ -23,14 +23,13 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import org.openapitools.client.model.CancelAllOrder;
-import org.openapitools.client.model.CancelOrder;
-import org.openapitools.client.model.CreateOrder400;
-import org.openapitools.client.model.Messages;
-import org.openapitools.client.model.MessagesOk;
+import org.openapitools.client.model.CreateOrderValidationError;
+import org.openapitools.client.model.ExecutionReport;
+import org.openapitools.client.model.Message;
 import org.openapitools.client.model.NewOrder;
 import org.openapitools.client.model.Order;
-import org.openapitools.client.model.OrderLive;
+import org.openapitools.client.model.OrderCancelAllRequest;
+import org.openapitools.client.model.OrderCancelSingleRequest;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
@@ -43,7 +42,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class OrdersApi {
-  String basePath = "http://localhost:8080/v1";
+  String basePath = "http://localhost:8080";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -63,17 +62,17 @@ public class OrdersApi {
   }
 
   /**
-  * Cancel all order
-  * Cancel all existing order.
-   * @param cancelAllOrder 
-   * @return MessagesOk
+  * Cancel all orders
+  * This request cancels all open orders across all or single specified exchange.
+   * @param orderCancelAllRequest 
+   * @return Message
   */
-  public MessagesOk v1OrdersCancelAllPost (CancelAllOrder cancelAllOrder) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = cancelAllOrder;
-    // verify the required parameter 'cancelAllOrder' is set
-    if (cancelAllOrder == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'cancelAllOrder' when calling v1OrdersCancelAllPost",
-        new ApiException(400, "Missing the required parameter 'cancelAllOrder' when calling v1OrdersCancelAllPost"));
+  public Message v1OrdersCancelAllPost (OrderCancelAllRequest orderCancelAllRequest) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = orderCancelAllRequest;
+    // verify the required parameter 'orderCancelAllRequest' is set
+    if (orderCancelAllRequest == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'orderCancelAllRequest' when calling v1OrdersCancelAllPost",
+        new ApiException(400, "Missing the required parameter 'orderCancelAllRequest' when calling v1OrdersCancelAllPost"));
     }
 
     // create path and map variables
@@ -104,7 +103,7 @@ public class OrdersApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (MessagesOk) ApiInvoker.deserialize(localVarResponse, "", MessagesOk.class);
+         return (Message) ApiInvoker.deserialize(localVarResponse, "", Message.class);
       } else {
          return null;
       }
@@ -126,17 +125,17 @@ public class OrdersApi {
   }
 
       /**
-   * Cancel all order
-   * Cancel all existing order.
-   * @param cancelAllOrder 
+   * Cancel all orders
+   * This request cancels all open orders across all or single specified exchange.
+   * @param orderCancelAllRequest 
   */
-  public void v1OrdersCancelAllPost (CancelAllOrder cancelAllOrder, final Response.Listener<MessagesOk> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = cancelAllOrder;
+  public void v1OrdersCancelAllPost (OrderCancelAllRequest orderCancelAllRequest, final Response.Listener<Message> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = orderCancelAllRequest;
 
-    // verify the required parameter 'cancelAllOrder' is set
-    if (cancelAllOrder == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'cancelAllOrder' when calling v1OrdersCancelAllPost",
-        new ApiException(400, "Missing the required parameter 'cancelAllOrder' when calling v1OrdersCancelAllPost"));
+    // verify the required parameter 'orderCancelAllRequest' is set
+    if (orderCancelAllRequest == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'orderCancelAllRequest' when calling v1OrdersCancelAllPost",
+        new ApiException(400, "Missing the required parameter 'orderCancelAllRequest' when calling v1OrdersCancelAllPost"));
     }
 
     // create path and map variables
@@ -175,7 +174,7 @@ public class OrdersApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((MessagesOk) ApiInvoker.deserialize(localVarResponse,  "", MessagesOk.class));
+              responseListener.onResponse((Message) ApiInvoker.deserialize(localVarResponse,  "", Message.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -192,16 +191,16 @@ public class OrdersApi {
   }
   /**
   * Cancel order
-  * Cancel an existing order, can be used to cancel margin, exchange, and derivative orders. You can cancel the order by the internal order ID or exchange order ID.
-   * @param cancelOrder 
-   * @return OrderLive
+  * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+   * @param orderCancelSingleRequest 
+   * @return ExecutionReport
   */
-  public OrderLive v1OrdersCancelPost (CancelOrder cancelOrder) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = cancelOrder;
-    // verify the required parameter 'cancelOrder' is set
-    if (cancelOrder == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'cancelOrder' when calling v1OrdersCancelPost",
-        new ApiException(400, "Missing the required parameter 'cancelOrder' when calling v1OrdersCancelPost"));
+  public ExecutionReport v1OrdersCancelPost (OrderCancelSingleRequest orderCancelSingleRequest) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = orderCancelSingleRequest;
+    // verify the required parameter 'orderCancelSingleRequest' is set
+    if (orderCancelSingleRequest == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'orderCancelSingleRequest' when calling v1OrdersCancelPost",
+        new ApiException(400, "Missing the required parameter 'orderCancelSingleRequest' when calling v1OrdersCancelPost"));
     }
 
     // create path and map variables
@@ -232,7 +231,7 @@ public class OrdersApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (OrderLive) ApiInvoker.deserialize(localVarResponse, "", OrderLive.class);
+         return (ExecutionReport) ApiInvoker.deserialize(localVarResponse, "", ExecutionReport.class);
       } else {
          return null;
       }
@@ -255,16 +254,16 @@ public class OrdersApi {
 
       /**
    * Cancel order
-   * Cancel an existing order, can be used to cancel margin, exchange, and derivative orders. You can cancel the order by the internal order ID or exchange order ID.
-   * @param cancelOrder 
+   * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+   * @param orderCancelSingleRequest 
   */
-  public void v1OrdersCancelPost (CancelOrder cancelOrder, final Response.Listener<OrderLive> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = cancelOrder;
+  public void v1OrdersCancelPost (OrderCancelSingleRequest orderCancelSingleRequest, final Response.Listener<ExecutionReport> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = orderCancelSingleRequest;
 
-    // verify the required parameter 'cancelOrder' is set
-    if (cancelOrder == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'cancelOrder' when calling v1OrdersCancelPost",
-        new ApiException(400, "Missing the required parameter 'cancelOrder' when calling v1OrdersCancelPost"));
+    // verify the required parameter 'orderCancelSingleRequest' is set
+    if (orderCancelSingleRequest == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'orderCancelSingleRequest' when calling v1OrdersCancelPost",
+        new ApiException(400, "Missing the required parameter 'orderCancelSingleRequest' when calling v1OrdersCancelPost"));
     }
 
     // create path and map variables
@@ -303,7 +302,7 @@ public class OrdersApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((OrderLive) ApiInvoker.deserialize(localVarResponse,  "", OrderLive.class));
+              responseListener.onResponse((ExecutionReport) ApiInvoker.deserialize(localVarResponse,  "", ExecutionReport.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -319,9 +318,9 @@ public class OrdersApi {
     }
   }
   /**
-  * Get orders
-  * List your current open orders.
-   * @param exchangeId Exchange name
+  * Get all orders
+  * Get all current open orders across all or single specified exchange.
+   * @param exchangeId Filter the output to the orders from the specific exchange.
    * @return List<Order>
   */
   public List<Order> v1OrdersGet (String exchangeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
@@ -377,9 +376,9 @@ public class OrdersApi {
   }
 
       /**
-   * Get orders
-   * List your current open orders.
-   * @param exchangeId Exchange name
+   * Get all orders
+   * Get all current open orders across all or single specified exchange.
+   * @param exchangeId Filter the output to the orders from the specific exchange.
   */
   public void v1OrdersGet (String exchangeId, final Response.Listener<List<Order>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
@@ -439,11 +438,11 @@ public class OrdersApi {
   }
   /**
   * Create new order
-  * You can place two types of orders: limit and market. Orders can only be placed if your account has sufficient funds.
+  * This request creating new order for the specific exchange.
    * @param newOrder 
-   * @return OrderLive
+   * @return ExecutionReport
   */
-  public OrderLive v1OrdersPost (NewOrder newOrder) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ExecutionReport v1OrdersPost (NewOrder newOrder) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = newOrder;
     // verify the required parameter 'newOrder' is set
     if (newOrder == null) {
@@ -479,7 +478,7 @@ public class OrdersApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (OrderLive) ApiInvoker.deserialize(localVarResponse, "", OrderLive.class);
+         return (ExecutionReport) ApiInvoker.deserialize(localVarResponse, "", ExecutionReport.class);
       } else {
          return null;
       }
@@ -502,10 +501,10 @@ public class OrdersApi {
 
       /**
    * Create new order
-   * You can place two types of orders: limit and market. Orders can only be placed if your account has sufficient funds.
+   * This request creating new order for the specific exchange.
    * @param newOrder 
   */
-  public void v1OrdersPost (NewOrder newOrder, final Response.Listener<OrderLive> responseListener, final Response.ErrorListener errorListener) {
+  public void v1OrdersPost (NewOrder newOrder, final Response.Listener<ExecutionReport> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = newOrder;
 
     // verify the required parameter 'newOrder' is set
@@ -550,7 +549,134 @@ public class OrdersApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((OrderLive) ApiInvoker.deserialize(localVarResponse,  "", OrderLive.class));
+              responseListener.onResponse((ExecutionReport) ApiInvoker.deserialize(localVarResponse,  "", ExecutionReport.class));
+            } catch (ApiException exception) {
+               errorListener.onErrorResponse(new VolleyError(exception));
+            }
+          }
+      }, new Response.ErrorListener() {
+          @Override
+          public void onErrorResponse(VolleyError error) {
+            errorListener.onErrorResponse(error);
+          }
+      });
+    } catch (ApiException ex) {
+      errorListener.onErrorResponse(new VolleyError(ex));
+    }
+  }
+  /**
+  * Get order status
+  * Get the current order status for the specified order. The requested order can no longer be active.
+   * @param clientOrderId Order Client Id of the order for which the status is requested.
+   * @return ExecutionReport
+  */
+  public ExecutionReport v1OrdersStatusClientOrderIdGet (String clientOrderId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = null;
+    // verify the required parameter 'clientOrderId' is set
+    if (clientOrderId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'clientOrderId' when calling v1OrdersStatusClientOrderIdGet",
+        new ApiException(400, "Missing the required parameter 'clientOrderId' when calling v1OrdersStatusClientOrderIdGet"));
+    }
+
+    // create path and map variables
+    String path = "/v1/orders/status/{client_order_id}".replaceAll("\\{" + "client_order_id" + "\\}", apiInvoker.escapeString(clientOrderId.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+    String[] contentTypes = {
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+    }
+
+    String[] authNames = new String[] {  };
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
+      if (localVarResponse != null) {
+         return (ExecutionReport) ApiInvoker.deserialize(localVarResponse, "", ExecutionReport.class);
+      } else {
+         return null;
+      }
+    } catch (ApiException ex) {
+       throw ex;
+    } catch (InterruptedException ex) {
+       throw ex;
+    } catch (ExecutionException ex) {
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
+    } catch (TimeoutException ex) {
+      throw ex;
+    }
+  }
+
+      /**
+   * Get order status
+   * Get the current order status for the specified order. The requested order can no longer be active.
+   * @param clientOrderId Order Client Id of the order for which the status is requested.
+  */
+  public void v1OrdersStatusClientOrderIdGet (String clientOrderId, final Response.Listener<ExecutionReport> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = null;
+
+    // verify the required parameter 'clientOrderId' is set
+    if (clientOrderId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'clientOrderId' when calling v1OrdersStatusClientOrderIdGet",
+        new ApiException(400, "Missing the required parameter 'clientOrderId' when calling v1OrdersStatusClientOrderIdGet"));
+    }
+
+    // create path and map variables
+    String path = "/v1/orders/status/{client_order_id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "client_order_id" + "\\}", apiInvoker.escapeString(clientOrderId.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+
+
+
+    String[] contentTypes = {
+      
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+          }
+
+    String[] authNames = new String[] {  };
+
+    try {
+      apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
+        new Response.Listener<String>() {
+          @Override
+          public void onResponse(String localVarResponse) {
+            try {
+              responseListener.onResponse((ExecutionReport) ApiInvoker.deserialize(localVarResponse,  "", ExecutionReport.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }

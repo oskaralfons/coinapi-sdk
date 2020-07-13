@@ -14,17 +14,17 @@
 #'
 #' @section Methods:
 #' \describe{
-#' \strong{ V1OrdersCancelAllPost } \emph{ Cancel all order }
-#' Cancel all existing order.
+#' \strong{ V1OrdersCancelAllPost } \emph{ Cancel all orders }
+#' This request cancels all open orders across all or single specified exchange.
 #'
 #' \itemize{
-#' \item \emph{ @param } cancel.all.order \link{CancelAllOrder}
-#' \item \emph{ @returnType } \link{MessagesOk} \cr
+#' \item \emph{ @param } order.cancel.all.request \link{OrderCancelAllRequest}
+#' \item \emph{ @returnType } \link{Message} \cr
 #'
 #'
 #' \item status code : 200 | Result
 #'
-#' \item return type : MessagesOk 
+#' \item return type : Message 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -32,45 +32,45 @@
 #' }
 #'
 #' \strong{ V1OrdersCancelPost } \emph{ Cancel order }
-#' Cancel an existing order, can be used to cancel margin, exchange, and derivative orders. You can cancel the order by the internal order ID or exchange order ID.
+#' This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
 #'
 #' \itemize{
-#' \item \emph{ @param } cancel.order \link{CancelOrder}
-#' \item \emph{ @returnType } \link{OrderLive} \cr
+#' \item \emph{ @param } order.cancel.single.request \link{OrderCancelSingleRequest}
+#' \item \emph{ @returnType } \link{ExecutionReport} \cr
 #'
 #'
 #' \item status code : 200 | Canceled order
 #'
-#' \item return type : OrderLive 
+#' \item return type : ExecutionReport 
 #' \item response headers :
 #'
 #' \tabular{ll}{
 #' }
 #' \item status code : 400 | Validation errors
 #'
-#' \item return type : CreateOrder400 
+#' \item return type : CreateOrderValidationError 
 #' \item response headers :
 #'
 #' \tabular{ll}{
 #' }
 #' \item status code : 490 | Exchange not registered
 #'
-#' \item return type : Messages 
+#' \item return type : Message 
 #' \item response headers :
 #'
 #' \tabular{ll}{
 #' }
 #' }
 #'
-#' \strong{ V1OrdersGet } \emph{ Get orders }
-#' List your current open orders.
+#' \strong{ V1OrdersGet } \emph{ Get all orders }
+#' Get all current open orders across all or single specified exchange.
 #'
 #' \itemize{
 #' \item \emph{ @param } exchange.id character
-#' \item \emph{ @returnType } list( \link{order} ) \cr
+#' \item \emph{ @returnType } list( \link{Order} ) \cr
 #'
 #'
-#' \item status code : 200 | Ok
+#' \item status code : 200 | Collection of requested open orders.
 #'
 #' \item return type : array[Order] 
 #' \item response headers :
@@ -80,30 +80,54 @@
 #' }
 #'
 #' \strong{ V1OrdersPost } \emph{ Create new order }
-#' You can place two types of orders: limit and market. Orders can only be placed if your account has sufficient funds.
+#' This request creating new order for the specific exchange.
 #'
 #' \itemize{
 #' \item \emph{ @param } new.order \link{NewOrder}
-#' \item \emph{ @returnType } \link{OrderLive} \cr
+#' \item \emph{ @returnType } \link{ExecutionReport} \cr
 #'
 #'
 #' \item status code : 200 | Created
 #'
-#' \item return type : OrderLive 
+#' \item return type : ExecutionReport 
 #' \item response headers :
 #'
 #' \tabular{ll}{
 #' }
 #' \item status code : 400 | Validation errors
 #'
-#' \item return type : CreateOrder400 
+#' \item return type : CreateOrderValidationError 
 #' \item response headers :
 #'
 #' \tabular{ll}{
 #' }
 #' \item status code : 490 | Exchange not registered
 #'
-#' \item return type : Messages 
+#' \item return type : Message 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' }
+#'
+#' \strong{ V1OrdersStatusClientOrderIdGet } \emph{ Get order status }
+#' Get the current order status for the specified order. The requested order can no longer be active.
+#'
+#' \itemize{
+#' \item \emph{ @param } client.order.id character
+#' \item \emph{ @returnType } \link{ExecutionReport} \cr
+#'
+#'
+#' \item status code : 200 | The order was found.
+#'
+#' \item return type : ExecutionReport 
+#' \item response headers :
+#'
+#' \tabular{ll}{
+#' }
+#' \item status code : 400 | The order was not found.
+#'
+#' \item return type : Message 
 #' \item response headers :
 #'
 #' \tabular{ll}{
@@ -118,31 +142,31 @@
 #' ####################  V1OrdersCancelAllPost  ####################
 #'
 #' library(openapi)
-#' var.cancel.all.order <- CancelAllOrder$new() # CancelAllOrder | 
+#' var.order.cancel.all.request <- OrderCancelAllRequest$new() # OrderCancelAllRequest | 
 #'
-#' #Cancel all order
+#' #Cancel all orders
 #' api.instance <- OrdersApi$new()
 #'
-#' result <- api.instance$V1OrdersCancelAllPost(var.cancel.all.order)
+#' result <- api.instance$V1OrdersCancelAllPost(var.order.cancel.all.request)
 #'
 #'
 #' ####################  V1OrdersCancelPost  ####################
 #'
 #' library(openapi)
-#' var.cancel.order <- CancelOrder$new() # CancelOrder | 
+#' var.order.cancel.single.request <- OrderCancelSingleRequest$new() # OrderCancelSingleRequest | 
 #'
 #' #Cancel order
 #' api.instance <- OrdersApi$new()
 #'
-#' result <- api.instance$V1OrdersCancelPost(var.cancel.order)
+#' result <- api.instance$V1OrdersCancelPost(var.order.cancel.single.request)
 #'
 #'
 #' ####################  V1OrdersGet  ####################
 #'
 #' library(openapi)
-#' var.exchange.id <- 'KRAKEN' # character | Exchange name
+#' var.exchange.id <- 'KRAKEN' # character | Filter the output to the orders from the specific exchange.
 #'
-#' #Get orders
+#' #Get all orders
 #' api.instance <- OrdersApi$new()
 #'
 #' result <- api.instance$V1OrdersGet(exchange.id=var.exchange.id)
@@ -157,6 +181,17 @@
 #' api.instance <- OrdersApi$new()
 #'
 #' result <- api.instance$V1OrdersPost(var.new.order)
+#'
+#'
+#' ####################  V1OrdersStatusClientOrderIdGet  ####################
+#'
+#' library(openapi)
+#' var.client.order.id <- '6ab36bc1-344d-432e-ac6d-0bf44ee64c2b' # character | Order Client Id of the order for which the status is requested.
+#'
+#' #Get order status
+#' api.instance <- OrdersApi$new()
+#'
+#' result <- api.instance$V1OrdersStatusClientOrderIdGet(var.client.order.id)
 #'
 #'
 #' }
@@ -175,8 +210,8 @@ OrdersApi <- R6::R6Class(
         self$apiClient <- ApiClient$new()
       }
     },
-    V1OrdersCancelAllPost = function(cancel.all.order, ...){
-      apiResponse <- self$V1OrdersCancelAllPostWithHttpInfo(cancel.all.order, ...)
+    V1OrdersCancelAllPost = function(order.cancel.all.request, ...){
+      apiResponse <- self$V1OrdersCancelAllPostWithHttpInfo(order.cancel.all.request, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -189,17 +224,17 @@ OrdersApi <- R6::R6Class(
       }
     },
 
-    V1OrdersCancelAllPostWithHttpInfo = function(cancel.all.order, ...){
+    V1OrdersCancelAllPostWithHttpInfo = function(order.cancel.all.request, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`cancel.all.order`)) {
-        stop("Missing required parameter `cancel.all.order`.")
+      if (missing(`order.cancel.all.request`)) {
+        stop("Missing required parameter `order.cancel.all.request`.")
       }
 
-      if (!missing(`cancel.all.order`)) {
-        body <- `cancel.all.order`$toJSONString()
+      if (!missing(`order.cancel.all.request`)) {
+        body <- `order.cancel.all.request`$toJSONString()
       } else {
         body <- NULL
       }
@@ -215,7 +250,7 @@ OrdersApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "MessagesOk", loadNamespace("openapi")),
+          self$apiClient$deserialize(resp, "Message", loadNamespace("openapi")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -229,8 +264,8 @@ OrdersApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    V1OrdersCancelPost = function(cancel.order, ...){
-      apiResponse <- self$V1OrdersCancelPostWithHttpInfo(cancel.order, ...)
+    V1OrdersCancelPost = function(order.cancel.single.request, ...){
+      apiResponse <- self$V1OrdersCancelPostWithHttpInfo(order.cancel.single.request, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -243,17 +278,17 @@ OrdersApi <- R6::R6Class(
       }
     },
 
-    V1OrdersCancelPostWithHttpInfo = function(cancel.order, ...){
+    V1OrdersCancelPostWithHttpInfo = function(order.cancel.single.request, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`cancel.order`)) {
-        stop("Missing required parameter `cancel.order`.")
+      if (missing(`order.cancel.single.request`)) {
+        stop("Missing required parameter `order.cancel.single.request`.")
       }
 
-      if (!missing(`cancel.order`)) {
-        body <- `cancel.order`$toJSONString()
+      if (!missing(`order.cancel.single.request`)) {
+        body <- `order.cancel.single.request`$toJSONString()
       } else {
         body <- NULL
       }
@@ -269,7 +304,7 @@ OrdersApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "OrderLive", loadNamespace("openapi")),
+          self$apiClient$deserialize(resp, "ExecutionReport", loadNamespace("openapi")),
           error = function(e){
              stop("Failed to deserialize response")
           }
@@ -369,7 +404,59 @@ OrdersApi <- R6::R6Class(
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "OrderLive", loadNamespace("openapi")),
+          self$apiClient$deserialize(resp, "ExecutionReport", loadNamespace("openapi")),
+          error = function(e){
+             stop("Failed to deserialize response")
+          }
+        )
+        ApiResponse$new(deserializedRespObj, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    V1OrdersStatusClientOrderIdGet = function(client.order.id, ...){
+      apiResponse <- self$V1OrdersStatusClientOrderIdGetWithHttpInfo(client.order.id, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    V1OrdersStatusClientOrderIdGetWithHttpInfo = function(client.order.id, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`client.order.id`)) {
+        stop("Missing required parameter `client.order.id`.")
+      }
+
+      urlPath <- "/v1/orders/status/{client_order_id}"
+      if (!missing(`client.order.id`)) {
+        urlPath <- gsub(paste0("\\{", "client_order_id", "\\}"), URLencode(as.character(`client.order.id`), reserved = TRUE), urlPath)
+      }
+
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "GET",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        deserializedRespObj <- tryCatch(
+          self$apiClient$deserialize(resp, "ExecutionReport", loadNamespace("openapi")),
           error = function(e){
              stop("Failed to deserialize response")
           }

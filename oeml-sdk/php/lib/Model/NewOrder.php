@@ -49,7 +49,7 @@ class NewOrder implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'newOrder';
+    protected static $openAPIModelName = 'NewOrder';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

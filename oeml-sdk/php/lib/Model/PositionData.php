@@ -49,7 +49,7 @@ class PositionData implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'position_data';
+    protected static $openAPIModelName = 'Position_data';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

@@ -28,19 +28,19 @@ package body .Clients is
       .Models.Deserialize (Reply, "", Result);
    end V1_Balances_Get;
 
-   --  Cancel all order
-   --  Cancel all existing order.
+   --  Cancel all orders
+   --  This request cancels all open orders across all or single specified exchange.
    procedure V1_Orders_Cancel_All_Post
       (Client : in out Client_Type;
-       Cancel_All_Order_Type : in .Models.CancelAllOrder_Type;
-       Result : out .Models.MessagesOk_Type) is
+       Order_Cancel_All_Request_Type : in .Models.OrderCancelAllRequest_Type;
+       Result : out .Models.Message_Type) is
       URI   : Swagger.Clients.URI_Type;
       Req   : Swagger.Clients.Request_Type;
       Reply : Swagger.Value_Type;
    begin
       Client.Set_Accept ((1 => Swagger.Clients.APPLICATION_JSON));
       Client.Initialize (Req, (1 => Swagger.Clients.APPLICATION_JSON));
-      .Models.Serialize (Req.Stream, "", Cancel_All_Order_Type);
+      .Models.Serialize (Req.Stream, "", Order_Cancel_All_Request_Type);
 
       URI.Set_Path ("/v1/orders/cancel/all");
       Client.Call (Swagger.Clients.POST, URI, Req, Reply);
@@ -48,11 +48,11 @@ package body .Clients is
    end V1_Orders_Cancel_All_Post;
 
    --  Cancel order
-   --  Cancel an existing order, can be used to cancel margin, exchange, and derivative orders. You can cancel the order by the internal order ID or exchange order ID.
+   --  This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
    procedure V1_Orders_Cancel_Post
       (Client : in out Client_Type;
-       Cancel_Order_Type : in .Models.CancelOrder_Type;
-       Result : out .Models.OrderLive_Type) is
+       Order_Cancel_Single_Request_Type : in .Models.OrderCancelSingleRequest_Type;
+       Result : out .Models.ExecutionReport_Type) is
       URI   : Swagger.Clients.URI_Type;
       Req   : Swagger.Clients.Request_Type;
       Reply : Swagger.Value_Type;
@@ -60,15 +60,15 @@ package body .Clients is
       Client.Set_Accept ((Swagger.Clients.APPLICATION_JSON,
                           Swagger.Clients.APPLICTION_JSON));
       Client.Initialize (Req, (1 => Swagger.Clients.APPLICATION_JSON));
-      .Models.Serialize (Req.Stream, "", Cancel_Order_Type);
+      .Models.Serialize (Req.Stream, "", Order_Cancel_Single_Request_Type);
 
       URI.Set_Path ("/v1/orders/cancel");
       Client.Call (Swagger.Clients.POST, URI, Req, Reply);
       .Models.Deserialize (Reply, "", Result);
    end V1_Orders_Cancel_Post;
 
-   --  Get orders
-   --  List your current open orders.
+   --  Get all orders
+   --  Get all current open orders across all or single specified exchange.
    procedure V1_Orders_Get
       (Client : in out Client_Type;
        Exchange_Id : in Swagger.Nullable_UString;
@@ -85,11 +85,11 @@ package body .Clients is
    end V1_Orders_Get;
 
    --  Create new order
-   --  You can place two types of orders: limit and market. Orders can only be placed if your account has sufficient funds.
+   --  This request creating new order for the specific exchange.
    procedure V1_Orders_Post
       (Client : in out Client_Type;
        New_Order_Type : in .Models.NewOrder_Type;
-       Result : out .Models.OrderLive_Type) is
+       Result : out .Models.ExecutionReport_Type) is
       URI   : Swagger.Clients.URI_Type;
       Req   : Swagger.Clients.Request_Type;
       Reply : Swagger.Value_Type;
@@ -103,6 +103,23 @@ package body .Clients is
       Client.Call (Swagger.Clients.POST, URI, Req, Reply);
       .Models.Deserialize (Reply, "", Result);
    end V1_Orders_Post;
+
+   --  Get order status
+   --  Get the current order status for the specified order. The requested order can no longer be active.
+   procedure V1_Orders_Status_Client_Order_Id_Get
+      (Client : in out Client_Type;
+       Client_Order_Id : in Swagger.UString;
+       Result : out .Models.ExecutionReport_Type) is
+      URI   : Swagger.Clients.URI_Type;
+      Reply : Swagger.Value_Type;
+   begin
+      Client.Set_Accept ((1 => Swagger.Clients.APPLICATION_JSON));
+
+      URI.Set_Path ("/v1/orders/status/{client_order_id}");
+      URI.Set_Path_Param ("client_order_id", Client_Order_Id);
+      Client.Call (Swagger.Clients.GET, URI, Reply);
+      .Models.Deserialize (Reply, "", Result);
+   end V1_Orders_Status_Client_Order_Id_Get;
 
    --  Get positions
    --  Returns all of your positions.

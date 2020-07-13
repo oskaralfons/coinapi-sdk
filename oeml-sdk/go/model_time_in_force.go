@@ -11,7 +11,7 @@ package openapi
 // TimeInForce Order time in force options are documented in the separate section: <a href=\"#oeml-order-lifecycle\">OEML / Starter Guide / Order parameters / Time in force</a> 
 type TimeInForce string
 
-// List of timeInForce
+// List of TimeInForce
 const (
 	GOOD_TILL_CANCEL TimeInForce = "GOOD_TILL_CANCEL"
 	GOOD_TILL_TIME_EXCHANGE TimeInForce = "GOOD_TILL_TIME_EXCHANGE"

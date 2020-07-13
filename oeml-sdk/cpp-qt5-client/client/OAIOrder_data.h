@@ -20,7 +20,7 @@
 
 #include <QJsonObject>
 
-#include "OAIOrderStatus.h"
+#include "OAIOrdStatus.h"
 #include "OAITimeInForce.h"
 #include <QDate>
 #include <QList>
@@ -72,8 +72,8 @@ public:
     bool is_amount_filled_Set() const;
     bool is_amount_filled_Valid() const;
 
-    OAIOrderStatus getStatus() const;
-    void setStatus(const OAIOrderStatus &status);
+    OAIOrdStatus getStatus() const;
+    void setStatus(const OAIOrdStatus &status);
     bool is_status_Set() const;
     bool is_status_Valid() const;
 
@@ -167,7 +167,7 @@ private:
     bool m_amount_filled_isSet;
     bool m_amount_filled_isValid;
 
-    OAIOrderStatus status;
+    OAIOrdStatus status;
     bool m_status_isSet;
     bool m_status_isValid;
 

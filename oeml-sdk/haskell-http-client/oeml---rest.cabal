@@ -6,7 +6,7 @@ description:    .
                 .
                 host: localhost
                 .
-                base path: http://localhost:8080/v1
+                base path: http://localhost:8080
                 .
                 OEML - REST API API version: v1
                 .

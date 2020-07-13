@@ -7,27 +7,27 @@ void main() {
   var instance = OrdersApi();
 
   group('tests for OrdersApi', () {
-    // Cancel all order
+    // Cancel all orders
     //
-    // Cancel all existing order.
+    // This request cancels all open orders across all or single specified exchange.
     //
-    //Future<MessagesOk> v1OrdersCancelAllPost(CancelAllOrder cancelAllOrder) async 
+    //Future<Message> v1OrdersCancelAllPost(OrderCancelAllRequest orderCancelAllRequest) async 
     test('test v1OrdersCancelAllPost', () async {
       // TODO
     });
 
     // Cancel order
     //
-    // Cancel an existing order, can be used to cancel margin, exchange, and derivative orders. You can cancel the order by the internal order ID or exchange order ID.
+    // This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
     //
-    //Future<OrderLive> v1OrdersCancelPost(CancelOrder cancelOrder) async 
+    //Future<ExecutionReport> v1OrdersCancelPost(OrderCancelSingleRequest orderCancelSingleRequest) async 
     test('test v1OrdersCancelPost', () async {
       // TODO
     });
 
-    // Get orders
+    // Get all orders
     //
-    // List your current open orders.
+    // Get all current open orders across all or single specified exchange.
     //
     //Future<List<Order>> v1OrdersGet({ String exchangeId }) async 
     test('test v1OrdersGet', () async {
@@ -36,10 +36,19 @@ void main() {
 
     // Create new order
     //
-    // You can place two types of orders: limit and market. Orders can only be placed if your account has sufficient funds.
+    // This request creating new order for the specific exchange.
     //
-    //Future<OrderLive> v1OrdersPost(NewOrder newOrder) async 
+    //Future<ExecutionReport> v1OrdersPost(NewOrder newOrder) async 
     test('test v1OrdersPost', () async {
+      // TODO
+    });
+
+    // Get order status
+    //
+    // Get the current order status for the specified order. The requested order can no longer be active.
+    //
+    //Future<ExecutionReport> v1OrdersStatusClientOrderIdGet(String clientOrderId) async 
+    test('test v1OrdersStatusClientOrderIdGet', () async {
       // TODO
     });
 

@@ -26,57 +26,57 @@ public class OASOrdersApi {
     }
 
     /**
-     * Cancel all order
-     * Cancel all existing order.
-     * @param oaSCancelAllOrder  (required)
-     * @return OASMessagesOk
+     * Cancel all orders
+     * This request cancels all open orders across all or single specified exchange.
+     * @param oaSOrderCancelAllRequest  (required)
+     * @return OASMessage
      * @throws OAS.ApiException if fails to make API call
      */
-    public OASMessagesOk v1OrdersCancelAllPost(Map<String, Object> params) {
-        client.assertNotNull(params.get('oaSCancelAllOrder'), 'oaSCancelAllOrder');
+    public OASMessage v1OrdersCancelAllPost(Map<String, Object> params) {
+        client.assertNotNull(params.get('oaSOrderCancelAllRequest'), 'oaSOrderCancelAllRequest');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
-        return (OASMessagesOk) client.invoke(
+        return (OASMessage) client.invoke(
             'POST', '/v1/orders/cancel/all',
-            (OASCancelAllOrder) params.get('oaSCancelAllOrder'),
+            (OASOrderCancelAllRequest) params.get('oaSOrderCancelAllRequest'),
             query, form,
             new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ 'application/json' },
             new List<String>{ 'application/json' },
             new List<String>(),
-            OASMessagesOk.class
+            OASMessage.class
         );
     }
     /**
      * Cancel order
-     * Cancel an existing order, can be used to cancel margin, exchange, and derivative orders. You can cancel the order by the internal order ID or exchange order ID.
-     * @param oaSCancelOrder  (required)
-     * @return OASOrderLive
+     * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+     * @param oaSOrderCancelSingleRequest  (required)
+     * @return OASExecutionReport
      * @throws OAS.ApiException if fails to make API call
      */
-    public OASOrderLive v1OrdersCancelPost(Map<String, Object> params) {
-        client.assertNotNull(params.get('oaSCancelOrder'), 'oaSCancelOrder');
+    public OASExecutionReport v1OrdersCancelPost(Map<String, Object> params) {
+        client.assertNotNull(params.get('oaSOrderCancelSingleRequest'), 'oaSOrderCancelSingleRequest');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
-        return (OASOrderLive) client.invoke(
+        return (OASExecutionReport) client.invoke(
             'POST', '/v1/orders/cancel',
-            (OASCancelOrder) params.get('oaSCancelOrder'),
+            (OASOrderCancelSingleRequest) params.get('oaSOrderCancelSingleRequest'),
             query, form,
             new Map<String, Object>(),
             new Map<String, Object>(),
             new List<String>{ 'application/json', 'appliction/json' },
             new List<String>{ 'application/json' },
             new List<String>(),
-            OASOrderLive.class
+            OASExecutionReport.class
         );
     }
     /**
-     * Get orders
-     * List your current open orders.
-     * @param exchangeId Exchange name (optional)
+     * Get all orders
+     * Get all current open orders across all or single specified exchange.
+     * @param exchangeId Filter the output to the orders from the specific exchange. (optional)
      * @return List<OASOrder>
      * @throws OAS.ApiException if fails to make API call
      */
@@ -101,17 +101,17 @@ public class OASOrdersApi {
     }
     /**
      * Create new order
-     * You can place two types of orders: limit and market. Orders can only be placed if your account has sufficient funds.
+     * This request creating new order for the specific exchange.
      * @param oaSNewOrder  (required)
-     * @return OASOrderLive
+     * @return OASExecutionReport
      * @throws OAS.ApiException if fails to make API call
      */
-    public OASOrderLive v1OrdersPost(Map<String, Object> params) {
+    public OASExecutionReport v1OrdersPost(Map<String, Object> params) {
         client.assertNotNull(params.get('oaSNewOrder'), 'oaSNewOrder');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
-        return (OASOrderLive) client.invoke(
+        return (OASExecutionReport) client.invoke(
             'POST', '/v1/orders',
             (OASNewOrder) params.get('oaSNewOrder'),
             query, form,
@@ -120,7 +120,32 @@ public class OASOrdersApi {
             new List<String>{ 'application/json', 'appliction/json' },
             new List<String>{ 'application/json' },
             new List<String>(),
-            OASOrderLive.class
+            OASExecutionReport.class
+        );
+    }
+    /**
+     * Get order status
+     * Get the current order status for the specified order. The requested order can no longer be active.
+     * @param clientOrderId Order Client Id of the order for which the status is requested. (required)
+     * @return OASExecutionReport
+     * @throws OAS.ApiException if fails to make API call
+     */
+    public OASExecutionReport v1OrdersStatusClientOrderIdGet(Map<String, Object> params) {
+        client.assertNotNull(params.get('clientOrderId'), 'clientOrderId');
+        List<OAS.Param> query = new List<OAS.Param>();
+        List<OAS.Param> form = new List<OAS.Param>();
+
+        return (OASExecutionReport) client.invoke(
+            'GET', '/v1/orders/status/{client_order_id}', '',
+            query, form,
+            new Map<String, Object>{
+                'client_order_id' => (String) params.get('clientOrderId')
+            },
+            new Map<String, Object>(),
+            new List<String>{ 'application/json' },
+            new List<String>(),
+            new List<String>(),
+            OASExecutionReport.class
         );
     }
 }

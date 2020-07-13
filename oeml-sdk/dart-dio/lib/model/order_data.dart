@@ -1,4 +1,4 @@
-            import 'package:openapi/model/order_status.dart';
+            import 'package:openapi/model/ord_status.dart';
             import 'package:built_collection/built_collection.dart';
             import 'package:openapi/model/time_in_force.dart';
         import 'package:built_value/built_value.dart';
@@ -35,7 +35,7 @@ abstract class OrderData implements Built<OrderData, OrderDataBuilder> {
     
         @nullable
     @BuiltValueField(wireName: r'status')
-    OrderStatus get status;
+    OrdStatus get status;
         //enum statusEnum {  RECEIVED,  ROUTING,  ROUTED,  NEW,  PENDING_CANCEL,  PARTIALLY_FILLED,  FILLED,  CANCELED,  REJECTED,  };
     /* History of order status changes */
         @nullable

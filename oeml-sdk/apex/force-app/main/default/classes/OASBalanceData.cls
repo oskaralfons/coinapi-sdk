@@ -15,13 +15,13 @@
  */
 public class OASBalanceData implements OAS.MappedProperties {
     /**
-     * symbol_exchange
+     * Exchange identifier.
      * @return id
      */
     public String id { get; set; }
 
     /**
-     * Currency code.
+     * Exchange currency code.
      * @return symbolExchange
      */
     public String symbolExchange { get; set; }
@@ -33,25 +33,25 @@ public class OASBalanceData implements OAS.MappedProperties {
     public String symbolCoinapi { get; set; }
 
     /**
-     * The current balance.
+     * Value of the current total currency balance on the exchange.
      * @return balance
      */
     public Double balance { get; set; }
 
     /**
-     * The amount that is available to trade.
+     * Value of the current available currency balance on the exchange that can be used as collateral.
      * @return available
      */
     public Double available { get; set; }
 
     /**
-     * Blocked funds.
+     * Value of the current locked currency balance by the exchange.
      * @return locked
      */
     public Double locked { get; set; }
 
     /**
-     * Source of last modification.\n
+     * Source of the last modification.\n
      */
     public enum UpdateOriginEnum {
         INITIALIZATION,
@@ -60,7 +60,7 @@ public class OASBalanceData implements OAS.MappedProperties {
     }
 
     /**
-     * Source of last modification.\n
+     * Source of the last modification.\n
      * @return updateOrigin
      */
     public UpdateOriginEnum updateOrigin { get; set; }

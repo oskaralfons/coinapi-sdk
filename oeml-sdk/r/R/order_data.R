@@ -22,7 +22,7 @@
 #'
 #' @field amount_filled  numeric [optional]
 #'
-#' @field status  \link{OrderStatus} [optional]
+#' @field status  \link{OrdStatus} [optional]
 #'
 #' @field time_order  list( \link{array[character]} ) [optional]
 #'
@@ -252,7 +252,7 @@ OrderData <- R6::R6Class(
         self$`amount_filled` <- OrderDataObject$`amount_filled`
       }
       if (!is.null(OrderDataObject$`status`)) {
-        statusObject <- OrderStatus$new()
+        statusObject <- OrdStatus$new()
         statusObject$fromJSON(jsonlite::toJSON(OrderDataObject$status, auto_unbox = TRUE, digits = NA))
         self$`status` <- statusObject
       }
@@ -442,7 +442,7 @@ OrderData <- R6::R6Class(
       self$`exchange_order_id` <- OrderDataObject$`exchange_order_id`
       self$`amount_open` <- OrderDataObject$`amount_open`
       self$`amount_filled` <- OrderDataObject$`amount_filled`
-      self$`status` <- OrderStatus$new()$fromJSON(jsonlite::toJSON(OrderDataObject$status, auto_unbox = TRUE, digits = NA))
+      self$`status` <- OrdStatus$new()$fromJSON(jsonlite::toJSON(OrderDataObject$status, auto_unbox = TRUE, digits = NA))
       self$`time_order` <- ApiClient$new()$deserializeObj(OrderDataObject$`time_order`, "array[array[character]]", loadNamespace("openapi"))
       self$`error_message` <- OrderDataObject$`error_message`
       self$`client_order_id` <- OrderDataObject$`client_order_id`

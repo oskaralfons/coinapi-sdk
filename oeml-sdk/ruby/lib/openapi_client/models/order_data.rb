@@ -125,7 +125,7 @@ module OpenapiClient
         :'exchange_order_id' => :'String',
         :'amount_open' => :'Float',
         :'amount_filled' => :'Float',
-        :'status' => :'OrderStatus',
+        :'status' => :'OrdStatus',
         :'time_order' => :'Array<Array<String>>',
         :'error_message' => :'String',
         :'client_order_id' => :'String',

@@ -118,34 +118,34 @@ class OrdersApi
     /**
      * Operation v1OrdersCancelAllPost
      *
-     * Cancel all order
+     * Cancel all orders
      *
-     * @param  \OpenAPI\Client\Model\CancelAllOrder $cancel_all_order cancel_all_order (required)
+     * @param  \OpenAPI\Client\Model\OrderCancelAllRequest $order_cancel_all_request order_cancel_all_request (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\MessagesOk
+     * @return \OpenAPI\Client\Model\Message
      */
-    public function v1OrdersCancelAllPost($cancel_all_order)
+    public function v1OrdersCancelAllPost($order_cancel_all_request)
     {
-        list($response) = $this->v1OrdersCancelAllPostWithHttpInfo($cancel_all_order);
+        list($response) = $this->v1OrdersCancelAllPostWithHttpInfo($order_cancel_all_request);
         return $response;
     }
 
     /**
      * Operation v1OrdersCancelAllPostWithHttpInfo
      *
-     * Cancel all order
+     * Cancel all orders
      *
-     * @param  \OpenAPI\Client\Model\CancelAllOrder $cancel_all_order (required)
+     * @param  \OpenAPI\Client\Model\OrderCancelAllRequest $order_cancel_all_request (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\MessagesOk, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\Message, HTTP status code, HTTP response headers (array of strings)
      */
-    public function v1OrdersCancelAllPostWithHttpInfo($cancel_all_order)
+    public function v1OrdersCancelAllPostWithHttpInfo($order_cancel_all_request)
     {
-        $request = $this->v1OrdersCancelAllPostRequest($cancel_all_order);
+        $request = $this->v1OrdersCancelAllPostRequest($order_cancel_all_request);
 
         try {
             $options = $this->createHttpClientOption();
@@ -178,20 +178,20 @@ class OrdersApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\MessagesOk' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\Message' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\MessagesOk', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Message', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\MessagesOk';
+            $returnType = '\OpenAPI\Client\Model\Message';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -210,7 +210,7 @@ class OrdersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\MessagesOk',
+                        '\OpenAPI\Client\Model\Message',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -223,16 +223,16 @@ class OrdersApi
     /**
      * Operation v1OrdersCancelAllPostAsync
      *
-     * Cancel all order
+     * Cancel all orders
      *
-     * @param  \OpenAPI\Client\Model\CancelAllOrder $cancel_all_order (required)
+     * @param  \OpenAPI\Client\Model\OrderCancelAllRequest $order_cancel_all_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1OrdersCancelAllPostAsync($cancel_all_order)
+    public function v1OrdersCancelAllPostAsync($order_cancel_all_request)
     {
-        return $this->v1OrdersCancelAllPostAsyncWithHttpInfo($cancel_all_order)
+        return $this->v1OrdersCancelAllPostAsyncWithHttpInfo($order_cancel_all_request)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -243,17 +243,17 @@ class OrdersApi
     /**
      * Operation v1OrdersCancelAllPostAsyncWithHttpInfo
      *
-     * Cancel all order
+     * Cancel all orders
      *
-     * @param  \OpenAPI\Client\Model\CancelAllOrder $cancel_all_order (required)
+     * @param  \OpenAPI\Client\Model\OrderCancelAllRequest $order_cancel_all_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1OrdersCancelAllPostAsyncWithHttpInfo($cancel_all_order)
+    public function v1OrdersCancelAllPostAsyncWithHttpInfo($order_cancel_all_request)
     {
-        $returnType = '\OpenAPI\Client\Model\MessagesOk';
-        $request = $this->v1OrdersCancelAllPostRequest($cancel_all_order);
+        $returnType = '\OpenAPI\Client\Model\Message';
+        $request = $this->v1OrdersCancelAllPostRequest($order_cancel_all_request);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -292,17 +292,17 @@ class OrdersApi
     /**
      * Create request for operation 'v1OrdersCancelAllPost'
      *
-     * @param  \OpenAPI\Client\Model\CancelAllOrder $cancel_all_order (required)
+     * @param  \OpenAPI\Client\Model\OrderCancelAllRequest $order_cancel_all_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function v1OrdersCancelAllPostRequest($cancel_all_order)
+    protected function v1OrdersCancelAllPostRequest($order_cancel_all_request)
     {
-        // verify the required parameter 'cancel_all_order' is set
-        if ($cancel_all_order === null || (is_array($cancel_all_order) && count($cancel_all_order) === 0)) {
+        // verify the required parameter 'order_cancel_all_request' is set
+        if ($order_cancel_all_request === null || (is_array($order_cancel_all_request) && count($order_cancel_all_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $cancel_all_order when calling v1OrdersCancelAllPost'
+                'Missing the required parameter $order_cancel_all_request when calling v1OrdersCancelAllPost'
             );
         }
 
@@ -318,8 +318,8 @@ class OrdersApi
 
         // body params
         $_tempBody = null;
-        if (isset($cancel_all_order)) {
-            $_tempBody = $cancel_all_order;
+        if (isset($order_cancel_all_request)) {
+            $_tempBody = $order_cancel_all_request;
         }
 
         if ($multipart) {
@@ -388,15 +388,15 @@ class OrdersApi
      *
      * Cancel order
      *
-     * @param  \OpenAPI\Client\Model\CancelOrder $cancel_order cancel_order (required)
+     * @param  \OpenAPI\Client\Model\OrderCancelSingleRequest $order_cancel_single_request order_cancel_single_request (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\OrderLive|\OpenAPI\Client\Model\CreateOrder400|\OpenAPI\Client\Model\Messages
+     * @return \OpenAPI\Client\Model\ExecutionReport|\OpenAPI\Client\Model\CreateOrderValidationError|\OpenAPI\Client\Model\Message
      */
-    public function v1OrdersCancelPost($cancel_order)
+    public function v1OrdersCancelPost($order_cancel_single_request)
     {
-        list($response) = $this->v1OrdersCancelPostWithHttpInfo($cancel_order);
+        list($response) = $this->v1OrdersCancelPostWithHttpInfo($order_cancel_single_request);
         return $response;
     }
 
@@ -405,15 +405,15 @@ class OrdersApi
      *
      * Cancel order
      *
-     * @param  \OpenAPI\Client\Model\CancelOrder $cancel_order (required)
+     * @param  \OpenAPI\Client\Model\OrderCancelSingleRequest $order_cancel_single_request (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\OrderLive|\OpenAPI\Client\Model\CreateOrder400|\OpenAPI\Client\Model\Messages, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ExecutionReport|\OpenAPI\Client\Model\CreateOrderValidationError|\OpenAPI\Client\Model\Message, HTTP status code, HTTP response headers (array of strings)
      */
-    public function v1OrdersCancelPostWithHttpInfo($cancel_order)
+    public function v1OrdersCancelPostWithHttpInfo($order_cancel_single_request)
     {
-        $request = $this->v1OrdersCancelPostRequest($cancel_order);
+        $request = $this->v1OrdersCancelPostRequest($order_cancel_single_request);
 
         try {
             $options = $this->createHttpClientOption();
@@ -446,44 +446,44 @@ class OrdersApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\OrderLive' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ExecutionReport' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\OrderLive', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ExecutionReport', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\CreateOrder400' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\CreateOrderValidationError' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateOrder400', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateOrderValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 490:
-                    if ('\OpenAPI\Client\Model\Messages' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\Message' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Messages', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Message', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\OrderLive';
+            $returnType = '\OpenAPI\Client\Model\ExecutionReport';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -502,7 +502,7 @@ class OrdersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\OrderLive',
+                        '\OpenAPI\Client\Model\ExecutionReport',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -510,7 +510,7 @@ class OrdersApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateOrder400',
+                        '\OpenAPI\Client\Model\CreateOrderValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -518,7 +518,7 @@ class OrdersApi
                 case 490:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Messages',
+                        '\OpenAPI\Client\Model\Message',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -533,14 +533,14 @@ class OrdersApi
      *
      * Cancel order
      *
-     * @param  \OpenAPI\Client\Model\CancelOrder $cancel_order (required)
+     * @param  \OpenAPI\Client\Model\OrderCancelSingleRequest $order_cancel_single_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1OrdersCancelPostAsync($cancel_order)
+    public function v1OrdersCancelPostAsync($order_cancel_single_request)
     {
-        return $this->v1OrdersCancelPostAsyncWithHttpInfo($cancel_order)
+        return $this->v1OrdersCancelPostAsyncWithHttpInfo($order_cancel_single_request)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -553,15 +553,15 @@ class OrdersApi
      *
      * Cancel order
      *
-     * @param  \OpenAPI\Client\Model\CancelOrder $cancel_order (required)
+     * @param  \OpenAPI\Client\Model\OrderCancelSingleRequest $order_cancel_single_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function v1OrdersCancelPostAsyncWithHttpInfo($cancel_order)
+    public function v1OrdersCancelPostAsyncWithHttpInfo($order_cancel_single_request)
     {
-        $returnType = '\OpenAPI\Client\Model\OrderLive';
-        $request = $this->v1OrdersCancelPostRequest($cancel_order);
+        $returnType = '\OpenAPI\Client\Model\ExecutionReport';
+        $request = $this->v1OrdersCancelPostRequest($order_cancel_single_request);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -600,17 +600,17 @@ class OrdersApi
     /**
      * Create request for operation 'v1OrdersCancelPost'
      *
-     * @param  \OpenAPI\Client\Model\CancelOrder $cancel_order (required)
+     * @param  \OpenAPI\Client\Model\OrderCancelSingleRequest $order_cancel_single_request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function v1OrdersCancelPostRequest($cancel_order)
+    protected function v1OrdersCancelPostRequest($order_cancel_single_request)
     {
-        // verify the required parameter 'cancel_order' is set
-        if ($cancel_order === null || (is_array($cancel_order) && count($cancel_order) === 0)) {
+        // verify the required parameter 'order_cancel_single_request' is set
+        if ($order_cancel_single_request === null || (is_array($order_cancel_single_request) && count($order_cancel_single_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $cancel_order when calling v1OrdersCancelPost'
+                'Missing the required parameter $order_cancel_single_request when calling v1OrdersCancelPost'
             );
         }
 
@@ -626,8 +626,8 @@ class OrdersApi
 
         // body params
         $_tempBody = null;
-        if (isset($cancel_order)) {
-            $_tempBody = $cancel_order;
+        if (isset($order_cancel_single_request)) {
+            $_tempBody = $order_cancel_single_request;
         }
 
         if ($multipart) {
@@ -694,9 +694,9 @@ class OrdersApi
     /**
      * Operation v1OrdersGet
      *
-     * Get orders
+     * Get all orders
      *
-     * @param  string $exchange_id Exchange name (optional)
+     * @param  string $exchange_id Filter the output to the orders from the specific exchange. (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -711,9 +711,9 @@ class OrdersApi
     /**
      * Operation v1OrdersGetWithHttpInfo
      *
-     * Get orders
+     * Get all orders
      *
-     * @param  string $exchange_id Exchange name (optional)
+     * @param  string $exchange_id Filter the output to the orders from the specific exchange. (optional)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -799,9 +799,9 @@ class OrdersApi
     /**
      * Operation v1OrdersGetAsync
      *
-     * Get orders
+     * Get all orders
      *
-     * @param  string $exchange_id Exchange name (optional)
+     * @param  string $exchange_id Filter the output to the orders from the specific exchange. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -819,9 +819,9 @@ class OrdersApi
     /**
      * Operation v1OrdersGetAsyncWithHttpInfo
      *
-     * Get orders
+     * Get all orders
      *
-     * @param  string $exchange_id Exchange name (optional)
+     * @param  string $exchange_id Filter the output to the orders from the specific exchange. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -868,7 +868,7 @@ class OrdersApi
     /**
      * Create request for operation 'v1OrdersGet'
      *
-     * @param  string $exchange_id Exchange name (optional)
+     * @param  string $exchange_id Filter the output to the orders from the specific exchange. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -970,7 +970,7 @@ class OrdersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\OrderLive|\OpenAPI\Client\Model\CreateOrder400|\OpenAPI\Client\Model\Messages
+     * @return \OpenAPI\Client\Model\ExecutionReport|\OpenAPI\Client\Model\CreateOrderValidationError|\OpenAPI\Client\Model\Message
      */
     public function v1OrdersPost($new_order)
     {
@@ -987,7 +987,7 @@ class OrdersApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\OrderLive|\OpenAPI\Client\Model\CreateOrder400|\OpenAPI\Client\Model\Messages, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\ExecutionReport|\OpenAPI\Client\Model\CreateOrderValidationError|\OpenAPI\Client\Model\Message, HTTP status code, HTTP response headers (array of strings)
      */
     public function v1OrdersPostWithHttpInfo($new_order)
     {
@@ -1024,44 +1024,44 @@ class OrdersApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\OrderLive' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\ExecutionReport' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\OrderLive', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ExecutionReport', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\OpenAPI\Client\Model\CreateOrder400' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\CreateOrderValidationError' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateOrder400', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\CreateOrderValidationError', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 490:
-                    if ('\OpenAPI\Client\Model\Messages' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\Message' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Messages', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Message', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\OrderLive';
+            $returnType = '\OpenAPI\Client\Model\ExecutionReport';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1080,7 +1080,7 @@ class OrdersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\OrderLive',
+                        '\OpenAPI\Client\Model\ExecutionReport',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1088,7 +1088,7 @@ class OrdersApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\CreateOrder400',
+                        '\OpenAPI\Client\Model\CreateOrderValidationError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1096,7 +1096,7 @@ class OrdersApi
                 case 490:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\Messages',
+                        '\OpenAPI\Client\Model\Message',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1138,7 +1138,7 @@ class OrdersApi
      */
     public function v1OrdersPostAsyncWithHttpInfo($new_order)
     {
-        $returnType = '\OpenAPI\Client\Model\OrderLive';
+        $returnType = '\OpenAPI\Client\Model\ExecutionReport';
         $request = $this->v1OrdersPostRequest($new_order);
 
         return $this->client
@@ -1263,6 +1263,299 @@ class OrdersApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation v1OrdersStatusClientOrderIdGet
+     *
+     * Get order status
+     *
+     * @param  string $client_order_id Order Client Id of the order for which the status is requested. (required)
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\ExecutionReport|\OpenAPI\Client\Model\Message
+     */
+    public function v1OrdersStatusClientOrderIdGet($client_order_id)
+    {
+        list($response) = $this->v1OrdersStatusClientOrderIdGetWithHttpInfo($client_order_id);
+        return $response;
+    }
+
+    /**
+     * Operation v1OrdersStatusClientOrderIdGetWithHttpInfo
+     *
+     * Get order status
+     *
+     * @param  string $client_order_id Order Client Id of the order for which the status is requested. (required)
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\ExecutionReport|\OpenAPI\Client\Model\Message, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function v1OrdersStatusClientOrderIdGetWithHttpInfo($client_order_id)
+    {
+        $request = $this->v1OrdersStatusClientOrderIdGetRequest($client_order_id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\ExecutionReport' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\ExecutionReport', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\OpenAPI\Client\Model\Message' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Message', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\ExecutionReport';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\ExecutionReport',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\Message',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation v1OrdersStatusClientOrderIdGetAsync
+     *
+     * Get order status
+     *
+     * @param  string $client_order_id Order Client Id of the order for which the status is requested. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function v1OrdersStatusClientOrderIdGetAsync($client_order_id)
+    {
+        return $this->v1OrdersStatusClientOrderIdGetAsyncWithHttpInfo($client_order_id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation v1OrdersStatusClientOrderIdGetAsyncWithHttpInfo
+     *
+     * Get order status
+     *
+     * @param  string $client_order_id Order Client Id of the order for which the status is requested. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function v1OrdersStatusClientOrderIdGetAsyncWithHttpInfo($client_order_id)
+    {
+        $returnType = '\OpenAPI\Client\Model\ExecutionReport';
+        $request = $this->v1OrdersStatusClientOrderIdGetRequest($client_order_id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'v1OrdersStatusClientOrderIdGet'
+     *
+     * @param  string $client_order_id Order Client Id of the order for which the status is requested. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function v1OrdersStatusClientOrderIdGetRequest($client_order_id)
+    {
+        // verify the required parameter 'client_order_id' is set
+        if ($client_order_id === null || (is_array($client_order_id) && count($client_order_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $client_order_id when calling v1OrdersStatusClientOrderIdGet'
+            );
+        }
+
+        $resourcePath = '/v1/orders/status/{client_order_id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($client_order_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'client_order_id' . '}',
+                ObjectSerializer::toPathValue($client_order_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

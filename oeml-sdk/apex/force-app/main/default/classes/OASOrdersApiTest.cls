@@ -1,9 +1,9 @@
 @isTest
 private class OASOrdersApiTest {
     /**
-     * Cancel all order
+     * Cancel all orders
      *
-     * Cancel all existing order.
+     * This request cancels all open orders across all or single specified exchange.
      */
     @isTest
     private static void v1OrdersCancelAllPostTest() {
@@ -13,29 +13,29 @@ private class OASOrdersApiTest {
         Test.setMock(HttpCalloutMock.class, new OASResponseMock(res));
 
         Map<String, Object> params = new Map<String, Object>{
-            'oaSCancelAllOrder' => ''
+            'oaSOrderCancelAllRequest' => ''
         };
 
         OASClient client;
         OASOrdersApi api;
-        OASMessagesOk response;
-        OASMessagesOk expectedResponse;
+        OASMessage response;
+        OASMessage expectedResponse;
         String js = '';
 
         api = new OASOrdersApi(new OASClient());
 
-        js = JSON.serialize(OASMessagesOk.getExample());
+        js = JSON.serialize(OASMessage.getExample());
         res.setHeader('Content-Type', 'application/json');
         res.setBody(js);
-        expectedResponse = OASMessagesOk.getExample();
-        response = (OASMessagesOk) api.v1OrdersCancelAllPost(params);
+        expectedResponse = OASMessage.getExample();
+        response = (OASMessage) api.v1OrdersCancelAllPost(params);
         System.assertEquals(expectedResponse, response);
     }
 
     /**
      * Cancel order
      *
-     * Cancel an existing order, can be used to cancel margin, exchange, and derivative orders. You can cancel the order by the internal order ID or exchange order ID.
+     * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
      */
     @isTest
     private static void v1OrdersCancelPostTest() {
@@ -45,29 +45,29 @@ private class OASOrdersApiTest {
         Test.setMock(HttpCalloutMock.class, new OASResponseMock(res));
 
         Map<String, Object> params = new Map<String, Object>{
-            'oaSCancelOrder' => ''
+            'oaSOrderCancelSingleRequest' => ''
         };
 
         OASClient client;
         OASOrdersApi api;
-        OASOrderLive response;
-        OASOrderLive expectedResponse;
+        OASExecutionReport response;
+        OASExecutionReport expectedResponse;
         String js = '';
 
         api = new OASOrdersApi(new OASClient());
 
-        js = JSON.serialize(OASOrderLive.getExample());
+        js = JSON.serialize(OASExecutionReport.getExample());
         res.setHeader('Content-Type', 'application/json');
         res.setBody(js);
-        expectedResponse = OASOrderLive.getExample();
-        response = (OASOrderLive) api.v1OrdersCancelPost(params);
+        expectedResponse = OASExecutionReport.getExample();
+        response = (OASExecutionReport) api.v1OrdersCancelPost(params);
         System.assertEquals(expectedResponse, response);
     }
 
     /**
-     * Get orders
+     * Get all orders
      *
-     * List your current open orders.
+     * Get all current open orders across all or single specified exchange.
      */
     @isTest
     private static void v1OrdersGetTest() {
@@ -99,7 +99,7 @@ private class OASOrdersApiTest {
     /**
      * Create new order
      *
-     * You can place two types of orders: limit and market. Orders can only be placed if your account has sufficient funds.
+     * This request creating new order for the specific exchange.
      */
     @isTest
     private static void v1OrdersPostTest() {
@@ -114,17 +114,49 @@ private class OASOrdersApiTest {
 
         OASClient client;
         OASOrdersApi api;
-        OASOrderLive response;
-        OASOrderLive expectedResponse;
+        OASExecutionReport response;
+        OASExecutionReport expectedResponse;
         String js = '';
 
         api = new OASOrdersApi(new OASClient());
 
-        js = JSON.serialize(OASOrderLive.getExample());
+        js = JSON.serialize(OASExecutionReport.getExample());
         res.setHeader('Content-Type', 'application/json');
         res.setBody(js);
-        expectedResponse = OASOrderLive.getExample();
-        response = (OASOrderLive) api.v1OrdersPost(params);
+        expectedResponse = OASExecutionReport.getExample();
+        response = (OASExecutionReport) api.v1OrdersPost(params);
+        System.assertEquals(expectedResponse, response);
+    }
+
+    /**
+     * Get order status
+     *
+     * Get the current order status for the specified order. The requested order can no longer be active.
+     */
+    @isTest
+    private static void v1OrdersStatusClientOrderIdGetTest() {
+        HttpResponse res = new HttpResponse();
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        Test.setMock(HttpCalloutMock.class, new OASResponseMock(res));
+
+        Map<String, Object> params = new Map<String, Object>{
+            'clientOrderId' => 6ab36bc1-344d-432e-ac6d-0bf44ee64c2b
+        };
+
+        OASClient client;
+        OASOrdersApi api;
+        OASExecutionReport response;
+        OASExecutionReport expectedResponse;
+        String js = '';
+
+        api = new OASOrdersApi(new OASClient());
+
+        js = JSON.serialize(OASExecutionReport.getExample());
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody(js);
+        expectedResponse = OASExecutionReport.getExample();
+        response = (OASExecutionReport) api.v1OrdersStatusClientOrderIdGet(params);
         System.assertEquals(expectedResponse, response);
     }
 }

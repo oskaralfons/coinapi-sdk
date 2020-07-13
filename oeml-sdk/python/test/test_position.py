@@ -39,7 +39,7 @@ class TestPosition(unittest.TestCase):
                 type = 'snapshotPositions', 
                 exchange_name = 'KRAKEN', 
                 data = [
-                    openapi_client.models.position_data.position_data(
+                    openapi_client.models.position_data.Position_data(
                         id = '2873jkjhgdsd78ii', 
                         symbol_exchange = 'BTC', 
                         symbol_coinapi = 'BTC', 

@@ -1,4 +1,4 @@
-goog.provide('API.Client.position');
+goog.provide('API.Client.Position');
 
 /**
  * @record
@@ -20,7 +20,7 @@ API.Client.Position.prototype.type;
 API.Client.Position.prototype.exchangeName;
 
 /**
- * @type {!Array<!API.Client.position_data>}
+ * @type {!Array<!API.Client.Position_data>}
  * @export
  */
 API.Client.Position.prototype.data;

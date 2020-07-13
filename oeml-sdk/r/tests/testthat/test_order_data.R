@@ -54,7 +54,7 @@ test_that("amount_filled", {
 })
 
 test_that("status", {
-  # tests for the property `status` (OrderStatus)
+  # tests for the property `status` (OrdStatus)
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`status`, "EXPECTED_RESULT")

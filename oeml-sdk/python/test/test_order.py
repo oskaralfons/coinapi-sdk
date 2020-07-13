@@ -39,7 +39,7 @@ class TestOrder(unittest.TestCase):
                 type = 'snapshotOrders', 
                 exchange_name = 'KRAKEN', 
                 data = [
-                    openapi_client.models.order_data.order_data(
+                    openapi_client.models.order_data.Order_data(
                         exchange_id = 'KRAKEN', 
                         id = 'KPP-222389382-AQ', 
                         client_order_id_format_exchange = 'f81211e2-27c4-b86a-8143-01088ba9222c', 

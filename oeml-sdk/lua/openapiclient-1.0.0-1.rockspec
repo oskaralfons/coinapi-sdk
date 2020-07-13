@@ -28,19 +28,18 @@ build = {
 		["openapiclient.api.positions_api"] = "openapiclient/api/positions_api.lua";
 		["openapiclient.model.balance"] = "openapiclient/model/balance.lua";
 		["openapiclient.model.balance_data"] = "openapiclient/model/balance_data.lua";
-		["openapiclient.model.cancel_all_order"] = "openapiclient/model/cancel_all_order.lua";
-		["openapiclient.model.cancel_order"] = "openapiclient/model/cancel_order.lua";
-		["openapiclient.model.create_order400"] = "openapiclient/model/create_order400.lua";
-		["openapiclient.model.messages"] = "openapiclient/model/messages.lua";
-		["openapiclient.model.messages_info"] = "openapiclient/model/messages_info.lua";
-		["openapiclient.model.messages_ok"] = "openapiclient/model/messages_ok.lua";
+		["openapiclient.model.create_order_validation_error"] = "openapiclient/model/create_order_validation_error.lua";
+		["openapiclient.model.execution_report"] = "openapiclient/model/execution_report.lua";
+		["openapiclient.model.message"] = "openapiclient/model/message.lua";
 		["openapiclient.model.new_order"] = "openapiclient/model/new_order.lua";
+		["openapiclient.model.ord_status"] = "openapiclient/model/ord_status.lua";
 		["openapiclient.model.order"] = "openapiclient/model/order.lua";
+		["openapiclient.model.order_cancel_all_request"] = "openapiclient/model/order_cancel_all_request.lua";
+		["openapiclient.model.order_cancel_single_request"] = "openapiclient/model/order_cancel_single_request.lua";
 		["openapiclient.model.order_data"] = "openapiclient/model/order_data.lua";
-		["openapiclient.model.order_live"] = "openapiclient/model/order_live.lua";
-		["openapiclient.model.order_status"] = "openapiclient/model/order_status.lua";
 		["openapiclient.model.position"] = "openapiclient/model/position.lua";
 		["openapiclient.model.position_data"] = "openapiclient/model/position_data.lua";
+		["openapiclient.model.severity"] = "openapiclient/model/severity.lua";
 		["openapiclient.model.time_in_force"] = "openapiclient/model/time_in_force.lua";
 	}
 }

@@ -54,7 +54,7 @@ public:
     /// Balance_data members
 
     /// <summary>
-    /// symbol_exchange
+    /// Exchange identifier.
     /// </summary>
     utility::string_t getId() const;
     bool idIsSet() const;
@@ -63,7 +63,7 @@ public:
     void setId(const utility::string_t& value);
 
     /// <summary>
-    /// Currency code.
+    /// Exchange currency code.
     /// </summary>
     utility::string_t getSymbolExchange() const;
     bool symbolExchangeIsSet() const;
@@ -81,7 +81,7 @@ public:
     void setSymbolCoinapi(const utility::string_t& value);
 
     /// <summary>
-    /// The current balance.
+    /// Value of the current total currency balance on the exchange.
     /// </summary>
     float getBalance() const;
     bool balanceIsSet() const;
@@ -90,7 +90,7 @@ public:
     void setBalance(float value);
 
     /// <summary>
-    /// The amount that is available to trade.
+    /// Value of the current available currency balance on the exchange that can be used as collateral.
     /// </summary>
     float getAvailable() const;
     bool availableIsSet() const;
@@ -99,7 +99,7 @@ public:
     void setAvailable(float value);
 
     /// <summary>
-    /// Blocked funds.
+    /// Value of the current locked currency balance by the exchange.
     /// </summary>
     float getLocked() const;
     bool lockedIsSet() const;
@@ -108,7 +108,7 @@ public:
     void setLocked(float value);
 
     /// <summary>
-    /// Source of last modification. 
+    /// Source of the last modification. 
     /// </summary>
     utility::string_t getUpdateOrigin() const;
     bool updateOriginIsSet() const;

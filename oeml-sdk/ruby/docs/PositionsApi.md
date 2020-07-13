@@ -1,6 +1,6 @@
 # OpenapiClient::PositionsApi
 
-All URIs are relative to *http://localhost:8080/v1*
+All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

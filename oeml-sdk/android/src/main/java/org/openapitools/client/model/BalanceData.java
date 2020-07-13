@@ -37,9 +37,9 @@ public class BalanceData {
   private UpdateOriginEnum updateOrigin = null;
 
   /**
-   * symbol_exchange
+   * Exchange identifier.
    **/
-  @ApiModelProperty(value = "symbol_exchange")
+  @ApiModelProperty(value = "Exchange identifier.")
   public String getId() {
     return id;
   }
@@ -48,9 +48,9 @@ public class BalanceData {
   }
 
   /**
-   * Currency code.
+   * Exchange currency code.
    **/
-  @ApiModelProperty(value = "Currency code.")
+  @ApiModelProperty(value = "Exchange currency code.")
   public String getSymbolExchange() {
     return symbolExchange;
   }
@@ -70,9 +70,9 @@ public class BalanceData {
   }
 
   /**
-   * The current balance.
+   * Value of the current total currency balance on the exchange.
    **/
-  @ApiModelProperty(value = "The current balance.")
+  @ApiModelProperty(value = "Value of the current total currency balance on the exchange.")
   public Float getBalance() {
     return balance;
   }
@@ -81,9 +81,9 @@ public class BalanceData {
   }
 
   /**
-   * The amount that is available to trade.
+   * Value of the current available currency balance on the exchange that can be used as collateral.
    **/
-  @ApiModelProperty(value = "The amount that is available to trade.")
+  @ApiModelProperty(value = "Value of the current available currency balance on the exchange that can be used as collateral.")
   public Float getAvailable() {
     return available;
   }
@@ -92,9 +92,9 @@ public class BalanceData {
   }
 
   /**
-   * Blocked funds.
+   * Value of the current locked currency balance by the exchange.
    **/
-  @ApiModelProperty(value = "Blocked funds.")
+  @ApiModelProperty(value = "Value of the current locked currency balance by the exchange.")
   public Float getLocked() {
     return locked;
   }
@@ -103,9 +103,9 @@ public class BalanceData {
   }
 
   /**
-   * Source of last modification. 
+   * Source of the last modification. 
    **/
-  @ApiModelProperty(value = "Source of last modification. ")
+  @ApiModelProperty(value = "Source of the last modification. ")
   public UpdateOriginEnum getUpdateOrigin() {
     return updateOrigin;
   }

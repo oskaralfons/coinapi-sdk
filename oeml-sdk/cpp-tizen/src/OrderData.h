@@ -10,7 +10,7 @@
 
 #include <string>
 #include "Date.h"
-#include "OrderStatus.h"
+#include "OrdStatus.h"
 #include "TimeInForce.h"
 #include <list>
 #include "Object.h"
@@ -93,11 +93,11 @@ public:
 	void setAmountFilled(long long  amount_filled);
 	/*! \brief Get 
 	 */
-	OrderStatus getStatus();
+	OrdStatus getStatus();
 
 	/*! \brief Set 
 	 */
-	void setStatus(OrderStatus  status);
+	void setStatus(OrdStatus  status);
 	/*! \brief Get History of order status changes
 	 */
 	std::list<std::list> getTimeOrder();
@@ -190,7 +190,7 @@ private:
 	std::string exchange_order_id;
 	long long amount_open;
 	long long amount_filled;
-	OrderStatus status;
+	OrdStatus status;
 	std::list <std::list>time_order;
 	std::string error_message;
 	std::string client_order_id;

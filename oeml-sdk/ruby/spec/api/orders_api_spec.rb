@@ -33,11 +33,11 @@ describe 'OrdersApi' do
   end
 
   # unit tests for v1_orders_cancel_all_post
-  # Cancel all order
-  # Cancel all existing order.
-  # @param cancel_all_order 
+  # Cancel all orders
+  # This request cancels all open orders across all or single specified exchange.
+  # @param order_cancel_all_request 
   # @param [Hash] opts the optional parameters
-  # @return [MessagesOk]
+  # @return [Message]
   describe 'v1_orders_cancel_all_post test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -46,10 +46,10 @@ describe 'OrdersApi' do
 
   # unit tests for v1_orders_cancel_post
   # Cancel order
-  # Cancel an existing order, can be used to cancel margin, exchange, and derivative orders. You can cancel the order by the internal order ID or exchange order ID.
-  # @param cancel_order 
+  # This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+  # @param order_cancel_single_request 
   # @param [Hash] opts the optional parameters
-  # @return [OrderLive]
+  # @return [ExecutionReport]
   describe 'v1_orders_cancel_post test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -57,10 +57,10 @@ describe 'OrdersApi' do
   end
 
   # unit tests for v1_orders_get
-  # Get orders
-  # List your current open orders.
+  # Get all orders
+  # Get all current open orders across all or single specified exchange.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :exchange_id Exchange name
+  # @option opts [String] :exchange_id Filter the output to the orders from the specific exchange.
   # @return [Array<Order>]
   describe 'v1_orders_get test' do
     it 'should work' do
@@ -70,11 +70,23 @@ describe 'OrdersApi' do
 
   # unit tests for v1_orders_post
   # Create new order
-  # You can place two types of orders: limit and market. Orders can only be placed if your account has sufficient funds.
+  # This request creating new order for the specific exchange.
   # @param new_order 
   # @param [Hash] opts the optional parameters
-  # @return [OrderLive]
+  # @return [ExecutionReport]
   describe 'v1_orders_post test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for v1_orders_status_client_order_id_get
+  # Get order status
+  # Get the current order status for the specified order. The requested order can no longer be active.
+  # @param client_order_id Order Client Id of the order for which the status is requested.
+  # @param [Hash] opts the optional parameters
+  # @return [ExecutionReport]
+  describe 'v1_orders_status_client_order_id_get test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

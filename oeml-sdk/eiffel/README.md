@@ -19,15 +19,16 @@ Add the library into your Eiffel configuration file.
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost:8080/v1*
+All URIs are relative to *http://localhost:8080*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *BALANCES_API* | [**v1_balances_get**](docs/BALANCES_API.md#v1_balances_get) | **Get** /v1/balances | Get balances
-*ORDERS_API* | [**v1_orders_cancel_all_post**](docs/ORDERS_API.md#v1_orders_cancel_all_post) | **Post** /v1/orders/cancel/all | Cancel all order
+*ORDERS_API* | [**v1_orders_cancel_all_post**](docs/ORDERS_API.md#v1_orders_cancel_all_post) | **Post** /v1/orders/cancel/all | Cancel all orders
 *ORDERS_API* | [**v1_orders_cancel_post**](docs/ORDERS_API.md#v1_orders_cancel_post) | **Post** /v1/orders/cancel | Cancel order
-*ORDERS_API* | [**v1_orders_get**](docs/ORDERS_API.md#v1_orders_get) | **Get** /v1/orders | Get orders
+*ORDERS_API* | [**v1_orders_get**](docs/ORDERS_API.md#v1_orders_get) | **Get** /v1/orders | Get all orders
 *ORDERS_API* | [**v1_orders_post**](docs/ORDERS_API.md#v1_orders_post) | **Post** /v1/orders | Create new order
+*ORDERS_API* | [**v1_orders_status_client_order_id_get**](docs/ORDERS_API.md#v1_orders_status_client_order_id_get) | **Get** /v1/orders/status/{client_order_id} | Get order status
 *POSITIONS_API* | [**v1_positions_get**](docs/POSITIONS_API.md#v1_positions_get) | **Get** /v1/positions | Get positions
 
 
@@ -35,19 +36,18 @@ Class | Method | HTTP request | Description
 
  - [BALANCE](docs/BALANCE.md)
  - [BALANCE_DATA](docs/BALANCE_DATA.md)
- - [CANCEL_ALL_ORDER](docs/CANCEL_ALL_ORDER.md)
- - [CANCEL_ORDER](docs/CANCEL_ORDER.md)
- - [CREATE_ORDER400](docs/CREATE_ORDER400.md)
- - [MESSAGES](docs/MESSAGES.md)
- - [MESSAGES_INFO](docs/MESSAGES_INFO.md)
- - [MESSAGES_OK](docs/MESSAGES_OK.md)
+ - [CREATE_ORDER_VALIDATION_ERROR](docs/CREATE_ORDER_VALIDATION_ERROR.md)
+ - [EXECUTION_REPORT](docs/EXECUTION_REPORT.md)
+ - [MESSAGE](docs/MESSAGE.md)
  - [NEW_ORDER](docs/NEW_ORDER.md)
  - [ORDER](docs/ORDER.md)
+ - [ORDER_CANCEL_ALL_REQUEST](docs/ORDER_CANCEL_ALL_REQUEST.md)
+ - [ORDER_CANCEL_SINGLE_REQUEST](docs/ORDER_CANCEL_SINGLE_REQUEST.md)
  - [ORDER_DATA](docs/ORDER_DATA.md)
- - [ORDER_LIVE](docs/ORDER_LIVE.md)
- - [ORDER_STATUS](docs/ORDER_STATUS.md)
+ - [ORD_STATUS](docs/ORD_STATUS.md)
  - [POSITION](docs/POSITION.md)
  - [POSITION_DATA](docs/POSITION_DATA.md)
+ - [SEVERITY](docs/SEVERITY.md)
  - [TIME_IN_FORCE](docs/TIME_IN_FORCE.md)
 
 

@@ -1,6 +1,6 @@
 # POSITIONS_API
 
-All URIs are relative to *http://localhost:8080/v1*
+All URIs are relative to *http://localhost:8080*
 
 Feature | HTTP request | Description
 ------------- | ------------- | -------------
@@ -24,7 +24,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**LIST [POSITION]**](position.md)
+[**LIST [POSITION]**](Position.md)
 
 ### Authorization
 

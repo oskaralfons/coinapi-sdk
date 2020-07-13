@@ -1,31 +1,32 @@
 # OrdersApi
 
-All URIs are relative to *http://localhost:8080/v1*
+All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**V1OrdersCancelAllPost**](OrdersApi.md#V1OrdersCancelAllPost) | **POST** /v1/orders/cancel/all | Cancel all order
+[**V1OrdersCancelAllPost**](OrdersApi.md#V1OrdersCancelAllPost) | **POST** /v1/orders/cancel/all | Cancel all orders
 [**V1OrdersCancelPost**](OrdersApi.md#V1OrdersCancelPost) | **POST** /v1/orders/cancel | Cancel order
-[**V1OrdersGet**](OrdersApi.md#V1OrdersGet) | **GET** /v1/orders | Get orders
+[**V1OrdersGet**](OrdersApi.md#V1OrdersGet) | **GET** /v1/orders | Get all orders
 [**V1OrdersPost**](OrdersApi.md#V1OrdersPost) | **POST** /v1/orders | Create new order
+[**V1OrdersStatusClientOrderIdGet**](OrdersApi.md#V1OrdersStatusClientOrderIdGet) | **GET** /v1/orders/status/{client_order_id} | Get order status
 
 
 # **V1OrdersCancelAllPost**
-> MessagesOk V1OrdersCancelAllPost(cancel.all.order)
+> Message V1OrdersCancelAllPost(order.cancel.all.request)
 
-Cancel all order
+Cancel all orders
 
-Cancel all existing order.
+This request cancels all open orders across all or single specified exchange.
 
 ### Example
 ```R
 library(openapi)
 
-var.cancel.all.order <- cancelAllOrder$new("exchange_id_example") # CancelAllOrder | 
+var.order.cancel.all.request <- OrderCancelAllRequest$new("exchange_id_example") # OrderCancelAllRequest | 
 
-#Cancel all order
+#Cancel all orders
 api.instance <- OrdersApi$new()
-result <- api.instance$V1OrdersCancelAllPost(var.cancel.all.order)
+result <- api.instance$V1OrdersCancelAllPost(var.order.cancel.all.request)
 dput(result)
 ```
 
@@ -33,11 +34,11 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancel.all.order** | [**CancelAllOrder**](CancelAllOrder.md)|  | 
+ **order.cancel.all.request** | [**OrderCancelAllRequest**](OrderCancelAllRequest.md)|  | 
 
 ### Return type
 
-[**MessagesOk**](messagesOk.md)
+[**Message**](Message.md)
 
 ### Authorization
 
@@ -54,21 +55,21 @@ No authorization required
 | **200** | Result |  -  |
 
 # **V1OrdersCancelPost**
-> OrderLive V1OrdersCancelPost(cancel.order)
+> ExecutionReport V1OrdersCancelPost(order.cancel.single.request)
 
 Cancel order
 
-Cancel an existing order, can be used to cancel margin, exchange, and derivative orders. You can cancel the order by the internal order ID or exchange order ID.
+This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
 
 ### Example
 ```R
 library(openapi)
 
-var.cancel.order <- cancelOrder$new("exchange_id_example", "exchange_order_id_example", "client_order_id_example") # CancelOrder | 
+var.order.cancel.single.request <- OrderCancelSingleRequest$new("exchange_id_example", "exchange_order_id_example", "client_order_id_example") # OrderCancelSingleRequest | 
 
 #Cancel order
 api.instance <- OrdersApi$new()
-result <- api.instance$V1OrdersCancelPost(var.cancel.order)
+result <- api.instance$V1OrdersCancelPost(var.order.cancel.single.request)
 dput(result)
 ```
 
@@ -76,11 +77,11 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancel.order** | [**CancelOrder**](CancelOrder.md)|  | 
+ **order.cancel.single.request** | [**OrderCancelSingleRequest**](OrderCancelSingleRequest.md)|  | 
 
 ### Return type
 
-[**OrderLive**](orderLive.md)
+[**ExecutionReport**](ExecutionReport.md)
 
 ### Authorization
 
@@ -101,17 +102,17 @@ No authorization required
 # **V1OrdersGet**
 > array[Order] V1OrdersGet(exchange.id=var.exchange.id)
 
-Get orders
+Get all orders
 
-List your current open orders.
+Get all current open orders across all or single specified exchange.
 
 ### Example
 ```R
 library(openapi)
 
-var.exchange.id <- 'KRAKEN' # character | Exchange name
+var.exchange.id <- 'KRAKEN' # character | Filter the output to the orders from the specific exchange.
 
-#Get orders
+#Get all orders
 api.instance <- OrdersApi$new()
 result <- api.instance$V1OrdersGet(exchange.id=var.exchange.id)
 dput(result)
@@ -121,11 +122,11 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **exchange.id** | **character**| Exchange name | [optional] 
+ **exchange.id** | **character**| Filter the output to the orders from the specific exchange. | [optional] 
 
 ### Return type
 
-[**array[Order]**](order.md)
+[**array[Order]**](Order.md)
 
 ### Authorization
 
@@ -139,20 +140,20 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Ok |  -  |
+| **200** | Collection of requested open orders. |  -  |
 
 # **V1OrdersPost**
-> OrderLive V1OrdersPost(new.order)
+> ExecutionReport V1OrdersPost(new.order)
 
 Create new order
 
-You can place two types of orders: limit and market. Orders can only be placed if your account has sufficient funds.
+This request creating new order for the specific exchange.
 
 ### Example
 ```R
 library(openapi)
 
-var.new.order <- newOrder$new("exchange_id_example", "client_order_id_example", "symbol_exchange_example", "symbol_coinapi_example", 123, 123, "side_example", "order_type_example", timeInForce$new(), "expire_time_example", list("exec_inst_example")) # NewOrder | 
+var.new.order <- NewOrder$new("exchange_id_example", "client_order_id_example", "symbol_exchange_example", "symbol_coinapi_example", 123, 123, "side_example", "order_type_example", TimeInForce$new(), "expire_time_example", list("exec_inst_example")) # NewOrder | 
 
 #Create new order
 api.instance <- OrdersApi$new()
@@ -168,7 +169,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrderLive**](orderLive.md)
+[**ExecutionReport**](ExecutionReport.md)
 
 ### Authorization
 
@@ -185,4 +186,48 @@ No authorization required
 | **200** | Created |  -  |
 | **400** | Validation errors |  -  |
 | **490** | Exchange not registered |  -  |
+
+# **V1OrdersStatusClientOrderIdGet**
+> ExecutionReport V1OrdersStatusClientOrderIdGet(client.order.id)
+
+Get order status
+
+Get the current order status for the specified order. The requested order can no longer be active.
+
+### Example
+```R
+library(openapi)
+
+var.client.order.id <- '6ab36bc1-344d-432e-ac6d-0bf44ee64c2b' # character | Order Client Id of the order for which the status is requested.
+
+#Get order status
+api.instance <- OrdersApi$new()
+result <- api.instance$V1OrdersStatusClientOrderIdGet(var.client.order.id)
+dput(result)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **client.order.id** | **character**| Order Client Id of the order for which the status is requested. | 
+
+### Return type
+
+[**ExecutionReport**](ExecutionReport.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The order was found. |  -  |
+| **400** | The order was not found. |  -  |
 

@@ -1,4 +1,4 @@
-goog.provide('API.Client.position_data');
+goog.provide('API.Client.Position_data');
 
 /**
  * @record

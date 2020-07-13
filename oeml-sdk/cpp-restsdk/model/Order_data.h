@@ -21,10 +21,10 @@
 
 #include "../ModelBase.h"
 
-#include "OrderStatus.h"
 #include <cpprest/details/basic_types.h>
 #include "TimeInForce.h"
 #include <vector>
+#include "OrdStatus.h"
 
 namespace org {
 namespace openapitools {
@@ -113,11 +113,11 @@ public:
     /// <summary>
     /// 
     /// </summary>
-    std::shared_ptr<OrderStatus> getStatus() const;
+    std::shared_ptr<OrdStatus> getStatus() const;
     bool statusIsSet() const;
     void unsetStatus();
 
-    void setStatus(const std::shared_ptr<OrderStatus>& value);
+    void setStatus(const std::shared_ptr<OrdStatus>& value);
 
     /// <summary>
     /// History of order status changes
@@ -241,7 +241,7 @@ protected:
     bool m_Amount_openIsSet;
     double m_Amount_filled;
     bool m_Amount_filledIsSet;
-    std::shared_ptr<OrderStatus> m_Status;
+    std::shared_ptr<OrdStatus> m_Status;
     bool m_StatusIsSet;
     std::vector<std::vector<utility::string_t>> m_Time_order;
     bool m_Time_orderIsSet;

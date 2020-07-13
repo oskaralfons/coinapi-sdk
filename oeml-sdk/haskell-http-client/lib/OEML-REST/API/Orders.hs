@@ -61,20 +61,20 @@ import qualified Prelude as P
 
 -- | @POST \/v1\/orders\/cancel\/all@
 -- 
--- Cancel all order
+-- Cancel all orders
 -- 
--- Cancel all existing order.
+-- This request cancels all open orders across all or single specified exchange.
 -- 
 v1OrdersCancelAllPost 
-  :: (Consumes V1OrdersCancelAllPost MimeJSON, MimeRender MimeJSON CancelAllOrder)
-  => CancelAllOrder -- ^ "cancelAllOrder"
-  -> OEML-RESTRequest V1OrdersCancelAllPost MimeJSON MessagesOk MimeJSON
-v1OrdersCancelAllPost cancelAllOrder =
+  :: (Consumes V1OrdersCancelAllPost MimeJSON, MimeRender MimeJSON OrderCancelAllRequest)
+  => OrderCancelAllRequest -- ^ "orderCancelAllRequest"
+  -> OEML-RESTRequest V1OrdersCancelAllPost MimeJSON Message MimeJSON
+v1OrdersCancelAllPost orderCancelAllRequest =
   _mkRequest "POST" ["/v1/orders/cancel/all"]
-    `setBodyParam` cancelAllOrder
+    `setBodyParam` orderCancelAllRequest
 
 data V1OrdersCancelAllPost 
-instance HasBodyParam V1OrdersCancelAllPost CancelAllOrder 
+instance HasBodyParam V1OrdersCancelAllPost OrderCancelAllRequest 
 
 -- | @application/json@
 instance Consumes V1OrdersCancelAllPost MimeJSON
@@ -89,19 +89,19 @@ instance Produces V1OrdersCancelAllPost MimeJSON
 -- 
 -- Cancel order
 -- 
--- Cancel an existing order, can be used to cancel margin, exchange, and derivative orders. You can cancel the order by the internal order ID or exchange order ID.
+-- This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
 -- 
 v1OrdersCancelPost 
-  :: (Consumes V1OrdersCancelPost MimeJSON, MimeRender MimeJSON CancelOrder)
+  :: (Consumes V1OrdersCancelPost MimeJSON, MimeRender MimeJSON OrderCancelSingleRequest)
   => Accept accept -- ^ request accept ('MimeType')
-  -> CancelOrder -- ^ "cancelOrder"
-  -> OEML-RESTRequest V1OrdersCancelPost MimeJSON OrderLive accept
-v1OrdersCancelPost  _ cancelOrder =
+  -> OrderCancelSingleRequest -- ^ "orderCancelSingleRequest"
+  -> OEML-RESTRequest V1OrdersCancelPost MimeJSON ExecutionReport accept
+v1OrdersCancelPost  _ orderCancelSingleRequest =
   _mkRequest "POST" ["/v1/orders/cancel"]
-    `setBodyParam` cancelOrder
+    `setBodyParam` orderCancelSingleRequest
 
 data V1OrdersCancelPost 
-instance HasBodyParam V1OrdersCancelPost CancelOrder 
+instance HasBodyParam V1OrdersCancelPost OrderCancelSingleRequest 
 
 -- | @application/json@
 instance Consumes V1OrdersCancelPost MimeJSON
@@ -116,9 +116,9 @@ instance Produces V1OrdersCancelPost MimeApplictionJson
 
 -- | @GET \/v1\/orders@
 -- 
--- Get orders
+-- Get all orders
 -- 
--- List your current open orders.
+-- Get all current open orders across all or single specified exchange.
 -- 
 v1OrdersGet 
   :: OEML-RESTRequest V1OrdersGet MimeNoContent [Order] MimeJSON
@@ -127,7 +127,7 @@ v1OrdersGet =
 
 data V1OrdersGet  
 
--- | /Optional Param/ "exchange_id" - Exchange name
+-- | /Optional Param/ "exchange_id" - Filter the output to the orders from the specific exchange.
 instance HasOptionalParam V1OrdersGet ExchangeId where
   applyOptionalParam req (ExchangeId xs) =
     req `setQuery` toQuery ("exchange_id", Just xs)
@@ -141,13 +141,13 @@ instance Produces V1OrdersGet MimeJSON
 -- 
 -- Create new order
 -- 
--- You can place two types of orders: limit and market. Orders can only be placed if your account has sufficient funds.
+-- This request creating new order for the specific exchange.
 -- 
 v1OrdersPost 
   :: (Consumes V1OrdersPost MimeJSON, MimeRender MimeJSON NewOrder)
   => Accept accept -- ^ request accept ('MimeType')
   -> NewOrder -- ^ "newOrder"
-  -> OEML-RESTRequest V1OrdersPost MimeJSON OrderLive accept
+  -> OEML-RESTRequest V1OrdersPost MimeJSON ExecutionReport accept
 v1OrdersPost  _ newOrder =
   _mkRequest "POST" ["/v1/orders"]
     `setBodyParam` newOrder
@@ -162,4 +162,23 @@ instance Consumes V1OrdersPost MimeJSON
 instance Produces V1OrdersPost MimeJSON
 -- | @appliction/json@
 instance Produces V1OrdersPost MimeApplictionJson
+
+
+-- *** v1OrdersStatusClientOrderIdGet
+
+-- | @GET \/v1\/orders\/status\/{client_order_id}@
+-- 
+-- Get order status
+-- 
+-- Get the current order status for the specified order. The requested order can no longer be active.
+-- 
+v1OrdersStatusClientOrderIdGet 
+  :: ClientOrderId -- ^ "clientOrderId" -  Order Client Id of the order for which the status is requested.
+  -> OEML-RESTRequest V1OrdersStatusClientOrderIdGet MimeNoContent ExecutionReport MimeJSON
+v1OrdersStatusClientOrderIdGet (ClientOrderId clientOrderId) =
+  _mkRequest "GET" ["/v1/orders/status/",toPath clientOrderId]
+
+data V1OrdersStatusClientOrderIdGet  
+-- | @application/json@
+instance Produces V1OrdersStatusClientOrderIdGet MimeJSON
 

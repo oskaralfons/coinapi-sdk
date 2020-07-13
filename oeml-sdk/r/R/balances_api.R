@@ -19,7 +19,7 @@
 #'
 #' \itemize{
 #' \item \emph{ @param } exchange.id character
-#' \item \emph{ @returnType } list( \link{balance} ) \cr
+#' \item \emph{ @returnType } list( \link{Balance} ) \cr
 #'
 #'
 #' \item status code : 200 | Result

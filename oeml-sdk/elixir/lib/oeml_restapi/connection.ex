@@ -10,7 +10,7 @@ defmodule OEML-RESTAPI.Connection do
   use Tesla
 
   # Add any middleware here (authentication)
-  plug Tesla.Middleware.BaseUrl, "http://localhost:8080/v1"
+  plug Tesla.Middleware.BaseUrl, "http://localhost:8080"
   plug Tesla.Middleware.Headers, [{"user-agent", "Elixir"}]
   plug Tesla.Middleware.EncodeJson, engine: Poison
 

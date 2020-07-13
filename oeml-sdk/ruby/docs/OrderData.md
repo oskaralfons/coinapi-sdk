@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **exchange_order_id** | **String** | Exchange order id | [optional] 
 **amount_open** | **Float** | Amount open | [optional] 
 **amount_filled** | **Float** | Amount filled | [optional] 
-**status** | [**OrderStatus**](OrderStatus.md) |  | [optional] 
+**status** | [**OrdStatus**](OrdStatus.md) |  | [optional] 
 **time_order** | **Array&lt;Array&lt;String&gt;&gt;** | History of order status changes | [optional] 
 **error_message** | **String** | Error message | [optional] 
 **client_order_id** | **String** | Client unique identifier for the trade. | [optional] 

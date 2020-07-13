@@ -1,4 +1,4 @@
-goog.provide('API.Client.order_data');
+goog.provide('API.Client.Order_data');
 
 /**
  * @record
@@ -48,7 +48,7 @@ API.Client.OrderData.prototype.amountOpen;
 API.Client.OrderData.prototype.amountFilled;
 
 /**
- * @type {!API.Client.orderStatus}
+ * @type {!API.Client.OrdStatus}
  * @export
  */
 API.Client.OrderData.prototype.status;
@@ -117,7 +117,7 @@ API.Client.OrderData.prototype.side;
 API.Client.OrderData.prototype.orderType;
 
 /**
- * @type {!API.Client.timeInForce}
+ * @type {!API.Client.TimeInForce}
  * @export
  */
 API.Client.OrderData.prototype.timeInForce;

@@ -4,13 +4,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **kotlin.String** | symbol_exchange |  [optional]
-**symbolExchange** | **kotlin.String** | Currency code. |  [optional]
+**id** | **kotlin.String** | Exchange identifier. |  [optional]
+**symbolExchange** | **kotlin.String** | Exchange currency code. |  [optional]
 **symbolCoinapi** | **kotlin.String** | CoinAPI currency code. |  [optional]
-**balance** | **kotlin.Float** | The current balance. |  [optional]
-**available** | **kotlin.Float** | The amount that is available to trade. |  [optional]
-**locked** | **kotlin.Float** | Blocked funds. |  [optional]
-**updateOrigin** | [**inline**](#UpdateOriginEnum) | Source of last modification.  |  [optional]
+**balance** | **kotlin.Float** | Value of the current total currency balance on the exchange. |  [optional]
+**available** | **kotlin.Float** | Value of the current available currency balance on the exchange that can be used as collateral. |  [optional]
+**locked** | **kotlin.Float** | Value of the current locked currency balance by the exchange. |  [optional]
+**updateOrigin** | [**inline**](#UpdateOriginEnum) | Source of the last modification.  |  [optional]
 
 
 <a name="UpdateOriginEnum"></a>

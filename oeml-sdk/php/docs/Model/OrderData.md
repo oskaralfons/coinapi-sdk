@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **exchange_order_id** | **string** | Exchange order id | [optional] 
 **amount_open** | **float** | Amount open | [optional] 
 **amount_filled** | **float** | Amount filled | [optional] 
-**status** | [**\OpenAPI\Client\Model\OrderStatus**](OrderStatus.md) |  | [optional] 
+**status** | [**\OpenAPI\Client\Model\OrdStatus**](OrdStatus.md) |  | [optional] 
 **time_order** | [**string[][]**](array.md) | History of order status changes | [optional] 
 **error_message** | **string** | Error message | [optional] 
 **client_order_id** | **string** | Client unique identifier for the trade. | [optional] 

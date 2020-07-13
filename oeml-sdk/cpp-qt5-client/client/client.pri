@@ -4,19 +4,18 @@ HEADERS += \
 # Models
     $${PWD}/OAIBalance.h \
     $${PWD}/OAIBalance_data.h \
-    $${PWD}/OAICancelAllOrder.h \
-    $${PWD}/OAICancelOrder.h \
-    $${PWD}/OAICreateOrder400.h \
-    $${PWD}/OAIMessages.h \
-    $${PWD}/OAIMessagesInfo.h \
-    $${PWD}/OAIMessagesOk.h \
+    $${PWD}/OAICreateOrderValidationError.h \
+    $${PWD}/OAIExecutionReport.h \
+    $${PWD}/OAIMessage.h \
     $${PWD}/OAINewOrder.h \
+    $${PWD}/OAIOrdStatus.h \
     $${PWD}/OAIOrder.h \
-    $${PWD}/OAIOrderLive.h \
-    $${PWD}/OAIOrderStatus.h \
+    $${PWD}/OAIOrderCancelAllRequest.h \
+    $${PWD}/OAIOrderCancelSingleRequest.h \
     $${PWD}/OAIOrder_data.h \
     $${PWD}/OAIPosition.h \
     $${PWD}/OAIPosition_data.h \
+    $${PWD}/OAISeverity.h \
     $${PWD}/OAITimeInForce.h \
 # APIs
     $${PWD}/OAIBalancesApi.h \
@@ -33,19 +32,18 @@ SOURCES += \
 # Models
     $${PWD}/OAIBalance.cpp \
     $${PWD}/OAIBalance_data.cpp \
-    $${PWD}/OAICancelAllOrder.cpp \
-    $${PWD}/OAICancelOrder.cpp \
-    $${PWD}/OAICreateOrder400.cpp \
-    $${PWD}/OAIMessages.cpp \
-    $${PWD}/OAIMessagesInfo.cpp \
-    $${PWD}/OAIMessagesOk.cpp \
+    $${PWD}/OAICreateOrderValidationError.cpp \
+    $${PWD}/OAIExecutionReport.cpp \
+    $${PWD}/OAIMessage.cpp \
     $${PWD}/OAINewOrder.cpp \
+    $${PWD}/OAIOrdStatus.cpp \
     $${PWD}/OAIOrder.cpp \
-    $${PWD}/OAIOrderLive.cpp \
-    $${PWD}/OAIOrderStatus.cpp \
+    $${PWD}/OAIOrderCancelAllRequest.cpp \
+    $${PWD}/OAIOrderCancelSingleRequest.cpp \
     $${PWD}/OAIOrder_data.cpp \
     $${PWD}/OAIPosition.cpp \
     $${PWD}/OAIPosition_data.cpp \
+    $${PWD}/OAISeverity.cpp \
     $${PWD}/OAITimeInForce.cpp \
 # APIs
     $${PWD}/OAIBalancesApi.cpp \

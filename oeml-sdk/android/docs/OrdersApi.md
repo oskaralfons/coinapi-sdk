@@ -1,23 +1,24 @@
 # OrdersApi
 
-All URIs are relative to *http://localhost:8080/v1*
+All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v1OrdersCancelAllPost**](OrdersApi.md#v1OrdersCancelAllPost) | **POST** /v1/orders/cancel/all | Cancel all order
+[**v1OrdersCancelAllPost**](OrdersApi.md#v1OrdersCancelAllPost) | **POST** /v1/orders/cancel/all | Cancel all orders
 [**v1OrdersCancelPost**](OrdersApi.md#v1OrdersCancelPost) | **POST** /v1/orders/cancel | Cancel order
-[**v1OrdersGet**](OrdersApi.md#v1OrdersGet) | **GET** /v1/orders | Get orders
+[**v1OrdersGet**](OrdersApi.md#v1OrdersGet) | **GET** /v1/orders | Get all orders
 [**v1OrdersPost**](OrdersApi.md#v1OrdersPost) | **POST** /v1/orders | Create new order
+[**v1OrdersStatusClientOrderIdGet**](OrdersApi.md#v1OrdersStatusClientOrderIdGet) | **GET** /v1/orders/status/{client_order_id} | Get order status
 
 
 
 ## v1OrdersCancelAllPost
 
-> MessagesOk v1OrdersCancelAllPost(cancelAllOrder)
+> Message v1OrdersCancelAllPost(orderCancelAllRequest)
 
-Cancel all order
+Cancel all orders
 
-Cancel all existing order.
+This request cancels all open orders across all or single specified exchange.
 
 ### Example
 
@@ -26,9 +27,9 @@ Cancel all existing order.
 //import org.openapitools.client.api.OrdersApi;
 
 OrdersApi apiInstance = new OrdersApi();
-CancelAllOrder cancelAllOrder = new CancelAllOrder(); // CancelAllOrder | 
+OrderCancelAllRequest orderCancelAllRequest = new OrderCancelAllRequest(); // OrderCancelAllRequest | 
 try {
-    MessagesOk result = apiInstance.v1OrdersCancelAllPost(cancelAllOrder);
+    Message result = apiInstance.v1OrdersCancelAllPost(orderCancelAllRequest);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrdersApi#v1OrdersCancelAllPost");
@@ -41,11 +42,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelAllOrder** | [**CancelAllOrder**](CancelAllOrder.md)|  |
+ **orderCancelAllRequest** | [**OrderCancelAllRequest**](OrderCancelAllRequest.md)|  |
 
 ### Return type
 
-[**MessagesOk**](MessagesOk.md)
+[**Message**](Message.md)
 
 ### Authorization
 
@@ -59,11 +60,11 @@ No authorization required
 
 ## v1OrdersCancelPost
 
-> OrderLive v1OrdersCancelPost(cancelOrder)
+> ExecutionReport v1OrdersCancelPost(orderCancelSingleRequest)
 
 Cancel order
 
-Cancel an existing order, can be used to cancel margin, exchange, and derivative orders. You can cancel the order by the internal order ID or exchange order ID.
+This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
 
 ### Example
 
@@ -72,9 +73,9 @@ Cancel an existing order, can be used to cancel margin, exchange, and derivative
 //import org.openapitools.client.api.OrdersApi;
 
 OrdersApi apiInstance = new OrdersApi();
-CancelOrder cancelOrder = new CancelOrder(); // CancelOrder | 
+OrderCancelSingleRequest orderCancelSingleRequest = new OrderCancelSingleRequest(); // OrderCancelSingleRequest | 
 try {
-    OrderLive result = apiInstance.v1OrdersCancelPost(cancelOrder);
+    ExecutionReport result = apiInstance.v1OrdersCancelPost(orderCancelSingleRequest);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrdersApi#v1OrdersCancelPost");
@@ -87,11 +88,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelOrder** | [**CancelOrder**](CancelOrder.md)|  |
+ **orderCancelSingleRequest** | [**OrderCancelSingleRequest**](OrderCancelSingleRequest.md)|  |
 
 ### Return type
 
-[**OrderLive**](OrderLive.md)
+[**ExecutionReport**](ExecutionReport.md)
 
 ### Authorization
 
@@ -107,9 +108,9 @@ No authorization required
 
 > List&lt;Order&gt; v1OrdersGet(exchangeId)
 
-Get orders
+Get all orders
 
-List your current open orders.
+Get all current open orders across all or single specified exchange.
 
 ### Example
 
@@ -118,7 +119,7 @@ List your current open orders.
 //import org.openapitools.client.api.OrdersApi;
 
 OrdersApi apiInstance = new OrdersApi();
-String exchangeId = KRAKEN; // String | Exchange name
+String exchangeId = KRAKEN; // String | Filter the output to the orders from the specific exchange.
 try {
     List<Order> result = apiInstance.v1OrdersGet(exchangeId);
     System.out.println(result);
@@ -133,7 +134,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **exchangeId** | **String**| Exchange name | [optional] [default to null]
+ **exchangeId** | **String**| Filter the output to the orders from the specific exchange. | [optional] [default to null]
 
 ### Return type
 
@@ -151,11 +152,11 @@ No authorization required
 
 ## v1OrdersPost
 
-> OrderLive v1OrdersPost(newOrder)
+> ExecutionReport v1OrdersPost(newOrder)
 
 Create new order
 
-You can place two types of orders: limit and market. Orders can only be placed if your account has sufficient funds.
+This request creating new order for the specific exchange.
 
 ### Example
 
@@ -166,7 +167,7 @@ You can place two types of orders: limit and market. Orders can only be placed i
 OrdersApi apiInstance = new OrdersApi();
 NewOrder newOrder = new NewOrder(); // NewOrder | 
 try {
-    OrderLive result = apiInstance.v1OrdersPost(newOrder);
+    ExecutionReport result = apiInstance.v1OrdersPost(newOrder);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrdersApi#v1OrdersPost");
@@ -183,7 +184,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrderLive**](OrderLive.md)
+[**ExecutionReport**](ExecutionReport.md)
 
 ### Authorization
 
@@ -193,4 +194,50 @@ No authorization required
 
 - **Content-Type**: application/json
 - **Accept**: application/json, appliction/json
+
+
+## v1OrdersStatusClientOrderIdGet
+
+> ExecutionReport v1OrdersStatusClientOrderIdGet(clientOrderId)
+
+Get order status
+
+Get the current order status for the specified order. The requested order can no longer be active.
+
+### Example
+
+```java
+// Import classes:
+//import org.openapitools.client.api.OrdersApi;
+
+OrdersApi apiInstance = new OrdersApi();
+String clientOrderId = 6ab36bc1-344d-432e-ac6d-0bf44ee64c2b; // String | Order Client Id of the order for which the status is requested.
+try {
+    ExecutionReport result = apiInstance.v1OrdersStatusClientOrderIdGet(clientOrderId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrdersApi#v1OrdersStatusClientOrderIdGet");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **clientOrderId** | **String**| Order Client Id of the order for which the status is requested. | [default to null]
+
+### Return type
+
+[**ExecutionReport**](ExecutionReport.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 

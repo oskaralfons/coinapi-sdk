@@ -11,7 +11,7 @@
  */
 
 import { RequestFile } from '../api';
-import { OrderStatus } from './orderStatus';
+import { OrdStatus } from './ordStatus';
 import { TimeInForce } from './timeInForce';
 
 export class OrderData {
@@ -39,7 +39,7 @@ export class OrderData {
     * Amount filled
     */
     'amountFilled'?: number;
-    'status'?: OrderStatus;
+    'status'?: OrdStatus;
     /**
     * History of order status changes
     */
@@ -122,7 +122,7 @@ export class OrderData {
         {
             "name": "status",
             "baseName": "status",
-            "type": "OrderStatus"
+            "type": "OrdStatus"
         },
         {
             "name": "timeOrder",

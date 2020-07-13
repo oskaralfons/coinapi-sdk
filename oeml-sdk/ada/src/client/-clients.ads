@@ -21,33 +21,40 @@ package .Clients is
        Exchange_Id : in Swagger.Nullable_UString;
        Result : out .Models.Balance_Type_Vectors.Vector);
 
-   --  Cancel all order
-   --  Cancel all existing order.
+   --  Cancel all orders
+   --  This request cancels all open orders across all or single specified exchange.
    procedure V1_Orders_Cancel_All_Post
       (Client : in out Client_Type;
-       Cancel_All_Order_Type : in .Models.CancelAllOrder_Type;
-       Result : out .Models.MessagesOk_Type);
+       Order_Cancel_All_Request_Type : in .Models.OrderCancelAllRequest_Type;
+       Result : out .Models.Message_Type);
 
    --  Cancel order
-   --  Cancel an existing order, can be used to cancel margin, exchange, and derivative orders. You can cancel the order by the internal order ID or exchange order ID.
+   --  This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
    procedure V1_Orders_Cancel_Post
       (Client : in out Client_Type;
-       Cancel_Order_Type : in .Models.CancelOrder_Type;
-       Result : out .Models.OrderLive_Type);
+       Order_Cancel_Single_Request_Type : in .Models.OrderCancelSingleRequest_Type;
+       Result : out .Models.ExecutionReport_Type);
 
-   --  Get orders
-   --  List your current open orders.
+   --  Get all orders
+   --  Get all current open orders across all or single specified exchange.
    procedure V1_Orders_Get
       (Client : in out Client_Type;
        Exchange_Id : in Swagger.Nullable_UString;
        Result : out .Models.Order_Type_Vectors.Vector);
 
    --  Create new order
-   --  You can place two types of orders: limit and market. Orders can only be placed if your account has sufficient funds.
+   --  This request creating new order for the specific exchange.
    procedure V1_Orders_Post
       (Client : in out Client_Type;
        New_Order_Type : in .Models.NewOrder_Type;
-       Result : out .Models.OrderLive_Type);
+       Result : out .Models.ExecutionReport_Type);
+
+   --  Get order status
+   --  Get the current order status for the specified order. The requested order can no longer be active.
+   procedure V1_Orders_Status_Client_Order_Id_Get
+      (Client : in out Client_Type;
+       Client_Order_Id : in Swagger.UString;
+       Result : out .Models.ExecutionReport_Type);
 
    --  Get positions
    --  Returns all of your positions.

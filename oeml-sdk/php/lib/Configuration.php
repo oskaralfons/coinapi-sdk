@@ -81,7 +81,7 @@ class Configuration
      *
      * @var string
      */
-    protected $host = 'http://localhost:8080/v1';
+    protected $host = 'http://localhost:8080';
 
     /**
      * User agent of the HTTP request, set to "OpenAPI-Generator/{version}/PHP" by default
@@ -436,14 +436,8 @@ class Configuration
     {
         return array(
           array(
-            "url" => "{server}/v1",
+            "url" => "http://localhost:8080",
             "description" => "No description provided",
-            "variables" => array(
-              "server" => array(
-                  "description" => "No description provided",
-                  "default_value" => "http://localhost:8080",
-                )
-              )
           )
         );
     }

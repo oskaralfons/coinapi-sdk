@@ -31,7 +31,7 @@ class TestOrdersApi(unittest.TestCase):
     def test_v1_orders_cancel_all_post(self):
         """Test case for v1_orders_cancel_all_post
 
-        Cancel all order  # noqa: E501
+        Cancel all orders  # noqa: E501
         """
         pass
 
@@ -45,7 +45,7 @@ class TestOrdersApi(unittest.TestCase):
     def test_v1_orders_get(self):
         """Test case for v1_orders_get
 
-        Get orders  # noqa: E501
+        Get all orders  # noqa: E501
         """
         pass
 
@@ -53,6 +53,13 @@ class TestOrdersApi(unittest.TestCase):
         """Test case for v1_orders_post
 
         Create new order  # noqa: E501
+        """
+        pass
+
+    def test_v1_orders_status_client_order_id_get(self):
+        """Test case for v1_orders_status_client_order_id_get
+
+        Get order status  # noqa: E501
         """
         pass
 

@@ -36,7 +36,7 @@ feature --Access
       -- Amount open
     amount_filled: REAL_32 
       -- Amount filled
-    status: detachable ORDER_STATUS 
+    status: detachable ORD_STATUS 
       
     time_order: detachable LIST [LIST [STRING_32]] 
       -- History of order status changes

@@ -42,7 +42,7 @@ void main() {
       // TODO
     });
 
-    // OrderStatus status (default value: null)
+    // OrdStatus status (default value: null)
     test('to test the property `status`', () async {
       // TODO
     });

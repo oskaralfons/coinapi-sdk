@@ -2,7 +2,7 @@
 
 OEML - REST API
 - API version: v1
-  - Build date: 2020-07-12T22:34:17.420Z[Etc/UTC]
+  - Build date: 2020-07-13T10:29:48.012Z[Etc/UTC]
 
 This section will provide necessary information about the `CoinAPI OEML REST API` protocol.
 
@@ -84,7 +84,7 @@ import org.openapitools.client.api.BalancesApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost:8080/v1");
+    defaultClient.setBasePath("http://localhost:8080");
 
     BalancesApi apiInstance = new BalancesApi(defaultClient);
     String exchangeId = KRAKEN; // String | Exchange name
@@ -105,15 +105,16 @@ public class Example {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost:8080/v1*
+All URIs are relative to *http://localhost:8080*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *BalancesApi* | [**v1BalancesGet**](docs/BalancesApi.md#v1BalancesGet) | **GET** /v1/balances | Get balances
-*OrdersApi* | [**v1OrdersCancelAllPost**](docs/OrdersApi.md#v1OrdersCancelAllPost) | **POST** /v1/orders/cancel/all | Cancel all order
+*OrdersApi* | [**v1OrdersCancelAllPost**](docs/OrdersApi.md#v1OrdersCancelAllPost) | **POST** /v1/orders/cancel/all | Cancel all orders
 *OrdersApi* | [**v1OrdersCancelPost**](docs/OrdersApi.md#v1OrdersCancelPost) | **POST** /v1/orders/cancel | Cancel order
-*OrdersApi* | [**v1OrdersGet**](docs/OrdersApi.md#v1OrdersGet) | **GET** /v1/orders | Get orders
+*OrdersApi* | [**v1OrdersGet**](docs/OrdersApi.md#v1OrdersGet) | **GET** /v1/orders | Get all orders
 *OrdersApi* | [**v1OrdersPost**](docs/OrdersApi.md#v1OrdersPost) | **POST** /v1/orders | Create new order
+*OrdersApi* | [**v1OrdersStatusClientOrderIdGet**](docs/OrdersApi.md#v1OrdersStatusClientOrderIdGet) | **GET** /v1/orders/status/{client_order_id} | Get order status
 *PositionsApi* | [**v1PositionsGet**](docs/PositionsApi.md#v1PositionsGet) | **GET** /v1/positions | Get positions
 
 
@@ -121,19 +122,18 @@ Class | Method | HTTP request | Description
 
  - [Balance](docs/Balance.md)
  - [BalanceData](docs/BalanceData.md)
- - [CancelAllOrder](docs/CancelAllOrder.md)
- - [CancelOrder](docs/CancelOrder.md)
- - [CreateOrder400](docs/CreateOrder400.md)
- - [Messages](docs/Messages.md)
- - [MessagesInfo](docs/MessagesInfo.md)
- - [MessagesOk](docs/MessagesOk.md)
+ - [CreateOrderValidationError](docs/CreateOrderValidationError.md)
+ - [ExecutionReport](docs/ExecutionReport.md)
+ - [Message](docs/Message.md)
  - [NewOrder](docs/NewOrder.md)
+ - [OrdStatus](docs/OrdStatus.md)
  - [Order](docs/Order.md)
+ - [OrderCancelAllRequest](docs/OrderCancelAllRequest.md)
+ - [OrderCancelSingleRequest](docs/OrderCancelSingleRequest.md)
  - [OrderData](docs/OrderData.md)
- - [OrderLive](docs/OrderLive.md)
- - [OrderStatus](docs/OrderStatus.md)
  - [Position](docs/Position.md)
  - [PositionData](docs/PositionData.md)
+ - [Severity](docs/Severity.md)
  - [TimeInForce](docs/TimeInForce.md)
 
 

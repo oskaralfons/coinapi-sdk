@@ -14,11 +14,11 @@ import { RequestFile } from '../api';
 
 export class BalanceData {
     /**
-    * symbol_exchange
+    * Exchange identifier.
     */
     'id'?: string;
     /**
-    * Currency code.
+    * Exchange currency code.
     */
     'symbolExchange'?: string;
     /**
@@ -26,19 +26,19 @@ export class BalanceData {
     */
     'symbolCoinapi'?: string;
     /**
-    * The current balance.
+    * Value of the current total currency balance on the exchange.
     */
     'balance'?: number;
     /**
-    * The amount that is available to trade.
+    * Value of the current available currency balance on the exchange that can be used as collateral.
     */
     'available'?: number;
     /**
-    * Blocked funds.
+    * Value of the current locked currency balance by the exchange.
     */
     'locked'?: number;
     /**
-    * Source of last modification. 
+    * Source of the last modification. 
     */
     'updateOrigin'?: BalanceData.UpdateOriginEnum;
 

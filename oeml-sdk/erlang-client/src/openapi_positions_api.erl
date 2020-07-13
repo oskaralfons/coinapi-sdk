@@ -2,7 +2,7 @@
 
 -export([v1_positions_get/1, v1_positions_get/2]).
 
--define(BASE_URL, "/v1").
+-define(BASE_URL, "").
 
 %% @doc Get positions
 %% Returns all of your positions.

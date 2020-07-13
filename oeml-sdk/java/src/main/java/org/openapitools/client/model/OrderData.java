@@ -26,14 +26,14 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import org.openapitools.client.model.OrderStatus;
+import org.openapitools.client.model.OrdStatus;
 import org.openapitools.client.model.TimeInForce;
 import org.threeten.bp.LocalDate;
 
 /**
  * OrderData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-12T22:34:17.420Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T10:29:48.012Z[Etc/UTC]")
 public class OrderData {
   public static final String SERIALIZED_NAME_EXCHANGE_ID = "exchange_id";
   @SerializedName(SERIALIZED_NAME_EXCHANGE_ID)
@@ -61,7 +61,7 @@ public class OrderData {
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  private OrderStatus status;
+  private OrdStatus status;
 
   public static final String SERIALIZED_NAME_TIME_ORDER = "time_order";
   @SerializedName(SERIALIZED_NAME_TIME_ORDER)
@@ -391,7 +391,7 @@ public class OrderData {
   }
 
 
-  public OrderData status(OrderStatus status) {
+  public OrderData status(OrdStatus status) {
     
     this.status = status;
     return this;
@@ -404,12 +404,12 @@ public class OrderData {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public OrderStatus getStatus() {
+  public OrdStatus getStatus() {
     return status;
   }
 
 
-  public void setStatus(OrderStatus status) {
+  public void setStatus(OrdStatus status) {
     this.status = status;
   }
 

@@ -49,7 +49,7 @@ class Balance implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'balance';
+    protected static $openAPIModelName = 'Balance';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

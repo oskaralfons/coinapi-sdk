@@ -1,23 +1,24 @@
 # OemlRestApi.OrdersApi
 
-All URIs are relative to *http://localhost:8080/v1*
+All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v1OrdersCancelAllPost**](OrdersApi.md#v1OrdersCancelAllPost) | **POST** /v1/orders/cancel/all | Cancel all order
+[**v1OrdersCancelAllPost**](OrdersApi.md#v1OrdersCancelAllPost) | **POST** /v1/orders/cancel/all | Cancel all orders
 [**v1OrdersCancelPost**](OrdersApi.md#v1OrdersCancelPost) | **POST** /v1/orders/cancel | Cancel order
-[**v1OrdersGet**](OrdersApi.md#v1OrdersGet) | **GET** /v1/orders | Get orders
+[**v1OrdersGet**](OrdersApi.md#v1OrdersGet) | **GET** /v1/orders | Get all orders
 [**v1OrdersPost**](OrdersApi.md#v1OrdersPost) | **POST** /v1/orders | Create new order
+[**v1OrdersStatusClientOrderIdGet**](OrdersApi.md#v1OrdersStatusClientOrderIdGet) | **GET** /v1/orders/status/{client_order_id} | Get order status
 
 
 
 ## v1OrdersCancelAllPost
 
-> MessagesOk v1OrdersCancelAllPost(cancelAllOrder)
+> Message v1OrdersCancelAllPost(orderCancelAllRequest)
 
-Cancel all order
+Cancel all orders
 
-Cancel all existing order.
+This request cancels all open orders across all or single specified exchange.
 
 ### Example
 
@@ -25,8 +26,8 @@ Cancel all existing order.
 import OemlRestApi from 'oeml_rest_api';
 
 let apiInstance = new OemlRestApi.OrdersApi();
-let cancelAllOrder = new OemlRestApi.CancelAllOrder(); // CancelAllOrder | 
-apiInstance.v1OrdersCancelAllPost(cancelAllOrder, (error, data, response) => {
+let orderCancelAllRequest = new OemlRestApi.OrderCancelAllRequest(); // OrderCancelAllRequest | 
+apiInstance.v1OrdersCancelAllPost(orderCancelAllRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -40,11 +41,11 @@ apiInstance.v1OrdersCancelAllPost(cancelAllOrder, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelAllOrder** | [**CancelAllOrder**](CancelAllOrder.md)|  | 
+ **orderCancelAllRequest** | [**OrderCancelAllRequest**](OrderCancelAllRequest.md)|  | 
 
 ### Return type
 
-[**MessagesOk**](MessagesOk.md)
+[**Message**](Message.md)
 
 ### Authorization
 
@@ -58,11 +59,11 @@ No authorization required
 
 ## v1OrdersCancelPost
 
-> OrderLive v1OrdersCancelPost(cancelOrder)
+> ExecutionReport v1OrdersCancelPost(orderCancelSingleRequest)
 
 Cancel order
 
-Cancel an existing order, can be used to cancel margin, exchange, and derivative orders. You can cancel the order by the internal order ID or exchange order ID.
+This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
 
 ### Example
 
@@ -70,8 +71,8 @@ Cancel an existing order, can be used to cancel margin, exchange, and derivative
 import OemlRestApi from 'oeml_rest_api';
 
 let apiInstance = new OemlRestApi.OrdersApi();
-let cancelOrder = new OemlRestApi.CancelOrder(); // CancelOrder | 
-apiInstance.v1OrdersCancelPost(cancelOrder, (error, data, response) => {
+let orderCancelSingleRequest = new OemlRestApi.OrderCancelSingleRequest(); // OrderCancelSingleRequest | 
+apiInstance.v1OrdersCancelPost(orderCancelSingleRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -85,11 +86,11 @@ apiInstance.v1OrdersCancelPost(cancelOrder, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelOrder** | [**CancelOrder**](CancelOrder.md)|  | 
+ **orderCancelSingleRequest** | [**OrderCancelSingleRequest**](OrderCancelSingleRequest.md)|  | 
 
 ### Return type
 
-[**OrderLive**](OrderLive.md)
+[**ExecutionReport**](ExecutionReport.md)
 
 ### Authorization
 
@@ -105,9 +106,9 @@ No authorization required
 
 > [Order] v1OrdersGet(opts)
 
-Get orders
+Get all orders
 
-List your current open orders.
+Get all current open orders across all or single specified exchange.
 
 ### Example
 
@@ -116,7 +117,7 @@ import OemlRestApi from 'oeml_rest_api';
 
 let apiInstance = new OemlRestApi.OrdersApi();
 let opts = {
-  'exchangeId': KRAKEN // String | Exchange name
+  'exchangeId': KRAKEN // String | Filter the output to the orders from the specific exchange.
 };
 apiInstance.v1OrdersGet(opts, (error, data, response) => {
   if (error) {
@@ -132,7 +133,7 @@ apiInstance.v1OrdersGet(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **exchangeId** | **String**| Exchange name | [optional] 
+ **exchangeId** | **String**| Filter the output to the orders from the specific exchange. | [optional] 
 
 ### Return type
 
@@ -150,11 +151,11 @@ No authorization required
 
 ## v1OrdersPost
 
-> OrderLive v1OrdersPost(newOrder)
+> ExecutionReport v1OrdersPost(newOrder)
 
 Create new order
 
-You can place two types of orders: limit and market. Orders can only be placed if your account has sufficient funds.
+This request creating new order for the specific exchange.
 
 ### Example
 
@@ -181,7 +182,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrderLive**](OrderLive.md)
+[**ExecutionReport**](ExecutionReport.md)
 
 ### Authorization
 
@@ -191,4 +192,49 @@ No authorization required
 
 - **Content-Type**: application/json
 - **Accept**: application/json, appliction/json
+
+
+## v1OrdersStatusClientOrderIdGet
+
+> ExecutionReport v1OrdersStatusClientOrderIdGet(clientOrderId)
+
+Get order status
+
+Get the current order status for the specified order. The requested order can no longer be active.
+
+### Example
+
+```javascript
+import OemlRestApi from 'oeml_rest_api';
+
+let apiInstance = new OemlRestApi.OrdersApi();
+let clientOrderId = 6ab36bc1-344d-432e-ac6d-0bf44ee64c2b; // String | Order Client Id of the order for which the status is requested.
+apiInstance.v1OrdersStatusClientOrderIdGet(clientOrderId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **clientOrderId** | **String**| Order Client Id of the order for which the status is requested. | 
+
+### Return type
+
+[**ExecutionReport**](ExecutionReport.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 

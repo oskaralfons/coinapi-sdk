@@ -39,7 +39,7 @@ class OrderData(object):
         'exchange_order_id': 'str',
         'amount_open': 'float',
         'amount_filled': 'float',
-        'status': 'OrderStatus',
+        'status': 'OrdStatus',
         'time_order': 'list[list[str]]',
         'error_message': 'str',
         'client_order_id': 'str',
@@ -286,7 +286,7 @@ class OrderData(object):
 
 
         :return: The status of this OrderData.  # noqa: E501
-        :rtype: OrderStatus
+        :rtype: OrdStatus
         """
         return self._status
 
@@ -296,7 +296,7 @@ class OrderData(object):
 
 
         :param status: The status of this OrderData.  # noqa: E501
-        :type: OrderStatus
+        :type: OrdStatus
         """
 
         self._status = status

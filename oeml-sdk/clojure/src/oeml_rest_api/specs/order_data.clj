@@ -1,7 +1,7 @@
 (ns oeml-rest-api.specs.order-data
   (:require [clojure.spec.alpha :as s]
             [spec-tools.data-spec :as ds]
-            [oeml-rest-api.specs.order-status :refer :all]
+            [oeml-rest-api.specs.ord-status :refer :all]
             [oeml-rest-api.specs.time-in-force :refer :all]
             )
   (:import (java.io File)))
@@ -15,7 +15,7 @@
    (ds/opt :exchange_order_id) string?
    (ds/opt :amount_open) float?
    (ds/opt :amount_filled) float?
-   (ds/opt :status) order-status-spec
+   (ds/opt :status) ord-status-spec
    (ds/opt :time_order) (s/coll-of (s/coll-of string?))
    (ds/opt :error_message) string?
    (ds/opt :client_order_id) string?

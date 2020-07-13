@@ -12,70 +12,70 @@ defmodule OEML-RESTAPI.Api.Orders do
 
 
   @doc """
-  Cancel all order
-  Cancel all existing order.
+  Cancel all orders
+  This request cancels all open orders across all or single specified exchange.
 
   ## Parameters
 
   - connection (OEML-RESTAPI.Connection): Connection to server
-  - cancel_all_order (CancelAllOrder): 
+  - order_cancel_all_request (OrderCancelAllRequest): 
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %OEML-RESTAPI.Model.MessagesOk{}} on success
+  {:ok, %OEML-RESTAPI.Model.Message{}} on success
   {:error, info} on failure
   """
-  @spec v1_orders_cancel_all_post(Tesla.Env.client, OEML-RESTAPI.Model.CancelAllOrder.t, keyword()) :: {:ok, OEML-RESTAPI.Model.MessagesOk.t} | {:error, Tesla.Env.t}
-  def v1_orders_cancel_all_post(connection, cancel_all_order, _opts \\ []) do
+  @spec v1_orders_cancel_all_post(Tesla.Env.client, OEML-RESTAPI.Model.OrderCancelAllRequest.t, keyword()) :: {:ok, OEML-RESTAPI.Model.Message.t} | {:error, Tesla.Env.t}
+  def v1_orders_cancel_all_post(connection, order_cancel_all_request, _opts \\ []) do
     %{}
     |> method(:post)
     |> url("/v1/orders/cancel/all")
-    |> add_param(:body, :body, cancel_all_order)
+    |> add_param(:body, :body, order_cancel_all_request)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %OEML-RESTAPI.Model.MessagesOk{}}
+      { 200, %OEML-RESTAPI.Model.Message{}}
     ])
   end
 
   @doc """
   Cancel order
-  Cancel an existing order, can be used to cancel margin, exchange, and derivative orders. You can cancel the order by the internal order ID or exchange order ID.
+  This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
 
   ## Parameters
 
   - connection (OEML-RESTAPI.Connection): Connection to server
-  - cancel_order (CancelOrder): 
+  - order_cancel_single_request (OrderCancelSingleRequest): 
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %OEML-RESTAPI.Model.OrderLive{}} on success
+  {:ok, %OEML-RESTAPI.Model.ExecutionReport{}} on success
   {:error, info} on failure
   """
-  @spec v1_orders_cancel_post(Tesla.Env.client, OEML-RESTAPI.Model.CancelOrder.t, keyword()) :: {:ok, OEML-RESTAPI.Model.OrderLive.t} | {:error, Tesla.Env.t}
-  def v1_orders_cancel_post(connection, cancel_order, _opts \\ []) do
+  @spec v1_orders_cancel_post(Tesla.Env.client, OEML-RESTAPI.Model.OrderCancelSingleRequest.t, keyword()) :: {:ok, OEML-RESTAPI.Model.ExecutionReport.t} | {:error, Tesla.Env.t}
+  def v1_orders_cancel_post(connection, order_cancel_single_request, _opts \\ []) do
     %{}
     |> method(:post)
     |> url("/v1/orders/cancel")
-    |> add_param(:body, :body, cancel_order)
+    |> add_param(:body, :body, order_cancel_single_request)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %OEML-RESTAPI.Model.OrderLive{}},
-      { 400, %OEML-RESTAPI.Model.CreateOrder400{}},
-      { 490, %OEML-RESTAPI.Model.Messages{}}
+      { 200, %OEML-RESTAPI.Model.ExecutionReport{}},
+      { 400, %OEML-RESTAPI.Model.CreateOrderValidationError{}},
+      { 490, %OEML-RESTAPI.Model.Message{}}
     ])
   end
 
   @doc """
-  Get orders
-  List your current open orders.
+  Get all orders
+  Get all current open orders across all or single specified exchange.
 
   ## Parameters
 
   - connection (OEML-RESTAPI.Connection): Connection to server
   - opts (KeywordList): [optional] Optional parameters
-    - :exchange_id (String.t): Exchange name
+    - :exchange_id (String.t): Filter the output to the orders from the specific exchange.
   ## Returns
 
   {:ok, [%Order{}, ...]} on success
@@ -99,7 +99,7 @@ defmodule OEML-RESTAPI.Api.Orders do
 
   @doc """
   Create new order
-  You can place two types of orders: limit and market. Orders can only be placed if your account has sufficient funds.
+  This request creating new order for the specific exchange.
 
   ## Parameters
 
@@ -108,10 +108,10 @@ defmodule OEML-RESTAPI.Api.Orders do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %OEML-RESTAPI.Model.OrderLive{}} on success
+  {:ok, %OEML-RESTAPI.Model.ExecutionReport{}} on success
   {:error, info} on failure
   """
-  @spec v1_orders_post(Tesla.Env.client, OEML-RESTAPI.Model.NewOrder.t, keyword()) :: {:ok, OEML-RESTAPI.Model.OrderLive.t} | {:error, Tesla.Env.t}
+  @spec v1_orders_post(Tesla.Env.client, OEML-RESTAPI.Model.NewOrder.t, keyword()) :: {:ok, OEML-RESTAPI.Model.ExecutionReport.t} | {:error, Tesla.Env.t}
   def v1_orders_post(connection, new_order, _opts \\ []) do
     %{}
     |> method(:post)
@@ -120,9 +120,36 @@ defmodule OEML-RESTAPI.Api.Orders do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %OEML-RESTAPI.Model.OrderLive{}},
-      { 400, %OEML-RESTAPI.Model.CreateOrder400{}},
-      { 490, %OEML-RESTAPI.Model.Messages{}}
+      { 200, %OEML-RESTAPI.Model.ExecutionReport{}},
+      { 400, %OEML-RESTAPI.Model.CreateOrderValidationError{}},
+      { 490, %OEML-RESTAPI.Model.Message{}}
+    ])
+  end
+
+  @doc """
+  Get order status
+  Get the current order status for the specified order. The requested order can no longer be active.
+
+  ## Parameters
+
+  - connection (OEML-RESTAPI.Connection): Connection to server
+  - client_order_id (String.t): Order Client Id of the order for which the status is requested.
+  - opts (KeywordList): [optional] Optional parameters
+  ## Returns
+
+  {:ok, %OEML-RESTAPI.Model.ExecutionReport{}} on success
+  {:error, info} on failure
+  """
+  @spec v1_orders_status_client_order_id_get(Tesla.Env.client, String.t, keyword()) :: {:ok, OEML-RESTAPI.Model.ExecutionReport.t} | {:error, Tesla.Env.t}
+  def v1_orders_status_client_order_id_get(connection, client_order_id, _opts \\ []) do
+    %{}
+    |> method(:get)
+    |> url("/v1/orders/status/#{client_order_id}")
+    |> Enum.into([])
+    |> (&Connection.request(connection, &1)).()
+    |> evaluate_response([
+      { 200, %OEML-RESTAPI.Model.ExecutionReport{}},
+      { 400, %OEML-RESTAPI.Model.Message{}}
     ])
   end
 end

@@ -43,4 +43,11 @@ describe("orders_api", function()
     end)
   end)
 
+  -- unit tests for v1_orders_status_client_order_id_get
+  describe("v1_orders_status_client_order_id_get test", function()
+    it("should work", function()
+      -- TODO assertion here: http://olivinelabs.com/busted/#asserts
+    end)
+  end)
+
 end)

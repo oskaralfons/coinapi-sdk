@@ -14,7 +14,7 @@
 
 goog.provide('API.Client.PositionsApi');
 
-goog.require('API.Client.position');
+goog.require('API.Client.Position');
 
 /**
  * @constructor
@@ -27,7 +27,7 @@ API.Client.PositionsApi = function($http, $httpParamSerializer, $injector) {
   /** @private {!string} */
   this.basePath_ = $injector.has('PositionsApiBasePath') ?
                    /** @type {!string} */ ($injector.get('PositionsApiBasePath')) :
-                   'http://localhost:8080/v1';
+                   'http://localhost:8080';
 
   /** @private {!Object<string, string>} */
   this.defaultHeaders_ = $injector.has('PositionsApiDefaultHeaders') ?
@@ -48,7 +48,7 @@ API.Client.PositionsApi.$inject = ['$http', '$httpParamSerializer', '$injector']
  * Returns all of your positions.
  * @param {!string=} opt_exchangeId Exchange name
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
- * @return {!angular.$q.Promise<!Array<!API.Client.position>>}
+ * @return {!angular.$q.Promise<!Array<!API.Client.Position>>}
  */
 API.Client.PositionsApi.prototype.v1PositionsGet = function(opt_exchangeId, opt_extraHttpRequestParams) {
   /** @const {string} */

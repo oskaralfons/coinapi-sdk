@@ -91,7 +91,7 @@ instance P.Show OEML-RESTConfig where
 --
 -- configHost:
 --
--- @http://localhost:8080/v1@
+-- @http://localhost:8080@
 --
 -- configUserAgent:
 --
@@ -101,7 +101,7 @@ newConfig :: IO OEML-RESTConfig
 newConfig = do
     logCxt <- initLogContext
     return $ OEML-RESTConfig
-        { configHost = "http://localhost:8080/v1"
+        { configHost = "http://localhost:8080"
         , configUserAgent = "oeml---rest/0.1.0.0"
         , configLogExecWithContext = runDefaultLogExecWithContext
         , configLogContext = logCxt

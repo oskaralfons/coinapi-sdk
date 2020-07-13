@@ -82,20 +82,14 @@ type Configuration struct {
 // NewConfiguration returns a new Configuration object
 func NewConfiguration() *Configuration {
 	cfg := &Configuration{
-		BasePath:      "http://localhost:8080/v1",
+		BasePath:      "http://localhost:8080",
 		DefaultHeader: make(map[string]string),
 		UserAgent:     "OpenAPI-Generator/1.0.0/go",
 		Debug:         false,
 		Servers:       []ServerConfiguration{
 			{
-				Url: "{server}/v1",
+				Url: "http://localhost:8080",
 				Description: "No description provided",
-				Variables: map[string]ServerVariable{
-					"server": ServerVariable{
-						Description: "No description provided",
-						DefaultValue: "http://localhost:8080",
-					},
-				},
 			},
 		},
 	}

@@ -1,6 +1,6 @@
 # BalancesApi
 
-All URIs are relative to */v1*
+All URIs are relative to **
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

@@ -7,11 +7,11 @@ api.instance <- OrdersApi$new()
 
 test_that("V1OrdersCancelAllPost", {
   # tests for V1OrdersCancelAllPost
-  # base path: http://localhost:8080/v1
-  # Cancel all order
-  # Cancel all existing order.
-  # @param CancelAllOrder  cancel.all.order   
-  # @return [MessagesOk]
+  # base path: http://localhost:8080
+  # Cancel all orders
+  # This request cancels all open orders across all or single specified exchange.
+  # @param OrderCancelAllRequest  order.cancel.all.request   
+  # @return [Message]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -19,11 +19,11 @@ test_that("V1OrdersCancelAllPost", {
 
 test_that("V1OrdersCancelPost", {
   # tests for V1OrdersCancelPost
-  # base path: http://localhost:8080/v1
+  # base path: http://localhost:8080
   # Cancel order
-  # Cancel an existing order, can be used to cancel margin, exchange, and derivative orders. You can cancel the order by the internal order ID or exchange order ID.
-  # @param CancelOrder  cancel.order   
-  # @return [OrderLive]
+  # This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+  # @param OrderCancelSingleRequest  order.cancel.single.request   
+  # @return [ExecutionReport]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -31,10 +31,10 @@ test_that("V1OrdersCancelPost", {
 
 test_that("V1OrdersGet", {
   # tests for V1OrdersGet
-  # base path: http://localhost:8080/v1
-  # Get orders
-  # List your current open orders.
-  # @param character  exchange.id  Exchange name  (optional)
+  # base path: http://localhost:8080
+  # Get all orders
+  # Get all current open orders across all or single specified exchange.
+  # @param character  exchange.id  Filter the output to the orders from the specific exchange.  (optional)
   # @return [array[Order]]
 
   # uncomment below to test the operation
@@ -43,11 +43,23 @@ test_that("V1OrdersGet", {
 
 test_that("V1OrdersPost", {
   # tests for V1OrdersPost
-  # base path: http://localhost:8080/v1
+  # base path: http://localhost:8080
   # Create new order
-  # You can place two types of orders: limit and market. Orders can only be placed if your account has sufficient funds.
+  # This request creating new order for the specific exchange.
   # @param NewOrder  new.order   
-  # @return [OrderLive]
+  # @return [ExecutionReport]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("V1OrdersStatusClientOrderIdGet", {
+  # tests for V1OrdersStatusClientOrderIdGet
+  # base path: http://localhost:8080
+  # Get order status
+  # Get the current order status for the specified order. The requested order can no longer be active.
+  # @param character  client.order.id  Order Client Id of the order for which the status is requested. 
+  # @return [ExecutionReport]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")

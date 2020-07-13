@@ -1,9 +1,9 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
 
-import 'package:openapi/model/order_status.dart';
-
 import 'package:openapi/model/time_in_force.dart';
+
+import 'package:openapi/model/ord_status.dart';
 
 part 'order_data.jser.dart';
 
@@ -29,10 +29,10 @@ class OrderData {
   
   @Alias('status', isNullable: false,
           
-             processor:  const OrderStatusFieldProcessor(),
+             processor:  const OrdStatusFieldProcessor(),
           
   )
-  final OrderStatus status;
+  final OrdStatus status;
   //enum statusEnum {  RECEIVED,  ROUTING,  ROUTED,  NEW,  PENDING_CANCEL,  PARTIALLY_FILLED,  FILLED,  CANCELED,  REJECTED,  }; /* History of order status changes */
   @Alias('time_order', isNullable: false,  )
   final List<List<String>> timeOrder;

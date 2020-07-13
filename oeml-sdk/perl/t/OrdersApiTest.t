@@ -33,16 +33,16 @@ isa_ok($api, 'WWW::OpenAPIClient::OrdersApi');
 # v1_orders_cancel_all_post test
 #
 {
-    my $cancel_all_order = undef; # replace NULL with a proper value
-    my $result = $api->v1_orders_cancel_all_post(cancel_all_order => $cancel_all_order);
+    my $order_cancel_all_request = undef; # replace NULL with a proper value
+    my $result = $api->v1_orders_cancel_all_post(order_cancel_all_request => $order_cancel_all_request);
 }
 
 #
 # v1_orders_cancel_post test
 #
 {
-    my $cancel_order = undef; # replace NULL with a proper value
-    my $result = $api->v1_orders_cancel_post(cancel_order => $cancel_order);
+    my $order_cancel_single_request = undef; # replace NULL with a proper value
+    my $result = $api->v1_orders_cancel_post(order_cancel_single_request => $order_cancel_single_request);
 }
 
 #
@@ -59,6 +59,14 @@ isa_ok($api, 'WWW::OpenAPIClient::OrdersApi');
 {
     my $new_order = undef; # replace NULL with a proper value
     my $result = $api->v1_orders_post(new_order => $new_order);
+}
+
+#
+# v1_orders_status_client_order_id_get test
+#
+{
+    my $client_order_id = undef; # replace NULL with a proper value
+    my $result = $api->v1_orders_status_client_order_id_get(client_order_id => $client_order_id);
 }
 
 

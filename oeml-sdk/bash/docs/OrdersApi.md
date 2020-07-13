@@ -1,21 +1,22 @@
 # OrdersApi
 
-All URIs are relative to */v1*
+All URIs are relative to **
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v1OrdersCancelAllPost**](OrdersApi.md#v1OrdersCancelAllPost) | **POST** /v1/orders/cancel/all | Cancel all order
+[**v1OrdersCancelAllPost**](OrdersApi.md#v1OrdersCancelAllPost) | **POST** /v1/orders/cancel/all | Cancel all orders
 [**v1OrdersCancelPost**](OrdersApi.md#v1OrdersCancelPost) | **POST** /v1/orders/cancel | Cancel order
-[**v1OrdersGet**](OrdersApi.md#v1OrdersGet) | **GET** /v1/orders | Get orders
+[**v1OrdersGet**](OrdersApi.md#v1OrdersGet) | **GET** /v1/orders | Get all orders
 [**v1OrdersPost**](OrdersApi.md#v1OrdersPost) | **POST** /v1/orders | Create new order
+[**v1OrdersStatusClientOrderIdGet**](OrdersApi.md#v1OrdersStatusClientOrderIdGet) | **GET** /v1/orders/status/{client_order_id} | Get order status
 
 
 
 ## v1OrdersCancelAllPost
 
-Cancel all order
+Cancel all orders
 
-Cancel all existing order.
+This request cancels all open orders across all or single specified exchange.
 
 ### Example
 
@@ -28,11 +29,11 @@ Cancel all existing order.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelAllOrder** | [**CancelAllOrder**](CancelAllOrder.md) |  |
+ **orderCancelAllRequest** | [**OrderCancelAllRequest**](OrderCancelAllRequest.md) |  |
 
 ### Return type
 
-[**MessagesOk**](MessagesOk.md)
+[**Message**](Message.md)
 
 ### Authorization
 
@@ -50,7 +51,7 @@ No authorization required
 
 Cancel order
 
-Cancel an existing order, can be used to cancel margin, exchange, and derivative orders. You can cancel the order by the internal order ID or exchange order ID.
+This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
 
 ### Example
 
@@ -63,11 +64,11 @@ Cancel an existing order, can be used to cancel margin, exchange, and derivative
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelOrder** | [**CancelOrder**](CancelOrder.md) |  |
+ **orderCancelSingleRequest** | [**OrderCancelSingleRequest**](OrderCancelSingleRequest.md) |  |
 
 ### Return type
 
-[**OrderLive**](OrderLive.md)
+[**ExecutionReport**](ExecutionReport.md)
 
 ### Authorization
 
@@ -83,9 +84,9 @@ No authorization required
 
 ## v1OrdersGet
 
-Get orders
+Get all orders
 
-List your current open orders.
+Get all current open orders across all or single specified exchange.
 
 ### Example
 
@@ -98,7 +99,7 @@ List your current open orders.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **exchangeId** | **string** | Exchange name | [optional] [default to null]
+ **exchangeId** | **string** | Filter the output to the orders from the specific exchange. | [optional] [default to null]
 
 ### Return type
 
@@ -120,7 +121,7 @@ No authorization required
 
 Create new order
 
-You can place two types of orders: limit and market. Orders can only be placed if your account has sufficient funds.
+This request creating new order for the specific exchange.
 
 ### Example
 
@@ -137,7 +138,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrderLive**](OrderLive.md)
+[**ExecutionReport**](ExecutionReport.md)
 
 ### Authorization
 
@@ -147,6 +148,41 @@ No authorization required
 
 - **Content-Type**: application/json
 - **Accept**: application/json, appliction/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## v1OrdersStatusClientOrderIdGet
+
+Get order status
+
+Get the current order status for the specified order. The requested order can no longer be active.
+
+### Example
+
+```bash
+ v1OrdersStatusClientOrderIdGet client_order_id=value
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **clientOrderId** | **string** | Order Client Id of the order for which the status is requested. | [default to null]
+
+### Return type
+
+[**ExecutionReport**](ExecutionReport.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not Applicable
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

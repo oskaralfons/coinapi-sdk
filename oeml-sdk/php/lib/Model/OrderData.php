@@ -49,7 +49,7 @@ class OrderData implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'order_data';
+    protected static $openAPIModelName = 'Order_data';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -63,7 +63,7 @@ class OrderData implements ModelInterface, ArrayAccess
         'exchange_order_id' => 'string',
         'amount_open' => 'float',
         'amount_filled' => 'float',
-        'status' => '\OpenAPI\Client\Model\OrderStatus',
+        'status' => '\OpenAPI\Client\Model\OrdStatus',
         'time_order' => 'string[][]',
         'error_message' => 'string',
         'client_order_id' => 'string',
@@ -520,7 +520,7 @@ class OrderData implements ModelInterface, ArrayAccess
     /**
      * Gets status
      *
-     * @return \OpenAPI\Client\Model\OrderStatus|null
+     * @return \OpenAPI\Client\Model\OrdStatus|null
      */
     public function getStatus()
     {
@@ -530,7 +530,7 @@ class OrderData implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param \OpenAPI\Client\Model\OrderStatus|null $status status
+     * @param \OpenAPI\Client\Model\OrdStatus|null $status status
      *
      * @return $this
      */

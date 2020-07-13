@@ -30,15 +30,16 @@ import "./openapi"
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost:8080/v1*
+All URIs are relative to *http://localhost:8080*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *BalancesApi* | [**V1BalancesGet**](docs/BalancesApi.md#v1balancesget) | **Get** /v1/balances | Get balances
-*OrdersApi* | [**V1OrdersCancelAllPost**](docs/OrdersApi.md#v1orderscancelallpost) | **Post** /v1/orders/cancel/all | Cancel all order
+*OrdersApi* | [**V1OrdersCancelAllPost**](docs/OrdersApi.md#v1orderscancelallpost) | **Post** /v1/orders/cancel/all | Cancel all orders
 *OrdersApi* | [**V1OrdersCancelPost**](docs/OrdersApi.md#v1orderscancelpost) | **Post** /v1/orders/cancel | Cancel order
-*OrdersApi* | [**V1OrdersGet**](docs/OrdersApi.md#v1ordersget) | **Get** /v1/orders | Get orders
+*OrdersApi* | [**V1OrdersGet**](docs/OrdersApi.md#v1ordersget) | **Get** /v1/orders | Get all orders
 *OrdersApi* | [**V1OrdersPost**](docs/OrdersApi.md#v1orderspost) | **Post** /v1/orders | Create new order
+*OrdersApi* | [**V1OrdersStatusClientOrderIdGet**](docs/OrdersApi.md#v1ordersstatusclientorderidget) | **Get** /v1/orders/status/{client_order_id} | Get order status
 *PositionsApi* | [**V1PositionsGet**](docs/PositionsApi.md#v1positionsget) | **Get** /v1/positions | Get positions
 
 
@@ -46,19 +47,18 @@ Class | Method | HTTP request | Description
 
  - [Balance](docs/Balance.md)
  - [BalanceData](docs/BalanceData.md)
- - [CancelAllOrder](docs/CancelAllOrder.md)
- - [CancelOrder](docs/CancelOrder.md)
- - [CreateOrder400](docs/CreateOrder400.md)
- - [Messages](docs/Messages.md)
- - [MessagesInfo](docs/MessagesInfo.md)
- - [MessagesOk](docs/MessagesOk.md)
+ - [CreateOrderValidationError](docs/CreateOrderValidationError.md)
+ - [ExecutionReport](docs/ExecutionReport.md)
+ - [Message](docs/Message.md)
  - [NewOrder](docs/NewOrder.md)
+ - [OrdStatus](docs/OrdStatus.md)
  - [Order](docs/Order.md)
+ - [OrderCancelAllRequest](docs/OrderCancelAllRequest.md)
+ - [OrderCancelSingleRequest](docs/OrderCancelSingleRequest.md)
  - [OrderData](docs/OrderData.md)
- - [OrderLive](docs/OrderLive.md)
- - [OrderStatus](docs/OrderStatus.md)
  - [Position](docs/Position.md)
  - [PositionData](docs/PositionData.md)
+ - [Severity](docs/Severity.md)
  - [TimeInForce](docs/TimeInForce.md)
 
 

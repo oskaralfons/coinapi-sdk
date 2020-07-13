@@ -31,6 +31,11 @@ namespace CoinAPI.OMS.REST.V1.Model
     public partial class OrderData :  IEquatable<OrderData>, IValidatableObject
     {
         /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public OrdStatus? Status { get; set; }
+        /// <summary>
         /// Buy or Sell
         /// </summary>
         /// <value>Buy or Sell</value>
@@ -78,6 +83,11 @@ namespace CoinAPI.OMS.REST.V1.Model
         /// <value>The order type.</value>
         [DataMember(Name="order_type", EmitDefaultValue=false)]
         public OrderTypeEnum? OrderType { get; set; }
+        /// <summary>
+        /// Gets or Sets TimeInForce
+        /// </summary>
+        [DataMember(Name="time_in_force", EmitDefaultValue=false)]
+        public TimeInForce? TimeInForce { get; set; }
         /// <summary>
         /// Defines ExecInst
         /// </summary>
@@ -133,7 +143,7 @@ namespace CoinAPI.OMS.REST.V1.Model
         /// <param name="timeInForce">timeInForce.</param>
         /// <param name="expireTime">Required for orders with time_in_force &#x3D; GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS.</param>
         /// <param name="execInst">Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; .</param>
-        public OrderData(string exchangeId = default(string), string id = default(string), string clientOrderIdFormatExchange = default(string), string exchangeOrderId = default(string), decimal amountOpen = default(decimal), decimal amountFilled = default(decimal), OrderStatus status = default(OrderStatus), List<List<string>> timeOrder = default(List<List<string>>), string errorMessage = default(string), string clientOrderId = default(string), string symbolExchange = default(string), string symbolCoinapi = default(string), decimal amountOrder = default(decimal), decimal price = default(decimal), SideEnum? side = default(SideEnum?), OrderTypeEnum? orderType = default(OrderTypeEnum?), TimeInForce timeInForce = default(TimeInForce), DateTime expireTime = default(DateTime), List<ExecInstEnum> execInst = default(List<ExecInstEnum>))
+        public OrderData(string exchangeId = default(string), string id = default(string), string clientOrderIdFormatExchange = default(string), string exchangeOrderId = default(string), decimal amountOpen = default(decimal), decimal amountFilled = default(decimal), OrdStatus? status = default(OrdStatus?), List<List<string>> timeOrder = default(List<List<string>>), string errorMessage = default(string), string clientOrderId = default(string), string symbolExchange = default(string), string symbolCoinapi = default(string), decimal amountOrder = default(decimal), decimal price = default(decimal), SideEnum? side = default(SideEnum?), OrderTypeEnum? orderType = default(OrderTypeEnum?), TimeInForce? timeInForce = default(TimeInForce?), DateTime expireTime = default(DateTime), List<ExecInstEnum> execInst = default(List<ExecInstEnum>))
         {
             this.ExchangeId = exchangeId;
             this.Id = id;
@@ -198,11 +208,6 @@ namespace CoinAPI.OMS.REST.V1.Model
         [DataMember(Name="amount_filled", EmitDefaultValue=false)]
         public decimal AmountFilled { get; set; }
 
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public OrderStatus Status { get; set; }
 
         /// <summary>
         /// History of order status changes
@@ -255,11 +260,6 @@ namespace CoinAPI.OMS.REST.V1.Model
 
 
 
-        /// <summary>
-        /// Gets or Sets TimeInForce
-        /// </summary>
-        [DataMember(Name="time_in_force", EmitDefaultValue=false)]
-        public TimeInForce TimeInForce { get; set; }
 
         /// <summary>
         /// Required for orders with time_in_force &#x3D; GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS

@@ -18,7 +18,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object PositionsApi {
 
-  def apply(baseUrl: String = "http://localhost:8080/v1") = new PositionsApi(baseUrl)
+  def apply(baseUrl: String = "http://localhost:8080") = new PositionsApi(baseUrl)
 }
 
 class PositionsApi(baseUrl: String) {

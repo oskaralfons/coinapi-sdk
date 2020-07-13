@@ -30,7 +30,7 @@ use Log::Any qw($log);
 use Date::Parse;
 use DateTime;
 
-use WWW::OpenAPIClient::Object::OrderStatus;
+use WWW::OpenAPIClient::Object::OrdStatus;
 use WWW::OpenAPIClient::Object::TimeInForce;
 
 use base ("Class::Accessor", "Class::Data::Inheritable");
@@ -206,7 +206,7 @@ __PACKAGE__->method_documentation({
         read_only => '',
             },
     'status' => {
-        datatype => 'OrderStatus',
+        datatype => 'OrdStatus',
         base_name => 'status',
         description => '',
         format => '',
@@ -305,7 +305,7 @@ __PACKAGE__->openapi_types( {
     'exchange_order_id' => 'string',
     'amount_open' => 'double',
     'amount_filled' => 'double',
-    'status' => 'OrderStatus',
+    'status' => 'OrdStatus',
     'time_order' => 'ARRAY[ARRAY[string]]',
     'error_message' => 'string',
     'client_order_id' => 'string',

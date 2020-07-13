@@ -1,4 +1,4 @@
-# position
+# Position
 
 ## Properties
 Name | Type | Description | Notes

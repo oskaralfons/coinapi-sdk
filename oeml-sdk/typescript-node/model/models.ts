@@ -1,37 +1,35 @@
 export * from './balance';
 export * from './balanceData';
-export * from './cancelAllOrder';
-export * from './cancelOrder';
-export * from './createOrder400';
-export * from './messages';
-export * from './messagesInfo';
-export * from './messagesOk';
+export * from './createOrderValidationError';
+export * from './executionReport';
+export * from './message';
 export * from './newOrder';
+export * from './ordStatus';
 export * from './order';
+export * from './orderCancelAllRequest';
+export * from './orderCancelSingleRequest';
 export * from './orderData';
-export * from './orderLive';
-export * from './orderStatus';
 export * from './position';
 export * from './positionData';
+export * from './severity';
 export * from './timeInForce';
 
 import localVarRequest = require('request');
 
 import { Balance } from './balance';
 import { BalanceData } from './balanceData';
-import { CancelAllOrder } from './cancelAllOrder';
-import { CancelOrder } from './cancelOrder';
-import { CreateOrder400 } from './createOrder400';
-import { Messages } from './messages';
-import { MessagesInfo } from './messagesInfo';
-import { MessagesOk } from './messagesOk';
+import { CreateOrderValidationError } from './createOrderValidationError';
+import { ExecutionReport } from './executionReport';
+import { Message } from './message';
 import { NewOrder } from './newOrder';
+import { OrdStatus } from './ordStatus';
 import { Order } from './order';
+import { OrderCancelAllRequest } from './orderCancelAllRequest';
+import { OrderCancelSingleRequest } from './orderCancelSingleRequest';
 import { OrderData } from './orderData';
-import { OrderLive } from './orderLive';
-import { OrderStatus } from './orderStatus';
 import { Position } from './position';
 import { PositionData } from './positionData';
+import { Severity } from './severity';
 import { TimeInForce } from './timeInForce';
 
 /* tslint:disable:no-unused-variable */
@@ -48,32 +46,31 @@ let primitives = [
 
 let enumsMap: {[index: string]: any} = {
         "BalanceData.UpdateOriginEnum": BalanceData.UpdateOriginEnum,
+        "ExecutionReport.SideEnum": ExecutionReport.SideEnum,
+        "ExecutionReport.OrderTypeEnum": ExecutionReport.OrderTypeEnum,
+        "ExecutionReport.ExecInstEnum": ExecutionReport.ExecInstEnum,
         "NewOrder.SideEnum": NewOrder.SideEnum,
         "NewOrder.OrderTypeEnum": NewOrder.OrderTypeEnum,
         "NewOrder.ExecInstEnum": NewOrder.ExecInstEnum,
+        "OrdStatus": OrdStatus,
         "OrderData.SideEnum": OrderData.SideEnum,
         "OrderData.OrderTypeEnum": OrderData.OrderTypeEnum,
         "OrderData.ExecInstEnum": OrderData.ExecInstEnum,
-        "OrderLive.SideEnum": OrderLive.SideEnum,
-        "OrderLive.OrderTypeEnum": OrderLive.OrderTypeEnum,
-        "OrderLive.ExecInstEnum": OrderLive.ExecInstEnum,
-        "OrderStatus": OrderStatus,
+        "Severity": Severity,
         "TimeInForce": TimeInForce,
 }
 
 let typeMap: {[index: string]: any} = {
     "Balance": Balance,
     "BalanceData": BalanceData,
-    "CancelAllOrder": CancelAllOrder,
-    "CancelOrder": CancelOrder,
-    "CreateOrder400": CreateOrder400,
-    "Messages": Messages,
-    "MessagesInfo": MessagesInfo,
-    "MessagesOk": MessagesOk,
+    "CreateOrderValidationError": CreateOrderValidationError,
+    "ExecutionReport": ExecutionReport,
+    "Message": Message,
     "NewOrder": NewOrder,
     "Order": Order,
+    "OrderCancelAllRequest": OrderCancelAllRequest,
+    "OrderCancelSingleRequest": OrderCancelSingleRequest,
     "OrderData": OrderData,
-    "OrderLive": OrderLive,
     "Position": Position,
     "PositionData": PositionData,
 }

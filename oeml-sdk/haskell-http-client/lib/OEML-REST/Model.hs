@@ -66,6 +66,9 @@ import qualified Prelude as P
 -- * Parameter newtypes
 
 
+-- ** ClientOrderId
+newtype ClientOrderId = ClientOrderId { unClientOrderId :: Text } deriving (P.Eq, P.Show)
+
 -- ** ExchangeId
 newtype ExchangeId = ExchangeId { unExchangeId :: Text } deriving (P.Eq, P.Show)
 
@@ -111,13 +114,13 @@ mkBalance =
 -- ** BalanceData
 -- | BalanceData
 data BalanceData = BalanceData
-  { balanceDataId :: !(Maybe Text) -- ^ "id" - symbol_exchange
-  , balanceDataSymbolExchange :: !(Maybe Text) -- ^ "symbol_exchange" - Currency code.
+  { balanceDataId :: !(Maybe Text) -- ^ "id" - Exchange identifier.
+  , balanceDataSymbolExchange :: !(Maybe Text) -- ^ "symbol_exchange" - Exchange currency code.
   , balanceDataSymbolCoinapi :: !(Maybe Text) -- ^ "symbol_coinapi" - CoinAPI currency code.
-  , balanceDataBalance :: !(Maybe Float) -- ^ "balance" - The current balance.
-  , balanceDataAvailable :: !(Maybe Float) -- ^ "available" - The amount that is available to trade.
-  , balanceDataLocked :: !(Maybe Float) -- ^ "locked" - Blocked funds.
-  , balanceDataUpdateOrigin :: !(Maybe E'UpdateOrigin) -- ^ "update_origin" - Source of last modification. 
+  , balanceDataBalance :: !(Maybe Float) -- ^ "balance" - Value of the current total currency balance on the exchange.
+  , balanceDataAvailable :: !(Maybe Float) -- ^ "available" - Value of the current available currency balance on the exchange that can be used as collateral.
+  , balanceDataLocked :: !(Maybe Float) -- ^ "locked" - Value of the current locked currency balance by the exchange.
+  , balanceDataUpdateOrigin :: !(Maybe E'UpdateOrigin) -- ^ "update_origin" - Source of the last modification. 
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON BalanceData
@@ -160,228 +163,196 @@ mkBalanceData =
   , balanceDataUpdateOrigin = Nothing
   }
 
--- ** CancelAllOrder
--- | CancelAllOrder
-data CancelAllOrder = CancelAllOrder
-  { cancelAllOrderExchangeId :: !(Maybe Text) -- ^ "exchange_id" - Exchange name
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON CancelAllOrder
-instance A.FromJSON CancelAllOrder where
-  parseJSON = A.withObject "CancelAllOrder" $ \o ->
-    CancelAllOrder
-      <$> (o .:? "exchange_id")
-
--- | ToJSON CancelAllOrder
-instance A.ToJSON CancelAllOrder where
-  toJSON CancelAllOrder {..} =
-   _omitNulls
-      [ "exchange_id" .= cancelAllOrderExchangeId
-      ]
-
-
--- | Construct a value of type 'CancelAllOrder' (by applying it's required fields, if any)
-mkCancelAllOrder
-  :: CancelAllOrder
-mkCancelAllOrder =
-  CancelAllOrder
-  { cancelAllOrderExchangeId = Nothing
-  }
-
--- ** CancelOrder
--- | CancelOrder
-data CancelOrder = CancelOrder
-  { cancelOrderExchangeId :: !(Maybe Text) -- ^ "exchange_id" - Exchange name
-  , cancelOrderExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - Order Id
-  , cancelOrderClientOrderId :: !(Maybe Text) -- ^ "client_order_id" - Client order Id
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON CancelOrder
-instance A.FromJSON CancelOrder where
-  parseJSON = A.withObject "CancelOrder" $ \o ->
-    CancelOrder
-      <$> (o .:? "exchange_id")
-      <*> (o .:? "exchange_order_id")
-      <*> (o .:? "client_order_id")
-
--- | ToJSON CancelOrder
-instance A.ToJSON CancelOrder where
-  toJSON CancelOrder {..} =
-   _omitNulls
-      [ "exchange_id" .= cancelOrderExchangeId
-      , "exchange_order_id" .= cancelOrderExchangeOrderId
-      , "client_order_id" .= cancelOrderClientOrderId
-      ]
-
-
--- | Construct a value of type 'CancelOrder' (by applying it's required fields, if any)
-mkCancelOrder
-  :: CancelOrder
-mkCancelOrder =
-  CancelOrder
-  { cancelOrderExchangeId = Nothing
-  , cancelOrderExchangeOrderId = Nothing
-  , cancelOrderClientOrderId = Nothing
-  }
-
--- ** CreateOrder400
--- | CreateOrder400
+-- ** CreateOrderValidationError
+-- | CreateOrderValidationError
 -- Create order validation error (response)
 -- 
-data CreateOrder400 = CreateOrder400
-  { createOrder400Type :: !(Maybe Text) -- ^ "type"
-  , createOrder400Title :: !(Maybe Text) -- ^ "title"
-  , createOrder400Status :: !(Maybe Double) -- ^ "status"
-  , createOrder400TraceId :: !(Maybe Text) -- ^ "traceId"
-  , createOrder400Errors :: !(Maybe Text) -- ^ "errors"
+data CreateOrderValidationError = CreateOrderValidationError
+  { createOrderValidationErrorType :: !(Maybe Text) -- ^ "type"
+  , createOrderValidationErrorTitle :: !(Maybe Text) -- ^ "title"
+  , createOrderValidationErrorStatus :: !(Maybe Double) -- ^ "status"
+  , createOrderValidationErrorTraceId :: !(Maybe Text) -- ^ "traceId"
+  , createOrderValidationErrorErrors :: !(Maybe Text) -- ^ "errors"
   } deriving (P.Show, P.Eq, P.Typeable)
 
--- | FromJSON CreateOrder400
-instance A.FromJSON CreateOrder400 where
-  parseJSON = A.withObject "CreateOrder400" $ \o ->
-    CreateOrder400
+-- | FromJSON CreateOrderValidationError
+instance A.FromJSON CreateOrderValidationError where
+  parseJSON = A.withObject "CreateOrderValidationError" $ \o ->
+    CreateOrderValidationError
       <$> (o .:? "type")
       <*> (o .:? "title")
       <*> (o .:? "status")
       <*> (o .:? "traceId")
       <*> (o .:? "errors")
 
--- | ToJSON CreateOrder400
-instance A.ToJSON CreateOrder400 where
-  toJSON CreateOrder400 {..} =
+-- | ToJSON CreateOrderValidationError
+instance A.ToJSON CreateOrderValidationError where
+  toJSON CreateOrderValidationError {..} =
    _omitNulls
-      [ "type" .= createOrder400Type
-      , "title" .= createOrder400Title
-      , "status" .= createOrder400Status
-      , "traceId" .= createOrder400TraceId
-      , "errors" .= createOrder400Errors
+      [ "type" .= createOrderValidationErrorType
+      , "title" .= createOrderValidationErrorTitle
+      , "status" .= createOrderValidationErrorStatus
+      , "traceId" .= createOrderValidationErrorTraceId
+      , "errors" .= createOrderValidationErrorErrors
       ]
 
 
--- | Construct a value of type 'CreateOrder400' (by applying it's required fields, if any)
-mkCreateOrder400
-  :: CreateOrder400
-mkCreateOrder400 =
-  CreateOrder400
-  { createOrder400Type = Nothing
-  , createOrder400Title = Nothing
-  , createOrder400Status = Nothing
-  , createOrder400TraceId = Nothing
-  , createOrder400Errors = Nothing
+-- | Construct a value of type 'CreateOrderValidationError' (by applying it's required fields, if any)
+mkCreateOrderValidationError
+  :: CreateOrderValidationError
+mkCreateOrderValidationError =
+  CreateOrderValidationError
+  { createOrderValidationErrorType = Nothing
+  , createOrderValidationErrorTitle = Nothing
+  , createOrderValidationErrorStatus = Nothing
+  , createOrderValidationErrorTraceId = Nothing
+  , createOrderValidationErrorErrors = Nothing
   }
 
--- ** Messages
--- | Messages
--- Message
--- 
-data Messages = Messages
-  { messagesType :: !(Maybe Text) -- ^ "type" - Type of message
-  , messagesExchangeId :: !(Maybe Text) -- ^ "exchange_id" - Exchange name
-  , messagesMessage :: !(Maybe Text) -- ^ "message" - Message
+-- ** ExecutionReport
+-- | ExecutionReport
+data ExecutionReport = ExecutionReport
+  { executionReportType :: !(Maybe Text) -- ^ "type" - Result type name
+  , executionReportExchangeId :: !(Maybe Text) -- ^ "exchange_id" - Exchange name
+  , executionReportId :: !(Maybe Text) -- ^ "id" - Client unique identifier for the trade.
+  , executionReportClientOrderIdFormatExchange :: !(Maybe Text) -- ^ "client_order_id_format_exchange" - Hash client id
+  , executionReportExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - Exchange order id
+  , executionReportAmountOpen :: !(Maybe Double) -- ^ "amount_open" - Amount open
+  , executionReportAmountFilled :: !(Maybe Double) -- ^ "amount_filled" - Amount filled
+  , executionReportStatus :: !(Maybe OrdStatus) -- ^ "status"
+  , executionReportTimeOrder :: !(Maybe [[Text]]) -- ^ "time_order" - History of order status changes
+  , executionReportErrorMessage :: !(Maybe Text) -- ^ "error_message" - Error message
+  , executionReportClientOrderId :: !(Maybe Text) -- ^ "client_order_id" - Client unique identifier for the trade.
+  , executionReportSymbolExchange :: !(Maybe Text) -- ^ "symbol_exchange" - The symbol of the order.
+  , executionReportSymbolCoinapi :: !(Maybe Text) -- ^ "symbol_coinapi" - The CoinAPI symbol of the order.
+  , executionReportAmountOrder :: !(Maybe Double) -- ^ "amount_order" - Quoted decimal amount to purchase.
+  , executionReportPrice :: !(Maybe Double) -- ^ "price" - Quoted decimal amount to spend per unit.
+  , executionReportSide :: !(Maybe E'Side) -- ^ "side" - Buy or Sell
+  , executionReportOrderType :: !(Maybe E'OrderType) -- ^ "order_type" - The order type.
+  , executionReportTimeInForce :: !(Maybe TimeInForce) -- ^ "time_in_force"
+  , executionReportExpireTime :: !(Maybe Date) -- ^ "expire_time" - Required for orders with time_in_force &#x3D; GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
+  , executionReportExecInst :: !(Maybe [E'ExecInst]) -- ^ "exec_inst" - Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; 
   } deriving (P.Show, P.Eq, P.Typeable)
 
--- | FromJSON Messages
-instance A.FromJSON Messages where
-  parseJSON = A.withObject "Messages" $ \o ->
-    Messages
+-- | FromJSON ExecutionReport
+instance A.FromJSON ExecutionReport where
+  parseJSON = A.withObject "ExecutionReport" $ \o ->
+    ExecutionReport
       <$> (o .:? "type")
       <*> (o .:? "exchange_id")
-      <*> (o .:? "message")
-
--- | ToJSON Messages
-instance A.ToJSON Messages where
-  toJSON Messages {..} =
-   _omitNulls
-      [ "type" .= messagesType
-      , "exchange_id" .= messagesExchangeId
-      , "message" .= messagesMessage
-      ]
-
-
--- | Construct a value of type 'Messages' (by applying it's required fields, if any)
-mkMessages
-  :: Messages
-mkMessages =
-  Messages
-  { messagesType = Nothing
-  , messagesExchangeId = Nothing
-  , messagesMessage = Nothing
-  }
-
--- ** MessagesInfo
--- | MessagesInfo
--- Message info
--- 
-data MessagesInfo = MessagesInfo
-  { messagesInfoType :: !(Maybe Text) -- ^ "type" - Type of message
-  , messagesInfoExchangeId :: !(Maybe Text) -- ^ "exchange_id" - Exchange name
-  , messagesInfoErrorMessage :: !(Maybe Text) -- ^ "error_message" - Error message
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON MessagesInfo
-instance A.FromJSON MessagesInfo where
-  parseJSON = A.withObject "MessagesInfo" $ \o ->
-    MessagesInfo
-      <$> (o .:? "type")
-      <*> (o .:? "exchange_id")
+      <*> (o .:? "id")
+      <*> (o .:? "client_order_id_format_exchange")
+      <*> (o .:? "exchange_order_id")
+      <*> (o .:? "amount_open")
+      <*> (o .:? "amount_filled")
+      <*> (o .:? "status")
+      <*> (o .:? "time_order")
       <*> (o .:? "error_message")
+      <*> (o .:? "client_order_id")
+      <*> (o .:? "symbol_exchange")
+      <*> (o .:? "symbol_coinapi")
+      <*> (o .:? "amount_order")
+      <*> (o .:? "price")
+      <*> (o .:? "side")
+      <*> (o .:? "order_type")
+      <*> (o .:? "time_in_force")
+      <*> (o .:? "expire_time")
+      <*> (o .:? "exec_inst")
 
--- | ToJSON MessagesInfo
-instance A.ToJSON MessagesInfo where
-  toJSON MessagesInfo {..} =
+-- | ToJSON ExecutionReport
+instance A.ToJSON ExecutionReport where
+  toJSON ExecutionReport {..} =
    _omitNulls
-      [ "type" .= messagesInfoType
-      , "exchange_id" .= messagesInfoExchangeId
-      , "error_message" .= messagesInfoErrorMessage
+      [ "type" .= executionReportType
+      , "exchange_id" .= executionReportExchangeId
+      , "id" .= executionReportId
+      , "client_order_id_format_exchange" .= executionReportClientOrderIdFormatExchange
+      , "exchange_order_id" .= executionReportExchangeOrderId
+      , "amount_open" .= executionReportAmountOpen
+      , "amount_filled" .= executionReportAmountFilled
+      , "status" .= executionReportStatus
+      , "time_order" .= executionReportTimeOrder
+      , "error_message" .= executionReportErrorMessage
+      , "client_order_id" .= executionReportClientOrderId
+      , "symbol_exchange" .= executionReportSymbolExchange
+      , "symbol_coinapi" .= executionReportSymbolCoinapi
+      , "amount_order" .= executionReportAmountOrder
+      , "price" .= executionReportPrice
+      , "side" .= executionReportSide
+      , "order_type" .= executionReportOrderType
+      , "time_in_force" .= executionReportTimeInForce
+      , "expire_time" .= executionReportExpireTime
+      , "exec_inst" .= executionReportExecInst
       ]
 
 
--- | Construct a value of type 'MessagesInfo' (by applying it's required fields, if any)
-mkMessagesInfo
-  :: MessagesInfo
-mkMessagesInfo =
-  MessagesInfo
-  { messagesInfoType = Nothing
-  , messagesInfoExchangeId = Nothing
-  , messagesInfoErrorMessage = Nothing
+-- | Construct a value of type 'ExecutionReport' (by applying it's required fields, if any)
+mkExecutionReport
+  :: ExecutionReport
+mkExecutionReport =
+  ExecutionReport
+  { executionReportType = Nothing
+  , executionReportExchangeId = Nothing
+  , executionReportId = Nothing
+  , executionReportClientOrderIdFormatExchange = Nothing
+  , executionReportExchangeOrderId = Nothing
+  , executionReportAmountOpen = Nothing
+  , executionReportAmountFilled = Nothing
+  , executionReportStatus = Nothing
+  , executionReportTimeOrder = Nothing
+  , executionReportErrorMessage = Nothing
+  , executionReportClientOrderId = Nothing
+  , executionReportSymbolExchange = Nothing
+  , executionReportSymbolCoinapi = Nothing
+  , executionReportAmountOrder = Nothing
+  , executionReportPrice = Nothing
+  , executionReportSide = Nothing
+  , executionReportOrderType = Nothing
+  , executionReportTimeInForce = Nothing
+  , executionReportExpireTime = Nothing
+  , executionReportExecInst = Nothing
   }
 
--- ** MessagesOk
--- | MessagesOk
--- Message ok
+-- ** Message
+-- | Message
+-- Success or error message carrier.
 -- 
-data MessagesOk = MessagesOk
-  { messagesOkType :: !(Maybe Text) -- ^ "type" - Type of message
-  , messagesOkExchangeId :: !(Maybe Text) -- ^ "exchange_id" - Exchange name
-  , messagesOkMessage :: !(Maybe Text) -- ^ "message" - Message
+data Message = Message
+  { messageType :: !(Maybe Text) -- ^ "type" - Type of message.
+  , messageSeverity :: !(Maybe Severity) -- ^ "severity"
+  , messageExchangeId :: !(Maybe Text) -- ^ "exchange_id" - If message related exchange then identifier of this exchange.
+  , messageMessage :: !(Maybe Text) -- ^ "message" - Sucess message
   } deriving (P.Show, P.Eq, P.Typeable)
 
--- | FromJSON MessagesOk
-instance A.FromJSON MessagesOk where
-  parseJSON = A.withObject "MessagesOk" $ \o ->
-    MessagesOk
+-- | FromJSON Message
+instance A.FromJSON Message where
+  parseJSON = A.withObject "Message" $ \o ->
+    Message
       <$> (o .:? "type")
+      <*> (o .:? "severity")
       <*> (o .:? "exchange_id")
       <*> (o .:? "message")
 
--- | ToJSON MessagesOk
-instance A.ToJSON MessagesOk where
-  toJSON MessagesOk {..} =
+-- | ToJSON Message
+instance A.ToJSON Message where
+  toJSON Message {..} =
    _omitNulls
-      [ "type" .= messagesOkType
-      , "exchange_id" .= messagesOkExchangeId
-      , "message" .= messagesOkMessage
+      [ "type" .= messageType
+      , "severity" .= messageSeverity
+      , "exchange_id" .= messageExchangeId
+      , "message" .= messageMessage
       ]
 
 
--- | Construct a value of type 'MessagesOk' (by applying it's required fields, if any)
-mkMessagesOk
-  :: MessagesOk
-mkMessagesOk =
-  MessagesOk
-  { messagesOkType = Nothing
-  , messagesOkExchangeId = Nothing
-  , messagesOkMessage = Nothing
+-- | Construct a value of type 'Message' (by applying it's required fields, if any)
+mkMessage
+  :: Message
+mkMessage =
+  Message
+  { messageType = Nothing
+  , messageSeverity = Nothing
+  , messageExchangeId = Nothing
+  , messageMessage = Nothing
   }
 
 -- ** NewOrder
@@ -488,6 +459,71 @@ mkOrder =
   , orderData = Nothing
   }
 
+-- ** OrderCancelAllRequest
+-- | OrderCancelAllRequest
+data OrderCancelAllRequest = OrderCancelAllRequest
+  { orderCancelAllRequestExchangeId :: !(Text) -- ^ /Required/ "exchange_id" - Exchange identifier from which active orders should be canceled.
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON OrderCancelAllRequest
+instance A.FromJSON OrderCancelAllRequest where
+  parseJSON = A.withObject "OrderCancelAllRequest" $ \o ->
+    OrderCancelAllRequest
+      <$> (o .:  "exchange_id")
+
+-- | ToJSON OrderCancelAllRequest
+instance A.ToJSON OrderCancelAllRequest where
+  toJSON OrderCancelAllRequest {..} =
+   _omitNulls
+      [ "exchange_id" .= orderCancelAllRequestExchangeId
+      ]
+
+
+-- | Construct a value of type 'OrderCancelAllRequest' (by applying it's required fields, if any)
+mkOrderCancelAllRequest
+  :: Text -- ^ 'orderCancelAllRequestExchangeId': Exchange identifier from which active orders should be canceled.
+  -> OrderCancelAllRequest
+mkOrderCancelAllRequest orderCancelAllRequestExchangeId =
+  OrderCancelAllRequest
+  { orderCancelAllRequestExchangeId
+  }
+
+-- ** OrderCancelSingleRequest
+-- | OrderCancelSingleRequest
+data OrderCancelSingleRequest = OrderCancelSingleRequest
+  { orderCancelSingleRequestExchangeId :: !(Maybe Text) -- ^ "exchange_id" - Exchange name
+  , orderCancelSingleRequestExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - Order Id
+  , orderCancelSingleRequestClientOrderId :: !(Maybe Text) -- ^ "client_order_id" - Client order Id
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON OrderCancelSingleRequest
+instance A.FromJSON OrderCancelSingleRequest where
+  parseJSON = A.withObject "OrderCancelSingleRequest" $ \o ->
+    OrderCancelSingleRequest
+      <$> (o .:? "exchange_id")
+      <*> (o .:? "exchange_order_id")
+      <*> (o .:? "client_order_id")
+
+-- | ToJSON OrderCancelSingleRequest
+instance A.ToJSON OrderCancelSingleRequest where
+  toJSON OrderCancelSingleRequest {..} =
+   _omitNulls
+      [ "exchange_id" .= orderCancelSingleRequestExchangeId
+      , "exchange_order_id" .= orderCancelSingleRequestExchangeOrderId
+      , "client_order_id" .= orderCancelSingleRequestClientOrderId
+      ]
+
+
+-- | Construct a value of type 'OrderCancelSingleRequest' (by applying it's required fields, if any)
+mkOrderCancelSingleRequest
+  :: OrderCancelSingleRequest
+mkOrderCancelSingleRequest =
+  OrderCancelSingleRequest
+  { orderCancelSingleRequestExchangeId = Nothing
+  , orderCancelSingleRequestExchangeOrderId = Nothing
+  , orderCancelSingleRequestClientOrderId = Nothing
+  }
+
 -- ** OrderData
 -- | OrderData
 data OrderData = OrderData
@@ -497,7 +533,7 @@ data OrderData = OrderData
   , orderDataExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - Exchange order id
   , orderDataAmountOpen :: !(Maybe Double) -- ^ "amount_open" - Amount open
   , orderDataAmountFilled :: !(Maybe Double) -- ^ "amount_filled" - Amount filled
-  , orderDataStatus :: !(Maybe OrderStatus) -- ^ "status"
+  , orderDataStatus :: !(Maybe OrdStatus) -- ^ "status"
   , orderDataTimeOrder :: !(Maybe [[Text]]) -- ^ "time_order" - History of order status changes
   , orderDataErrorMessage :: !(Maybe Text) -- ^ "error_message" - Error message
   , orderDataClientOrderId :: !(Maybe Text) -- ^ "client_order_id" - Client unique identifier for the trade.
@@ -586,110 +622,6 @@ mkOrderData =
   , orderDataTimeInForce = Nothing
   , orderDataExpireTime = Nothing
   , orderDataExecInst = Nothing
-  }
-
--- ** OrderLive
--- | OrderLive
-data OrderLive = OrderLive
-  { orderLiveType :: !(Maybe Text) -- ^ "type" - Result type name
-  , orderLiveExchangeId :: !(Maybe Text) -- ^ "exchange_id" - Exchange name
-  , orderLiveId :: !(Maybe Text) -- ^ "id" - Client unique identifier for the trade.
-  , orderLiveClientOrderIdFormatExchange :: !(Maybe Text) -- ^ "client_order_id_format_exchange" - Hash client id
-  , orderLiveExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - Exchange order id
-  , orderLiveAmountOpen :: !(Maybe Double) -- ^ "amount_open" - Amount open
-  , orderLiveAmountFilled :: !(Maybe Double) -- ^ "amount_filled" - Amount filled
-  , orderLiveStatus :: !(Maybe OrderStatus) -- ^ "status"
-  , orderLiveTimeOrder :: !(Maybe [[Text]]) -- ^ "time_order" - History of order status changes
-  , orderLiveErrorMessage :: !(Maybe Text) -- ^ "error_message" - Error message
-  , orderLiveClientOrderId :: !(Maybe Text) -- ^ "client_order_id" - Client unique identifier for the trade.
-  , orderLiveSymbolExchange :: !(Maybe Text) -- ^ "symbol_exchange" - The symbol of the order.
-  , orderLiveSymbolCoinapi :: !(Maybe Text) -- ^ "symbol_coinapi" - The CoinAPI symbol of the order.
-  , orderLiveAmountOrder :: !(Maybe Double) -- ^ "amount_order" - Quoted decimal amount to purchase.
-  , orderLivePrice :: !(Maybe Double) -- ^ "price" - Quoted decimal amount to spend per unit.
-  , orderLiveSide :: !(Maybe E'Side) -- ^ "side" - Buy or Sell
-  , orderLiveOrderType :: !(Maybe E'OrderType) -- ^ "order_type" - The order type.
-  , orderLiveTimeInForce :: !(Maybe TimeInForce) -- ^ "time_in_force"
-  , orderLiveExpireTime :: !(Maybe Date) -- ^ "expire_time" - Required for orders with time_in_force &#x3D; GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
-  , orderLiveExecInst :: !(Maybe [E'ExecInst]) -- ^ "exec_inst" - Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; 
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON OrderLive
-instance A.FromJSON OrderLive where
-  parseJSON = A.withObject "OrderLive" $ \o ->
-    OrderLive
-      <$> (o .:? "type")
-      <*> (o .:? "exchange_id")
-      <*> (o .:? "id")
-      <*> (o .:? "client_order_id_format_exchange")
-      <*> (o .:? "exchange_order_id")
-      <*> (o .:? "amount_open")
-      <*> (o .:? "amount_filled")
-      <*> (o .:? "status")
-      <*> (o .:? "time_order")
-      <*> (o .:? "error_message")
-      <*> (o .:? "client_order_id")
-      <*> (o .:? "symbol_exchange")
-      <*> (o .:? "symbol_coinapi")
-      <*> (o .:? "amount_order")
-      <*> (o .:? "price")
-      <*> (o .:? "side")
-      <*> (o .:? "order_type")
-      <*> (o .:? "time_in_force")
-      <*> (o .:? "expire_time")
-      <*> (o .:? "exec_inst")
-
--- | ToJSON OrderLive
-instance A.ToJSON OrderLive where
-  toJSON OrderLive {..} =
-   _omitNulls
-      [ "type" .= orderLiveType
-      , "exchange_id" .= orderLiveExchangeId
-      , "id" .= orderLiveId
-      , "client_order_id_format_exchange" .= orderLiveClientOrderIdFormatExchange
-      , "exchange_order_id" .= orderLiveExchangeOrderId
-      , "amount_open" .= orderLiveAmountOpen
-      , "amount_filled" .= orderLiveAmountFilled
-      , "status" .= orderLiveStatus
-      , "time_order" .= orderLiveTimeOrder
-      , "error_message" .= orderLiveErrorMessage
-      , "client_order_id" .= orderLiveClientOrderId
-      , "symbol_exchange" .= orderLiveSymbolExchange
-      , "symbol_coinapi" .= orderLiveSymbolCoinapi
-      , "amount_order" .= orderLiveAmountOrder
-      , "price" .= orderLivePrice
-      , "side" .= orderLiveSide
-      , "order_type" .= orderLiveOrderType
-      , "time_in_force" .= orderLiveTimeInForce
-      , "expire_time" .= orderLiveExpireTime
-      , "exec_inst" .= orderLiveExecInst
-      ]
-
-
--- | Construct a value of type 'OrderLive' (by applying it's required fields, if any)
-mkOrderLive
-  :: OrderLive
-mkOrderLive =
-  OrderLive
-  { orderLiveType = Nothing
-  , orderLiveExchangeId = Nothing
-  , orderLiveId = Nothing
-  , orderLiveClientOrderIdFormatExchange = Nothing
-  , orderLiveExchangeOrderId = Nothing
-  , orderLiveAmountOpen = Nothing
-  , orderLiveAmountFilled = Nothing
-  , orderLiveStatus = Nothing
-  , orderLiveTimeOrder = Nothing
-  , orderLiveErrorMessage = Nothing
-  , orderLiveClientOrderId = Nothing
-  , orderLiveSymbolExchange = Nothing
-  , orderLiveSymbolCoinapi = Nothing
-  , orderLiveAmountOrder = Nothing
-  , orderLivePrice = Nothing
-  , orderLiveSide = Nothing
-  , orderLiveOrderType = Nothing
-  , orderLiveTimeInForce = Nothing
-  , orderLiveExpireTime = Nothing
-  , orderLiveExecInst = Nothing
   }
 
 -- ** Position
@@ -889,7 +821,7 @@ toE'Side = \case
 -- ** E'UpdateOrigin
 
 -- | Enum of 'Text' . 
--- Source of last modification. 
+-- Source of the last modification. 
 data E'UpdateOrigin
   = E'UpdateOrigin'INITIALIZATION -- ^ @"INITIALIZATION"@
   | E'UpdateOrigin'BALANCE_MANAGER -- ^ @"BALANCE_MANAGER"@
@@ -918,54 +850,85 @@ toE'UpdateOrigin = \case
   s -> P.Left $ "toE'UpdateOrigin: enum parse failure: " P.++ P.show s
 
 
--- ** OrderStatus
+-- ** OrdStatus
 
 -- | Enum of 'Text' . 
 -- Order statuses and the lifecycle are documented in the separate section: <a href=\"#oeml-order-lifecycle\">OEML / Starter Guide / Order Lifecycle</a> 
-data OrderStatus
-  = OrderStatus'RECEIVED -- ^ @"RECEIVED"@
-  | OrderStatus'ROUTING -- ^ @"ROUTING"@
-  | OrderStatus'ROUTED -- ^ @"ROUTED"@
-  | OrderStatus'NEW -- ^ @"NEW"@
-  | OrderStatus'PENDING_CANCEL -- ^ @"PENDING_CANCEL"@
-  | OrderStatus'PARTIALLY_FILLED -- ^ @"PARTIALLY_FILLED"@
-  | OrderStatus'FILLED -- ^ @"FILLED"@
-  | OrderStatus'CANCELED -- ^ @"CANCELED"@
-  | OrderStatus'REJECTED -- ^ @"REJECTED"@
+data OrdStatus
+  = OrdStatus'RECEIVED -- ^ @"RECEIVED"@
+  | OrdStatus'ROUTING -- ^ @"ROUTING"@
+  | OrdStatus'ROUTED -- ^ @"ROUTED"@
+  | OrdStatus'NEW -- ^ @"NEW"@
+  | OrdStatus'PENDING_CANCEL -- ^ @"PENDING_CANCEL"@
+  | OrdStatus'PARTIALLY_FILLED -- ^ @"PARTIALLY_FILLED"@
+  | OrdStatus'FILLED -- ^ @"FILLED"@
+  | OrdStatus'CANCELED -- ^ @"CANCELED"@
+  | OrdStatus'REJECTED -- ^ @"REJECTED"@
   deriving (P.Show, P.Eq, P.Typeable, P.Ord, P.Bounded, P.Enum)
 
-instance A.ToJSON OrderStatus where toJSON = A.toJSON . fromOrderStatus
-instance A.FromJSON OrderStatus where parseJSON o = P.either P.fail (pure . P.id) . toOrderStatus =<< A.parseJSON o
-instance WH.ToHttpApiData OrderStatus where toQueryParam = WH.toQueryParam . fromOrderStatus
-instance WH.FromHttpApiData OrderStatus where parseQueryParam o = WH.parseQueryParam o >>= P.left T.pack . toOrderStatus
-instance MimeRender MimeMultipartFormData OrderStatus where mimeRender _ = mimeRenderDefaultMultipartFormData
+instance A.ToJSON OrdStatus where toJSON = A.toJSON . fromOrdStatus
+instance A.FromJSON OrdStatus where parseJSON o = P.either P.fail (pure . P.id) . toOrdStatus =<< A.parseJSON o
+instance WH.ToHttpApiData OrdStatus where toQueryParam = WH.toQueryParam . fromOrdStatus
+instance WH.FromHttpApiData OrdStatus where parseQueryParam o = WH.parseQueryParam o >>= P.left T.pack . toOrdStatus
+instance MimeRender MimeMultipartFormData OrdStatus where mimeRender _ = mimeRenderDefaultMultipartFormData
 
--- | unwrap 'OrderStatus' enum
-fromOrderStatus :: OrderStatus -> Text
-fromOrderStatus = \case
-  OrderStatus'RECEIVED -> "RECEIVED"
-  OrderStatus'ROUTING -> "ROUTING"
-  OrderStatus'ROUTED -> "ROUTED"
-  OrderStatus'NEW -> "NEW"
-  OrderStatus'PENDING_CANCEL -> "PENDING_CANCEL"
-  OrderStatus'PARTIALLY_FILLED -> "PARTIALLY_FILLED"
-  OrderStatus'FILLED -> "FILLED"
-  OrderStatus'CANCELED -> "CANCELED"
-  OrderStatus'REJECTED -> "REJECTED"
+-- | unwrap 'OrdStatus' enum
+fromOrdStatus :: OrdStatus -> Text
+fromOrdStatus = \case
+  OrdStatus'RECEIVED -> "RECEIVED"
+  OrdStatus'ROUTING -> "ROUTING"
+  OrdStatus'ROUTED -> "ROUTED"
+  OrdStatus'NEW -> "NEW"
+  OrdStatus'PENDING_CANCEL -> "PENDING_CANCEL"
+  OrdStatus'PARTIALLY_FILLED -> "PARTIALLY_FILLED"
+  OrdStatus'FILLED -> "FILLED"
+  OrdStatus'CANCELED -> "CANCELED"
+  OrdStatus'REJECTED -> "REJECTED"
 
--- | parse 'OrderStatus' enum
-toOrderStatus :: Text -> P.Either String OrderStatus
-toOrderStatus = \case
-  "RECEIVED" -> P.Right OrderStatus'RECEIVED
-  "ROUTING" -> P.Right OrderStatus'ROUTING
-  "ROUTED" -> P.Right OrderStatus'ROUTED
-  "NEW" -> P.Right OrderStatus'NEW
-  "PENDING_CANCEL" -> P.Right OrderStatus'PENDING_CANCEL
-  "PARTIALLY_FILLED" -> P.Right OrderStatus'PARTIALLY_FILLED
-  "FILLED" -> P.Right OrderStatus'FILLED
-  "CANCELED" -> P.Right OrderStatus'CANCELED
-  "REJECTED" -> P.Right OrderStatus'REJECTED
-  s -> P.Left $ "toOrderStatus: enum parse failure: " P.++ P.show s
+-- | parse 'OrdStatus' enum
+toOrdStatus :: Text -> P.Either String OrdStatus
+toOrdStatus = \case
+  "RECEIVED" -> P.Right OrdStatus'RECEIVED
+  "ROUTING" -> P.Right OrdStatus'ROUTING
+  "ROUTED" -> P.Right OrdStatus'ROUTED
+  "NEW" -> P.Right OrdStatus'NEW
+  "PENDING_CANCEL" -> P.Right OrdStatus'PENDING_CANCEL
+  "PARTIALLY_FILLED" -> P.Right OrdStatus'PARTIALLY_FILLED
+  "FILLED" -> P.Right OrdStatus'FILLED
+  "CANCELED" -> P.Right OrdStatus'CANCELED
+  "REJECTED" -> P.Right OrdStatus'REJECTED
+  s -> P.Left $ "toOrdStatus: enum parse failure: " P.++ P.show s
+
+
+-- ** Severity
+
+-- | Enum of 'Text'
+data Severity
+  = Severity'INFO -- ^ @"INFO"@
+  | Severity'WARNING -- ^ @"WARNING"@
+  | Severity'ERROR -- ^ @"ERROR"@
+  deriving (P.Show, P.Eq, P.Typeable, P.Ord, P.Bounded, P.Enum)
+
+instance A.ToJSON Severity where toJSON = A.toJSON . fromSeverity
+instance A.FromJSON Severity where parseJSON o = P.either P.fail (pure . P.id) . toSeverity =<< A.parseJSON o
+instance WH.ToHttpApiData Severity where toQueryParam = WH.toQueryParam . fromSeverity
+instance WH.FromHttpApiData Severity where parseQueryParam o = WH.parseQueryParam o >>= P.left T.pack . toSeverity
+instance MimeRender MimeMultipartFormData Severity where mimeRender _ = mimeRenderDefaultMultipartFormData
+
+-- | unwrap 'Severity' enum
+fromSeverity :: Severity -> Text
+fromSeverity = \case
+  Severity'INFO -> "INFO"
+  Severity'WARNING -> "WARNING"
+  Severity'ERROR -> "ERROR"
+
+-- | parse 'Severity' enum
+toSeverity :: Text -> P.Either String Severity
+toSeverity = \case
+  "INFO" -> P.Right Severity'INFO
+  "WARNING" -> P.Right Severity'WARNING
+  "ERROR" -> P.Right Severity'ERROR
+  s -> P.Left $ "toSeverity: enum parse failure: " P.++ P.show s
 
 
 -- ** TimeInForce

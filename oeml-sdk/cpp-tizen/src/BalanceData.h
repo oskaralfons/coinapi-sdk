@@ -45,18 +45,18 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get symbol_exchange
+	/*! \brief Get Exchange identifier.
 	 */
 	std::string getId();
 
-	/*! \brief Set symbol_exchange
+	/*! \brief Set Exchange identifier.
 	 */
 	void setId(std::string  id);
-	/*! \brief Get Currency code.
+	/*! \brief Get Exchange currency code.
 	 */
 	std::string getSymbolExchange();
 
-	/*! \brief Set Currency code.
+	/*! \brief Set Exchange currency code.
 	 */
 	void setSymbolExchange(std::string  symbol_exchange);
 	/*! \brief Get CoinAPI currency code.
@@ -66,32 +66,32 @@ public:
 	/*! \brief Set CoinAPI currency code.
 	 */
 	void setSymbolCoinapi(std::string  symbol_coinapi);
-	/*! \brief Get The current balance.
+	/*! \brief Get Value of the current total currency balance on the exchange.
 	 */
 	float getBalance();
 
-	/*! \brief Set The current balance.
+	/*! \brief Set Value of the current total currency balance on the exchange.
 	 */
 	void setBalance(float  balance);
-	/*! \brief Get The amount that is available to trade.
+	/*! \brief Get Value of the current available currency balance on the exchange that can be used as collateral.
 	 */
 	float getAvailable();
 
-	/*! \brief Set The amount that is available to trade.
+	/*! \brief Set Value of the current available currency balance on the exchange that can be used as collateral.
 	 */
 	void setAvailable(float  available);
-	/*! \brief Get Blocked funds.
+	/*! \brief Get Value of the current locked currency balance by the exchange.
 	 */
 	float getLocked();
 
-	/*! \brief Set Blocked funds.
+	/*! \brief Set Value of the current locked currency balance by the exchange.
 	 */
 	void setLocked(float  locked);
-	/*! \brief Get Source of last modification. 
+	/*! \brief Get Source of the last modification. 
 	 */
 	std::string getUpdateOrigin();
 
-	/*! \brief Set Source of last modification. 
+	/*! \brief Set Source of the last modification. 
 	 */
 	void setUpdateOrigin(std::string  update_origin);
 

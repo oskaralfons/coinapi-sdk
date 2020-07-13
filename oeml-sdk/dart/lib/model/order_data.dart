@@ -14,7 +14,7 @@ class OrderData {
   /* Amount filled */
   num amountFilled = null;
   
-  OrderStatus status = null;
+  OrdStatus status = null;
   //enum statusEnum {  RECEIVED,  ROUTING,  ROUTED,  NEW,  PENDING_CANCEL,  PARTIALLY_FILLED,  FILLED,  CANCELED,  REJECTED,  };{
   /* History of order status changes */
   List<List<String>> timeOrder = [];
@@ -61,7 +61,7 @@ class OrderData {
     amountFilled = json['amount_filled'];
     status = (json['status'] == null) ?
       null :
-      OrderStatus.fromJson(json['status']);
+      OrdStatus.fromJson(json['status']);
     timeOrder = (json['time_order'] == null) ?
       null :
       List.listFromJson(json['time_order']);

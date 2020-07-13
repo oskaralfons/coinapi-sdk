@@ -14,7 +14,7 @@
 
 goog.provide('API.Client.BalancesApi');
 
-goog.require('API.Client.balance');
+goog.require('API.Client.Balance');
 
 /**
  * @constructor
@@ -27,7 +27,7 @@ API.Client.BalancesApi = function($http, $httpParamSerializer, $injector) {
   /** @private {!string} */
   this.basePath_ = $injector.has('BalancesApiBasePath') ?
                    /** @type {!string} */ ($injector.get('BalancesApiBasePath')) :
-                   'http://localhost:8080/v1';
+                   'http://localhost:8080';
 
   /** @private {!Object<string, string>} */
   this.defaultHeaders_ = $injector.has('BalancesApiDefaultHeaders') ?
@@ -48,7 +48,7 @@ API.Client.BalancesApi.$inject = ['$http', '$httpParamSerializer', '$injector'];
  * Returns all of your balances, including available balance.
  * @param {!string=} opt_exchangeId Exchange name
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
- * @return {!angular.$q.Promise<!Array<!API.Client.balance>>}
+ * @return {!angular.$q.Promise<!Array<!API.Client.Balance>>}
  */
 API.Client.BalancesApi.prototype.v1BalancesGet = function(opt_exchangeId, opt_extraHttpRequestParams) {
   /** @const {string} */

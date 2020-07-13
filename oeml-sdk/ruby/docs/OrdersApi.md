@@ -1,23 +1,24 @@
 # OpenapiClient::OrdersApi
 
-All URIs are relative to *http://localhost:8080/v1*
+All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v1_orders_cancel_all_post**](OrdersApi.md#v1_orders_cancel_all_post) | **POST** /v1/orders/cancel/all | Cancel all order
+[**v1_orders_cancel_all_post**](OrdersApi.md#v1_orders_cancel_all_post) | **POST** /v1/orders/cancel/all | Cancel all orders
 [**v1_orders_cancel_post**](OrdersApi.md#v1_orders_cancel_post) | **POST** /v1/orders/cancel | Cancel order
-[**v1_orders_get**](OrdersApi.md#v1_orders_get) | **GET** /v1/orders | Get orders
+[**v1_orders_get**](OrdersApi.md#v1_orders_get) | **GET** /v1/orders | Get all orders
 [**v1_orders_post**](OrdersApi.md#v1_orders_post) | **POST** /v1/orders | Create new order
+[**v1_orders_status_client_order_id_get**](OrdersApi.md#v1_orders_status_client_order_id_get) | **GET** /v1/orders/status/{client_order_id} | Get order status
 
 
 
 ## v1_orders_cancel_all_post
 
-> MessagesOk v1_orders_cancel_all_post(cancel_all_order)
+> Message v1_orders_cancel_all_post(order_cancel_all_request)
 
-Cancel all order
+Cancel all orders
 
-Cancel all existing order.
+This request cancels all open orders across all or single specified exchange.
 
 ### Example
 
@@ -26,11 +27,11 @@ Cancel all existing order.
 require 'openapi_client'
 
 api_instance = OpenapiClient::OrdersApi.new
-cancel_all_order = OpenapiClient::CancelAllOrder.new # CancelAllOrder | 
+order_cancel_all_request = OpenapiClient::OrderCancelAllRequest.new # OrderCancelAllRequest | 
 
 begin
-  #Cancel all order
-  result = api_instance.v1_orders_cancel_all_post(cancel_all_order)
+  #Cancel all orders
+  result = api_instance.v1_orders_cancel_all_post(order_cancel_all_request)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Exception when calling OrdersApi->v1_orders_cancel_all_post: #{e}"
@@ -42,11 +43,11 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancel_all_order** | [**CancelAllOrder**](CancelAllOrder.md)|  | 
+ **order_cancel_all_request** | [**OrderCancelAllRequest**](OrderCancelAllRequest.md)|  | 
 
 ### Return type
 
-[**MessagesOk**](MessagesOk.md)
+[**Message**](Message.md)
 
 ### Authorization
 
@@ -60,11 +61,11 @@ No authorization required
 
 ## v1_orders_cancel_post
 
-> OrderLive v1_orders_cancel_post(cancel_order)
+> ExecutionReport v1_orders_cancel_post(order_cancel_single_request)
 
 Cancel order
 
-Cancel an existing order, can be used to cancel margin, exchange, and derivative orders. You can cancel the order by the internal order ID or exchange order ID.
+This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
 
 ### Example
 
@@ -73,11 +74,11 @@ Cancel an existing order, can be used to cancel margin, exchange, and derivative
 require 'openapi_client'
 
 api_instance = OpenapiClient::OrdersApi.new
-cancel_order = OpenapiClient::CancelOrder.new # CancelOrder | 
+order_cancel_single_request = OpenapiClient::OrderCancelSingleRequest.new # OrderCancelSingleRequest | 
 
 begin
   #Cancel order
-  result = api_instance.v1_orders_cancel_post(cancel_order)
+  result = api_instance.v1_orders_cancel_post(order_cancel_single_request)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Exception when calling OrdersApi->v1_orders_cancel_post: #{e}"
@@ -89,11 +90,11 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancel_order** | [**CancelOrder**](CancelOrder.md)|  | 
+ **order_cancel_single_request** | [**OrderCancelSingleRequest**](OrderCancelSingleRequest.md)|  | 
 
 ### Return type
 
-[**OrderLive**](OrderLive.md)
+[**ExecutionReport**](ExecutionReport.md)
 
 ### Authorization
 
@@ -109,9 +110,9 @@ No authorization required
 
 > Array&lt;Order&gt; v1_orders_get(opts)
 
-Get orders
+Get all orders
 
-List your current open orders.
+Get all current open orders across all or single specified exchange.
 
 ### Example
 
@@ -121,11 +122,11 @@ require 'openapi_client'
 
 api_instance = OpenapiClient::OrdersApi.new
 opts = {
-  exchange_id: 'KRAKEN' # String | Exchange name
+  exchange_id: 'KRAKEN' # String | Filter the output to the orders from the specific exchange.
 }
 
 begin
-  #Get orders
+  #Get all orders
   result = api_instance.v1_orders_get(opts)
   p result
 rescue OpenapiClient::ApiError => e
@@ -138,7 +139,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **exchange_id** | **String**| Exchange name | [optional] 
+ **exchange_id** | **String**| Filter the output to the orders from the specific exchange. | [optional] 
 
 ### Return type
 
@@ -156,11 +157,11 @@ No authorization required
 
 ## v1_orders_post
 
-> OrderLive v1_orders_post(new_order)
+> ExecutionReport v1_orders_post(new_order)
 
 Create new order
 
-You can place two types of orders: limit and market. Orders can only be placed if your account has sufficient funds.
+This request creating new order for the specific exchange.
 
 ### Example
 
@@ -189,7 +190,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrderLive**](OrderLive.md)
+[**ExecutionReport**](ExecutionReport.md)
 
 ### Authorization
 
@@ -199,4 +200,51 @@ No authorization required
 
 - **Content-Type**: application/json
 - **Accept**: application/json, appliction/json
+
+
+## v1_orders_status_client_order_id_get
+
+> ExecutionReport v1_orders_status_client_order_id_get(client_order_id)
+
+Get order status
+
+Get the current order status for the specified order. The requested order can no longer be active.
+
+### Example
+
+```ruby
+# load the gem
+require 'openapi_client'
+
+api_instance = OpenapiClient::OrdersApi.new
+client_order_id = '6ab36bc1-344d-432e-ac6d-0bf44ee64c2b' # String | Order Client Id of the order for which the status is requested.
+
+begin
+  #Get order status
+  result = api_instance.v1_orders_status_client_order_id_get(client_order_id)
+  p result
+rescue OpenapiClient::ApiError => e
+  puts "Exception when calling OrdersApi->v1_orders_status_client_order_id_get: #{e}"
+end
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **client_order_id** | **String**| Order Client Id of the order for which the status is requested. | 
+
+### Return type
+
+[**ExecutionReport**](ExecutionReport.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 

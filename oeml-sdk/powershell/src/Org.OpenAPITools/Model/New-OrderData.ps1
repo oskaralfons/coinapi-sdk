@@ -20,7 +20,7 @@ function New-OrderData {
         [System.Nullable[Decimal]]
         ${amountUnderscorefilled},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
-        [Org.OpenAPITools.Model.OrderStatus]
+        [Org.OpenAPITools.Model.OrdStatus]
         ${status},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String[][]]

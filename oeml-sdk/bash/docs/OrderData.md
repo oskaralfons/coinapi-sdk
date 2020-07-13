@@ -1,4 +1,4 @@
-# order_data
+# Order_data
 
 ## Properties
 Name | Type | Description | Notes
@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **exchangeUnderscoreorderUnderscoreid** | **string** |  | [optional] [default to null]
 **amountUnderscoreopen** | **integer** |  | [optional] [default to null]
 **amountUnderscorefilled** | **integer** |  | [optional] [default to null]
-**status** | [**OrderStatus**](OrderStatus.md) |  | [optional] [default to null]
+**status** | [**OrdStatus**](OrdStatus.md) |  | [optional] [default to null]
 **timeUnderscoreorder** | **array[array[string]]** |  | [optional] [default to null]
 **errorUnderscoremessage** | **string** |  | [optional] [default to null]
 **clientUnderscoreorderUnderscoreid** | **string** |  | [optional] [default to null]

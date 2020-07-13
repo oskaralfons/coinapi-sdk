@@ -37,7 +37,7 @@ export interface OrderData {
      * Amount filled
      */
     "amount_filled"?: number;
-    "status"?: models.OrderStatus;
+    "status"?: models.OrdStatus;
     /**
      * History of order status changes
      */

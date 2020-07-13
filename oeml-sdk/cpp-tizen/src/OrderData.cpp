@@ -29,7 +29,7 @@ Order_data::__init()
 	//exchange_order_id = std::string();
 	//amount_open = double(0);
 	//amount_filled = double(0);
-	//status = new OrderStatus();
+	//status = new OrdStatus();
 	//new std::list()std::list> time_order;
 	//error_message = std::string();
 	//client_order_id = std::string();
@@ -227,11 +227,11 @@ Order_data::fromJson(char* jsonStr)
 	if (node !=NULL) {
 	
 
-		if (isprimitive("OrderStatus")) {
-			jsonToValue(&status, node, "OrderStatus", "OrderStatus");
+		if (isprimitive("OrdStatus")) {
+			jsonToValue(&status, node, "OrdStatus", "OrdStatus");
 		} else {
 			
-			OrderStatus* obj = static_cast<OrderStatus*> (&status);
+			OrdStatus* obj = static_cast<OrdStatus*> (&status);
 			obj->fromJson(json_to_string(node, false));
 			
 		}
@@ -480,13 +480,13 @@ Order_data::toJson()
 	}
 	const gchar *amount_filledKey = "amount_filled";
 	json_object_set_member(pJsonObject, amount_filledKey, node);
-	if (isprimitive("OrderStatus")) {
-		OrderStatus obj = getStatus();
-		node = converttoJson(&obj, "OrderStatus", "");
+	if (isprimitive("OrdStatus")) {
+		OrdStatus obj = getStatus();
+		node = converttoJson(&obj, "OrdStatus", "");
 	}
 	else {
 		
-		OrderStatus obj = static_cast<OrderStatus> (getStatus());
+		OrdStatus obj = static_cast<OrdStatus> (getStatus());
 		GError *mygerror;
 		mygerror = NULL;
 		node = json_from_string(obj.toJson(), &mygerror);
@@ -724,14 +724,14 @@ Order_data::setAmountFilled(long long  amount_filled)
 	this->amount_filled = amount_filled;
 }
 
-OrderStatus
+OrdStatus
 Order_data::getStatus()
 {
 	return status;
 }
 
 void
-Order_data::setStatus(OrderStatus  status)
+Order_data::setStatus(OrdStatus  status)
 {
 	this->status = status;
 }

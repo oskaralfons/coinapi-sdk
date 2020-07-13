@@ -20,7 +20,7 @@ import { Configuration } from '../configuration';
 
 
 export class OrdersApi {
-    protected basePath = 'http://localhost:8080/v1';
+    protected basePath = 'http://localhost:8080';
     public defaultHeaders: Array<string> = [];
     public defaultExtraJQueryAjaxSettings?: JQueryAjaxSettings = undefined;
     public configuration: Configuration = new Configuration();
@@ -47,21 +47,21 @@ export class OrdersApi {
     }
 
     /**
-     * Cancel all existing order.
-     * @summary Cancel all order
-     * @param cancelAllOrder 
+     * This request cancels all open orders across all or single specified exchange.
+     * @summary Cancel all orders
+     * @param orderCancelAllRequest 
      */
-    public v1OrdersCancelAllPost(cancelAllOrder: models.CancelAllOrder, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
-    { response: JQueryXHR; body: models.MessagesOk;  },
+    public v1OrdersCancelAllPost(orderCancelAllRequest: models.OrderCancelAllRequest, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
+    { response: JQueryXHR; body: models.Message;  },
     { response: JQueryXHR; errorThrown: string }
     > {
         let localVarPath = this.basePath + '/v1/orders/cancel/all';
 
         let queryParameters: any = {};
         let headerParams: any = {};
-        // verify required parameter 'cancelAllOrder' is not null or undefined
-        if (cancelAllOrder === null || cancelAllOrder === undefined) {
-            throw new Error('Required parameter cancelAllOrder was null or undefined when calling v1OrdersCancelAllPost.');
+        // verify required parameter 'orderCancelAllRequest' is not null or undefined
+        if (orderCancelAllRequest === null || orderCancelAllRequest === undefined) {
+            throw new Error('Required parameter orderCancelAllRequest was null or undefined when calling v1OrdersCancelAllPost.');
         }
 
 
@@ -86,7 +86,7 @@ export class OrdersApi {
             processData: false
         };
 
-        requestOptions.data = JSON.stringify(cancelAllOrder);
+        requestOptions.data = JSON.stringify(orderCancelAllRequest);
         if (headerParams['Content-Type']) {
             requestOptions.contentType = headerParams['Content-Type'];
         }
@@ -100,11 +100,11 @@ export class OrdersApi {
         }
 
         let dfd = $.Deferred<
-            { response: JQueryXHR; body: models.MessagesOk;  },
+            { response: JQueryXHR; body: models.Message;  },
             { response: JQueryXHR; errorThrown: string }
         >();
         $.ajax(requestOptions).then(
-            (data: models.MessagesOk, textStatus: string, jqXHR: JQueryXHR) =>
+            (data: models.Message, textStatus: string, jqXHR: JQueryXHR) =>
                 dfd.resolve({response: jqXHR, body: data}),
             (xhr: JQueryXHR, textStatus: string, errorThrown: string) =>
                 dfd.reject({response: xhr, errorThrown: errorThrown})
@@ -113,21 +113,21 @@ export class OrdersApi {
     }
 
     /**
-     * Cancel an existing order, can be used to cancel margin, exchange, and derivative orders. You can cancel the order by the internal order ID or exchange order ID.
+     * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
      * @summary Cancel order
-     * @param cancelOrder 
+     * @param orderCancelSingleRequest 
      */
-    public v1OrdersCancelPost(cancelOrder: models.CancelOrder, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
-    { response: JQueryXHR; body: models.OrderLive;  },
+    public v1OrdersCancelPost(orderCancelSingleRequest: models.OrderCancelSingleRequest, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
+    { response: JQueryXHR; body: models.ExecutionReport;  },
     { response: JQueryXHR; errorThrown: string }
     > {
         let localVarPath = this.basePath + '/v1/orders/cancel';
 
         let queryParameters: any = {};
         let headerParams: any = {};
-        // verify required parameter 'cancelOrder' is not null or undefined
-        if (cancelOrder === null || cancelOrder === undefined) {
-            throw new Error('Required parameter cancelOrder was null or undefined when calling v1OrdersCancelPost.');
+        // verify required parameter 'orderCancelSingleRequest' is not null or undefined
+        if (orderCancelSingleRequest === null || orderCancelSingleRequest === undefined) {
+            throw new Error('Required parameter orderCancelSingleRequest was null or undefined when calling v1OrdersCancelPost.');
         }
 
 
@@ -153,7 +153,7 @@ export class OrdersApi {
             processData: false
         };
 
-        requestOptions.data = JSON.stringify(cancelOrder);
+        requestOptions.data = JSON.stringify(orderCancelSingleRequest);
         if (headerParams['Content-Type']) {
             requestOptions.contentType = headerParams['Content-Type'];
         }
@@ -167,11 +167,11 @@ export class OrdersApi {
         }
 
         let dfd = $.Deferred<
-            { response: JQueryXHR; body: models.OrderLive;  },
+            { response: JQueryXHR; body: models.ExecutionReport;  },
             { response: JQueryXHR; errorThrown: string }
         >();
         $.ajax(requestOptions).then(
-            (data: models.OrderLive, textStatus: string, jqXHR: JQueryXHR) =>
+            (data: models.ExecutionReport, textStatus: string, jqXHR: JQueryXHR) =>
                 dfd.resolve({response: jqXHR, body: data}),
             (xhr: JQueryXHR, textStatus: string, errorThrown: string) =>
                 dfd.reject({response: xhr, errorThrown: errorThrown})
@@ -180,9 +180,9 @@ export class OrdersApi {
     }
 
     /**
-     * List your current open orders.
-     * @summary Get orders
-     * @param exchangeId Exchange name
+     * Get all current open orders across all or single specified exchange.
+     * @summary Get all orders
+     * @param exchangeId Filter the output to the orders from the specific exchange.
      */
     public v1OrdersGet(exchangeId?: string, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
     { response: JQueryXHR; body: Array<models.Order>;  },
@@ -240,12 +240,12 @@ export class OrdersApi {
     }
 
     /**
-     * You can place two types of orders: limit and market. Orders can only be placed if your account has sufficient funds.
+     * This request creating new order for the specific exchange.
      * @summary Create new order
      * @param newOrder 
      */
     public v1OrdersPost(newOrder: models.NewOrder, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
-    { response: JQueryXHR; body: models.OrderLive;  },
+    { response: JQueryXHR; body: models.ExecutionReport;  },
     { response: JQueryXHR; errorThrown: string }
     > {
         let localVarPath = this.basePath + '/v1/orders';
@@ -294,11 +294,73 @@ export class OrdersApi {
         }
 
         let dfd = $.Deferred<
-            { response: JQueryXHR; body: models.OrderLive;  },
+            { response: JQueryXHR; body: models.ExecutionReport;  },
             { response: JQueryXHR; errorThrown: string }
         >();
         $.ajax(requestOptions).then(
-            (data: models.OrderLive, textStatus: string, jqXHR: JQueryXHR) =>
+            (data: models.ExecutionReport, textStatus: string, jqXHR: JQueryXHR) =>
+                dfd.resolve({response: jqXHR, body: data}),
+            (xhr: JQueryXHR, textStatus: string, errorThrown: string) =>
+                dfd.reject({response: xhr, errorThrown: errorThrown})
+        );
+        return dfd.promise();
+    }
+
+    /**
+     * Get the current order status for the specified order. The requested order can no longer be active.
+     * @summary Get order status
+     * @param clientOrderId Order Client Id of the order for which the status is requested.
+     */
+    public v1OrdersStatusClientOrderIdGet(clientOrderId: string, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
+    { response: JQueryXHR; body: models.ExecutionReport;  },
+    { response: JQueryXHR; errorThrown: string }
+    > {
+        let localVarPath = this.basePath + '/v1/orders/status/{client_order_id}'.replace('{' + 'client_order_id' + '}', encodeURIComponent(String(clientOrderId)));
+
+        let queryParameters: any = {};
+        let headerParams: any = {};
+        // verify required parameter 'clientOrderId' is not null or undefined
+        if (clientOrderId === null || clientOrderId === undefined) {
+            throw new Error('Required parameter clientOrderId was null or undefined when calling v1OrdersStatusClientOrderIdGet.');
+        }
+
+
+        localVarPath = localVarPath + "?" + $.param(queryParameters);
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+
+        // to determine the Accept header
+        let produces: string[] = [
+            'application/json'
+        ];
+
+
+        let requestOptions: JQueryAjaxSettings = {
+            url: localVarPath,
+            type: 'GET',
+            headers: headerParams,
+            processData: false
+        };
+
+        if (headerParams['Content-Type']) {
+            requestOptions.contentType = headerParams['Content-Type'];
+        }
+
+        if (extraJQueryAjaxSettings) {
+            requestOptions = (<any>Object).assign(requestOptions, extraJQueryAjaxSettings);
+        }
+
+        if (this.defaultExtraJQueryAjaxSettings) {
+            requestOptions = (<any>Object).assign(requestOptions, this.defaultExtraJQueryAjaxSettings);
+        }
+
+        let dfd = $.Deferred<
+            { response: JQueryXHR; body: models.ExecutionReport;  },
+            { response: JQueryXHR; errorThrown: string }
+        >();
+        $.ajax(requestOptions).then(
+            (data: models.ExecutionReport, textStatus: string, jqXHR: JQueryXHR) =>
                 dfd.resolve({response: jqXHR, body: data}),
             (xhr: JQueryXHR, textStatus: string, errorThrown: string) =>
                 dfd.reject({response: xhr, errorThrown: errorThrown})

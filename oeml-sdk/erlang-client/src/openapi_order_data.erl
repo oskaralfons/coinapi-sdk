@@ -11,7 +11,7 @@
        'exchange_order_id' => binary(),
        'amount_open' => integer(),
        'amount_filled' => integer(),
-       'status' => openapi_order_status:openapi_order_status(),
+       'status' => openapi_ord_status:openapi_ord_status(),
        'time_order' => list(),
        'error_message' => binary(),
        'client_order_id' => binary(),

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **price** | **REAL_32** | Quoted decimal amount to spend per unit. | [optional] [default to null]
 **side** | [**STRING_32**](STRING_32.md) | Buy or Sell | [optional] [default to null]
 **order_type** | [**STRING_32**](STRING_32.md) | The order type. | [optional] [default to null]
-**time_in_force** | [**TIME_IN_FORCE**](timeInForce.md) |  | [optional] [default to null]
+**time_in_force** | [**TIME_IN_FORCE**](TimeInForce.md) |  | [optional] [default to null]
 **expire_time** | [**DATE**](DATE.md) | Required for orders with time_in_force &#x3D; GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS | [optional] [default to null]
 **exec_inst** | [**LIST [STRING_32]**](STRING_32.md) | Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt;  | [optional] [default to null]
 

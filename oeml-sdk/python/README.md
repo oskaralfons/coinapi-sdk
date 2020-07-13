@@ -54,10 +54,10 @@ import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost:8080/v1
+# Defining the host is optional and defaults to http://localhost:8080
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "http://localhost:8080/v1"
+    host = "http://localhost:8080"
 )
 
 
@@ -79,15 +79,16 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost:8080/v1*
+All URIs are relative to *http://localhost:8080*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *BalancesApi* | [**v1_balances_get**](docs/BalancesApi.md#v1_balances_get) | **GET** /v1/balances | Get balances
-*OrdersApi* | [**v1_orders_cancel_all_post**](docs/OrdersApi.md#v1_orders_cancel_all_post) | **POST** /v1/orders/cancel/all | Cancel all order
+*OrdersApi* | [**v1_orders_cancel_all_post**](docs/OrdersApi.md#v1_orders_cancel_all_post) | **POST** /v1/orders/cancel/all | Cancel all orders
 *OrdersApi* | [**v1_orders_cancel_post**](docs/OrdersApi.md#v1_orders_cancel_post) | **POST** /v1/orders/cancel | Cancel order
-*OrdersApi* | [**v1_orders_get**](docs/OrdersApi.md#v1_orders_get) | **GET** /v1/orders | Get orders
+*OrdersApi* | [**v1_orders_get**](docs/OrdersApi.md#v1_orders_get) | **GET** /v1/orders | Get all orders
 *OrdersApi* | [**v1_orders_post**](docs/OrdersApi.md#v1_orders_post) | **POST** /v1/orders | Create new order
+*OrdersApi* | [**v1_orders_status_client_order_id_get**](docs/OrdersApi.md#v1_orders_status_client_order_id_get) | **GET** /v1/orders/status/{client_order_id} | Get order status
 *PositionsApi* | [**v1_positions_get**](docs/PositionsApi.md#v1_positions_get) | **GET** /v1/positions | Get positions
 
 
@@ -95,19 +96,18 @@ Class | Method | HTTP request | Description
 
  - [Balance](docs/Balance.md)
  - [BalanceData](docs/BalanceData.md)
- - [CancelAllOrder](docs/CancelAllOrder.md)
- - [CancelOrder](docs/CancelOrder.md)
- - [CreateOrder400](docs/CreateOrder400.md)
- - [Messages](docs/Messages.md)
- - [MessagesInfo](docs/MessagesInfo.md)
- - [MessagesOk](docs/MessagesOk.md)
+ - [CreateOrderValidationError](docs/CreateOrderValidationError.md)
+ - [ExecutionReport](docs/ExecutionReport.md)
+ - [Message](docs/Message.md)
  - [NewOrder](docs/NewOrder.md)
+ - [OrdStatus](docs/OrdStatus.md)
  - [Order](docs/Order.md)
+ - [OrderCancelAllRequest](docs/OrderCancelAllRequest.md)
+ - [OrderCancelSingleRequest](docs/OrderCancelSingleRequest.md)
  - [OrderData](docs/OrderData.md)
- - [OrderLive](docs/OrderLive.md)
- - [OrderStatus](docs/OrderStatus.md)
  - [Position](docs/Position.md)
  - [PositionData](docs/PositionData.md)
+ - [Severity](docs/Severity.md)
  - [TimeInForce](docs/TimeInForce.md)
 
 

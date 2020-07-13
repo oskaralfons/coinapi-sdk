@@ -49,7 +49,7 @@ class BalanceData implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'balance_data';
+    protected static $openAPIModelName = 'Balance_data';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -278,7 +278,7 @@ class BalanceData implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string|null $id symbol_exchange
+     * @param string|null $id Exchange identifier.
      *
      * @return $this
      */
@@ -302,7 +302,7 @@ class BalanceData implements ModelInterface, ArrayAccess
     /**
      * Sets symbol_exchange
      *
-     * @param string|null $symbol_exchange Currency code.
+     * @param string|null $symbol_exchange Exchange currency code.
      *
      * @return $this
      */
@@ -350,7 +350,7 @@ class BalanceData implements ModelInterface, ArrayAccess
     /**
      * Sets balance
      *
-     * @param float|null $balance The current balance.
+     * @param float|null $balance Value of the current total currency balance on the exchange.
      *
      * @return $this
      */
@@ -374,7 +374,7 @@ class BalanceData implements ModelInterface, ArrayAccess
     /**
      * Sets available
      *
-     * @param float|null $available The amount that is available to trade.
+     * @param float|null $available Value of the current available currency balance on the exchange that can be used as collateral.
      *
      * @return $this
      */
@@ -398,7 +398,7 @@ class BalanceData implements ModelInterface, ArrayAccess
     /**
      * Sets locked
      *
-     * @param float|null $locked Blocked funds.
+     * @param float|null $locked Value of the current locked currency balance by the exchange.
      *
      * @return $this
      */
@@ -422,7 +422,7 @@ class BalanceData implements ModelInterface, ArrayAccess
     /**
      * Sets update_origin
      *
-     * @param string|null $update_origin Source of last modification.
+     * @param string|null $update_origin Source of the last modification.
      *
      * @return $this
      */

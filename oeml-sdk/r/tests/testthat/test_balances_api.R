@@ -7,7 +7,7 @@ api.instance <- BalancesApi$new()
 
 test_that("V1BalancesGet", {
   # tests for V1BalancesGet
-  # base path: http://localhost:8080/v1
+  # base path: http://localhost:8080
   # Get balances
   # Returns all of your balances, including available balance.
   # @param character  exchange.id  Exchange name  (optional)

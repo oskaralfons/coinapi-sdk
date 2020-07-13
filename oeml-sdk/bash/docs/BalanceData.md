@@ -1,4 +1,4 @@
-# balance_data
+# Balance_data
 
 ## Properties
 Name | Type | Description | Notes

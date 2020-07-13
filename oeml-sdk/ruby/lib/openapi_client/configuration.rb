@@ -128,7 +128,7 @@ module OpenapiClient
     def initialize
       @scheme = 'http'
       @host = 'localhost'
-      @base_path = '/v1'
+      @base_path = ''
       @api_key = {}
       @api_key_prefix = {}
       @timeout = 0
@@ -200,14 +200,8 @@ module OpenapiClient
     def server_settings
       [
         {
-          url: "{server}/v1",
+          url: "http://localhost:8080",
           description: "No description provided",
-          variables: {
-            server: {
-                description: "No description provided",
-                default_value: "http://localhost:8080",
-              }
-            }
         }
       ]
     end

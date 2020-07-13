@@ -6,7 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import org.openapitools.model.OrderStatus;
+import org.openapitools.model.OrdStatus;
 import org.openapitools.model.TimeInForce;
 
 @Canonical
@@ -24,7 +24,7 @@ class OrderData {
     /* Amount filled */
     BigDecimal amountFilled
     
-    OrderStatus status
+    OrdStatus status
     /* History of order status changes */
     List<List<String>> timeOrder = new ArrayList<List<String>>()
     /* Error message */

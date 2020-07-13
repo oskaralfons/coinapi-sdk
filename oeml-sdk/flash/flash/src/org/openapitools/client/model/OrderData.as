@@ -1,6 +1,6 @@
 package org.openapitools.client.model {
 
-import org.openapitools.client.model.OrderStatus;
+import org.openapitools.client.model.OrdStatus;
 import org.openapitools.client.model.TimeInForce;
 
     [XmlRootNode(name="OrderData")]
@@ -24,7 +24,7 @@ import org.openapitools.client.model.TimeInForce;
         [XmlElement(name="amount_filled")]
         public var amountFilled: Number = 0.0;
                 [XmlElement(name="status")]
-        public var status: OrderStatus = NaN;
+        public var status: OrdStatus = NaN;
         /* History of order status changes */
         // This declaration below of _timeOrder_obj_class is to force flash compiler to include this class
         private var _timeOrder_obj_class: Array = null;

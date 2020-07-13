@@ -88,6 +88,16 @@
         done();
       });
     });
+    describe('v1OrdersStatusClientOrderIdGet', function() {
+      it('should call v1OrdersStatusClientOrderIdGet successfully', function(done) {
+        //uncomment below and update the code to test v1OrdersStatusClientOrderIdGet
+        //instance.v1OrdersStatusClientOrderIdGet(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
   });
 
 }));

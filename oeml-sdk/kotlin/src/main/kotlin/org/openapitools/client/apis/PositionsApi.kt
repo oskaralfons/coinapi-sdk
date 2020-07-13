@@ -29,7 +29,7 @@ class PositionsApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePa
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty("org.openapitools.client.baseUrl", "http://localhost:8080/v1")
+            System.getProperties().getProperty("org.openapitools.client.baseUrl", "http://localhost:8080")
         }
     }
 

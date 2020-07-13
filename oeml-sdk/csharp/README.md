@@ -79,7 +79,7 @@ namespace Example
         public static void Main()
         {
 
-            Configuration.Default.BasePath = "http://localhost:8080/v1";
+            Configuration.Default.BasePath = "http://localhost:8080";
             var apiInstance = new BalancesApi(Configuration.Default);
             var exchangeId = KRAKEN;  // string | Exchange name (optional) 
 
@@ -103,15 +103,16 @@ namespace Example
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost:8080/v1*
+All URIs are relative to *http://localhost:8080*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *BalancesApi* | [**V1BalancesGet**](docs/BalancesApi.md#v1balancesget) | **GET** /v1/balances | Get balances
-*OrdersApi* | [**V1OrdersCancelAllPost**](docs/OrdersApi.md#v1orderscancelallpost) | **POST** /v1/orders/cancel/all | Cancel all order
+*OrdersApi* | [**V1OrdersCancelAllPost**](docs/OrdersApi.md#v1orderscancelallpost) | **POST** /v1/orders/cancel/all | Cancel all orders
 *OrdersApi* | [**V1OrdersCancelPost**](docs/OrdersApi.md#v1orderscancelpost) | **POST** /v1/orders/cancel | Cancel order
-*OrdersApi* | [**V1OrdersGet**](docs/OrdersApi.md#v1ordersget) | **GET** /v1/orders | Get orders
+*OrdersApi* | [**V1OrdersGet**](docs/OrdersApi.md#v1ordersget) | **GET** /v1/orders | Get all orders
 *OrdersApi* | [**V1OrdersPost**](docs/OrdersApi.md#v1orderspost) | **POST** /v1/orders | Create new order
+*OrdersApi* | [**V1OrdersStatusClientOrderIdGet**](docs/OrdersApi.md#v1ordersstatusclientorderidget) | **GET** /v1/orders/status/{client_order_id} | Get order status
 *PositionsApi* | [**V1PositionsGet**](docs/PositionsApi.md#v1positionsget) | **GET** /v1/positions | Get positions
 
 
@@ -119,19 +120,18 @@ Class | Method | HTTP request | Description
 
  - [Model.Balance](docs/Balance.md)
  - [Model.BalanceData](docs/BalanceData.md)
- - [Model.CancelAllOrder](docs/CancelAllOrder.md)
- - [Model.CancelOrder](docs/CancelOrder.md)
- - [Model.CreateOrder400](docs/CreateOrder400.md)
- - [Model.Messages](docs/Messages.md)
- - [Model.MessagesInfo](docs/MessagesInfo.md)
- - [Model.MessagesOk](docs/MessagesOk.md)
+ - [Model.CreateOrderValidationError](docs/CreateOrderValidationError.md)
+ - [Model.ExecutionReport](docs/ExecutionReport.md)
+ - [Model.Message](docs/Message.md)
  - [Model.NewOrder](docs/NewOrder.md)
+ - [Model.OrdStatus](docs/OrdStatus.md)
  - [Model.Order](docs/Order.md)
+ - [Model.OrderCancelAllRequest](docs/OrderCancelAllRequest.md)
+ - [Model.OrderCancelSingleRequest](docs/OrderCancelSingleRequest.md)
  - [Model.OrderData](docs/OrderData.md)
- - [Model.OrderLive](docs/OrderLive.md)
- - [Model.OrderStatus](docs/OrderStatus.md)
  - [Model.Position](docs/Position.md)
  - [Model.PositionData](docs/PositionData.md)
+ - [Model.Severity](docs/Severity.md)
  - [Model.TimeInForce](docs/TimeInForce.md)
 
 

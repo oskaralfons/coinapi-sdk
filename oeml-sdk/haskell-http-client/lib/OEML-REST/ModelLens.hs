@@ -94,117 +94,160 @@ balanceDataUpdateOriginL f BalanceData{..} = (\balanceDataUpdateOrigin -> Balanc
 
 
 
--- * CancelAllOrder
+-- * CreateOrderValidationError
 
--- | 'cancelAllOrderExchangeId' Lens
-cancelAllOrderExchangeIdL :: Lens_' CancelAllOrder (Maybe Text)
-cancelAllOrderExchangeIdL f CancelAllOrder{..} = (\cancelAllOrderExchangeId -> CancelAllOrder { cancelAllOrderExchangeId, ..} ) <$> f cancelAllOrderExchangeId
-{-# INLINE cancelAllOrderExchangeIdL #-}
+-- | 'createOrderValidationErrorType' Lens
+createOrderValidationErrorTypeL :: Lens_' CreateOrderValidationError (Maybe Text)
+createOrderValidationErrorTypeL f CreateOrderValidationError{..} = (\createOrderValidationErrorType -> CreateOrderValidationError { createOrderValidationErrorType, ..} ) <$> f createOrderValidationErrorType
+{-# INLINE createOrderValidationErrorTypeL #-}
 
+-- | 'createOrderValidationErrorTitle' Lens
+createOrderValidationErrorTitleL :: Lens_' CreateOrderValidationError (Maybe Text)
+createOrderValidationErrorTitleL f CreateOrderValidationError{..} = (\createOrderValidationErrorTitle -> CreateOrderValidationError { createOrderValidationErrorTitle, ..} ) <$> f createOrderValidationErrorTitle
+{-# INLINE createOrderValidationErrorTitleL #-}
 
+-- | 'createOrderValidationErrorStatus' Lens
+createOrderValidationErrorStatusL :: Lens_' CreateOrderValidationError (Maybe Double)
+createOrderValidationErrorStatusL f CreateOrderValidationError{..} = (\createOrderValidationErrorStatus -> CreateOrderValidationError { createOrderValidationErrorStatus, ..} ) <$> f createOrderValidationErrorStatus
+{-# INLINE createOrderValidationErrorStatusL #-}
 
--- * CancelOrder
+-- | 'createOrderValidationErrorTraceId' Lens
+createOrderValidationErrorTraceIdL :: Lens_' CreateOrderValidationError (Maybe Text)
+createOrderValidationErrorTraceIdL f CreateOrderValidationError{..} = (\createOrderValidationErrorTraceId -> CreateOrderValidationError { createOrderValidationErrorTraceId, ..} ) <$> f createOrderValidationErrorTraceId
+{-# INLINE createOrderValidationErrorTraceIdL #-}
 
--- | 'cancelOrderExchangeId' Lens
-cancelOrderExchangeIdL :: Lens_' CancelOrder (Maybe Text)
-cancelOrderExchangeIdL f CancelOrder{..} = (\cancelOrderExchangeId -> CancelOrder { cancelOrderExchangeId, ..} ) <$> f cancelOrderExchangeId
-{-# INLINE cancelOrderExchangeIdL #-}
-
--- | 'cancelOrderExchangeOrderId' Lens
-cancelOrderExchangeOrderIdL :: Lens_' CancelOrder (Maybe Text)
-cancelOrderExchangeOrderIdL f CancelOrder{..} = (\cancelOrderExchangeOrderId -> CancelOrder { cancelOrderExchangeOrderId, ..} ) <$> f cancelOrderExchangeOrderId
-{-# INLINE cancelOrderExchangeOrderIdL #-}
-
--- | 'cancelOrderClientOrderId' Lens
-cancelOrderClientOrderIdL :: Lens_' CancelOrder (Maybe Text)
-cancelOrderClientOrderIdL f CancelOrder{..} = (\cancelOrderClientOrderId -> CancelOrder { cancelOrderClientOrderId, ..} ) <$> f cancelOrderClientOrderId
-{-# INLINE cancelOrderClientOrderIdL #-}
-
-
-
--- * CreateOrder400
-
--- | 'createOrder400Type' Lens
-createOrder400TypeL :: Lens_' CreateOrder400 (Maybe Text)
-createOrder400TypeL f CreateOrder400{..} = (\createOrder400Type -> CreateOrder400 { createOrder400Type, ..} ) <$> f createOrder400Type
-{-# INLINE createOrder400TypeL #-}
-
--- | 'createOrder400Title' Lens
-createOrder400TitleL :: Lens_' CreateOrder400 (Maybe Text)
-createOrder400TitleL f CreateOrder400{..} = (\createOrder400Title -> CreateOrder400 { createOrder400Title, ..} ) <$> f createOrder400Title
-{-# INLINE createOrder400TitleL #-}
-
--- | 'createOrder400Status' Lens
-createOrder400StatusL :: Lens_' CreateOrder400 (Maybe Double)
-createOrder400StatusL f CreateOrder400{..} = (\createOrder400Status -> CreateOrder400 { createOrder400Status, ..} ) <$> f createOrder400Status
-{-# INLINE createOrder400StatusL #-}
-
--- | 'createOrder400TraceId' Lens
-createOrder400TraceIdL :: Lens_' CreateOrder400 (Maybe Text)
-createOrder400TraceIdL f CreateOrder400{..} = (\createOrder400TraceId -> CreateOrder400 { createOrder400TraceId, ..} ) <$> f createOrder400TraceId
-{-# INLINE createOrder400TraceIdL #-}
-
--- | 'createOrder400Errors' Lens
-createOrder400ErrorsL :: Lens_' CreateOrder400 (Maybe Text)
-createOrder400ErrorsL f CreateOrder400{..} = (\createOrder400Errors -> CreateOrder400 { createOrder400Errors, ..} ) <$> f createOrder400Errors
-{-# INLINE createOrder400ErrorsL #-}
+-- | 'createOrderValidationErrorErrors' Lens
+createOrderValidationErrorErrorsL :: Lens_' CreateOrderValidationError (Maybe Text)
+createOrderValidationErrorErrorsL f CreateOrderValidationError{..} = (\createOrderValidationErrorErrors -> CreateOrderValidationError { createOrderValidationErrorErrors, ..} ) <$> f createOrderValidationErrorErrors
+{-# INLINE createOrderValidationErrorErrorsL #-}
 
 
 
--- * Messages
+-- * ExecutionReport
 
--- | 'messagesType' Lens
-messagesTypeL :: Lens_' Messages (Maybe Text)
-messagesTypeL f Messages{..} = (\messagesType -> Messages { messagesType, ..} ) <$> f messagesType
-{-# INLINE messagesTypeL #-}
+-- | 'executionReportType' Lens
+executionReportTypeL :: Lens_' ExecutionReport (Maybe Text)
+executionReportTypeL f ExecutionReport{..} = (\executionReportType -> ExecutionReport { executionReportType, ..} ) <$> f executionReportType
+{-# INLINE executionReportTypeL #-}
 
--- | 'messagesExchangeId' Lens
-messagesExchangeIdL :: Lens_' Messages (Maybe Text)
-messagesExchangeIdL f Messages{..} = (\messagesExchangeId -> Messages { messagesExchangeId, ..} ) <$> f messagesExchangeId
-{-# INLINE messagesExchangeIdL #-}
+-- | 'executionReportExchangeId' Lens
+executionReportExchangeIdL :: Lens_' ExecutionReport (Maybe Text)
+executionReportExchangeIdL f ExecutionReport{..} = (\executionReportExchangeId -> ExecutionReport { executionReportExchangeId, ..} ) <$> f executionReportExchangeId
+{-# INLINE executionReportExchangeIdL #-}
 
--- | 'messagesMessage' Lens
-messagesMessageL :: Lens_' Messages (Maybe Text)
-messagesMessageL f Messages{..} = (\messagesMessage -> Messages { messagesMessage, ..} ) <$> f messagesMessage
-{-# INLINE messagesMessageL #-}
+-- | 'executionReportId' Lens
+executionReportIdL :: Lens_' ExecutionReport (Maybe Text)
+executionReportIdL f ExecutionReport{..} = (\executionReportId -> ExecutionReport { executionReportId, ..} ) <$> f executionReportId
+{-# INLINE executionReportIdL #-}
+
+-- | 'executionReportClientOrderIdFormatExchange' Lens
+executionReportClientOrderIdFormatExchangeL :: Lens_' ExecutionReport (Maybe Text)
+executionReportClientOrderIdFormatExchangeL f ExecutionReport{..} = (\executionReportClientOrderIdFormatExchange -> ExecutionReport { executionReportClientOrderIdFormatExchange, ..} ) <$> f executionReportClientOrderIdFormatExchange
+{-# INLINE executionReportClientOrderIdFormatExchangeL #-}
+
+-- | 'executionReportExchangeOrderId' Lens
+executionReportExchangeOrderIdL :: Lens_' ExecutionReport (Maybe Text)
+executionReportExchangeOrderIdL f ExecutionReport{..} = (\executionReportExchangeOrderId -> ExecutionReport { executionReportExchangeOrderId, ..} ) <$> f executionReportExchangeOrderId
+{-# INLINE executionReportExchangeOrderIdL #-}
+
+-- | 'executionReportAmountOpen' Lens
+executionReportAmountOpenL :: Lens_' ExecutionReport (Maybe Double)
+executionReportAmountOpenL f ExecutionReport{..} = (\executionReportAmountOpen -> ExecutionReport { executionReportAmountOpen, ..} ) <$> f executionReportAmountOpen
+{-# INLINE executionReportAmountOpenL #-}
+
+-- | 'executionReportAmountFilled' Lens
+executionReportAmountFilledL :: Lens_' ExecutionReport (Maybe Double)
+executionReportAmountFilledL f ExecutionReport{..} = (\executionReportAmountFilled -> ExecutionReport { executionReportAmountFilled, ..} ) <$> f executionReportAmountFilled
+{-# INLINE executionReportAmountFilledL #-}
+
+-- | 'executionReportStatus' Lens
+executionReportStatusL :: Lens_' ExecutionReport (Maybe OrdStatus)
+executionReportStatusL f ExecutionReport{..} = (\executionReportStatus -> ExecutionReport { executionReportStatus, ..} ) <$> f executionReportStatus
+{-# INLINE executionReportStatusL #-}
+
+-- | 'executionReportTimeOrder' Lens
+executionReportTimeOrderL :: Lens_' ExecutionReport (Maybe [[Text]])
+executionReportTimeOrderL f ExecutionReport{..} = (\executionReportTimeOrder -> ExecutionReport { executionReportTimeOrder, ..} ) <$> f executionReportTimeOrder
+{-# INLINE executionReportTimeOrderL #-}
+
+-- | 'executionReportErrorMessage' Lens
+executionReportErrorMessageL :: Lens_' ExecutionReport (Maybe Text)
+executionReportErrorMessageL f ExecutionReport{..} = (\executionReportErrorMessage -> ExecutionReport { executionReportErrorMessage, ..} ) <$> f executionReportErrorMessage
+{-# INLINE executionReportErrorMessageL #-}
+
+-- | 'executionReportClientOrderId' Lens
+executionReportClientOrderIdL :: Lens_' ExecutionReport (Maybe Text)
+executionReportClientOrderIdL f ExecutionReport{..} = (\executionReportClientOrderId -> ExecutionReport { executionReportClientOrderId, ..} ) <$> f executionReportClientOrderId
+{-# INLINE executionReportClientOrderIdL #-}
+
+-- | 'executionReportSymbolExchange' Lens
+executionReportSymbolExchangeL :: Lens_' ExecutionReport (Maybe Text)
+executionReportSymbolExchangeL f ExecutionReport{..} = (\executionReportSymbolExchange -> ExecutionReport { executionReportSymbolExchange, ..} ) <$> f executionReportSymbolExchange
+{-# INLINE executionReportSymbolExchangeL #-}
+
+-- | 'executionReportSymbolCoinapi' Lens
+executionReportSymbolCoinapiL :: Lens_' ExecutionReport (Maybe Text)
+executionReportSymbolCoinapiL f ExecutionReport{..} = (\executionReportSymbolCoinapi -> ExecutionReport { executionReportSymbolCoinapi, ..} ) <$> f executionReportSymbolCoinapi
+{-# INLINE executionReportSymbolCoinapiL #-}
+
+-- | 'executionReportAmountOrder' Lens
+executionReportAmountOrderL :: Lens_' ExecutionReport (Maybe Double)
+executionReportAmountOrderL f ExecutionReport{..} = (\executionReportAmountOrder -> ExecutionReport { executionReportAmountOrder, ..} ) <$> f executionReportAmountOrder
+{-# INLINE executionReportAmountOrderL #-}
+
+-- | 'executionReportPrice' Lens
+executionReportPriceL :: Lens_' ExecutionReport (Maybe Double)
+executionReportPriceL f ExecutionReport{..} = (\executionReportPrice -> ExecutionReport { executionReportPrice, ..} ) <$> f executionReportPrice
+{-# INLINE executionReportPriceL #-}
+
+-- | 'executionReportSide' Lens
+executionReportSideL :: Lens_' ExecutionReport (Maybe E'Side)
+executionReportSideL f ExecutionReport{..} = (\executionReportSide -> ExecutionReport { executionReportSide, ..} ) <$> f executionReportSide
+{-# INLINE executionReportSideL #-}
+
+-- | 'executionReportOrderType' Lens
+executionReportOrderTypeL :: Lens_' ExecutionReport (Maybe E'OrderType)
+executionReportOrderTypeL f ExecutionReport{..} = (\executionReportOrderType -> ExecutionReport { executionReportOrderType, ..} ) <$> f executionReportOrderType
+{-# INLINE executionReportOrderTypeL #-}
+
+-- | 'executionReportTimeInForce' Lens
+executionReportTimeInForceL :: Lens_' ExecutionReport (Maybe TimeInForce)
+executionReportTimeInForceL f ExecutionReport{..} = (\executionReportTimeInForce -> ExecutionReport { executionReportTimeInForce, ..} ) <$> f executionReportTimeInForce
+{-# INLINE executionReportTimeInForceL #-}
+
+-- | 'executionReportExpireTime' Lens
+executionReportExpireTimeL :: Lens_' ExecutionReport (Maybe Date)
+executionReportExpireTimeL f ExecutionReport{..} = (\executionReportExpireTime -> ExecutionReport { executionReportExpireTime, ..} ) <$> f executionReportExpireTime
+{-# INLINE executionReportExpireTimeL #-}
+
+-- | 'executionReportExecInst' Lens
+executionReportExecInstL :: Lens_' ExecutionReport (Maybe [E'ExecInst])
+executionReportExecInstL f ExecutionReport{..} = (\executionReportExecInst -> ExecutionReport { executionReportExecInst, ..} ) <$> f executionReportExecInst
+{-# INLINE executionReportExecInstL #-}
 
 
 
--- * MessagesInfo
+-- * Message
 
--- | 'messagesInfoType' Lens
-messagesInfoTypeL :: Lens_' MessagesInfo (Maybe Text)
-messagesInfoTypeL f MessagesInfo{..} = (\messagesInfoType -> MessagesInfo { messagesInfoType, ..} ) <$> f messagesInfoType
-{-# INLINE messagesInfoTypeL #-}
+-- | 'messageType' Lens
+messageTypeL :: Lens_' Message (Maybe Text)
+messageTypeL f Message{..} = (\messageType -> Message { messageType, ..} ) <$> f messageType
+{-# INLINE messageTypeL #-}
 
--- | 'messagesInfoExchangeId' Lens
-messagesInfoExchangeIdL :: Lens_' MessagesInfo (Maybe Text)
-messagesInfoExchangeIdL f MessagesInfo{..} = (\messagesInfoExchangeId -> MessagesInfo { messagesInfoExchangeId, ..} ) <$> f messagesInfoExchangeId
-{-# INLINE messagesInfoExchangeIdL #-}
+-- | 'messageSeverity' Lens
+messageSeverityL :: Lens_' Message (Maybe Severity)
+messageSeverityL f Message{..} = (\messageSeverity -> Message { messageSeverity, ..} ) <$> f messageSeverity
+{-# INLINE messageSeverityL #-}
 
--- | 'messagesInfoErrorMessage' Lens
-messagesInfoErrorMessageL :: Lens_' MessagesInfo (Maybe Text)
-messagesInfoErrorMessageL f MessagesInfo{..} = (\messagesInfoErrorMessage -> MessagesInfo { messagesInfoErrorMessage, ..} ) <$> f messagesInfoErrorMessage
-{-# INLINE messagesInfoErrorMessageL #-}
+-- | 'messageExchangeId' Lens
+messageExchangeIdL :: Lens_' Message (Maybe Text)
+messageExchangeIdL f Message{..} = (\messageExchangeId -> Message { messageExchangeId, ..} ) <$> f messageExchangeId
+{-# INLINE messageExchangeIdL #-}
 
-
-
--- * MessagesOk
-
--- | 'messagesOkType' Lens
-messagesOkTypeL :: Lens_' MessagesOk (Maybe Text)
-messagesOkTypeL f MessagesOk{..} = (\messagesOkType -> MessagesOk { messagesOkType, ..} ) <$> f messagesOkType
-{-# INLINE messagesOkTypeL #-}
-
--- | 'messagesOkExchangeId' Lens
-messagesOkExchangeIdL :: Lens_' MessagesOk (Maybe Text)
-messagesOkExchangeIdL f MessagesOk{..} = (\messagesOkExchangeId -> MessagesOk { messagesOkExchangeId, ..} ) <$> f messagesOkExchangeId
-{-# INLINE messagesOkExchangeIdL #-}
-
--- | 'messagesOkMessage' Lens
-messagesOkMessageL :: Lens_' MessagesOk (Maybe Text)
-messagesOkMessageL f MessagesOk{..} = (\messagesOkMessage -> MessagesOk { messagesOkMessage, ..} ) <$> f messagesOkMessage
-{-# INLINE messagesOkMessageL #-}
+-- | 'messageMessage' Lens
+messageMessageL :: Lens_' Message (Maybe Text)
+messageMessageL f Message{..} = (\messageMessage -> Message { messageMessage, ..} ) <$> f messageMessage
+{-# INLINE messageMessageL #-}
 
 
 
@@ -267,6 +310,10 @@ newOrderExecInstL f NewOrder{..} = (\newOrderExecInst -> NewOrder { newOrderExec
 
 
 
+-- * OrdStatus
+
+
+
 -- * Order
 
 -- | 'orderType' Lens
@@ -283,6 +330,34 @@ orderExchangeNameL f Order{..} = (\orderExchangeName -> Order { orderExchangeNam
 orderDataL :: Lens_' Order (Maybe [OrderData])
 orderDataL f Order{..} = (\orderData -> Order { orderData, ..} ) <$> f orderData
 {-# INLINE orderDataL #-}
+
+
+
+-- * OrderCancelAllRequest
+
+-- | 'orderCancelAllRequestExchangeId' Lens
+orderCancelAllRequestExchangeIdL :: Lens_' OrderCancelAllRequest (Text)
+orderCancelAllRequestExchangeIdL f OrderCancelAllRequest{..} = (\orderCancelAllRequestExchangeId -> OrderCancelAllRequest { orderCancelAllRequestExchangeId, ..} ) <$> f orderCancelAllRequestExchangeId
+{-# INLINE orderCancelAllRequestExchangeIdL #-}
+
+
+
+-- * OrderCancelSingleRequest
+
+-- | 'orderCancelSingleRequestExchangeId' Lens
+orderCancelSingleRequestExchangeIdL :: Lens_' OrderCancelSingleRequest (Maybe Text)
+orderCancelSingleRequestExchangeIdL f OrderCancelSingleRequest{..} = (\orderCancelSingleRequestExchangeId -> OrderCancelSingleRequest { orderCancelSingleRequestExchangeId, ..} ) <$> f orderCancelSingleRequestExchangeId
+{-# INLINE orderCancelSingleRequestExchangeIdL #-}
+
+-- | 'orderCancelSingleRequestExchangeOrderId' Lens
+orderCancelSingleRequestExchangeOrderIdL :: Lens_' OrderCancelSingleRequest (Maybe Text)
+orderCancelSingleRequestExchangeOrderIdL f OrderCancelSingleRequest{..} = (\orderCancelSingleRequestExchangeOrderId -> OrderCancelSingleRequest { orderCancelSingleRequestExchangeOrderId, ..} ) <$> f orderCancelSingleRequestExchangeOrderId
+{-# INLINE orderCancelSingleRequestExchangeOrderIdL #-}
+
+-- | 'orderCancelSingleRequestClientOrderId' Lens
+orderCancelSingleRequestClientOrderIdL :: Lens_' OrderCancelSingleRequest (Maybe Text)
+orderCancelSingleRequestClientOrderIdL f OrderCancelSingleRequest{..} = (\orderCancelSingleRequestClientOrderId -> OrderCancelSingleRequest { orderCancelSingleRequestClientOrderId, ..} ) <$> f orderCancelSingleRequestClientOrderId
+{-# INLINE orderCancelSingleRequestClientOrderIdL #-}
 
 
 
@@ -319,7 +394,7 @@ orderDataAmountFilledL f OrderData{..} = (\orderDataAmountFilled -> OrderData { 
 {-# INLINE orderDataAmountFilledL #-}
 
 -- | 'orderDataStatus' Lens
-orderDataStatusL :: Lens_' OrderData (Maybe OrderStatus)
+orderDataStatusL :: Lens_' OrderData (Maybe OrdStatus)
 orderDataStatusL f OrderData{..} = (\orderDataStatus -> OrderData { orderDataStatus, ..} ) <$> f orderDataStatus
 {-# INLINE orderDataStatusL #-}
 
@@ -382,114 +457,6 @@ orderDataExpireTimeL f OrderData{..} = (\orderDataExpireTime -> OrderData { orde
 orderDataExecInstL :: Lens_' OrderData (Maybe [E'ExecInst])
 orderDataExecInstL f OrderData{..} = (\orderDataExecInst -> OrderData { orderDataExecInst, ..} ) <$> f orderDataExecInst
 {-# INLINE orderDataExecInstL #-}
-
-
-
--- * OrderLive
-
--- | 'orderLiveType' Lens
-orderLiveTypeL :: Lens_' OrderLive (Maybe Text)
-orderLiveTypeL f OrderLive{..} = (\orderLiveType -> OrderLive { orderLiveType, ..} ) <$> f orderLiveType
-{-# INLINE orderLiveTypeL #-}
-
--- | 'orderLiveExchangeId' Lens
-orderLiveExchangeIdL :: Lens_' OrderLive (Maybe Text)
-orderLiveExchangeIdL f OrderLive{..} = (\orderLiveExchangeId -> OrderLive { orderLiveExchangeId, ..} ) <$> f orderLiveExchangeId
-{-# INLINE orderLiveExchangeIdL #-}
-
--- | 'orderLiveId' Lens
-orderLiveIdL :: Lens_' OrderLive (Maybe Text)
-orderLiveIdL f OrderLive{..} = (\orderLiveId -> OrderLive { orderLiveId, ..} ) <$> f orderLiveId
-{-# INLINE orderLiveIdL #-}
-
--- | 'orderLiveClientOrderIdFormatExchange' Lens
-orderLiveClientOrderIdFormatExchangeL :: Lens_' OrderLive (Maybe Text)
-orderLiveClientOrderIdFormatExchangeL f OrderLive{..} = (\orderLiveClientOrderIdFormatExchange -> OrderLive { orderLiveClientOrderIdFormatExchange, ..} ) <$> f orderLiveClientOrderIdFormatExchange
-{-# INLINE orderLiveClientOrderIdFormatExchangeL #-}
-
--- | 'orderLiveExchangeOrderId' Lens
-orderLiveExchangeOrderIdL :: Lens_' OrderLive (Maybe Text)
-orderLiveExchangeOrderIdL f OrderLive{..} = (\orderLiveExchangeOrderId -> OrderLive { orderLiveExchangeOrderId, ..} ) <$> f orderLiveExchangeOrderId
-{-# INLINE orderLiveExchangeOrderIdL #-}
-
--- | 'orderLiveAmountOpen' Lens
-orderLiveAmountOpenL :: Lens_' OrderLive (Maybe Double)
-orderLiveAmountOpenL f OrderLive{..} = (\orderLiveAmountOpen -> OrderLive { orderLiveAmountOpen, ..} ) <$> f orderLiveAmountOpen
-{-# INLINE orderLiveAmountOpenL #-}
-
--- | 'orderLiveAmountFilled' Lens
-orderLiveAmountFilledL :: Lens_' OrderLive (Maybe Double)
-orderLiveAmountFilledL f OrderLive{..} = (\orderLiveAmountFilled -> OrderLive { orderLiveAmountFilled, ..} ) <$> f orderLiveAmountFilled
-{-# INLINE orderLiveAmountFilledL #-}
-
--- | 'orderLiveStatus' Lens
-orderLiveStatusL :: Lens_' OrderLive (Maybe OrderStatus)
-orderLiveStatusL f OrderLive{..} = (\orderLiveStatus -> OrderLive { orderLiveStatus, ..} ) <$> f orderLiveStatus
-{-# INLINE orderLiveStatusL #-}
-
--- | 'orderLiveTimeOrder' Lens
-orderLiveTimeOrderL :: Lens_' OrderLive (Maybe [[Text]])
-orderLiveTimeOrderL f OrderLive{..} = (\orderLiveTimeOrder -> OrderLive { orderLiveTimeOrder, ..} ) <$> f orderLiveTimeOrder
-{-# INLINE orderLiveTimeOrderL #-}
-
--- | 'orderLiveErrorMessage' Lens
-orderLiveErrorMessageL :: Lens_' OrderLive (Maybe Text)
-orderLiveErrorMessageL f OrderLive{..} = (\orderLiveErrorMessage -> OrderLive { orderLiveErrorMessage, ..} ) <$> f orderLiveErrorMessage
-{-# INLINE orderLiveErrorMessageL #-}
-
--- | 'orderLiveClientOrderId' Lens
-orderLiveClientOrderIdL :: Lens_' OrderLive (Maybe Text)
-orderLiveClientOrderIdL f OrderLive{..} = (\orderLiveClientOrderId -> OrderLive { orderLiveClientOrderId, ..} ) <$> f orderLiveClientOrderId
-{-# INLINE orderLiveClientOrderIdL #-}
-
--- | 'orderLiveSymbolExchange' Lens
-orderLiveSymbolExchangeL :: Lens_' OrderLive (Maybe Text)
-orderLiveSymbolExchangeL f OrderLive{..} = (\orderLiveSymbolExchange -> OrderLive { orderLiveSymbolExchange, ..} ) <$> f orderLiveSymbolExchange
-{-# INLINE orderLiveSymbolExchangeL #-}
-
--- | 'orderLiveSymbolCoinapi' Lens
-orderLiveSymbolCoinapiL :: Lens_' OrderLive (Maybe Text)
-orderLiveSymbolCoinapiL f OrderLive{..} = (\orderLiveSymbolCoinapi -> OrderLive { orderLiveSymbolCoinapi, ..} ) <$> f orderLiveSymbolCoinapi
-{-# INLINE orderLiveSymbolCoinapiL #-}
-
--- | 'orderLiveAmountOrder' Lens
-orderLiveAmountOrderL :: Lens_' OrderLive (Maybe Double)
-orderLiveAmountOrderL f OrderLive{..} = (\orderLiveAmountOrder -> OrderLive { orderLiveAmountOrder, ..} ) <$> f orderLiveAmountOrder
-{-# INLINE orderLiveAmountOrderL #-}
-
--- | 'orderLivePrice' Lens
-orderLivePriceL :: Lens_' OrderLive (Maybe Double)
-orderLivePriceL f OrderLive{..} = (\orderLivePrice -> OrderLive { orderLivePrice, ..} ) <$> f orderLivePrice
-{-# INLINE orderLivePriceL #-}
-
--- | 'orderLiveSide' Lens
-orderLiveSideL :: Lens_' OrderLive (Maybe E'Side)
-orderLiveSideL f OrderLive{..} = (\orderLiveSide -> OrderLive { orderLiveSide, ..} ) <$> f orderLiveSide
-{-# INLINE orderLiveSideL #-}
-
--- | 'orderLiveOrderType' Lens
-orderLiveOrderTypeL :: Lens_' OrderLive (Maybe E'OrderType)
-orderLiveOrderTypeL f OrderLive{..} = (\orderLiveOrderType -> OrderLive { orderLiveOrderType, ..} ) <$> f orderLiveOrderType
-{-# INLINE orderLiveOrderTypeL #-}
-
--- | 'orderLiveTimeInForce' Lens
-orderLiveTimeInForceL :: Lens_' OrderLive (Maybe TimeInForce)
-orderLiveTimeInForceL f OrderLive{..} = (\orderLiveTimeInForce -> OrderLive { orderLiveTimeInForce, ..} ) <$> f orderLiveTimeInForce
-{-# INLINE orderLiveTimeInForceL #-}
-
--- | 'orderLiveExpireTime' Lens
-orderLiveExpireTimeL :: Lens_' OrderLive (Maybe Date)
-orderLiveExpireTimeL f OrderLive{..} = (\orderLiveExpireTime -> OrderLive { orderLiveExpireTime, ..} ) <$> f orderLiveExpireTime
-{-# INLINE orderLiveExpireTimeL #-}
-
--- | 'orderLiveExecInst' Lens
-orderLiveExecInstL :: Lens_' OrderLive (Maybe [E'ExecInst])
-orderLiveExecInstL f OrderLive{..} = (\orderLiveExecInst -> OrderLive { orderLiveExecInst, ..} ) <$> f orderLiveExecInst
-{-# INLINE orderLiveExecInstL #-}
-
-
-
--- * OrderStatus
 
 
 
@@ -568,6 +535,10 @@ positionDataLiquidationPriceL f PositionData{..} = (\positionDataLiquidationPric
 positionDataRawDataL :: Lens_' PositionData (Maybe Text)
 positionDataRawDataL f PositionData{..} = (\positionDataRawData -> PositionData { positionDataRawData, ..} ) <$> f positionDataRawData
 {-# INLINE positionDataRawDataL #-}
+
+
+
+-- * Severity
 
 
 

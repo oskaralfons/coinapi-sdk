@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **exchange_order_id** | **str** | Exchange order id | [optional] 
 **amount_open** | **float** | Amount open | [optional] 
 **amount_filled** | **float** | Amount filled | [optional] 
-**status** | [**OrderStatus**](OrderStatus.md) |  | [optional] 
+**status** | [**OrdStatus**](OrdStatus.md) |  | [optional] 
 **time_order** | **list[list[str]]** | History of order status changes | [optional] 
 **error_message** | **str** | Error message | [optional] 
 **client_order_id** | **str** | Client unique identifier for the trade. | [optional] 

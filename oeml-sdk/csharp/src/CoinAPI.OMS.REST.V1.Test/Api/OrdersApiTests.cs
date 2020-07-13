@@ -70,9 +70,9 @@ namespace CoinAPI.OMS.REST.V1.Test
         public void V1OrdersCancelAllPostTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //CancelAllOrder cancelAllOrder = null;
-            //var response = instance.V1OrdersCancelAllPost(cancelAllOrder);
-            //Assert.IsInstanceOf(typeof(MessagesOk), response, "response is MessagesOk");
+            //OrderCancelAllRequest orderCancelAllRequest = null;
+            //var response = instance.V1OrdersCancelAllPost(orderCancelAllRequest);
+            //Assert.IsInstanceOf(typeof(Message), response, "response is Message");
         }
         
         /// <summary>
@@ -82,9 +82,9 @@ namespace CoinAPI.OMS.REST.V1.Test
         public void V1OrdersCancelPostTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //CancelOrder cancelOrder = null;
-            //var response = instance.V1OrdersCancelPost(cancelOrder);
-            //Assert.IsInstanceOf(typeof(OrderLive), response, "response is OrderLive");
+            //OrderCancelSingleRequest orderCancelSingleRequest = null;
+            //var response = instance.V1OrdersCancelPost(orderCancelSingleRequest);
+            //Assert.IsInstanceOf(typeof(ExecutionReport), response, "response is ExecutionReport");
         }
         
         /// <summary>
@@ -108,7 +108,19 @@ namespace CoinAPI.OMS.REST.V1.Test
             // TODO uncomment below to test the method and replace null with proper value
             //NewOrder newOrder = null;
             //var response = instance.V1OrdersPost(newOrder);
-            //Assert.IsInstanceOf(typeof(OrderLive), response, "response is OrderLive");
+            //Assert.IsInstanceOf(typeof(ExecutionReport), response, "response is ExecutionReport");
+        }
+        
+        /// <summary>
+        /// Test V1OrdersStatusClientOrderIdGet
+        /// </summary>
+        [Test]
+        public void V1OrdersStatusClientOrderIdGetTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string clientOrderId = null;
+            //var response = instance.V1OrdersStatusClientOrderIdGet(clientOrderId);
+            //Assert.IsInstanceOf(typeof(ExecutionReport), response, "response is ExecutionReport");
         }
         
     }

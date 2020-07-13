@@ -49,7 +49,7 @@ class Order implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'order';
+    protected static $openAPIModelName = 'Order';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import OrderStatus from './OrderStatus';
+import OrdStatus from './OrdStatus';
 import TimeInForce from './TimeInForce';
 
 /**
@@ -68,7 +68,7 @@ class OrderData {
                 obj['amount_filled'] = ApiClient.convertToType(data['amount_filled'], 'Number');
             }
             if (data.hasOwnProperty('status')) {
-                obj['status'] = OrderStatus.constructFromObject(data['status']);
+                obj['status'] = OrdStatus.constructFromObject(data['status']);
             }
             if (data.hasOwnProperty('time_order')) {
                 obj['time_order'] = ApiClient.convertToType(data['time_order'], [['String']]);
@@ -150,7 +150,7 @@ OrderData.prototype['amount_open'] = undefined;
 OrderData.prototype['amount_filled'] = undefined;
 
 /**
- * @member {module:model/OrderStatus} status
+ * @member {module:model/OrdStatus} status
  */
 OrderData.prototype['status'] = undefined;
 

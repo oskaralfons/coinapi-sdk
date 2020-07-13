@@ -21,14 +21,13 @@
 
 #include "../ApiClient.h"
 
-#include "CancelAllOrder.h"
-#include "CancelOrder.h"
-#include "CreateOrder400.h"
-#include "Messages.h"
-#include "MessagesOk.h"
+#include "CreateOrderValidationError.h"
+#include "ExecutionReport.h"
+#include "Message.h"
 #include "NewOrder.h"
 #include "Order.h"
-#include "OrderLive.h"
+#include "OrderCancelAllRequest.h"
+#include "OrderCancelSingleRequest.h"
 #include <cpprest/details/basic_types.h>
 
 
@@ -52,32 +51,32 @@ public:
     virtual ~OrdersApi();
 
     /// <summary>
-    /// Cancel all order
+    /// Cancel all orders
     /// </summary>
     /// <remarks>
-    /// Cancel all existing order.
+    /// This request cancels all open orders across all or single specified exchange.
     /// </remarks>
-    /// <param name="cancelAllOrder"></param>
-    pplx::task<std::shared_ptr<MessagesOk>> v1OrdersCancelAllPost(
-        std::shared_ptr<CancelAllOrder> cancelAllOrder
+    /// <param name="orderCancelAllRequest"></param>
+    pplx::task<std::shared_ptr<Message>> v1OrdersCancelAllPost(
+        std::shared_ptr<OrderCancelAllRequest> orderCancelAllRequest
     ) const;
     /// <summary>
     /// Cancel order
     /// </summary>
     /// <remarks>
-    /// Cancel an existing order, can be used to cancel margin, exchange, and derivative orders. You can cancel the order by the internal order ID or exchange order ID.
+    /// This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
     /// </remarks>
-    /// <param name="cancelOrder"></param>
-    pplx::task<std::shared_ptr<OrderLive>> v1OrdersCancelPost(
-        std::shared_ptr<CancelOrder> cancelOrder
+    /// <param name="orderCancelSingleRequest"></param>
+    pplx::task<std::shared_ptr<ExecutionReport>> v1OrdersCancelPost(
+        std::shared_ptr<OrderCancelSingleRequest> orderCancelSingleRequest
     ) const;
     /// <summary>
-    /// Get orders
+    /// Get all orders
     /// </summary>
     /// <remarks>
-    /// List your current open orders.
+    /// Get all current open orders across all or single specified exchange.
     /// </remarks>
-    /// <param name="exchangeId">Exchange name (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
+    /// <param name="exchangeId">Filter the output to the orders from the specific exchange. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::vector<std::shared_ptr<Order>>> v1OrdersGet(
         boost::optional<utility::string_t> exchangeId
     ) const;
@@ -85,11 +84,21 @@ public:
     /// Create new order
     /// </summary>
     /// <remarks>
-    /// You can place two types of orders: limit and market. Orders can only be placed if your account has sufficient funds.
+    /// This request creating new order for the specific exchange.
     /// </remarks>
     /// <param name="newOrder"></param>
-    pplx::task<std::shared_ptr<OrderLive>> v1OrdersPost(
+    pplx::task<std::shared_ptr<ExecutionReport>> v1OrdersPost(
         std::shared_ptr<NewOrder> newOrder
+    ) const;
+    /// <summary>
+    /// Get order status
+    /// </summary>
+    /// <remarks>
+    /// Get the current order status for the specified order. The requested order can no longer be active.
+    /// </remarks>
+    /// <param name="clientOrderId">Order Client Id of the order for which the status is requested.</param>
+    pplx::task<std::shared_ptr<ExecutionReport>> v1OrdersStatusClientOrderIdGet(
+        utility::string_t clientOrderId
     ) const;
 
 protected:

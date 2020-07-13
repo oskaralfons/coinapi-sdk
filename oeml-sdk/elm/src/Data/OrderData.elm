@@ -12,7 +12,7 @@
 
 module Data.OrderData exposing (OrderData, Side(..), OrderType(..), ExecInst(..), decoder, encode, encodeWithTag, toString)
 
-import Data.OrderStatus as OrderStatus exposing (OrderStatus)
+import Data.OrdStatus as OrdStatus exposing (OrdStatus)
 import Data.TimeInForce as TimeInForce exposing (TimeInForce)
 import DateOnly exposing (DateOnly)
 import Dict exposing (Dict)
@@ -28,7 +28,7 @@ type alias OrderData =
     , exchangeOrderId : Maybe (String)
     , amountOpen : Maybe (Float)
     , amountFilled : Maybe (Float)
-    , status : Maybe (OrderStatus)
+    , status : Maybe (OrdStatus)
     , timeOrder : Maybe ((List (List String)))
     , errorMessage : Maybe (String)
     , clientOrderId : Maybe (String)
@@ -71,7 +71,7 @@ decoder =
         |> optional "exchange_order_id" (Decode.nullable Decode.string) Nothing
         |> optional "amount_open" (Decode.nullable Decode.float) Nothing
         |> optional "amount_filled" (Decode.nullable Decode.float) Nothing
-        |> optional "status" (Decode.nullable OrderStatus.decoder) Nothing
+        |> optional "status" (Decode.nullable OrdStatus.decoder) Nothing
         |> optional "time_order" (Decode.nullable (Decode.list (Decode.list Decode.string))) Nothing
         |> optional "error_message" (Decode.nullable Decode.string) Nothing
         |> optional "client_order_id" (Decode.nullable Decode.string) Nothing
@@ -105,7 +105,7 @@ encodePairs model =
     , ( "exchange_order_id", Maybe.withDefault Encode.null (Maybe.map Encode.string model.exchangeOrderId) )
     , ( "amount_open", Maybe.withDefault Encode.null (Maybe.map Encode.float model.amountOpen) )
     , ( "amount_filled", Maybe.withDefault Encode.null (Maybe.map Encode.float model.amountFilled) )
-    , ( "status", Maybe.withDefault Encode.null (Maybe.map OrderStatus.encode model.status) )
+    , ( "status", Maybe.withDefault Encode.null (Maybe.map OrdStatus.encode model.status) )
     , ( "time_order", Maybe.withDefault Encode.null (Maybe.map (Encode.list (Encode.list Encode.string)) model.timeOrder) )
     , ( "error_message", Maybe.withDefault Encode.null (Maybe.map Encode.string model.errorMessage) )
     , ( "client_order_id", Maybe.withDefault Encode.null (Maybe.map Encode.string model.clientOrderId) )

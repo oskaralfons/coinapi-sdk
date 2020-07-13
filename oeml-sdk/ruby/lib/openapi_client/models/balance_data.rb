@@ -14,25 +14,25 @@ require 'date'
 
 module OpenapiClient
   class BalanceData
-    # symbol_exchange
+    # Exchange identifier.
     attr_accessor :id
 
-    # Currency code.
+    # Exchange currency code.
     attr_accessor :symbol_exchange
 
     # CoinAPI currency code.
     attr_accessor :symbol_coinapi
 
-    # The current balance.
+    # Value of the current total currency balance on the exchange.
     attr_accessor :balance
 
-    # The amount that is available to trade.
+    # Value of the current available currency balance on the exchange that can be used as collateral.
     attr_accessor :available
 
-    # Blocked funds.
+    # Value of the current locked currency balance by the exchange.
     attr_accessor :locked
 
-    # Source of last modification. 
+    # Source of the last modification. 
     attr_accessor :update_origin
 
     class EnumAttributeValidator

@@ -32,9 +32,9 @@ namespace CoinAPI.OMS.API.SDK.Model
     public partial class BalanceData :  IEquatable<BalanceData>, IValidatableObject
     {
         /// <summary>
-        /// Source of last modification. 
+        /// Source of the last modification. 
         /// </summary>
-        /// <value>Source of last modification. </value>
+        /// <value>Source of the last modification. </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum UpdateOriginEnum
         {
@@ -59,21 +59,21 @@ namespace CoinAPI.OMS.API.SDK.Model
         }
 
         /// <summary>
-        /// Source of last modification. 
+        /// Source of the last modification. 
         /// </summary>
-        /// <value>Source of last modification. </value>
+        /// <value>Source of the last modification. </value>
         [DataMember(Name="update_origin", EmitDefaultValue=false)]
         public UpdateOriginEnum? UpdateOrigin { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="BalanceData" /> class.
         /// </summary>
-        /// <param name="id">symbol_exchange.</param>
-        /// <param name="symbolExchange">Currency code..</param>
+        /// <param name="id">Exchange identifier..</param>
+        /// <param name="symbolExchange">Exchange currency code..</param>
         /// <param name="symbolCoinapi">CoinAPI currency code..</param>
-        /// <param name="balance">The current balance..</param>
-        /// <param name="available">The amount that is available to trade..</param>
-        /// <param name="locked">Blocked funds..</param>
-        /// <param name="updateOrigin">Source of last modification. .</param>
+        /// <param name="balance">Value of the current total currency balance on the exchange..</param>
+        /// <param name="available">Value of the current available currency balance on the exchange that can be used as collateral..</param>
+        /// <param name="locked">Value of the current locked currency balance by the exchange..</param>
+        /// <param name="updateOrigin">Source of the last modification. .</param>
         public BalanceData(string id = default(string), string symbolExchange = default(string), string symbolCoinapi = default(string), float balance = default(float), float available = default(float), float locked = default(float), UpdateOriginEnum? updateOrigin = default(UpdateOriginEnum?))
         {
             this.Id = id;
@@ -86,16 +86,16 @@ namespace CoinAPI.OMS.API.SDK.Model
         }
         
         /// <summary>
-        /// symbol_exchange
+        /// Exchange identifier.
         /// </summary>
-        /// <value>symbol_exchange</value>
+        /// <value>Exchange identifier.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Currency code.
+        /// Exchange currency code.
         /// </summary>
-        /// <value>Currency code.</value>
+        /// <value>Exchange currency code.</value>
         [DataMember(Name="symbol_exchange", EmitDefaultValue=false)]
         public string SymbolExchange { get; set; }
 
@@ -107,23 +107,23 @@ namespace CoinAPI.OMS.API.SDK.Model
         public string SymbolCoinapi { get; set; }
 
         /// <summary>
-        /// The current balance.
+        /// Value of the current total currency balance on the exchange.
         /// </summary>
-        /// <value>The current balance.</value>
+        /// <value>Value of the current total currency balance on the exchange.</value>
         [DataMember(Name="balance", EmitDefaultValue=false)]
         public float Balance { get; set; }
 
         /// <summary>
-        /// The amount that is available to trade.
+        /// Value of the current available currency balance on the exchange that can be used as collateral.
         /// </summary>
-        /// <value>The amount that is available to trade.</value>
+        /// <value>Value of the current available currency balance on the exchange that can be used as collateral.</value>
         [DataMember(Name="available", EmitDefaultValue=false)]
         public float Available { get; set; }
 
         /// <summary>
-        /// Blocked funds.
+        /// Value of the current locked currency balance by the exchange.
         /// </summary>
-        /// <value>Blocked funds.</value>
+        /// <value>Value of the current locked currency balance by the exchange.</value>
         [DataMember(Name="locked", EmitDefaultValue=false)]
         public float Locked { get; set; }
 

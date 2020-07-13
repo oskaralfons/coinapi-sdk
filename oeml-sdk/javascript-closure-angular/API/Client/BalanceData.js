@@ -1,4 +1,4 @@
-goog.provide('API.Client.balance_data');
+goog.provide('API.Client.Balance_data');
 
 /**
  * @record
@@ -6,14 +6,14 @@ goog.provide('API.Client.balance_data');
 API.Client.BalanceData = function() {}
 
 /**
- * symbol_exchange
+ * Exchange identifier.
  * @type {!string}
  * @export
  */
 API.Client.BalanceData.prototype.id;
 
 /**
- * Currency code.
+ * Exchange currency code.
  * @type {!string}
  * @export
  */
@@ -27,28 +27,28 @@ API.Client.BalanceData.prototype.symbolExchange;
 API.Client.BalanceData.prototype.symbolCoinapi;
 
 /**
- * The current balance.
+ * Value of the current total currency balance on the exchange.
  * @type {!number}
  * @export
  */
 API.Client.BalanceData.prototype.balance;
 
 /**
- * The amount that is available to trade.
+ * Value of the current available currency balance on the exchange that can be used as collateral.
  * @type {!number}
  * @export
  */
 API.Client.BalanceData.prototype.available;
 
 /**
- * Blocked funds.
+ * Value of the current locked currency balance by the exchange.
  * @type {!number}
  * @export
  */
 API.Client.BalanceData.prototype.locked;
 
 /**
- * Source of last modification. 
+ * Source of the last modification. 
  * @type {!string}
  * @export
  */

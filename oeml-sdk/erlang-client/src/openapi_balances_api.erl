@@ -2,7 +2,7 @@
 
 -export([v1_balances_get/1, v1_balances_get/2]).
 
--define(BASE_URL, "/v1").
+-define(BASE_URL, "").
 
 %% @doc Get balances
 %% Returns all of your balances, including available balance.

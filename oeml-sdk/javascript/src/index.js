@@ -15,19 +15,18 @@
 import ApiClient from './ApiClient';
 import Balance from './model/Balance';
 import BalanceData from './model/BalanceData';
-import CancelAllOrder from './model/CancelAllOrder';
-import CancelOrder from './model/CancelOrder';
-import CreateOrder400 from './model/CreateOrder400';
-import Messages from './model/Messages';
-import MessagesInfo from './model/MessagesInfo';
-import MessagesOk from './model/MessagesOk';
+import CreateOrderValidationError from './model/CreateOrderValidationError';
+import ExecutionReport from './model/ExecutionReport';
+import Message from './model/Message';
 import NewOrder from './model/NewOrder';
+import OrdStatus from './model/OrdStatus';
 import Order from './model/Order';
+import OrderCancelAllRequest from './model/OrderCancelAllRequest';
+import OrderCancelSingleRequest from './model/OrderCancelSingleRequest';
 import OrderData from './model/OrderData';
-import OrderLive from './model/OrderLive';
-import OrderStatus from './model/OrderStatus';
 import Position from './model/Position';
 import PositionData from './model/PositionData';
+import Severity from './model/Severity';
 import TimeInForce from './model/TimeInForce';
 import BalancesApi from './api/BalancesApi';
 import OrdersApi from './api/OrdersApi';
@@ -85,40 +84,22 @@ export {
     BalanceData,
 
     /**
-     * The CancelAllOrder model constructor.
-     * @property {module:model/CancelAllOrder}
+     * The CreateOrderValidationError model constructor.
+     * @property {module:model/CreateOrderValidationError}
      */
-    CancelAllOrder,
+    CreateOrderValidationError,
 
     /**
-     * The CancelOrder model constructor.
-     * @property {module:model/CancelOrder}
+     * The ExecutionReport model constructor.
+     * @property {module:model/ExecutionReport}
      */
-    CancelOrder,
+    ExecutionReport,
 
     /**
-     * The CreateOrder400 model constructor.
-     * @property {module:model/CreateOrder400}
+     * The Message model constructor.
+     * @property {module:model/Message}
      */
-    CreateOrder400,
-
-    /**
-     * The Messages model constructor.
-     * @property {module:model/Messages}
-     */
-    Messages,
-
-    /**
-     * The MessagesInfo model constructor.
-     * @property {module:model/MessagesInfo}
-     */
-    MessagesInfo,
-
-    /**
-     * The MessagesOk model constructor.
-     * @property {module:model/MessagesOk}
-     */
-    MessagesOk,
+    Message,
 
     /**
      * The NewOrder model constructor.
@@ -127,28 +108,34 @@ export {
     NewOrder,
 
     /**
+     * The OrdStatus model constructor.
+     * @property {module:model/OrdStatus}
+     */
+    OrdStatus,
+
+    /**
      * The Order model constructor.
      * @property {module:model/Order}
      */
     Order,
 
     /**
+     * The OrderCancelAllRequest model constructor.
+     * @property {module:model/OrderCancelAllRequest}
+     */
+    OrderCancelAllRequest,
+
+    /**
+     * The OrderCancelSingleRequest model constructor.
+     * @property {module:model/OrderCancelSingleRequest}
+     */
+    OrderCancelSingleRequest,
+
+    /**
      * The OrderData model constructor.
      * @property {module:model/OrderData}
      */
     OrderData,
-
-    /**
-     * The OrderLive model constructor.
-     * @property {module:model/OrderLive}
-     */
-    OrderLive,
-
-    /**
-     * The OrderStatus model constructor.
-     * @property {module:model/OrderStatus}
-     */
-    OrderStatus,
 
     /**
      * The Position model constructor.
@@ -161,6 +148,12 @@ export {
      * @property {module:model/PositionData}
      */
     PositionData,
+
+    /**
+     * The Severity model constructor.
+     * @property {module:model/Severity}
+     */
+    Severity,
 
     /**
      * The TimeInForce model constructor.

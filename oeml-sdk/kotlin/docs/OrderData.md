@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **exchangeOrderId** | **kotlin.String** | Exchange order id |  [optional]
 **amountOpen** | [**java.math.BigDecimal**](java.math.BigDecimal.md) | Amount open |  [optional]
 **amountFilled** | [**java.math.BigDecimal**](java.math.BigDecimal.md) | Amount filled |  [optional]
-**status** | [**OrderStatus**](OrderStatus.md) |  |  [optional]
+**status** | [**OrdStatus**](OrdStatus.md) |  |  [optional]
 **timeOrder** | **kotlin.Array&lt;kotlin.Array&lt;kotlin.String&gt;&gt;** | History of order status changes |  [optional]
 **errorMessage** | **kotlin.String** | Error message |  [optional]
 **clientOrderId** | **kotlin.String** | Client unique identifier for the trade. |  [optional]

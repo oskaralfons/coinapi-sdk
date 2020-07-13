@@ -13,14 +13,13 @@
 
 
 import ApiClient from "../ApiClient";
-import CancelAllOrder from '../model/CancelAllOrder';
-import CancelOrder from '../model/CancelOrder';
-import CreateOrder400 from '../model/CreateOrder400';
-import Messages from '../model/Messages';
-import MessagesOk from '../model/MessagesOk';
+import CreateOrderValidationError from '../model/CreateOrderValidationError';
+import ExecutionReport from '../model/ExecutionReport';
+import Message from '../model/Message';
 import NewOrder from '../model/NewOrder';
 import Order from '../model/Order';
-import OrderLive from '../model/OrderLive';
+import OrderCancelAllRequest from '../model/OrderCancelAllRequest';
+import OrderCancelSingleRequest from '../model/OrderCancelSingleRequest';
 
 /**
 * Orders service.
@@ -45,22 +44,22 @@ export default class OrdersApi {
      * Callback function to receive the result of the v1OrdersCancelAllPost operation.
      * @callback module:api/OrdersApi~v1OrdersCancelAllPostCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/MessagesOk} data The data returned by the service call.
+     * @param {module:model/Message} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Cancel all order
-     * Cancel all existing order.
-     * @param {module:model/CancelAllOrder} cancelAllOrder 
+     * Cancel all orders
+     * This request cancels all open orders across all or single specified exchange.
+     * @param {module:model/OrderCancelAllRequest} orderCancelAllRequest 
      * @param {module:api/OrdersApi~v1OrdersCancelAllPostCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/MessagesOk}
+     * data is of type: {@link module:model/Message}
      */
-    v1OrdersCancelAllPost(cancelAllOrder, callback) {
-      let postBody = cancelAllOrder;
-      // verify the required parameter 'cancelAllOrder' is set
-      if (cancelAllOrder === undefined || cancelAllOrder === null) {
-        throw new Error("Missing the required parameter 'cancelAllOrder' when calling v1OrdersCancelAllPost");
+    v1OrdersCancelAllPost(orderCancelAllRequest, callback) {
+      let postBody = orderCancelAllRequest;
+      // verify the required parameter 'orderCancelAllRequest' is set
+      if (orderCancelAllRequest === undefined || orderCancelAllRequest === null) {
+        throw new Error("Missing the required parameter 'orderCancelAllRequest' when calling v1OrdersCancelAllPost");
       }
 
       let pathParams = {
@@ -75,7 +74,7 @@ export default class OrdersApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = MessagesOk;
+      let returnType = Message;
       return this.apiClient.callApi(
         '/v1/orders/cancel/all', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -87,22 +86,22 @@ export default class OrdersApi {
      * Callback function to receive the result of the v1OrdersCancelPost operation.
      * @callback module:api/OrdersApi~v1OrdersCancelPostCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/OrderLive} data The data returned by the service call.
+     * @param {module:model/ExecutionReport} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Cancel order
-     * Cancel an existing order, can be used to cancel margin, exchange, and derivative orders. You can cancel the order by the internal order ID or exchange order ID.
-     * @param {module:model/CancelOrder} cancelOrder 
+     * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
+     * @param {module:model/OrderCancelSingleRequest} orderCancelSingleRequest 
      * @param {module:api/OrdersApi~v1OrdersCancelPostCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/OrderLive}
+     * data is of type: {@link module:model/ExecutionReport}
      */
-    v1OrdersCancelPost(cancelOrder, callback) {
-      let postBody = cancelOrder;
-      // verify the required parameter 'cancelOrder' is set
-      if (cancelOrder === undefined || cancelOrder === null) {
-        throw new Error("Missing the required parameter 'cancelOrder' when calling v1OrdersCancelPost");
+    v1OrdersCancelPost(orderCancelSingleRequest, callback) {
+      let postBody = orderCancelSingleRequest;
+      // verify the required parameter 'orderCancelSingleRequest' is set
+      if (orderCancelSingleRequest === undefined || orderCancelSingleRequest === null) {
+        throw new Error("Missing the required parameter 'orderCancelSingleRequest' when calling v1OrdersCancelPost");
       }
 
       let pathParams = {
@@ -117,7 +116,7 @@ export default class OrdersApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json', 'appliction/json'];
-      let returnType = OrderLive;
+      let returnType = ExecutionReport;
       return this.apiClient.callApi(
         '/v1/orders/cancel', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -134,10 +133,10 @@ export default class OrdersApi {
      */
 
     /**
-     * Get orders
-     * List your current open orders.
+     * Get all orders
+     * Get all current open orders across all or single specified exchange.
      * @param {Object} opts Optional parameters
-     * @param {String} opts.exchangeId Exchange name
+     * @param {String} opts.exchangeId Filter the output to the orders from the specific exchange.
      * @param {module:api/OrdersApi~v1OrdersGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Order>}
      */
@@ -170,16 +169,16 @@ export default class OrdersApi {
      * Callback function to receive the result of the v1OrdersPost operation.
      * @callback module:api/OrdersApi~v1OrdersPostCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/OrderLive} data The data returned by the service call.
+     * @param {module:model/ExecutionReport} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Create new order
-     * You can place two types of orders: limit and market. Orders can only be placed if your account has sufficient funds.
+     * This request creating new order for the specific exchange.
      * @param {module:model/NewOrder} newOrder 
      * @param {module:api/OrdersApi~v1OrdersPostCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/OrderLive}
+     * data is of type: {@link module:model/ExecutionReport}
      */
     v1OrdersPost(newOrder, callback) {
       let postBody = newOrder;
@@ -200,9 +199,52 @@ export default class OrdersApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json', 'appliction/json'];
-      let returnType = OrderLive;
+      let returnType = ExecutionReport;
       return this.apiClient.callApi(
         '/v1/orders', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the v1OrdersStatusClientOrderIdGet operation.
+     * @callback module:api/OrdersApi~v1OrdersStatusClientOrderIdGetCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/ExecutionReport} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get order status
+     * Get the current order status for the specified order. The requested order can no longer be active.
+     * @param {String} clientOrderId Order Client Id of the order for which the status is requested.
+     * @param {module:api/OrdersApi~v1OrdersStatusClientOrderIdGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/ExecutionReport}
+     */
+    v1OrdersStatusClientOrderIdGet(clientOrderId, callback) {
+      let postBody = null;
+      // verify the required parameter 'clientOrderId' is set
+      if (clientOrderId === undefined || clientOrderId === null) {
+        throw new Error("Missing the required parameter 'clientOrderId' when calling v1OrdersStatusClientOrderIdGet");
+      }
+
+      let pathParams = {
+        'client_order_id': clientOrderId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ExecutionReport;
+      return this.apiClient.callApi(
+        '/v1/orders/status/{client_order_id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

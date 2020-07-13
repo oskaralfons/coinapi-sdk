@@ -22,7 +22,7 @@ type OrderData struct {
 	AmountOpen float32 `json:"amount_open,omitempty"`
 	// Amount filled
 	AmountFilled float32 `json:"amount_filled,omitempty"`
-	Status OrderStatus `json:"status,omitempty"`
+	Status OrdStatus `json:"status,omitempty"`
 	// History of order status changes
 	TimeOrder [][]string `json:"time_order,omitempty"`
 	// Error message

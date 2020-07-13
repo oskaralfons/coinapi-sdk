@@ -14,19 +14,19 @@ package org.openapitools.client.model
 import org.openapitools.client.core.ApiModel
 
 case class BalanceData (
-  /* symbol_exchange */
+  /* Exchange identifier. */
   id: Option[String] = None,
-  /* Currency code. */
+  /* Exchange currency code. */
   symbolExchange: Option[String] = None,
   /* CoinAPI currency code. */
   symbolCoinapi: Option[String] = None,
-  /* The current balance. */
+  /* Value of the current total currency balance on the exchange. */
   balance: Option[Float] = None,
-  /* The amount that is available to trade. */
+  /* Value of the current available currency balance on the exchange that can be used as collateral. */
   available: Option[Float] = None,
-  /* Blocked funds. */
+  /* Value of the current locked currency balance by the exchange. */
   locked: Option[Float] = None,
-  /* Source of last modification.  */
+  /* Source of the last modification.  */
   updateOrigin: Option[BalanceDataEnums.UpdateOrigin] = None
 ) extends ApiModel
 

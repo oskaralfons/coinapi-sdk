@@ -86,7 +86,7 @@ class BalanceData(object):
     def id(self):
         """Gets the id of this BalanceData.  # noqa: E501
 
-        symbol_exchange  # noqa: E501
+        Exchange identifier.  # noqa: E501
 
         :return: The id of this BalanceData.  # noqa: E501
         :rtype: str
@@ -97,7 +97,7 @@ class BalanceData(object):
     def id(self, id):
         """Sets the id of this BalanceData.
 
-        symbol_exchange  # noqa: E501
+        Exchange identifier.  # noqa: E501
 
         :param id: The id of this BalanceData.  # noqa: E501
         :type: str
@@ -109,7 +109,7 @@ class BalanceData(object):
     def symbol_exchange(self):
         """Gets the symbol_exchange of this BalanceData.  # noqa: E501
 
-        Currency code.  # noqa: E501
+        Exchange currency code.  # noqa: E501
 
         :return: The symbol_exchange of this BalanceData.  # noqa: E501
         :rtype: str
@@ -120,7 +120,7 @@ class BalanceData(object):
     def symbol_exchange(self, symbol_exchange):
         """Sets the symbol_exchange of this BalanceData.
 
-        Currency code.  # noqa: E501
+        Exchange currency code.  # noqa: E501
 
         :param symbol_exchange: The symbol_exchange of this BalanceData.  # noqa: E501
         :type: str
@@ -155,7 +155,7 @@ class BalanceData(object):
     def balance(self):
         """Gets the balance of this BalanceData.  # noqa: E501
 
-        The current balance.  # noqa: E501
+        Value of the current total currency balance on the exchange.  # noqa: E501
 
         :return: The balance of this BalanceData.  # noqa: E501
         :rtype: float
@@ -166,7 +166,7 @@ class BalanceData(object):
     def balance(self, balance):
         """Sets the balance of this BalanceData.
 
-        The current balance.  # noqa: E501
+        Value of the current total currency balance on the exchange.  # noqa: E501
 
         :param balance: The balance of this BalanceData.  # noqa: E501
         :type: float
@@ -178,7 +178,7 @@ class BalanceData(object):
     def available(self):
         """Gets the available of this BalanceData.  # noqa: E501
 
-        The amount that is available to trade.  # noqa: E501
+        Value of the current available currency balance on the exchange that can be used as collateral.  # noqa: E501
 
         :return: The available of this BalanceData.  # noqa: E501
         :rtype: float
@@ -189,7 +189,7 @@ class BalanceData(object):
     def available(self, available):
         """Sets the available of this BalanceData.
 
-        The amount that is available to trade.  # noqa: E501
+        Value of the current available currency balance on the exchange that can be used as collateral.  # noqa: E501
 
         :param available: The available of this BalanceData.  # noqa: E501
         :type: float
@@ -201,7 +201,7 @@ class BalanceData(object):
     def locked(self):
         """Gets the locked of this BalanceData.  # noqa: E501
 
-        Blocked funds.  # noqa: E501
+        Value of the current locked currency balance by the exchange.  # noqa: E501
 
         :return: The locked of this BalanceData.  # noqa: E501
         :rtype: float
@@ -212,7 +212,7 @@ class BalanceData(object):
     def locked(self, locked):
         """Sets the locked of this BalanceData.
 
-        Blocked funds.  # noqa: E501
+        Value of the current locked currency balance by the exchange.  # noqa: E501
 
         :param locked: The locked of this BalanceData.  # noqa: E501
         :type: float
@@ -224,7 +224,7 @@ class BalanceData(object):
     def update_origin(self):
         """Gets the update_origin of this BalanceData.  # noqa: E501
 
-        Source of last modification.   # noqa: E501
+        Source of the last modification.   # noqa: E501
 
         :return: The update_origin of this BalanceData.  # noqa: E501
         :rtype: str
@@ -235,7 +235,7 @@ class BalanceData(object):
     def update_origin(self, update_origin):
         """Sets the update_origin of this BalanceData.
 
-        Source of last modification.   # noqa: E501
+        Source of the last modification.   # noqa: E501
 
         :param update_origin: The update_origin of this BalanceData.  # noqa: E501
         :type: str

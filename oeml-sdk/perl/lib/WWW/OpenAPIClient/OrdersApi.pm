@@ -51,31 +51,31 @@ sub new {
 #
 # v1_orders_cancel_all_post
 #
-# Cancel all order
+# Cancel all orders
 # 
-# @param CancelAllOrder $cancel_all_order  (required)
+# @param OrderCancelAllRequest $order_cancel_all_request  (required)
 {
     my $params = {
-    'cancel_all_order' => {
-        data_type => 'CancelAllOrder',
+    'order_cancel_all_request' => {
+        data_type => 'OrderCancelAllRequest',
         description => '',
         required => '1',
     },
     };
     __PACKAGE__->method_documentation->{ 'v1_orders_cancel_all_post' } = { 
-        summary => 'Cancel all order',
+        summary => 'Cancel all orders',
         params => $params,
-        returns => 'MessagesOk',
+        returns => 'Message',
         };
 }
-# @return MessagesOk
+# @return Message
 #
 sub v1_orders_cancel_all_post {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'cancel_all_order' is set
-    unless (exists $args{'cancel_all_order'}) {
-      croak("Missing the required parameter 'cancel_all_order' when calling v1_orders_cancel_all_post");
+    # verify the required parameter 'order_cancel_all_request' is set
+    unless (exists $args{'order_cancel_all_request'}) {
+      croak("Missing the required parameter 'order_cancel_all_request' when calling v1_orders_cancel_all_post");
     }
 
     # parse inputs
@@ -95,8 +95,8 @@ sub v1_orders_cancel_all_post {
 
     my $_body_data;
     # body params
-    if ( exists $args{'cancel_all_order'}) {
-        $_body_data = $args{'cancel_all_order'};
+    if ( exists $args{'order_cancel_all_request'}) {
+        $_body_data = $args{'order_cancel_all_request'};
     }
 
     # authentication setting, if any
@@ -109,7 +109,7 @@ sub v1_orders_cancel_all_post {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('MessagesOk', $response);
+    my $_response_object = $self->{api_client}->deserialize('Message', $response);
     return $_response_object;
 }
 
@@ -118,11 +118,11 @@ sub v1_orders_cancel_all_post {
 #
 # Cancel order
 # 
-# @param CancelOrder $cancel_order  (required)
+# @param OrderCancelSingleRequest $order_cancel_single_request  (required)
 {
     my $params = {
-    'cancel_order' => {
-        data_type => 'CancelOrder',
+    'order_cancel_single_request' => {
+        data_type => 'OrderCancelSingleRequest',
         description => '',
         required => '1',
     },
@@ -130,17 +130,17 @@ sub v1_orders_cancel_all_post {
     __PACKAGE__->method_documentation->{ 'v1_orders_cancel_post' } = { 
         summary => 'Cancel order',
         params => $params,
-        returns => 'OrderLive',
+        returns => 'ExecutionReport',
         };
 }
-# @return OrderLive
+# @return ExecutionReport
 #
 sub v1_orders_cancel_post {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'cancel_order' is set
-    unless (exists $args{'cancel_order'}) {
-      croak("Missing the required parameter 'cancel_order' when calling v1_orders_cancel_post");
+    # verify the required parameter 'order_cancel_single_request' is set
+    unless (exists $args{'order_cancel_single_request'}) {
+      croak("Missing the required parameter 'order_cancel_single_request' when calling v1_orders_cancel_post");
     }
 
     # parse inputs
@@ -160,8 +160,8 @@ sub v1_orders_cancel_post {
 
     my $_body_data;
     # body params
-    if ( exists $args{'cancel_order'}) {
-        $_body_data = $args{'cancel_order'};
+    if ( exists $args{'order_cancel_single_request'}) {
+        $_body_data = $args{'order_cancel_single_request'};
     }
 
     # authentication setting, if any
@@ -174,26 +174,26 @@ sub v1_orders_cancel_post {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('OrderLive', $response);
+    my $_response_object = $self->{api_client}->deserialize('ExecutionReport', $response);
     return $_response_object;
 }
 
 #
 # v1_orders_get
 #
-# Get orders
+# Get all orders
 # 
-# @param string $exchange_id Exchange name (optional)
+# @param string $exchange_id Filter the output to the orders from the specific exchange. (optional)
 {
     my $params = {
     'exchange_id' => {
         data_type => 'string',
-        description => 'Exchange name',
+        description => 'Filter the output to the orders from the specific exchange.',
         required => '0',
     },
     };
     __PACKAGE__->method_documentation->{ 'v1_orders_get' } = { 
-        summary => 'Get orders',
+        summary => 'Get all orders',
         params => $params,
         returns => 'ARRAY[Order]',
         };
@@ -255,10 +255,10 @@ sub v1_orders_get {
     __PACKAGE__->method_documentation->{ 'v1_orders_post' } = { 
         summary => 'Create new order',
         params => $params,
-        returns => 'OrderLive',
+        returns => 'ExecutionReport',
         };
 }
-# @return OrderLive
+# @return ExecutionReport
 #
 sub v1_orders_post {
     my ($self, %args) = @_;
@@ -299,7 +299,74 @@ sub v1_orders_post {
     if (!$response) {
         return;
     }
-    my $_response_object = $self->{api_client}->deserialize('OrderLive', $response);
+    my $_response_object = $self->{api_client}->deserialize('ExecutionReport', $response);
+    return $_response_object;
+}
+
+#
+# v1_orders_status_client_order_id_get
+#
+# Get order status
+# 
+# @param string $client_order_id Order Client Id of the order for which the status is requested. (required)
+{
+    my $params = {
+    'client_order_id' => {
+        data_type => 'string',
+        description => 'Order Client Id of the order for which the status is requested.',
+        required => '1',
+    },
+    };
+    __PACKAGE__->method_documentation->{ 'v1_orders_status_client_order_id_get' } = { 
+        summary => 'Get order status',
+        params => $params,
+        returns => 'ExecutionReport',
+        };
+}
+# @return ExecutionReport
+#
+sub v1_orders_status_client_order_id_get {
+    my ($self, %args) = @_;
+
+    # verify the required parameter 'client_order_id' is set
+    unless (exists $args{'client_order_id'}) {
+      croak("Missing the required parameter 'client_order_id' when calling v1_orders_status_client_order_id_get");
+    }
+
+    # parse inputs
+    my $_resource_path = '/v1/orders/status/{client_order_id}';
+
+    my $_method = 'GET';
+    my $query_params = {};
+    my $header_params = {};
+    my $form_params = {};
+
+    # 'Accept' and 'Content-Type' header
+    my $_header_accept = $self->{api_client}->select_header_accept('application/json');
+    if ($_header_accept) {
+        $header_params->{'Accept'} = $_header_accept;
+    }
+    $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
+
+    # path params
+    if ( exists $args{'client_order_id'}) {
+        my $_base_variable = "{" . "client_order_id" . "}";
+        my $_base_value = $self->{api_client}->to_path_value($args{'client_order_id'});
+        $_resource_path =~ s/$_base_variable/$_base_value/g;
+    }
+
+    my $_body_data;
+    # authentication setting, if any
+    my $auth_settings = [qw()];
+
+    # make the API Call
+    my $response = $self->{api_client}->call_api($_resource_path, $_method,
+                                           $query_params, $form_params,
+                                           $header_params, $_body_data, $auth_settings);
+    if (!$response) {
+        return;
+    }
+    my $_response_object = $self->{api_client}->deserialize('ExecutionReport', $response);
     return $_response_object;
 }
 

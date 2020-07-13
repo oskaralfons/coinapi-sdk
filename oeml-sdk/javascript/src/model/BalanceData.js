@@ -76,13 +76,13 @@ class BalanceData {
 }
 
 /**
- * symbol_exchange
+ * Exchange identifier.
  * @member {String} id
  */
 BalanceData.prototype['id'] = undefined;
 
 /**
- * Currency code.
+ * Exchange currency code.
  * @member {String} symbol_exchange
  */
 BalanceData.prototype['symbol_exchange'] = undefined;
@@ -94,25 +94,25 @@ BalanceData.prototype['symbol_exchange'] = undefined;
 BalanceData.prototype['symbol_coinapi'] = undefined;
 
 /**
- * The current balance.
+ * Value of the current total currency balance on the exchange.
  * @member {Number} balance
  */
 BalanceData.prototype['balance'] = undefined;
 
 /**
- * The amount that is available to trade.
+ * Value of the current available currency balance on the exchange that can be used as collateral.
  * @member {Number} available
  */
 BalanceData.prototype['available'] = undefined;
 
 /**
- * Blocked funds.
+ * Value of the current locked currency balance by the exchange.
  * @member {Number} locked
  */
 BalanceData.prototype['locked'] = undefined;
 
 /**
- * Source of last modification. 
+ * Source of the last modification. 
  * @member {module:model/BalanceData.UpdateOriginEnum} update_origin
  */
 BalanceData.prototype['update_origin'] = undefined;

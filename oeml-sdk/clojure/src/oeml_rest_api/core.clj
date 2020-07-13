@@ -12,7 +12,7 @@
 
 (def default-api-context
   "Default API context."
-  {:base-url        "http://localhost:8080/v1"
+  {:base-url        "http://localhost:8080"
    :date-format     "yyyy-MM-dd"
    :datetime-format "yyyy-MM-dd'T'HH:mm:ss.SSSXXX"
    :decode-models   false

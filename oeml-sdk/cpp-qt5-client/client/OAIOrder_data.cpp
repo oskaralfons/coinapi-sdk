@@ -334,10 +334,10 @@ bool OAIOrder_data::is_amount_filled_Valid() const{
     return m_amount_filled_isValid;
 }
 
-OAIOrderStatus OAIOrder_data::getStatus() const {
+OAIOrdStatus OAIOrder_data::getStatus() const {
     return status;
 }
-void OAIOrder_data::setStatus(const OAIOrderStatus &status) {
+void OAIOrder_data::setStatus(const OAIOrdStatus &status) {
     this->status = status;
     this->m_status_isSet = true;
 }

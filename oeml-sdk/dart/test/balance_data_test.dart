@@ -6,13 +6,13 @@ void main() {
     var instance = new BalanceData();
 
   group('test BalanceData', () {
-    // symbol_exchange
+    // Exchange identifier.
     // String id (default value: null)
     test('to test the property `id`', () async {
       // TODO
     });
 
-    // Currency code.
+    // Exchange currency code.
     // String symbolExchange (default value: null)
     test('to test the property `symbolExchange`', () async {
       // TODO
@@ -24,25 +24,25 @@ void main() {
       // TODO
     });
 
-    // The current balance.
+    // Value of the current total currency balance on the exchange.
     // double balance (default value: null)
     test('to test the property `balance`', () async {
       // TODO
     });
 
-    // The amount that is available to trade.
+    // Value of the current available currency balance on the exchange that can be used as collateral.
     // double available (default value: null)
     test('to test the property `available`', () async {
       // TODO
     });
 
-    // Blocked funds.
+    // Value of the current locked currency balance by the exchange.
     // double locked (default value: null)
     test('to test the property `locked`', () async {
       // TODO
     });
 
-    // Source of last modification. 
+    // Source of the last modification. 
     // String updateOrigin (default value: null)
     test('to test the property `updateOrigin`', () async {
       // TODO

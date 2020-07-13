@@ -11,7 +11,7 @@
 */
 package org.openapitools.client.models
 
-import org.openapitools.client.models.OrderStatus
+import org.openapitools.client.models.OrdStatus
 import org.openapitools.client.models.TimeInForce
 
 import com.squareup.moshi.Json
@@ -58,7 +58,7 @@ data class OrderData (
     @Json(name = "amount_filled")
     val amountFilled: java.math.BigDecimal? = null,
     @Json(name = "status")
-    val status: OrderStatus? = null,
+    val status: OrdStatus? = null,
     /* History of order status changes */
     @Json(name = "time_order")
     val timeOrder: kotlin.Array<kotlin.Array<kotlin.String>>? = null,

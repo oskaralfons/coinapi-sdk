@@ -69,7 +69,7 @@ void OAIOrdersApi::abortRequests(){
     emit abortRequestsSignal();
 }
 
-void OAIOrdersApi::v1OrdersCancelAllPost(const OAICancelAllOrder &oai_cancel_all_order) {
+void OAIOrdersApi::v1OrdersCancelAllPost(const OAIOrderCancelAllRequest &oai_order_cancel_all_request) {
     QString fullPath = QString("%1://%2%3%4%5")
                            .arg(_scheme)
                            .arg(_host)
@@ -82,7 +82,7 @@ void OAIOrdersApi::v1OrdersCancelAllPost(const OAICancelAllOrder &oai_cancel_all
     worker->setWorkingDirectory(_workingDirectory);
     OAIHttpRequestInput input(fullPath, "POST");
 
-    QString output = oai_cancel_all_order.asJson();
+    QString output = oai_order_cancel_all_request.asJson();
     input.request_body.append(output);
 
     foreach (QString key, this->defaultHeaders.keys()) { input.headers.insert(key, this->defaultHeaders.value(key)); }
@@ -103,7 +103,7 @@ void OAIOrdersApi::v1OrdersCancelAllPostCallback(OAIHttpRequestWorker *worker) {
         msg = "Error: " + worker->error_str;
         error_str = QString("%1, %2").arg(worker->error_str).arg(QString(worker->response));
     }
-    OAIMessagesOk output(QString(worker->response));
+    OAIMessage output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -115,7 +115,7 @@ void OAIOrdersApi::v1OrdersCancelAllPostCallback(OAIHttpRequestWorker *worker) {
     }
 }
 
-void OAIOrdersApi::v1OrdersCancelPost(const OAICancelOrder &oai_cancel_order) {
+void OAIOrdersApi::v1OrdersCancelPost(const OAIOrderCancelSingleRequest &oai_order_cancel_single_request) {
     QString fullPath = QString("%1://%2%3%4%5")
                            .arg(_scheme)
                            .arg(_host)
@@ -128,7 +128,7 @@ void OAIOrdersApi::v1OrdersCancelPost(const OAICancelOrder &oai_cancel_order) {
     worker->setWorkingDirectory(_workingDirectory);
     OAIHttpRequestInput input(fullPath, "POST");
 
-    QString output = oai_cancel_order.asJson();
+    QString output = oai_order_cancel_single_request.asJson();
     input.request_body.append(output);
 
     foreach (QString key, this->defaultHeaders.keys()) { input.headers.insert(key, this->defaultHeaders.value(key)); }
@@ -149,7 +149,7 @@ void OAIOrdersApi::v1OrdersCancelPostCallback(OAIHttpRequestWorker *worker) {
         msg = "Error: " + worker->error_str;
         error_str = QString("%1, %2").arg(worker->error_str).arg(QString(worker->response));
     }
-    OAIOrderLive output(QString(worker->response));
+    OAIExecutionReport output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -253,7 +253,7 @@ void OAIOrdersApi::v1OrdersPostCallback(OAIHttpRequestWorker *worker) {
         msg = "Error: " + worker->error_str;
         error_str = QString("%1, %2").arg(worker->error_str).arg(QString(worker->response));
     }
-    OAIOrderLive output(QString(worker->response));
+    OAIExecutionReport output(QString(worker->response));
     worker->deleteLater();
 
     if (worker->error_type == QNetworkReply::NoError) {
@@ -262,6 +262,52 @@ void OAIOrdersApi::v1OrdersPostCallback(OAIHttpRequestWorker *worker) {
     } else {
         emit v1OrdersPostSignalE(output, error_type, error_str);
         emit v1OrdersPostSignalEFull(worker, error_type, error_str);
+    }
+}
+
+void OAIOrdersApi::v1OrdersStatusClientOrderIdGet(const QString &client_order_id) {
+    QString fullPath = QString("%1://%2%3%4%5")
+                           .arg(_scheme)
+                           .arg(_host)
+                           .arg(_port ? ":" + QString::number(_port) : "")
+                           .arg(_basePath)
+                           .arg("/v1/orders/status/{client_order_id}");
+    QString client_order_idPathParam("{");
+    client_order_idPathParam.append("client_order_id").append("}");
+    fullPath.replace(client_order_idPathParam, QUrl::toPercentEncoding(::OpenAPI::toStringValue(client_order_id)));
+
+    OAIHttpRequestWorker *worker = new OAIHttpRequestWorker(this);
+    worker->setTimeOut(_timeOut);
+    worker->setWorkingDirectory(_workingDirectory);
+    OAIHttpRequestInput input(fullPath, "GET");
+
+    foreach (QString key, this->defaultHeaders.keys()) { input.headers.insert(key, this->defaultHeaders.value(key)); }
+
+    connect(worker, &OAIHttpRequestWorker::on_execution_finished, this, &OAIOrdersApi::v1OrdersStatusClientOrderIdGetCallback);
+    connect(this, &OAIOrdersApi::abortRequestsSignal, worker, &QObject::deleteLater); 
+    worker->execute(&input);
+}
+
+void OAIOrdersApi::v1OrdersStatusClientOrderIdGetCallback(OAIHttpRequestWorker *worker) {
+    QString msg;
+    QString error_str = worker->error_str;
+    QNetworkReply::NetworkError error_type = worker->error_type;
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        msg = QString("Success! %1 bytes").arg(worker->response.length());
+    } else {
+        msg = "Error: " + worker->error_str;
+        error_str = QString("%1, %2").arg(worker->error_str).arg(QString(worker->response));
+    }
+    OAIExecutionReport output(QString(worker->response));
+    worker->deleteLater();
+
+    if (worker->error_type == QNetworkReply::NoError) {
+        emit v1OrdersStatusClientOrderIdGetSignal(output);
+        emit v1OrdersStatusClientOrderIdGetSignalFull(worker, output);
+    } else {
+        emit v1OrdersStatusClientOrderIdGetSignalE(output, error_type, error_str);
+        emit v1OrdersStatusClientOrderIdGetSignalEFull(worker, error_type, error_str);
     }
 }
 

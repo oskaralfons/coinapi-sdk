@@ -20,7 +20,7 @@ import { Configuration } from '../configuration';
 
 
 export class PositionsApi {
-    protected basePath = 'http://localhost:8080/v1';
+    protected basePath = 'http://localhost:8080';
     public defaultHeaders: Array<string> = [];
     public defaultExtraJQueryAjaxSettings?: JQueryAjaxSettings = undefined;
     public configuration: Configuration = new Configuration();

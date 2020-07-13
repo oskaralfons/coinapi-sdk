@@ -18,7 +18,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object BalancesApi {
 
-  def apply(baseUrl: String = "http://localhost:8080/v1") = new BalancesApi(baseUrl)
+  def apply(baseUrl: String = "http://localhost:8080") = new BalancesApi(baseUrl)
 }
 
 class BalancesApi(baseUrl: String) {

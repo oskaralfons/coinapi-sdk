@@ -233,19 +233,18 @@ To load the models:
 ```perl
 use WWW::OpenAPIClient::Object::Balance;
 use WWW::OpenAPIClient::Object::BalanceData;
-use WWW::OpenAPIClient::Object::CancelAllOrder;
-use WWW::OpenAPIClient::Object::CancelOrder;
-use WWW::OpenAPIClient::Object::CreateOrder400;
-use WWW::OpenAPIClient::Object::Messages;
-use WWW::OpenAPIClient::Object::MessagesInfo;
-use WWW::OpenAPIClient::Object::MessagesOk;
+use WWW::OpenAPIClient::Object::CreateOrderValidationError;
+use WWW::OpenAPIClient::Object::ExecutionReport;
+use WWW::OpenAPIClient::Object::Message;
 use WWW::OpenAPIClient::Object::NewOrder;
+use WWW::OpenAPIClient::Object::OrdStatus;
 use WWW::OpenAPIClient::Object::Order;
+use WWW::OpenAPIClient::Object::OrderCancelAllRequest;
+use WWW::OpenAPIClient::Object::OrderCancelSingleRequest;
 use WWW::OpenAPIClient::Object::OrderData;
-use WWW::OpenAPIClient::Object::OrderLive;
-use WWW::OpenAPIClient::Object::OrderStatus;
 use WWW::OpenAPIClient::Object::Position;
 use WWW::OpenAPIClient::Object::PositionData;
+use WWW::OpenAPIClient::Object::Severity;
 use WWW::OpenAPIClient::Object::TimeInForce;
 
 ````
@@ -265,19 +264,18 @@ use WWW::OpenAPIClient::PositionsApi;
 # load the models
 use WWW::OpenAPIClient::Object::Balance;
 use WWW::OpenAPIClient::Object::BalanceData;
-use WWW::OpenAPIClient::Object::CancelAllOrder;
-use WWW::OpenAPIClient::Object::CancelOrder;
-use WWW::OpenAPIClient::Object::CreateOrder400;
-use WWW::OpenAPIClient::Object::Messages;
-use WWW::OpenAPIClient::Object::MessagesInfo;
-use WWW::OpenAPIClient::Object::MessagesOk;
+use WWW::OpenAPIClient::Object::CreateOrderValidationError;
+use WWW::OpenAPIClient::Object::ExecutionReport;
+use WWW::OpenAPIClient::Object::Message;
 use WWW::OpenAPIClient::Object::NewOrder;
+use WWW::OpenAPIClient::Object::OrdStatus;
 use WWW::OpenAPIClient::Object::Order;
+use WWW::OpenAPIClient::Object::OrderCancelAllRequest;
+use WWW::OpenAPIClient::Object::OrderCancelSingleRequest;
 use WWW::OpenAPIClient::Object::OrderData;
-use WWW::OpenAPIClient::Object::OrderLive;
-use WWW::OpenAPIClient::Object::OrderStatus;
 use WWW::OpenAPIClient::Object::Position;
 use WWW::OpenAPIClient::Object::PositionData;
+use WWW::OpenAPIClient::Object::Severity;
 use WWW::OpenAPIClient::Object::TimeInForce;
 
 # for displaying the API response data
@@ -301,34 +299,34 @@ if ($@) {
 
 # DOCUMENTATION FOR API ENDPOINTS
 
-All URIs are relative to *http://localhost:8080/v1*
+All URIs are relative to *http://localhost:8080*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *BalancesApi* | [**v1_balances_get**](docs/BalancesApi.md#v1_balances_get) | **GET** /v1/balances | Get balances
-*OrdersApi* | [**v1_orders_cancel_all_post**](docs/OrdersApi.md#v1_orders_cancel_all_post) | **POST** /v1/orders/cancel/all | Cancel all order
+*OrdersApi* | [**v1_orders_cancel_all_post**](docs/OrdersApi.md#v1_orders_cancel_all_post) | **POST** /v1/orders/cancel/all | Cancel all orders
 *OrdersApi* | [**v1_orders_cancel_post**](docs/OrdersApi.md#v1_orders_cancel_post) | **POST** /v1/orders/cancel | Cancel order
-*OrdersApi* | [**v1_orders_get**](docs/OrdersApi.md#v1_orders_get) | **GET** /v1/orders | Get orders
+*OrdersApi* | [**v1_orders_get**](docs/OrdersApi.md#v1_orders_get) | **GET** /v1/orders | Get all orders
 *OrdersApi* | [**v1_orders_post**](docs/OrdersApi.md#v1_orders_post) | **POST** /v1/orders | Create new order
+*OrdersApi* | [**v1_orders_status_client_order_id_get**](docs/OrdersApi.md#v1_orders_status_client_order_id_get) | **GET** /v1/orders/status/{client_order_id} | Get order status
 *PositionsApi* | [**v1_positions_get**](docs/PositionsApi.md#v1_positions_get) | **GET** /v1/positions | Get positions
 
 
 # DOCUMENTATION FOR MODELS
  - [WWW::OpenAPIClient::Object::Balance](docs/Balance.md)
  - [WWW::OpenAPIClient::Object::BalanceData](docs/BalanceData.md)
- - [WWW::OpenAPIClient::Object::CancelAllOrder](docs/CancelAllOrder.md)
- - [WWW::OpenAPIClient::Object::CancelOrder](docs/CancelOrder.md)
- - [WWW::OpenAPIClient::Object::CreateOrder400](docs/CreateOrder400.md)
- - [WWW::OpenAPIClient::Object::Messages](docs/Messages.md)
- - [WWW::OpenAPIClient::Object::MessagesInfo](docs/MessagesInfo.md)
- - [WWW::OpenAPIClient::Object::MessagesOk](docs/MessagesOk.md)
+ - [WWW::OpenAPIClient::Object::CreateOrderValidationError](docs/CreateOrderValidationError.md)
+ - [WWW::OpenAPIClient::Object::ExecutionReport](docs/ExecutionReport.md)
+ - [WWW::OpenAPIClient::Object::Message](docs/Message.md)
  - [WWW::OpenAPIClient::Object::NewOrder](docs/NewOrder.md)
+ - [WWW::OpenAPIClient::Object::OrdStatus](docs/OrdStatus.md)
  - [WWW::OpenAPIClient::Object::Order](docs/Order.md)
+ - [WWW::OpenAPIClient::Object::OrderCancelAllRequest](docs/OrderCancelAllRequest.md)
+ - [WWW::OpenAPIClient::Object::OrderCancelSingleRequest](docs/OrderCancelSingleRequest.md)
  - [WWW::OpenAPIClient::Object::OrderData](docs/OrderData.md)
- - [WWW::OpenAPIClient::Object::OrderLive](docs/OrderLive.md)
- - [WWW::OpenAPIClient::Object::OrderStatus](docs/OrderStatus.md)
  - [WWW::OpenAPIClient::Object::Position](docs/Position.md)
  - [WWW::OpenAPIClient::Object::PositionData](docs/PositionData.md)
+ - [WWW::OpenAPIClient::Object::Severity](docs/Severity.md)
  - [WWW::OpenAPIClient::Object::TimeInForce](docs/TimeInForce.md)
 
 

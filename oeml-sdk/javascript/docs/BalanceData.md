@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | symbol_exchange | [optional] 
-**symbolExchange** | **String** | Currency code. | [optional] 
+**id** | **String** | Exchange identifier. | [optional] 
+**symbolExchange** | **String** | Exchange currency code. | [optional] 
 **symbolCoinapi** | **String** | CoinAPI currency code. | [optional] 
-**balance** | **Number** | The current balance. | [optional] 
-**available** | **Number** | The amount that is available to trade. | [optional] 
-**locked** | **Number** | Blocked funds. | [optional] 
-**updateOrigin** | **String** | Source of last modification.  | [optional] 
+**balance** | **Number** | Value of the current total currency balance on the exchange. | [optional] 
+**available** | **Number** | Value of the current available currency balance on the exchange that can be used as collateral. | [optional] 
+**locked** | **Number** | Value of the current locked currency balance by the exchange. | [optional] 
+**updateOrigin** | **String** | Source of the last modification.  | [optional] 
 
 
 

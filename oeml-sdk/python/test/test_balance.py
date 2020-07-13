@@ -39,7 +39,7 @@ class TestBalance(unittest.TestCase):
                 type = 'snapshotBalances', 
                 exchange_name = 'KRAKEN', 
                 data = [
-                    openapi_client.models.balance_data.balance_data(
+                    openapi_client.models.balance_data.Balance_data(
                         id = 'BTC', 
                         symbol_exchange = 'BTC', 
                         symbol_coinapi = 'BTC', 

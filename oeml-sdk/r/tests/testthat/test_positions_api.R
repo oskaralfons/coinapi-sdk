@@ -7,7 +7,7 @@ api.instance <- PositionsApi$new()
 
 test_that("V1PositionsGet", {
   # tests for V1PositionsGet
-  # base path: http://localhost:8080/v1
+  # base path: http://localhost:8080
   # Get positions
   # Returns all of your positions.
   # @param character  exchange.id  Exchange name  (optional)

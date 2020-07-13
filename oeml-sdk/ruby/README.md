@@ -75,15 +75,16 @@ end
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost:8080/v1*
+All URIs are relative to *http://localhost:8080*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *OpenapiClient::BalancesApi* | [**v1_balances_get**](docs/BalancesApi.md#v1_balances_get) | **GET** /v1/balances | Get balances
-*OpenapiClient::OrdersApi* | [**v1_orders_cancel_all_post**](docs/OrdersApi.md#v1_orders_cancel_all_post) | **POST** /v1/orders/cancel/all | Cancel all order
+*OpenapiClient::OrdersApi* | [**v1_orders_cancel_all_post**](docs/OrdersApi.md#v1_orders_cancel_all_post) | **POST** /v1/orders/cancel/all | Cancel all orders
 *OpenapiClient::OrdersApi* | [**v1_orders_cancel_post**](docs/OrdersApi.md#v1_orders_cancel_post) | **POST** /v1/orders/cancel | Cancel order
-*OpenapiClient::OrdersApi* | [**v1_orders_get**](docs/OrdersApi.md#v1_orders_get) | **GET** /v1/orders | Get orders
+*OpenapiClient::OrdersApi* | [**v1_orders_get**](docs/OrdersApi.md#v1_orders_get) | **GET** /v1/orders | Get all orders
 *OpenapiClient::OrdersApi* | [**v1_orders_post**](docs/OrdersApi.md#v1_orders_post) | **POST** /v1/orders | Create new order
+*OpenapiClient::OrdersApi* | [**v1_orders_status_client_order_id_get**](docs/OrdersApi.md#v1_orders_status_client_order_id_get) | **GET** /v1/orders/status/{client_order_id} | Get order status
 *OpenapiClient::PositionsApi* | [**v1_positions_get**](docs/PositionsApi.md#v1_positions_get) | **GET** /v1/positions | Get positions
 
 
@@ -91,19 +92,18 @@ Class | Method | HTTP request | Description
 
  - [OpenapiClient::Balance](docs/Balance.md)
  - [OpenapiClient::BalanceData](docs/BalanceData.md)
- - [OpenapiClient::CancelAllOrder](docs/CancelAllOrder.md)
- - [OpenapiClient::CancelOrder](docs/CancelOrder.md)
- - [OpenapiClient::CreateOrder400](docs/CreateOrder400.md)
- - [OpenapiClient::Messages](docs/Messages.md)
- - [OpenapiClient::MessagesInfo](docs/MessagesInfo.md)
- - [OpenapiClient::MessagesOk](docs/MessagesOk.md)
+ - [OpenapiClient::CreateOrderValidationError](docs/CreateOrderValidationError.md)
+ - [OpenapiClient::ExecutionReport](docs/ExecutionReport.md)
+ - [OpenapiClient::Message](docs/Message.md)
  - [OpenapiClient::NewOrder](docs/NewOrder.md)
+ - [OpenapiClient::OrdStatus](docs/OrdStatus.md)
  - [OpenapiClient::Order](docs/Order.md)
+ - [OpenapiClient::OrderCancelAllRequest](docs/OrderCancelAllRequest.md)
+ - [OpenapiClient::OrderCancelSingleRequest](docs/OrderCancelSingleRequest.md)
  - [OpenapiClient::OrderData](docs/OrderData.md)
- - [OpenapiClient::OrderLive](docs/OrderLive.md)
- - [OpenapiClient::OrderStatus](docs/OrderStatus.md)
  - [OpenapiClient::Position](docs/Position.md)
  - [OpenapiClient::PositionData](docs/PositionData.md)
+ - [OpenapiClient::Severity](docs/Severity.md)
  - [OpenapiClient::TimeInForce](docs/TimeInForce.md)
 
 

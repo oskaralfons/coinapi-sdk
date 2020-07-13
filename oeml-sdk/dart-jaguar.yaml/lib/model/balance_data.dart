@@ -4,25 +4,25 @@ import 'package:jaguar_serializer/jaguar_serializer.dart';
 part 'balance_data.jser.dart';
 
 class BalanceData {
-   /* symbol_exchange */
+   /* Exchange identifier. */
   @Alias('id', isNullable: false,  )
   final String id;
-   /* Currency code. */
+   /* Exchange currency code. */
   @Alias('symbol_exchange', isNullable: false,  )
   final String symbolExchange;
    /* CoinAPI currency code. */
   @Alias('symbol_coinapi', isNullable: false,  )
   final String symbolCoinapi;
-   /* The current balance. */
+   /* Value of the current total currency balance on the exchange. */
   @Alias('balance', isNullable: false,  )
   final double balance;
-   /* The amount that is available to trade. */
+   /* Value of the current available currency balance on the exchange that can be used as collateral. */
   @Alias('available', isNullable: false,  )
   final double available;
-   /* Blocked funds. */
+   /* Value of the current locked currency balance by the exchange. */
   @Alias('locked', isNullable: false,  )
   final double locked;
-   /* Source of last modification.  */
+   /* Source of the last modification.  */
   @Alias('update_origin', isNullable: false,
           
   )

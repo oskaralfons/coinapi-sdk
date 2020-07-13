@@ -32,6 +32,11 @@ namespace CoinAPI.OMS.API.SDK.Model
     public partial class OrderData :  IEquatable<OrderData>, IValidatableObject
     {
         /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public OrdStatus? Status { get; set; }
+        /// <summary>
         /// Buy or Sell
         /// </summary>
         /// <value>Buy or Sell</value>
@@ -79,6 +84,11 @@ namespace CoinAPI.OMS.API.SDK.Model
         /// <value>The order type.</value>
         [DataMember(Name="order_type", EmitDefaultValue=false)]
         public OrderTypeEnum? OrderType { get; set; }
+        /// <summary>
+        /// Gets or Sets TimeInForce
+        /// </summary>
+        [DataMember(Name="time_in_force", EmitDefaultValue=false)]
+        public TimeInForce? TimeInForce { get; set; }
         /// <summary>
         /// Defines ExecInst
         /// </summary>
@@ -134,7 +144,7 @@ namespace CoinAPI.OMS.API.SDK.Model
         /// <param name="timeInForce">timeInForce.</param>
         /// <param name="expireTime">Required for orders with time_in_force &#x3D; GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS.</param>
         /// <param name="execInst">Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; .</param>
-        public OrderData(string exchangeId = default(string), string id = default(string), string clientOrderIdFormatExchange = default(string), string exchangeOrderId = default(string), decimal amountOpen = default(decimal), decimal amountFilled = default(decimal), OrderStatus status = default(OrderStatus), List<List<string>> timeOrder = default(List<List<string>>), string errorMessage = default(string), string clientOrderId = default(string), string symbolExchange = default(string), string symbolCoinapi = default(string), decimal amountOrder = default(decimal), decimal price = default(decimal), SideEnum? side = default(SideEnum?), OrderTypeEnum? orderType = default(OrderTypeEnum?), TimeInForce timeInForce = default(TimeInForce), DateTime expireTime = default(DateTime), List<ExecInstEnum> execInst = default(List<ExecInstEnum>))
+        public OrderData(string exchangeId = default(string), string id = default(string), string clientOrderIdFormatExchange = default(string), string exchangeOrderId = default(string), decimal amountOpen = default(decimal), decimal amountFilled = default(decimal), OrdStatus? status = default(OrdStatus?), List<List<string>> timeOrder = default(List<List<string>>), string errorMessage = default(string), string clientOrderId = default(string), string symbolExchange = default(string), string symbolCoinapi = default(string), decimal amountOrder = default(decimal), decimal price = default(decimal), SideEnum? side = default(SideEnum?), OrderTypeEnum? orderType = default(OrderTypeEnum?), TimeInForce? timeInForce = default(TimeInForce?), DateTime expireTime = default(DateTime), List<ExecInstEnum> execInst = default(List<ExecInstEnum>))
         {
             this.ExchangeId = exchangeId;
             this.Id = id;
@@ -200,12 +210,6 @@ namespace CoinAPI.OMS.API.SDK.Model
         public decimal AmountFilled { get; set; }
 
         /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public OrderStatus Status { get; set; }
-
-        /// <summary>
         /// History of order status changes
         /// </summary>
         /// <value>History of order status changes</value>
@@ -253,12 +257,6 @@ namespace CoinAPI.OMS.API.SDK.Model
         /// <value>Quoted decimal amount to spend per unit.</value>
         [DataMember(Name="price", EmitDefaultValue=false)]
         public decimal Price { get; set; }
-
-        /// <summary>
-        /// Gets or Sets TimeInForce
-        /// </summary>
-        [DataMember(Name="time_in_force", EmitDefaultValue=false)]
-        public TimeInForce TimeInForce { get; set; }
 
         /// <summary>
         /// Required for orders with time_in_force &#x3D; GOOD_TILL_TIME_EXCHANGE, GOOD_TILL_TIME_OMS
@@ -358,8 +356,7 @@ namespace CoinAPI.OMS.API.SDK.Model
                 ) && 
                 (
                     this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
+                    this.Status.Equals(input.Status)
                 ) && 
                 (
                     this.TimeOrder == input.TimeOrder ||
@@ -405,8 +402,7 @@ namespace CoinAPI.OMS.API.SDK.Model
                 ) && 
                 (
                     this.TimeInForce == input.TimeInForce ||
-                    (this.TimeInForce != null &&
-                    this.TimeInForce.Equals(input.TimeInForce))
+                    this.TimeInForce.Equals(input.TimeInForce)
                 ) && 
                 (
                     this.ExpireTime == input.ExpireTime ||
@@ -438,8 +434,7 @@ namespace CoinAPI.OMS.API.SDK.Model
                     hashCode = hashCode * 59 + this.ExchangeOrderId.GetHashCode();
                 hashCode = hashCode * 59 + this.AmountOpen.GetHashCode();
                 hashCode = hashCode * 59 + this.AmountFilled.GetHashCode();
-                if (this.Status != null)
-                    hashCode = hashCode * 59 + this.Status.GetHashCode();
+                hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.TimeOrder != null)
                     hashCode = hashCode * 59 + this.TimeOrder.GetHashCode();
                 if (this.ErrorMessage != null)
@@ -454,8 +449,7 @@ namespace CoinAPI.OMS.API.SDK.Model
                 hashCode = hashCode * 59 + this.Price.GetHashCode();
                 hashCode = hashCode * 59 + this.Side.GetHashCode();
                 hashCode = hashCode * 59 + this.OrderType.GetHashCode();
-                if (this.TimeInForce != null)
-                    hashCode = hashCode * 59 + this.TimeInForce.GetHashCode();
+                hashCode = hashCode * 59 + this.TimeInForce.GetHashCode();
                 if (this.ExpireTime != null)
                     hashCode = hashCode * 59 + this.ExpireTime.GetHashCode();
                 hashCode = hashCode * 59 + this.ExecInst.GetHashCode();

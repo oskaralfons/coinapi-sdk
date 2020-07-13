@@ -54,7 +54,7 @@ bool v1PositionsGetAsync(char * accessToken,
 
 	static std::string getBasePath()
 	{
-		return "http://localhost:8080/v1";
+		return "http://localhost:8080";
 	}
 };
 /** @}*/

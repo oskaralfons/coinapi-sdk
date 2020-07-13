@@ -23,7 +23,7 @@ import Url.Builder as Url
 
 basePath : String
 basePath =
-    "http://localhost:8080/v1"
+    "http://localhost:8080"
 
 
 {-| Returns all of your positions.

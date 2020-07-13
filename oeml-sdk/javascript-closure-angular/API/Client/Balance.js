@@ -1,4 +1,4 @@
-goog.provide('API.Client.balance');
+goog.provide('API.Client.Balance');
 
 /**
  * @record
@@ -20,7 +20,7 @@ API.Client.Balance.prototype.type;
 API.Client.Balance.prototype.exchangeName;
 
 /**
- * @type {!Array<!API.Client.balance_data>}
+ * @type {!Array<!API.Client.Balance_data>}
  * @export
  */
 API.Client.Balance.prototype.data;

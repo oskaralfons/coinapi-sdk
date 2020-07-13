@@ -18,7 +18,7 @@ class ApiClient {
   final _regList = RegExp(r'^List<(.*)>$');
   final _regMap = RegExp(r'^Map<String,(.*)>$');
 
-  ApiClient({this.basePath = "http://localhost:8080/v1"}) {
+  ApiClient({this.basePath = "http://localhost:8080"}) {
   }
 
   void addDefaultHeader(String key, String value) {
@@ -40,32 +40,30 @@ class ApiClient {
           return Balance.fromJson(value);
         case 'BalanceData':
           return BalanceData.fromJson(value);
-        case 'CancelAllOrder':
-          return CancelAllOrder.fromJson(value);
-        case 'CancelOrder':
-          return CancelOrder.fromJson(value);
-        case 'CreateOrder400':
-          return CreateOrder400.fromJson(value);
-        case 'Messages':
-          return Messages.fromJson(value);
-        case 'MessagesInfo':
-          return MessagesInfo.fromJson(value);
-        case 'MessagesOk':
-          return MessagesOk.fromJson(value);
+        case 'CreateOrderValidationError':
+          return CreateOrderValidationError.fromJson(value);
+        case 'ExecutionReport':
+          return ExecutionReport.fromJson(value);
+        case 'Message':
+          return Message.fromJson(value);
         case 'NewOrder':
           return NewOrder.fromJson(value);
+        case 'OrdStatus':
+          return new OrdStatusTypeTransformer().decode(value);
         case 'Order':
           return Order.fromJson(value);
+        case 'OrderCancelAllRequest':
+          return OrderCancelAllRequest.fromJson(value);
+        case 'OrderCancelSingleRequest':
+          return OrderCancelSingleRequest.fromJson(value);
         case 'OrderData':
           return OrderData.fromJson(value);
-        case 'OrderLive':
-          return OrderLive.fromJson(value);
-        case 'OrderStatus':
-          return new OrderStatusTypeTransformer().decode(value);
         case 'Position':
           return Position.fromJson(value);
         case 'PositionData':
           return PositionData.fromJson(value);
+        case 'Severity':
+          return new SeverityTypeTransformer().decode(value);
         case 'TimeInForce':
           return new TimeInForceTypeTransformer().decode(value);
         default:

@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **exchange_order_id** | **string** | Exchange order id | [optional] 
 **amount_open** | **double** | Amount open | [optional] 
 **amount_filled** | **double** | Amount filled | [optional] 
-**status** | [**OrderStatus**](OrderStatus.md) |  | [optional] 
+**status** | [**OrdStatus**](OrdStatus.md) |  | [optional] 
 **time_order** | **ARRAY[ARRAY[string]]** | History of order status changes | [optional] 
 **error_message** | **string** | Error message | [optional] 
 **client_order_id** | **string** | Client unique identifier for the trade. | [optional] 

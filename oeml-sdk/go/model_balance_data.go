@@ -10,18 +10,18 @@
 package openapi
 // BalanceData struct for BalanceData
 type BalanceData struct {
-	// symbol_exchange
+	// Exchange identifier.
 	Id string `json:"id,omitempty"`
-	// Currency code.
+	// Exchange currency code.
 	SymbolExchange string `json:"symbol_exchange,omitempty"`
 	// CoinAPI currency code.
 	SymbolCoinapi string `json:"symbol_coinapi,omitempty"`
-	// The current balance.
+	// Value of the current total currency balance on the exchange.
 	Balance float32 `json:"balance,omitempty"`
-	// The amount that is available to trade.
+	// Value of the current available currency balance on the exchange that can be used as collateral.
 	Available float32 `json:"available,omitempty"`
-	// Blocked funds.
+	// Value of the current locked currency balance by the exchange.
 	Locked float32 `json:"locked,omitempty"`
-	// Source of last modification. 
+	// Source of the last modification. 
 	UpdateOrigin string `json:"update_origin,omitempty"`
 }

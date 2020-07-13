@@ -62,9 +62,9 @@ namespace CoinAPI.OMS.API.SDK.Test
         public void V1OrdersCancelAllPostTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //CancelAllOrder cancelAllOrder = null;
-            //var response = instance.V1OrdersCancelAllPost(cancelAllOrder);
-            //Assert.IsType<MessagesOk> (response, "response is MessagesOk");
+            //OrderCancelAllRequest orderCancelAllRequest = null;
+            //var response = instance.V1OrdersCancelAllPost(orderCancelAllRequest);
+            //Assert.IsType<Message> (response, "response is Message");
         }
         
         /// <summary>
@@ -74,9 +74,9 @@ namespace CoinAPI.OMS.API.SDK.Test
         public void V1OrdersCancelPostTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //CancelOrder cancelOrder = null;
-            //var response = instance.V1OrdersCancelPost(cancelOrder);
-            //Assert.IsType<OrderLive> (response, "response is OrderLive");
+            //OrderCancelSingleRequest orderCancelSingleRequest = null;
+            //var response = instance.V1OrdersCancelPost(orderCancelSingleRequest);
+            //Assert.IsType<ExecutionReport> (response, "response is ExecutionReport");
         }
         
         /// <summary>
@@ -100,7 +100,19 @@ namespace CoinAPI.OMS.API.SDK.Test
             // TODO uncomment below to test the method and replace null with proper value
             //NewOrder newOrder = null;
             //var response = instance.V1OrdersPost(newOrder);
-            //Assert.IsType<OrderLive> (response, "response is OrderLive");
+            //Assert.IsType<ExecutionReport> (response, "response is ExecutionReport");
+        }
+        
+        /// <summary>
+        /// Test V1OrdersStatusClientOrderIdGet
+        /// </summary>
+        [Fact]
+        public void V1OrdersStatusClientOrderIdGetTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string clientOrderId = null;
+            //var response = instance.V1OrdersStatusClientOrderIdGet(clientOrderId);
+            //Assert.IsType<ExecutionReport> (response, "response is ExecutionReport");
         }
         
     }

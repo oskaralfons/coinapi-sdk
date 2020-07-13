@@ -221,7 +221,7 @@ bool Order_data::fromJson(const web::json::value& val)
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t("status"));
         if(!fieldValue.is_null())
         {
-            std::shared_ptr<OrderStatus> refVal_status;
+            std::shared_ptr<OrdStatus> refVal_status;
             ok &= ModelBase::fromJson(fieldValue, refVal_status);
             setStatus(refVal_status);
         }
@@ -481,7 +481,7 @@ bool Order_data::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, con
     }
     if(multipart->hasContent(utility::conversions::to_string_t("status")))
     {
-        std::shared_ptr<OrderStatus> refVal_status;
+        std::shared_ptr<OrdStatus> refVal_status;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t("status")), refVal_status );
         setStatus(refVal_status);
     }
@@ -680,12 +680,12 @@ void Order_data::unsetAmount_filled()
 {
     m_Amount_filledIsSet = false;
 }
-std::shared_ptr<OrderStatus> Order_data::getStatus() const
+std::shared_ptr<OrdStatus> Order_data::getStatus() const
 {
     return m_Status;
 }
 
-void Order_data::setStatus(const std::shared_ptr<OrderStatus>& value)
+void Order_data::setStatus(const std::shared_ptr<OrdStatus>& value)
 {
     m_Status = value;
     m_StatusIsSet = true;

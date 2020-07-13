@@ -11,10 +11,7 @@ info:
   title: OEML - REST API
   version: v1
 servers:
-- url: '{server}/v1'
-  variables:
-    server:
-      default: http://localhost:8080
+- url: http://localhost:8080
 tags:
 - description: |
     Order statuses and the lifecycle are documented in the separate section: <a href="#oeml-order-lifecycle">OEML / Starter Guide / Order Lifecycle</a>
@@ -24,9 +21,9 @@ tags:
 paths:
   /v1/orders:
     get:
-      description: List your current open orders.
+      description: Get all current open orders across all or single specified exchange.
       parameters:
-      - description: Exchange name
+      - description: Filter the output to the orders from the specific exchange.
         explode: true
         in: query
         name: exchange_id
@@ -40,74 +37,103 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/orders'
-          description: Ok
-      summary: Get orders
+                $ref: '#/components/schemas/Orders'
+          description: Collection of requested open orders.
+      summary: Get all orders
       tags:
       - Orders
       x-accepts: application/json
     post:
-      description: 'You can place two types of orders: limit and market. Orders can
-        only be placed if your account has sufficient funds.'
+      description: This request creating new order for the specific exchange.
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/newOrder'
+              $ref: '#/components/schemas/NewOrder'
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/orderLive'
+                $ref: '#/components/schemas/ExecutionReport'
           description: Created
         "400":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/createOrder400'
+                $ref: '#/components/schemas/CreateOrderValidationError'
           description: Validation errors
         "490":
           content:
             appliction/json:
               schema:
-                $ref: '#/components/schemas/messages'
+                $ref: '#/components/schemas/Message'
           description: Exchange not registered
       summary: Create new order
       tags:
       - Orders
       x-contentType: application/json
       x-accepts: application/json
+  /v1/orders/status/{client_order_id}:
+    get:
+      description: Get the current order status for the specified order. The requested
+        order can no longer be active.
+      parameters:
+      - description: Order Client Id of the order for which the status is requested.
+        explode: false
+        in: path
+        name: client_order_id
+        required: true
+        schema:
+          example: 6ab36bc1-344d-432e-ac6d-0bf44ee64c2b
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExecutionReport'
+          description: The order was found.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+          description: The order was not found.
+      summary: Get order status
+      tags:
+      - Orders
+      x-accepts: application/json
   /v1/orders/cancel:
     post:
-      description: Cancel an existing order, can be used to cancel margin, exchange,
-        and derivative orders. You can cancel the order by the internal order ID or
-        exchange order ID.
+      description: This request cancels an existing order. The order can be canceled
+        by the client order ID or exchange order ID.
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/cancelOrder'
+              $ref: '#/components/schemas/OrderCancelSingleRequest'
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/orderLive'
+                $ref: '#/components/schemas/ExecutionReport'
           description: Canceled order
         "400":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/createOrder400'
+                $ref: '#/components/schemas/CreateOrderValidationError'
           description: Validation errors
         "490":
           content:
             appliction/json:
               schema:
-                $ref: '#/components/schemas/messages'
+                $ref: '#/components/schemas/Message'
           description: Exchange not registered
       summary: Cancel order
       tags:
@@ -116,21 +142,22 @@ paths:
       x-accepts: application/json
   /v1/orders/cancel/all:
     post:
-      description: Cancel all existing order.
+      description: This request cancels all open orders across all or single specified
+        exchange.
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/cancelAllOrder'
+              $ref: '#/components/schemas/OrderCancelAllRequest'
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/messagesOk'
+                $ref: '#/components/schemas/Message'
           description: Result
-      summary: Cancel all order
+      summary: Cancel all orders
       tags:
       - Orders
       x-contentType: application/json
@@ -153,7 +180,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/balances'
+                $ref: '#/components/schemas/Balances'
           description: Result
       summary: Get balances
       tags:
@@ -177,7 +204,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/positions'
+                $ref: '#/components/schemas/Positions'
           description: Result
       summary: Get positions
       tags:
@@ -185,11 +212,11 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    orders:
+    Orders:
       items:
-        $ref: '#/components/schemas/order'
+        $ref: '#/components/schemas/Order'
       type: array
-    order:
+    Order:
       example:
         exchange_name: KRAKEN
         data:
@@ -256,10 +283,23 @@ components:
         data:
           description: Orders array
           items:
-            $ref: '#/components/schemas/order_data'
+            $ref: '#/components/schemas/Order_data'
           type: array
       type: object
-    newOrder:
+    NewOrder:
+      example:
+        symbol_coinapi: KRAKEN_SPOT_BTC_USD
+        exchange_id: KRAKEN
+        client_order_id: KPP-222389382-AQ
+        side: BUY
+        price: 0.0783
+        amount_order: 0.045
+        expire_time: ""
+        exec_inst:
+        - MAKER_OR_CANCEL
+        - MAKER_OR_CANCEL
+        order_type: LIMIT
+        symbol_exchange: BTCUSD
       properties:
         exchange_id:
           description: Exchange name
@@ -299,7 +339,7 @@ components:
           example: LIMIT
           type: string
         time_in_force:
-          $ref: '#/components/schemas/timeInForce'
+          $ref: '#/components/schemas/TimeInForce'
         expire_time:
           description: Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE,
             GOOD_TILL_TIME_OMS
@@ -315,7 +355,7 @@ components:
             type: string
           type: array
       type: object
-    orderLive:
+    ExecutionReport:
       example:
         amount_open: 0.22
         time_order:
@@ -373,7 +413,7 @@ components:
           example: 0.0
           type: number
         status:
-          $ref: '#/components/schemas/orderStatus'
+          $ref: '#/components/schemas/OrdStatus'
         time_order:
           description: History of order status changes
           items:
@@ -422,7 +462,7 @@ components:
           example: LIMIT
           type: string
         time_in_force:
-          $ref: '#/components/schemas/timeInForce'
+          $ref: '#/components/schemas/TimeInForce'
         expire_time:
           description: Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE,
             GOOD_TILL_TIME_OMS
@@ -438,7 +478,11 @@ components:
             type: string
           type: array
       type: object
-    cancelOrder:
+    OrderCancelSingleRequest:
+      example:
+        exchange_id: KRAKEN
+        client_order_id: A12345
+        exchange_order_id: d8574207d9e3b16a4a5511753eeef1751
       properties:
         exchange_id:
           description: Exchange name
@@ -453,18 +497,22 @@ components:
           example: A12345
           type: string
       type: object
-    cancelAllOrder:
+    OrderCancelAllRequest:
+      example:
+        exchange_id: KRAKEN
       properties:
         exchange_id:
-          description: Exchange name
+          description: Exchange identifier from which active orders should be canceled.
           example: KRAKEN
           type: string
+      required:
+      - exchange_id
       type: object
-    balances:
+    Balances:
       items:
-        $ref: '#/components/schemas/balance'
+        $ref: '#/components/schemas/Balance'
       type: array
-    balance:
+    Balance:
       example:
         exchange_name: KRAKEN
         data:
@@ -494,14 +542,14 @@ components:
           type: string
         data:
           items:
-            $ref: '#/components/schemas/balance_data'
+            $ref: '#/components/schemas/Balance_data'
           type: array
       type: object
-    positions:
+    Positions:
       items:
-        $ref: '#/components/schemas/position'
+        $ref: '#/components/schemas/Position'
       type: array
-    position:
+    Position:
       example:
         exchange_name: KRAKEN
         data:
@@ -539,10 +587,10 @@ components:
           type: string
         data:
           items:
-            $ref: '#/components/schemas/position_data'
+            $ref: '#/components/schemas/Position_data'
           type: array
       type: object
-    timeInForce:
+    TimeInForce:
       description: |
         Order time in force options are documented in the separate section: <a href="#oeml-order-lifecycle">OEML / Starter Guide / Order parameters / Time in force</a>
       enum:
@@ -552,7 +600,7 @@ components:
       - FILL_OR_KILL
       - IMMEDIATE_OR_CANCEL
       type: string
-    execInst:
+    ExecInst:
       description: |
         Order execution instructions are documented in the separate section: <a href="#oeml-order-params-exec">OEML / Starter Guide / Order parameters / Execution instructions</a>
       items:
@@ -562,7 +610,7 @@ components:
         - INDICATION_OF_INTEREST
         type: string
       type: array
-    createOrder400:
+    CreateOrderValidationError:
       properties:
         type:
           example: https://tools.ietf.org/html/rfc7231#section-6.5.1
@@ -580,59 +628,35 @@ components:
           type: string
       title: Create order validation error (response)
       type: object
-    messagesInfo:
-      properties:
-        type:
-          description: Type of message
-          example: error
-          type: string
-        exchange_id:
-          description: Exchange name
-          example: KRAKEN
-          type: string
-        error_message:
-          description: Error message
-          example: Exchange not registered
-          type: string
-      title: Message info
-      type: object
-    messagesOk:
+    Message:
       example:
         exchange_id: KRAKEN
         type: message
         message: Ok
       properties:
         type:
-          description: Type of message
+          description: Type of message.
           example: message
           type: string
+        severity:
+          $ref: '#/components/schemas/Severity'
         exchange_id:
-          description: Exchange name
+          description: If message related exchange then identifier of this exchange.
           example: KRAKEN
           type: string
         message:
-          description: Message
+          description: Sucess message
           example: Ok
           type: string
-      title: Message ok
+      title: Success or error message carrier.
       type: object
-    messages:
-      properties:
-        type:
-          description: Type of message
-          example: message
-          type: string
-        exchange_id:
-          description: Exchange name
-          example: KRAKEN
-          type: string
-        message:
-          description: Message
-          example: Ok
-          type: string
-      title: Message
-      type: object
-    orderStatus:
+    Severity:
+      enum:
+      - INFO
+      - WARNING
+      - ERROR
+      type: string
+    OrdStatus:
       description: |
         Order statuses and the lifecycle are documented in the separate section: <a href="#oeml-order-lifecycle">OEML / Starter Guide / Order Lifecycle</a>
       enum:
@@ -646,7 +670,7 @@ components:
       - CANCELED
       - REJECTED
       type: string
-    order_data:
+    Order_data:
       example:
         amount_open: 0.22
         time_order:
@@ -699,7 +723,7 @@ components:
           example: 0.0
           type: number
         status:
-          $ref: '#/components/schemas/orderStatus'
+          $ref: '#/components/schemas/OrdStatus'
         time_order:
           description: History of order status changes
           items:
@@ -748,7 +772,7 @@ components:
           example: LIMIT
           type: string
         time_in_force:
-          $ref: '#/components/schemas/timeInForce'
+          $ref: '#/components/schemas/TimeInForce'
         expire_time:
           description: Required for orders with time_in_force = GOOD_TILL_TIME_EXCHANGE,
             GOOD_TILL_TIME_OMS
@@ -763,7 +787,7 @@ components:
             - INDICATION_OF_INTEREST
             type: string
           type: array
-    balance_data:
+    Balance_data:
       example:
         symbol_coinapi: BTC
         update_origin: EXCHANGE
@@ -774,11 +798,11 @@ components:
         symbol_exchange: BTC
       properties:
         id:
-          description: symbol_exchange
+          description: Exchange identifier.
           example: BTC
           type: string
         symbol_exchange:
-          description: Currency code.
+          description: Exchange currency code.
           example: BTC
           type: string
         symbol_coinapi:
@@ -786,30 +810,31 @@ components:
           example: BTC
           type: string
         balance:
-          description: The current balance.
+          description: Value of the current total currency balance on the exchange.
           example: 0.00134444
           format: float
           type: number
         available:
-          description: The amount that is available to trade.
+          description: Value of the current available currency balance on the exchange
+            that can be used as collateral.
           example: 0.00134444
           format: float
           type: number
         locked:
-          description: Blocked funds.
+          description: Value of the current locked currency balance by the exchange.
           example: 0.0
           format: float
           type: number
         update_origin:
           description: |
-            Source of last modification.
+            Source of the last modification.
           enum:
           - INITIALIZATION
           - BALANCE_MANAGER
           - EXCHANGE
           example: EXCHANGE
           type: string
-    position_data:
+    Position_data:
       example:
         liquidation_price: 0.072323
         symbol_coinapi: BTC

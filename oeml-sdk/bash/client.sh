@@ -96,10 +96,11 @@ declare -a result_color_table=( "$WHITE" "$WHITE" "$GREEN" "$YELLOW" "$WHITE" "$
 # 1 - required
 declare -A operation_parameters_minimum_occurrences
 operation_parameters_minimum_occurrences["v1BalancesGet:::exchange_id"]=0
-operation_parameters_minimum_occurrences["v1OrdersCancelAllPost:::CancelAllOrder"]=1
-operation_parameters_minimum_occurrences["v1OrdersCancelPost:::CancelOrder"]=1
+operation_parameters_minimum_occurrences["v1OrdersCancelAllPost:::OrderCancelAllRequest"]=1
+operation_parameters_minimum_occurrences["v1OrdersCancelPost:::OrderCancelSingleRequest"]=1
 operation_parameters_minimum_occurrences["v1OrdersGet:::exchange_id"]=0
 operation_parameters_minimum_occurrences["v1OrdersPost:::NewOrder"]=1
+operation_parameters_minimum_occurrences["v1OrdersStatusClientOrderIdGet:::client_order_id"]=1
 operation_parameters_minimum_occurrences["v1PositionsGet:::exchange_id"]=0
 
 ##
@@ -110,10 +111,11 @@ operation_parameters_minimum_occurrences["v1PositionsGet:::exchange_id"]=0
 # 0 - unlimited
 declare -A operation_parameters_maximum_occurrences
 operation_parameters_maximum_occurrences["v1BalancesGet:::exchange_id"]=0
-operation_parameters_maximum_occurrences["v1OrdersCancelAllPost:::CancelAllOrder"]=0
-operation_parameters_maximum_occurrences["v1OrdersCancelPost:::CancelOrder"]=0
+operation_parameters_maximum_occurrences["v1OrdersCancelAllPost:::OrderCancelAllRequest"]=0
+operation_parameters_maximum_occurrences["v1OrdersCancelPost:::OrderCancelSingleRequest"]=0
 operation_parameters_maximum_occurrences["v1OrdersGet:::exchange_id"]=0
 operation_parameters_maximum_occurrences["v1OrdersPost:::NewOrder"]=0
+operation_parameters_maximum_occurrences["v1OrdersStatusClientOrderIdGet:::client_order_id"]=0
 operation_parameters_maximum_occurrences["v1PositionsGet:::exchange_id"]=0
 
 ##
@@ -121,10 +123,11 @@ operation_parameters_maximum_occurrences["v1PositionsGet:::exchange_id"]=0
 # - multi, csv, ssv, tsv
 declare -A operation_parameters_collection_type
 operation_parameters_collection_type["v1BalancesGet:::exchange_id"]=""
-operation_parameters_collection_type["v1OrdersCancelAllPost:::CancelAllOrder"]=""
-operation_parameters_collection_type["v1OrdersCancelPost:::CancelOrder"]=""
+operation_parameters_collection_type["v1OrdersCancelAllPost:::OrderCancelAllRequest"]=""
+operation_parameters_collection_type["v1OrdersCancelPost:::OrderCancelSingleRequest"]=""
 operation_parameters_collection_type["v1OrdersGet:::exchange_id"]=""
 operation_parameters_collection_type["v1OrdersPost:::NewOrder"]=""
+operation_parameters_collection_type["v1OrdersStatusClientOrderIdGet:::client_order_id"]=""
 operation_parameters_collection_type["v1PositionsGet:::exchange_id"]=""
 
 
@@ -493,10 +496,11 @@ echo "  $ops" | column -t -s ';'
     echo ""
     echo -e "${BOLD}${WHITE}[orders]${OFF}"
 read -r -d '' ops <<EOF
-  ${CYAN}v1OrdersCancelAllPost${OFF};Cancel all order
+  ${CYAN}v1OrdersCancelAllPost${OFF};Cancel all orders
   ${CYAN}v1OrdersCancelPost${OFF};Cancel order
-  ${CYAN}v1OrdersGet${OFF};Get orders
+  ${CYAN}v1OrdersGet${OFF};Get all orders
   ${CYAN}v1OrdersPost${OFF};Create new order
+  ${CYAN}v1OrdersStatusClientOrderIdGet${OFF};Get order status
 EOF
 echo "  $ops" | column -t -s ';'
     echo ""
@@ -582,9 +586,9 @@ print_v1BalancesGet_help() {
 ##############################################################################
 print_v1OrdersCancelAllPost_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}v1OrdersCancelAllPost - Cancel all order${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}v1OrdersCancelAllPost - Cancel all orders${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
-    echo -e "Cancel all existing order." | paste -sd' ' | fold -sw 80
+    echo -e "This request cancels all open orders across all or single specified exchange." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF} ${RED}(required)${OFF}${OFF} - " | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
@@ -603,7 +607,7 @@ print_v1OrdersCancelPost_help() {
     echo ""
     echo -e "${BOLD}${WHITE}v1OrdersCancelPost - Cancel order${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
-    echo -e "Cancel an existing order, can be used to cancel margin, exchange, and derivative orders. You can cancel the order by the internal order ID or exchange order ID." | paste -sd' ' | fold -sw 80
+    echo -e "This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF} ${RED}(required)${OFF}${OFF} - " | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
@@ -624,17 +628,17 @@ print_v1OrdersCancelPost_help() {
 ##############################################################################
 print_v1OrdersGet_help() {
     echo ""
-    echo -e "${BOLD}${WHITE}v1OrdersGet - Get orders${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "${BOLD}${WHITE}v1OrdersGet - Get all orders${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
-    echo -e "List your current open orders." | paste -sd' ' | fold -sw 80
+    echo -e "Get all current open orders across all or single specified exchange." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}exchange_id${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Exchange name${YELLOW} Specify as: exchange_id=value${OFF}" \
+    echo -e "  * ${GREEN}exchange_id${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - Filter the output to the orders from the specific exchange.${YELLOW} Specify as: exchange_id=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Ok${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  200;Collection of requested open orders.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
@@ -645,7 +649,7 @@ print_v1OrdersPost_help() {
     echo ""
     echo -e "${BOLD}${WHITE}v1OrdersPost - Create new order${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
-    echo -e "You can place two types of orders: limit and market. Orders can only be placed if your account has sufficient funds." | paste -sd' ' | fold -sw 80
+    echo -e "This request creating new order for the specific exchange." | paste -sd' ' | fold -sw 80
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}body${OFF} ${BLUE}[application/json]${OFF} ${RED}(required)${OFF}${OFF} - " | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
@@ -658,6 +662,26 @@ print_v1OrdersPost_help() {
     echo -e "${result_color_table[${code:0:1}]}  400;Validation errors${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=490
     echo -e "${result_color_table[${code:0:1}]}  490;Exchange not registered${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+}
+##############################################################################
+#
+# Print help for v1OrdersStatusClientOrderIdGet operation
+#
+##############################################################################
+print_v1OrdersStatusClientOrderIdGet_help() {
+    echo ""
+    echo -e "${BOLD}${WHITE}v1OrdersStatusClientOrderIdGet - Get order status${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e ""
+    echo -e "Get the current order status for the specified order. The requested order can no longer be active." | paste -sd' ' | fold -sw 80
+    echo -e ""
+    echo -e "${BOLD}${WHITE}Parameters${OFF}"
+    echo -e "  * ${GREEN}client_order_id${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - Order Client Id of the order for which the status is requested. ${YELLOW}Specify as: client_order_id=value${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo ""
+    echo -e "${BOLD}${WHITE}Responses${OFF}"
+    code=200
+    echo -e "${result_color_table[${code:0:1}]}  200;The order was found.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    code=400
+    echo -e "${result_color_table[${code:0:1}]}  400;The order was not found.${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
@@ -694,7 +718,7 @@ call_v1BalancesGet() {
     local query_parameter_names=(exchange_id)
     local path
 
-    if ! path=$(build_request_path "/v1/v1/balances" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/v1/balances" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -730,7 +754,7 @@ call_v1OrdersCancelAllPost() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/v1/v1/orders/cancel/all" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/v1/orders/cancel/all" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -808,7 +832,7 @@ call_v1OrdersCancelPost() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/v1/v1/orders/cancel" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/v1/orders/cancel" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -886,7 +910,7 @@ call_v1OrdersGet() {
     local query_parameter_names=(exchange_id)
     local path
 
-    if ! path=$(build_request_path "/v1/v1/orders" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/v1/orders" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -922,7 +946,7 @@ call_v1OrdersPost() {
     local query_parameter_names=()
     local path
 
-    if ! path=$(build_request_path "/v1/v1/orders" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/v1/orders" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -988,6 +1012,42 @@ call_v1OrdersPost() {
 
 ##############################################################################
 #
+# Call v1OrdersStatusClientOrderIdGet operation
+#
+##############################################################################
+call_v1OrdersStatusClientOrderIdGet() {
+    # ignore error about 'path_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local path_parameter_names=(client_order_id)
+    # ignore error about 'query_parameter_names' being unused; passed by reference
+    # shellcheck disable=SC2034
+    local query_parameter_names=()
+    local path
+
+    if ! path=$(build_request_path "/v1/orders/status/{client_order_id}" path_parameter_names query_parameter_names); then
+        ERROR_MSG=$path
+        exit 1
+    fi
+    local method="GET"
+    local headers_curl
+    headers_curl=$(header_arguments_to_curl)
+    if [[ -n $header_accept ]]; then
+        headers_curl="${headers_curl} -H 'Accept: ${header_accept}'"
+    fi
+
+    local basic_auth_option=""
+    if [[ -n $basic_auth_credential ]]; then
+        basic_auth_option="-u ${basic_auth_credential}"
+    fi
+    if [[ "$print_curl" = true ]]; then
+        echo "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    else
+        eval "curl ${basic_auth_option} ${curl_arguments} ${headers_curl} -X ${method} \"${host}${path}\""
+    fi
+}
+
+##############################################################################
+#
 # Call v1PositionsGet operation
 #
 ##############################################################################
@@ -1000,7 +1060,7 @@ call_v1PositionsGet() {
     local query_parameter_names=(exchange_id)
     local path
 
-    if ! path=$(build_request_path "/v1/v1/positions" path_parameter_names query_parameter_names); then
+    if ! path=$(build_request_path "/v1/positions" path_parameter_names query_parameter_names); then
         ERROR_MSG=$path
         exit 1
     fi
@@ -1134,6 +1194,9 @@ case $key in
     v1OrdersPost)
     operation="v1OrdersPost"
     ;;
+    v1OrdersStatusClientOrderIdGet)
+    operation="v1OrdersStatusClientOrderIdGet"
+    ;;
     v1PositionsGet)
     operation="v1PositionsGet"
     ;;
@@ -1228,6 +1291,9 @@ case $operation in
     ;;
     v1OrdersPost)
     call_v1OrdersPost
+    ;;
+    v1OrdersStatusClientOrderIdGet)
+    call_v1OrdersStatusClientOrderIdGet
     ;;
     v1PositionsGet)
     call_v1PositionsGet

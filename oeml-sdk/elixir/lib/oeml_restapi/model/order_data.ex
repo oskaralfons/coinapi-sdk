@@ -37,7 +37,7 @@ defmodule OEML-RESTAPI.Model.OrderData do
     :"exchange_order_id" => String.t | nil,
     :"amount_open" => float() | nil,
     :"amount_filled" => float() | nil,
-    :"status" => OrderStatus | nil,
+    :"status" => OrdStatus | nil,
     :"time_order" => [[String.t]] | nil,
     :"error_message" => String.t | nil,
     :"client_order_id" => String.t | nil,
@@ -57,7 +57,7 @@ defimpl Poison.Decoder, for: OEML-RESTAPI.Model.OrderData do
   import OEML-RESTAPI.Deserializer
   def decode(value, options) do
     value
-    |> deserialize(:"status", :struct, OEML-RESTAPI.Model.OrderStatus, options)
+    |> deserialize(:"status", :struct, OEML-RESTAPI.Model.OrdStatus, options)
     |> deserialize(:"time_in_force", :struct, OEML-RESTAPI.Model.TimeInForce, options)
     |> deserialize(:"expire_time", :struct, OEML-RESTAPI.Model.DateTime, options)
   end

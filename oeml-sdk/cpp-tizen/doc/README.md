@@ -36,7 +36,7 @@ Doxygen is the de facto standard tool for generating/extracting documentation fr
 Check out [Doxygen](https://www.doxygen.org/) for additional information about the Doxygen project.
 
 ## I Don't want to run Doxygen. What are the API files for accessing the REST endpoints?
-All URIs are relative to http://localhosthttp://localhost:8080/v1
+All URIs are relative to http://localhosthttp://localhost:8080
 
 ### BalancesManager
 Method | HTTP request | Description
@@ -47,14 +47,16 @@ Method | HTTP request | Description
 ### OrdersManager
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-*v1OrdersCancelAllPostSync* | *POST* /v1/orders/cancel/all | Cancel all order.
-*v1OrdersCancelAllPostASync* | *POST* /v1/orders/cancel/all | Cancel all order.
+*v1OrdersCancelAllPostSync* | *POST* /v1/orders/cancel/all | Cancel all orders.
+*v1OrdersCancelAllPostASync* | *POST* /v1/orders/cancel/all | Cancel all orders.
 *v1OrdersCancelPostSync* | *POST* /v1/orders/cancel | Cancel order.
 *v1OrdersCancelPostASync* | *POST* /v1/orders/cancel | Cancel order.
-*v1OrdersGetSync* | *GET* /v1/orders | Get orders.
-*v1OrdersGetASync* | *GET* /v1/orders | Get orders.
+*v1OrdersGetSync* | *GET* /v1/orders | Get all orders.
+*v1OrdersGetASync* | *GET* /v1/orders | Get all orders.
 *v1OrdersPostSync* | *POST* /v1/orders | Create new order.
 *v1OrdersPostASync* | *POST* /v1/orders | Create new order.
+*v1OrdersStatusClientOrderIdGetSync* | *GET* /v1/orders/status/{client_order_id} | Get order status.
+*v1OrdersStatusClientOrderIdGetASync* | *GET* /v1/orders/status/{client_order_id} | Get order status.
 
 ### PositionsManager
 Method | HTTP request | Description
@@ -68,18 +70,17 @@ Class | Description
 ------------- | -------------
  *Balance* | 
  *Balance_data* | 
- *CancelAllOrder* | 
- *CancelOrder* | 
- *CreateOrder400* | 
- *Messages* | 
- *MessagesInfo* | 
- *MessagesOk* | 
+ *CreateOrderValidationError* | 
+ *ExecutionReport* | 
+ *Message* | 
  *NewOrder* | 
+ *OrdStatus* | Order statuses and the lifecycle are documented in the separate section: <a href=\"#oeml-order-lifecycle\">OEML / Starter Guide / Order Lifecycle</a> 
  *Order* | 
- *OrderLive* | 
- *OrderStatus* | Order statuses and the lifecycle are documented in the separate section: <a href=\"#oeml-order-lifecycle\">OEML / Starter Guide / Order Lifecycle</a> 
+ *OrderCancelAllRequest* | 
+ *OrderCancelSingleRequest* | 
  *Order_data* | 
  *Position* | 
  *Position_data* | 
+ *Severity* | 
  *TimeInForce* | Order time in force options are documented in the separate section: <a href=\"#oeml-order-lifecycle\">OEML / Starter Guide / Order parameters / Time in force</a> 
 

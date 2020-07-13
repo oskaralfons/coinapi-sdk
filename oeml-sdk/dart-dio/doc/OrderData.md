@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **exchangeOrderId** | **String** | Exchange order id | [optional] [default to null]
 **amountOpen** | **num** | Amount open | [optional] [default to null]
 **amountFilled** | **num** | Amount filled | [optional] [default to null]
-**status** | [**OrderStatus**](OrderStatus.md) |  | [optional] [default to null]
+**status** | [**OrdStatus**](OrdStatus.md) |  | [optional] [default to null]
 **timeOrder** | [**BuiltList&lt;BuiltList&lt;String&gt;&gt;**](List.md) | History of order status changes | [optional] [default to const []]
 **errorMessage** | **String** | Error message | [optional] [default to null]
 **clientOrderId** | **String** | Client unique identifier for the trade. | [optional] [default to null]

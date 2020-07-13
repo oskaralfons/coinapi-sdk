@@ -1,22 +1,23 @@
 # OrdersApi
 
-All URIs are relative to *http://localhost:8080/v1*
+All URIs are relative to *http://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**v1OrdersCancelAllPost**](OrdersApi.md#v1OrdersCancelAllPost) | **POST** /v1/orders/cancel/all | Cancel all order
+[**v1OrdersCancelAllPost**](OrdersApi.md#v1OrdersCancelAllPost) | **POST** /v1/orders/cancel/all | Cancel all orders
 [**v1OrdersCancelPost**](OrdersApi.md#v1OrdersCancelPost) | **POST** /v1/orders/cancel | Cancel order
-[**v1OrdersGet**](OrdersApi.md#v1OrdersGet) | **GET** /v1/orders | Get orders
+[**v1OrdersGet**](OrdersApi.md#v1OrdersGet) | **GET** /v1/orders | Get all orders
 [**v1OrdersPost**](OrdersApi.md#v1OrdersPost) | **POST** /v1/orders | Create new order
+[**v1OrdersStatusClientOrderIdGet**](OrdersApi.md#v1OrdersStatusClientOrderIdGet) | **GET** /v1/orders/status/{client_order_id} | Get order status
 
 
 <a name="v1OrdersCancelAllPost"></a>
 # **v1OrdersCancelAllPost**
-> MessagesOk v1OrdersCancelAllPost(cancelAllOrder)
+> Message v1OrdersCancelAllPost(orderCancelAllRequest)
 
-Cancel all order
+Cancel all orders
 
-Cancel all existing order.
+This request cancels all open orders across all or single specified exchange.
 
 ### Example
 ```kotlin
@@ -25,9 +26,9 @@ Cancel all existing order.
 //import org.openapitools.client.models.*
 
 val apiInstance = OrdersApi()
-val cancelAllOrder : CancelAllOrder =  // CancelAllOrder | 
+val orderCancelAllRequest : OrderCancelAllRequest =  // OrderCancelAllRequest | 
 try {
-    val result : MessagesOk = apiInstance.v1OrdersCancelAllPost(cancelAllOrder)
+    val result : Message = apiInstance.v1OrdersCancelAllPost(orderCancelAllRequest)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling OrdersApi#v1OrdersCancelAllPost")
@@ -42,11 +43,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelAllOrder** | [**CancelAllOrder**](CancelAllOrder.md)|  |
+ **orderCancelAllRequest** | [**OrderCancelAllRequest**](OrderCancelAllRequest.md)|  |
 
 ### Return type
 
-[**MessagesOk**](MessagesOk.md)
+[**Message**](Message.md)
 
 ### Authorization
 
@@ -59,11 +60,11 @@ No authorization required
 
 <a name="v1OrdersCancelPost"></a>
 # **v1OrdersCancelPost**
-> OrderLive v1OrdersCancelPost(cancelOrder)
+> ExecutionReport v1OrdersCancelPost(orderCancelSingleRequest)
 
 Cancel order
 
-Cancel an existing order, can be used to cancel margin, exchange, and derivative orders. You can cancel the order by the internal order ID or exchange order ID.
+This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
 
 ### Example
 ```kotlin
@@ -72,9 +73,9 @@ Cancel an existing order, can be used to cancel margin, exchange, and derivative
 //import org.openapitools.client.models.*
 
 val apiInstance = OrdersApi()
-val cancelOrder : CancelOrder =  // CancelOrder | 
+val orderCancelSingleRequest : OrderCancelSingleRequest =  // OrderCancelSingleRequest | 
 try {
-    val result : OrderLive = apiInstance.v1OrdersCancelPost(cancelOrder)
+    val result : ExecutionReport = apiInstance.v1OrdersCancelPost(orderCancelSingleRequest)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling OrdersApi#v1OrdersCancelPost")
@@ -89,11 +90,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelOrder** | [**CancelOrder**](CancelOrder.md)|  |
+ **orderCancelSingleRequest** | [**OrderCancelSingleRequest**](OrderCancelSingleRequest.md)|  |
 
 ### Return type
 
-[**OrderLive**](OrderLive.md)
+[**ExecutionReport**](ExecutionReport.md)
 
 ### Authorization
 
@@ -108,9 +109,9 @@ No authorization required
 # **v1OrdersGet**
 > kotlin.Array&lt;Order&gt; v1OrdersGet(exchangeId)
 
-Get orders
+Get all orders
 
-List your current open orders.
+Get all current open orders across all or single specified exchange.
 
 ### Example
 ```kotlin
@@ -119,7 +120,7 @@ List your current open orders.
 //import org.openapitools.client.models.*
 
 val apiInstance = OrdersApi()
-val exchangeId : kotlin.String = KRAKEN // kotlin.String | Exchange name
+val exchangeId : kotlin.String = KRAKEN // kotlin.String | Filter the output to the orders from the specific exchange.
 try {
     val result : kotlin.Array<Order> = apiInstance.v1OrdersGet(exchangeId)
     println(result)
@@ -136,7 +137,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **exchangeId** | **kotlin.String**| Exchange name | [optional]
+ **exchangeId** | **kotlin.String**| Filter the output to the orders from the specific exchange. | [optional]
 
 ### Return type
 
@@ -153,11 +154,11 @@ No authorization required
 
 <a name="v1OrdersPost"></a>
 # **v1OrdersPost**
-> OrderLive v1OrdersPost(newOrder)
+> ExecutionReport v1OrdersPost(newOrder)
 
 Create new order
 
-You can place two types of orders: limit and market. Orders can only be placed if your account has sufficient funds.
+This request creating new order for the specific exchange.
 
 ### Example
 ```kotlin
@@ -168,7 +169,7 @@ You can place two types of orders: limit and market. Orders can only be placed i
 val apiInstance = OrdersApi()
 val newOrder : NewOrder =  // NewOrder | 
 try {
-    val result : OrderLive = apiInstance.v1OrdersPost(newOrder)
+    val result : ExecutionReport = apiInstance.v1OrdersPost(newOrder)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling OrdersApi#v1OrdersPost")
@@ -187,7 +188,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OrderLive**](OrderLive.md)
+[**ExecutionReport**](ExecutionReport.md)
 
 ### Authorization
 
@@ -197,4 +198,51 @@ No authorization required
 
  - **Content-Type**: application/json
  - **Accept**: application/json, appliction/json
+
+<a name="v1OrdersStatusClientOrderIdGet"></a>
+# **v1OrdersStatusClientOrderIdGet**
+> ExecutionReport v1OrdersStatusClientOrderIdGet(clientOrderId)
+
+Get order status
+
+Get the current order status for the specified order. The requested order can no longer be active.
+
+### Example
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
+
+val apiInstance = OrdersApi()
+val clientOrderId : kotlin.String = 6ab36bc1-344d-432e-ac6d-0bf44ee64c2b // kotlin.String | Order Client Id of the order for which the status is requested.
+try {
+    val result : ExecutionReport = apiInstance.v1OrdersStatusClientOrderIdGet(clientOrderId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling OrdersApi#v1OrdersStatusClientOrderIdGet")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling OrdersApi#v1OrdersStatusClientOrderIdGet")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **clientOrderId** | **kotlin.String**| Order Client Id of the order for which the status is requested. |
+
+### Return type
+
+[**ExecutionReport**](ExecutionReport.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 

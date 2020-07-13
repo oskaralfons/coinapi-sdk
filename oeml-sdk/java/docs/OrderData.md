@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **exchangeOrderId** | **String** | Exchange order id |  [optional]
 **amountOpen** | [**BigDecimal**](BigDecimal.md) | Amount open |  [optional]
 **amountFilled** | [**BigDecimal**](BigDecimal.md) | Amount filled |  [optional]
-**status** | [**OrderStatus**](OrderStatus.md) |  |  [optional]
+**status** | [**OrdStatus**](OrdStatus.md) |  |  [optional]
 **timeOrder** | [**List&lt;List&lt;String&gt;&gt;**](List.md) | History of order status changes |  [optional]
 **errorMessage** | **String** | Error message |  [optional]
 **clientOrderId** | **String** | Client unique identifier for the trade. |  [optional]
