@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## v1OrdersCancelAllPost
 
-> Message v1OrdersCancelAllPost(orderCancelAllRequest)
+> Message v1OrdersCancelAllPost(cancelOrderAllRequest)
 
 Cancel all orders
 
@@ -26,8 +26,8 @@ This request cancels all open orders across all or single specified exchange.
 import OemlRestApi from 'oeml_rest_api';
 
 let apiInstance = new OemlRestApi.OrdersApi();
-let orderCancelAllRequest = new OemlRestApi.OrderCancelAllRequest(); // OrderCancelAllRequest | 
-apiInstance.v1OrdersCancelAllPost(orderCancelAllRequest, (error, data, response) => {
+let cancelOrderAllRequest = new OemlRestApi.CancelOrderAllRequest(); // CancelOrderAllRequest | 
+apiInstance.v1OrdersCancelAllPost(cancelOrderAllRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -41,7 +41,7 @@ apiInstance.v1OrdersCancelAllPost(orderCancelAllRequest, (error, data, response)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderCancelAllRequest** | [**OrderCancelAllRequest**](OrderCancelAllRequest.md)|  | 
+ **cancelOrderAllRequest** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)|  | 
 
 ### Return type
 
@@ -59,7 +59,7 @@ No authorization required
 
 ## v1OrdersCancelPost
 
-> ExecutionReport v1OrdersCancelPost(orderCancelSingleRequest)
+> ExecutionReport v1OrdersCancelPost(cancelOrderSingleRequest)
 
 Cancel order
 
@@ -71,8 +71,8 @@ This request cancels an existing order. The order can be canceled by the client 
 import OemlRestApi from 'oeml_rest_api';
 
 let apiInstance = new OemlRestApi.OrdersApi();
-let orderCancelSingleRequest = new OemlRestApi.OrderCancelSingleRequest(); // OrderCancelSingleRequest | 
-apiInstance.v1OrdersCancelPost(orderCancelSingleRequest, (error, data, response) => {
+let cancelOrderSingleRequest = new OemlRestApi.CancelOrderSingleRequest(); // CancelOrderSingleRequest | 
+apiInstance.v1OrdersCancelPost(cancelOrderSingleRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -86,7 +86,7 @@ apiInstance.v1OrdersCancelPost(orderCancelSingleRequest, (error, data, response)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderCancelSingleRequest** | [**OrderCancelSingleRequest**](OrderCancelSingleRequest.md)|  | 
+ **cancelOrderSingleRequest** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)|  | 
 
 ### Return type
 

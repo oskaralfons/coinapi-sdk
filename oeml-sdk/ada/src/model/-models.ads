@@ -14,29 +14,114 @@ package .Models is
 
 
 
-   type OrdType_Type is
+   type TimeInForce_Type is
      record
      end record;
 
-   package OrdType_Type_Vectors is
+   package TimeInForce_Type_Vectors is
       new Ada.Containers.Vectors (Index_Type   => Positive,
-                                  Element_Type => OrdType_Type);
+                                  Element_Type => TimeInForce_Type);
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in OrdType_Type);
+                        Value : in TimeInForce_Type);
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in OrdType_Type_Vectors.Vector);
+                        Value : in TimeInForce_Type_Vectors.Vector);
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out OrdType_Type);
+                          Value : out TimeInForce_Type);
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out OrdType_Type_Vectors.Vector);
+                          Value : out TimeInForce_Type_Vectors.Vector);
+
+
+
+
+   type OrdSide_Type is
+     record
+     end record;
+
+   package OrdSide_Type_Vectors is
+      new Ada.Containers.Vectors (Index_Type   => Positive,
+                                  Element_Type => OrdSide_Type);
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in OrdSide_Type);
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in OrdSide_Type_Vectors.Vector);
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : out OrdSide_Type);
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : out OrdSide_Type_Vectors.Vector);
+
+
+
+
+   type CancelOrderSingleRequest_Type is
+     record
+       Exchange_Id : Swagger.Nullable_UString;
+       Exchange_Order_Id : Swagger.Nullable_UString;
+       Client_Order_Id : Swagger.Nullable_UString;
+     end record;
+
+   package CancelOrderSingleRequest_Type_Vectors is
+      new Ada.Containers.Vectors (Index_Type   => Positive,
+                                  Element_Type => CancelOrderSingleRequest_Type);
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in CancelOrderSingleRequest_Type);
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in CancelOrderSingleRequest_Type_Vectors.Vector);
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : out CancelOrderSingleRequest_Type);
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : out CancelOrderSingleRequest_Type_Vectors.Vector);
+
+
+
+
+   type CancelOrderAllRequest_Type is
+     record
+       Exchange_Id : Swagger.UString;
+     end record;
+
+   package CancelOrderAllRequest_Type_Vectors is
+      new Ada.Containers.Vectors (Index_Type   => Positive,
+                                  Element_Type => CancelOrderAllRequest_Type);
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in CancelOrderAllRequest_Type);
+
+   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
+                        Name  : in String;
+                        Value : in CancelOrderAllRequest_Type_Vectors.Vector);
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : out CancelOrderAllRequest_Type);
+
+   procedure Deserialize (From  : in Swagger.Value_Type;
+                          Name  : in String;
+                          Value : out CancelOrderAllRequest_Type_Vectors.Vector);
 
 
 
@@ -68,60 +153,29 @@ package .Models is
 
 
 
-   type OrderCancelAllRequest_Type is
+   type OrdType_Type is
      record
-       Exchange_Id : Swagger.UString;
      end record;
 
-   package OrderCancelAllRequest_Type_Vectors is
+   package OrdType_Type_Vectors is
       new Ada.Containers.Vectors (Index_Type   => Positive,
-                                  Element_Type => OrderCancelAllRequest_Type);
+                                  Element_Type => OrdType_Type);
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in OrderCancelAllRequest_Type);
+                        Value : in OrdType_Type);
 
    procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
                         Name  : in String;
-                        Value : in OrderCancelAllRequest_Type_Vectors.Vector);
+                        Value : in OrdType_Type_Vectors.Vector);
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out OrderCancelAllRequest_Type);
+                          Value : out OrdType_Type);
 
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
-                          Value : out OrderCancelAllRequest_Type_Vectors.Vector);
-
-
-
-
-   type OrderCancelSingleRequest_Type is
-     record
-       Exchange_Id : Swagger.Nullable_UString;
-       Exchange_Order_Id : Swagger.Nullable_UString;
-       Client_Order_Id : Swagger.Nullable_UString;
-     end record;
-
-   package OrderCancelSingleRequest_Type_Vectors is
-      new Ada.Containers.Vectors (Index_Type   => Positive,
-                                  Element_Type => OrderCancelSingleRequest_Type);
-
-   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
-                        Name  : in String;
-                        Value : in OrderCancelSingleRequest_Type);
-
-   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
-                        Name  : in String;
-                        Value : in OrderCancelSingleRequest_Type_Vectors.Vector);
-
-   procedure Deserialize (From  : in Swagger.Value_Type;
-                          Name  : in String;
-                          Value : out OrderCancelSingleRequest_Type);
-
-   procedure Deserialize (From  : in Swagger.Value_Type;
-                          Name  : in String;
-                          Value : out OrderCancelSingleRequest_Type_Vectors.Vector);
+                          Value : out OrdType_Type_Vectors.Vector);
 
 
 
@@ -182,60 +236,6 @@ package .Models is
    procedure Deserialize (From  : in Swagger.Value_Type;
                           Name  : in String;
                           Value : out Message_Type_Vectors.Vector);
-
-
-
-
-   type OrdSide_Type is
-     record
-     end record;
-
-   package OrdSide_Type_Vectors is
-      new Ada.Containers.Vectors (Index_Type   => Positive,
-                                  Element_Type => OrdSide_Type);
-
-   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
-                        Name  : in String;
-                        Value : in OrdSide_Type);
-
-   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
-                        Name  : in String;
-                        Value : in OrdSide_Type_Vectors.Vector);
-
-   procedure Deserialize (From  : in Swagger.Value_Type;
-                          Name  : in String;
-                          Value : out OrdSide_Type);
-
-   procedure Deserialize (From  : in Swagger.Value_Type;
-                          Name  : in String;
-                          Value : out OrdSide_Type_Vectors.Vector);
-
-
-
-
-   type TimeInForce_Type is
-     record
-     end record;
-
-   package TimeInForce_Type_Vectors is
-      new Ada.Containers.Vectors (Index_Type   => Positive,
-                                  Element_Type => TimeInForce_Type);
-
-   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
-                        Name  : in String;
-                        Value : in TimeInForce_Type);
-
-   procedure Serialize (Into  : in out Swagger.Streams.Output_Stream'Class;
-                        Name  : in String;
-                        Value : in TimeInForce_Type_Vectors.Vector);
-
-   procedure Deserialize (From  : in Swagger.Value_Type;
-                          Name  : in String;
-                          Value : out TimeInForce_Type);
-
-   procedure Deserialize (From  : in Swagger.Value_Type;
-                          Name  : in String;
-                          Value : out TimeInForce_Type_Vectors.Vector);
 
 
 

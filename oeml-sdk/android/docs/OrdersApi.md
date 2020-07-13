@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## v1OrdersCancelAllPost
 
-> Message v1OrdersCancelAllPost(orderCancelAllRequest)
+> Message v1OrdersCancelAllPost(cancelOrderAllRequest)
 
 Cancel all orders
 
@@ -27,9 +27,9 @@ This request cancels all open orders across all or single specified exchange.
 //import org.openapitools.client.api.OrdersApi;
 
 OrdersApi apiInstance = new OrdersApi();
-OrderCancelAllRequest orderCancelAllRequest = new OrderCancelAllRequest(); // OrderCancelAllRequest | 
+CancelOrderAllRequest cancelOrderAllRequest = new CancelOrderAllRequest(); // CancelOrderAllRequest | 
 try {
-    Message result = apiInstance.v1OrdersCancelAllPost(orderCancelAllRequest);
+    Message result = apiInstance.v1OrdersCancelAllPost(cancelOrderAllRequest);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrdersApi#v1OrdersCancelAllPost");
@@ -42,7 +42,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderCancelAllRequest** | [**OrderCancelAllRequest**](OrderCancelAllRequest.md)|  |
+ **cancelOrderAllRequest** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)|  |
 
 ### Return type
 
@@ -60,7 +60,7 @@ No authorization required
 
 ## v1OrdersCancelPost
 
-> ExecutionReport v1OrdersCancelPost(orderCancelSingleRequest)
+> ExecutionReport v1OrdersCancelPost(cancelOrderSingleRequest)
 
 Cancel order
 
@@ -73,9 +73,9 @@ This request cancels an existing order. The order can be canceled by the client 
 //import org.openapitools.client.api.OrdersApi;
 
 OrdersApi apiInstance = new OrdersApi();
-OrderCancelSingleRequest orderCancelSingleRequest = new OrderCancelSingleRequest(); // OrderCancelSingleRequest | 
+CancelOrderSingleRequest cancelOrderSingleRequest = new CancelOrderSingleRequest(); // CancelOrderSingleRequest | 
 try {
-    ExecutionReport result = apiInstance.v1OrdersCancelPost(orderCancelSingleRequest);
+    ExecutionReport result = apiInstance.v1OrdersCancelPost(cancelOrderSingleRequest);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrdersApi#v1OrdersCancelPost");
@@ -88,7 +88,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderCancelSingleRequest** | [**OrderCancelSingleRequest**](OrderCancelSingleRequest.md)|  |
+ **cancelOrderSingleRequest** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)|  |
 
 ### Return type
 

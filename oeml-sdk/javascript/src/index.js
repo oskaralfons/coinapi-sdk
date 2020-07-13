@@ -15,6 +15,8 @@
 import ApiClient from './ApiClient';
 import Balance from './model/Balance';
 import BalanceData from './model/BalanceData';
+import CancelOrderAllRequest from './model/CancelOrderAllRequest';
+import CancelOrderSingleRequest from './model/CancelOrderSingleRequest';
 import ExecutionReport from './model/ExecutionReport';
 import ExecutionReportAllOf from './model/ExecutionReportAllOf';
 import Message from './model/Message';
@@ -22,8 +24,6 @@ import NewOrderSingle from './model/NewOrderSingle';
 import OrdSide from './model/OrdSide';
 import OrdStatus from './model/OrdStatus';
 import OrdType from './model/OrdType';
-import OrderCancelAllRequest from './model/OrderCancelAllRequest';
-import OrderCancelSingleRequest from './model/OrderCancelSingleRequest';
 import Position from './model/Position';
 import PositionData from './model/PositionData';
 import Severity from './model/Severity';
@@ -85,6 +85,18 @@ export {
     BalanceData,
 
     /**
+     * The CancelOrderAllRequest model constructor.
+     * @property {module:model/CancelOrderAllRequest}
+     */
+    CancelOrderAllRequest,
+
+    /**
+     * The CancelOrderSingleRequest model constructor.
+     * @property {module:model/CancelOrderSingleRequest}
+     */
+    CancelOrderSingleRequest,
+
+    /**
      * The ExecutionReport model constructor.
      * @property {module:model/ExecutionReport}
      */
@@ -125,18 +137,6 @@ export {
      * @property {module:model/OrdType}
      */
     OrdType,
-
-    /**
-     * The OrderCancelAllRequest model constructor.
-     * @property {module:model/OrderCancelAllRequest}
-     */
-    OrderCancelAllRequest,
-
-    /**
-     * The OrderCancelSingleRequest model constructor.
-     * @property {module:model/OrderCancelSingleRequest}
-     */
-    OrderCancelSingleRequest,
 
     /**
      * The Position model constructor.

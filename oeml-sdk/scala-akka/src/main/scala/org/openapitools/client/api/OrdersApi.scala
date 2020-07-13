@@ -11,11 +11,11 @@
  */
 package org.openapitools.client.api
 
+import org.openapitools.client.model.CancelOrderAllRequest
+import org.openapitools.client.model.CancelOrderSingleRequest
 import org.openapitools.client.model.ExecutionReport
 import org.openapitools.client.model.Message
 import org.openapitools.client.model.NewOrderSingle
-import org.openapitools.client.model.OrderCancelAllRequest
-import org.openapitools.client.model.OrderCancelSingleRequest
 import org.openapitools.client.model.ValidationError
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
@@ -34,11 +34,11 @@ class OrdersApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Message (Result)
    * 
-   * @param orderCancelAllRequest 
+   * @param cancelOrderAllRequest 
    */
-  def v1OrdersCancelAllPost(orderCancelAllRequest: OrderCancelAllRequest): ApiRequest[Message] =
+  def v1OrdersCancelAllPost(cancelOrderAllRequest: CancelOrderAllRequest): ApiRequest[Message] =
     ApiRequest[Message](ApiMethods.POST, baseUrl, "/v1/orders/cancel/all", "application/json")
-      .withBody(orderCancelAllRequest)
+      .withBody(cancelOrderAllRequest)
       .withSuccessResponse[Message](200)
       
 
@@ -50,11 +50,11 @@ class OrdersApi(baseUrl: String) {
    *   code 400 : ValidationError (Validation errors)
    *   code 490 : Message (Exchange not registered)
    * 
-   * @param orderCancelSingleRequest 
+   * @param cancelOrderSingleRequest 
    */
-  def v1OrdersCancelPost(orderCancelSingleRequest: OrderCancelSingleRequest): ApiRequest[ExecutionReport] =
+  def v1OrdersCancelPost(cancelOrderSingleRequest: CancelOrderSingleRequest): ApiRequest[ExecutionReport] =
     ApiRequest[ExecutionReport](ApiMethods.POST, baseUrl, "/v1/orders/cancel", "application/json")
-      .withBody(orderCancelSingleRequest)
+      .withBody(cancelOrderSingleRequest)
       .withSuccessResponse[ExecutionReport](200)
       .withErrorResponse[ValidationError](400)
       .withErrorResponse[Message](490)

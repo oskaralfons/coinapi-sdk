@@ -35,7 +35,7 @@ class ExecutionReport {
     TimeInForce timeInForce
     /* Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`. */
     Date expireTime = null
-    /* Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> */
+    /* Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>  */
     List<String> execInst = new ArrayList<ExecInstEnum>()
     /* Hash client id */
     String clientOrderIdFormatExchange

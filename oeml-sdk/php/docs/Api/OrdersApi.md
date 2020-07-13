@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## v1OrdersCancelAllPost
 
-> \OpenAPI\Client\Model\Message v1OrdersCancelAllPost($order_cancel_all_request)
+> \OpenAPI\Client\Model\Message v1OrdersCancelAllPost($cancel_order_all_request)
 
 Cancel all orders
 
@@ -32,10 +32,10 @@ $apiInstance = new OpenAPI\Client\Api\OrdersApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$order_cancel_all_request = new \OpenAPI\Client\Model\OrderCancelAllRequest(); // \OpenAPI\Client\Model\OrderCancelAllRequest | 
+$cancel_order_all_request = new \OpenAPI\Client\Model\CancelOrderAllRequest(); // \OpenAPI\Client\Model\CancelOrderAllRequest | 
 
 try {
-    $result = $apiInstance->v1OrdersCancelAllPost($order_cancel_all_request);
+    $result = $apiInstance->v1OrdersCancelAllPost($cancel_order_all_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrdersApi->v1OrdersCancelAllPost: ', $e->getMessage(), PHP_EOL;
@@ -48,7 +48,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order_cancel_all_request** | [**\OpenAPI\Client\Model\OrderCancelAllRequest**](../Model/OrderCancelAllRequest.md)|  |
+ **cancel_order_all_request** | [**\OpenAPI\Client\Model\CancelOrderAllRequest**](../Model/CancelOrderAllRequest.md)|  |
 
 ### Return type
 
@@ -70,7 +70,7 @@ No authorization required
 
 ## v1OrdersCancelPost
 
-> \OpenAPI\Client\Model\ExecutionReport v1OrdersCancelPost($order_cancel_single_request)
+> \OpenAPI\Client\Model\ExecutionReport v1OrdersCancelPost($cancel_order_single_request)
 
 Cancel order
 
@@ -88,10 +88,10 @@ $apiInstance = new OpenAPI\Client\Api\OrdersApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$order_cancel_single_request = new \OpenAPI\Client\Model\OrderCancelSingleRequest(); // \OpenAPI\Client\Model\OrderCancelSingleRequest | 
+$cancel_order_single_request = new \OpenAPI\Client\Model\CancelOrderSingleRequest(); // \OpenAPI\Client\Model\CancelOrderSingleRequest | 
 
 try {
-    $result = $apiInstance->v1OrdersCancelPost($order_cancel_single_request);
+    $result = $apiInstance->v1OrdersCancelPost($cancel_order_single_request);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrdersApi->v1OrdersCancelPost: ', $e->getMessage(), PHP_EOL;
@@ -104,7 +104,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order_cancel_single_request** | [**\OpenAPI\Client\Model\OrderCancelSingleRequest**](../Model/OrderCancelSingleRequest.md)|  |
+ **cancel_order_single_request** | [**\OpenAPI\Client\Model\CancelOrderSingleRequest**](../Model/CancelOrderSingleRequest.md)|  |
 
 ### Return type
 

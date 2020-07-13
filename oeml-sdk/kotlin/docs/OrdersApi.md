@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="v1OrdersCancelAllPost"></a>
 # **v1OrdersCancelAllPost**
-> Message v1OrdersCancelAllPost(orderCancelAllRequest)
+> Message v1OrdersCancelAllPost(cancelOrderAllRequest)
 
 Cancel all orders
 
@@ -26,9 +26,9 @@ This request cancels all open orders across all or single specified exchange.
 //import org.openapitools.client.models.*
 
 val apiInstance = OrdersApi()
-val orderCancelAllRequest : OrderCancelAllRequest =  // OrderCancelAllRequest | 
+val cancelOrderAllRequest : CancelOrderAllRequest =  // CancelOrderAllRequest | 
 try {
-    val result : Message = apiInstance.v1OrdersCancelAllPost(orderCancelAllRequest)
+    val result : Message = apiInstance.v1OrdersCancelAllPost(cancelOrderAllRequest)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling OrdersApi#v1OrdersCancelAllPost")
@@ -43,7 +43,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderCancelAllRequest** | [**OrderCancelAllRequest**](OrderCancelAllRequest.md)|  |
+ **cancelOrderAllRequest** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)|  |
 
 ### Return type
 
@@ -60,7 +60,7 @@ No authorization required
 
 <a name="v1OrdersCancelPost"></a>
 # **v1OrdersCancelPost**
-> ExecutionReport v1OrdersCancelPost(orderCancelSingleRequest)
+> ExecutionReport v1OrdersCancelPost(cancelOrderSingleRequest)
 
 Cancel order
 
@@ -73,9 +73,9 @@ This request cancels an existing order. The order can be canceled by the client 
 //import org.openapitools.client.models.*
 
 val apiInstance = OrdersApi()
-val orderCancelSingleRequest : OrderCancelSingleRequest =  // OrderCancelSingleRequest | 
+val cancelOrderSingleRequest : CancelOrderSingleRequest =  // CancelOrderSingleRequest | 
 try {
-    val result : ExecutionReport = apiInstance.v1OrdersCancelPost(orderCancelSingleRequest)
+    val result : ExecutionReport = apiInstance.v1OrdersCancelPost(cancelOrderSingleRequest)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling OrdersApi#v1OrdersCancelPost")
@@ -90,7 +90,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderCancelSingleRequest** | [**OrderCancelSingleRequest**](OrderCancelSingleRequest.md)|  |
+ **cancelOrderSingleRequest** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)|  |
 
 ### Return type
 

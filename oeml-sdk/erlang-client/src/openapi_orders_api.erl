@@ -10,12 +10,12 @@
 
 %% @doc Cancel all orders
 %% This request cancels all open orders across all or single specified exchange.
--spec v1_orders_cancel_all_post(ctx:ctx(), openapi_order_cancel_all_request:openapi_order_cancel_all_request()) -> {ok, openapi_message:openapi_message(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
-v1_orders_cancel_all_post(Ctx, OpenapiOrderCancelAllRequest) ->
-    v1_orders_cancel_all_post(Ctx, OpenapiOrderCancelAllRequest, #{}).
+-spec v1_orders_cancel_all_post(ctx:ctx(), openapi_cancel_order_all_request:openapi_cancel_order_all_request()) -> {ok, openapi_message:openapi_message(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+v1_orders_cancel_all_post(Ctx, OpenapiCancelOrderAllRequest) ->
+    v1_orders_cancel_all_post(Ctx, OpenapiCancelOrderAllRequest, #{}).
 
--spec v1_orders_cancel_all_post(ctx:ctx(), openapi_order_cancel_all_request:openapi_order_cancel_all_request(), maps:map()) -> {ok, openapi_message:openapi_message(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
-v1_orders_cancel_all_post(Ctx, OpenapiOrderCancelAllRequest, Optional) ->
+-spec v1_orders_cancel_all_post(ctx:ctx(), openapi_cancel_order_all_request:openapi_cancel_order_all_request(), maps:map()) -> {ok, openapi_message:openapi_message(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+v1_orders_cancel_all_post(Ctx, OpenapiCancelOrderAllRequest, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
 
@@ -23,7 +23,7 @@ v1_orders_cancel_all_post(Ctx, OpenapiOrderCancelAllRequest, Optional) ->
     Path = ["/v1/orders/cancel/all"],
     QS = [],
     Headers = [],
-    Body1 = OpenapiOrderCancelAllRequest,
+    Body1 = OpenapiCancelOrderAllRequest,
     ContentTypeHeader = openapi_utils:select_header_content_type([<<"application/json">>]),
     Opts = maps:get(hackney_opts, Optional, []),
 
@@ -31,12 +31,12 @@ v1_orders_cancel_all_post(Ctx, OpenapiOrderCancelAllRequest, Optional) ->
 
 %% @doc Cancel order
 %% This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
--spec v1_orders_cancel_post(ctx:ctx(), openapi_order_cancel_single_request:openapi_order_cancel_single_request()) -> {ok, openapi_execution_report:openapi_execution_report(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
-v1_orders_cancel_post(Ctx, OpenapiOrderCancelSingleRequest) ->
-    v1_orders_cancel_post(Ctx, OpenapiOrderCancelSingleRequest, #{}).
+-spec v1_orders_cancel_post(ctx:ctx(), openapi_cancel_order_single_request:openapi_cancel_order_single_request()) -> {ok, openapi_execution_report:openapi_execution_report(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+v1_orders_cancel_post(Ctx, OpenapiCancelOrderSingleRequest) ->
+    v1_orders_cancel_post(Ctx, OpenapiCancelOrderSingleRequest, #{}).
 
--spec v1_orders_cancel_post(ctx:ctx(), openapi_order_cancel_single_request:openapi_order_cancel_single_request(), maps:map()) -> {ok, openapi_execution_report:openapi_execution_report(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
-v1_orders_cancel_post(Ctx, OpenapiOrderCancelSingleRequest, Optional) ->
+-spec v1_orders_cancel_post(ctx:ctx(), openapi_cancel_order_single_request:openapi_cancel_order_single_request(), maps:map()) -> {ok, openapi_execution_report:openapi_execution_report(), openapi_utils:response_info()} | {ok, hackney:client_ref()} | {error, term(), openapi_utils:response_info()}.
+v1_orders_cancel_post(Ctx, OpenapiCancelOrderSingleRequest, Optional) ->
     _OptionalParams = maps:get(params, Optional, #{}),
     Cfg = maps:get(cfg, Optional, application:get_env(kuberl, config, #{})),
 
@@ -44,7 +44,7 @@ v1_orders_cancel_post(Ctx, OpenapiOrderCancelSingleRequest, Optional) ->
     Path = ["/v1/orders/cancel"],
     QS = [],
     Headers = [],
-    Body1 = OpenapiOrderCancelSingleRequest,
+    Body1 = OpenapiCancelOrderSingleRequest,
     ContentTypeHeader = openapi_utils:select_header_content_type([<<"application/json">>]),
     Opts = maps:get(hackney_opts, Optional, []),
 

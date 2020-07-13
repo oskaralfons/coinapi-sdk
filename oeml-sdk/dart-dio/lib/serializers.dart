@@ -8,6 +8,8 @@ import 'package:built_value/standard_json_plugin.dart';
 
 import 'package:openapi/model/balance.dart';
 import 'package:openapi/model/balance_data.dart';
+import 'package:openapi/model/cancel_order_all_request.dart';
+import 'package:openapi/model/cancel_order_single_request.dart';
 import 'package:openapi/model/execution_report.dart';
 import 'package:openapi/model/execution_report_all_of.dart';
 import 'package:openapi/model/message.dart';
@@ -15,8 +17,6 @@ import 'package:openapi/model/new_order_single.dart';
 import 'package:openapi/model/ord_side.dart';
 import 'package:openapi/model/ord_status.dart';
 import 'package:openapi/model/ord_type.dart';
-import 'package:openapi/model/order_cancel_all_request.dart';
-import 'package:openapi/model/order_cancel_single_request.dart';
 import 'package:openapi/model/position.dart';
 import 'package:openapi/model/position_data.dart';
 import 'package:openapi/model/severity.dart';
@@ -29,6 +29,8 @@ part 'serializers.g.dart';
 @SerializersFor(const [
 Balance,
 BalanceData,
+CancelOrderAllRequest,
+CancelOrderSingleRequest,
 ExecutionReport,
 ExecutionReportAllOf,
 Message,
@@ -36,8 +38,6 @@ NewOrderSingle,
 OrdSide,
 OrdStatus,
 OrdType,
-OrderCancelAllRequest,
-OrderCancelSingleRequest,
 Position,
 PositionData,
 Severity,
@@ -54,6 +54,12 @@ const FullType(BuiltList, const [const FullType(Balance)]),
 ..addBuilderFactory(
 const FullType(BuiltList, const [const FullType(BalanceData)]),
 () => new ListBuilder<BalanceData>())
+..addBuilderFactory(
+const FullType(BuiltList, const [const FullType(CancelOrderAllRequest)]),
+() => new ListBuilder<CancelOrderAllRequest>())
+..addBuilderFactory(
+const FullType(BuiltList, const [const FullType(CancelOrderSingleRequest)]),
+() => new ListBuilder<CancelOrderSingleRequest>())
 ..addBuilderFactory(
 const FullType(BuiltList, const [const FullType(ExecutionReport)]),
 () => new ListBuilder<ExecutionReport>())
@@ -75,12 +81,6 @@ const FullType(BuiltList, const [const FullType(OrdStatus)]),
 ..addBuilderFactory(
 const FullType(BuiltList, const [const FullType(OrdType)]),
 () => new ListBuilder<OrdType>())
-..addBuilderFactory(
-const FullType(BuiltList, const [const FullType(OrderCancelAllRequest)]),
-() => new ListBuilder<OrderCancelAllRequest>())
-..addBuilderFactory(
-const FullType(BuiltList, const [const FullType(OrderCancelSingleRequest)]),
-() => new ListBuilder<OrderCancelSingleRequest>())
 ..addBuilderFactory(
 const FullType(BuiltList, const [const FullType(Position)]),
 () => new ListBuilder<Position>())

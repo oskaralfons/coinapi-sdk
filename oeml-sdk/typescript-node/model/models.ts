@@ -1,5 +1,7 @@
 export * from './balance';
 export * from './balanceData';
+export * from './cancelOrderAllRequest';
+export * from './cancelOrderSingleRequest';
 export * from './executionReport';
 export * from './executionReportAllOf';
 export * from './message';
@@ -7,8 +9,6 @@ export * from './newOrderSingle';
 export * from './ordSide';
 export * from './ordStatus';
 export * from './ordType';
-export * from './orderCancelAllRequest';
-export * from './orderCancelSingleRequest';
 export * from './position';
 export * from './positionData';
 export * from './severity';
@@ -19,6 +19,8 @@ import localVarRequest = require('request');
 
 import { Balance } from './balance';
 import { BalanceData } from './balanceData';
+import { CancelOrderAllRequest } from './cancelOrderAllRequest';
+import { CancelOrderSingleRequest } from './cancelOrderSingleRequest';
 import { ExecutionReport } from './executionReport';
 import { ExecutionReportAllOf } from './executionReportAllOf';
 import { Message } from './message';
@@ -26,8 +28,6 @@ import { NewOrderSingle } from './newOrderSingle';
 import { OrdSide } from './ordSide';
 import { OrdStatus } from './ordStatus';
 import { OrdType } from './ordType';
-import { OrderCancelAllRequest } from './orderCancelAllRequest';
-import { OrderCancelSingleRequest } from './orderCancelSingleRequest';
 import { Position } from './position';
 import { PositionData } from './positionData';
 import { Severity } from './severity';
@@ -60,12 +60,12 @@ let enumsMap: {[index: string]: any} = {
 let typeMap: {[index: string]: any} = {
     "Balance": Balance,
     "BalanceData": BalanceData,
+    "CancelOrderAllRequest": CancelOrderAllRequest,
+    "CancelOrderSingleRequest": CancelOrderSingleRequest,
     "ExecutionReport": ExecutionReport,
     "ExecutionReportAllOf": ExecutionReportAllOf,
     "Message": Message,
     "NewOrderSingle": NewOrderSingle,
-    "OrderCancelAllRequest": OrderCancelAllRequest,
-    "OrderCancelSingleRequest": OrderCancelSingleRequest,
     "Position": Position,
     "PositionData": PositionData,
     "ValidationError": ValidationError,

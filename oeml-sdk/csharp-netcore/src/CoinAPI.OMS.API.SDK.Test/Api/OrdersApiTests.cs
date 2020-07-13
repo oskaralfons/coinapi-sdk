@@ -62,8 +62,8 @@ namespace CoinAPI.OMS.API.SDK.Test
         public void V1OrdersCancelAllPostTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //OrderCancelAllRequest orderCancelAllRequest = null;
-            //var response = instance.V1OrdersCancelAllPost(orderCancelAllRequest);
+            //CancelOrderAllRequest cancelOrderAllRequest = null;
+            //var response = instance.V1OrdersCancelAllPost(cancelOrderAllRequest);
             //Assert.IsType<Message> (response, "response is Message");
         }
         
@@ -74,8 +74,8 @@ namespace CoinAPI.OMS.API.SDK.Test
         public void V1OrdersCancelPostTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //OrderCancelSingleRequest orderCancelSingleRequest = null;
-            //var response = instance.V1OrdersCancelPost(orderCancelSingleRequest);
+            //CancelOrderSingleRequest cancelOrderSingleRequest = null;
+            //var response = instance.V1OrdersCancelPost(cancelOrderSingleRequest);
             //Assert.IsType<ExecutionReport> (response, "response is ExecutionReport");
         }
         

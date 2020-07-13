@@ -12,7 +12,7 @@ Feature | HTTP request | Description
 
 
 # **v1_orders_cancel_all_post**
-> v1_orders_cancel_all_post (order_cancel_all_request: ORDER_CANCEL_ALL_REQUEST ): detachable MESSAGE
+> v1_orders_cancel_all_post (cancel_order_all_request: CANCEL_ORDER_ALL_REQUEST ): detachable MESSAGE
 	
 
 Cancel all orders
@@ -24,7 +24,7 @@ This request cancels all open orders across all or single specified exchange.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order_cancel_all_request** | [**ORDER_CANCEL_ALL_REQUEST**](ORDER_CANCEL_ALL_REQUEST.md)|  | 
+ **cancel_order_all_request** | [**CANCEL_ORDER_ALL_REQUEST**](CANCEL_ORDER_ALL_REQUEST.md)|  | 
 
 ### Return type
 
@@ -42,7 +42,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_orders_cancel_post**
-> v1_orders_cancel_post (order_cancel_single_request: ORDER_CANCEL_SINGLE_REQUEST ): detachable EXECUTION_REPORT
+> v1_orders_cancel_post (cancel_order_single_request: CANCEL_ORDER_SINGLE_REQUEST ): detachable EXECUTION_REPORT
 	
 
 Cancel order
@@ -54,7 +54,7 @@ This request cancels an existing order. The order can be canceled by the client 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order_cancel_single_request** | [**ORDER_CANCEL_SINGLE_REQUEST**](ORDER_CANCEL_SINGLE_REQUEST.md)|  | 
+ **cancel_order_single_request** | [**CANCEL_ORDER_SINGLE_REQUEST**](CANCEL_ORDER_SINGLE_REQUEST.md)|  | 
 
 ### Return type
 

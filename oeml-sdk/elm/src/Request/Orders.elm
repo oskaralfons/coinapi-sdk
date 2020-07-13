@@ -15,9 +15,9 @@ module Request.Orders exposing (v1OrdersCancelAllPost, v1OrdersCancelPost, v1Ord
 import Data.NewOrderSingle as NewOrderSingle exposing (NewOrderSingle)
 import Data.ExecutionReport as ExecutionReport exposing (ExecutionReport)
 import Data.Message as Message exposing (Message)
-import Data.OrderCancelSingleRequest as OrderCancelSingleRequest exposing (OrderCancelSingleRequest)
+import Data.CancelOrderAllRequest as CancelOrderAllRequest exposing (CancelOrderAllRequest)
+import Data.CancelOrderSingleRequest as CancelOrderSingleRequest exposing (CancelOrderSingleRequest)
 import Data.ValidationError as ValidationError exposing (ValidationError)
-import Data.OrderCancelAllRequest as OrderCancelAllRequest exposing (OrderCancelAllRequest)
 import Dict
 import Http
 import Json.Decode as Decode
@@ -37,7 +37,7 @@ v1OrdersCancelAllPost :
     { onSend : Result Http.Error Message -> msg
 
 
-    , body : OrderCancelAllRequest
+    , body : CancelOrderAllRequest
 
 
     }
@@ -49,7 +49,7 @@ v1OrdersCancelAllPost params =
         , url = Url.crossOrigin basePath
             ["v1", "orders", "cancel", "all"]
             (List.filterMap identity [])
-        , body = Http.jsonBody <| OrderCancelAllRequest.encode params.body
+        , body = Http.jsonBody <| CancelOrderAllRequest.encode params.body
         , expect = Http.expectJson params.onSend Message.decoder
         , timeout = Just 30000
         , tracker = Nothing
@@ -62,7 +62,7 @@ v1OrdersCancelPost :
     { onSend : Result Http.Error ExecutionReport -> msg
 
 
-    , body : OrderCancelSingleRequest
+    , body : CancelOrderSingleRequest
 
 
     }
@@ -74,7 +74,7 @@ v1OrdersCancelPost params =
         , url = Url.crossOrigin basePath
             ["v1", "orders", "cancel"]
             (List.filterMap identity [])
-        , body = Http.jsonBody <| OrderCancelSingleRequest.encode params.body
+        , body = Http.jsonBody <| CancelOrderSingleRequest.encode params.body
         , expect = Http.expectJson params.onSend ExecutionReport.decoder
         , timeout = Just 30000
         , tracker = Nothing

@@ -29,7 +29,7 @@ This request cancels all open orders across all or single specified exchange.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderCancelAllRequest** | [**OrderCancelAllRequest**](OrderCancelAllRequest.md) |  |
+ **cancelOrderAllRequest** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md) |  |
 
 ### Return type
 
@@ -64,7 +64,7 @@ This request cancels an existing order. The order can be canceled by the client 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderCancelSingleRequest** | [**OrderCancelSingleRequest**](OrderCancelSingleRequest.md) |  |
+ **cancelOrderSingleRequest** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md) |  |
 
 ### Return type
 

@@ -21,11 +21,11 @@
 
 #include "../ApiClient.h"
 
+#include "CancelOrderAllRequest.h"
+#include "CancelOrderSingleRequest.h"
 #include "ExecutionReport.h"
 #include "Message.h"
 #include "NewOrderSingle.h"
-#include "OrderCancelAllRequest.h"
-#include "OrderCancelSingleRequest.h"
 #include "ValidationError.h"
 #include <cpprest/details/basic_types.h>
 
@@ -55,9 +55,9 @@ public:
     /// <remarks>
     /// This request cancels all open orders across all or single specified exchange.
     /// </remarks>
-    /// <param name="orderCancelAllRequest"></param>
+    /// <param name="cancelOrderAllRequest"></param>
     pplx::task<std::shared_ptr<Message>> v1OrdersCancelAllPost(
-        std::shared_ptr<OrderCancelAllRequest> orderCancelAllRequest
+        std::shared_ptr<CancelOrderAllRequest> cancelOrderAllRequest
     ) const;
     /// <summary>
     /// Cancel order
@@ -65,9 +65,9 @@ public:
     /// <remarks>
     /// This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
     /// </remarks>
-    /// <param name="orderCancelSingleRequest"></param>
+    /// <param name="cancelOrderSingleRequest"></param>
     pplx::task<std::shared_ptr<ExecutionReport>> v1OrdersCancelPost(
-        std::shared_ptr<OrderCancelSingleRequest> orderCancelSingleRequest
+        std::shared_ptr<CancelOrderSingleRequest> cancelOrderSingleRequest
     ) const;
     /// <summary>
     /// Get all orders

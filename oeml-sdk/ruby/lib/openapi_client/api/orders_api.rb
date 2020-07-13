@@ -21,26 +21,26 @@ module OpenapiClient
     end
     # Cancel all orders
     # This request cancels all open orders across all or single specified exchange.
-    # @param order_cancel_all_request [OrderCancelAllRequest] 
+    # @param cancel_order_all_request [CancelOrderAllRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Message]
-    def v1_orders_cancel_all_post(order_cancel_all_request, opts = {})
-      data, _status_code, _headers = v1_orders_cancel_all_post_with_http_info(order_cancel_all_request, opts)
+    def v1_orders_cancel_all_post(cancel_order_all_request, opts = {})
+      data, _status_code, _headers = v1_orders_cancel_all_post_with_http_info(cancel_order_all_request, opts)
       data
     end
 
     # Cancel all orders
     # This request cancels all open orders across all or single specified exchange.
-    # @param order_cancel_all_request [OrderCancelAllRequest] 
+    # @param cancel_order_all_request [CancelOrderAllRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(Message, Integer, Hash)>] Message data, response status code and response headers
-    def v1_orders_cancel_all_post_with_http_info(order_cancel_all_request, opts = {})
+    def v1_orders_cancel_all_post_with_http_info(cancel_order_all_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrdersApi.v1_orders_cancel_all_post ...'
       end
-      # verify the required parameter 'order_cancel_all_request' is set
-      if @api_client.config.client_side_validation && order_cancel_all_request.nil?
-        fail ArgumentError, "Missing the required parameter 'order_cancel_all_request' when calling OrdersApi.v1_orders_cancel_all_post"
+      # verify the required parameter 'cancel_order_all_request' is set
+      if @api_client.config.client_side_validation && cancel_order_all_request.nil?
+        fail ArgumentError, "Missing the required parameter 'cancel_order_all_request' when calling OrdersApi.v1_orders_cancel_all_post"
       end
       # resource path
       local_var_path = '/v1/orders/cancel/all'
@@ -59,7 +59,7 @@ module OpenapiClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] || @api_client.object_to_http_body(order_cancel_all_request) 
+      post_body = opts[:body] || @api_client.object_to_http_body(cancel_order_all_request) 
 
       # return_type
       return_type = opts[:return_type] || 'Message' 
@@ -85,26 +85,26 @@ module OpenapiClient
 
     # Cancel order
     # This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
-    # @param order_cancel_single_request [OrderCancelSingleRequest] 
+    # @param cancel_order_single_request [CancelOrderSingleRequest] 
     # @param [Hash] opts the optional parameters
     # @return [ExecutionReport]
-    def v1_orders_cancel_post(order_cancel_single_request, opts = {})
-      data, _status_code, _headers = v1_orders_cancel_post_with_http_info(order_cancel_single_request, opts)
+    def v1_orders_cancel_post(cancel_order_single_request, opts = {})
+      data, _status_code, _headers = v1_orders_cancel_post_with_http_info(cancel_order_single_request, opts)
       data
     end
 
     # Cancel order
     # This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
-    # @param order_cancel_single_request [OrderCancelSingleRequest] 
+    # @param cancel_order_single_request [CancelOrderSingleRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ExecutionReport, Integer, Hash)>] ExecutionReport data, response status code and response headers
-    def v1_orders_cancel_post_with_http_info(order_cancel_single_request, opts = {})
+    def v1_orders_cancel_post_with_http_info(cancel_order_single_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrdersApi.v1_orders_cancel_post ...'
       end
-      # verify the required parameter 'order_cancel_single_request' is set
-      if @api_client.config.client_side_validation && order_cancel_single_request.nil?
-        fail ArgumentError, "Missing the required parameter 'order_cancel_single_request' when calling OrdersApi.v1_orders_cancel_post"
+      # verify the required parameter 'cancel_order_single_request' is set
+      if @api_client.config.client_side_validation && cancel_order_single_request.nil?
+        fail ArgumentError, "Missing the required parameter 'cancel_order_single_request' when calling OrdersApi.v1_orders_cancel_post"
       end
       # resource path
       local_var_path = '/v1/orders/cancel'
@@ -123,7 +123,7 @@ module OpenapiClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:body] || @api_client.object_to_http_body(order_cancel_single_request) 
+      post_body = opts[:body] || @api_client.object_to_http_body(cancel_order_single_request) 
 
       # return_type
       return_type = opts[:return_type] || 'ExecutionReport' 

@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **v1_orders_cancel_all_post**
-> Message v1_orders_cancel_all_post(order_cancel_all_request => $order_cancel_all_request)
+> Message v1_orders_cancel_all_post(cancel_order_all_request => $cancel_order_all_request)
 
 Cancel all orders
 
@@ -30,10 +30,10 @@ use WWW::OpenAPIClient::OrdersApi;
 my $api_instance = WWW::OpenAPIClient::OrdersApi->new(
 );
 
-my $order_cancel_all_request = WWW::OpenAPIClient::Object::OrderCancelAllRequest->new(); # OrderCancelAllRequest | 
+my $cancel_order_all_request = WWW::OpenAPIClient::Object::CancelOrderAllRequest->new(); # CancelOrderAllRequest | 
 
 eval { 
-    my $result = $api_instance->v1_orders_cancel_all_post(order_cancel_all_request => $order_cancel_all_request);
+    my $result = $api_instance->v1_orders_cancel_all_post(cancel_order_all_request => $cancel_order_all_request);
     print Dumper($result);
 };
 if ($@) {
@@ -45,7 +45,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order_cancel_all_request** | [**OrderCancelAllRequest**](OrderCancelAllRequest.md)|  | 
+ **cancel_order_all_request** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)|  | 
 
 ### Return type
 
@@ -63,7 +63,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_orders_cancel_post**
-> ExecutionReport v1_orders_cancel_post(order_cancel_single_request => $order_cancel_single_request)
+> ExecutionReport v1_orders_cancel_post(cancel_order_single_request => $cancel_order_single_request)
 
 Cancel order
 
@@ -76,10 +76,10 @@ use WWW::OpenAPIClient::OrdersApi;
 my $api_instance = WWW::OpenAPIClient::OrdersApi->new(
 );
 
-my $order_cancel_single_request = WWW::OpenAPIClient::Object::OrderCancelSingleRequest->new(); # OrderCancelSingleRequest | 
+my $cancel_order_single_request = WWW::OpenAPIClient::Object::CancelOrderSingleRequest->new(); # CancelOrderSingleRequest | 
 
 eval { 
-    my $result = $api_instance->v1_orders_cancel_post(order_cancel_single_request => $order_cancel_single_request);
+    my $result = $api_instance->v1_orders_cancel_post(cancel_order_single_request => $cancel_order_single_request);
     print Dumper($result);
 };
 if ($@) {
@@ -91,7 +91,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order_cancel_single_request** | [**OrderCancelSingleRequest**](OrderCancelSingleRequest.md)|  | 
+ **cancel_order_single_request** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)|  | 
 
 ### Return type
 

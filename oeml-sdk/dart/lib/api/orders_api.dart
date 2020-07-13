@@ -10,12 +10,12 @@ class OrdersApi {
   /// Cancel all orders with HTTP info returned
   ///
   /// This request cancels all open orders across all or single specified exchange.
-  Future<Response> v1OrdersCancelAllPostWithHttpInfo(OrderCancelAllRequest orderCancelAllRequest) async {
-    Object postBody = orderCancelAllRequest;
+  Future<Response> v1OrdersCancelAllPostWithHttpInfo(CancelOrderAllRequest cancelOrderAllRequest) async {
+    Object postBody = cancelOrderAllRequest;
 
     // verify required params are set
-    if(orderCancelAllRequest == null) {
-     throw ApiException(400, "Missing required param: orderCancelAllRequest");
+    if(cancelOrderAllRequest == null) {
+     throw ApiException(400, "Missing required param: cancelOrderAllRequest");
     }
 
     // create path and map variables
@@ -54,8 +54,8 @@ class OrdersApi {
   /// Cancel all orders
   ///
   /// This request cancels all open orders across all or single specified exchange.
-  Future<Message> v1OrdersCancelAllPost(OrderCancelAllRequest orderCancelAllRequest) async {
-    Response response = await v1OrdersCancelAllPostWithHttpInfo(orderCancelAllRequest);
+  Future<Message> v1OrdersCancelAllPost(CancelOrderAllRequest cancelOrderAllRequest) async {
+    Response response = await v1OrdersCancelAllPostWithHttpInfo(cancelOrderAllRequest);
     if(response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
@@ -68,12 +68,12 @@ class OrdersApi {
   /// Cancel order with HTTP info returned
   ///
   /// This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
-  Future<Response> v1OrdersCancelPostWithHttpInfo(OrderCancelSingleRequest orderCancelSingleRequest) async {
-    Object postBody = orderCancelSingleRequest;
+  Future<Response> v1OrdersCancelPostWithHttpInfo(CancelOrderSingleRequest cancelOrderSingleRequest) async {
+    Object postBody = cancelOrderSingleRequest;
 
     // verify required params are set
-    if(orderCancelSingleRequest == null) {
-     throw ApiException(400, "Missing required param: orderCancelSingleRequest");
+    if(cancelOrderSingleRequest == null) {
+     throw ApiException(400, "Missing required param: cancelOrderSingleRequest");
     }
 
     // create path and map variables
@@ -112,8 +112,8 @@ class OrdersApi {
   /// Cancel order
   ///
   /// This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
-  Future<ExecutionReport> v1OrdersCancelPost(OrderCancelSingleRequest orderCancelSingleRequest) async {
-    Response response = await v1OrdersCancelPostWithHttpInfo(orderCancelSingleRequest);
+  Future<ExecutionReport> v1OrdersCancelPost(CancelOrderSingleRequest cancelOrderSingleRequest) async {
+    Response response = await v1OrdersCancelPostWithHttpInfo(cancelOrderSingleRequest);
     if(response.statusCode >= 400) {
       throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {

@@ -163,6 +163,71 @@ mkBalanceData =
   , balanceDataUpdateOrigin = Nothing
   }
 
+-- ** CancelOrderAllRequest
+-- | CancelOrderAllRequest
+data CancelOrderAllRequest = CancelOrderAllRequest
+  { cancelOrderAllRequestExchangeId :: !(Text) -- ^ /Required/ "exchange_id" - Exchange identifier from which active orders should be canceled.
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON CancelOrderAllRequest
+instance A.FromJSON CancelOrderAllRequest where
+  parseJSON = A.withObject "CancelOrderAllRequest" $ \o ->
+    CancelOrderAllRequest
+      <$> (o .:  "exchange_id")
+
+-- | ToJSON CancelOrderAllRequest
+instance A.ToJSON CancelOrderAllRequest where
+  toJSON CancelOrderAllRequest {..} =
+   _omitNulls
+      [ "exchange_id" .= cancelOrderAllRequestExchangeId
+      ]
+
+
+-- | Construct a value of type 'CancelOrderAllRequest' (by applying it's required fields, if any)
+mkCancelOrderAllRequest
+  :: Text -- ^ 'cancelOrderAllRequestExchangeId': Exchange identifier from which active orders should be canceled.
+  -> CancelOrderAllRequest
+mkCancelOrderAllRequest cancelOrderAllRequestExchangeId =
+  CancelOrderAllRequest
+  { cancelOrderAllRequestExchangeId
+  }
+
+-- ** CancelOrderSingleRequest
+-- | CancelOrderSingleRequest
+data CancelOrderSingleRequest = CancelOrderSingleRequest
+  { cancelOrderSingleRequestExchangeId :: !(Maybe Text) -- ^ "exchange_id" - Exchange name
+  , cancelOrderSingleRequestExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - Order Id
+  , cancelOrderSingleRequestClientOrderId :: !(Maybe Text) -- ^ "client_order_id" - Client order Id
+  } deriving (P.Show, P.Eq, P.Typeable)
+
+-- | FromJSON CancelOrderSingleRequest
+instance A.FromJSON CancelOrderSingleRequest where
+  parseJSON = A.withObject "CancelOrderSingleRequest" $ \o ->
+    CancelOrderSingleRequest
+      <$> (o .:? "exchange_id")
+      <*> (o .:? "exchange_order_id")
+      <*> (o .:? "client_order_id")
+
+-- | ToJSON CancelOrderSingleRequest
+instance A.ToJSON CancelOrderSingleRequest where
+  toJSON CancelOrderSingleRequest {..} =
+   _omitNulls
+      [ "exchange_id" .= cancelOrderSingleRequestExchangeId
+      , "exchange_order_id" .= cancelOrderSingleRequestExchangeOrderId
+      , "client_order_id" .= cancelOrderSingleRequestClientOrderId
+      ]
+
+
+-- | Construct a value of type 'CancelOrderSingleRequest' (by applying it's required fields, if any)
+mkCancelOrderSingleRequest
+  :: CancelOrderSingleRequest
+mkCancelOrderSingleRequest =
+  CancelOrderSingleRequest
+  { cancelOrderSingleRequestExchangeId = Nothing
+  , cancelOrderSingleRequestExchangeOrderId = Nothing
+  , cancelOrderSingleRequestClientOrderId = Nothing
+  }
+
 -- ** ExecutionReport
 -- | ExecutionReport
 data ExecutionReport = ExecutionReport
@@ -176,7 +241,7 @@ data ExecutionReport = ExecutionReport
   , executionReportOrderType :: !(OrdType) -- ^ /Required/ "order_type"
   , executionReportTimeInForce :: !(TimeInForce) -- ^ /Required/ "time_in_force"
   , executionReportExpireTime :: !(Maybe Date) -- ^ "expire_time" - Expiration time. Conditionaly required for orders with time_in_force &#x3D; &#x60;GOOD_TILL_TIME_EXCHANGE&#x60; or &#x60;GOOD_TILL_TIME_OEML&#x60;.
-  , executionReportExecInst :: !(Maybe [E'ExecInst]) -- ^ "exec_inst" - Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt;
+  , executionReportExecInst :: !(Maybe [E'ExecInst]) -- ^ "exec_inst" - Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; 
   , executionReportClientOrderIdFormatExchange :: !(Text) -- ^ /Required/ "client_order_id_format_exchange" - Hash client id
   , executionReportExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - Exchange order id
   , executionReportAmountOpen :: !(Double) -- ^ /Required/ "amount_open" - Amount open
@@ -385,7 +450,7 @@ data NewOrderSingle = NewOrderSingle
   , newOrderSingleOrderType :: !(OrdType) -- ^ /Required/ "order_type"
   , newOrderSingleTimeInForce :: !(TimeInForce) -- ^ /Required/ "time_in_force"
   , newOrderSingleExpireTime :: !(Maybe Date) -- ^ "expire_time" - Expiration time. Conditionaly required for orders with time_in_force &#x3D; &#x60;GOOD_TILL_TIME_EXCHANGE&#x60; or &#x60;GOOD_TILL_TIME_OEML&#x60;.
-  , newOrderSingleExecInst :: !(Maybe [E'ExecInst]) -- ^ "exec_inst" - Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt;
+  , newOrderSingleExecInst :: !(Maybe [E'ExecInst]) -- ^ "exec_inst" - Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; 
   } deriving (P.Show, P.Eq, P.Typeable)
 
 -- | FromJSON NewOrderSingle
@@ -445,71 +510,6 @@ mkNewOrderSingle newOrderSingleExchangeId newOrderSingleClientOrderId newOrderSi
   , newOrderSingleTimeInForce
   , newOrderSingleExpireTime = Nothing
   , newOrderSingleExecInst = Nothing
-  }
-
--- ** OrderCancelAllRequest
--- | OrderCancelAllRequest
-data OrderCancelAllRequest = OrderCancelAllRequest
-  { orderCancelAllRequestExchangeId :: !(Text) -- ^ /Required/ "exchange_id" - Exchange identifier from which active orders should be canceled.
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON OrderCancelAllRequest
-instance A.FromJSON OrderCancelAllRequest where
-  parseJSON = A.withObject "OrderCancelAllRequest" $ \o ->
-    OrderCancelAllRequest
-      <$> (o .:  "exchange_id")
-
--- | ToJSON OrderCancelAllRequest
-instance A.ToJSON OrderCancelAllRequest where
-  toJSON OrderCancelAllRequest {..} =
-   _omitNulls
-      [ "exchange_id" .= orderCancelAllRequestExchangeId
-      ]
-
-
--- | Construct a value of type 'OrderCancelAllRequest' (by applying it's required fields, if any)
-mkOrderCancelAllRequest
-  :: Text -- ^ 'orderCancelAllRequestExchangeId': Exchange identifier from which active orders should be canceled.
-  -> OrderCancelAllRequest
-mkOrderCancelAllRequest orderCancelAllRequestExchangeId =
-  OrderCancelAllRequest
-  { orderCancelAllRequestExchangeId
-  }
-
--- ** OrderCancelSingleRequest
--- | OrderCancelSingleRequest
-data OrderCancelSingleRequest = OrderCancelSingleRequest
-  { orderCancelSingleRequestExchangeId :: !(Maybe Text) -- ^ "exchange_id" - Exchange name
-  , orderCancelSingleRequestExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - Order Id
-  , orderCancelSingleRequestClientOrderId :: !(Maybe Text) -- ^ "client_order_id" - Client order Id
-  } deriving (P.Show, P.Eq, P.Typeable)
-
--- | FromJSON OrderCancelSingleRequest
-instance A.FromJSON OrderCancelSingleRequest where
-  parseJSON = A.withObject "OrderCancelSingleRequest" $ \o ->
-    OrderCancelSingleRequest
-      <$> (o .:? "exchange_id")
-      <*> (o .:? "exchange_order_id")
-      <*> (o .:? "client_order_id")
-
--- | ToJSON OrderCancelSingleRequest
-instance A.ToJSON OrderCancelSingleRequest where
-  toJSON OrderCancelSingleRequest {..} =
-   _omitNulls
-      [ "exchange_id" .= orderCancelSingleRequestExchangeId
-      , "exchange_order_id" .= orderCancelSingleRequestExchangeOrderId
-      , "client_order_id" .= orderCancelSingleRequestClientOrderId
-      ]
-
-
--- | Construct a value of type 'OrderCancelSingleRequest' (by applying it's required fields, if any)
-mkOrderCancelSingleRequest
-  :: OrderCancelSingleRequest
-mkOrderCancelSingleRequest =
-  OrderCancelSingleRequest
-  { orderCancelSingleRequestExchangeId = Nothing
-  , orderCancelSingleRequestExchangeOrderId = Nothing
-  , orderCancelSingleRequestClientOrderId = Nothing
   }
 
 -- ** Position

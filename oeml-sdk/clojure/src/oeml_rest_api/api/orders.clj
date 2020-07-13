@@ -8,15 +8,15 @@
             [oeml-rest-api.specs.balance-data :refer :all]
             [oeml-rest-api.specs.validation-error :refer :all]
             [oeml-rest-api.specs.position-data :refer :all]
+            [oeml-rest-api.specs.cancel-order-single-request :refer :all]
             [oeml-rest-api.specs.message :refer :all]
-            [oeml-rest-api.specs.order-cancel-single-request :refer :all]
             [oeml-rest-api.specs.new-order-single :refer :all]
             [oeml-rest-api.specs.ord-status :refer :all]
             [oeml-rest-api.specs.balance :refer :all]
             [oeml-rest-api.specs.execution-report-all-of :refer :all]
             [oeml-rest-api.specs.ord-type :refer :all]
-            [oeml-rest-api.specs.order-cancel-all-request :refer :all]
             [oeml-rest-api.specs.position :refer :all]
+            [oeml-rest-api.specs.cancel-order-all-request :refer :all]
             [oeml-rest-api.specs.execution-report :refer :all]
             [oeml-rest-api.specs.ord-side :refer :all]
             )
@@ -26,14 +26,14 @@
 (defn-spec v1-orders-cancel-all-post-with-http-info any?
   "Cancel all orders
   This request cancels all open orders across all or single specified exchange."
-  [order-cancel-all-request order-cancel-all-request]
-  (check-required-params order-cancel-all-request)
+  [cancel-order-all-request cancel-order-all-request]
+  (check-required-params cancel-order-all-request)
   (call-api "/v1/orders/cancel/all" :post
             {:path-params   {}
              :header-params {}
              :query-params  {}
              :form-params   {}
-             :body-param    order-cancel-all-request
+             :body-param    cancel-order-all-request
              :content-types ["application/json"]
              :accepts       ["application/json"]
              :auth-names    []}))
@@ -41,8 +41,8 @@
 (defn-spec v1-orders-cancel-all-post message-spec
   "Cancel all orders
   This request cancels all open orders across all or single specified exchange."
-  [order-cancel-all-request order-cancel-all-request]
-  (let [res (:data (v1-orders-cancel-all-post-with-http-info order-cancel-all-request))]
+  [cancel-order-all-request cancel-order-all-request]
+  (let [res (:data (v1-orders-cancel-all-post-with-http-info cancel-order-all-request))]
     (if (:decode-models *api-context*)
        (st/decode message-spec res st/string-transformer)
        res)))
@@ -51,14 +51,14 @@
 (defn-spec v1-orders-cancel-post-with-http-info any?
   "Cancel order
   This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID."
-  [order-cancel-single-request order-cancel-single-request]
-  (check-required-params order-cancel-single-request)
+  [cancel-order-single-request cancel-order-single-request]
+  (check-required-params cancel-order-single-request)
   (call-api "/v1/orders/cancel" :post
             {:path-params   {}
              :header-params {}
              :query-params  {}
              :form-params   {}
-             :body-param    order-cancel-single-request
+             :body-param    cancel-order-single-request
              :content-types ["application/json"]
              :accepts       ["application/json" "appliction/json"]
              :auth-names    []}))
@@ -66,8 +66,8 @@
 (defn-spec v1-orders-cancel-post execution-report-spec
   "Cancel order
   This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID."
-  [order-cancel-single-request order-cancel-single-request]
-  (let [res (:data (v1-orders-cancel-post-with-http-info order-cancel-single-request))]
+  [cancel-order-single-request cancel-order-single-request]
+  (let [res (:data (v1-orders-cancel-post-with-http-info cancel-order-single-request))]
     (if (:decode-models *api-context*)
        (st/decode execution-report-spec res st/string-transformer)
        res)))

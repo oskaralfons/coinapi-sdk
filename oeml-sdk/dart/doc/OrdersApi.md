@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **v1OrdersCancelAllPost**
-> Message v1OrdersCancelAllPost(orderCancelAllRequest)
+> Message v1OrdersCancelAllPost(cancelOrderAllRequest)
 
 Cancel all orders
 
@@ -28,10 +28,10 @@ This request cancels all open orders across all or single specified exchange.
 import 'package:openapi/api.dart';
 
 var api_instance = OrdersApi();
-var orderCancelAllRequest = OrderCancelAllRequest(); // OrderCancelAllRequest | 
+var cancelOrderAllRequest = CancelOrderAllRequest(); // CancelOrderAllRequest | 
 
 try { 
-    var result = api_instance.v1OrdersCancelAllPost(orderCancelAllRequest);
+    var result = api_instance.v1OrdersCancelAllPost(cancelOrderAllRequest);
     print(result);
 } catch (e) {
     print("Exception when calling OrdersApi->v1OrdersCancelAllPost: $e\n");
@@ -42,7 +42,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderCancelAllRequest** | [**OrderCancelAllRequest**](OrderCancelAllRequest.md)|  | 
+ **cancelOrderAllRequest** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)|  | 
 
 ### Return type
 
@@ -60,7 +60,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1OrdersCancelPost**
-> ExecutionReport v1OrdersCancelPost(orderCancelSingleRequest)
+> ExecutionReport v1OrdersCancelPost(cancelOrderSingleRequest)
 
 Cancel order
 
@@ -71,10 +71,10 @@ This request cancels an existing order. The order can be canceled by the client 
 import 'package:openapi/api.dart';
 
 var api_instance = OrdersApi();
-var orderCancelSingleRequest = OrderCancelSingleRequest(); // OrderCancelSingleRequest | 
+var cancelOrderSingleRequest = CancelOrderSingleRequest(); // CancelOrderSingleRequest | 
 
 try { 
-    var result = api_instance.v1OrdersCancelPost(orderCancelSingleRequest);
+    var result = api_instance.v1OrdersCancelPost(cancelOrderSingleRequest);
     print(result);
 } catch (e) {
     print("Exception when calling OrdersApi->v1OrdersCancelPost: $e\n");
@@ -85,7 +85,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderCancelSingleRequest** | [**OrderCancelSingleRequest**](OrderCancelSingleRequest.md)|  | 
+ **cancelOrderSingleRequest** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)|  | 
 
 ### Return type
 

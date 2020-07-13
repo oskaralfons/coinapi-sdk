@@ -10,7 +10,7 @@ test_that("V1OrdersCancelAllPost", {
   # base path: http://localhost:8080
   # Cancel all orders
   # This request cancels all open orders across all or single specified exchange.
-  # @param OrderCancelAllRequest  order.cancel.all.request   
+  # @param CancelOrderAllRequest  cancel.order.all.request   
   # @return [Message]
 
   # uncomment below to test the operation
@@ -22,7 +22,7 @@ test_that("V1OrdersCancelPost", {
   # base path: http://localhost:8080
   # Cancel order
   # This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
-  # @param OrderCancelSingleRequest  order.cancel.single.request   
+  # @param CancelOrderSingleRequest  cancel.order.single.request   
   # @return [ExecutionReport]
 
   # uncomment below to test the operation

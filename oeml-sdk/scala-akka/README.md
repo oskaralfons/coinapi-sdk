@@ -80,6 +80,8 @@ Class | Method | HTTP request | Description
 
  - [Balance](Balance.md)
  - [BalanceData](BalanceData.md)
+ - [CancelOrderAllRequest](CancelOrderAllRequest.md)
+ - [CancelOrderSingleRequest](CancelOrderSingleRequest.md)
  - [ExecutionReport](ExecutionReport.md)
  - [ExecutionReportAllOf](ExecutionReportAllOf.md)
  - [Message](Message.md)
@@ -87,8 +89,6 @@ Class | Method | HTTP request | Description
  - [OrdSide](OrdSide.md)
  - [OrdStatus](OrdStatus.md)
  - [OrdType](OrdType.md)
- - [OrderCancelAllRequest](OrderCancelAllRequest.md)
- - [OrderCancelSingleRequest](OrderCancelSingleRequest.md)
  - [Position](Position.md)
  - [PositionData](PositionData.md)
  - [Severity](Severity.md)

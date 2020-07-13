@@ -163,7 +163,7 @@ NewOrderSingle.prototype['time_in_force'] = undefined;
 NewOrderSingle.prototype['expire_time'] = undefined;
 
 /**
- * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>
+ * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> 
  * @member {Array.<module:model/NewOrderSingle.ExecInstEnum>} exec_inst
  */
 NewOrderSingle.prototype['exec_inst'] = undefined;

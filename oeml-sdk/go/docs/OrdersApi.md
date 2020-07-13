@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## V1OrdersCancelAllPost
 
-> Message V1OrdersCancelAllPost(ctx, orderCancelAllRequest)
+> Message V1OrdersCancelAllPost(ctx, cancelOrderAllRequest)
 
 Cancel all orders
 
@@ -26,7 +26,7 @@ This request cancels all open orders across all or single specified exchange.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**orderCancelAllRequest** | [**OrderCancelAllRequest**](OrderCancelAllRequest.md)|  | 
+**cancelOrderAllRequest** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)|  | 
 
 ### Return type
 
@@ -48,7 +48,7 @@ No authorization required
 
 ## V1OrdersCancelPost
 
-> ExecutionReport V1OrdersCancelPost(ctx, orderCancelSingleRequest)
+> ExecutionReport V1OrdersCancelPost(ctx, cancelOrderSingleRequest)
 
 Cancel order
 
@@ -60,7 +60,7 @@ This request cancels an existing order. The order can be canceled by the client 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**orderCancelSingleRequest** | [**OrderCancelSingleRequest**](OrderCancelSingleRequest.md)|  | 
+**cancelOrderSingleRequest** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)|  | 
 
 ### Return type
 

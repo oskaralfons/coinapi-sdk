@@ -14,6 +14,8 @@ import 'package:openapi/api/positions_api.dart';
 
 import 'package:openapi/model/balance.dart';
 import 'package:openapi/model/balance_data.dart';
+import 'package:openapi/model/cancel_order_all_request.dart';
+import 'package:openapi/model/cancel_order_single_request.dart';
 import 'package:openapi/model/execution_report.dart';
 import 'package:openapi/model/execution_report_all_of.dart';
 import 'package:openapi/model/message.dart';
@@ -21,8 +23,6 @@ import 'package:openapi/model/new_order_single.dart';
 import 'package:openapi/model/ord_side.dart';
 import 'package:openapi/model/ord_status.dart';
 import 'package:openapi/model/ord_type.dart';
-import 'package:openapi/model/order_cancel_all_request.dart';
-import 'package:openapi/model/order_cancel_single_request.dart';
 import 'package:openapi/model/position.dart';
 import 'package:openapi/model/position_data.dart';
 import 'package:openapi/model/severity.dart';
@@ -34,6 +34,8 @@ import 'package:openapi/model/validation_error.dart';
 final _jsonJaguarRepo = JsonRepo()
 ..add(BalanceSerializer())
 ..add(BalanceDataSerializer())
+..add(CancelOrderAllRequestSerializer())
+..add(CancelOrderSingleRequestSerializer())
 ..add(ExecutionReportSerializer())
 ..add(ExecutionReportAllOfSerializer())
 ..add(MessageSerializer())
@@ -41,8 +43,6 @@ final _jsonJaguarRepo = JsonRepo()
 
 
 
-..add(OrderCancelAllRequestSerializer())
-..add(OrderCancelSingleRequestSerializer())
 ..add(PositionSerializer())
 ..add(PositionDataSerializer())
 

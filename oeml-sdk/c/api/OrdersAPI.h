@@ -5,11 +5,11 @@
 #include "../external/cJSON.h"
 #include "../include/keyValuePair.h"
 #include "../include/binary.h"
+#include "../model/cancel_order_all_request.h"
+#include "../model/cancel_order_single_request.h"
 #include "../model/execution_report.h"
 #include "../model/message.h"
 #include "../model/new_order_single.h"
-#include "../model/order_cancel_all_request.h"
-#include "../model/order_cancel_single_request.h"
 #include "../model/validation_error.h"
 
 
@@ -18,7 +18,7 @@
 // This request cancels all open orders across all or single specified exchange.
 //
 message_t*
-OrdersAPI_v1OrdersCancelAllPost(apiClient_t *apiClient, order_cancel_all_request_t * order_cancel_all_request );
+OrdersAPI_v1OrdersCancelAllPost(apiClient_t *apiClient, cancel_order_all_request_t * cancel_order_all_request );
 
 
 // Cancel order
@@ -26,7 +26,7 @@ OrdersAPI_v1OrdersCancelAllPost(apiClient_t *apiClient, order_cancel_all_request
 // This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
 //
 execution_report_t*
-OrdersAPI_v1OrdersCancelPost(apiClient_t *apiClient, order_cancel_single_request_t * order_cancel_single_request );
+OrdersAPI_v1OrdersCancelPost(apiClient_t *apiClient, cancel_order_single_request_t * cancel_order_single_request );
 
 
 // Get all orders

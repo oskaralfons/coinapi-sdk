@@ -65,6 +65,14 @@ public class JsonUtil {
       return new TypeToken<List<BalanceData>>(){}.getType();
     }
     
+    if ("CancelOrderAllRequest".equalsIgnoreCase(className)) {
+      return new TypeToken<List<CancelOrderAllRequest>>(){}.getType();
+    }
+    
+    if ("CancelOrderSingleRequest".equalsIgnoreCase(className)) {
+      return new TypeToken<List<CancelOrderSingleRequest>>(){}.getType();
+    }
+    
     if ("ExecutionReport".equalsIgnoreCase(className)) {
       return new TypeToken<List<ExecutionReport>>(){}.getType();
     }
@@ -91,14 +99,6 @@ public class JsonUtil {
     
     if ("OrdType".equalsIgnoreCase(className)) {
       return new TypeToken<List<OrdType>>(){}.getType();
-    }
-    
-    if ("OrderCancelAllRequest".equalsIgnoreCase(className)) {
-      return new TypeToken<List<OrderCancelAllRequest>>(){}.getType();
-    }
-    
-    if ("OrderCancelSingleRequest".equalsIgnoreCase(className)) {
-      return new TypeToken<List<OrderCancelSingleRequest>>(){}.getType();
     }
     
     if ("Position".equalsIgnoreCase(className)) {
@@ -135,6 +135,14 @@ public class JsonUtil {
       return new TypeToken<BalanceData>(){}.getType();
     }
     
+    if ("CancelOrderAllRequest".equalsIgnoreCase(className)) {
+      return new TypeToken<CancelOrderAllRequest>(){}.getType();
+    }
+    
+    if ("CancelOrderSingleRequest".equalsIgnoreCase(className)) {
+      return new TypeToken<CancelOrderSingleRequest>(){}.getType();
+    }
+    
     if ("ExecutionReport".equalsIgnoreCase(className)) {
       return new TypeToken<ExecutionReport>(){}.getType();
     }
@@ -161,14 +169,6 @@ public class JsonUtil {
     
     if ("OrdType".equalsIgnoreCase(className)) {
       return new TypeToken<OrdType>(){}.getType();
-    }
-    
-    if ("OrderCancelAllRequest".equalsIgnoreCase(className)) {
-      return new TypeToken<OrderCancelAllRequest>(){}.getType();
-    }
-    
-    if ("OrderCancelSingleRequest".equalsIgnoreCase(className)) {
-      return new TypeToken<OrderCancelSingleRequest>(){}.getType();
     }
     
     if ("Position".equalsIgnoreCase(className)) {

@@ -147,6 +147,46 @@ export type BalanceData = {
 }
 
 
+/**
+ * 
+ * @export
+ */
+export type CancelOrderAllRequest = {
+    /**
+     * Exchange identifier from which active orders should be canceled.
+     * @type {string}
+     * @memberof CancelOrderAllRequest
+     */
+    exchange_id: string;
+}
+
+
+/**
+ * 
+ * @export
+ */
+export type CancelOrderSingleRequest = {
+    /**
+     * Exchange name
+     * @type {string}
+     * @memberof CancelOrderSingleRequest
+     */
+    exchange_id?: string;
+    /**
+     * Order Id
+     * @type {string}
+     * @memberof CancelOrderSingleRequest
+     */
+    exchange_order_id?: string;
+    /**
+     * Client order Id
+     * @type {string}
+     * @memberof CancelOrderSingleRequest
+     */
+    client_order_id?: string;
+}
+
+
 
             export type ExecutionReportExecInstEnum = 'MAKER_OR_CANCEL' | 'AUCTION_ONLY' | 'INDICATION_OF_INTEREST';
 /**
@@ -215,7 +255,7 @@ export type ExecutionReport = {
      */
     expire_time?: Date;
     /**
-     * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>
+     * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> 
      * @type {Array<string>}
      * @memberof ExecutionReport
      */
@@ -415,7 +455,7 @@ export type NewOrderSingle = {
      */
     expire_time?: Date;
     /**
-     * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>
+     * Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> 
      * @type {Array<string>}
      * @memberof NewOrderSingle
      */
@@ -443,46 +483,6 @@ export type OrdStatus = 'RECEIVED' | 'ROUTING' | 'ROUTED' | 'NEW' | 'PENDING_CAN
  * @enum {string}
  */
 export type OrdType = 'LIMIT';
-
-/**
- * 
- * @export
- */
-export type OrderCancelAllRequest = {
-    /**
-     * Exchange identifier from which active orders should be canceled.
-     * @type {string}
-     * @memberof OrderCancelAllRequest
-     */
-    exchange_id: string;
-}
-
-
-/**
- * 
- * @export
- */
-export type OrderCancelSingleRequest = {
-    /**
-     * Exchange name
-     * @type {string}
-     * @memberof OrderCancelSingleRequest
-     */
-    exchange_id?: string;
-    /**
-     * Order Id
-     * @type {string}
-     * @memberof OrderCancelSingleRequest
-     */
-    exchange_order_id?: string;
-    /**
-     * Client order Id
-     * @type {string}
-     * @memberof OrderCancelSingleRequest
-     */
-    client_order_id?: string;
-}
-
 
 /**
  * 
@@ -713,10 +713,10 @@ export const OrdersApiFetchParamCreator = function (configuration?: Configuratio
          * @summary Cancel all orders
          * @throws {RequiredError}
          */
-        v1OrdersCancelAllPost(orderCancelAllRequest: OrderCancelAllRequest, options: RequestOptions): FetchArgs {
-            // verify required parameter 'orderCancelAllRequest' is not null or undefined
-            if (orderCancelAllRequest === null || orderCancelAllRequest === undefined) {
-                throw new RequiredError('orderCancelAllRequest','Required parameter orderCancelAllRequest was null or undefined when calling v1OrdersCancelAllPost.');
+        v1OrdersCancelAllPost(cancelOrderAllRequest: CancelOrderAllRequest, options: RequestOptions): FetchArgs {
+            // verify required parameter 'cancelOrderAllRequest' is not null or undefined
+            if (cancelOrderAllRequest === null || cancelOrderAllRequest === undefined) {
+                throw new RequiredError('cancelOrderAllRequest','Required parameter cancelOrderAllRequest was null or undefined when calling v1OrdersCancelAllPost.');
             }
             const localVarPath = `/v1/orders/cancel/all`;
             const localVarUrlObj = url.parse(localVarPath, true);
@@ -730,8 +730,8 @@ export const OrdersApiFetchParamCreator = function (configuration?: Configuratio
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             localVarRequestOptions.headers = Object.assign({}, localVarHeaderParameter, options.headers);
-            const needsSerialization = (typeof orderCancelAllRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.body =  needsSerialization ? JSON.stringify(orderCancelAllRequest != null ? orderCancelAllRequest : {}) : (((orderCancelAllRequest:any):string) || "");
+            const needsSerialization = (typeof cancelOrderAllRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.body =  needsSerialization ? JSON.stringify(cancelOrderAllRequest != null ? cancelOrderAllRequest : {}) : (((cancelOrderAllRequest:any):string) || "");
 
             return {
                 url: url.format(localVarUrlObj),
@@ -743,10 +743,10 @@ export const OrdersApiFetchParamCreator = function (configuration?: Configuratio
          * @summary Cancel order
          * @throws {RequiredError}
          */
-        v1OrdersCancelPost(orderCancelSingleRequest: OrderCancelSingleRequest, options: RequestOptions): FetchArgs {
-            // verify required parameter 'orderCancelSingleRequest' is not null or undefined
-            if (orderCancelSingleRequest === null || orderCancelSingleRequest === undefined) {
-                throw new RequiredError('orderCancelSingleRequest','Required parameter orderCancelSingleRequest was null or undefined when calling v1OrdersCancelPost.');
+        v1OrdersCancelPost(cancelOrderSingleRequest: CancelOrderSingleRequest, options: RequestOptions): FetchArgs {
+            // verify required parameter 'cancelOrderSingleRequest' is not null or undefined
+            if (cancelOrderSingleRequest === null || cancelOrderSingleRequest === undefined) {
+                throw new RequiredError('cancelOrderSingleRequest','Required parameter cancelOrderSingleRequest was null or undefined when calling v1OrdersCancelPost.');
             }
             const localVarPath = `/v1/orders/cancel`;
             const localVarUrlObj = url.parse(localVarPath, true);
@@ -760,8 +760,8 @@ export const OrdersApiFetchParamCreator = function (configuration?: Configuratio
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             localVarRequestOptions.headers = Object.assign({}, localVarHeaderParameter, options.headers);
-            const needsSerialization = (typeof orderCancelSingleRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.body =  needsSerialization ? JSON.stringify(orderCancelSingleRequest != null ? orderCancelSingleRequest : {}) : (((orderCancelSingleRequest:any):string) || "");
+            const needsSerialization = (typeof cancelOrderSingleRequest !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.body =  needsSerialization ? JSON.stringify(cancelOrderSingleRequest != null ? cancelOrderSingleRequest : {}) : (((cancelOrderSingleRequest:any):string) || "");
 
             return {
                 url: url.format(localVarUrlObj),
@@ -855,9 +855,9 @@ export const OrdersApiFetchParamCreator = function (configuration?: Configuratio
 };
 
 export type OrdersApiType = { 
-    v1OrdersCancelAllPost(orderCancelAllRequest: OrderCancelAllRequest, options?: RequestOptions): Promise<Message>,
+    v1OrdersCancelAllPost(cancelOrderAllRequest: CancelOrderAllRequest, options?: RequestOptions): Promise<Message>,
 
-    v1OrdersCancelPost(orderCancelSingleRequest: OrderCancelSingleRequest, options?: RequestOptions): Promise<ExecutionReport>,
+    v1OrdersCancelPost(cancelOrderSingleRequest: CancelOrderSingleRequest, options?: RequestOptions): Promise<ExecutionReport>,
 
     v1OrdersGet(exchangeId?: string, options?: RequestOptions): Promise<Array<ExecutionReport>>,
 
@@ -878,8 +878,8 @@ export const OrdersApi = function(configuration?: Configuration, fetch: FetchAPI
          * @summary Cancel all orders
          * @throws {RequiredError}
          */
-        v1OrdersCancelAllPost(orderCancelAllRequest: OrderCancelAllRequest, options?: RequestOptions = {}): Promise<Message> {
-            const localVarFetchArgs = OrdersApiFetchParamCreator(configuration).v1OrdersCancelAllPost(orderCancelAllRequest, options);
+        v1OrdersCancelAllPost(cancelOrderAllRequest: CancelOrderAllRequest, options?: RequestOptions = {}): Promise<Message> {
+            const localVarFetchArgs = OrdersApiFetchParamCreator(configuration).v1OrdersCancelAllPost(cancelOrderAllRequest, options);
             return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                 if (response.status >= 200 && response.status < 300) {
                     return response.json();
@@ -893,8 +893,8 @@ export const OrdersApi = function(configuration?: Configuration, fetch: FetchAPI
          * @summary Cancel order
          * @throws {RequiredError}
          */
-        v1OrdersCancelPost(orderCancelSingleRequest: OrderCancelSingleRequest, options?: RequestOptions = {}): Promise<ExecutionReport> {
-            const localVarFetchArgs = OrdersApiFetchParamCreator(configuration).v1OrdersCancelPost(orderCancelSingleRequest, options);
+        v1OrdersCancelPost(cancelOrderSingleRequest: CancelOrderSingleRequest, options?: RequestOptions = {}): Promise<ExecutionReport> {
+            const localVarFetchArgs = OrdersApiFetchParamCreator(configuration).v1OrdersCancelPost(cancelOrderSingleRequest, options);
             return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                 if (response.status >= 200 && response.status < 300) {
                     return response.json();

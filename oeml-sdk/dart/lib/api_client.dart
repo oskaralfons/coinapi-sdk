@@ -40,6 +40,10 @@ class ApiClient {
           return Balance.fromJson(value);
         case 'BalanceData':
           return BalanceData.fromJson(value);
+        case 'CancelOrderAllRequest':
+          return CancelOrderAllRequest.fromJson(value);
+        case 'CancelOrderSingleRequest':
+          return CancelOrderSingleRequest.fromJson(value);
         case 'ExecutionReport':
           return ExecutionReport.fromJson(value);
         case 'ExecutionReportAllOf':
@@ -54,10 +58,6 @@ class ApiClient {
           return new OrdStatusTypeTransformer().decode(value);
         case 'OrdType':
           return new OrdTypeTypeTransformer().decode(value);
-        case 'OrderCancelAllRequest':
-          return OrderCancelAllRequest.fromJson(value);
-        case 'OrderCancelSingleRequest':
-          return OrderCancelSingleRequest.fromJson(value);
         case 'Position':
           return Position.fromJson(value);
         case 'PositionData':

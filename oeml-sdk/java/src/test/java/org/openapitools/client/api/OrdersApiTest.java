@@ -14,11 +14,11 @@
 package org.openapitools.client.api;
 
 import org.openapitools.client.ApiException;
+import org.openapitools.client.model.CancelOrderAllRequest;
+import org.openapitools.client.model.CancelOrderSingleRequest;
 import org.openapitools.client.model.ExecutionReport;
 import org.openapitools.client.model.Message;
 import org.openapitools.client.model.NewOrderSingle;
-import org.openapitools.client.model.OrderCancelAllRequest;
-import org.openapitools.client.model.OrderCancelSingleRequest;
 import org.openapitools.client.model.ValidationError;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -47,8 +47,8 @@ public class OrdersApiTest {
      */
     @Test
     public void v1OrdersCancelAllPostTest() throws ApiException {
-        OrderCancelAllRequest orderCancelAllRequest = null;
-        Message response = api.v1OrdersCancelAllPost(orderCancelAllRequest);
+        CancelOrderAllRequest cancelOrderAllRequest = null;
+        Message response = api.v1OrdersCancelAllPost(cancelOrderAllRequest);
 
         // TODO: test validations
     }
@@ -63,8 +63,8 @@ public class OrdersApiTest {
      */
     @Test
     public void v1OrdersCancelPostTest() throws ApiException {
-        OrderCancelSingleRequest orderCancelSingleRequest = null;
-        ExecutionReport response = api.v1OrdersCancelPost(orderCancelSingleRequest);
+        CancelOrderSingleRequest cancelOrderSingleRequest = null;
+        ExecutionReport response = api.v1OrdersCancelPost(cancelOrderSingleRequest);
 
         // TODO: test validations
     }

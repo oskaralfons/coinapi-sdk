@@ -66,15 +66,15 @@ import qualified Prelude as P
 -- This request cancels all open orders across all or single specified exchange.
 -- 
 v1OrdersCancelAllPost 
-  :: (Consumes V1OrdersCancelAllPost MimeJSON, MimeRender MimeJSON OrderCancelAllRequest)
-  => OrderCancelAllRequest -- ^ "orderCancelAllRequest"
+  :: (Consumes V1OrdersCancelAllPost MimeJSON, MimeRender MimeJSON CancelOrderAllRequest)
+  => CancelOrderAllRequest -- ^ "cancelOrderAllRequest"
   -> OEML-RESTRequest V1OrdersCancelAllPost MimeJSON Message MimeJSON
-v1OrdersCancelAllPost orderCancelAllRequest =
+v1OrdersCancelAllPost cancelOrderAllRequest =
   _mkRequest "POST" ["/v1/orders/cancel/all"]
-    `setBodyParam` orderCancelAllRequest
+    `setBodyParam` cancelOrderAllRequest
 
 data V1OrdersCancelAllPost 
-instance HasBodyParam V1OrdersCancelAllPost OrderCancelAllRequest 
+instance HasBodyParam V1OrdersCancelAllPost CancelOrderAllRequest 
 
 -- | @application/json@
 instance Consumes V1OrdersCancelAllPost MimeJSON
@@ -92,16 +92,16 @@ instance Produces V1OrdersCancelAllPost MimeJSON
 -- This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
 -- 
 v1OrdersCancelPost 
-  :: (Consumes V1OrdersCancelPost MimeJSON, MimeRender MimeJSON OrderCancelSingleRequest)
+  :: (Consumes V1OrdersCancelPost MimeJSON, MimeRender MimeJSON CancelOrderSingleRequest)
   => Accept accept -- ^ request accept ('MimeType')
-  -> OrderCancelSingleRequest -- ^ "orderCancelSingleRequest"
+  -> CancelOrderSingleRequest -- ^ "cancelOrderSingleRequest"
   -> OEML-RESTRequest V1OrdersCancelPost MimeJSON ExecutionReport accept
-v1OrdersCancelPost  _ orderCancelSingleRequest =
+v1OrdersCancelPost  _ cancelOrderSingleRequest =
   _mkRequest "POST" ["/v1/orders/cancel"]
-    `setBodyParam` orderCancelSingleRequest
+    `setBodyParam` cancelOrderSingleRequest
 
 data V1OrdersCancelPost 
-instance HasBodyParam V1OrdersCancelPost OrderCancelSingleRequest 
+instance HasBodyParam V1OrdersCancelPost CancelOrderSingleRequest 
 
 -- | @application/json@
 instance Consumes V1OrdersCancelPost MimeJSON

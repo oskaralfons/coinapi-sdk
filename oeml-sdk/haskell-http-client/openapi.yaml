@@ -37,7 +37,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Orders'
+                $ref: '#/components/schemas/ExecutionReports'
           description: Collection of requested open orders.
       summary: Get all orders
       tags:
@@ -110,7 +110,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/OrderCancelSingleRequest'
+              $ref: '#/components/schemas/CancelOrderSingleRequest'
         required: true
       responses:
         "200":
@@ -142,7 +142,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/OrderCancelAllRequest'
+              $ref: '#/components/schemas/CancelOrderAllRequest'
         required: true
       responses:
         "200":
@@ -202,11 +202,6 @@ paths:
       - Positions
 components:
   schemas:
-    Orders:
-      description: Collection of currently opened orders.
-      items:
-        $ref: '#/components/schemas/ExecutionReport'
-      type: array
     NewOrderSingle:
       description: The new order message.
       example:
@@ -260,9 +255,8 @@ components:
             = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
           type: date
         exec_inst:
-          description: 'Order execution instructions are documented in the separate
-            section: <a href="#oeml-order-params-exec">OEML / Starter Guide / Order
-            parameters / Execution instructions</a>'
+          description: |
+            Order execution instructions are documented in the separate section: <a href="#oeml-order-params-exec">OEML / Starter Guide / Order parameters / Execution instructions</a>
           example: MAKER_OR_CANCEL
           items:
             enum:
@@ -280,11 +274,7 @@ components:
       - side
       - time_in_force
       type: object
-    ExecutionReport:
-      allOf:
-      - $ref: '#/components/schemas/NewOrderSingle'
-      - $ref: '#/components/schemas/ExecutionReport_allOf'
-    OrderCancelSingleRequest:
+    CancelOrderSingleRequest:
       example:
         exchange_id: KRAKEN
         client_order_id: A12345
@@ -303,7 +293,7 @@ components:
           example: A12345
           type: string
       type: object
-    OrderCancelAllRequest:
+    CancelOrderAllRequest:
       example:
         exchange_id: KRAKEN
       properties:
@@ -314,6 +304,15 @@ components:
       required:
       - exchange_id
       type: object
+    ExecutionReports:
+      description: Collection of execution reports for currently opened orders.
+      items:
+        $ref: '#/components/schemas/ExecutionReport'
+      type: array
+    ExecutionReport:
+      allOf:
+      - $ref: '#/components/schemas/NewOrderSingle'
+      - $ref: '#/components/schemas/ExecutionReport_allOf'
     Balances:
       items:
         $ref: '#/components/schemas/Balance'
@@ -396,6 +395,57 @@ components:
             $ref: '#/components/schemas/Position_data'
           type: array
       type: object
+    OrdStatus:
+      description: |
+        Order statuses and the lifecycle are documented in the separate section: <a href="#oeml-order-lifecycle">OEML / Starter Guide / Order Lifecycle</a>
+      enum:
+      - RECEIVED
+      - ROUTING
+      - ROUTED
+      - NEW
+      - PENDING_CANCEL
+      - PARTIALLY_FILLED
+      - FILLED
+      - CANCELED
+      - REJECTED
+      type: string
+    OrdSide:
+      description: |
+        Side of order.
+      enum:
+      - BUY
+      - SELL
+      example: BUY
+      type: string
+    OrdType:
+      description: |
+        Order types are documented in the separate section: <a href="#oeml-order-params-type">OEML / Starter Guide / Order parameters / Order type</a>
+      enum:
+      - LIMIT
+      example: LIMIT
+      type: string
+    TimeInForce:
+      description: |
+        Order time in force options are documented in the separate section: <a href="#oeml-order-params-tif">OEML / Starter Guide / Order parameters / Time in force</a>
+      enum:
+      - GOOD_TILL_CANCEL
+      - GOOD_TILL_TIME_EXCHANGE
+      - GOOD_TILL_TIME_OMS
+      - FILL_OR_KILL
+      - IMMEDIATE_OR_CANCEL
+      example: GOOD_TILL_CANCEL
+      type: string
+    ExecInst:
+      description: |
+        Order execution instructions are documented in the separate section: <a href="#oeml-order-params-exec">OEML / Starter Guide / Order parameters / Execution instructions</a>
+      example: MAKER_OR_CANCEL
+      items:
+        enum:
+        - MAKER_OR_CANCEL
+        - AUCTION_ONLY
+        - INDICATION_OF_INTEREST
+        type: string
+      type: array
     ValidationError:
       properties:
         type:
@@ -442,58 +492,6 @@ components:
       - WARNING
       - ERROR
       type: string
-    OrdStatus:
-      description: |
-        Order statuses and the lifecycle are documented in the separate section: <a href="#oeml-order-lifecycle">OEML / Starter Guide / Order Lifecycle</a>
-      enum:
-      - RECEIVED
-      - ROUTING
-      - ROUTED
-      - NEW
-      - PENDING_CANCEL
-      - PARTIALLY_FILLED
-      - FILLED
-      - CANCELED
-      - REJECTED
-      type: string
-    OrdSide:
-      description: |
-        Side of order.
-      enum:
-      - BUY
-      - SELL
-      example: BUY
-      type: string
-    OrdType:
-      description: |
-        Order types are documented in the separate section: <a href="#oeml-order-params-type">OEML / Starter Guide / Order parameters / Order type</a>
-      enum:
-      - LIMIT
-      example: LIMIT
-      type: string
-    TimeInForce:
-      description: |
-        Order time in force options are documented in the separate section: <a href="#oeml-order-params-tif">OEML / Starter Guide / Order parameters / Time in force</a>
-      enum:
-      - GOOD_TILL_CANCEL
-      - GOOD_TILL_TIME_EXCHANGE
-      - GOOD_TILL_TIME_OMS
-      - FILL_OR_KILL
-      - IMMEDIATE_OR_CANCEL
-      example: GOOD_TILL_CANCEL
-      type: string
-    ExecInst:
-      description: 'Order execution instructions are documented in the separate section:
-        <a href="#oeml-order-params-exec">OEML / Starter Guide / Order parameters
-        / Execution instructions</a>'
-      example: MAKER_OR_CANCEL
-      items:
-        enum:
-        - MAKER_OR_CANCEL
-        - AUCTION_ONLY
-        - INDICATION_OF_INTEREST
-        type: string
-      type: array
     ExecutionReport_allOf:
       description: The order execution report message.
       properties:

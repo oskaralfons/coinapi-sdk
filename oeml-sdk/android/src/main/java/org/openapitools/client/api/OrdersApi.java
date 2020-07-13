@@ -23,11 +23,11 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
+import org.openapitools.client.model.CancelOrderAllRequest;
+import org.openapitools.client.model.CancelOrderSingleRequest;
 import org.openapitools.client.model.ExecutionReport;
 import org.openapitools.client.model.Message;
 import org.openapitools.client.model.NewOrderSingle;
-import org.openapitools.client.model.OrderCancelAllRequest;
-import org.openapitools.client.model.OrderCancelSingleRequest;
 import org.openapitools.client.model.ValidationError;
 
 import org.apache.http.HttpEntity;
@@ -63,15 +63,15 @@ public class OrdersApi {
   /**
   * Cancel all orders
   * This request cancels all open orders across all or single specified exchange.
-   * @param orderCancelAllRequest 
+   * @param cancelOrderAllRequest 
    * @return Message
   */
-  public Message v1OrdersCancelAllPost (OrderCancelAllRequest orderCancelAllRequest) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = orderCancelAllRequest;
-    // verify the required parameter 'orderCancelAllRequest' is set
-    if (orderCancelAllRequest == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'orderCancelAllRequest' when calling v1OrdersCancelAllPost",
-        new ApiException(400, "Missing the required parameter 'orderCancelAllRequest' when calling v1OrdersCancelAllPost"));
+  public Message v1OrdersCancelAllPost (CancelOrderAllRequest cancelOrderAllRequest) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = cancelOrderAllRequest;
+    // verify the required parameter 'cancelOrderAllRequest' is set
+    if (cancelOrderAllRequest == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'cancelOrderAllRequest' when calling v1OrdersCancelAllPost",
+        new ApiException(400, "Missing the required parameter 'cancelOrderAllRequest' when calling v1OrdersCancelAllPost"));
     }
 
     // create path and map variables
@@ -126,15 +126,15 @@ public class OrdersApi {
       /**
    * Cancel all orders
    * This request cancels all open orders across all or single specified exchange.
-   * @param orderCancelAllRequest 
+   * @param cancelOrderAllRequest 
   */
-  public void v1OrdersCancelAllPost (OrderCancelAllRequest orderCancelAllRequest, final Response.Listener<Message> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = orderCancelAllRequest;
+  public void v1OrdersCancelAllPost (CancelOrderAllRequest cancelOrderAllRequest, final Response.Listener<Message> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = cancelOrderAllRequest;
 
-    // verify the required parameter 'orderCancelAllRequest' is set
-    if (orderCancelAllRequest == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'orderCancelAllRequest' when calling v1OrdersCancelAllPost",
-        new ApiException(400, "Missing the required parameter 'orderCancelAllRequest' when calling v1OrdersCancelAllPost"));
+    // verify the required parameter 'cancelOrderAllRequest' is set
+    if (cancelOrderAllRequest == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'cancelOrderAllRequest' when calling v1OrdersCancelAllPost",
+        new ApiException(400, "Missing the required parameter 'cancelOrderAllRequest' when calling v1OrdersCancelAllPost"));
     }
 
     // create path and map variables
@@ -191,15 +191,15 @@ public class OrdersApi {
   /**
   * Cancel order
   * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
-   * @param orderCancelSingleRequest 
+   * @param cancelOrderSingleRequest 
    * @return ExecutionReport
   */
-  public ExecutionReport v1OrdersCancelPost (OrderCancelSingleRequest orderCancelSingleRequest) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = orderCancelSingleRequest;
-    // verify the required parameter 'orderCancelSingleRequest' is set
-    if (orderCancelSingleRequest == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'orderCancelSingleRequest' when calling v1OrdersCancelPost",
-        new ApiException(400, "Missing the required parameter 'orderCancelSingleRequest' when calling v1OrdersCancelPost"));
+  public ExecutionReport v1OrdersCancelPost (CancelOrderSingleRequest cancelOrderSingleRequest) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = cancelOrderSingleRequest;
+    // verify the required parameter 'cancelOrderSingleRequest' is set
+    if (cancelOrderSingleRequest == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'cancelOrderSingleRequest' when calling v1OrdersCancelPost",
+        new ApiException(400, "Missing the required parameter 'cancelOrderSingleRequest' when calling v1OrdersCancelPost"));
     }
 
     // create path and map variables
@@ -254,15 +254,15 @@ public class OrdersApi {
       /**
    * Cancel order
    * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
-   * @param orderCancelSingleRequest 
+   * @param cancelOrderSingleRequest 
   */
-  public void v1OrdersCancelPost (OrderCancelSingleRequest orderCancelSingleRequest, final Response.Listener<ExecutionReport> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = orderCancelSingleRequest;
+  public void v1OrdersCancelPost (CancelOrderSingleRequest cancelOrderSingleRequest, final Response.Listener<ExecutionReport> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = cancelOrderSingleRequest;
 
-    // verify the required parameter 'orderCancelSingleRequest' is set
-    if (orderCancelSingleRequest == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'orderCancelSingleRequest' when calling v1OrdersCancelPost",
-        new ApiException(400, "Missing the required parameter 'orderCancelSingleRequest' when calling v1OrdersCancelPost"));
+    // verify the required parameter 'cancelOrderSingleRequest' is set
+    if (cancelOrderSingleRequest == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'cancelOrderSingleRequest' when calling v1OrdersCancelPost",
+        new ApiException(400, "Missing the required parameter 'cancelOrderSingleRequest' when calling v1OrdersCancelPost"));
     }
 
     // create path and map variables

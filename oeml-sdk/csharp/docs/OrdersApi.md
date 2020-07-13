@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## V1OrdersCancelAllPost
 
-> Message V1OrdersCancelAllPost (OrderCancelAllRequest orderCancelAllRequest)
+> Message V1OrdersCancelAllPost (CancelOrderAllRequest cancelOrderAllRequest)
 
 Cancel all orders
 
@@ -37,12 +37,12 @@ namespace Example
         {
             Configuration.Default.BasePath = "http://localhost:8080";
             var apiInstance = new OrdersApi(Configuration.Default);
-            var orderCancelAllRequest = new OrderCancelAllRequest(); // OrderCancelAllRequest | 
+            var cancelOrderAllRequest = new CancelOrderAllRequest(); // CancelOrderAllRequest | 
 
             try
             {
                 // Cancel all orders
-                Message result = apiInstance.V1OrdersCancelAllPost(orderCancelAllRequest);
+                Message result = apiInstance.V1OrdersCancelAllPost(cancelOrderAllRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -61,7 +61,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderCancelAllRequest** | [**OrderCancelAllRequest**](OrderCancelAllRequest.md)|  | 
+ **cancelOrderAllRequest** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)|  | 
 
 ### Return type
 
@@ -89,7 +89,7 @@ No authorization required
 
 ## V1OrdersCancelPost
 
-> ExecutionReport V1OrdersCancelPost (OrderCancelSingleRequest orderCancelSingleRequest)
+> ExecutionReport V1OrdersCancelPost (CancelOrderSingleRequest cancelOrderSingleRequest)
 
 Cancel order
 
@@ -112,12 +112,12 @@ namespace Example
         {
             Configuration.Default.BasePath = "http://localhost:8080";
             var apiInstance = new OrdersApi(Configuration.Default);
-            var orderCancelSingleRequest = new OrderCancelSingleRequest(); // OrderCancelSingleRequest | 
+            var cancelOrderSingleRequest = new CancelOrderSingleRequest(); // CancelOrderSingleRequest | 
 
             try
             {
                 // Cancel order
-                ExecutionReport result = apiInstance.V1OrdersCancelPost(orderCancelSingleRequest);
+                ExecutionReport result = apiInstance.V1OrdersCancelPost(cancelOrderSingleRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -136,7 +136,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderCancelSingleRequest** | [**OrderCancelSingleRequest**](OrderCancelSingleRequest.md)|  | 
+ **cancelOrderSingleRequest** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)|  | 
 
 ### Return type
 

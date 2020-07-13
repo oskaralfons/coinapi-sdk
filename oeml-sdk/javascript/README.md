@@ -137,6 +137,8 @@ Class | Method | HTTP request | Description
 
  - [OemlRestApi.Balance](docs/Balance.md)
  - [OemlRestApi.BalanceData](docs/BalanceData.md)
+ - [OemlRestApi.CancelOrderAllRequest](docs/CancelOrderAllRequest.md)
+ - [OemlRestApi.CancelOrderSingleRequest](docs/CancelOrderSingleRequest.md)
  - [OemlRestApi.ExecutionReport](docs/ExecutionReport.md)
  - [OemlRestApi.ExecutionReportAllOf](docs/ExecutionReportAllOf.md)
  - [OemlRestApi.Message](docs/Message.md)
@@ -144,8 +146,6 @@ Class | Method | HTTP request | Description
  - [OemlRestApi.OrdSide](docs/OrdSide.md)
  - [OemlRestApi.OrdStatus](docs/OrdStatus.md)
  - [OemlRestApi.OrdType](docs/OrdType.md)
- - [OemlRestApi.OrderCancelAllRequest](docs/OrderCancelAllRequest.md)
- - [OemlRestApi.OrderCancelSingleRequest](docs/OrderCancelSingleRequest.md)
  - [OemlRestApi.Position](docs/Position.md)
  - [OemlRestApi.PositionData](docs/PositionData.md)
  - [OemlRestApi.Severity](docs/Severity.md)

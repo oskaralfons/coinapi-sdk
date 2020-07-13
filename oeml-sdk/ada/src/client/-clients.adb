@@ -32,7 +32,7 @@ package body .Clients is
    --  This request cancels all open orders across all or single specified exchange.
    procedure V1_Orders_Cancel_All_Post
       (Client : in out Client_Type;
-       Order_Cancel_All_Request_Type : in .Models.OrderCancelAllRequest_Type;
+       Cancel_Order_All_Request_Type : in .Models.CancelOrderAllRequest_Type;
        Result : out .Models.Message_Type) is
       URI   : Swagger.Clients.URI_Type;
       Req   : Swagger.Clients.Request_Type;
@@ -40,7 +40,7 @@ package body .Clients is
    begin
       Client.Set_Accept ((1 => Swagger.Clients.APPLICATION_JSON));
       Client.Initialize (Req, (1 => Swagger.Clients.APPLICATION_JSON));
-      .Models.Serialize (Req.Stream, "", Order_Cancel_All_Request_Type);
+      .Models.Serialize (Req.Stream, "", Cancel_Order_All_Request_Type);
 
       URI.Set_Path ("/v1/orders/cancel/all");
       Client.Call (Swagger.Clients.POST, URI, Req, Reply);
@@ -51,7 +51,7 @@ package body .Clients is
    --  This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
    procedure V1_Orders_Cancel_Post
       (Client : in out Client_Type;
-       Order_Cancel_Single_Request_Type : in .Models.OrderCancelSingleRequest_Type;
+       Cancel_Order_Single_Request_Type : in .Models.CancelOrderSingleRequest_Type;
        Result : out .Models.ExecutionReport_Type) is
       URI   : Swagger.Clients.URI_Type;
       Req   : Swagger.Clients.Request_Type;
@@ -60,7 +60,7 @@ package body .Clients is
       Client.Set_Accept ((Swagger.Clients.APPLICATION_JSON,
                           Swagger.Clients.APPLICTION_JSON));
       Client.Initialize (Req, (1 => Swagger.Clients.APPLICATION_JSON));
-      .Models.Serialize (Req.Stream, "", Order_Cancel_Single_Request_Type);
+      .Models.Serialize (Req.Stream, "", Cancel_Order_Single_Request_Type);
 
       URI.Set_Path ("/v1/orders/cancel");
       Client.Call (Swagger.Clients.POST, URI, Req, Reply);

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **v1_orders_cancel_all_post**
-> Message v1_orders_cancel_all_post(order_cancel_all_request)
+> Message v1_orders_cancel_all_post(cancel_order_all_request)
 
 Cancel all orders
 
@@ -37,11 +37,11 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.OrdersApi(api_client)
-    order_cancel_all_request = openapi_client.OrderCancelAllRequest() # OrderCancelAllRequest | 
+    cancel_order_all_request = openapi_client.CancelOrderAllRequest() # CancelOrderAllRequest | 
 
     try:
         # Cancel all orders
-        api_response = api_instance.v1_orders_cancel_all_post(order_cancel_all_request)
+        api_response = api_instance.v1_orders_cancel_all_post(cancel_order_all_request)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling OrdersApi->v1_orders_cancel_all_post: %s\n" % e)
@@ -51,7 +51,7 @@ with openapi_client.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order_cancel_all_request** | [**OrderCancelAllRequest**](OrderCancelAllRequest.md)|  | 
+ **cancel_order_all_request** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)|  | 
 
 ### Return type
 
@@ -74,7 +74,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_orders_cancel_post**
-> ExecutionReport v1_orders_cancel_post(order_cancel_single_request)
+> ExecutionReport v1_orders_cancel_post(cancel_order_single_request)
 
 Cancel order
 
@@ -99,11 +99,11 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.OrdersApi(api_client)
-    order_cancel_single_request = openapi_client.OrderCancelSingleRequest() # OrderCancelSingleRequest | 
+    cancel_order_single_request = openapi_client.CancelOrderSingleRequest() # CancelOrderSingleRequest | 
 
     try:
         # Cancel order
-        api_response = api_instance.v1_orders_cancel_post(order_cancel_single_request)
+        api_response = api_instance.v1_orders_cancel_post(cancel_order_single_request)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling OrdersApi->v1_orders_cancel_post: %s\n" % e)
@@ -113,7 +113,7 @@ with openapi_client.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order_cancel_single_request** | [**OrderCancelSingleRequest**](OrderCancelSingleRequest.md)|  | 
+ **cancel_order_single_request** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)|  | 
 
 ### Return type
 

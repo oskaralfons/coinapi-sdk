@@ -5,11 +5,11 @@
 #include <cstring>
 #include <list>
 #include <glib.h>
+#include "CancelOrderAllRequest.h"
+#include "CancelOrderSingleRequest.h"
 #include "ExecutionReport.h"
 #include "Message.h"
 #include "NewOrderSingle.h"
-#include "OrderCancelAllRequest.h"
-#include "OrderCancelSingleRequest.h"
 #include "ValidationError.h"
 #include "Error.h"
 
@@ -32,26 +32,26 @@ public:
 /*! \brief Cancel all orders. *Synchronous*
  *
  * This request cancels all open orders across all or single specified exchange.
- * \param orderCancelAllRequest  *Required*
+ * \param cancelOrderAllRequest  *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool v1OrdersCancelAllPostSync(char * accessToken,
-	OrderCancelAllRequest orderCancelAllRequest, 
+	CancelOrderAllRequest cancelOrderAllRequest, 
 	void(* handler)(Message, Error, void* )
 	, void* userData);
 
 /*! \brief Cancel all orders. *Asynchronous*
  *
  * This request cancels all open orders across all or single specified exchange.
- * \param orderCancelAllRequest  *Required*
+ * \param cancelOrderAllRequest  *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool v1OrdersCancelAllPostAsync(char * accessToken,
-	OrderCancelAllRequest orderCancelAllRequest, 
+	CancelOrderAllRequest cancelOrderAllRequest, 
 	void(* handler)(Message, Error, void* )
 	, void* userData);
 
@@ -59,26 +59,26 @@ bool v1OrdersCancelAllPostAsync(char * accessToken,
 /*! \brief Cancel order. *Synchronous*
  *
  * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
- * \param orderCancelSingleRequest  *Required*
+ * \param cancelOrderSingleRequest  *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool v1OrdersCancelPostSync(char * accessToken,
-	OrderCancelSingleRequest orderCancelSingleRequest, 
+	CancelOrderSingleRequest cancelOrderSingleRequest, 
 	void(* handler)(ExecutionReport, Error, void* )
 	, void* userData);
 
 /*! \brief Cancel order. *Asynchronous*
  *
  * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
- * \param orderCancelSingleRequest  *Required*
+ * \param cancelOrderSingleRequest  *Required*
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool v1OrdersCancelPostAsync(char * accessToken,
-	OrderCancelSingleRequest orderCancelSingleRequest, 
+	CancelOrderSingleRequest cancelOrderSingleRequest, 
 	void(* handler)(ExecutionReport, Error, void* )
 	, void* userData);
 

@@ -240,7 +240,7 @@ __PACKAGE__->method_documentation({
     'exec_inst' => {
         datatype => 'ARRAY[string]',
         base_name => 'exec_inst',
-        description => 'Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt;',
+        description => 'Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; ',
         format => '',
         read_only => '',
             },

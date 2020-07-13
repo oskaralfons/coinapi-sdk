@@ -5,10 +5,10 @@ import 'package:dio/dio.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/serializer.dart';
 
-import 'package:openapi/model/order_cancel_all_request.dart';
+import 'package:openapi/model/cancel_order_single_request.dart';
+import 'package:openapi/model/cancel_order_all_request.dart';
 import 'package:openapi/model/execution_report.dart';
 import 'package:openapi/model/validation_error.dart';
-import 'package:openapi/model/order_cancel_single_request.dart';
 import 'package:openapi/model/new_order_single.dart';
 import 'package:openapi/model/message.dart';
 
@@ -21,7 +21,7 @@ class OrdersApi {
         /// Cancel all orders
         ///
         /// This request cancels all open orders across all or single specified exchange.
-        Future<Response<Message>>v1OrdersCancelAllPost(OrderCancelAllRequest orderCancelAllRequest,{ CancelToken cancelToken, Map<String, String> headers,}) async {
+        Future<Response<Message>>v1OrdersCancelAllPost(CancelOrderAllRequest cancelOrderAllRequest,{ CancelToken cancelToken, Map<String, String> headers,}) async {
 
         String _path = "/v1/orders/cancel/all";
 
@@ -35,9 +35,9 @@ class OrdersApi {
         List<String> contentTypes = ["application/json"];
 
 
-            var serializedBody = _serializers.serialize(orderCancelAllRequest);
-            var jsonorderCancelAllRequest = json.encode(serializedBody);
-            bodyData = jsonorderCancelAllRequest;
+            var serializedBody = _serializers.serialize(cancelOrderAllRequest);
+            var jsoncancelOrderAllRequest = json.encode(serializedBody);
+            bodyData = jsoncancelOrderAllRequest;
 
             return _dio.request(
             _path,
@@ -71,7 +71,7 @@ class OrdersApi {
         /// Cancel order
         ///
         /// This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
-        Future<Response<ExecutionReport>>v1OrdersCancelPost(OrderCancelSingleRequest orderCancelSingleRequest,{ CancelToken cancelToken, Map<String, String> headers,}) async {
+        Future<Response<ExecutionReport>>v1OrdersCancelPost(CancelOrderSingleRequest cancelOrderSingleRequest,{ CancelToken cancelToken, Map<String, String> headers,}) async {
 
         String _path = "/v1/orders/cancel";
 
@@ -85,9 +85,9 @@ class OrdersApi {
         List<String> contentTypes = ["application/json"];
 
 
-            var serializedBody = _serializers.serialize(orderCancelSingleRequest);
-            var jsonorderCancelSingleRequest = json.encode(serializedBody);
-            bodyData = jsonorderCancelSingleRequest;
+            var serializedBody = _serializers.serialize(cancelOrderSingleRequest);
+            var jsoncancelOrderSingleRequest = json.encode(serializedBody);
+            bodyData = jsoncancelOrderSingleRequest;
 
             return _dio.request(
             _path,

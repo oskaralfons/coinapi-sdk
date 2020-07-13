@@ -28,18 +28,18 @@ public class OASOrdersApi {
     /**
      * Cancel all orders
      * This request cancels all open orders across all or single specified exchange.
-     * @param oaSOrderCancelAllRequest  (required)
+     * @param oaSCancelOrderAllRequest  (required)
      * @return OASMessage
      * @throws OAS.ApiException if fails to make API call
      */
     public OASMessage v1OrdersCancelAllPost(Map<String, Object> params) {
-        client.assertNotNull(params.get('oaSOrderCancelAllRequest'), 'oaSOrderCancelAllRequest');
+        client.assertNotNull(params.get('oaSCancelOrderAllRequest'), 'oaSCancelOrderAllRequest');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASMessage) client.invoke(
             'POST', '/v1/orders/cancel/all',
-            (OASOrderCancelAllRequest) params.get('oaSOrderCancelAllRequest'),
+            (OASCancelOrderAllRequest) params.get('oaSCancelOrderAllRequest'),
             query, form,
             new Map<String, Object>(),
             new Map<String, Object>(),
@@ -52,18 +52,18 @@ public class OASOrdersApi {
     /**
      * Cancel order
      * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
-     * @param oaSOrderCancelSingleRequest  (required)
+     * @param oaSCancelOrderSingleRequest  (required)
      * @return OASExecutionReport
      * @throws OAS.ApiException if fails to make API call
      */
     public OASExecutionReport v1OrdersCancelPost(Map<String, Object> params) {
-        client.assertNotNull(params.get('oaSOrderCancelSingleRequest'), 'oaSOrderCancelSingleRequest');
+        client.assertNotNull(params.get('oaSCancelOrderSingleRequest'), 'oaSCancelOrderSingleRequest');
         List<OAS.Param> query = new List<OAS.Param>();
         List<OAS.Param> form = new List<OAS.Param>();
 
         return (OASExecutionReport) client.invoke(
             'POST', '/v1/orders/cancel',
-            (OASOrderCancelSingleRequest) params.get('oaSOrderCancelSingleRequest'),
+            (OASCancelOrderSingleRequest) params.get('oaSCancelOrderSingleRequest'),
             query, form,
             new Map<String, Object>(),
             new Map<String, Object>(),

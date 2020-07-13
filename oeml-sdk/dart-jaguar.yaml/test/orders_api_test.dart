@@ -11,7 +11,7 @@ void main() {
     //
     // This request cancels all open orders across all or single specified exchange.
     //
-    //Future<Message> v1OrdersCancelAllPost(OrderCancelAllRequest orderCancelAllRequest) async 
+    //Future<Message> v1OrdersCancelAllPost(CancelOrderAllRequest cancelOrderAllRequest) async 
     test('test v1OrdersCancelAllPost', () async {
       // TODO
     });
@@ -20,7 +20,7 @@ void main() {
     //
     // This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
     //
-    //Future<ExecutionReport> v1OrdersCancelPost(OrderCancelSingleRequest orderCancelSingleRequest) async 
+    //Future<ExecutionReport> v1OrdersCancelPost(CancelOrderSingleRequest cancelOrderSingleRequest) async 
     test('test v1OrdersCancelPost', () async {
       // TODO
     });

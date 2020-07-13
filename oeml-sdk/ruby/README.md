@@ -92,6 +92,8 @@ Class | Method | HTTP request | Description
 
  - [OpenapiClient::Balance](docs/Balance.md)
  - [OpenapiClient::BalanceData](docs/BalanceData.md)
+ - [OpenapiClient::CancelOrderAllRequest](docs/CancelOrderAllRequest.md)
+ - [OpenapiClient::CancelOrderSingleRequest](docs/CancelOrderSingleRequest.md)
  - [OpenapiClient::ExecutionReport](docs/ExecutionReport.md)
  - [OpenapiClient::ExecutionReportAllOf](docs/ExecutionReportAllOf.md)
  - [OpenapiClient::Message](docs/Message.md)
@@ -99,8 +101,6 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::OrdSide](docs/OrdSide.md)
  - [OpenapiClient::OrdStatus](docs/OrdStatus.md)
  - [OpenapiClient::OrdType](docs/OrdType.md)
- - [OpenapiClient::OrderCancelAllRequest](docs/OrderCancelAllRequest.md)
- - [OpenapiClient::OrderCancelSingleRequest](docs/OrderCancelSingleRequest.md)
  - [OpenapiClient::Position](docs/Position.md)
  - [OpenapiClient::PositionData](docs/PositionData.md)
  - [OpenapiClient::Severity](docs/Severity.md)

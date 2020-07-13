@@ -49,6 +49,8 @@ Class | Method | HTTP request | Description
 
  - [org.openapitools.client.models.Balance](docs/Balance.md)
  - [org.openapitools.client.models.BalanceData](docs/BalanceData.md)
+ - [org.openapitools.client.models.CancelOrderAllRequest](docs/CancelOrderAllRequest.md)
+ - [org.openapitools.client.models.CancelOrderSingleRequest](docs/CancelOrderSingleRequest.md)
  - [org.openapitools.client.models.ExecutionReport](docs/ExecutionReport.md)
  - [org.openapitools.client.models.ExecutionReportAllOf](docs/ExecutionReportAllOf.md)
  - [org.openapitools.client.models.Message](docs/Message.md)
@@ -56,8 +58,6 @@ Class | Method | HTTP request | Description
  - [org.openapitools.client.models.OrdSide](docs/OrdSide.md)
  - [org.openapitools.client.models.OrdStatus](docs/OrdStatus.md)
  - [org.openapitools.client.models.OrdType](docs/OrdType.md)
- - [org.openapitools.client.models.OrderCancelAllRequest](docs/OrderCancelAllRequest.md)
- - [org.openapitools.client.models.OrderCancelSingleRequest](docs/OrderCancelSingleRequest.md)
  - [org.openapitools.client.models.Position](docs/Position.md)
  - [org.openapitools.client.models.PositionData](docs/PositionData.md)
  - [org.openapitools.client.models.Severity](docs/Severity.md)

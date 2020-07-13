@@ -24,11 +24,11 @@ inherit
 feature -- API Access
 
 
-	v1_orders_cancel_all_post (order_cancel_all_request: ORDER_CANCEL_ALL_REQUEST): detachable MESSAGE
+	v1_orders_cancel_all_post (cancel_order_all_request: CANCEL_ORDER_ALL_REQUEST): detachable MESSAGE
 			-- Cancel all orders
 			-- This request cancels all open orders across all or single specified exchange.
 			-- 
-			-- argument: order_cancel_all_request  (required)
+			-- argument: cancel_order_all_request  (required)
 			-- 
 			-- 
 			-- Result MESSAGE
@@ -40,7 +40,7 @@ feature -- API Access
 		do
 			reset_error
 			create l_request
-			l_request.set_body(order_cancel_all_request)
+			l_request.set_body(cancel_order_all_request)
 			l_path := "/v1/orders/cancel/all"
 
 
@@ -59,11 +59,11 @@ feature -- API Access
 			end
 		end	
 
-	v1_orders_cancel_post (order_cancel_single_request: ORDER_CANCEL_SINGLE_REQUEST): detachable EXECUTION_REPORT
+	v1_orders_cancel_post (cancel_order_single_request: CANCEL_ORDER_SINGLE_REQUEST): detachable EXECUTION_REPORT
 			-- Cancel order
 			-- This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
 			-- 
-			-- argument: order_cancel_single_request  (required)
+			-- argument: cancel_order_single_request  (required)
 			-- 
 			-- 
 			-- Result EXECUTION_REPORT
@@ -75,7 +75,7 @@ feature -- API Access
 		do
 			reset_error
 			create l_request
-			l_request.set_body(order_cancel_single_request)
+			l_request.set_body(cancel_order_single_request)
 			l_path := "/v1/orders/cancel"
 
 

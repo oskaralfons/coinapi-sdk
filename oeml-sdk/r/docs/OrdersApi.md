@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **V1OrdersCancelAllPost**
-> Message V1OrdersCancelAllPost(order.cancel.all.request)
+> Message V1OrdersCancelAllPost(cancel.order.all.request)
 
 Cancel all orders
 
@@ -22,11 +22,11 @@ This request cancels all open orders across all or single specified exchange.
 ```R
 library(openapi)
 
-var.order.cancel.all.request <- OrderCancelAllRequest$new("exchange_id_example") # OrderCancelAllRequest | 
+var.cancel.order.all.request <- CancelOrderAllRequest$new("exchange_id_example") # CancelOrderAllRequest | 
 
 #Cancel all orders
 api.instance <- OrdersApi$new()
-result <- api.instance$V1OrdersCancelAllPost(var.order.cancel.all.request)
+result <- api.instance$V1OrdersCancelAllPost(var.cancel.order.all.request)
 dput(result)
 ```
 
@@ -34,7 +34,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order.cancel.all.request** | [**OrderCancelAllRequest**](OrderCancelAllRequest.md)|  | 
+ **cancel.order.all.request** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)|  | 
 
 ### Return type
 
@@ -55,7 +55,7 @@ No authorization required
 | **200** | Result |  -  |
 
 # **V1OrdersCancelPost**
-> ExecutionReport V1OrdersCancelPost(order.cancel.single.request)
+> ExecutionReport V1OrdersCancelPost(cancel.order.single.request)
 
 Cancel order
 
@@ -65,11 +65,11 @@ This request cancels an existing order. The order can be canceled by the client 
 ```R
 library(openapi)
 
-var.order.cancel.single.request <- OrderCancelSingleRequest$new("exchange_id_example", "exchange_order_id_example", "client_order_id_example") # OrderCancelSingleRequest | 
+var.cancel.order.single.request <- CancelOrderSingleRequest$new("exchange_id_example", "exchange_order_id_example", "client_order_id_example") # CancelOrderSingleRequest | 
 
 #Cancel order
 api.instance <- OrdersApi$new()
-result <- api.instance$V1OrdersCancelPost(var.order.cancel.single.request)
+result <- api.instance$V1OrdersCancelPost(var.cancel.order.single.request)
 dput(result)
 ```
 
@@ -77,7 +77,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order.cancel.single.request** | [**OrderCancelSingleRequest**](OrderCancelSingleRequest.md)|  | 
+ **cancel.order.single.request** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)|  | 
 
 ### Return type
 

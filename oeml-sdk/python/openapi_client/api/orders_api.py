@@ -36,17 +36,17 @@ class OrdersApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def v1_orders_cancel_all_post(self, order_cancel_all_request, **kwargs):  # noqa: E501
+    def v1_orders_cancel_all_post(self, cancel_order_all_request, **kwargs):  # noqa: E501
         """Cancel all orders  # noqa: E501
 
         This request cancels all open orders across all or single specified exchange.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v1_orders_cancel_all_post(order_cancel_all_request, async_req=True)
+        >>> thread = api.v1_orders_cancel_all_post(cancel_order_all_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param OrderCancelAllRequest order_cancel_all_request: (required)
+        :param CancelOrderAllRequest cancel_order_all_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -59,19 +59,19 @@ class OrdersApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v1_orders_cancel_all_post_with_http_info(order_cancel_all_request, **kwargs)  # noqa: E501
+        return self.v1_orders_cancel_all_post_with_http_info(cancel_order_all_request, **kwargs)  # noqa: E501
 
-    def v1_orders_cancel_all_post_with_http_info(self, order_cancel_all_request, **kwargs):  # noqa: E501
+    def v1_orders_cancel_all_post_with_http_info(self, cancel_order_all_request, **kwargs):  # noqa: E501
         """Cancel all orders  # noqa: E501
 
         This request cancels all open orders across all or single specified exchange.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v1_orders_cancel_all_post_with_http_info(order_cancel_all_request, async_req=True)
+        >>> thread = api.v1_orders_cancel_all_post_with_http_info(cancel_order_all_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param OrderCancelAllRequest order_cancel_all_request: (required)
+        :param CancelOrderAllRequest cancel_order_all_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -89,7 +89,7 @@ class OrdersApi(object):
         local_var_params = locals()
 
         all_params = [
-            'order_cancel_all_request'
+            'cancel_order_all_request'
         ]
         all_params.extend(
             [
@@ -108,10 +108,10 @@ class OrdersApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'order_cancel_all_request' is set
-        if self.api_client.client_side_validation and ('order_cancel_all_request' not in local_var_params or  # noqa: E501
-                                                        local_var_params['order_cancel_all_request'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `order_cancel_all_request` when calling `v1_orders_cancel_all_post`")  # noqa: E501
+        # verify the required parameter 'cancel_order_all_request' is set
+        if self.api_client.client_side_validation and ('cancel_order_all_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['cancel_order_all_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `cancel_order_all_request` when calling `v1_orders_cancel_all_post`")  # noqa: E501
 
         collection_formats = {}
 
@@ -125,8 +125,8 @@ class OrdersApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'order_cancel_all_request' in local_var_params:
-            body_params = local_var_params['order_cancel_all_request']
+        if 'cancel_order_all_request' in local_var_params:
+            body_params = local_var_params['cancel_order_all_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -154,17 +154,17 @@ class OrdersApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def v1_orders_cancel_post(self, order_cancel_single_request, **kwargs):  # noqa: E501
+    def v1_orders_cancel_post(self, cancel_order_single_request, **kwargs):  # noqa: E501
         """Cancel order  # noqa: E501
 
         This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v1_orders_cancel_post(order_cancel_single_request, async_req=True)
+        >>> thread = api.v1_orders_cancel_post(cancel_order_single_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param OrderCancelSingleRequest order_cancel_single_request: (required)
+        :param CancelOrderSingleRequest cancel_order_single_request: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -177,19 +177,19 @@ class OrdersApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.v1_orders_cancel_post_with_http_info(order_cancel_single_request, **kwargs)  # noqa: E501
+        return self.v1_orders_cancel_post_with_http_info(cancel_order_single_request, **kwargs)  # noqa: E501
 
-    def v1_orders_cancel_post_with_http_info(self, order_cancel_single_request, **kwargs):  # noqa: E501
+    def v1_orders_cancel_post_with_http_info(self, cancel_order_single_request, **kwargs):  # noqa: E501
         """Cancel order  # noqa: E501
 
         This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.v1_orders_cancel_post_with_http_info(order_cancel_single_request, async_req=True)
+        >>> thread = api.v1_orders_cancel_post_with_http_info(cancel_order_single_request, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param OrderCancelSingleRequest order_cancel_single_request: (required)
+        :param CancelOrderSingleRequest cancel_order_single_request: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -207,7 +207,7 @@ class OrdersApi(object):
         local_var_params = locals()
 
         all_params = [
-            'order_cancel_single_request'
+            'cancel_order_single_request'
         ]
         all_params.extend(
             [
@@ -226,10 +226,10 @@ class OrdersApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'order_cancel_single_request' is set
-        if self.api_client.client_side_validation and ('order_cancel_single_request' not in local_var_params or  # noqa: E501
-                                                        local_var_params['order_cancel_single_request'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `order_cancel_single_request` when calling `v1_orders_cancel_post`")  # noqa: E501
+        # verify the required parameter 'cancel_order_single_request' is set
+        if self.api_client.client_side_validation and ('cancel_order_single_request' not in local_var_params or  # noqa: E501
+                                                        local_var_params['cancel_order_single_request'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `cancel_order_single_request` when calling `v1_orders_cancel_post`")  # noqa: E501
 
         collection_formats = {}
 
@@ -243,8 +243,8 @@ class OrdersApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'order_cancel_single_request' in local_var_params:
-            body_params = local_var_params['order_cancel_single_request']
+        if 'cancel_order_single_request' in local_var_params:
+            body_params = local_var_params['cancel_order_single_request']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json', 'appliction/json'])  # noqa: E501

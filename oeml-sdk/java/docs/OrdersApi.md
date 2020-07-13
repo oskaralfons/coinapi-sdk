@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="v1OrdersCancelAllPost"></a>
 # **v1OrdersCancelAllPost**
-> Message v1OrdersCancelAllPost(orderCancelAllRequest)
+> Message v1OrdersCancelAllPost(cancelOrderAllRequest)
 
 Cancel all orders
 
@@ -34,9 +34,9 @@ public class Example {
     defaultClient.setBasePath("http://localhost:8080");
 
     OrdersApi apiInstance = new OrdersApi(defaultClient);
-    OrderCancelAllRequest orderCancelAllRequest = new OrderCancelAllRequest(); // OrderCancelAllRequest | 
+    CancelOrderAllRequest cancelOrderAllRequest = new CancelOrderAllRequest(); // CancelOrderAllRequest | 
     try {
-      Message result = apiInstance.v1OrdersCancelAllPost(orderCancelAllRequest);
+      Message result = apiInstance.v1OrdersCancelAllPost(cancelOrderAllRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OrdersApi#v1OrdersCancelAllPost");
@@ -53,7 +53,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderCancelAllRequest** | [**OrderCancelAllRequest**](OrderCancelAllRequest.md)|  |
+ **cancelOrderAllRequest** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)|  |
 
 ### Return type
 
@@ -75,7 +75,7 @@ No authorization required
 
 <a name="v1OrdersCancelPost"></a>
 # **v1OrdersCancelPost**
-> ExecutionReport v1OrdersCancelPost(orderCancelSingleRequest)
+> ExecutionReport v1OrdersCancelPost(cancelOrderSingleRequest)
 
 Cancel order
 
@@ -96,9 +96,9 @@ public class Example {
     defaultClient.setBasePath("http://localhost:8080");
 
     OrdersApi apiInstance = new OrdersApi(defaultClient);
-    OrderCancelSingleRequest orderCancelSingleRequest = new OrderCancelSingleRequest(); // OrderCancelSingleRequest | 
+    CancelOrderSingleRequest cancelOrderSingleRequest = new CancelOrderSingleRequest(); // CancelOrderSingleRequest | 
     try {
-      ExecutionReport result = apiInstance.v1OrdersCancelPost(orderCancelSingleRequest);
+      ExecutionReport result = apiInstance.v1OrdersCancelPost(cancelOrderSingleRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OrdersApi#v1OrdersCancelPost");
@@ -115,7 +115,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderCancelSingleRequest** | [**OrderCancelSingleRequest**](OrderCancelSingleRequest.md)|  |
+ **cancelOrderSingleRequest** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)|  |
 
 ### Return type
 

@@ -27,7 +27,7 @@ type ExecutionReport struct {
 	TimeInForce TimeInForce `json:"time_in_force"`
 	// Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
 	ExpireTime string `json:"expire_time,omitempty"`
-	// Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>
+	// Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> 
 	ExecInst []string `json:"exec_inst,omitempty"`
 	// Hash client id
 	ClientOrderIdFormatExchange string `json:"client_order_id_format_exchange"`

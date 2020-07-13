@@ -70,6 +70,8 @@ Class | Description
 ------------- | -------------
  *Balance* | 
  *Balance_data* | 
+ *CancelOrderAllRequest* | 
+ *CancelOrderSingleRequest* | 
  *ExecutionReport* | 
  *ExecutionReport_allOf* | The order execution report message.
  *Message* | 
@@ -77,8 +79,6 @@ Class | Description
  *OrdSide* | Side of order. 
  *OrdStatus* | Order statuses and the lifecycle are documented in the separate section: <a href=\"#oeml-order-lifecycle\">OEML / Starter Guide / Order Lifecycle</a> 
  *OrdType* | Order types are documented in the separate section: <a href=\"#oeml-order-params-type\">OEML / Starter Guide / Order parameters / Order type</a> 
- *OrderCancelAllRequest* | 
- *OrderCancelSingleRequest* | 
  *Position* | 
  *Position_data* | 
  *Severity* | 

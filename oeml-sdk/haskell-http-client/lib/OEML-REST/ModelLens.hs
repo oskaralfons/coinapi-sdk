@@ -94,6 +94,34 @@ balanceDataUpdateOriginL f BalanceData{..} = (\balanceDataUpdateOrigin -> Balanc
 
 
 
+-- * CancelOrderAllRequest
+
+-- | 'cancelOrderAllRequestExchangeId' Lens
+cancelOrderAllRequestExchangeIdL :: Lens_' CancelOrderAllRequest (Text)
+cancelOrderAllRequestExchangeIdL f CancelOrderAllRequest{..} = (\cancelOrderAllRequestExchangeId -> CancelOrderAllRequest { cancelOrderAllRequestExchangeId, ..} ) <$> f cancelOrderAllRequestExchangeId
+{-# INLINE cancelOrderAllRequestExchangeIdL #-}
+
+
+
+-- * CancelOrderSingleRequest
+
+-- | 'cancelOrderSingleRequestExchangeId' Lens
+cancelOrderSingleRequestExchangeIdL :: Lens_' CancelOrderSingleRequest (Maybe Text)
+cancelOrderSingleRequestExchangeIdL f CancelOrderSingleRequest{..} = (\cancelOrderSingleRequestExchangeId -> CancelOrderSingleRequest { cancelOrderSingleRequestExchangeId, ..} ) <$> f cancelOrderSingleRequestExchangeId
+{-# INLINE cancelOrderSingleRequestExchangeIdL #-}
+
+-- | 'cancelOrderSingleRequestExchangeOrderId' Lens
+cancelOrderSingleRequestExchangeOrderIdL :: Lens_' CancelOrderSingleRequest (Maybe Text)
+cancelOrderSingleRequestExchangeOrderIdL f CancelOrderSingleRequest{..} = (\cancelOrderSingleRequestExchangeOrderId -> CancelOrderSingleRequest { cancelOrderSingleRequestExchangeOrderId, ..} ) <$> f cancelOrderSingleRequestExchangeOrderId
+{-# INLINE cancelOrderSingleRequestExchangeOrderIdL #-}
+
+-- | 'cancelOrderSingleRequestClientOrderId' Lens
+cancelOrderSingleRequestClientOrderIdL :: Lens_' CancelOrderSingleRequest (Maybe Text)
+cancelOrderSingleRequestClientOrderIdL f CancelOrderSingleRequest{..} = (\cancelOrderSingleRequestClientOrderId -> CancelOrderSingleRequest { cancelOrderSingleRequestClientOrderId, ..} ) <$> f cancelOrderSingleRequestClientOrderId
+{-# INLINE cancelOrderSingleRequestClientOrderIdL #-}
+
+
+
 -- * ExecutionReport
 
 -- | 'executionReportExchangeId' Lens
@@ -319,34 +347,6 @@ newOrderSingleExecInstL f NewOrderSingle{..} = (\newOrderSingleExecInst -> NewOr
 
 
 -- * OrdType
-
-
-
--- * OrderCancelAllRequest
-
--- | 'orderCancelAllRequestExchangeId' Lens
-orderCancelAllRequestExchangeIdL :: Lens_' OrderCancelAllRequest (Text)
-orderCancelAllRequestExchangeIdL f OrderCancelAllRequest{..} = (\orderCancelAllRequestExchangeId -> OrderCancelAllRequest { orderCancelAllRequestExchangeId, ..} ) <$> f orderCancelAllRequestExchangeId
-{-# INLINE orderCancelAllRequestExchangeIdL #-}
-
-
-
--- * OrderCancelSingleRequest
-
--- | 'orderCancelSingleRequestExchangeId' Lens
-orderCancelSingleRequestExchangeIdL :: Lens_' OrderCancelSingleRequest (Maybe Text)
-orderCancelSingleRequestExchangeIdL f OrderCancelSingleRequest{..} = (\orderCancelSingleRequestExchangeId -> OrderCancelSingleRequest { orderCancelSingleRequestExchangeId, ..} ) <$> f orderCancelSingleRequestExchangeId
-{-# INLINE orderCancelSingleRequestExchangeIdL #-}
-
--- | 'orderCancelSingleRequestExchangeOrderId' Lens
-orderCancelSingleRequestExchangeOrderIdL :: Lens_' OrderCancelSingleRequest (Maybe Text)
-orderCancelSingleRequestExchangeOrderIdL f OrderCancelSingleRequest{..} = (\orderCancelSingleRequestExchangeOrderId -> OrderCancelSingleRequest { orderCancelSingleRequestExchangeOrderId, ..} ) <$> f orderCancelSingleRequestExchangeOrderId
-{-# INLINE orderCancelSingleRequestExchangeOrderIdL #-}
-
--- | 'orderCancelSingleRequestClientOrderId' Lens
-orderCancelSingleRequestClientOrderIdL :: Lens_' OrderCancelSingleRequest (Maybe Text)
-orderCancelSingleRequestClientOrderIdL f OrderCancelSingleRequest{..} = (\orderCancelSingleRequestClientOrderId -> OrderCancelSingleRequest { orderCancelSingleRequestClientOrderId, ..} ) <$> f orderCancelSingleRequestClientOrderId
-{-# INLINE orderCancelSingleRequestClientOrderIdL #-}
 
 
 

@@ -2,8 +2,8 @@ function Invoke-OrdersApiV1OrdersCancelAllPost {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Org.OpenAPITools.Model.OrderCancelAllRequest]
-        ${orderCancelAllRequest}
+        [Org.OpenAPITools.Model.CancelOrderAllRequest]
+        ${cancelOrderAllRequest}
     )
 
     Process {
@@ -11,7 +11,7 @@ function Invoke-OrdersApiV1OrdersCancelAllPost {
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $Script:OrdersApi.V1OrdersCancelAllPost(
-            ${orderCancelAllRequest}
+            ${cancelOrderAllRequest}
         )
     }
 }
@@ -20,8 +20,8 @@ function Invoke-OrdersApiV1OrdersCancelPost {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [Org.OpenAPITools.Model.OrderCancelSingleRequest]
-        ${orderCancelSingleRequest}
+        [Org.OpenAPITools.Model.CancelOrderSingleRequest]
+        ${cancelOrderSingleRequest}
     )
 
     Process {
@@ -29,7 +29,7 @@ function Invoke-OrdersApiV1OrdersCancelPost {
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $Script:OrdersApi.V1OrdersCancelPost(
-            ${orderCancelSingleRequest}
+            ${cancelOrderSingleRequest}
         )
     }
 }

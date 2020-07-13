@@ -76,6 +76,8 @@ Class | Method | HTTP request | Description
 
  - [OASBalance](OASBalance.md)
  - [OASBalanceData](OASBalanceData.md)
+ - [OASCancelOrderAllRequest](OASCancelOrderAllRequest.md)
+ - [OASCancelOrderSingleRequest](OASCancelOrderSingleRequest.md)
  - [OASExecutionReport](OASExecutionReport.md)
  - [OASExecutionReportAllOf](OASExecutionReportAllOf.md)
  - [OASMessage](OASMessage.md)
@@ -83,8 +85,6 @@ Class | Method | HTTP request | Description
  - [OASOrdSide](OASOrdSide.md)
  - [OASOrdStatus](OASOrdStatus.md)
  - [OASOrdType](OASOrdType.md)
- - [OASOrderCancelAllRequest](OASOrderCancelAllRequest.md)
- - [OASOrderCancelSingleRequest](OASOrderCancelSingleRequest.md)
  - [OASPosition](OASPosition.md)
  - [OASPositionData](OASPositionData.md)
  - [OASSeverity](OASSeverity.md)

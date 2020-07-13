@@ -13,11 +13,11 @@
 
 
 import ApiClient from "../ApiClient";
+import CancelOrderAllRequest from '../model/CancelOrderAllRequest';
+import CancelOrderSingleRequest from '../model/CancelOrderSingleRequest';
 import ExecutionReport from '../model/ExecutionReport';
 import Message from '../model/Message';
 import NewOrderSingle from '../model/NewOrderSingle';
-import OrderCancelAllRequest from '../model/OrderCancelAllRequest';
-import OrderCancelSingleRequest from '../model/OrderCancelSingleRequest';
 import ValidationError from '../model/ValidationError';
 
 /**
@@ -50,15 +50,15 @@ export default class OrdersApi {
     /**
      * Cancel all orders
      * This request cancels all open orders across all or single specified exchange.
-     * @param {module:model/OrderCancelAllRequest} orderCancelAllRequest 
+     * @param {module:model/CancelOrderAllRequest} cancelOrderAllRequest 
      * @param {module:api/OrdersApi~v1OrdersCancelAllPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Message}
      */
-    v1OrdersCancelAllPost(orderCancelAllRequest, callback) {
-      let postBody = orderCancelAllRequest;
-      // verify the required parameter 'orderCancelAllRequest' is set
-      if (orderCancelAllRequest === undefined || orderCancelAllRequest === null) {
-        throw new Error("Missing the required parameter 'orderCancelAllRequest' when calling v1OrdersCancelAllPost");
+    v1OrdersCancelAllPost(cancelOrderAllRequest, callback) {
+      let postBody = cancelOrderAllRequest;
+      // verify the required parameter 'cancelOrderAllRequest' is set
+      if (cancelOrderAllRequest === undefined || cancelOrderAllRequest === null) {
+        throw new Error("Missing the required parameter 'cancelOrderAllRequest' when calling v1OrdersCancelAllPost");
       }
 
       let pathParams = {
@@ -92,15 +92,15 @@ export default class OrdersApi {
     /**
      * Cancel order
      * This request cancels an existing order. The order can be canceled by the client order ID or exchange order ID.
-     * @param {module:model/OrderCancelSingleRequest} orderCancelSingleRequest 
+     * @param {module:model/CancelOrderSingleRequest} cancelOrderSingleRequest 
      * @param {module:api/OrdersApi~v1OrdersCancelPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ExecutionReport}
      */
-    v1OrdersCancelPost(orderCancelSingleRequest, callback) {
-      let postBody = orderCancelSingleRequest;
-      // verify the required parameter 'orderCancelSingleRequest' is set
-      if (orderCancelSingleRequest === undefined || orderCancelSingleRequest === null) {
-        throw new Error("Missing the required parameter 'orderCancelSingleRequest' when calling v1OrdersCancelPost");
+    v1OrdersCancelPost(cancelOrderSingleRequest, callback) {
+      let postBody = cancelOrderSingleRequest;
+      // verify the required parameter 'cancelOrderSingleRequest' is set
+      if (cancelOrderSingleRequest === undefined || cancelOrderSingleRequest === null) {
+        throw new Error("Missing the required parameter 'cancelOrderSingleRequest' when calling v1OrdersCancelPost");
       }
 
       let pathParams = {

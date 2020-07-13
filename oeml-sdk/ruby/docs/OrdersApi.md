@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## v1_orders_cancel_all_post
 
-> Message v1_orders_cancel_all_post(order_cancel_all_request)
+> Message v1_orders_cancel_all_post(cancel_order_all_request)
 
 Cancel all orders
 
@@ -27,11 +27,11 @@ This request cancels all open orders across all or single specified exchange.
 require 'openapi_client'
 
 api_instance = OpenapiClient::OrdersApi.new
-order_cancel_all_request = OpenapiClient::OrderCancelAllRequest.new # OrderCancelAllRequest | 
+cancel_order_all_request = OpenapiClient::CancelOrderAllRequest.new # CancelOrderAllRequest | 
 
 begin
   #Cancel all orders
-  result = api_instance.v1_orders_cancel_all_post(order_cancel_all_request)
+  result = api_instance.v1_orders_cancel_all_post(cancel_order_all_request)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Exception when calling OrdersApi->v1_orders_cancel_all_post: #{e}"
@@ -43,7 +43,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order_cancel_all_request** | [**OrderCancelAllRequest**](OrderCancelAllRequest.md)|  | 
+ **cancel_order_all_request** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)|  | 
 
 ### Return type
 
@@ -61,7 +61,7 @@ No authorization required
 
 ## v1_orders_cancel_post
 
-> ExecutionReport v1_orders_cancel_post(order_cancel_single_request)
+> ExecutionReport v1_orders_cancel_post(cancel_order_single_request)
 
 Cancel order
 
@@ -74,11 +74,11 @@ This request cancels an existing order. The order can be canceled by the client 
 require 'openapi_client'
 
 api_instance = OpenapiClient::OrdersApi.new
-order_cancel_single_request = OpenapiClient::OrderCancelSingleRequest.new # OrderCancelSingleRequest | 
+cancel_order_single_request = OpenapiClient::CancelOrderSingleRequest.new # CancelOrderSingleRequest | 
 
 begin
   #Cancel order
-  result = api_instance.v1_orders_cancel_post(order_cancel_single_request)
+  result = api_instance.v1_orders_cancel_post(cancel_order_single_request)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Exception when calling OrdersApi->v1_orders_cancel_post: #{e}"
@@ -90,7 +90,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **order_cancel_single_request** | [**OrderCancelSingleRequest**](OrderCancelSingleRequest.md)|  | 
+ **cancel_order_single_request** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)|  | 
 
 ### Return type
 

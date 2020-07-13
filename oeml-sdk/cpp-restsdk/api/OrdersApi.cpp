@@ -35,13 +35,13 @@ OrdersApi::~OrdersApi()
 {
 }
 
-pplx::task<std::shared_ptr<Message>> OrdersApi::v1OrdersCancelAllPost(std::shared_ptr<OrderCancelAllRequest> orderCancelAllRequest) const
+pplx::task<std::shared_ptr<Message>> OrdersApi::v1OrdersCancelAllPost(std::shared_ptr<CancelOrderAllRequest> cancelOrderAllRequest) const
 {
 
-    // verify the required parameter 'orderCancelAllRequest' is set
-    if (orderCancelAllRequest == nullptr)
+    // verify the required parameter 'cancelOrderAllRequest' is set
+    if (cancelOrderAllRequest == nullptr)
     {
-        throw ApiException(400, utility::conversions::to_string_t("Missing required parameter 'orderCancelAllRequest' when calling OrdersApi->v1OrdersCancelAllPost"));
+        throw ApiException(400, utility::conversions::to_string_t("Missing required parameter 'cancelOrderAllRequest' when calling OrdersApi->v1OrdersCancelAllPost"));
     }
 
 
@@ -93,7 +93,7 @@ pplx::task<std::shared_ptr<Message>> OrdersApi::v1OrdersCancelAllPost(std::share
         localVarRequestHttpContentType = utility::conversions::to_string_t("application/json");
         web::json::value localVarJson;
 
-        localVarJson = ModelBase::toJson(orderCancelAllRequest);
+        localVarJson = ModelBase::toJson(cancelOrderAllRequest);
         
 
         localVarHttpBody = std::shared_ptr<IHttpBody>( new JsonBody( localVarJson ) );
@@ -104,9 +104,9 @@ pplx::task<std::shared_ptr<Message>> OrdersApi::v1OrdersCancelAllPost(std::share
         localVarRequestHttpContentType = utility::conversions::to_string_t("multipart/form-data");
         std::shared_ptr<MultipartFormData> localVarMultipart(new MultipartFormData);
 
-        if(orderCancelAllRequest.get())
+        if(cancelOrderAllRequest.get())
         {
-            orderCancelAllRequest->toMultipart(localVarMultipart, utility::conversions::to_string_t("orderCancelAllRequest"));
+            cancelOrderAllRequest->toMultipart(localVarMultipart, utility::conversions::to_string_t("cancelOrderAllRequest"));
         }
         
 
@@ -176,13 +176,13 @@ pplx::task<std::shared_ptr<Message>> OrdersApi::v1OrdersCancelAllPost(std::share
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ExecutionReport>> OrdersApi::v1OrdersCancelPost(std::shared_ptr<OrderCancelSingleRequest> orderCancelSingleRequest) const
+pplx::task<std::shared_ptr<ExecutionReport>> OrdersApi::v1OrdersCancelPost(std::shared_ptr<CancelOrderSingleRequest> cancelOrderSingleRequest) const
 {
 
-    // verify the required parameter 'orderCancelSingleRequest' is set
-    if (orderCancelSingleRequest == nullptr)
+    // verify the required parameter 'cancelOrderSingleRequest' is set
+    if (cancelOrderSingleRequest == nullptr)
     {
-        throw ApiException(400, utility::conversions::to_string_t("Missing required parameter 'orderCancelSingleRequest' when calling OrdersApi->v1OrdersCancelPost"));
+        throw ApiException(400, utility::conversions::to_string_t("Missing required parameter 'cancelOrderSingleRequest' when calling OrdersApi->v1OrdersCancelPost"));
     }
 
 
@@ -235,7 +235,7 @@ pplx::task<std::shared_ptr<ExecutionReport>> OrdersApi::v1OrdersCancelPost(std::
         localVarRequestHttpContentType = utility::conversions::to_string_t("application/json");
         web::json::value localVarJson;
 
-        localVarJson = ModelBase::toJson(orderCancelSingleRequest);
+        localVarJson = ModelBase::toJson(cancelOrderSingleRequest);
         
 
         localVarHttpBody = std::shared_ptr<IHttpBody>( new JsonBody( localVarJson ) );
@@ -246,9 +246,9 @@ pplx::task<std::shared_ptr<ExecutionReport>> OrdersApi::v1OrdersCancelPost(std::
         localVarRequestHttpContentType = utility::conversions::to_string_t("multipart/form-data");
         std::shared_ptr<MultipartFormData> localVarMultipart(new MultipartFormData);
 
-        if(orderCancelSingleRequest.get())
+        if(cancelOrderSingleRequest.get())
         {
-            orderCancelSingleRequest->toMultipart(localVarMultipart, utility::conversions::to_string_t("orderCancelSingleRequest"));
+            cancelOrderSingleRequest->toMultipart(localVarMultipart, utility::conversions::to_string_t("cancelOrderSingleRequest"));
         }
         
 
