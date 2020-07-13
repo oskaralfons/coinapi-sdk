@@ -53,12 +53,12 @@ sub new {
 #
 # Cancel all orders request
 # 
-# @param CancelOrderAllRequest $cancel_order_all_request  (required)
+# @param CancelOrderAllRequest $cancel_order_all_request CancelOrderAllRequest object. (required)
 {
     my $params = {
     'cancel_order_all_request' => {
         data_type => 'CancelOrderAllRequest',
-        description => '',
+        description => 'CancelOrderAllRequest object.',
         required => '1',
     },
     };
@@ -118,12 +118,12 @@ sub v1_orders_cancel_all_post {
 #
 # Cancel order request
 # 
-# @param CancelOrderSingleRequest $cancel_order_single_request  (required)
+# @param CancelOrderSingleRequest $cancel_order_single_request CancelOrderSingleRequest object. (required)
 {
     my $params = {
     'cancel_order_single_request' => {
         data_type => 'CancelOrderSingleRequest',
-        description => '',
+        description => 'CancelOrderSingleRequest object.',
         required => '1',
     },
     };
@@ -243,12 +243,12 @@ sub v1_orders_get {
 #
 # Send new order
 # 
-# @param NewOrderSingle $new_order_single test (required)
+# @param NewOrderSingle $new_order_single NewOrderSingle object. (required)
 {
     my $params = {
     'new_order_single' => {
         data_type => 'NewOrderSingle',
-        description => 'test',
+        description => 'NewOrderSingle object.',
         required => '1',
     },
     };

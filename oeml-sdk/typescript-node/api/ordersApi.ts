@@ -93,7 +93,7 @@ export class OrdersApi {
     /**
      * This request cancels all open orders on single specified exchange.
      * @summary Cancel all orders request
-     * @param cancelOrderAllRequest 
+     * @param cancelOrderAllRequest CancelOrderAllRequest object.
      */
     public async v1OrdersCancelAllPost (cancelOrderAllRequest: CancelOrderAllRequest, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: Message;  }> {
         const localVarPath = this.basePath + '/v1/orders/cancel/all';
@@ -162,7 +162,7 @@ export class OrdersApi {
     /**
      * Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`.
      * @summary Cancel order request
-     * @param cancelOrderSingleRequest 
+     * @param cancelOrderSingleRequest CancelOrderSingleRequest object.
      */
     public async v1OrdersCancelPost (cancelOrderSingleRequest: CancelOrderSingleRequest, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: OrderExecutionReport;  }> {
         const localVarPath = this.basePath + '/v1/orders/cancel';
@@ -298,7 +298,7 @@ export class OrdersApi {
     /**
      * This request creating new order for the specific exchange.
      * @summary Send new order
-     * @param newOrderSingle test
+     * @param newOrderSingle NewOrderSingle object.
      */
     public async v1OrdersPost (newOrderSingle: NewOrderSingle, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: OrderExecutionReport;  }> {
         const localVarPath = this.basePath + '/v1/orders';

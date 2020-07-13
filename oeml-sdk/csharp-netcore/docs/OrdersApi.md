@@ -36,7 +36,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "http://localhost:8080";
             var apiInstance = new OrdersApi(config);
-            var cancelOrderAllRequest = new CancelOrderAllRequest(); // CancelOrderAllRequest | 
+            var cancelOrderAllRequest = new CancelOrderAllRequest(); // CancelOrderAllRequest | CancelOrderAllRequest object.
 
             try
             {
@@ -59,7 +59,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelOrderAllRequest** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)|  | 
+ **cancelOrderAllRequest** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)| CancelOrderAllRequest object. | 
 
 ### Return type
 
@@ -108,7 +108,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "http://localhost:8080";
             var apiInstance = new OrdersApi(config);
-            var cancelOrderSingleRequest = new CancelOrderSingleRequest(); // CancelOrderSingleRequest | 
+            var cancelOrderSingleRequest = new CancelOrderSingleRequest(); // CancelOrderSingleRequest | CancelOrderSingleRequest object.
 
             try
             {
@@ -131,7 +131,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelOrderSingleRequest** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)|  | 
+ **cancelOrderSingleRequest** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)| CancelOrderSingleRequest object. | 
 
 ### Return type
 
@@ -251,7 +251,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "http://localhost:8080";
             var apiInstance = new OrdersApi(config);
-            var newOrderSingle = new NewOrderSingle(); // NewOrderSingle | test
+            var newOrderSingle = new NewOrderSingle(); // NewOrderSingle | NewOrderSingle object.
 
             try
             {
@@ -274,7 +274,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)| test | 
+ **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)| NewOrderSingle object. | 
 
 ### Return type
 

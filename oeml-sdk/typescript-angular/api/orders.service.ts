@@ -93,7 +93,7 @@ export class OrdersService {
     /**
      * Cancel all orders request
      * This request cancels all open orders on single specified exchange.
-     * @param cancelOrderAllRequest 
+     * @param cancelOrderAllRequest CancelOrderAllRequest object.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
@@ -150,7 +150,7 @@ export class OrdersService {
     /**
      * Cancel order request
      * Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
-     * @param cancelOrderSingleRequest 
+     * @param cancelOrderSingleRequest CancelOrderSingleRequest object.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
@@ -258,7 +258,7 @@ export class OrdersService {
     /**
      * Send new order
      * This request creating new order for the specific exchange.
-     * @param newOrderSingle test
+     * @param newOrderSingle NewOrderSingle object.
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */

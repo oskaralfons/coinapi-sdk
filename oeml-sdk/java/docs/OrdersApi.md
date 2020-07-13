@@ -34,7 +34,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost:8080");
 
     OrdersApi apiInstance = new OrdersApi(defaultClient);
-    CancelOrderAllRequest cancelOrderAllRequest = new CancelOrderAllRequest(); // CancelOrderAllRequest | 
+    CancelOrderAllRequest cancelOrderAllRequest = new CancelOrderAllRequest(); // CancelOrderAllRequest | CancelOrderAllRequest object.
     try {
       Message result = apiInstance.v1OrdersCancelAllPost(cancelOrderAllRequest);
       System.out.println(result);
@@ -53,7 +53,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelOrderAllRequest** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)|  |
+ **cancelOrderAllRequest** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)| CancelOrderAllRequest object. |
 
 ### Return type
 
@@ -98,7 +98,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost:8080");
 
     OrdersApi apiInstance = new OrdersApi(defaultClient);
-    CancelOrderSingleRequest cancelOrderSingleRequest = new CancelOrderSingleRequest(); // CancelOrderSingleRequest | 
+    CancelOrderSingleRequest cancelOrderSingleRequest = new CancelOrderSingleRequest(); // CancelOrderSingleRequest | CancelOrderSingleRequest object.
     try {
       OrderExecutionReport result = apiInstance.v1OrdersCancelPost(cancelOrderSingleRequest);
       System.out.println(result);
@@ -117,7 +117,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelOrderSingleRequest** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)|  |
+ **cancelOrderSingleRequest** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)| CancelOrderSingleRequest object. |
 
 ### Return type
 
@@ -225,7 +225,7 @@ public class Example {
     defaultClient.setBasePath("http://localhost:8080");
 
     OrdersApi apiInstance = new OrdersApi(defaultClient);
-    NewOrderSingle newOrderSingle = new NewOrderSingle(); // NewOrderSingle | test
+    NewOrderSingle newOrderSingle = new NewOrderSingle(); // NewOrderSingle | NewOrderSingle object.
     try {
       OrderExecutionReport result = apiInstance.v1OrdersPost(newOrderSingle);
       System.out.println(result);
@@ -244,7 +244,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)| test |
+ **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)| NewOrderSingle object. |
 
 ### Return type
 

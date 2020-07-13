@@ -50,7 +50,7 @@ export default class OrdersApi {
     /**
      * Cancel all orders request
      * This request cancels all open orders on single specified exchange.
-     * @param {module:model/CancelOrderAllRequest} cancelOrderAllRequest 
+     * @param {module:model/CancelOrderAllRequest} cancelOrderAllRequest CancelOrderAllRequest object.
      * @param {module:api/OrdersApi~v1OrdersCancelAllPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Message}
      */
@@ -92,7 +92,7 @@ export default class OrdersApi {
     /**
      * Cancel order request
      * Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`.
-     * @param {module:model/CancelOrderSingleRequest} cancelOrderSingleRequest 
+     * @param {module:model/CancelOrderSingleRequest} cancelOrderSingleRequest CancelOrderSingleRequest object.
      * @param {module:api/OrdersApi~v1OrdersCancelPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrderExecutionReport}
      */
@@ -175,7 +175,7 @@ export default class OrdersApi {
     /**
      * Send new order
      * This request creating new order for the specific exchange.
-     * @param {module:model/NewOrderSingle} newOrderSingle test
+     * @param {module:model/NewOrderSingle} newOrderSingle NewOrderSingle object.
      * @param {module:api/OrdersApi~v1OrdersPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrderExecutionReport}
      */

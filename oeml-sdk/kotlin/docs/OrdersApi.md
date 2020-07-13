@@ -26,7 +26,7 @@ This request cancels all open orders on single specified exchange.
 //import org.openapitools.client.models.*
 
 val apiInstance = OrdersApi()
-val cancelOrderAllRequest : CancelOrderAllRequest =  // CancelOrderAllRequest | 
+val cancelOrderAllRequest : CancelOrderAllRequest =  // CancelOrderAllRequest | CancelOrderAllRequest object.
 try {
     val result : Message = apiInstance.v1OrdersCancelAllPost(cancelOrderAllRequest)
     println(result)
@@ -43,7 +43,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelOrderAllRequest** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)|  |
+ **cancelOrderAllRequest** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)| CancelOrderAllRequest object. |
 
 ### Return type
 
@@ -73,7 +73,7 @@ Request cancel for an existing order. The order can be canceled using the &#x60;
 //import org.openapitools.client.models.*
 
 val apiInstance = OrdersApi()
-val cancelOrderSingleRequest : CancelOrderSingleRequest =  // CancelOrderSingleRequest | 
+val cancelOrderSingleRequest : CancelOrderSingleRequest =  // CancelOrderSingleRequest | CancelOrderSingleRequest object.
 try {
     val result : OrderExecutionReport = apiInstance.v1OrdersCancelPost(cancelOrderSingleRequest)
     println(result)
@@ -90,7 +90,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelOrderSingleRequest** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)|  |
+ **cancelOrderSingleRequest** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)| CancelOrderSingleRequest object. |
 
 ### Return type
 
@@ -167,7 +167,7 @@ This request creating new order for the specific exchange.
 //import org.openapitools.client.models.*
 
 val apiInstance = OrdersApi()
-val newOrderSingle : NewOrderSingle =  // NewOrderSingle | test
+val newOrderSingle : NewOrderSingle =  // NewOrderSingle | NewOrderSingle object.
 try {
     val result : OrderExecutionReport = apiInstance.v1OrdersPost(newOrderSingle)
     println(result)
@@ -184,7 +184,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)| test |
+ **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)| NewOrderSingle object. |
 
 ### Return type
 

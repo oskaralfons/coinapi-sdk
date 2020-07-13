@@ -30,7 +30,7 @@ use WWW::OpenAPIClient::OrdersApi;
 my $api_instance = WWW::OpenAPIClient::OrdersApi->new(
 );
 
-my $cancel_order_all_request = WWW::OpenAPIClient::Object::CancelOrderAllRequest->new(); # CancelOrderAllRequest | 
+my $cancel_order_all_request = WWW::OpenAPIClient::Object::CancelOrderAllRequest->new(); # CancelOrderAllRequest | CancelOrderAllRequest object.
 
 eval { 
     my $result = $api_instance->v1_orders_cancel_all_post(cancel_order_all_request => $cancel_order_all_request);
@@ -45,7 +45,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancel_order_all_request** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)|  | 
+ **cancel_order_all_request** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)| CancelOrderAllRequest object. | 
 
 ### Return type
 
@@ -76,7 +76,7 @@ use WWW::OpenAPIClient::OrdersApi;
 my $api_instance = WWW::OpenAPIClient::OrdersApi->new(
 );
 
-my $cancel_order_single_request = WWW::OpenAPIClient::Object::CancelOrderSingleRequest->new(); # CancelOrderSingleRequest | 
+my $cancel_order_single_request = WWW::OpenAPIClient::Object::CancelOrderSingleRequest->new(); # CancelOrderSingleRequest | CancelOrderSingleRequest object.
 
 eval { 
     my $result = $api_instance->v1_orders_cancel_post(cancel_order_single_request => $cancel_order_single_request);
@@ -91,7 +91,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancel_order_single_request** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)|  | 
+ **cancel_order_single_request** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)| CancelOrderSingleRequest object. | 
 
 ### Return type
 
@@ -168,7 +168,7 @@ use WWW::OpenAPIClient::OrdersApi;
 my $api_instance = WWW::OpenAPIClient::OrdersApi->new(
 );
 
-my $new_order_single = WWW::OpenAPIClient::Object::NewOrderSingle->new(); # NewOrderSingle | test
+my $new_order_single = WWW::OpenAPIClient::Object::NewOrderSingle->new(); # NewOrderSingle | NewOrderSingle object.
 
 eval { 
     my $result = $api_instance->v1_orders_post(new_order_single => $new_order_single);
@@ -183,7 +183,7 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **new_order_single** | [**NewOrderSingle**](NewOrderSingle.md)| test | 
+ **new_order_single** | [**NewOrderSingle**](NewOrderSingle.md)| NewOrderSingle object. | 
 
 ### Return type
 

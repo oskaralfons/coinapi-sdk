@@ -46,7 +46,7 @@ class OrdersApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param CancelOrderAllRequest cancel_order_all_request: (required)
+        :param CancelOrderAllRequest cancel_order_all_request: CancelOrderAllRequest object. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -71,7 +71,7 @@ class OrdersApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param CancelOrderAllRequest cancel_order_all_request: (required)
+        :param CancelOrderAllRequest cancel_order_all_request: CancelOrderAllRequest object. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -164,7 +164,7 @@ class OrdersApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param CancelOrderSingleRequest cancel_order_single_request: (required)
+        :param CancelOrderSingleRequest cancel_order_single_request: CancelOrderSingleRequest object. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -189,7 +189,7 @@ class OrdersApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param CancelOrderSingleRequest cancel_order_single_request: (required)
+        :param CancelOrderSingleRequest cancel_order_single_request: CancelOrderSingleRequest object. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -392,7 +392,7 @@ class OrdersApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param NewOrderSingle new_order_single: test (required)
+        :param NewOrderSingle new_order_single: NewOrderSingle object. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -417,7 +417,7 @@ class OrdersApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param NewOrderSingle new_order_single: test (required)
+        :param NewOrderSingle new_order_single: NewOrderSingle object. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will

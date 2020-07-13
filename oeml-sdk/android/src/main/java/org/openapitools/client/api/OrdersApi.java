@@ -63,7 +63,7 @@ public class OrdersApi {
   /**
   * Cancel all orders request
   * This request cancels all open orders on single specified exchange.
-   * @param cancelOrderAllRequest 
+   * @param cancelOrderAllRequest CancelOrderAllRequest object.
    * @return Message
   */
   public Message v1OrdersCancelAllPost (CancelOrderAllRequest cancelOrderAllRequest) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
@@ -126,7 +126,7 @@ public class OrdersApi {
       /**
    * Cancel all orders request
    * This request cancels all open orders on single specified exchange.
-   * @param cancelOrderAllRequest 
+   * @param cancelOrderAllRequest CancelOrderAllRequest object.
   */
   public void v1OrdersCancelAllPost (CancelOrderAllRequest cancelOrderAllRequest, final Response.Listener<Message> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = cancelOrderAllRequest;
@@ -191,7 +191,7 @@ public class OrdersApi {
   /**
   * Cancel order request
   * Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
-   * @param cancelOrderSingleRequest 
+   * @param cancelOrderSingleRequest CancelOrderSingleRequest object.
    * @return OrderExecutionReport
   */
   public OrderExecutionReport v1OrdersCancelPost (CancelOrderSingleRequest cancelOrderSingleRequest) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
@@ -254,7 +254,7 @@ public class OrdersApi {
       /**
    * Cancel order request
    * Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
-   * @param cancelOrderSingleRequest 
+   * @param cancelOrderSingleRequest CancelOrderSingleRequest object.
   */
   public void v1OrdersCancelPost (CancelOrderSingleRequest cancelOrderSingleRequest, final Response.Listener<OrderExecutionReport> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = cancelOrderSingleRequest;
@@ -438,7 +438,7 @@ public class OrdersApi {
   /**
   * Send new order
   * This request creating new order for the specific exchange.
-   * @param newOrderSingle test
+   * @param newOrderSingle NewOrderSingle object.
    * @return OrderExecutionReport
   */
   public OrderExecutionReport v1OrdersPost (NewOrderSingle newOrderSingle) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
@@ -501,7 +501,7 @@ public class OrdersApi {
       /**
    * Send new order
    * This request creating new order for the specific exchange.
-   * @param newOrderSingle test
+   * @param newOrderSingle NewOrderSingle object.
   */
   public void v1OrdersPost (NewOrderSingle newOrderSingle, final Response.Listener<OrderExecutionReport> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = newOrderSingle;

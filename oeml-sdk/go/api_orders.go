@@ -30,7 +30,7 @@ type OrdersApiService service
 V1OrdersCancelAllPost Cancel all orders request
 This request cancels all open orders on single specified exchange.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param cancelOrderAllRequest
+ * @param cancelOrderAllRequest CancelOrderAllRequest object.
 @return Message
 */
 func (a *OrdersApiService) V1OrdersCancelAllPost(ctx _context.Context, cancelOrderAllRequest CancelOrderAllRequest) (Message, *_nethttp.Response, error) {
@@ -127,7 +127,7 @@ func (a *OrdersApiService) V1OrdersCancelAllPost(ctx _context.Context, cancelOrd
 V1OrdersCancelPost Cancel order request
 Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param cancelOrderSingleRequest
+ * @param cancelOrderSingleRequest CancelOrderSingleRequest object.
 @return OrderExecutionReport
 */
 func (a *OrdersApiService) V1OrdersCancelPost(ctx _context.Context, cancelOrderSingleRequest CancelOrderSingleRequest) (OrderExecutionReport, *_nethttp.Response, error) {
@@ -318,7 +318,7 @@ func (a *OrdersApiService) V1OrdersGet(ctx _context.Context, localVarOptionals *
 V1OrdersPost Send new order
 This request creating new order for the specific exchange.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param newOrderSingle test
+ * @param newOrderSingle NewOrderSingle object.
 @return OrderExecutionReport
 */
 func (a *OrdersApiService) V1OrdersPost(ctx _context.Context, newOrderSingle NewOrderSingle) (OrderExecutionReport, *_nethttp.Response, error) {

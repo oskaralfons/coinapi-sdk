@@ -49,7 +49,7 @@ export class OrdersApi {
     /**
      * This request cancels all open orders on single specified exchange.
      * @summary Cancel all orders request
-     * @param cancelOrderAllRequest 
+     * @param cancelOrderAllRequest CancelOrderAllRequest object.
      */
     public v1OrdersCancelAllPost(cancelOrderAllRequest: models.CancelOrderAllRequest, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
     { response: JQueryXHR; body: models.Message;  },
@@ -116,7 +116,7 @@ export class OrdersApi {
     /**
      * Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`.
      * @summary Cancel order request
-     * @param cancelOrderSingleRequest 
+     * @param cancelOrderSingleRequest CancelOrderSingleRequest object.
      */
     public v1OrdersCancelPost(cancelOrderSingleRequest: models.CancelOrderSingleRequest, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
     { response: JQueryXHR; body: models.OrderExecutionReport;  },
@@ -244,7 +244,7 @@ export class OrdersApi {
     /**
      * This request creating new order for the specific exchange.
      * @summary Send new order
-     * @param newOrderSingle test
+     * @param newOrderSingle NewOrderSingle object.
      */
     public v1OrdersPost(newOrderSingle: models.NewOrderSingle, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
     { response: JQueryXHR; body: models.OrderExecutionReport;  },

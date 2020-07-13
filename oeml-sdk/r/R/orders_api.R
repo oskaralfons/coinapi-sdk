@@ -170,7 +170,7 @@
 #' ####################  V1OrdersCancelAllPost  ####################
 #'
 #' library(openapi)
-#' var.cancel.order.all.request <- CancelOrderAllRequest$new() # CancelOrderAllRequest | 
+#' var.cancel.order.all.request <- CancelOrderAllRequest$new() # CancelOrderAllRequest | CancelOrderAllRequest object.
 #'
 #' #Cancel all orders request
 #' api.instance <- OrdersApi$new()
@@ -181,7 +181,7 @@
 #' ####################  V1OrdersCancelPost  ####################
 #'
 #' library(openapi)
-#' var.cancel.order.single.request <- CancelOrderSingleRequest$new() # CancelOrderSingleRequest | 
+#' var.cancel.order.single.request <- CancelOrderSingleRequest$new() # CancelOrderSingleRequest | CancelOrderSingleRequest object.
 #'
 #' #Cancel order request
 #' api.instance <- OrdersApi$new()
@@ -203,7 +203,7 @@
 #' ####################  V1OrdersPost  ####################
 #'
 #' library(openapi)
-#' var.new.order.single <- NewOrderSingle$new() # NewOrderSingle | test
+#' var.new.order.single <- NewOrderSingle$new() # NewOrderSingle | NewOrderSingle object.
 #'
 #' #Send new order
 #' api.instance <- OrdersApi$new()

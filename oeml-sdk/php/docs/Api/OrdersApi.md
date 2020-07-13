@@ -32,7 +32,7 @@ $apiInstance = new OpenAPI\Client\Api\OrdersApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$cancel_order_all_request = new \OpenAPI\Client\Model\CancelOrderAllRequest(); // \OpenAPI\Client\Model\CancelOrderAllRequest | 
+$cancel_order_all_request = new \OpenAPI\Client\Model\CancelOrderAllRequest(); // \OpenAPI\Client\Model\CancelOrderAllRequest | CancelOrderAllRequest object.
 
 try {
     $result = $apiInstance->v1OrdersCancelAllPost($cancel_order_all_request);
@@ -48,7 +48,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancel_order_all_request** | [**\OpenAPI\Client\Model\CancelOrderAllRequest**](../Model/CancelOrderAllRequest.md)|  |
+ **cancel_order_all_request** | [**\OpenAPI\Client\Model\CancelOrderAllRequest**](../Model/CancelOrderAllRequest.md)| CancelOrderAllRequest object. |
 
 ### Return type
 
@@ -88,7 +88,7 @@ $apiInstance = new OpenAPI\Client\Api\OrdersApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$cancel_order_single_request = new \OpenAPI\Client\Model\CancelOrderSingleRequest(); // \OpenAPI\Client\Model\CancelOrderSingleRequest | 
+$cancel_order_single_request = new \OpenAPI\Client\Model\CancelOrderSingleRequest(); // \OpenAPI\Client\Model\CancelOrderSingleRequest | CancelOrderSingleRequest object.
 
 try {
     $result = $apiInstance->v1OrdersCancelPost($cancel_order_single_request);
@@ -104,7 +104,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancel_order_single_request** | [**\OpenAPI\Client\Model\CancelOrderSingleRequest**](../Model/CancelOrderSingleRequest.md)|  |
+ **cancel_order_single_request** | [**\OpenAPI\Client\Model\CancelOrderSingleRequest**](../Model/CancelOrderSingleRequest.md)| CancelOrderSingleRequest object. |
 
 ### Return type
 
@@ -200,7 +200,7 @@ $apiInstance = new OpenAPI\Client\Api\OrdersApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$new_order_single = new \OpenAPI\Client\Model\NewOrderSingle(); // \OpenAPI\Client\Model\NewOrderSingle | test
+$new_order_single = new \OpenAPI\Client\Model\NewOrderSingle(); // \OpenAPI\Client\Model\NewOrderSingle | NewOrderSingle object.
 
 try {
     $result = $apiInstance->v1OrdersPost($new_order_single);
@@ -216,7 +216,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **new_order_single** | [**\OpenAPI\Client\Model\NewOrderSingle**](../Model/NewOrderSingle.md)| test |
+ **new_order_single** | [**\OpenAPI\Client\Model\NewOrderSingle**](../Model/NewOrderSingle.md)| NewOrderSingle object. |
 
 ### Return type
 

@@ -37,7 +37,7 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.OrdersApi(api_client)
-    cancel_order_all_request = openapi_client.CancelOrderAllRequest() # CancelOrderAllRequest | 
+    cancel_order_all_request = openapi_client.CancelOrderAllRequest() # CancelOrderAllRequest | CancelOrderAllRequest object.
 
     try:
         # Cancel all orders request
@@ -51,7 +51,7 @@ with openapi_client.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancel_order_all_request** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)|  | 
+ **cancel_order_all_request** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)| CancelOrderAllRequest object. | 
 
 ### Return type
 
@@ -101,7 +101,7 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.OrdersApi(api_client)
-    cancel_order_single_request = openapi_client.CancelOrderSingleRequest() # CancelOrderSingleRequest | 
+    cancel_order_single_request = openapi_client.CancelOrderSingleRequest() # CancelOrderSingleRequest | CancelOrderSingleRequest object.
 
     try:
         # Cancel order request
@@ -115,7 +115,7 @@ with openapi_client.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancel_order_single_request** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)|  | 
+ **cancel_order_single_request** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)| CancelOrderSingleRequest object. | 
 
 ### Return type
 
@@ -228,7 +228,7 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.OrdersApi(api_client)
-    new_order_single = openapi_client.NewOrderSingle() # NewOrderSingle | test
+    new_order_single = openapi_client.NewOrderSingle() # NewOrderSingle | NewOrderSingle object.
 
     try:
         # Send new order
@@ -242,7 +242,7 @@ with openapi_client.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **new_order_single** | [**NewOrderSingle**](NewOrderSingle.md)| test | 
+ **new_order_single** | [**NewOrderSingle**](NewOrderSingle.md)| NewOrderSingle object. | 
 
 ### Return type
 

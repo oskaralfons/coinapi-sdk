@@ -28,7 +28,7 @@ This request cancels all open orders on single specified exchange.
 import 'package:openapi/api.dart';
 
 var api_instance = new OrdersApi();
-var cancelOrderAllRequest = new CancelOrderAllRequest(); // CancelOrderAllRequest | 
+var cancelOrderAllRequest = new CancelOrderAllRequest(); // CancelOrderAllRequest | CancelOrderAllRequest object.
 
 try { 
     var result = api_instance.v1OrdersCancelAllPost(cancelOrderAllRequest);
@@ -42,7 +42,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelOrderAllRequest** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)|  | 
+ **cancelOrderAllRequest** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)| CancelOrderAllRequest object. | 
 
 ### Return type
 
@@ -71,7 +71,7 @@ Request cancel for an existing order. The order can be canceled using the `clien
 import 'package:openapi/api.dart';
 
 var api_instance = new OrdersApi();
-var cancelOrderSingleRequest = new CancelOrderSingleRequest(); // CancelOrderSingleRequest | 
+var cancelOrderSingleRequest = new CancelOrderSingleRequest(); // CancelOrderSingleRequest | CancelOrderSingleRequest object.
 
 try { 
     var result = api_instance.v1OrdersCancelPost(cancelOrderSingleRequest);
@@ -85,7 +85,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelOrderSingleRequest** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)|  | 
+ **cancelOrderSingleRequest** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)| CancelOrderSingleRequest object. | 
 
 ### Return type
 
@@ -157,7 +157,7 @@ This request creating new order for the specific exchange.
 import 'package:openapi/api.dart';
 
 var api_instance = new OrdersApi();
-var newOrderSingle = new NewOrderSingle(); // NewOrderSingle | test
+var newOrderSingle = new NewOrderSingle(); // NewOrderSingle | NewOrderSingle object.
 
 try { 
     var result = api_instance.v1OrdersPost(newOrderSingle);
@@ -171,7 +171,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)| test | 
+ **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)| NewOrderSingle object. | 
 
 ### Return type
 

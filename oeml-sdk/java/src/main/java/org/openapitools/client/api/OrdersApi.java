@@ -61,7 +61,7 @@ public class OrdersApi {
 
     /**
      * Build call for v1OrdersCancelAllPost
-     * @param cancelOrderAllRequest  (required)
+     * @param cancelOrderAllRequest CancelOrderAllRequest object. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -119,7 +119,7 @@ public class OrdersApi {
     /**
      * Cancel all orders request
      * This request cancels all open orders on single specified exchange.
-     * @param cancelOrderAllRequest  (required)
+     * @param cancelOrderAllRequest CancelOrderAllRequest object. (required)
      * @return Message
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -138,7 +138,7 @@ public class OrdersApi {
     /**
      * Cancel all orders request
      * This request cancels all open orders on single specified exchange.
-     * @param cancelOrderAllRequest  (required)
+     * @param cancelOrderAllRequest CancelOrderAllRequest object. (required)
      * @return ApiResponse&lt;Message&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -158,7 +158,7 @@ public class OrdersApi {
     /**
      * Cancel all orders request (asynchronously)
      * This request cancels all open orders on single specified exchange.
-     * @param cancelOrderAllRequest  (required)
+     * @param cancelOrderAllRequest CancelOrderAllRequest object. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -179,7 +179,7 @@ public class OrdersApi {
     }
     /**
      * Build call for v1OrdersCancelPost
-     * @param cancelOrderSingleRequest  (required)
+     * @param cancelOrderSingleRequest CancelOrderSingleRequest object. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -237,7 +237,7 @@ public class OrdersApi {
     /**
      * Cancel order request
      * Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
-     * @param cancelOrderSingleRequest  (required)
+     * @param cancelOrderSingleRequest CancelOrderSingleRequest object. (required)
      * @return OrderExecutionReport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -256,7 +256,7 @@ public class OrdersApi {
     /**
      * Cancel order request
      * Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
-     * @param cancelOrderSingleRequest  (required)
+     * @param cancelOrderSingleRequest CancelOrderSingleRequest object. (required)
      * @return ApiResponse&lt;OrderExecutionReport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -276,7 +276,7 @@ public class OrdersApi {
     /**
      * Cancel order request (asynchronously)
      * Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
-     * @param cancelOrderSingleRequest  (required)
+     * @param cancelOrderSingleRequest CancelOrderSingleRequest object. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -410,7 +410,7 @@ public class OrdersApi {
     }
     /**
      * Build call for v1OrdersPost
-     * @param newOrderSingle test (required)
+     * @param newOrderSingle NewOrderSingle object. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -469,7 +469,7 @@ public class OrdersApi {
     /**
      * Send new order
      * This request creating new order for the specific exchange.
-     * @param newOrderSingle test (required)
+     * @param newOrderSingle NewOrderSingle object. (required)
      * @return OrderExecutionReport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -489,7 +489,7 @@ public class OrdersApi {
     /**
      * Send new order
      * This request creating new order for the specific exchange.
-     * @param newOrderSingle test (required)
+     * @param newOrderSingle NewOrderSingle object. (required)
      * @return ApiResponse&lt;OrderExecutionReport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -510,7 +510,7 @@ public class OrdersApi {
     /**
      * Send new order (asynchronously)
      * This request creating new order for the specific exchange.
-     * @param newOrderSingle test (required)
+     * @param newOrderSingle NewOrderSingle object. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

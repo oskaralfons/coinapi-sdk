@@ -27,7 +27,7 @@ This request cancels all open orders on single specified exchange.
 //import org.openapitools.client.api.OrdersApi;
 
 OrdersApi apiInstance = new OrdersApi();
-CancelOrderAllRequest cancelOrderAllRequest = new CancelOrderAllRequest(); // CancelOrderAllRequest | 
+CancelOrderAllRequest cancelOrderAllRequest = new CancelOrderAllRequest(); // CancelOrderAllRequest | CancelOrderAllRequest object.
 try {
     Message result = apiInstance.v1OrdersCancelAllPost(cancelOrderAllRequest);
     System.out.println(result);
@@ -42,7 +42,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelOrderAllRequest** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)|  |
+ **cancelOrderAllRequest** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)| CancelOrderAllRequest object. |
 
 ### Return type
 
@@ -73,7 +73,7 @@ Request cancel for an existing order. The order can be canceled using the &#x60;
 //import org.openapitools.client.api.OrdersApi;
 
 OrdersApi apiInstance = new OrdersApi();
-CancelOrderSingleRequest cancelOrderSingleRequest = new CancelOrderSingleRequest(); // CancelOrderSingleRequest | 
+CancelOrderSingleRequest cancelOrderSingleRequest = new CancelOrderSingleRequest(); // CancelOrderSingleRequest | CancelOrderSingleRequest object.
 try {
     OrderExecutionReport result = apiInstance.v1OrdersCancelPost(cancelOrderSingleRequest);
     System.out.println(result);
@@ -88,7 +88,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelOrderSingleRequest** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)|  |
+ **cancelOrderSingleRequest** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)| CancelOrderSingleRequest object. |
 
 ### Return type
 
@@ -165,7 +165,7 @@ This request creating new order for the specific exchange.
 //import org.openapitools.client.api.OrdersApi;
 
 OrdersApi apiInstance = new OrdersApi();
-NewOrderSingle newOrderSingle = new NewOrderSingle(); // NewOrderSingle | test
+NewOrderSingle newOrderSingle = new NewOrderSingle(); // NewOrderSingle | NewOrderSingle object.
 try {
     OrderExecutionReport result = apiInstance.v1OrdersPost(newOrderSingle);
     System.out.println(result);
@@ -180,7 +180,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)| test |
+ **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)| NewOrderSingle object. |
 
 ### Return type
 

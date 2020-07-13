@@ -22,7 +22,7 @@ This request cancels all open orders on single specified exchange.
 ```R
 library(openapi)
 
-var.cancel.order.all.request <- CancelOrderAllRequest$new("exchange_id_example") # CancelOrderAllRequest | 
+var.cancel.order.all.request <- CancelOrderAllRequest$new("exchange_id_example") # CancelOrderAllRequest | CancelOrderAllRequest object.
 
 #Cancel all orders request
 api.instance <- OrdersApi$new()
@@ -34,7 +34,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancel.order.all.request** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)|  | 
+ **cancel.order.all.request** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)| CancelOrderAllRequest object. | 
 
 ### Return type
 
@@ -67,7 +67,7 @@ Request cancel for an existing order. The order can be canceled using the `clien
 ```R
 library(openapi)
 
-var.cancel.order.single.request <- CancelOrderSingleRequest$new("exchange_id_example", "exchange_order_id_example", "client_order_id_example") # CancelOrderSingleRequest | 
+var.cancel.order.single.request <- CancelOrderSingleRequest$new("exchange_id_example", "exchange_order_id_example", "client_order_id_example") # CancelOrderSingleRequest | CancelOrderSingleRequest object.
 
 #Cancel order request
 api.instance <- OrdersApi$new()
@@ -79,7 +79,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancel.order.single.request** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)|  | 
+ **cancel.order.single.request** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)| CancelOrderSingleRequest object. | 
 
 ### Return type
 
@@ -156,7 +156,7 @@ This request creating new order for the specific exchange.
 ```R
 library(openapi)
 
-var.new.order.single <- NewOrderSingle$new("exchange_id_example", "client_order_id_example", "symbol_exchange_example", "symbol_coinapi_example", 123, 123, OrdSide$new(), OrdType$new(), TimeInForce$new(), "expire_time_example", list("exec_inst_example")) # NewOrderSingle | test
+var.new.order.single <- NewOrderSingle$new("exchange_id_example", "client_order_id_example", "symbol_exchange_example", "symbol_coinapi_example", 123, 123, OrdSide$new(), OrdType$new(), TimeInForce$new(), "expire_time_example", list("exec_inst_example")) # NewOrderSingle | NewOrderSingle object.
 
 #Send new order
 api.instance <- OrdersApi$new()
@@ -168,7 +168,7 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **new.order.single** | [**NewOrderSingle**](NewOrderSingle.md)| test | 
+ **new.order.single** | [**NewOrderSingle**](NewOrderSingle.md)| NewOrderSingle object. | 
 
 ### Return type
 

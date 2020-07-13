@@ -41,7 +41,7 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
     /**
     * Cancel all orders request
     * This request cancels all open orders on single specified exchange.
-    * @param cancelOrderAllRequest  
+    * @param cancelOrderAllRequest CancelOrderAllRequest object. 
     * @return Message
     * @throws UnsupportedOperationException If the API returns an informational or redirection response
     * @throws ClientException If the API returns a client error response
@@ -82,7 +82,7 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
     /**
     * Cancel order request
     * Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
-    * @param cancelOrderSingleRequest  
+    * @param cancelOrderSingleRequest CancelOrderSingleRequest object. 
     * @return OrderExecutionReport
     * @throws UnsupportedOperationException If the API returns an informational or redirection response
     * @throws ClientException If the API returns a client error response
@@ -169,7 +169,7 @@ class OrdersApi(basePath: kotlin.String = defaultBasePath) : ApiClient(basePath)
     /**
     * Send new order
     * This request creating new order for the specific exchange.
-    * @param newOrderSingle test 
+    * @param newOrderSingle NewOrderSingle object. 
     * @return OrderExecutionReport
     * @throws UnsupportedOperationException If the API returns an informational or redirection response
     * @throws ClientException If the API returns a client error response

@@ -26,7 +26,7 @@ This request cancels all open orders on single specified exchange.
 import OemlRestApi from 'oeml_rest_api';
 
 let apiInstance = new OemlRestApi.OrdersApi();
-let cancelOrderAllRequest = new OemlRestApi.CancelOrderAllRequest(); // CancelOrderAllRequest | 
+let cancelOrderAllRequest = new OemlRestApi.CancelOrderAllRequest(); // CancelOrderAllRequest | CancelOrderAllRequest object.
 apiInstance.v1OrdersCancelAllPost(cancelOrderAllRequest, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -41,7 +41,7 @@ apiInstance.v1OrdersCancelAllPost(cancelOrderAllRequest, (error, data, response)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelOrderAllRequest** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)|  | 
+ **cancelOrderAllRequest** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)| CancelOrderAllRequest object. | 
 
 ### Return type
 
@@ -71,7 +71,7 @@ Request cancel for an existing order. The order can be canceled using the &#x60;
 import OemlRestApi from 'oeml_rest_api';
 
 let apiInstance = new OemlRestApi.OrdersApi();
-let cancelOrderSingleRequest = new OemlRestApi.CancelOrderSingleRequest(); // CancelOrderSingleRequest | 
+let cancelOrderSingleRequest = new OemlRestApi.CancelOrderSingleRequest(); // CancelOrderSingleRequest | CancelOrderSingleRequest object.
 apiInstance.v1OrdersCancelPost(cancelOrderSingleRequest, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -86,7 +86,7 @@ apiInstance.v1OrdersCancelPost(cancelOrderSingleRequest, (error, data, response)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancelOrderSingleRequest** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)|  | 
+ **cancelOrderSingleRequest** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)| CancelOrderSingleRequest object. | 
 
 ### Return type
 
@@ -163,7 +163,7 @@ This request creating new order for the specific exchange.
 import OemlRestApi from 'oeml_rest_api';
 
 let apiInstance = new OemlRestApi.OrdersApi();
-let newOrderSingle = new OemlRestApi.NewOrderSingle(); // NewOrderSingle | test
+let newOrderSingle = new OemlRestApi.NewOrderSingle(); // NewOrderSingle | NewOrderSingle object.
 apiInstance.v1OrdersPost(newOrderSingle, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -178,7 +178,7 @@ apiInstance.v1OrdersPost(newOrderSingle, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)| test | 
+ **newOrderSingle** | [**NewOrderSingle**](NewOrderSingle.md)| NewOrderSingle object. | 
 
 ### Return type
 

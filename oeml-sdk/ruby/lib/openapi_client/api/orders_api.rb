@@ -21,7 +21,7 @@ module OpenapiClient
     end
     # Cancel all orders request
     # This request cancels all open orders on single specified exchange.
-    # @param cancel_order_all_request [CancelOrderAllRequest] 
+    # @param cancel_order_all_request [CancelOrderAllRequest] CancelOrderAllRequest object.
     # @param [Hash] opts the optional parameters
     # @return [Message]
     def v1_orders_cancel_all_post(cancel_order_all_request, opts = {})
@@ -31,7 +31,7 @@ module OpenapiClient
 
     # Cancel all orders request
     # This request cancels all open orders on single specified exchange.
-    # @param cancel_order_all_request [CancelOrderAllRequest] 
+    # @param cancel_order_all_request [CancelOrderAllRequest] CancelOrderAllRequest object.
     # @param [Hash] opts the optional parameters
     # @return [Array<(Message, Integer, Hash)>] Message data, response status code and response headers
     def v1_orders_cancel_all_post_with_http_info(cancel_order_all_request, opts = {})
@@ -85,7 +85,7 @@ module OpenapiClient
 
     # Cancel order request
     # Request cancel for an existing order. The order can be canceled using the `client_order_id` or `exchange_order_id`.
-    # @param cancel_order_single_request [CancelOrderSingleRequest] 
+    # @param cancel_order_single_request [CancelOrderSingleRequest] CancelOrderSingleRequest object.
     # @param [Hash] opts the optional parameters
     # @return [OrderExecutionReport]
     def v1_orders_cancel_post(cancel_order_single_request, opts = {})
@@ -95,7 +95,7 @@ module OpenapiClient
 
     # Cancel order request
     # Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
-    # @param cancel_order_single_request [CancelOrderSingleRequest] 
+    # @param cancel_order_single_request [CancelOrderSingleRequest] CancelOrderSingleRequest object.
     # @param [Hash] opts the optional parameters
     # @return [Array<(OrderExecutionReport, Integer, Hash)>] OrderExecutionReport data, response status code and response headers
     def v1_orders_cancel_post_with_http_info(cancel_order_single_request, opts = {})
@@ -208,7 +208,7 @@ module OpenapiClient
 
     # Send new order
     # This request creating new order for the specific exchange.
-    # @param new_order_single [NewOrderSingle] test
+    # @param new_order_single [NewOrderSingle] NewOrderSingle object.
     # @param [Hash] opts the optional parameters
     # @return [OrderExecutionReport]
     def v1_orders_post(new_order_single, opts = {})
@@ -218,7 +218,7 @@ module OpenapiClient
 
     # Send new order
     # This request creating new order for the specific exchange.
-    # @param new_order_single [NewOrderSingle] test
+    # @param new_order_single [NewOrderSingle] NewOrderSingle object.
     # @param [Hash] opts the optional parameters
     # @return [Array<(OrderExecutionReport, Integer, Hash)>] OrderExecutionReport data, response status code and response headers
     def v1_orders_post_with_http_info(new_order_single, opts = {})

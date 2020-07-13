@@ -36,7 +36,7 @@ class OrdersApi(baseUrl: String) {
    *   code 400 : ValidationError (Input model validation errors.)
    *   code 490 : Message (Exchange is unreachable.)
    * 
-   * @param cancelOrderAllRequest 
+   * @param cancelOrderAllRequest CancelOrderAllRequest object.
    */
   def v1OrdersCancelAllPost(cancelOrderAllRequest: CancelOrderAllRequest): ApiRequest[Message] =
     ApiRequest[Message](ApiMethods.POST, baseUrl, "/v1/orders/cancel/all", "application/json")
@@ -54,7 +54,7 @@ class OrdersApi(baseUrl: String) {
    *   code 400 : ValidationError (Input model validation errors.)
    *   code 490 : Message (Exchange is unreachable.)
    * 
-   * @param cancelOrderSingleRequest 
+   * @param cancelOrderSingleRequest CancelOrderSingleRequest object.
    */
   def v1OrdersCancelPost(cancelOrderSingleRequest: CancelOrderSingleRequest): ApiRequest[OrderExecutionReport] =
     ApiRequest[OrderExecutionReport](ApiMethods.POST, baseUrl, "/v1/orders/cancel", "application/json")
@@ -89,7 +89,7 @@ class OrdersApi(baseUrl: String) {
    *   code 490 : Message (Exchange is unreachable.)
    *   code 504 : Message (Exchange didn't responded in the defined timeout.)
    * 
-   * @param newOrderSingle test
+   * @param newOrderSingle NewOrderSingle object.
    */
   def v1OrdersPost(newOrderSingle: NewOrderSingle): ApiRequest[OrderExecutionReport] =
     ApiRequest[OrderExecutionReport](ApiMethods.POST, baseUrl, "/v1/orders", "application/json")

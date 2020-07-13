@@ -120,7 +120,7 @@ class OrdersApi
      *
      * Cancel all orders request
      *
-     * @param  \OpenAPI\Client\Model\CancelOrderAllRequest $cancel_order_all_request cancel_order_all_request (required)
+     * @param  \OpenAPI\Client\Model\CancelOrderAllRequest $cancel_order_all_request CancelOrderAllRequest object. (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -137,7 +137,7 @@ class OrdersApi
      *
      * Cancel all orders request
      *
-     * @param  \OpenAPI\Client\Model\CancelOrderAllRequest $cancel_order_all_request (required)
+     * @param  \OpenAPI\Client\Model\CancelOrderAllRequest $cancel_order_all_request CancelOrderAllRequest object. (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -265,7 +265,7 @@ class OrdersApi
      *
      * Cancel all orders request
      *
-     * @param  \OpenAPI\Client\Model\CancelOrderAllRequest $cancel_order_all_request (required)
+     * @param  \OpenAPI\Client\Model\CancelOrderAllRequest $cancel_order_all_request CancelOrderAllRequest object. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -285,7 +285,7 @@ class OrdersApi
      *
      * Cancel all orders request
      *
-     * @param  \OpenAPI\Client\Model\CancelOrderAllRequest $cancel_order_all_request (required)
+     * @param  \OpenAPI\Client\Model\CancelOrderAllRequest $cancel_order_all_request CancelOrderAllRequest object. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -332,7 +332,7 @@ class OrdersApi
     /**
      * Create request for operation 'v1OrdersCancelAllPost'
      *
-     * @param  \OpenAPI\Client\Model\CancelOrderAllRequest $cancel_order_all_request (required)
+     * @param  \OpenAPI\Client\Model\CancelOrderAllRequest $cancel_order_all_request CancelOrderAllRequest object. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -428,7 +428,7 @@ class OrdersApi
      *
      * Cancel order request
      *
-     * @param  \OpenAPI\Client\Model\CancelOrderSingleRequest $cancel_order_single_request cancel_order_single_request (required)
+     * @param  \OpenAPI\Client\Model\CancelOrderSingleRequest $cancel_order_single_request CancelOrderSingleRequest object. (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -445,7 +445,7 @@ class OrdersApi
      *
      * Cancel order request
      *
-     * @param  \OpenAPI\Client\Model\CancelOrderSingleRequest $cancel_order_single_request (required)
+     * @param  \OpenAPI\Client\Model\CancelOrderSingleRequest $cancel_order_single_request CancelOrderSingleRequest object. (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -573,7 +573,7 @@ class OrdersApi
      *
      * Cancel order request
      *
-     * @param  \OpenAPI\Client\Model\CancelOrderSingleRequest $cancel_order_single_request (required)
+     * @param  \OpenAPI\Client\Model\CancelOrderSingleRequest $cancel_order_single_request CancelOrderSingleRequest object. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -593,7 +593,7 @@ class OrdersApi
      *
      * Cancel order request
      *
-     * @param  \OpenAPI\Client\Model\CancelOrderSingleRequest $cancel_order_single_request (required)
+     * @param  \OpenAPI\Client\Model\CancelOrderSingleRequest $cancel_order_single_request CancelOrderSingleRequest object. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -640,7 +640,7 @@ class OrdersApi
     /**
      * Create request for operation 'v1OrdersCancelPost'
      *
-     * @param  \OpenAPI\Client\Model\CancelOrderSingleRequest $cancel_order_single_request (required)
+     * @param  \OpenAPI\Client\Model\CancelOrderSingleRequest $cancel_order_single_request CancelOrderSingleRequest object. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1026,7 +1026,7 @@ class OrdersApi
      *
      * Send new order
      *
-     * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single test (required)
+     * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single NewOrderSingle object. (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1043,7 +1043,7 @@ class OrdersApi
      *
      * Send new order
      *
-     * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single test (required)
+     * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single NewOrderSingle object. (required)
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1191,7 +1191,7 @@ class OrdersApi
      *
      * Send new order
      *
-     * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single test (required)
+     * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single NewOrderSingle object. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1211,7 +1211,7 @@ class OrdersApi
      *
      * Send new order
      *
-     * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single test (required)
+     * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single NewOrderSingle object. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1258,7 +1258,7 @@ class OrdersApi
     /**
      * Create request for operation 'v1OrdersPost'
      *
-     * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single test (required)
+     * @param  \OpenAPI\Client\Model\NewOrderSingle $new_order_single NewOrderSingle object. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

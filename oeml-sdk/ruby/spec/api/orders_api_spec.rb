@@ -35,7 +35,7 @@ describe 'OrdersApi' do
   # unit tests for v1_orders_cancel_all_post
   # Cancel all orders request
   # This request cancels all open orders on single specified exchange.
-  # @param cancel_order_all_request 
+  # @param cancel_order_all_request CancelOrderAllRequest object.
   # @param [Hash] opts the optional parameters
   # @return [Message]
   describe 'v1_orders_cancel_all_post test' do
@@ -47,7 +47,7 @@ describe 'OrdersApi' do
   # unit tests for v1_orders_cancel_post
   # Cancel order request
   # Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
-  # @param cancel_order_single_request 
+  # @param cancel_order_single_request CancelOrderSingleRequest object.
   # @param [Hash] opts the optional parameters
   # @return [OrderExecutionReport]
   describe 'v1_orders_cancel_post test' do
@@ -71,7 +71,7 @@ describe 'OrdersApi' do
   # unit tests for v1_orders_post
   # Send new order
   # This request creating new order for the specific exchange.
-  # @param new_order_single test
+  # @param new_order_single NewOrderSingle object.
   # @param [Hash] opts the optional parameters
   # @return [OrderExecutionReport]
   describe 'v1_orders_post test' do

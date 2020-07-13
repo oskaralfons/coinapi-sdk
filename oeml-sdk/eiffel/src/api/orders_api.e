@@ -28,7 +28,7 @@ feature -- API Access
 			-- Cancel all orders request
 			-- This request cancels all open orders on single specified exchange.
 			-- 
-			-- argument: cancel_order_all_request  (required)
+			-- argument: cancel_order_all_request CancelOrderAllRequest object. (required)
 			-- 
 			-- 
 			-- Result MESSAGE
@@ -63,7 +63,7 @@ feature -- API Access
 			-- Cancel order request
 			-- Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
 			-- 
-			-- argument: cancel_order_single_request  (required)
+			-- argument: cancel_order_single_request CancelOrderSingleRequest object. (required)
 			-- 
 			-- 
 			-- Result ORDER_EXECUTION_REPORT
@@ -134,7 +134,7 @@ feature -- API Access
 			-- Send new order
 			-- This request creating new order for the specific exchange.
 			-- 
-			-- argument: new_order_single test (required)
+			-- argument: new_order_single NewOrderSingle object. (required)
 			-- 
 			-- 
 			-- Result ORDER_EXECUTION_REPORT

@@ -56,7 +56,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/NewOrderSingle'
-        description: test
+        description: NewOrderSingle object.
         required: true
       responses:
         "200":
@@ -125,6 +125,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/CancelOrderSingleRequest'
+        description: CancelOrderSingleRequest object.
         required: true
       responses:
         "200":
@@ -157,6 +158,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/CancelOrderAllRequest'
+        description: CancelOrderAllRequest object.
         required: true
       responses:
         "200":

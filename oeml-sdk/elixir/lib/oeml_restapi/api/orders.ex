@@ -18,7 +18,7 @@ defmodule OEML-RESTAPI.Api.Orders do
   ## Parameters
 
   - connection (OEML-RESTAPI.Connection): Connection to server
-  - cancel_order_all_request (CancelOrderAllRequest): 
+  - cancel_order_all_request (CancelOrderAllRequest): CancelOrderAllRequest object.
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
@@ -47,7 +47,7 @@ defmodule OEML-RESTAPI.Api.Orders do
   ## Parameters
 
   - connection (OEML-RESTAPI.Connection): Connection to server
-  - cancel_order_single_request (CancelOrderSingleRequest): 
+  - cancel_order_single_request (CancelOrderSingleRequest): CancelOrderSingleRequest object.
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
@@ -107,7 +107,7 @@ defmodule OEML-RESTAPI.Api.Orders do
   ## Parameters
 
   - connection (OEML-RESTAPI.Connection): Connection to server
-  - new_order_single (NewOrderSingle): test
+  - new_order_single (NewOrderSingle): NewOrderSingle object.
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 

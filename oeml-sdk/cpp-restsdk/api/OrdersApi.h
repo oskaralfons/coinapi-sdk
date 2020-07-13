@@ -55,7 +55,7 @@ public:
     /// <remarks>
     /// This request cancels all open orders on single specified exchange.
     /// </remarks>
-    /// <param name="cancelOrderAllRequest"></param>
+    /// <param name="cancelOrderAllRequest">CancelOrderAllRequest object.</param>
     pplx::task<std::shared_ptr<Message>> v1OrdersCancelAllPost(
         std::shared_ptr<CancelOrderAllRequest> cancelOrderAllRequest
     ) const;
@@ -65,7 +65,7 @@ public:
     /// <remarks>
     /// Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
     /// </remarks>
-    /// <param name="cancelOrderSingleRequest"></param>
+    /// <param name="cancelOrderSingleRequest">CancelOrderSingleRequest object.</param>
     pplx::task<std::shared_ptr<OrderExecutionReport>> v1OrdersCancelPost(
         std::shared_ptr<CancelOrderSingleRequest> cancelOrderSingleRequest
     ) const;
@@ -85,7 +85,7 @@ public:
     /// <remarks>
     /// This request creating new order for the specific exchange.
     /// </remarks>
-    /// <param name="newOrderSingle">test</param>
+    /// <param name="newOrderSingle">NewOrderSingle object.</param>
     pplx::task<std::shared_ptr<OrderExecutionReport>> v1OrdersPost(
         std::shared_ptr<NewOrderSingle> newOrderSingle
     ) const;

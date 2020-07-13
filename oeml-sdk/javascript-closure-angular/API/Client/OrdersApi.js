@@ -51,7 +51,7 @@ API.Client.OrdersApi.$inject = ['$http', '$httpParamSerializer', '$injector'];
 /**
  * Cancel all orders request
  * This request cancels all open orders on single specified exchange.
- * @param {!CancelOrderAllRequest} cancelOrderAllRequest 
+ * @param {!CancelOrderAllRequest} cancelOrderAllRequest CancelOrderAllRequest object.
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
  * @return {!angular.$q.Promise<!API.Client.Message>}
  */
@@ -88,7 +88,7 @@ API.Client.OrdersApi.prototype.v1OrdersCancelAllPost = function(cancelOrderAllRe
 /**
  * Cancel order request
  * Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
- * @param {!CancelOrderSingleRequest} cancelOrderSingleRequest 
+ * @param {!CancelOrderSingleRequest} cancelOrderSingleRequest CancelOrderSingleRequest object.
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
  * @return {!angular.$q.Promise<!API.Client.OrderExecutionReport>}
  */
@@ -161,7 +161,7 @@ API.Client.OrdersApi.prototype.v1OrdersGet = function(opt_exchangeId, opt_extraH
 /**
  * Send new order
  * This request creating new order for the specific exchange.
- * @param {!NewOrderSingle} newOrderSingle test
+ * @param {!NewOrderSingle} newOrderSingle NewOrderSingle object.
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
  * @return {!angular.$q.Promise<!API.Client.OrderExecutionReport>}
  */

@@ -28,7 +28,7 @@ public class OASOrdersApi {
     /**
      * Cancel all orders request
      * This request cancels all open orders on single specified exchange.
-     * @param oaSCancelOrderAllRequest  (required)
+     * @param oaSCancelOrderAllRequest CancelOrderAllRequest object. (required)
      * @return OASMessage
      * @throws OAS.ApiException if fails to make API call
      */
@@ -52,7 +52,7 @@ public class OASOrdersApi {
     /**
      * Cancel order request
      * Request cancel for an existing order. The order can be canceled using the &#x60;client_order_id&#x60; or &#x60;exchange_order_id&#x60;.
-     * @param oaSCancelOrderSingleRequest  (required)
+     * @param oaSCancelOrderSingleRequest CancelOrderSingleRequest object. (required)
      * @return OASOrderExecutionReport
      * @throws OAS.ApiException if fails to make API call
      */
@@ -102,7 +102,7 @@ public class OASOrdersApi {
     /**
      * Send new order
      * This request creating new order for the specific exchange.
-     * @param oaSNewOrderSingle test (required)
+     * @param oaSNewOrderSingle NewOrderSingle object. (required)
      * @return OASOrderExecutionReport
      * @throws OAS.ApiException if fails to make API call
      */

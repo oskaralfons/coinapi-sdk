@@ -68,13 +68,15 @@ import qualified Prelude as P
 v1OrdersCancelAllPost 
   :: (Consumes V1OrdersCancelAllPost MimeJSON, MimeRender MimeJSON CancelOrderAllRequest)
   => Accept accept -- ^ request accept ('MimeType')
-  -> CancelOrderAllRequest -- ^ "cancelOrderAllRequest"
+  -> CancelOrderAllRequest -- ^ "cancelOrderAllRequest" -  CancelOrderAllRequest object.
   -> OEML-RESTRequest V1OrdersCancelAllPost MimeJSON Message accept
 v1OrdersCancelAllPost  _ cancelOrderAllRequest =
   _mkRequest "POST" ["/v1/orders/cancel/all"]
     `setBodyParam` cancelOrderAllRequest
 
 data V1OrdersCancelAllPost 
+
+-- | /Body Param/ "CancelOrderAllRequest" - CancelOrderAllRequest object.
 instance HasBodyParam V1OrdersCancelAllPost CancelOrderAllRequest 
 
 -- | @application/json@
@@ -97,13 +99,15 @@ instance Produces V1OrdersCancelAllPost MimeApplictionJson
 v1OrdersCancelPost 
   :: (Consumes V1OrdersCancelPost MimeJSON, MimeRender MimeJSON CancelOrderSingleRequest)
   => Accept accept -- ^ request accept ('MimeType')
-  -> CancelOrderSingleRequest -- ^ "cancelOrderSingleRequest"
+  -> CancelOrderSingleRequest -- ^ "cancelOrderSingleRequest" -  CancelOrderSingleRequest object.
   -> OEML-RESTRequest V1OrdersCancelPost MimeJSON OrderExecutionReport accept
 v1OrdersCancelPost  _ cancelOrderSingleRequest =
   _mkRequest "POST" ["/v1/orders/cancel"]
     `setBodyParam` cancelOrderSingleRequest
 
 data V1OrdersCancelPost 
+
+-- | /Body Param/ "CancelOrderSingleRequest" - CancelOrderSingleRequest object.
 instance HasBodyParam V1OrdersCancelPost CancelOrderSingleRequest 
 
 -- | @application/json@
@@ -152,7 +156,7 @@ instance Produces V1OrdersGet MimeApplictionJson
 v1OrdersPost 
   :: (Consumes V1OrdersPost MimeJSON, MimeRender MimeJSON NewOrderSingle)
   => Accept accept -- ^ request accept ('MimeType')
-  -> NewOrderSingle -- ^ "newOrderSingle" -  test
+  -> NewOrderSingle -- ^ "newOrderSingle" -  NewOrderSingle object.
   -> OEML-RESTRequest V1OrdersPost MimeJSON OrderExecutionReport accept
 v1OrdersPost  _ newOrderSingle =
   _mkRequest "POST" ["/v1/orders"]
@@ -160,7 +164,7 @@ v1OrdersPost  _ newOrderSingle =
 
 data V1OrdersPost 
 
--- | /Body Param/ "NewOrderSingle" - test
+-- | /Body Param/ "NewOrderSingle" - NewOrderSingle object.
 instance HasBodyParam V1OrdersPost NewOrderSingle 
 
 -- | @application/json@

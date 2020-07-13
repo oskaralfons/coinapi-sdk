@@ -27,7 +27,7 @@ This request cancels all open orders on single specified exchange.
 require 'openapi_client'
 
 api_instance = OpenapiClient::OrdersApi.new
-cancel_order_all_request = OpenapiClient::CancelOrderAllRequest.new # CancelOrderAllRequest | 
+cancel_order_all_request = OpenapiClient::CancelOrderAllRequest.new # CancelOrderAllRequest | CancelOrderAllRequest object.
 
 begin
   #Cancel all orders request
@@ -43,7 +43,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancel_order_all_request** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)|  | 
+ **cancel_order_all_request** | [**CancelOrderAllRequest**](CancelOrderAllRequest.md)| CancelOrderAllRequest object. | 
 
 ### Return type
 
@@ -74,7 +74,7 @@ Request cancel for an existing order. The order can be canceled using the `clien
 require 'openapi_client'
 
 api_instance = OpenapiClient::OrdersApi.new
-cancel_order_single_request = OpenapiClient::CancelOrderSingleRequest.new # CancelOrderSingleRequest | 
+cancel_order_single_request = OpenapiClient::CancelOrderSingleRequest.new # CancelOrderSingleRequest | CancelOrderSingleRequest object.
 
 begin
   #Cancel order request
@@ -90,7 +90,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cancel_order_single_request** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)|  | 
+ **cancel_order_single_request** | [**CancelOrderSingleRequest**](CancelOrderSingleRequest.md)| CancelOrderSingleRequest object. | 
 
 ### Return type
 
@@ -170,7 +170,7 @@ This request creating new order for the specific exchange.
 require 'openapi_client'
 
 api_instance = OpenapiClient::OrdersApi.new
-new_order_single = OpenapiClient::NewOrderSingle.new # NewOrderSingle | test
+new_order_single = OpenapiClient::NewOrderSingle.new # NewOrderSingle | NewOrderSingle object.
 
 begin
   #Send new order
@@ -186,7 +186,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **new_order_single** | [**NewOrderSingle**](NewOrderSingle.md)| test | 
+ **new_order_single** | [**NewOrderSingle**](NewOrderSingle.md)| NewOrderSingle object. | 
 
 ### Return type
 
