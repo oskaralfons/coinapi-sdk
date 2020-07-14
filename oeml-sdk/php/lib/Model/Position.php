@@ -223,7 +223,7 @@ class Position implements ModelInterface, ArrayAccess
     /**
      * Sets exchange_id
      *
-     * @param string|null $exchange_id Exchange identifier.
+     * @param string|null $exchange_id Exchange identifier used to identify the routing destination.
      *
      * @return $this
      */

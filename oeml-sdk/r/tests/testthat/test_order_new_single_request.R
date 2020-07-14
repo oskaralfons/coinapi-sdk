@@ -7,7 +7,7 @@ model.instance <- OrderNewSingleRequest$new()
 
 test_that("exchange_id", {
   # tests for the property `exchange_id` (character)
-  # Exchange identifier.
+  # Exchange identifier used to identify the routing destination.
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`exchange_id`, "EXPECTED_RESULT")

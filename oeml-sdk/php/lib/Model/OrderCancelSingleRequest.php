@@ -233,7 +233,7 @@ class OrderCancelSingleRequest implements ModelInterface, ArrayAccess
     /**
      * Sets exchange_id
      *
-     * @param string $exchange_id Exchange identifier.
+     * @param string $exchange_id Exchange identifier used to identify the routing destination.
      *
      * @return $this
      */
@@ -257,7 +257,7 @@ class OrderCancelSingleRequest implements ModelInterface, ArrayAccess
     /**
      * Sets exchange_order_id
      *
-     * @param string|null $exchange_order_id The unique identifier of the order assigned by the exchange. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
+     * @param string|null $exchange_order_id Unique identifier of the order assigned by the exchange or executing system. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
      *
      * @return $this
      */

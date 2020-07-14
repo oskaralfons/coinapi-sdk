@@ -66,7 +66,7 @@ public:
     void setClientOrderIdFormatExchange(const utility::string_t& value);
 
     /// <summary>
-    /// The unique identifier of the order assigned by the exchange.
+    /// Unique identifier of the order assigned by the exchange or executing system.
     /// </summary>
     utility::string_t getExchangeOrderId() const;
     bool exchangeOrderIdIsSet() const;
@@ -75,7 +75,7 @@ public:
     void setExchangeOrderId(const utility::string_t& value);
 
     /// <summary>
-    /// Amount open.
+    /// Quantity open for further execution. &#x60;amount_open&#x60; &#x3D; &#x60;amount_order&#x60; - &#x60;amount_filled&#x60;
     /// </summary>
     double getAmountOpen() const;
     bool amountOpenIsSet() const;
@@ -84,7 +84,7 @@ public:
     void setAmountOpen(double value);
 
     /// <summary>
-    /// Amount filled.
+    /// Total quantity filled.
     /// </summary>
     double getAmountFilled() const;
     bool amountFilledIsSet() const;

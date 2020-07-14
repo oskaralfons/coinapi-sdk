@@ -62,7 +62,7 @@ class Balance {
 }
 
 /**
- * Exchange identifier.
+ * Exchange identifier used to identify the routing destination.
  * @member {String} exchange_id
  */
 Balance.prototype['exchange_id'] = undefined;

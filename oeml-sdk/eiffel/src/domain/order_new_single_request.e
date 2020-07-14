@@ -25,7 +25,7 @@ inherit
 feature --Access
 
     exchange_id: detachable STRING_32 
-      -- Exchange identifier.
+      -- Exchange identifier used to identify the routing destination.
     client_order_id: detachable STRING_32 
       -- The unique identifier of the order assigned by the client.
     symbol_id_exchange: detachable STRING_32 

@@ -76,7 +76,7 @@ export class RequiredError extends Error {
  */
 export type Balance = {
     /**
-     * Exchange identifier.
+     * Exchange identifier used to identify the routing destination.
      * @type {string}
      * @memberof Balance
      */
@@ -215,13 +215,13 @@ export type OrderCancelAllRequest = {
  */
 export type OrderCancelSingleRequest = {
     /**
-     * Exchange identifier.
+     * Exchange identifier used to identify the routing destination.
      * @type {string}
      * @memberof OrderCancelSingleRequest
      */
     exchange_id: string;
     /**
-     * The unique identifier of the order assigned by the exchange. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
+     * Unique identifier of the order assigned by the exchange or executing system. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
      * @type {string}
      * @memberof OrderCancelSingleRequest
      */
@@ -243,7 +243,7 @@ export type OrderCancelSingleRequest = {
  */
 export type OrderExecutionReport = {
     /**
-     * Exchange identifier.
+     * Exchange identifier used to identify the routing destination.
      * @type {string}
      * @memberof OrderExecutionReport
      */
@@ -315,19 +315,19 @@ export type OrderExecutionReport = {
      */
     client_order_id_format_exchange: string;
     /**
-     * The unique identifier of the order assigned by the exchange.
+     * Unique identifier of the order assigned by the exchange or executing system.
      * @type {string}
      * @memberof OrderExecutionReport
      */
     exchange_order_id?: string;
     /**
-     * Amount open.
+     * Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled`
      * @type {number}
      * @memberof OrderExecutionReport
      */
     amount_open: number;
     /**
-     * Amount filled.
+     * Total quantity filled.
      * @type {number}
      * @memberof OrderExecutionReport
      */
@@ -365,19 +365,19 @@ export type OrderExecutionReportAllOf = {
      */
     client_order_id_format_exchange: string;
     /**
-     * The unique identifier of the order assigned by the exchange.
+     * Unique identifier of the order assigned by the exchange or executing system.
      * @type {string}
      * @memberof OrderExecutionReportAllOf
      */
     exchange_order_id?: string;
     /**
-     * Amount open.
+     * Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled`
      * @type {number}
      * @memberof OrderExecutionReportAllOf
      */
     amount_open: number;
     /**
-     * Amount filled.
+     * Total quantity filled.
      * @type {number}
      * @memberof OrderExecutionReportAllOf
      */
@@ -411,7 +411,7 @@ export type OrderExecutionReportAllOf = {
  */
 export type OrderNewSingleRequest = {
     /**
-     * Exchange identifier.
+     * Exchange identifier used to identify the routing destination.
      * @type {string}
      * @memberof OrderNewSingleRequest
      */
@@ -485,7 +485,7 @@ export type OrderNewSingleRequest = {
  */
 export type Position = {
     /**
-     * Exchange identifier.
+     * Exchange identifier used to identify the routing destination.
      * @type {string}
      * @memberof Position
      */

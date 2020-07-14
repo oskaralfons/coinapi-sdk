@@ -28,7 +28,7 @@ import java.io.IOException;
  * Cancel single order request object.
  */
 @ApiModel(description = "Cancel single order request object.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T22:16:36.646Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-14T22:21:51.344Z[Etc/UTC]")
 public class OrderCancelSingleRequest {
   public static final String SERIALIZED_NAME_EXCHANGE_ID = "exchange_id";
   @SerializedName(SERIALIZED_NAME_EXCHANGE_ID)
@@ -50,10 +50,10 @@ public class OrderCancelSingleRequest {
   }
 
    /**
-   * Exchange identifier.
+   * Exchange identifier used to identify the routing destination.
    * @return exchangeId
   **/
-  @ApiModelProperty(example = "KRAKEN", required = true, value = "Exchange identifier.")
+  @ApiModelProperty(example = "KRAKEN", required = true, value = "Exchange identifier used to identify the routing destination.")
 
   public String getExchangeId() {
     return exchangeId;
@@ -72,11 +72,11 @@ public class OrderCancelSingleRequest {
   }
 
    /**
-   * The unique identifier of the order assigned by the exchange. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order.
+   * Unique identifier of the order assigned by the exchange or executing system. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order.
    * @return exchangeOrderId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "3456456754", value = "The unique identifier of the order assigned by the exchange. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.")
+  @ApiModelProperty(example = "3456456754", value = "Unique identifier of the order assigned by the exchange or executing system. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.")
 
   public String getExchangeOrderId() {
     return exchangeOrderId;

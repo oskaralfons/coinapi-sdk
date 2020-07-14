@@ -17,11 +17,11 @@ import com.squareup.moshi.Json
 /**
  * The order execution report message.
  * @param clientOrderIdFormatExchange The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
- * @param amountOpen Amount open.
- * @param amountFilled Amount filled.
+ * @param amountOpen Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled`
+ * @param amountFilled Total quantity filled.
  * @param status 
  * @param timeOrder Timestamped history of order status changes.
- * @param exchangeOrderId The unique identifier of the order assigned by the exchange.
+ * @param exchangeOrderId Unique identifier of the order assigned by the exchange or executing system.
  * @param errorMessage Error message
  */
 
@@ -29,10 +29,10 @@ data class OrderExecutionReportAllOf (
     /* The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. */
     @Json(name = "client_order_id_format_exchange")
     val clientOrderIdFormatExchange: kotlin.String,
-    /* Amount open. */
+    /* Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled` */
     @Json(name = "amount_open")
     val amountOpen: java.math.BigDecimal,
-    /* Amount filled. */
+    /* Total quantity filled. */
     @Json(name = "amount_filled")
     val amountFilled: java.math.BigDecimal,
     @Json(name = "status")
@@ -40,7 +40,7 @@ data class OrderExecutionReportAllOf (
     /* Timestamped history of order status changes. */
     @Json(name = "time_order")
     val timeOrder: kotlin.Array<kotlin.Array<kotlin.String>>,
-    /* The unique identifier of the order assigned by the exchange. */
+    /* Unique identifier of the order assigned by the exchange or executing system. */
     @Json(name = "exchange_order_id")
     val exchangeOrderId: kotlin.String? = null,
     /* Error message */

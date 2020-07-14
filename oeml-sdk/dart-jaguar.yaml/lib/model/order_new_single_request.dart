@@ -10,7 +10,7 @@ import 'package:openapi/model/ord_side.dart';
 part 'order_new_single_request.jser.dart';
 
 class OrderNewSingleRequest {
-   /* Exchange identifier. */
+   /* Exchange identifier used to identify the routing destination. */
   @Alias('exchange_id', isNullable: false,  )
   final String exchangeId;
    /* The unique identifier of the order assigned by the client. */

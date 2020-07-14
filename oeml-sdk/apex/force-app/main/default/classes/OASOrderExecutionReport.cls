@@ -15,7 +15,7 @@
  */
 public class OASOrderExecutionReport implements OASOrderNewSingleRequest, OASOrderExecutionReportAllOf, OAS.MappedProperties {
     /**
-     * Exchange identifier.
+     * Exchange identifier used to identify the routing destination.
      * @return exchangeId
      */
     public String exchangeId { get; set; }
@@ -96,19 +96,19 @@ public class OASOrderExecutionReport implements OASOrderNewSingleRequest, OASOrd
     public String clientOrderIdFormatExchange { get; set; }
 
     /**
-     * The unique identifier of the order assigned by the exchange.
+     * Unique identifier of the order assigned by the exchange or executing system.
      * @return exchangeOrderId
      */
     public String exchangeOrderId { get; set; }
 
     /**
-     * Amount open.
+     * Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled`
      * @return amountOpen
      */
     public Double amountOpen { get; set; }
 
     /**
-     * Amount filled.
+     * Total quantity filled.
      * @return amountFilled
      */
     public Double amountFilled { get; set; }

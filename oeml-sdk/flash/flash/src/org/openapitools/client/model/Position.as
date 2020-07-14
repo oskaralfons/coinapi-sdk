@@ -4,7 +4,7 @@ import org.openapitools.client.model.PositionData;
 
     [XmlRootNode(name="Position")]
     public class Position {
-        /* Exchange identifier. */
+        /* Exchange identifier used to identify the routing destination. */
         [XmlElement(name="exchange_id")]
         public var exchangeId: String = null;
                 // This declaration below of _data_obj_class is to force flash compiler to include this class

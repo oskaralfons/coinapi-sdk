@@ -12,7 +12,7 @@ part 'order_execution_report.g.dart';
 
 abstract class OrderExecutionReport implements Built<OrderExecutionReport, OrderExecutionReportBuilder> {
 
-    /* Exchange identifier. */
+    /* Exchange identifier used to identify the routing destination. */
         @nullable
     @BuiltValueField(wireName: r'exchange_id')
     String get exchangeId;
@@ -64,15 +64,15 @@ abstract class OrderExecutionReport implements Built<OrderExecutionReport, Order
         @nullable
     @BuiltValueField(wireName: r'client_order_id_format_exchange')
     String get clientOrderIdFormatExchange;
-    /* The unique identifier of the order assigned by the exchange. */
+    /* Unique identifier of the order assigned by the exchange or executing system. */
         @nullable
     @BuiltValueField(wireName: r'exchange_order_id')
     String get exchangeOrderId;
-    /* Amount open. */
+    /* Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled` */
         @nullable
     @BuiltValueField(wireName: r'amount_open')
     num get amountOpen;
-    /* Amount filled. */
+    /* Total quantity filled. */
         @nullable
     @BuiltValueField(wireName: r'amount_filled')
     num get amountFilled;

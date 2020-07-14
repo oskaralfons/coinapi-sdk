@@ -15,7 +15,7 @@
  */
 public class OASPosition implements OAS.MappedProperties {
     /**
-     * Exchange identifier.
+     * Exchange identifier used to identify the routing destination.
      * @return exchangeId
      */
     public String exchangeId { get; set; }

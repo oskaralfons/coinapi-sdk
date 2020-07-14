@@ -15,7 +15,7 @@ require 'date'
 module OpenapiClient
   # The order execution report object.
   class OrderExecutionReport
-    # Exchange identifier.
+    # Exchange identifier used to identify the routing destination.
     attr_accessor :exchange_id
 
     # The unique identifier of the order assigned by the client.
@@ -48,13 +48,13 @@ module OpenapiClient
     # The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
     attr_accessor :client_order_id_format_exchange
 
-    # The unique identifier of the order assigned by the exchange.
+    # Unique identifier of the order assigned by the exchange or executing system.
     attr_accessor :exchange_order_id
 
-    # Amount open.
+    # Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled`
     attr_accessor :amount_open
 
-    # Amount filled.
+    # Total quantity filled.
     attr_accessor :amount_filled
 
     attr_accessor :status

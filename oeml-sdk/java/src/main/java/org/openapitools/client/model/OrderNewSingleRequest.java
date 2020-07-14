@@ -35,7 +35,7 @@ import org.threeten.bp.LocalDate;
  * The new order message.
  */
 @ApiModel(description = "The new order message.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T22:16:36.646Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-14T22:21:51.344Z[Etc/UTC]")
 public class OrderNewSingleRequest {
   public static final String SERIALIZED_NAME_EXCHANGE_ID = "exchange_id";
   @SerializedName(SERIALIZED_NAME_EXCHANGE_ID)
@@ -138,10 +138,10 @@ public class OrderNewSingleRequest {
   }
 
    /**
-   * Exchange identifier.
+   * Exchange identifier used to identify the routing destination.
    * @return exchangeId
   **/
-  @ApiModelProperty(example = "KRAKEN", required = true, value = "Exchange identifier.")
+  @ApiModelProperty(example = "KRAKEN", required = true, value = "Exchange identifier used to identify the routing destination.")
 
   public String getExchangeId() {
     return exchangeId;

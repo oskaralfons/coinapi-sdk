@@ -164,14 +164,14 @@ __PACKAGE__->method_documentation({
     'exchange_id' => {
         datatype => 'string',
         base_name => 'exchange_id',
-        description => 'Exchange identifier.',
+        description => 'Exchange identifier used to identify the routing destination.',
         format => '',
         read_only => '',
             },
     'exchange_order_id' => {
         datatype => 'string',
         base_name => 'exchange_order_id',
-        description => 'The unique identifier of the order assigned by the exchange. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order.',
+        description => 'Unique identifier of the order assigned by the exchange or executing system. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order.',
         format => '',
         read_only => '',
             },

@@ -15,13 +15,13 @@
  */
 public class OASOrderCancelSingleRequest implements OAS.MappedProperties {
     /**
-     * Exchange identifier.
+     * Exchange identifier used to identify the routing destination.
      * @return exchangeId
      */
     public String exchangeId { get; set; }
 
     /**
-     * The unique identifier of the order assigned by the exchange. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
+     * Unique identifier of the order assigned by the exchange or executing system. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
      * @return exchangeOrderId
      */
     public String exchangeOrderId { get; set; }

@@ -11,7 +11,7 @@
 package openapi
 // Position struct for Position
 type Position struct {
-	// Exchange identifier.
+	// Exchange identifier used to identify the routing destination.
 	ExchangeId string `json:"exchange_id,omitempty"`
 	Data []PositionData `json:"data,omitempty"`
 }

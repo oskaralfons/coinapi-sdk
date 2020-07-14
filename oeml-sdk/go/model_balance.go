@@ -11,7 +11,7 @@
 package openapi
 // Balance struct for Balance
 type Balance struct {
-	// Exchange identifier.
+	// Exchange identifier used to identify the routing destination.
 	ExchangeId string `json:"exchange_id,omitempty"`
 	Data []BalanceData `json:"data,omitempty"`
 }

@@ -53,11 +53,11 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get Exchange identifier.
+	/*! \brief Get Exchange identifier used to identify the routing destination.
 	 */
 	std::string getExchangeId();
 
-	/*! \brief Set Exchange identifier.
+	/*! \brief Set Exchange identifier used to identify the routing destination.
 	 */
 	void setExchangeId(std::string  exchange_id);
 	/*! \brief Get The unique identifier of the order assigned by the client.
@@ -137,25 +137,25 @@ public:
 	/*! \brief Set The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
 	 */
 	void setClientOrderIdFormatExchange(std::string  client_order_id_format_exchange);
-	/*! \brief Get The unique identifier of the order assigned by the exchange.
+	/*! \brief Get Unique identifier of the order assigned by the exchange or executing system.
 	 */
 	std::string getExchangeOrderId();
 
-	/*! \brief Set The unique identifier of the order assigned by the exchange.
+	/*! \brief Set Unique identifier of the order assigned by the exchange or executing system.
 	 */
 	void setExchangeOrderId(std::string  exchange_order_id);
-	/*! \brief Get Amount open.
+	/*! \brief Get Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled`
 	 */
 	long long getAmountOpen();
 
-	/*! \brief Set Amount open.
+	/*! \brief Set Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled`
 	 */
 	void setAmountOpen(long long  amount_open);
-	/*! \brief Get Amount filled.
+	/*! \brief Get Total quantity filled.
 	 */
 	long long getAmountFilled();
 
-	/*! \brief Set Amount filled.
+	/*! \brief Set Total quantity filled.
 	 */
 	void setAmountFilled(long long  amount_filled);
 	/*! \brief Get 

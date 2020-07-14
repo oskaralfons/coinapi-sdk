@@ -54,9 +54,9 @@ public class OrderNewSingleRequest {
   private List<ExecInstEnum> execInst = null;
 
   /**
-   * Exchange identifier.
+   * Exchange identifier used to identify the routing destination.
    **/
-  @ApiModelProperty(required = true, value = "Exchange identifier.")
+  @ApiModelProperty(required = true, value = "Exchange identifier used to identify the routing destination.")
   public String getExchangeId() {
     return exchangeId;
   }

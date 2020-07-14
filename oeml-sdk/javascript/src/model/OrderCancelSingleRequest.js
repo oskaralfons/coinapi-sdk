@@ -23,7 +23,7 @@ class OrderCancelSingleRequest {
      * Constructs a new <code>OrderCancelSingleRequest</code>.
      * Cancel single order request object.
      * @alias module:model/OrderCancelSingleRequest
-     * @param exchangeId {String} Exchange identifier.
+     * @param exchangeId {String} Exchange identifier used to identify the routing destination.
      */
     constructor(exchangeId) { 
         
@@ -67,13 +67,13 @@ class OrderCancelSingleRequest {
 }
 
 /**
- * Exchange identifier.
+ * Exchange identifier used to identify the routing destination.
  * @member {String} exchange_id
  */
 OrderCancelSingleRequest.prototype['exchange_id'] = undefined;
 
 /**
- * The unique identifier of the order assigned by the exchange. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
+ * Unique identifier of the order assigned by the exchange or executing system. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
  * @member {String} exchange_order_id
  */
 OrderCancelSingleRequest.prototype['exchange_order_id'] = undefined;

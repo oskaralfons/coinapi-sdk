@@ -15,7 +15,7 @@ import { BalanceData } from './balanceData';
 
 export class Balance {
     /**
-    * Exchange identifier.
+    * Exchange identifier used to identify the routing destination.
     */
     'exchangeId'?: string;
     'data'?: Array<BalanceData>;

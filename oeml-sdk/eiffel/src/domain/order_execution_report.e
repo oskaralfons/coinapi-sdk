@@ -25,7 +25,7 @@ inherit
 feature --Access
 
     exchange_id: detachable STRING_32 
-      -- Exchange identifier.
+      -- Exchange identifier used to identify the routing destination.
     client_order_id: detachable STRING_32 
       -- The unique identifier of the order assigned by the client.
     symbol_id_exchange: detachable STRING_32 
@@ -49,11 +49,11 @@ feature --Access
     client_order_id_format_exchange: detachable STRING_32 
       -- The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
     exchange_order_id: detachable STRING_32 
-      -- The unique identifier of the order assigned by the exchange.
+      -- Unique identifier of the order assigned by the exchange or executing system.
     amount_open: REAL_32 
-      -- Amount open.
+      -- Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled`
     amount_filled: REAL_32 
-      -- Amount filled.
+      -- Total quantity filled.
     status: detachable ORD_STATUS 
       
     time_order: detachable LIST [LIST [STRING_32]] 

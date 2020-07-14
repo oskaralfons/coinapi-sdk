@@ -9,7 +9,7 @@ part 'order_new_single_request.g.dart';
 
 abstract class OrderNewSingleRequest implements Built<OrderNewSingleRequest, OrderNewSingleRequestBuilder> {
 
-    /* Exchange identifier. */
+    /* Exchange identifier used to identify the routing destination. */
         @nullable
     @BuiltValueField(wireName: r'exchange_id')
     String get exchangeId;

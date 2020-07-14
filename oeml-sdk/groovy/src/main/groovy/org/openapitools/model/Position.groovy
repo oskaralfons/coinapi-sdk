@@ -9,7 +9,7 @@ import org.openapitools.model.PositionData;
 
 @Canonical
 class Position {
-    /* Exchange identifier. */
+    /* Exchange identifier used to identify the routing destination. */
     String exchangeId
     
     List<PositionData> data = new ArrayList<PositionData>()

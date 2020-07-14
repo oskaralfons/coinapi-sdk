@@ -293,7 +293,7 @@ class OrderExecutionReportAllOf implements ModelInterface, ArrayAccess
     /**
      * Sets exchange_order_id
      *
-     * @param string|null $exchange_order_id The unique identifier of the order assigned by the exchange.
+     * @param string|null $exchange_order_id Unique identifier of the order assigned by the exchange or executing system.
      *
      * @return $this
      */
@@ -317,7 +317,7 @@ class OrderExecutionReportAllOf implements ModelInterface, ArrayAccess
     /**
      * Sets amount_open
      *
-     * @param float $amount_open Amount open.
+     * @param float $amount_open Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled`
      *
      * @return $this
      */
@@ -341,7 +341,7 @@ class OrderExecutionReportAllOf implements ModelInterface, ArrayAccess
     /**
      * Sets amount_filled
      *
-     * @param float $amount_filled Amount filled.
+     * @param float $amount_filled Total quantity filled.
      *
      * @return $this
      */

@@ -62,7 +62,7 @@ class Position(object):
     def exchange_id(self):
         """Gets the exchange_id of this Position.  # noqa: E501
 
-        Exchange identifier.  # noqa: E501
+        Exchange identifier used to identify the routing destination.  # noqa: E501
 
         :return: The exchange_id of this Position.  # noqa: E501
         :rtype: str
@@ -73,7 +73,7 @@ class Position(object):
     def exchange_id(self, exchange_id):
         """Sets the exchange_id of this Position.
 
-        Exchange identifier.  # noqa: E501
+        Exchange identifier used to identify the routing destination.  # noqa: E501
 
         :param exchange_id: The exchange_id of this Position.  # noqa: E501
         :type: str

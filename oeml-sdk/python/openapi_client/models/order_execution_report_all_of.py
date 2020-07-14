@@ -107,7 +107,7 @@ class OrderExecutionReportAllOf(object):
     def exchange_order_id(self):
         """Gets the exchange_order_id of this OrderExecutionReportAllOf.  # noqa: E501
 
-        The unique identifier of the order assigned by the exchange.  # noqa: E501
+        Unique identifier of the order assigned by the exchange or executing system.  # noqa: E501
 
         :return: The exchange_order_id of this OrderExecutionReportAllOf.  # noqa: E501
         :rtype: str
@@ -118,7 +118,7 @@ class OrderExecutionReportAllOf(object):
     def exchange_order_id(self, exchange_order_id):
         """Sets the exchange_order_id of this OrderExecutionReportAllOf.
 
-        The unique identifier of the order assigned by the exchange.  # noqa: E501
+        Unique identifier of the order assigned by the exchange or executing system.  # noqa: E501
 
         :param exchange_order_id: The exchange_order_id of this OrderExecutionReportAllOf.  # noqa: E501
         :type: str
@@ -130,7 +130,7 @@ class OrderExecutionReportAllOf(object):
     def amount_open(self):
         """Gets the amount_open of this OrderExecutionReportAllOf.  # noqa: E501
 
-        Amount open.  # noqa: E501
+        Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled`  # noqa: E501
 
         :return: The amount_open of this OrderExecutionReportAllOf.  # noqa: E501
         :rtype: float
@@ -141,7 +141,7 @@ class OrderExecutionReportAllOf(object):
     def amount_open(self, amount_open):
         """Sets the amount_open of this OrderExecutionReportAllOf.
 
-        Amount open.  # noqa: E501
+        Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled`  # noqa: E501
 
         :param amount_open: The amount_open of this OrderExecutionReportAllOf.  # noqa: E501
         :type: float
@@ -155,7 +155,7 @@ class OrderExecutionReportAllOf(object):
     def amount_filled(self):
         """Gets the amount_filled of this OrderExecutionReportAllOf.  # noqa: E501
 
-        Amount filled.  # noqa: E501
+        Total quantity filled.  # noqa: E501
 
         :return: The amount_filled of this OrderExecutionReportAllOf.  # noqa: E501
         :rtype: float
@@ -166,7 +166,7 @@ class OrderExecutionReportAllOf(object):
     def amount_filled(self, amount_filled):
         """Sets the amount_filled of this OrderExecutionReportAllOf.
 
-        Amount filled.  # noqa: E501
+        Total quantity filled.  # noqa: E501
 
         :param amount_filled: The amount_filled of this OrderExecutionReportAllOf.  # noqa: E501
         :type: float

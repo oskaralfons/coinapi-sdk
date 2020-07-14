@@ -3,11 +3,11 @@ part of openapi.api;
 class OrderExecutionReportAllOf {
   /* The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. */
   String clientOrderIdFormatExchange = null;
-  /* The unique identifier of the order assigned by the exchange. */
+  /* Unique identifier of the order assigned by the exchange or executing system. */
   String exchangeOrderId = null;
-  /* Amount open. */
+  /* Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled` */
   num amountOpen = null;
-  /* Amount filled. */
+  /* Total quantity filled. */
   num amountFilled = null;
   
   OrdStatus status = null;

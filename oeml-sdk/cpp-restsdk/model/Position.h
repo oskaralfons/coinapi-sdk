@@ -57,7 +57,7 @@ public:
     /// Position members
 
     /// <summary>
-    /// Exchange identifier.
+    /// Exchange identifier used to identify the routing destination.
     /// </summary>
     utility::string_t getExchangeId() const;
     bool exchangeIdIsSet() const;

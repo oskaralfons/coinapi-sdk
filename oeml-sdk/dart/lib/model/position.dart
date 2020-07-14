@@ -1,7 +1,7 @@
 part of openapi.api;
 
 class Position {
-  /* Exchange identifier. */
+  /* Exchange identifier used to identify the routing destination. */
   String exchangeId = null;
   
   List<PositionData> data = [];

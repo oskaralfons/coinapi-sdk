@@ -20,7 +20,7 @@ import { TimeInForce } from './timeInForce';
 */
 export class OrderNewSingleRequest {
     /**
-    * Exchange identifier.
+    * Exchange identifier used to identify the routing destination.
     */
     'exchangeId': string;
     /**

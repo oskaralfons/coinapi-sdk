@@ -71,9 +71,9 @@ public class OrderExecutionReport {
   private String errorMessage = null;
 
   /**
-   * Exchange identifier.
+   * Exchange identifier used to identify the routing destination.
    **/
-  @ApiModelProperty(required = true, value = "Exchange identifier.")
+  @ApiModelProperty(required = true, value = "Exchange identifier used to identify the routing destination.")
   public String getExchangeId() {
     return exchangeId;
   }
@@ -200,9 +200,9 @@ public class OrderExecutionReport {
   }
 
   /**
-   * The unique identifier of the order assigned by the exchange.
+   * Unique identifier of the order assigned by the exchange or executing system.
    **/
-  @ApiModelProperty(value = "The unique identifier of the order assigned by the exchange.")
+  @ApiModelProperty(value = "Unique identifier of the order assigned by the exchange or executing system.")
   public String getExchangeOrderId() {
     return exchangeOrderId;
   }
@@ -211,9 +211,9 @@ public class OrderExecutionReport {
   }
 
   /**
-   * Amount open.
+   * Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled`
    **/
-  @ApiModelProperty(required = true, value = "Amount open.")
+  @ApiModelProperty(required = true, value = "Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled`")
   public BigDecimal getAmountOpen() {
     return amountOpen;
   }
@@ -222,9 +222,9 @@ public class OrderExecutionReport {
   }
 
   /**
-   * Amount filled.
+   * Total quantity filled.
    **/
-  @ApiModelProperty(required = true, value = "Amount filled.")
+  @ApiModelProperty(required = true, value = "Total quantity filled.")
   public BigDecimal getAmountFilled() {
     return amountFilled;
   }

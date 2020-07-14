@@ -4,7 +4,7 @@ import org.openapitools.client.model.BalanceData;
 
     [XmlRootNode(name="Balance")]
     public class Balance {
-        /* Exchange identifier. */
+        /* Exchange identifier used to identify the routing destination. */
         [XmlElement(name="exchange_id")]
         public var exchangeId: String = null;
                 // This declaration below of _data_obj_class is to force flash compiler to include this class

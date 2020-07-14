@@ -12,7 +12,7 @@ import org.openapitools.model.TimeInForce;
 
 @Canonical
 class OrderNewSingleRequest {
-    /* Exchange identifier. */
+    /* Exchange identifier used to identify the routing destination. */
     String exchangeId
     /* The unique identifier of the order assigned by the client. */
     String clientOrderId

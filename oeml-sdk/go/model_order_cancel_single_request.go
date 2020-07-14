@@ -11,9 +11,9 @@
 package openapi
 // OrderCancelSingleRequest Cancel single order request object.
 type OrderCancelSingleRequest struct {
-	// Exchange identifier.
+	// Exchange identifier used to identify the routing destination.
 	ExchangeId string `json:"exchange_id"`
-	// The unique identifier of the order assigned by the exchange. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
+	// Unique identifier of the order assigned by the exchange or executing system. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
 	ExchangeOrderId string `json:"exchange_order_id,omitempty"`
 	// The unique identifier of the order assigned by the client. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
 	ClientOrderId string `json:"client_order_id,omitempty"`

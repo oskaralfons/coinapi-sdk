@@ -38,7 +38,7 @@ import org.threeten.bp.LocalDate;
  * The order execution report object.
  */
 @ApiModel(description = "The order execution report object.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T22:16:36.646Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-14T22:21:51.344Z[Etc/UTC]")
 public class OrderExecutionReport {
   public static final String SERIALIZED_NAME_EXCHANGE_ID = "exchange_id";
   @SerializedName(SERIALIZED_NAME_EXCHANGE_ID)
@@ -169,10 +169,10 @@ public class OrderExecutionReport {
   }
 
    /**
-   * Exchange identifier.
+   * Exchange identifier used to identify the routing destination.
    * @return exchangeId
   **/
-  @ApiModelProperty(example = "KRAKEN", required = true, value = "Exchange identifier.")
+  @ApiModelProperty(example = "KRAKEN", required = true, value = "Exchange identifier used to identify the routing destination.")
 
   public String getExchangeId() {
     return exchangeId;
@@ -445,11 +445,11 @@ public class OrderExecutionReport {
   }
 
    /**
-   * The unique identifier of the order assigned by the exchange.
+   * Unique identifier of the order assigned by the exchange or executing system.
    * @return exchangeOrderId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "3456456754", value = "The unique identifier of the order assigned by the exchange.")
+  @ApiModelProperty(example = "3456456754", value = "Unique identifier of the order assigned by the exchange or executing system.")
 
   public String getExchangeOrderId() {
     return exchangeOrderId;
@@ -468,10 +468,10 @@ public class OrderExecutionReport {
   }
 
    /**
-   * Amount open.
+   * Quantity open for further execution. &#x60;amount_open&#x60; &#x3D; &#x60;amount_order&#x60; - &#x60;amount_filled&#x60;
    * @return amountOpen
   **/
-  @ApiModelProperty(example = "0.22", required = true, value = "Amount open.")
+  @ApiModelProperty(example = "0.22", required = true, value = "Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled`")
 
   public BigDecimal getAmountOpen() {
     return amountOpen;
@@ -490,10 +490,10 @@ public class OrderExecutionReport {
   }
 
    /**
-   * Amount filled.
+   * Total quantity filled.
    * @return amountFilled
   **/
-  @ApiModelProperty(example = "0.0", required = true, value = "Amount filled.")
+  @ApiModelProperty(example = "0.0", required = true, value = "Total quantity filled.")
 
   public BigDecimal getAmountFilled() {
     return amountFilled;

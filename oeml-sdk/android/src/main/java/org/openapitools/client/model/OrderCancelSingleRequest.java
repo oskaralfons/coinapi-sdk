@@ -29,9 +29,9 @@ public class OrderCancelSingleRequest {
   private String clientOrderId = null;
 
   /**
-   * Exchange identifier.
+   * Exchange identifier used to identify the routing destination.
    **/
-  @ApiModelProperty(required = true, value = "Exchange identifier.")
+  @ApiModelProperty(required = true, value = "Exchange identifier used to identify the routing destination.")
   public String getExchangeId() {
     return exchangeId;
   }
@@ -40,9 +40,9 @@ public class OrderCancelSingleRequest {
   }
 
   /**
-   * The unique identifier of the order assigned by the exchange. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
+   * Unique identifier of the order assigned by the exchange or executing system. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
    **/
-  @ApiModelProperty(value = "The unique identifier of the order assigned by the exchange. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.")
+  @ApiModelProperty(value = "Unique identifier of the order assigned by the exchange or executing system. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.")
   public String getExchangeOrderId() {
     return exchangeOrderId;
   }

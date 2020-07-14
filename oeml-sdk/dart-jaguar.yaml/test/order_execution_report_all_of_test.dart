@@ -12,19 +12,19 @@ void main() {
       // TODO
     });
 
-    // The unique identifier of the order assigned by the exchange.
+    // Unique identifier of the order assigned by the exchange or executing system.
     // String exchangeOrderId (default value: null)
     test('to test the property `exchangeOrderId`', () async {
       // TODO
     });
 
-    // Amount open.
+    // Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled`
     // num amountOpen (default value: null)
     test('to test the property `amountOpen`', () async {
       // TODO
     });
 
-    // Amount filled.
+    // Total quantity filled.
     // num amountFilled (default value: null)
     test('to test the property `amountFilled`', () async {
       // TODO

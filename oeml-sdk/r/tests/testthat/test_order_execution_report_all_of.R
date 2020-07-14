@@ -15,7 +15,7 @@ test_that("client_order_id_format_exchange", {
 
 test_that("exchange_order_id", {
   # tests for the property `exchange_order_id` (character)
-  # The unique identifier of the order assigned by the exchange.
+  # Unique identifier of the order assigned by the exchange or executing system.
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`exchange_order_id`, "EXPECTED_RESULT")
@@ -23,7 +23,7 @@ test_that("exchange_order_id", {
 
 test_that("amount_open", {
   # tests for the property `amount_open` (numeric)
-  # Amount open.
+  # Quantity open for further execution. &#x60;amount_open&#x60; &#x3D; &#x60;amount_order&#x60; - &#x60;amount_filled&#x60;
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`amount_open`, "EXPECTED_RESULT")
@@ -31,7 +31,7 @@ test_that("amount_open", {
 
 test_that("amount_filled", {
   # tests for the property `amount_filled` (numeric)
-  # Amount filled.
+  # Total quantity filled.
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`amount_filled`, "EXPECTED_RESULT")

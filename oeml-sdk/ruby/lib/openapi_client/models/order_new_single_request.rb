@@ -15,7 +15,7 @@ require 'date'
 module OpenapiClient
   # The new order message.
   class OrderNewSingleRequest
-    # Exchange identifier.
+    # Exchange identifier used to identify the routing destination.
     attr_accessor :exchange_id
 
     # The unique identifier of the order assigned by the client.

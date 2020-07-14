@@ -165,7 +165,7 @@ __PACKAGE__->method_documentation({
     'exchange_id' => {
         datatype => 'string',
         base_name => 'exchange_id',
-        description => 'Exchange identifier.',
+        description => 'Exchange identifier used to identify the routing destination.',
         format => '',
         read_only => '',
             },

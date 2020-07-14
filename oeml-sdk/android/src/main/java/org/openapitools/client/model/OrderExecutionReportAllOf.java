@@ -51,9 +51,9 @@ public class OrderExecutionReportAllOf {
   }
 
   /**
-   * The unique identifier of the order assigned by the exchange.
+   * Unique identifier of the order assigned by the exchange or executing system.
    **/
-  @ApiModelProperty(value = "The unique identifier of the order assigned by the exchange.")
+  @ApiModelProperty(value = "Unique identifier of the order assigned by the exchange or executing system.")
   public String getExchangeOrderId() {
     return exchangeOrderId;
   }
@@ -62,9 +62,9 @@ public class OrderExecutionReportAllOf {
   }
 
   /**
-   * Amount open.
+   * Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled`
    **/
-  @ApiModelProperty(required = true, value = "Amount open.")
+  @ApiModelProperty(required = true, value = "Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled`")
   public BigDecimal getAmountOpen() {
     return amountOpen;
   }
@@ -73,9 +73,9 @@ public class OrderExecutionReportAllOf {
   }
 
   /**
-   * Amount filled.
+   * Total quantity filled.
    **/
-  @ApiModelProperty(required = true, value = "Amount filled.")
+  @ApiModelProperty(required = true, value = "Total quantity filled.")
   public BigDecimal getAmountFilled() {
     return amountFilled;
   }

@@ -22,15 +22,15 @@ export class OrderExecutionReportAllOf {
     */
     'clientOrderIdFormatExchange': string;
     /**
-    * The unique identifier of the order assigned by the exchange.
+    * Unique identifier of the order assigned by the exchange or executing system.
     */
     'exchangeOrderId'?: string;
     /**
-    * Amount open.
+    * Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled`
     */
     'amountOpen': number;
     /**
-    * Amount filled.
+    * Total quantity filled.
     */
     'amountFilled': number;
     'status': OrdStatus;

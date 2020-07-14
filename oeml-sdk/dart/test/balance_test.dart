@@ -6,7 +6,7 @@ void main() {
     var instance = new Balance();
 
   group('test Balance', () {
-    // Exchange identifier.
+    // Exchange identifier used to identify the routing destination.
     // String exchangeId (default value: null)
     test('to test the property `exchangeId`', () async {
       // TODO

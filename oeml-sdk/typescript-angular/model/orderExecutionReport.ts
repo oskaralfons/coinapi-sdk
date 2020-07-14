@@ -22,7 +22,7 @@ import { OrderExecutionReportAllOf } from './orderExecutionReportAllOf';
  */
 export interface OrderExecutionReport { 
     /**
-     * Exchange identifier.
+     * Exchange identifier used to identify the routing destination.
      */
     exchange_id: string;
     /**
@@ -61,15 +61,15 @@ export interface OrderExecutionReport {
      */
     client_order_id_format_exchange: string;
     /**
-     * The unique identifier of the order assigned by the exchange.
+     * Unique identifier of the order assigned by the exchange or executing system.
      */
     exchange_order_id?: string;
     /**
-     * Amount open.
+     * Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled`
      */
     amount_open: number;
     /**
-     * Amount filled.
+     * Total quantity filled.
      */
     amount_filled: number;
     status: OrdStatus;

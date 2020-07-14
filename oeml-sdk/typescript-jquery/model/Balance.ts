@@ -14,7 +14,7 @@ import * as models from './models';
 
 export interface Balance {
     /**
-     * Exchange identifier.
+     * Exchange identifier used to identify the routing destination.
      */
     exchange_id?: string;
 

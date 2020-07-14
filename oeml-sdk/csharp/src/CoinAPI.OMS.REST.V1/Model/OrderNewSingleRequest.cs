@@ -86,7 +86,7 @@ namespace CoinAPI.OMS.REST.V1.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderNewSingleRequest" /> class.
         /// </summary>
-        /// <param name="exchangeId">Exchange identifier. (required).</param>
+        /// <param name="exchangeId">Exchange identifier used to identify the routing destination. (required).</param>
         /// <param name="clientOrderId">The unique identifier of the order assigned by the client. (required).</param>
         /// <param name="symbolIdExchange">Exchange symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order..</param>
         /// <param name="symbolIdCoinapi">CoinAPI symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order..</param>
@@ -176,9 +176,9 @@ namespace CoinAPI.OMS.REST.V1.Model
         }
         
         /// <summary>
-        /// Exchange identifier.
+        /// Exchange identifier used to identify the routing destination.
         /// </summary>
-        /// <value>Exchange identifier.</value>
+        /// <value>Exchange identifier used to identify the routing destination.</value>
         [DataMember(Name="exchange_id", EmitDefaultValue=true)]
         public string ExchangeId { get; set; }
 

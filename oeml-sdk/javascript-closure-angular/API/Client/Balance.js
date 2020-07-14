@@ -6,7 +6,7 @@ goog.provide('API.Client.Balance');
 API.Client.Balance = function() {}
 
 /**
- * Exchange identifier.
+ * Exchange identifier used to identify the routing destination.
  * @type {!string}
  * @export
  */

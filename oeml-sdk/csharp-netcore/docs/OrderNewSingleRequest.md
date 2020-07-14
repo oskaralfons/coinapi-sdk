@@ -4,7 +4,7 @@ The new order message.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ExchangeId** | **string** | Exchange identifier. | 
+**ExchangeId** | **string** | Exchange identifier used to identify the routing destination. | 
 **ClientOrderId** | **string** | The unique identifier of the order assigned by the client. | 
 **SymbolIdExchange** | **string** | Exchange symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order. | [optional] 
 **SymbolIdCoinapi** | **string** | CoinAPI symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order. | [optional] 

@@ -9,7 +9,7 @@ import org.openapitools.model.BalanceData;
 
 @Canonical
 class Balance {
-    /* Exchange identifier. */
+    /* Exchange identifier used to identify the routing destination. */
     String exchangeId
     
     List<BalanceData> data = new ArrayList<BalanceData>()

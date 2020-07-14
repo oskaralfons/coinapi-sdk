@@ -15,7 +15,7 @@ import { PositionData } from './positionData';
 
 export class Position {
     /**
-    * Exchange identifier.
+    * Exchange identifier used to identify the routing destination.
     */
     'exchangeId'?: string;
     'data'?: Array<PositionData>;

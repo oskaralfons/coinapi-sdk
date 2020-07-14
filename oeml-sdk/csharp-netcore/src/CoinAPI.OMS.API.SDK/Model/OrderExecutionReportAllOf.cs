@@ -45,9 +45,9 @@ namespace CoinAPI.OMS.API.SDK.Model
         /// Initializes a new instance of the <see cref="OrderExecutionReportAllOf" /> class.
         /// </summary>
         /// <param name="clientOrderIdFormatExchange">The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. (required).</param>
-        /// <param name="exchangeOrderId">The unique identifier of the order assigned by the exchange..</param>
-        /// <param name="amountOpen">Amount open. (required).</param>
-        /// <param name="amountFilled">Amount filled. (required).</param>
+        /// <param name="exchangeOrderId">Unique identifier of the order assigned by the exchange or executing system..</param>
+        /// <param name="amountOpen">Quantity open for further execution. &#x60;amount_open&#x60; &#x3D; &#x60;amount_order&#x60; - &#x60;amount_filled&#x60; (required).</param>
+        /// <param name="amountFilled">Total quantity filled. (required).</param>
         /// <param name="status">status (required).</param>
         /// <param name="timeOrder">Timestamped history of order status changes. (required).</param>
         /// <param name="errorMessage">Error message.</param>
@@ -72,23 +72,23 @@ namespace CoinAPI.OMS.API.SDK.Model
         public string ClientOrderIdFormatExchange { get; set; }
 
         /// <summary>
-        /// The unique identifier of the order assigned by the exchange.
+        /// Unique identifier of the order assigned by the exchange or executing system.
         /// </summary>
-        /// <value>The unique identifier of the order assigned by the exchange.</value>
+        /// <value>Unique identifier of the order assigned by the exchange or executing system.</value>
         [DataMember(Name="exchange_order_id", EmitDefaultValue=false)]
         public string ExchangeOrderId { get; set; }
 
         /// <summary>
-        /// Amount open.
+        /// Quantity open for further execution. &#x60;amount_open&#x60; &#x3D; &#x60;amount_order&#x60; - &#x60;amount_filled&#x60;
         /// </summary>
-        /// <value>Amount open.</value>
+        /// <value>Quantity open for further execution. &#x60;amount_open&#x60; &#x3D; &#x60;amount_order&#x60; - &#x60;amount_filled&#x60;</value>
         [DataMember(Name="amount_open", EmitDefaultValue=false)]
         public decimal AmountOpen { get; set; }
 
         /// <summary>
-        /// Amount filled.
+        /// Total quantity filled.
         /// </summary>
-        /// <value>Amount filled.</value>
+        /// <value>Total quantity filled.</value>
         [DataMember(Name="amount_filled", EmitDefaultValue=false)]
         public decimal AmountFilled { get; set; }
 

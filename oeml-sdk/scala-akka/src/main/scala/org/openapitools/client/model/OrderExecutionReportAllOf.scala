@@ -16,11 +16,11 @@ import org.openapitools.client.core.ApiModel
 case class OrderExecutionReportAllOf (
   /* The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. */
   clientOrderIdFormatExchange: String,
-  /* The unique identifier of the order assigned by the exchange. */
+  /* Unique identifier of the order assigned by the exchange or executing system. */
   exchangeOrderId: Option[String] = None,
-  /* Amount open. */
+  /* Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled` */
   amountOpen: Double,
-  /* Amount filled. */
+  /* Total quantity filled. */
   amountFilled: Double,
   status: OrdStatus,
   /* Timestamped history of order status changes. */

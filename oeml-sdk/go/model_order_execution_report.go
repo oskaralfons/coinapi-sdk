@@ -11,7 +11,7 @@
 package openapi
 // OrderExecutionReport The order execution report object.
 type OrderExecutionReport struct {
-	// Exchange identifier.
+	// Exchange identifier used to identify the routing destination.
 	ExchangeId string `json:"exchange_id"`
 	// The unique identifier of the order assigned by the client.
 	ClientOrderId string `json:"client_order_id"`
@@ -32,11 +32,11 @@ type OrderExecutionReport struct {
 	ExecInst []string `json:"exec_inst,omitempty"`
 	// The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
 	ClientOrderIdFormatExchange string `json:"client_order_id_format_exchange"`
-	// The unique identifier of the order assigned by the exchange.
+	// Unique identifier of the order assigned by the exchange or executing system.
 	ExchangeOrderId string `json:"exchange_order_id,omitempty"`
-	// Amount open.
+	// Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled`
 	AmountOpen float32 `json:"amount_open"`
-	// Amount filled.
+	// Total quantity filled.
 	AmountFilled float32 `json:"amount_filled"`
 	Status OrdStatus `json:"status"`
 	// Timestamped history of order status changes.

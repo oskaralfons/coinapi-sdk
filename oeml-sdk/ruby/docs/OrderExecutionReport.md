@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**exchange_id** | **String** | Exchange identifier. | 
+**exchange_id** | **String** | Exchange identifier used to identify the routing destination. | 
 **client_order_id** | **String** | The unique identifier of the order assigned by the client. | 
 **symbol_id_exchange** | **String** | Exchange symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order. | [optional] 
 **symbol_id_coinapi** | **String** | CoinAPI symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order. | [optional] 
@@ -16,9 +16,9 @@ Name | Type | Description | Notes
 **expire_time** | **Date** | Expiration time. Conditionaly required for orders with time_in_force &#x3D; &#x60;GOOD_TILL_TIME_EXCHANGE&#x60; or &#x60;GOOD_TILL_TIME_OEML&#x60;. | [optional] 
 **exec_inst** | **Array&lt;String&gt;** | Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt;  | [optional] 
 **client_order_id_format_exchange** | **String** | The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. | 
-**exchange_order_id** | **String** | The unique identifier of the order assigned by the exchange. | [optional] 
-**amount_open** | **Float** | Amount open. | 
-**amount_filled** | **Float** | Amount filled. | 
+**exchange_order_id** | **String** | Unique identifier of the order assigned by the exchange or executing system. | [optional] 
+**amount_open** | **Float** | Quantity open for further execution. &#x60;amount_open&#x60; &#x3D; &#x60;amount_order&#x60; - &#x60;amount_filled&#x60; | 
+**amount_filled** | **Float** | Total quantity filled. | 
 **status** | [**OrdStatus**](OrdStatus.md) |  | 
 **time_order** | **Array&lt;Array&lt;String&gt;&gt;** | Timestamped history of order status changes. | 
 **error_message** | **String** | Error message | [optional] 

@@ -21,19 +21,19 @@ public class OASOrderExecutionReportAllOf implements OAS.MappedProperties {
     public String clientOrderIdFormatExchange { get; set; }
 
     /**
-     * The unique identifier of the order assigned by the exchange.
+     * Unique identifier of the order assigned by the exchange or executing system.
      * @return exchangeOrderId
      */
     public String exchangeOrderId { get; set; }
 
     /**
-     * Amount open.
+     * Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled`
      * @return amountOpen
      */
     public Double amountOpen { get; set; }
 
     /**
-     * Amount filled.
+     * Total quantity filled.
      * @return amountFilled
      */
     public Double amountFilled { get; set; }

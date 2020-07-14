@@ -18,7 +18,7 @@ import org.openapitools.client.models.TimeInForce
 import com.squareup.moshi.Json
 /**
  * The new order message.
- * @param exchangeId Exchange identifier.
+ * @param exchangeId Exchange identifier used to identify the routing destination.
  * @param clientOrderId The unique identifier of the order assigned by the client.
  * @param amountOrder Order quantity.
  * @param price Order price.
@@ -32,7 +32,7 @@ import com.squareup.moshi.Json
  */
 
 data class OrderNewSingleRequest (
-    /* Exchange identifier. */
+    /* Exchange identifier used to identify the routing destination. */
     @Json(name = "exchange_id")
     val exchangeId: kotlin.String,
     /* The unique identifier of the order assigned by the client. */

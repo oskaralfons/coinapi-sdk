@@ -26,7 +26,7 @@ class OrderNewSingleRequest {
      * Constructs a new <code>OrderNewSingleRequest</code>.
      * The new order message.
      * @alias module:model/OrderNewSingleRequest
-     * @param exchangeId {String} Exchange identifier.
+     * @param exchangeId {String} Exchange identifier used to identify the routing destination.
      * @param clientOrderId {String} The unique identifier of the order assigned by the client.
      * @param amountOrder {Number} Order quantity.
      * @param price {Number} Order price.
@@ -106,7 +106,7 @@ class OrderNewSingleRequest {
 }
 
 /**
- * Exchange identifier.
+ * Exchange identifier used to identify the routing destination.
  * @member {String} exchange_id
  */
 OrderNewSingleRequest.prototype['exchange_id'] = undefined;

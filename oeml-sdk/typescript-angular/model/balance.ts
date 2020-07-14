@@ -14,7 +14,7 @@ import { BalanceData } from './balanceData';
 
 export interface Balance { 
     /**
-     * Exchange identifier.
+     * Exchange identifier used to identify the routing destination.
      */
     exchange_id?: string;
     data?: Array<BalanceData>;

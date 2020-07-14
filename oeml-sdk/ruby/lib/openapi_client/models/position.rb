@@ -14,7 +14,7 @@ require 'date'
 
 module OpenapiClient
   class Position
-    # Exchange identifier.
+    # Exchange identifier used to identify the routing destination.
     attr_accessor :exchange_id
 
     attr_accessor :data

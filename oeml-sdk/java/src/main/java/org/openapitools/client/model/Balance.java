@@ -30,7 +30,7 @@ import org.openapitools.client.model.BalanceData;
 /**
  * Balance
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T22:16:36.646Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-14T22:21:51.344Z[Etc/UTC]")
 public class Balance {
   public static final String SERIALIZED_NAME_EXCHANGE_ID = "exchange_id";
   @SerializedName(SERIALIZED_NAME_EXCHANGE_ID)
@@ -48,11 +48,11 @@ public class Balance {
   }
 
    /**
-   * Exchange identifier.
+   * Exchange identifier used to identify the routing destination.
    * @return exchangeId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "KRAKEN", value = "Exchange identifier.")
+  @ApiModelProperty(example = "KRAKEN", value = "Exchange identifier used to identify the routing destination.")
 
   public String getExchangeId() {
     return exchangeId;

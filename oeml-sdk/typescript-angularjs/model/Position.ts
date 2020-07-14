@@ -14,7 +14,7 @@ import * as models from './models';
 
 export interface Position {
     /**
-     * Exchange identifier.
+     * Exchange identifier used to identify the routing destination.
      */
     "exchange_id"?: string;
     "data"?: Array<models.PositionData>;

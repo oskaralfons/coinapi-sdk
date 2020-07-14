@@ -66,7 +66,7 @@ class OrderCancelSingleRequest(object):
     def exchange_id(self):
         """Gets the exchange_id of this OrderCancelSingleRequest.  # noqa: E501
 
-        Exchange identifier.  # noqa: E501
+        Exchange identifier used to identify the routing destination.  # noqa: E501
 
         :return: The exchange_id of this OrderCancelSingleRequest.  # noqa: E501
         :rtype: str
@@ -77,7 +77,7 @@ class OrderCancelSingleRequest(object):
     def exchange_id(self, exchange_id):
         """Sets the exchange_id of this OrderCancelSingleRequest.
 
-        Exchange identifier.  # noqa: E501
+        Exchange identifier used to identify the routing destination.  # noqa: E501
 
         :param exchange_id: The exchange_id of this OrderCancelSingleRequest.  # noqa: E501
         :type: str
@@ -91,7 +91,7 @@ class OrderCancelSingleRequest(object):
     def exchange_order_id(self):
         """Gets the exchange_order_id of this OrderCancelSingleRequest.  # noqa: E501
 
-        The unique identifier of the order assigned by the exchange. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.  # noqa: E501
+        Unique identifier of the order assigned by the exchange or executing system. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.  # noqa: E501
 
         :return: The exchange_order_id of this OrderCancelSingleRequest.  # noqa: E501
         :rtype: str
@@ -102,7 +102,7 @@ class OrderCancelSingleRequest(object):
     def exchange_order_id(self, exchange_order_id):
         """Sets the exchange_order_id of this OrderCancelSingleRequest.
 
-        The unique identifier of the order assigned by the exchange. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.  # noqa: E501
+        Unique identifier of the order assigned by the exchange or executing system. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.  # noqa: E501
 
         :param exchange_order_id: The exchange_order_id of this OrderCancelSingleRequest.  # noqa: E501
         :type: str

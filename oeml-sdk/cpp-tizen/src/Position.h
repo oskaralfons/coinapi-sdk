@@ -47,11 +47,11 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get Exchange identifier.
+	/*! \brief Get Exchange identifier used to identify the routing destination.
 	 */
 	std::string getExchangeId();
 
-	/*! \brief Set Exchange identifier.
+	/*! \brief Set Exchange identifier used to identify the routing destination.
 	 */
 	void setExchangeId(std::string  exchange_id);
 	/*! \brief Get 

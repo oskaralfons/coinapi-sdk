@@ -26,9 +26,9 @@ public class Balance {
   private List<BalanceData> data = null;
 
   /**
-   * Exchange identifier.
+   * Exchange identifier used to identify the routing destination.
    **/
-  @ApiModelProperty(value = "Exchange identifier.")
+  @ApiModelProperty(value = "Exchange identifier used to identify the routing destination.")
   public String getExchangeId() {
     return exchangeId;
   }

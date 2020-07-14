@@ -316,7 +316,7 @@ class OrderNewSingleRequest implements ModelInterface, ArrayAccess
     /**
      * Sets exchange_id
      *
-     * @param string $exchange_id Exchange identifier.
+     * @param string $exchange_id Exchange identifier used to identify the routing destination.
      *
      * @return $this
      */

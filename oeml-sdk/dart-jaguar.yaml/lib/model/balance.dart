@@ -6,7 +6,7 @@ import 'package:openapi/model/balance_data.dart';
 part 'balance.jser.dart';
 
 class Balance {
-   /* Exchange identifier. */
+   /* Exchange identifier used to identify the routing destination. */
   @Alias('exchange_id', isNullable: false,  )
   final String exchangeId;
   

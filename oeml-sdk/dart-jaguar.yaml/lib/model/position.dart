@@ -6,7 +6,7 @@ import 'package:openapi/model/position_data.dart';
 part 'position.jser.dart';
 
 class Position {
-   /* Exchange identifier. */
+   /* Exchange identifier used to identify the routing destination. */
   @Alias('exchange_id', isNullable: false,  )
   final String exchangeId;
   

@@ -9,13 +9,13 @@ class OrderExecutionReportAllOf {
    /* The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. */
   @Alias('client_order_id_format_exchange', isNullable: false,  )
   final String clientOrderIdFormatExchange;
-   /* The unique identifier of the order assigned by the exchange. */
+   /* Unique identifier of the order assigned by the exchange or executing system. */
   @Alias('exchange_order_id', isNullable: false,  )
   final String exchangeOrderId;
-   /* Amount open. */
+   /* Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled` */
   @Alias('amount_open', isNullable: false,  )
   final num amountOpen;
-   /* Amount filled. */
+   /* Total quantity filled. */
   @Alias('amount_filled', isNullable: false,  )
   final num amountFilled;
   

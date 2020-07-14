@@ -15,7 +15,7 @@ import org.openapitools.model.TimeInForce;
 
 @Canonical
 class OrderExecutionReport {
-    /* Exchange identifier. */
+    /* Exchange identifier used to identify the routing destination. */
     String exchangeId
     /* The unique identifier of the order assigned by the client. */
     String clientOrderId
@@ -39,11 +39,11 @@ class OrderExecutionReport {
     List<String> execInst = new ArrayList<ExecInstEnum>()
     /* The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. */
     String clientOrderIdFormatExchange
-    /* The unique identifier of the order assigned by the exchange. */
+    /* Unique identifier of the order assigned by the exchange or executing system. */
     String exchangeOrderId
-    /* Amount open. */
+    /* Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled` */
     BigDecimal amountOpen
-    /* Amount filled. */
+    /* Total quantity filled. */
     BigDecimal amountFilled
     
     OrdStatus status

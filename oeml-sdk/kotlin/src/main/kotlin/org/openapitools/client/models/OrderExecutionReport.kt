@@ -21,7 +21,7 @@ import org.openapitools.client.models.TimeInForce
 import com.squareup.moshi.Json
 /**
  * The order execution report object.
- * @param exchangeId Exchange identifier.
+ * @param exchangeId Exchange identifier used to identify the routing destination.
  * @param clientOrderId The unique identifier of the order assigned by the client.
  * @param amountOrder Order quantity.
  * @param price Order price.
@@ -29,20 +29,20 @@ import com.squareup.moshi.Json
  * @param orderType 
  * @param timeInForce 
  * @param clientOrderIdFormatExchange The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
- * @param amountOpen Amount open.
- * @param amountFilled Amount filled.
+ * @param amountOpen Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled`
+ * @param amountFilled Total quantity filled.
  * @param status 
  * @param timeOrder Timestamped history of order status changes.
  * @param symbolIdExchange Exchange symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.
  * @param symbolIdCoinapi CoinAPI symbol. One of the properties (`symbol_id_exchange`, `symbol_id_coinapi`) is required to identify the market for the new order.
  * @param expireTime Expiration time. Conditionaly required for orders with time_in_force = `GOOD_TILL_TIME_EXCHANGE` or `GOOD_TILL_TIME_OEML`.
  * @param execInst Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a> 
- * @param exchangeOrderId The unique identifier of the order assigned by the exchange.
+ * @param exchangeOrderId Unique identifier of the order assigned by the exchange or executing system.
  * @param errorMessage Error message
  */
 
 data class OrderExecutionReport (
-    /* Exchange identifier. */
+    /* Exchange identifier used to identify the routing destination. */
     @Json(name = "exchange_id")
     val exchangeId: kotlin.String,
     /* The unique identifier of the order assigned by the client. */
@@ -63,10 +63,10 @@ data class OrderExecutionReport (
     /* The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. */
     @Json(name = "client_order_id_format_exchange")
     val clientOrderIdFormatExchange: kotlin.String,
-    /* Amount open. */
+    /* Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled` */
     @Json(name = "amount_open")
     val amountOpen: java.math.BigDecimal,
-    /* Amount filled. */
+    /* Total quantity filled. */
     @Json(name = "amount_filled")
     val amountFilled: java.math.BigDecimal,
     @Json(name = "status")
@@ -86,7 +86,7 @@ data class OrderExecutionReport (
     /* Order execution instructions are documented in the separate section: <a href=\"#oeml-order-params-exec\">OEML / Starter Guide / Order parameters / Execution instructions</a>  */
     @Json(name = "exec_inst")
     val execInst: kotlin.Array<OrderExecutionReport.ExecInst>? = null,
-    /* The unique identifier of the order assigned by the exchange. */
+    /* Unique identifier of the order assigned by the exchange or executing system. */
     @Json(name = "exchange_order_id")
     val exchangeOrderId: kotlin.String? = null,
     /* Error message */

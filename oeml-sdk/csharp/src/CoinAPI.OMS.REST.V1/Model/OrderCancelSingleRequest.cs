@@ -38,8 +38,8 @@ namespace CoinAPI.OMS.REST.V1.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderCancelSingleRequest" /> class.
         /// </summary>
-        /// <param name="exchangeId">Exchange identifier. (required).</param>
-        /// <param name="exchangeOrderId">The unique identifier of the order assigned by the exchange. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order..</param>
+        /// <param name="exchangeId">Exchange identifier used to identify the routing destination. (required).</param>
+        /// <param name="exchangeOrderId">Unique identifier of the order assigned by the exchange or executing system. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order..</param>
         /// <param name="clientOrderId">The unique identifier of the order assigned by the client. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order..</param>
         public OrderCancelSingleRequest(string exchangeId = default(string), string exchangeOrderId = default(string), string clientOrderId = default(string))
         {
@@ -58,16 +58,16 @@ namespace CoinAPI.OMS.REST.V1.Model
         }
         
         /// <summary>
-        /// Exchange identifier.
+        /// Exchange identifier used to identify the routing destination.
         /// </summary>
-        /// <value>Exchange identifier.</value>
+        /// <value>Exchange identifier used to identify the routing destination.</value>
         [DataMember(Name="exchange_id", EmitDefaultValue=true)]
         public string ExchangeId { get; set; }
 
         /// <summary>
-        /// The unique identifier of the order assigned by the exchange. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order.
+        /// Unique identifier of the order assigned by the exchange or executing system. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order.
         /// </summary>
-        /// <value>The unique identifier of the order assigned by the exchange. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order.</value>
+        /// <value>Unique identifier of the order assigned by the exchange or executing system. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order.</value>
         [DataMember(Name="exchange_order_id", EmitDefaultValue=false)]
         public string ExchangeOrderId { get; set; }
 

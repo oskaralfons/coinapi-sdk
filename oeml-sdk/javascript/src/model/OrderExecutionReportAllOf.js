@@ -25,8 +25,8 @@ class OrderExecutionReportAllOf {
      * The order execution report message.
      * @alias module:model/OrderExecutionReportAllOf
      * @param clientOrderIdFormatExchange {String} The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
-     * @param amountOpen {Number} Amount open.
-     * @param amountFilled {Number} Amount filled.
+     * @param amountOpen {Number} Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled`
+     * @param amountFilled {Number} Total quantity filled.
      * @param status {module:model/OrdStatus} 
      * @param timeOrder {Array.<Array.<String>>} Timestamped history of order status changes.
      */
@@ -94,19 +94,19 @@ class OrderExecutionReportAllOf {
 OrderExecutionReportAllOf.prototype['client_order_id_format_exchange'] = undefined;
 
 /**
- * The unique identifier of the order assigned by the exchange.
+ * Unique identifier of the order assigned by the exchange or executing system.
  * @member {String} exchange_order_id
  */
 OrderExecutionReportAllOf.prototype['exchange_order_id'] = undefined;
 
 /**
- * Amount open.
+ * Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled`
  * @member {Number} amount_open
  */
 OrderExecutionReportAllOf.prototype['amount_open'] = undefined;
 
 /**
- * Amount filled.
+ * Total quantity filled.
  * @member {Number} amount_filled
  */
 OrderExecutionReportAllOf.prototype['amount_filled'] = undefined;

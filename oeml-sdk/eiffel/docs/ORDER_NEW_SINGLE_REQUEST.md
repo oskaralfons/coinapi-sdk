@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**exchange_id** | [**STRING_32**](STRING_32.md) | Exchange identifier. | [default to null]
+**exchange_id** | [**STRING_32**](STRING_32.md) | Exchange identifier used to identify the routing destination. | [default to null]
 **client_order_id** | [**STRING_32**](STRING_32.md) | The unique identifier of the order assigned by the client. | [default to null]
 **symbol_id_exchange** | [**STRING_32**](STRING_32.md) | Exchange symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order. | [optional] [default to null]
 **symbol_id_coinapi** | [**STRING_32**](STRING_32.md) | CoinAPI symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order. | [optional] [default to null]

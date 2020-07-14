@@ -7,7 +7,7 @@ part 'position.g.dart';
 
 abstract class Position implements Built<Position, PositionBuilder> {
 
-    /* Exchange identifier. */
+    /* Exchange identifier used to identify the routing destination. */
         @nullable
     @BuiltValueField(wireName: r'exchange_id')
     String get exchangeId;

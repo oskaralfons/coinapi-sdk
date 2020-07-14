@@ -91,7 +91,7 @@ namespace CoinAPI.OMS.REST.V1.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrderExecutionReport" /> class.
         /// </summary>
-        /// <param name="exchangeId">Exchange identifier. (required).</param>
+        /// <param name="exchangeId">Exchange identifier used to identify the routing destination. (required).</param>
         /// <param name="clientOrderId">The unique identifier of the order assigned by the client. (required).</param>
         /// <param name="symbolIdExchange">Exchange symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order..</param>
         /// <param name="symbolIdCoinapi">CoinAPI symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order..</param>
@@ -103,9 +103,9 @@ namespace CoinAPI.OMS.REST.V1.Model
         /// <param name="expireTime">Expiration time. Conditionaly required for orders with time_in_force &#x3D; &#x60;GOOD_TILL_TIME_EXCHANGE&#x60; or &#x60;GOOD_TILL_TIME_OEML&#x60;..</param>
         /// <param name="execInst">Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; .</param>
         /// <param name="clientOrderIdFormatExchange">The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. (required).</param>
-        /// <param name="exchangeOrderId">The unique identifier of the order assigned by the exchange..</param>
-        /// <param name="amountOpen">Amount open. (required).</param>
-        /// <param name="amountFilled">Amount filled. (required).</param>
+        /// <param name="exchangeOrderId">Unique identifier of the order assigned by the exchange or executing system..</param>
+        /// <param name="amountOpen">Quantity open for further execution. &#x60;amount_open&#x60; &#x3D; &#x60;amount_order&#x60; - &#x60;amount_filled&#x60; (required).</param>
+        /// <param name="amountFilled">Total quantity filled. (required).</param>
         /// <param name="status">status (required).</param>
         /// <param name="timeOrder">Timestamped history of order status changes. (required).</param>
         /// <param name="errorMessage">Error message.</param>
@@ -240,9 +240,9 @@ namespace CoinAPI.OMS.REST.V1.Model
         }
         
         /// <summary>
-        /// Exchange identifier.
+        /// Exchange identifier used to identify the routing destination.
         /// </summary>
-        /// <value>Exchange identifier.</value>
+        /// <value>Exchange identifier used to identify the routing destination.</value>
         [DataMember(Name="exchange_id", EmitDefaultValue=true)]
         public string ExchangeId { get; set; }
 
@@ -300,23 +300,23 @@ namespace CoinAPI.OMS.REST.V1.Model
         public string ClientOrderIdFormatExchange { get; set; }
 
         /// <summary>
-        /// The unique identifier of the order assigned by the exchange.
+        /// Unique identifier of the order assigned by the exchange or executing system.
         /// </summary>
-        /// <value>The unique identifier of the order assigned by the exchange.</value>
+        /// <value>Unique identifier of the order assigned by the exchange or executing system.</value>
         [DataMember(Name="exchange_order_id", EmitDefaultValue=false)]
         public string ExchangeOrderId { get; set; }
 
         /// <summary>
-        /// Amount open.
+        /// Quantity open for further execution. &#x60;amount_open&#x60; &#x3D; &#x60;amount_order&#x60; - &#x60;amount_filled&#x60;
         /// </summary>
-        /// <value>Amount open.</value>
+        /// <value>Quantity open for further execution. &#x60;amount_open&#x60; &#x3D; &#x60;amount_order&#x60; - &#x60;amount_filled&#x60;</value>
         [DataMember(Name="amount_open", EmitDefaultValue=true)]
         public decimal AmountOpen { get; set; }
 
         /// <summary>
-        /// Amount filled.
+        /// Total quantity filled.
         /// </summary>
-        /// <value>Amount filled.</value>
+        /// <value>Total quantity filled.</value>
         [DataMember(Name="amount_filled", EmitDefaultValue=true)]
         public decimal AmountFilled { get; set; }
 

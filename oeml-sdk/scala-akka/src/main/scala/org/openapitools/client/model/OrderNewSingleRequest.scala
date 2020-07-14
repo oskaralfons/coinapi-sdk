@@ -15,7 +15,7 @@ import java.time.LocalDate
 import org.openapitools.client.core.ApiModel
 
 case class OrderNewSingleRequest (
-  /* Exchange identifier. */
+  /* Exchange identifier used to identify the routing destination. */
   exchangeId: String,
   /* The unique identifier of the order assigned by the client. */
   clientOrderId: String,

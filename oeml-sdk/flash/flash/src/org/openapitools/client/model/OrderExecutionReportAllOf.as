@@ -7,13 +7,13 @@ import org.openapitools.client.model.OrdStatus;
         /* The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it. */
         [XmlElement(name="client_order_id_format_exchange")]
         public var clientOrderIdFormatExchange: String = null;
-        /* The unique identifier of the order assigned by the exchange. */
+        /* Unique identifier of the order assigned by the exchange or executing system. */
         [XmlElement(name="exchange_order_id")]
         public var exchangeOrderId: String = null;
-        /* Amount open. */
+        /* Quantity open for further execution. &#x60;amount_open&#x60; &#x3D; &#x60;amount_order&#x60; - &#x60;amount_filled&#x60; */
         [XmlElement(name="amount_open")]
         public var amountOpen: Number = 0.0;
-        /* Amount filled. */
+        /* Total quantity filled. */
         [XmlElement(name="amount_filled")]
         public var amountFilled: Number = 0.0;
                 [XmlElement(name="status")]

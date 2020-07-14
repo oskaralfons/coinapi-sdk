@@ -16,11 +16,11 @@
  */
 export interface OrderCancelSingleRequest { 
     /**
-     * Exchange identifier.
+     * Exchange identifier used to identify the routing destination.
      */
     exchange_id: string;
     /**
-     * The unique identifier of the order assigned by the exchange. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
+     * Unique identifier of the order assigned by the exchange or executing system. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
      */
     exchange_order_id?: string;
     /**

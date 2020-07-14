@@ -261,7 +261,7 @@ components:
         order_type: LIMIT
       properties:
         exchange_id:
-          description: Exchange identifier.
+          description: Exchange identifier used to identify the routing destination.
           example: KRAKEN
           type: string
         client_order_id:
@@ -326,13 +326,13 @@ components:
         exchange_order_id: "3456456754"
       properties:
         exchange_id:
-          description: Exchange identifier.
+          description: Exchange identifier used to identify the routing destination.
           example: KRAKEN
           type: string
         exchange_order_id:
-          description: The unique identifier of the order assigned by the exchange.
-            One of the properties (`exchange_order_id`, `client_order_id`) is required
-            to identify the new order.
+          description: Unique identifier of the order assigned by the exchange or
+            executing system. One of the properties (`exchange_order_id`, `client_order_id`)
+            is required to identify the new order.
           example: "3456456754"
           type: string
         client_order_id:
@@ -392,7 +392,7 @@ components:
           locked: 0.0
       properties:
         exchange_id:
-          description: Exchange identifier.
+          description: Exchange identifier used to identify the routing destination.
           example: KRAKEN
           type: string
         data:
@@ -431,7 +431,7 @@ components:
           avg_entry_price: 0.00134444
       properties:
         exchange_id:
-          description: Exchange identifier.
+          description: Exchange identifier used to identify the routing destination.
           example: KRAKEN
           type: string
         data:
@@ -550,15 +550,17 @@ components:
           example: f81211e2-27c4-b86a-8143-01088ba9222c
           type: string
         exchange_order_id:
-          description: The unique identifier of the order assigned by the exchange.
+          description: Unique identifier of the order assigned by the exchange or
+            executing system.
           example: "3456456754"
           type: string
         amount_open:
-          description: Amount open.
+          description: Quantity open for further execution. `amount_open` = `amount_order`
+            - `amount_filled`
           example: 0.22
           type: number
         amount_filled:
-          description: Amount filled.
+          description: Total quantity filled.
           example: 0.0
           type: number
         status:

@@ -25,7 +25,7 @@ inherit
 feature --Access
 
     exchange_id: detachable STRING_32 
-      -- Exchange identifier.
+      -- Exchange identifier used to identify the routing destination.
     data: detachable LIST [BALANCE_DATA] 
       
 

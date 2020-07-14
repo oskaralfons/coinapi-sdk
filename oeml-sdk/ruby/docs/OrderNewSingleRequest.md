@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**exchange_id** | **String** | Exchange identifier. | 
+**exchange_id** | **String** | Exchange identifier used to identify the routing destination. | 
 **client_order_id** | **String** | The unique identifier of the order assigned by the client. | 
 **symbol_id_exchange** | **String** | Exchange symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order. | [optional] 
 **symbol_id_coinapi** | **String** | CoinAPI symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order. | [optional] 

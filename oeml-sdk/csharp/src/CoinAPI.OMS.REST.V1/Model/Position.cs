@@ -33,7 +33,7 @@ namespace CoinAPI.OMS.REST.V1.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Position" /> class.
         /// </summary>
-        /// <param name="exchangeId">Exchange identifier..</param>
+        /// <param name="exchangeId">Exchange identifier used to identify the routing destination..</param>
         /// <param name="data">data.</param>
         public Position(string exchangeId = default(string), List<PositionData> data = default(List<PositionData>))
         {
@@ -42,9 +42,9 @@ namespace CoinAPI.OMS.REST.V1.Model
         }
         
         /// <summary>
-        /// Exchange identifier.
+        /// Exchange identifier used to identify the routing destination.
         /// </summary>
-        /// <value>Exchange identifier.</value>
+        /// <value>Exchange identifier used to identify the routing destination.</value>
         [DataMember(Name="exchange_id", EmitDefaultValue=false)]
         public string ExchangeId { get; set; }
 

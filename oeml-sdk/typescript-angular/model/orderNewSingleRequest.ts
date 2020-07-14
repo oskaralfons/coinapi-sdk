@@ -19,7 +19,7 @@ import { TimeInForce } from './timeInForce';
  */
 export interface OrderNewSingleRequest { 
     /**
-     * Exchange identifier.
+     * Exchange identifier used to identify the routing destination.
      */
     exchange_id: string;
     /**

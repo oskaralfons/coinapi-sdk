@@ -6,7 +6,7 @@ import org.openapitools.client.model.TimeInForce;
 
     [XmlRootNode(name="OrderNewSingleRequest")]
     public class OrderNewSingleRequest {
-        /* Exchange identifier. */
+        /* Exchange identifier used to identify the routing destination. */
         [XmlElement(name="exchange_id")]
         public var exchangeId: String = null;
         /* The unique identifier of the order assigned by the client. */

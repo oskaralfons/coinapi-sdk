@@ -5,11 +5,11 @@ part 'order_cancel_single_request.g.dart';
 
 abstract class OrderCancelSingleRequest implements Built<OrderCancelSingleRequest, OrderCancelSingleRequestBuilder> {
 
-    /* Exchange identifier. */
+    /* Exchange identifier used to identify the routing destination. */
         @nullable
     @BuiltValueField(wireName: r'exchange_id')
     String get exchangeId;
-    /* The unique identifier of the order assigned by the exchange. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order. */
+    /* Unique identifier of the order assigned by the exchange or executing system. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order. */
         @nullable
     @BuiltValueField(wireName: r'exchange_order_id')
     String get exchangeOrderId;

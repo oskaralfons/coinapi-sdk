@@ -11,7 +11,7 @@
 package openapi
 // OrderNewSingleRequest The new order message.
 type OrderNewSingleRequest struct {
-	// Exchange identifier.
+	// Exchange identifier used to identify the routing destination.
 	ExchangeId string `json:"exchange_id"`
 	// The unique identifier of the order assigned by the client.
 	ClientOrderId string `json:"client_order_id"`

@@ -31,7 +31,7 @@ class OrderExecutionReport {
      * @alias module:model/OrderExecutionReport
      * @implements module:model/OrderNewSingleRequest
      * @implements module:model/OrderExecutionReportAllOf
-     * @param exchangeId {String} Exchange identifier.
+     * @param exchangeId {String} Exchange identifier used to identify the routing destination.
      * @param clientOrderId {String} The unique identifier of the order assigned by the client.
      * @param amountOrder {Number} Order quantity.
      * @param price {Number} Order price.
@@ -39,8 +39,8 @@ class OrderExecutionReport {
      * @param orderType {module:model/OrdType} 
      * @param timeInForce {module:model/TimeInForce} 
      * @param clientOrderIdFormatExchange {String} The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
-     * @param amountOpen {Number} Amount open.
-     * @param amountFilled {Number} Amount filled.
+     * @param amountOpen {Number} Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled`
+     * @param amountFilled {Number} Total quantity filled.
      * @param status {module:model/OrdStatus} 
      * @param timeOrder {Array.<Array.<String>>} Timestamped history of order status changes.
      */
@@ -144,7 +144,7 @@ class OrderExecutionReport {
 }
 
 /**
- * Exchange identifier.
+ * Exchange identifier used to identify the routing destination.
  * @member {String} exchange_id
  */
 OrderExecutionReport.prototype['exchange_id'] = undefined;
@@ -213,19 +213,19 @@ OrderExecutionReport.prototype['exec_inst'] = undefined;
 OrderExecutionReport.prototype['client_order_id_format_exchange'] = undefined;
 
 /**
- * The unique identifier of the order assigned by the exchange.
+ * Unique identifier of the order assigned by the exchange or executing system.
  * @member {String} exchange_order_id
  */
 OrderExecutionReport.prototype['exchange_order_id'] = undefined;
 
 /**
- * Amount open.
+ * Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled`
  * @member {Number} amount_open
  */
 OrderExecutionReport.prototype['amount_open'] = undefined;
 
 /**
- * Amount filled.
+ * Total quantity filled.
  * @member {Number} amount_filled
  */
 OrderExecutionReport.prototype['amount_filled'] = undefined;
@@ -250,7 +250,7 @@ OrderExecutionReport.prototype['error_message'] = undefined;
 
 // Implement OrderNewSingleRequest interface:
 /**
- * Exchange identifier.
+ * Exchange identifier used to identify the routing destination.
  * @member {String} exchange_id
  */
 OrderNewSingleRequest.prototype['exchange_id'] = undefined;
@@ -308,17 +308,17 @@ OrderNewSingleRequest.prototype['exec_inst'] = undefined;
  */
 OrderExecutionReportAllOf.prototype['client_order_id_format_exchange'] = undefined;
 /**
- * The unique identifier of the order assigned by the exchange.
+ * Unique identifier of the order assigned by the exchange or executing system.
  * @member {String} exchange_order_id
  */
 OrderExecutionReportAllOf.prototype['exchange_order_id'] = undefined;
 /**
- * Amount open.
+ * Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled`
  * @member {Number} amount_open
  */
 OrderExecutionReportAllOf.prototype['amount_open'] = undefined;
 /**
- * Amount filled.
+ * Total quantity filled.
  * @member {Number} amount_filled
  */
 OrderExecutionReportAllOf.prototype['amount_filled'] = undefined;

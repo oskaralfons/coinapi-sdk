@@ -32,7 +32,7 @@ import org.openapitools.client.model.OrdStatus;
  * The order execution report message.
  */
 @ApiModel(description = "The order execution report message.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-13T22:16:36.646Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-14T22:21:51.344Z[Etc/UTC]")
 public class OrderExecutionReportAllOf {
   public static final String SERIALIZED_NAME_CLIENT_ORDER_ID_FORMAT_EXCHANGE = "client_order_id_format_exchange";
   @SerializedName(SERIALIZED_NAME_CLIENT_ORDER_ID_FORMAT_EXCHANGE)
@@ -92,11 +92,11 @@ public class OrderExecutionReportAllOf {
   }
 
    /**
-   * The unique identifier of the order assigned by the exchange.
+   * Unique identifier of the order assigned by the exchange or executing system.
    * @return exchangeOrderId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "3456456754", value = "The unique identifier of the order assigned by the exchange.")
+  @ApiModelProperty(example = "3456456754", value = "Unique identifier of the order assigned by the exchange or executing system.")
 
   public String getExchangeOrderId() {
     return exchangeOrderId;
@@ -115,10 +115,10 @@ public class OrderExecutionReportAllOf {
   }
 
    /**
-   * Amount open.
+   * Quantity open for further execution. &#x60;amount_open&#x60; &#x3D; &#x60;amount_order&#x60; - &#x60;amount_filled&#x60;
    * @return amountOpen
   **/
-  @ApiModelProperty(example = "0.22", required = true, value = "Amount open.")
+  @ApiModelProperty(example = "0.22", required = true, value = "Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled`")
 
   public BigDecimal getAmountOpen() {
     return amountOpen;
@@ -137,10 +137,10 @@ public class OrderExecutionReportAllOf {
   }
 
    /**
-   * Amount filled.
+   * Total quantity filled.
    * @return amountFilled
   **/
-  @ApiModelProperty(example = "0.0", required = true, value = "Amount filled.")
+  @ApiModelProperty(example = "0.0", required = true, value = "Total quantity filled.")
 
   public BigDecimal getAmountFilled() {
     return amountFilled;

@@ -7,7 +7,7 @@ model.instance <- OrderCancelSingleRequest$new()
 
 test_that("exchange_id", {
   # tests for the property `exchange_id` (character)
-  # Exchange identifier.
+  # Exchange identifier used to identify the routing destination.
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`exchange_id`, "EXPECTED_RESULT")
@@ -15,7 +15,7 @@ test_that("exchange_id", {
 
 test_that("exchange_order_id", {
   # tests for the property `exchange_order_id` (character)
-  # The unique identifier of the order assigned by the exchange. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order.
+  # Unique identifier of the order assigned by the exchange or executing system. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order.
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`exchange_order_id`, "EXPECTED_RESULT")

@@ -14,21 +14,21 @@ API.Client.OrderExecutionReportAllOf = function() {}
 API.Client.OrderExecutionReportAllOf.prototype.clientOrderIdFormatExchange;
 
 /**
- * The unique identifier of the order assigned by the exchange.
+ * Unique identifier of the order assigned by the exchange or executing system.
  * @type {!string}
  * @export
  */
 API.Client.OrderExecutionReportAllOf.prototype.exchangeOrderId;
 
 /**
- * Amount open.
+ * Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled`
  * @type {!number}
  * @export
  */
 API.Client.OrderExecutionReportAllOf.prototype.amountOpen;
 
 /**
- * Amount filled.
+ * Total quantity filled.
  * @type {!number}
  * @export
  */

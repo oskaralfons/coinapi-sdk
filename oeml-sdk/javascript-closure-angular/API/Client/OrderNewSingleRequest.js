@@ -7,7 +7,7 @@ goog.provide('API.Client.OrderNewSingleRequest');
 API.Client.OrderNewSingleRequest = function() {}
 
 /**
- * Exchange identifier.
+ * Exchange identifier used to identify the routing destination.
  * @type {!string}
  * @export
  */

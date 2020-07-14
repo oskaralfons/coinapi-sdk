@@ -55,7 +55,7 @@ public:
     /// OrderCancelSingleRequest members
 
     /// <summary>
-    /// Exchange identifier.
+    /// Exchange identifier used to identify the routing destination.
     /// </summary>
     utility::string_t getExchangeId() const;
     bool exchangeIdIsSet() const;
@@ -64,7 +64,7 @@ public:
     void setExchangeId(const utility::string_t& value);
 
     /// <summary>
-    /// The unique identifier of the order assigned by the exchange. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order.
+    /// Unique identifier of the order assigned by the exchange or executing system. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order.
     /// </summary>
     utility::string_t getExchangeOrderId() const;
     bool exchangeOrderIdIsSet() const;

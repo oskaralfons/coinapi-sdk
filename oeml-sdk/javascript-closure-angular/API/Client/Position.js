@@ -6,7 +6,7 @@ goog.provide('API.Client.Position');
 API.Client.Position = function() {}
 
 /**
- * Exchange identifier.
+ * Exchange identifier used to identify the routing destination.
  * @type {!string}
  * @export
  */

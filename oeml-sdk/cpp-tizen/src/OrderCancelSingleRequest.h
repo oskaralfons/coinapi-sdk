@@ -45,18 +45,18 @@ public:
 	 */
 	void fromJson(char* jsonStr);
 
-	/*! \brief Get Exchange identifier.
+	/*! \brief Get Exchange identifier used to identify the routing destination.
 	 */
 	std::string getExchangeId();
 
-	/*! \brief Set Exchange identifier.
+	/*! \brief Set Exchange identifier used to identify the routing destination.
 	 */
 	void setExchangeId(std::string  exchange_id);
-	/*! \brief Get The unique identifier of the order assigned by the exchange. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
+	/*! \brief Get Unique identifier of the order assigned by the exchange or executing system. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
 	 */
 	std::string getExchangeOrderId();
 
-	/*! \brief Set The unique identifier of the order assigned by the exchange. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
+	/*! \brief Set Unique identifier of the order assigned by the exchange or executing system. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.
 	 */
 	void setExchangeOrderId(std::string  exchange_order_id);
 	/*! \brief Get The unique identifier of the order assigned by the client. One of the properties (`exchange_order_id`, `client_order_id`) is required to identify the new order.

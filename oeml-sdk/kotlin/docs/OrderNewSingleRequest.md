@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**exchangeId** | **kotlin.String** | Exchange identifier. | 
+**exchangeId** | **kotlin.String** | Exchange identifier used to identify the routing destination. | 
 **clientOrderId** | **kotlin.String** | The unique identifier of the order assigned by the client. | 
 **amountOrder** | [**java.math.BigDecimal**](java.math.BigDecimal.md) | Order quantity. | 
 **price** | [**java.math.BigDecimal**](java.math.BigDecimal.md) | Order price. | 

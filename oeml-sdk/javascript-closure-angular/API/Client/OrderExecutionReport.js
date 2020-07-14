@@ -7,7 +7,7 @@ goog.provide('API.Client.OrderExecutionReport');
 API.Client.OrderExecutionReport = function() {}
 
 /**
- * Exchange identifier.
+ * Exchange identifier used to identify the routing destination.
  * @type {!string}
  * @export
  */
@@ -88,21 +88,21 @@ API.Client.OrderExecutionReport.prototype.execInst;
 API.Client.OrderExecutionReport.prototype.clientOrderIdFormatExchange;
 
 /**
- * The unique identifier of the order assigned by the exchange.
+ * Unique identifier of the order assigned by the exchange or executing system.
  * @type {!string}
  * @export
  */
 API.Client.OrderExecutionReport.prototype.exchangeOrderId;
 
 /**
- * Amount open.
+ * Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled`
  * @type {!number}
  * @export
  */
 API.Client.OrderExecutionReport.prototype.amountOpen;
 
 /**
- * Amount filled.
+ * Total quantity filled.
  * @type {!number}
  * @export
  */

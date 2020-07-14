@@ -62,7 +62,7 @@ class Position {
 }
 
 /**
- * Exchange identifier.
+ * Exchange identifier used to identify the routing destination.
  * @member {String} exchange_id
  */
 Position.prototype['exchange_id'] = undefined;

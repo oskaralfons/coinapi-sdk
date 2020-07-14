@@ -79,7 +79,7 @@ newtype ExchangeId = ExchangeId { unExchangeId :: Text } deriving (P.Eq, P.Show)
 -- ** Balance
 -- | Balance
 data Balance = Balance
-  { balanceExchangeId :: !(Maybe Text) -- ^ "exchange_id" - Exchange identifier.
+  { balanceExchangeId :: !(Maybe Text) -- ^ "exchange_id" - Exchange identifier used to identify the routing destination.
   , balanceData :: !(Maybe [BalanceData]) -- ^ "data"
   } deriving (P.Show, P.Eq, P.Typeable)
 
@@ -236,8 +236,8 @@ mkOrderCancelAllRequest orderCancelAllRequestExchangeId =
 -- | OrderCancelSingleRequest
 -- Cancel single order request object.
 data OrderCancelSingleRequest = OrderCancelSingleRequest
-  { orderCancelSingleRequestExchangeId :: !(Text) -- ^ /Required/ "exchange_id" - Exchange identifier.
-  , orderCancelSingleRequestExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - The unique identifier of the order assigned by the exchange. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order.
+  { orderCancelSingleRequestExchangeId :: !(Text) -- ^ /Required/ "exchange_id" - Exchange identifier used to identify the routing destination.
+  , orderCancelSingleRequestExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - Unique identifier of the order assigned by the exchange or executing system. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order.
   , orderCancelSingleRequestClientOrderId :: !(Maybe Text) -- ^ "client_order_id" - The unique identifier of the order assigned by the client. One of the properties (&#x60;exchange_order_id&#x60;, &#x60;client_order_id&#x60;) is required to identify the new order.
   } deriving (P.Show, P.Eq, P.Typeable)
 
@@ -261,7 +261,7 @@ instance A.ToJSON OrderCancelSingleRequest where
 
 -- | Construct a value of type 'OrderCancelSingleRequest' (by applying it's required fields, if any)
 mkOrderCancelSingleRequest
-  :: Text -- ^ 'orderCancelSingleRequestExchangeId': Exchange identifier.
+  :: Text -- ^ 'orderCancelSingleRequestExchangeId': Exchange identifier used to identify the routing destination.
   -> OrderCancelSingleRequest
 mkOrderCancelSingleRequest orderCancelSingleRequestExchangeId =
   OrderCancelSingleRequest
@@ -274,7 +274,7 @@ mkOrderCancelSingleRequest orderCancelSingleRequestExchangeId =
 -- | OrderExecutionReport
 -- The order execution report object.
 data OrderExecutionReport = OrderExecutionReport
-  { orderExecutionReportExchangeId :: !(Text) -- ^ /Required/ "exchange_id" - Exchange identifier.
+  { orderExecutionReportExchangeId :: !(Text) -- ^ /Required/ "exchange_id" - Exchange identifier used to identify the routing destination.
   , orderExecutionReportClientOrderId :: !(Text) -- ^ /Required/ "client_order_id" - The unique identifier of the order assigned by the client.
   , orderExecutionReportSymbolIdExchange :: !(Maybe Text) -- ^ "symbol_id_exchange" - Exchange symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order.
   , orderExecutionReportSymbolIdCoinapi :: !(Maybe Text) -- ^ "symbol_id_coinapi" - CoinAPI symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order.
@@ -286,9 +286,9 @@ data OrderExecutionReport = OrderExecutionReport
   , orderExecutionReportExpireTime :: !(Maybe Date) -- ^ "expire_time" - Expiration time. Conditionaly required for orders with time_in_force &#x3D; &#x60;GOOD_TILL_TIME_EXCHANGE&#x60; or &#x60;GOOD_TILL_TIME_OEML&#x60;.
   , orderExecutionReportExecInst :: !(Maybe [E'ExecInst]) -- ^ "exec_inst" - Order execution instructions are documented in the separate section: &lt;a href&#x3D;\&quot;#oeml-order-params-exec\&quot;&gt;OEML / Starter Guide / Order parameters / Execution instructions&lt;/a&gt; 
   , orderExecutionReportClientOrderIdFormatExchange :: !(Text) -- ^ /Required/ "client_order_id_format_exchange" - The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
-  , orderExecutionReportExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - The unique identifier of the order assigned by the exchange.
-  , orderExecutionReportAmountOpen :: !(Double) -- ^ /Required/ "amount_open" - Amount open.
-  , orderExecutionReportAmountFilled :: !(Double) -- ^ /Required/ "amount_filled" - Amount filled.
+  , orderExecutionReportExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - Unique identifier of the order assigned by the exchange or executing system.
+  , orderExecutionReportAmountOpen :: !(Double) -- ^ /Required/ "amount_open" - Quantity open for further execution. &#x60;amount_open&#x60; &#x3D; &#x60;amount_order&#x60; - &#x60;amount_filled&#x60;
+  , orderExecutionReportAmountFilled :: !(Double) -- ^ /Required/ "amount_filled" - Total quantity filled.
   , orderExecutionReportStatus :: !(OrdStatus) -- ^ /Required/ "status"
   , orderExecutionReportTimeOrder :: !([[Text]]) -- ^ /Required/ "time_order" - Timestamped history of order status changes.
   , orderExecutionReportErrorMessage :: !(Maybe Text) -- ^ "error_message" - Error message
@@ -344,7 +344,7 @@ instance A.ToJSON OrderExecutionReport where
 
 -- | Construct a value of type 'OrderExecutionReport' (by applying it's required fields, if any)
 mkOrderExecutionReport
-  :: Text -- ^ 'orderExecutionReportExchangeId': Exchange identifier.
+  :: Text -- ^ 'orderExecutionReportExchangeId': Exchange identifier used to identify the routing destination.
   -> Text -- ^ 'orderExecutionReportClientOrderId': The unique identifier of the order assigned by the client.
   -> Double -- ^ 'orderExecutionReportAmountOrder': Order quantity.
   -> Double -- ^ 'orderExecutionReportPrice': Order price.
@@ -352,8 +352,8 @@ mkOrderExecutionReport
   -> OrdType -- ^ 'orderExecutionReportOrderType' 
   -> TimeInForce -- ^ 'orderExecutionReportTimeInForce' 
   -> Text -- ^ 'orderExecutionReportClientOrderIdFormatExchange': The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
-  -> Double -- ^ 'orderExecutionReportAmountOpen': Amount open.
-  -> Double -- ^ 'orderExecutionReportAmountFilled': Amount filled.
+  -> Double -- ^ 'orderExecutionReportAmountOpen': Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled`
+  -> Double -- ^ 'orderExecutionReportAmountFilled': Total quantity filled.
   -> OrdStatus -- ^ 'orderExecutionReportStatus' 
   -> [[Text]] -- ^ 'orderExecutionReportTimeOrder': Timestamped history of order status changes.
   -> OrderExecutionReport
@@ -384,9 +384,9 @@ mkOrderExecutionReport orderExecutionReportExchangeId orderExecutionReportClient
 -- The order execution report message.
 data OrderExecutionReportAllOf = OrderExecutionReportAllOf
   { orderExecutionReportAllOfClientOrderIdFormatExchange :: !(Text) -- ^ /Required/ "client_order_id_format_exchange" - The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
-  , orderExecutionReportAllOfExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - The unique identifier of the order assigned by the exchange.
-  , orderExecutionReportAllOfAmountOpen :: !(Double) -- ^ /Required/ "amount_open" - Amount open.
-  , orderExecutionReportAllOfAmountFilled :: !(Double) -- ^ /Required/ "amount_filled" - Amount filled.
+  , orderExecutionReportAllOfExchangeOrderId :: !(Maybe Text) -- ^ "exchange_order_id" - Unique identifier of the order assigned by the exchange or executing system.
+  , orderExecutionReportAllOfAmountOpen :: !(Double) -- ^ /Required/ "amount_open" - Quantity open for further execution. &#x60;amount_open&#x60; &#x3D; &#x60;amount_order&#x60; - &#x60;amount_filled&#x60;
+  , orderExecutionReportAllOfAmountFilled :: !(Double) -- ^ /Required/ "amount_filled" - Total quantity filled.
   , orderExecutionReportAllOfStatus :: !(OrdStatus) -- ^ /Required/ "status"
   , orderExecutionReportAllOfTimeOrder :: !([[Text]]) -- ^ /Required/ "time_order" - Timestamped history of order status changes.
   , orderExecutionReportAllOfErrorMessage :: !(Maybe Text) -- ^ "error_message" - Error message
@@ -421,8 +421,8 @@ instance A.ToJSON OrderExecutionReportAllOf where
 -- | Construct a value of type 'OrderExecutionReportAllOf' (by applying it's required fields, if any)
 mkOrderExecutionReportAllOf
   :: Text -- ^ 'orderExecutionReportAllOfClientOrderIdFormatExchange': The unique identifier of the order assigned by the client converted to the exchange order tag format for the purpose of tracking it.
-  -> Double -- ^ 'orderExecutionReportAllOfAmountOpen': Amount open.
-  -> Double -- ^ 'orderExecutionReportAllOfAmountFilled': Amount filled.
+  -> Double -- ^ 'orderExecutionReportAllOfAmountOpen': Quantity open for further execution. `amount_open` = `amount_order` - `amount_filled`
+  -> Double -- ^ 'orderExecutionReportAllOfAmountFilled': Total quantity filled.
   -> OrdStatus -- ^ 'orderExecutionReportAllOfStatus' 
   -> [[Text]] -- ^ 'orderExecutionReportAllOfTimeOrder': Timestamped history of order status changes.
   -> OrderExecutionReportAllOf
@@ -441,7 +441,7 @@ mkOrderExecutionReportAllOf orderExecutionReportAllOfClientOrderIdFormatExchange
 -- | OrderNewSingleRequest
 -- The new order message.
 data OrderNewSingleRequest = OrderNewSingleRequest
-  { orderNewSingleRequestExchangeId :: !(Text) -- ^ /Required/ "exchange_id" - Exchange identifier.
+  { orderNewSingleRequestExchangeId :: !(Text) -- ^ /Required/ "exchange_id" - Exchange identifier used to identify the routing destination.
   , orderNewSingleRequestClientOrderId :: !(Text) -- ^ /Required/ "client_order_id" - The unique identifier of the order assigned by the client.
   , orderNewSingleRequestSymbolIdExchange :: !(Maybe Text) -- ^ "symbol_id_exchange" - Exchange symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order.
   , orderNewSingleRequestSymbolIdCoinapi :: !(Maybe Text) -- ^ "symbol_id_coinapi" - CoinAPI symbol. One of the properties (&#x60;symbol_id_exchange&#x60;, &#x60;symbol_id_coinapi&#x60;) is required to identify the market for the new order.
@@ -490,7 +490,7 @@ instance A.ToJSON OrderNewSingleRequest where
 
 -- | Construct a value of type 'OrderNewSingleRequest' (by applying it's required fields, if any)
 mkOrderNewSingleRequest
-  :: Text -- ^ 'orderNewSingleRequestExchangeId': Exchange identifier.
+  :: Text -- ^ 'orderNewSingleRequestExchangeId': Exchange identifier used to identify the routing destination.
   -> Text -- ^ 'orderNewSingleRequestClientOrderId': The unique identifier of the order assigned by the client.
   -> Double -- ^ 'orderNewSingleRequestAmountOrder': Order quantity.
   -> Double -- ^ 'orderNewSingleRequestPrice': Order price.
@@ -516,7 +516,7 @@ mkOrderNewSingleRequest orderNewSingleRequestExchangeId orderNewSingleRequestCli
 -- ** Position
 -- | Position
 data Position = Position
-  { positionExchangeId :: !(Maybe Text) -- ^ "exchange_id" - Exchange identifier.
+  { positionExchangeId :: !(Maybe Text) -- ^ "exchange_id" - Exchange identifier used to identify the routing destination.
   , positionData :: !(Maybe [PositionData]) -- ^ "data"
   } deriving (P.Show, P.Eq, P.Typeable)
 

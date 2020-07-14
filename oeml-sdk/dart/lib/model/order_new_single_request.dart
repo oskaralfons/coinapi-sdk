@@ -1,7 +1,7 @@
 part of openapi.api;
 
 class OrderNewSingleRequest {
-  /* Exchange identifier. */
+  /* Exchange identifier used to identify the routing destination. */
   String exchangeId = null;
   /* The unique identifier of the order assigned by the client. */
   String clientOrderId = null;
