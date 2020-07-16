@@ -2,7 +2,7 @@
 <!--
 OEML - REST API
 
-This section will provide necessary information about the `CoinAPI OEML REST API` protocol. 
+This section will provide necessary information about the `CoinAPI OEML REST API` protocol. This API is also available in the Postman application: <a href=\"https://postman.coinapi.io/\" target=\"_blank\">https://postman.coinapi.io/</a>       
 
 The version of the OpenAPI document: v1
 Contact: support@coinapi.io
@@ -81,7 +81,7 @@ Contact: support@coinapi.io
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
       <ProjectReference Include="..\CoinAPI.OMS.REST.V1\CoinAPI.OMS.REST.V1.csproj">
-          <Project>{E25359A1-217B-4D4B-8A13-D824D89E1CAF}</Project>
+          <Project>{6AA73799-2FD5-4BA5-B72A-B5E91FD407F2}</Project>
           <Name>CoinAPI.OMS.REST.V1</Name>
       </ProjectReference>
   </ItemGroup>

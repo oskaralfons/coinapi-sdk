@@ -1,6 +1,6 @@
 /*
  * OEML - REST API
- * This section will provide necessary information about the `CoinAPI OEML REST API` protocol. 
+ * This section will provide necessary information about the `CoinAPI OEML REST API` protocol. This API is also available in the Postman application: <a href=\"https://postman.coinapi.io/\" target=\"_blank\">https://postman.coinapi.io/</a>       
  *
  * The version of the OpenAPI document: v1
  * Contact: support@coinapi.io
@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * BalanceData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-14T22:21:51.344Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-07-16T19:48:42.176Z[Etc/UTC]")
 public class BalanceData {
   public static final String SERIALIZED_NAME_ASSET_ID_EXCHANGE = "asset_id_exchange";
   @SerializedName(SERIALIZED_NAME_ASSET_ID_EXCHANGE)
